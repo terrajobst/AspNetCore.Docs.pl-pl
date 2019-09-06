@@ -1,111 +1,111 @@
 ---
 title: Porównanie usług gRPC za pomocą interfejsów API protokołu HTTP
 author: jamesnk
-description: Dowiedz się, jak porównuje gRPC za pomocą interfejsów API protokołu HTTP i co ma zaleca się, że scenariusze są.
+description: Dowiedz się, jak gRPC porównuje z interfejsami API protokołu HTTP i jakie są zalecane scenariusze.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 03/31/2019
 uid: grpc/comparison
-ms.openlocfilehash: 712010f62b418fc8964b48648e35698c7bd3b395
-ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
+ms.openlocfilehash: c34c7ecb668e478e2be3271928a2439979a746d9
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66376424"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310468"
 ---
 # <a name="comparing-grpc-services-with-http-apis"></a>Porównanie usług gRPC za pomocą interfejsów API protokołu HTTP
 
-Przez [James Newton — King](https://twitter.com/jamesnk)
+Przez [Kuba Kowalski-króla](https://twitter.com/jamesnk)
 
-W tym artykule opisano sposób [usług gRPC](https://grpc.io/docs/guides/) porównania z interfejsów API protokołu HTTP (łącznie z platformą ASP.NET Core [interfejsów API sieci Web](xref:web-api/index)). Technologia używana do dostarczać interfejs API dla aplikacji jest ważne wybór, a gRPC zapewnia unikalne korzyści w porównaniu do interfejsów API protokołu HTTP. W tym artykule omówiono zalety i słabe strony gRPC i zalecane scenariusze użycia gRPC za pośrednictwem innych technologii.
+W tym artykule wyjaśniono, jak [usługi gRPC Services](https://grpc.io/docs/guides/) porównują z interfejsami API protokołu HTTP (w tym ASP.NET Core [interfejsów API sieci Web](xref:web-api/index)) Technologia używana do udostępniania interfejsu API dla aplikacji jest ważnym wyborem, a gRPC oferuje unikatowe korzyści w porównaniu do interfejsów API protokołu HTTP. W tym artykule omówiono mocne i słabe zalety gRPC oraz zalecane scenariusze dotyczące korzystania z gRPC przez inne technologie.
 
 #### <a name="overview"></a>Omówienie
 
-|    Funkcja             |    gRPC                                                 |    Interfejsy API protokołu HTTP przy użyciu formatu JSON                       |
-|------------------------|---------------------------------------------------------|----------------------------------------------|
-|    Kontrakt            |    Wymagane (`*.proto`)                                 |    Opcjonalnie (OpenAPI)                        |
-|    Transport           |    HTTP/2                                               |    HTTP                                      |
-|    ładunek             |    [Formatu Protobuf (mały, dane binarne)](#performance)             |    JSON (dużych do odczytu)              |
-|    Prescriptiveness    |    [Specyfikacja Strict](#strict-specification)        |    Luźne. Wszelkie HTTP jest prawidłowa                  |
-|    Przesyłanie strumieniowe           |    [Klienta, serwera, dwukierunkowych](#streaming)         |    Klienta, serwera                            |
-|    Obsługa przeglądarek     |    [Nie (wymaga grpc w sieci web)](#limited-browser-support)   |    Yes                                       |
-|    Zabezpieczenia            |    Transport (HTTPS)                                    |    Transport (HTTPS)                         |
-|    Generacji kodu klienta     |    [Tak](#code-generation)                              |    Plik OpenAPI i narzędzia innych firm             |
+| Funkcja          | gRPC                                               | Interfejsy API protokołu HTTP z JSON           |
+| ---------------- | -------------------------------------------------- | ----------------------------- |
+| Kontrakt         | Wymagane ( *. proto*)                                | Opcjonalnie (OpenAPI)            |
+| Transportu        | HTTP/2                                             | HTTP                          |
+| Ładunku          | [Protobuf (mały, binarny)](#performance)           | JSON (duże, czytelne dla ludzi)  |
+| Prescriptiveness | [Specyfikacja Strict](#strict-specification)      | Sypki. Dowolny protokół HTTP jest prawidłowy      |
+| Przesyłanie strumieniowe        | [Klient, serwer, dwukierunkowa](#streaming)       | Klient, serwer                |
+| Obsługa przeglądarki  | [Nie (wymaga GRPC-Web)](#limited-browser-support) | Tak                           |
+| Zabezpieczenia         | Transport (HTTPS)                                  | Transport (HTTPS)             |
+| Kod klienta — gen  | [Tak](#code-generation)                            | Narzędzia OpenAPI + inne firmy |
 
-## <a name="grpc-strengths"></a>gRPC siły
+## <a name="grpc-strengths"></a>mocne gRPC
 
 ### <a name="performance"></a>Wydajność
 
-gRPC komunikaty są serializowane, za pomocą [Protobuf](https://developers.google.com/protocol-buffers/docs/overview), ma format komunikatu binarnego wydajne. Formatu Protobuf bardzo szybko serializuje się na serwerze i kliencie. Formatu Protobuf powoduje serializacji ładunków małych komunikatów, ważne w scenariuszach ograniczonej przepustowości, takich jak aplikacje mobilne.
+komunikaty gRPC są serializowane przy użyciu [protobuf](https://developers.google.com/protocol-buffers/docs/overview), wydajnego formatu komunikatów binarnych. Protobuf się bardzo szybko na serwerze i kliencie. Serializacja protobuf skutkuje niewielkimi ładunekmi komunikatów, co jest ważne w ograniczonych scenariuszach dotyczących przepustowości, takich jak aplikacje mobilne.
 
-gRPC jest przeznaczona dla protokołu HTTP/2, główne korektą protokołu HTTP, który zapewnia korzyści istotnie poprawiającą wydajność przy użyciu protokołu HTTP 1.x:
+gRPC została zaprojektowana dla protokołu HTTP/2, która stanowi znaczną wersję protokołu HTTP, która zapewnia znaczący wpływ na wydajność w porównaniu z protokołem HTTP 1. x:
 
-* Binarny ramek i kompresji. Protokół HTTP/2 jest zwarty i efektywne, zarówno w wysyłania i odbierania.
-* Funkcje multipleksowania wielu wywołań HTTP/2 za pośrednictwem jednego połączenia TCP. Eliminuje funkcje multipleksowania [blokuje head wiersza](https://en.wikipedia.org/wiki/Head-of-line_blocking).
+* Binarne ramki i kompresja. Protokół HTTP/2 jest kompaktowy i wydajny zarówno podczas wysyłania, jak i otrzymywania.
+* Multipleksowanie wielu wywołań HTTP/2 za pośrednictwem jednego połączenia TCP. Multipleksowanie eliminuje [blokowanie głowy](https://en.wikipedia.org/wiki/Head-of-line_blocking).
 
 ### <a name="code-generation"></a>Generowanie kodu
 
-Wszystkie struktury gRPC zapewnia najwyższej jakości pomoc techniczną dla generowania kodu. Plik core gRPC programowania jest [ `*.proto` pliku](https://developers.google.com/protocol-buffers/docs/proto3), który definiuje kontrakt usługi gRPC i wiadomości. Z tego pliku gRPC struktury kodu wygeneruje klasę bazową usługę, wiadomości i pełne klienta.
+Wszystkie struktury gRPC zapewniają obsługę pierwszej klasy w celu generowania kodu. Podstawowy plik do gRPC Development to [plik *. proto* ](https://developers.google.com/protocol-buffers/docs/proto3), który definiuje kontrakt usług gRPC Services i messages. Z tego pliku struktury gRPC w kodzie generują klasę bazową usługi, komunikaty i kompletny klient.
 
-Udostępniając `*.proto` pliku między serwera i klienta, wiadomości i kod klienta mogą być generowane z elementu end-to-end. Generowanie kodu klienta eliminuje duplikatów wiadomości na kliencie i serwerze i tworzy silnie typizowaną klienta dla Ciebie. Brak konieczności pisania klienta pozwala zaoszczędzić czas znaczące rozwoju w aplikacjach z wieloma usługami.
+Po udostępnieniu `*.proto` pliku między serwerem a klientem można generować komunikaty i kod klienta od końca do końca. Generowanie kodu klienta eliminuje duplikowanie komunikatów na kliencie i serwerze, a następnie tworzy klienta o jednoznacznie określonym typie. Nie trzeba pisać klienta powoduje oszczędność czasu projektowania w aplikacjach z wieloma usługami.
 
 ### <a name="strict-specification"></a>Specyfikacja Strict
 
-Formalną specyfikację dla interfejsu API protokołu HTTP przy użyciu formatu JSON nie istnieje. Deweloperzy dyskusję najlepszy format adresu URL, zleceń HTTP, a kody odpowiedzi.
+Specyfikacja formalna dla interfejsu API protokołu HTTP with JSON nie istnieje. Deweloperzy zanotują najlepszy format adresów URL, czasowników HTTP i kodów odpowiedzi.
 
-[Specyfikacji gRPC](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md) jest przetestowanego rozwiązania ze szczegółami o formacie, usługa gRPC muszą być zgodne. gRPC eliminuje debatę i pozwala zaoszczędzić czas dla deweloperów, ponieważ gPRC jest spójny w ramach implementacji i platform.
+[Specyfikacja gRPC](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md) jest przedskryptowa o formacie, którego musi przestrzegać usługa gRPC. gRPC eliminuje debatę i zapisuje czas dewelopera, ponieważ gPRC jest spójny dla wielu platform i implementacji.
 
 ### <a name="streaming"></a>Przesyłanie strumieniowe
 
-Protokołu HTTP/2 stanowi podstawę dla strumieni długotrwałe, w czasie rzeczywistym komunikacji. gRPC zapewnia najwyższej jakości pomoc techniczna za pośrednictwem protokołu HTTP/2 do przesyłania strumieniowego.
+Protokół HTTP/2 stanowi podstawę do długotrwałych strumieni komunikacji w czasie rzeczywistym. gRPC zapewnia wsparcie pierwszej klasy do przesyłania strumieniowego za pośrednictwem protokołu HTTP/2.
 
 Usługa gRPC obsługuje wszystkie kombinacje przesyłania strumieniowego:
 
-* Jednoargumentowe (nie streaming)
-* Od serwera do klienta, przesyłania strumieniowego
-* Klient serwera przesyłania strumieniowego
+* Jednoargumentowy (bez przesyłania strumieniowego)
+* Przesyłanie strumieniowe z serwera do klienta
+* Przesyłanie strumieniowe klienta do serwera
 * Dwukierunkowe przesyłanie strumieniowe
 
-### <a name="deadlinetimeouts-and-cancellation"></a>Ostateczny termin/limity czasu i anulowania
+### <a name="deadlinetimeouts-and-cancellation"></a>Termin/limity czasu i anulowanie
 
-gRPC umożliwia klientom określić, jak długo są gotowi oczekiwania dla wykonania zdalnego wywołania procedury. [Termin](https://grpc.io/blog/deadlines) są wysyłane do serwera i serwera można określić, jaką akcję należy podjąć w przypadku przekroczenia terminu ostatecznego. Na przykład serwer może spowodować anulowanie w toku gRPC/HTTP/żądań bazy danych przekroczenia limitu czasu.
+gRPC umożliwia klientom określenie, jak długo czekają na ukończenie zdalnego wywoływania procedur. [Ostateczny termin](https://grpc.io/blog/deadlines) jest wysyłany do serwera, a serwer może zdecydować, jakie działania należy podjąć, jeśli przekracza termin ostateczny. Na przykład serwer może anulować żądania gRPC/HTTP/Database w trakcie limitu czasu.
 
-Propagowanie terminu ostatecznego i anulowania przy użyciu podrzędnych gRPC wywołania ułatwia wymuszanie limitów użycia zasobów.
+Propagowanie terminu i anulowania za pomocą podrzędnych wywołań gRPC ułatwia wymuszenie limitów użycia zasobów.
 
 ## <a name="grpc-recommended-scenarios"></a>gRPC zalecane scenariusze
 
-gRPC dobrze nadaje się do następujących scenariuszy:
+gRPC doskonale nadaje się do następujących scenariuszy:
 
-* **Mikrousługi** &ndash; gRPC jest przeznaczona dla małych opóźnień i wysoką przepływność komunikacji. gRPC to idealne narzędzie do uproszczonego mikrousług, gdzie wydajność ma kluczowe znaczenie.
-* **Punkt-punkt w czasie rzeczywistym komunikacji** &ndash; gRPC zapewnia doskonałą obsługę dwukierunkowe przesyłanie strumieniowe. gRPC usług można wypchnąć wiadomości w czasie rzeczywistym bez sondowania.
-* **Polyglot środowisk** &ndash; gRPC wspomagają wszystkich języków programowania popularnych wprowadzania gRPC dobrym rozwiązaniem w środowiskach wielojęzycznych.
-* **Ograniczone środowiskach sieci** &ndash; gRPC komunikaty są serializowane przy użyciu formatu Protobuf, format wiadomości uproszczone. Komunikat gRPC zawsze jest mniejszy niż równoważna komunikat JSON.
+* **Mikrousługi** &ndash; gRPC zaprojektowano w celu uzyskania małych opóźnień i komunikacji o dużej przepływności. gRPC doskonale nadaje się do lekkich mikrousług, w których wydajność jest krytyczna.
+* **Komunikacja punkt-punkt w czasie rzeczywistym** &ndash; gRPC ma doskonałą obsługę przesyłania strumieniowego dwukierunkowego. usługi gRPC umożliwiają wypychanie komunikatów w czasie rzeczywistym bez sondowania.
+* **Środowiska Polyglot** &ndash; narzędzia gRPC obsługują wszystkie popularne języki deweloperskie, co sprawia, że gRPC jest dobrym wyborem w środowiskach wielojęzycznych.
+* **Ograniczone środowiska sieciowe** &ndash; komunikaty gRPC są serializowane z protobuf, uproszczony format komunikatu. Komunikat gRPC jest zawsze krótszy niż odpowiedni komunikat JSON.
 
-## <a name="grpc-weaknesses"></a>gRPC słabe strony
+## <a name="grpc-weaknesses"></a>słabe gRPC
 
-### <a name="limited-browser-support"></a>Obsługa przeglądarek ograniczone
+### <a name="limited-browser-support"></a>Ograniczona obsługa przeglądarki
 
-Nie można bezpośrednio wywołać usługę sieci gRPC z poziomu przeglądarki już dziś. gRPC intensywnie korzysta z protokołu HTTP/2 funkcje i przeglądarka nie zapewnia poziom kontroli wymagane przez żądania sieci web do obsługi klienta gRPC. Na przykład przeglądarek nie zezwalaj na obiekt wywołujący wymagać protokołu HTTP/2 lub zapewnić dostęp do podstawowych ramki protokołu HTTP/2.
+Obecnie nie można bezpośrednio wywołać usługi gRPC z przeglądarki. gRPC intensywnie używa funkcji protokołu HTTP/2 i żadna przeglądarka nie zapewnia poziomu kontroli wymaganego w przypadku żądań sieci Web do obsługi klienta gRPC. Na przykład przeglądarki nie zezwalają obiektowi wywołującemu na użycie protokołu HTTP/2 lub zapewniają dostęp do bazowych ramek HTTP/2.
 
-[gRPC Web](https://grpc.io/docs/tutorials/basic/web.html) to technologia dodatkowe od zespołu gRPC, który zapewnia obsługę gRPC ograniczone w przeglądarce. gRPC Web składa się z dwóch części: klienta JavaScript, który obsługuje wszystkie nowoczesne przeglądarki i gRPC internetowym serwerem proxy na serwerze. Klient sieci Web gRPC wywołuje serwer proxy i serwer proxy będzie przekazywać w odpowiedzi na żądania gRPC serwerowi gRPC.
+[gRPC-Web](https://grpc.io/docs/tutorials/basic/web.html) to dodatkowa technologia od zespołu gRPC, która zapewnia ograniczoną obsługę gRPC w przeglądarce. gRPC-Web składa się z dwóch części: klienta JavaScript obsługującego wszystkie nowoczesne przeglądarki i serwer proxy sieci Web gRPC na serwerze. Klient gRPC-Web wywołuje serwer proxy, a serwer proxy przekaże żądania gRPC do serwera gRPC.
 
-Nie wszystkie funkcje gRPC firmy są obsługiwane przez gRPC w sieci Web. Klienta i przesyłania strumieniowego dwukierunkowe nie jest obsługiwana i ma ograniczoną obsługę przesyłania strumieniowego serwera.
+Nie wszystkie funkcje gRPC są obsługiwane przez gRPC-Web. Przesyłanie strumieniowe klienta i dwukierunkowego nie jest obsługiwane i ma ograniczoną obsługę przesyłania strumieniowego serwera.
 
 ### <a name="not-human-readable"></a>Nie można odczytać ludzi
 
-Żądania interfejsu API protokołu HTTP są wysyłane w postaci tekstu i można przeczytać, a utworzone przez ludzi.
+Żądania interfejsu API protokołu HTTP są wysyłane jako tekst i mogą być odczytywane i tworzone przez człowieka.
 
-gRPC komunikaty są zakodowane przy użyciu formatu Protobuf domyślnie. W trakcie efektywne wysyłanie i odbieranie Protobuf jego formatu binarnego nie ludzi do odczytu. Formatu Protobuf wymaga komunikatu opis interfejsu określonego w `*.proto` pliku poprawnie zdeserializować. Dodatkowe narzędzia jest wymagany, analizowanie ładunków Protobuf przesyłania i tworzą żądania ręcznie.
+wiadomości gRPC są domyślnie kodowane przy użyciu protobuf. Gdy protobuf jest wydajny do wysyłania i odbierania, jego format binarny nie jest czytelny. Protobuf wymaga, aby w `*.proto` pliku został określony opis interfejsu komunikatu w celu poprawnego deserializacji. Dodatkowe narzędzia są wymagane do analizowania ładunków protobuf w sieci oraz do ręcznego tworzenia żądań.
 
-Funkcje, takie jak [odbicia serwera](https://github.com/grpc/grpc/blob/master/doc/server-reflection.md) i [narzędzia wiersza polecenia gRPC](https://github.com/grpc/grpc/blob/master/doc/command_line_tool.md) istnieje uzyskanymi binarne Protobuf wiadomości. Ponadto Protobuf komunikaty pomocy technicznej [konwersji do i z formatu JSON](https://developers.google.com/protocol-buffers/docs/proto3#json). Konwersja wbudowana JSON udostępnia efektywny sposób, aby przekonwertować Protobuf wiadomości do i z postaci czytelnej dla człowieka podczas debugowania.
+Funkcje takie jak [odbicie serwera](https://github.com/grpc/grpc/blob/master/doc/server-reflection.md) i [Narzędzie wiersza polecenia gRPC](https://github.com/grpc/grpc/blob/master/doc/command_line_tool.md) istnieją, aby ułatwić wykonywanie binarnych komunikatów protobuf. Ponadto komunikaty protobuf obsługują [konwersję do i z formatu JSON](https://developers.google.com/protocol-buffers/docs/proto3#json). Wbudowana konwersja JSON zapewnia wydajny sposób konwersji komunikatów protobuf na i z formularza, który można odczytać przez człowieka podczas debugowania.
 
-## <a name="alternative-framework-scenarios"></a>Scenariusze alternatywnych framework
+## <a name="alternative-framework-scenarios"></a>Scenariusze dotyczące platformy alternatywnej
 
-Inne struktury zaleca się za pośrednictwem gRPC w następujących scenariuszach:
+Inne struktury są zalecane w porównaniu z gRPC w następujących scenariuszach:
 
-* **Dostępne interfejsy API przeglądarki** &ndash; gRPC nie jest w pełni obsługiwane w przeglądarce. gRPC w sieci Web może oferować obsługę przeglądarki, ale ma ograniczenia i przedstawiono serwer proxy usługi.
-* **Emisja komunikację w czasie rzeczywistym** &ndash; gRPC obsługuje komunikację w czasie rzeczywistym za pośrednictwem przesyłania strumieniowego, ale nie istnieje pojęcie emituje komunikat się do zarejestrowanych połączeń. Na przykład w scenariuszu pokoju rozmów wysyłania nowej wiadomości na wszystkich klientach w pokoju rozmów każde wywołanie gRPC musi indywidualnie strumienia nowych wiadomości rozmów do klienta. [SignalR](xref:signalr/introduction) jest przydatne w ramach dla tego scenariusza. SignalR korzysta z koncepcji połączeń trwałych i wbudowaną obsługę komunikatów emisji.
-* **Komunikacja między przetwarzania komunikacji** &ndash; procesu musi być hostem serwera protokołu HTTP/2 do akceptowania połączeń przychodzących gRPC. Windows, komunikacja między przetwarzania komunikacji [potoków](/dotnet/standard/io/pipe-operations) jest szybkie i metodę komunikacji.
+* **Interfejsy API dostępne dla przeglądarki** &ndash; gRPC nie jest w pełni obsługiwany w przeglądarce. gRPC — sieć Web może oferować pomoc techniczną przeglądarki, ale ma ograniczenia i wprowadza serwer proxy serwera.
+* **Rozgłaszanie komunikacji** w czasie rzeczywistym &ndash; gRPC obsługuje komunikację w czasie rzeczywistym za pośrednictwem przesyłania strumieniowego, ale pojęcie rozgłaszania komunikatów do zarejestrowanych połączeń nie istnieje. Na przykład w scenariuszu pokoju rozmów, w którym nowe wiadomości czatu powinny być wysyłane do wszystkich klientów w pokoju rozmowy, każde wywołanie gRPC jest wymagane do narzucania strumieniowego przesyłania nowych komunikatów rozmowy do klienta. [Sygnalizujący](xref:signalr/introduction) jest przydatną strukturą dla tego scenariusza. Sygnalizujący ma koncepcję trwałych połączeń i wbudowaną obsługę rozgłaszania komunikatów.
+* **Komunikacja między procesami** &ndash; Proces musi obsługiwać serwer HTTP/2, aby akceptować przychodzące wywołania gRPC. W przypadku systemu Windows [potoki](/dotnet/standard/io/pipe-operations) komunikacji między procesami to szybka i lekka Metoda komunikacji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

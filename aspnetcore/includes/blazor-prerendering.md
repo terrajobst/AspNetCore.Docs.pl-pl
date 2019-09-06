@@ -6,7 +6,7 @@ Aby opóźnić wywołania międzyoperacyjne języka JavaScript do momentu ustano
 @using Microsoft.JSInterop
 @inject IJSRuntime JSRuntime
 
-<input @ref="myInput" @ref:suppressField value="Value set during render" />
+<input @ref="myInput" value="Value set during render" />
 
 @code {
     private ElementReference myInput;
@@ -39,7 +39,7 @@ Gdzie `JSRuntime.InvokeAsync` jest wywoływana, `ElementRef` jest używana tylko
 
 <p>
     Set value via JS interop call:
-    <input id="val-set-by-interop" @ref="myElem" @ref:suppressField />
+    <input id="val-set-by-interop" @ref="myElem" />
 </p>
 
 @code {

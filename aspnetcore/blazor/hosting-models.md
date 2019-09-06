@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/01/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: 64393e826cb17550085f468f5916fca55973908f
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: bf2bce4f89e8bfe6e5aeeb4860c85a60c5eb4b7c
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68993387"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310391"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>ASP.NET Core modele hostingowe Blazor
 
@@ -30,7 +30,7 @@ Główny model hostingu dla Blazor jest uruchomiony po stronie klienta w przegl�
 
 Aby utworzyć aplikację Blazor przy użyciu modelu hostingu po stronie klienta, użyj szablonu **aplikacji Blazor webassembly** ([dotnet New blazorwasm](/dotnet/core/tools/dotnet-new)).
 
-Po wybraniu szablonu **aplikacji Blazor webassembly** można skonfigurować aplikację do korzystania z zaplecza ASP.NET Core, zaznaczając pole wyboru **hostowane ASP.NET Core** (polecenie[dotnet New blazorwasm--Hosted](/dotnet/core/tools/dotnet-new)). Aplikacja ASP.NET Core udostępnia klientom aplikację Blazor. Aplikacja po stronie klienta Blazor może współdziałać z serwerem za pośrednictwem sieci przy użyciu wywołań interfejsu [](xref:signalr/introduction)API sieci Web lub sygnalizującego.
+Po wybraniu szablonu **aplikacji Blazor webassembly** można skonfigurować aplikację do korzystania z zaplecza ASP.NET Core, zaznaczając pole wyboru **hostowane ASP.NET Core** (polecenie[dotnet New blazorwasm--Hosted](/dotnet/core/tools/dotnet-new)). Aplikacja ASP.NET Core udostępnia klientom aplikację Blazor. Aplikacja po stronie klienta Blazor może współdziałać z serwerem za pośrednictwem sieci przy użyciu wywołań interfejsu API sieci Web lub [sygnalizującego](xref:signalr/introduction).
 
 Szablony obejmują skrypt *blazor. webassembly. js* , który obsługuje:
 
@@ -53,7 +53,7 @@ Downsides do hostingu po stronie klienta:
 
 ## <a name="server-side"></a>Po stronie serwera
 
-W modelu hostingu po stronie serwera aplikacja jest wykonywana na serwerze z poziomu aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika, obsługa zdarzeń i wywołania języka JavaScript są obsługiwane przez [](xref:signalr/introduction) połączenie sygnalizujące.
+W modelu hostingu po stronie serwera aplikacja jest wykonywana na serwerze z poziomu aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika, obsługa zdarzeń i wywołania języka JavaScript są obsługiwane przez połączenie [sygnalizujące](xref:signalr/introduction) .
 
 ![Przeglądarka współdziała z aplikacją (hostowaną wewnątrz aplikacji ASP.NET Core) na serwerze za pośrednictwem połączenia sygnalizującego.](hosting-models/_static/server-side.png)
 
@@ -99,35 +99,67 @@ Aplikacje po stronie serwera Blazor są domyślnie skonfigurowane w taki sposób
  
 ```cshtml
 <body>
-    <app>@(await Html.RenderComponentAsync<App>())</app>
+    <app>@(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))</app>
  
     <script src="_framework/blazor.server.js"></script>
 </body>
 ```
+
+`RenderMode`Określa, czy składnik:
+
+* Jest wstępnie renderowany na stronie.
+* Jest renderowany jako statyczny kod HTML na stronie lub zawiera informacje niezbędne do uruchomienia aplikacji Blazor z poziomu agenta użytkownika.
+
+| `RenderMode`        | Opis |
+| ------------------- | ----------- |
+| `ServerPrerendered` | Renderuje składnik do statycznego kodu HTML i zawiera znacznik dla aplikacji po stronie serwera Blazor. Po uruchomieniu agenta użytkownika ten znacznik jest używany do uruchamiania aplikacji Blazor. Parametry nie są obsługiwane. |
+| `Server`            | Renderuje znacznik dla aplikacji po stronie serwera Blazor. Dane wyjściowe ze składnika nie są uwzględniane. Po uruchomieniu agenta użytkownika ten znacznik jest używany do uruchamiania aplikacji Blazor. Parametry nie są obsługiwane. |
+| `Static`            | Renderuje składnik do statycznego kodu HTML. Parametry są obsługiwane. |
+
+Renderowanie składników serwera ze statyczną stroną HTML nie jest obsługiwane.
  
 Klient ponownie nawiązuje połączenie z serwerem z tym samym stanem, który został użyty do wygenerowania aplikacji. Jeśli stan aplikacji nadal znajduje się w pamięci, stan składnika nie jest ponownie renderowany po nawiązaniu połączenia z sygnałem.
 
 ### <a name="render-stateful-interactive-components-from-razor-pages-and-views"></a>Renderuj stanowe składniki interaktywne ze stron Razor i widoków
  
-Można dodać składniki interaktywne ze stanem do strony lub widoku Razor. Gdy renderuje stronę lub widok, składnik jest wstępnie renderowany. Następnie aplikacja ponownie nawiązuje połączenie ze stanem składnika po ustanowieniu połączenia klienta, o ile stan nadal znajduje się w pamięci.
+Można dodać składniki interaktywne ze stanem do strony lub widoku Razor.
+
+Gdy renderuje stronę lub widok:
+
+* Składnik jest wstępnie renderowany przy użyciu strony lub widoku.
+* Początkowy stan składnika używany na potrzeby renderowania wstępnego został utracony.
+* Nowy stan składnika jest tworzony po nawiązaniu połączenia z sygnałem.
  
-Na przykład następująca strona Razor renderuje `Counter` składnik z początkową liczbą określoną za pomocą formularza:
+Następująca strona Razor renderuje `Counter` składnik:
+
+```cshtml
+<h1>My Razor Page</h1>
+ 
+@(await Html.RenderComponentAsync<Counter>(RenderMode.ServerPrerendered))
+```
+
+### <a name="render-noninteractive-components-from-razor-pages-and-views"></a>Renderuj nieinteraktywne składniki ze stron Razor i widoków
+
+Na poniższej stronie `MyComponent` Razor składnik jest statycznie renderowany z wartością początkową określoną przy użyciu formularza:
  
 ```cshtml
 <h1>My Razor Page</h1>
 
 <form>
-    <input type="number" asp-for="InitialCount" />
-    <button type="submit">Set initial count</button>
+    <input type="number" asp-for="InitialValue" />
+    <button type="submit">Set initial value</button>
 </form>
  
-@(await Html.RenderComponentAsync<Counter>(new { InitialCount = InitialCount }))
+@(await Html.RenderComponentAsync<MyComponent>(RenderMode.Static, 
+    new { InitialValue = InitialValue }))
  
 @code {
     [BindProperty(SupportsGet=true)]
-    public int InitialCount { get; set; }
+    public int InitialValue { get; set; }
 }
 ```
+
+Ponieważ `MyComponent` jest renderowany statycznie, składnik nie może być interaktywny.
 
 ### <a name="detect-when-the-app-is-prerendering"></a>Wykryj, kiedy aplikacja jest przedrenderowana
  

@@ -5,14 +5,14 @@ description: Dowiedz się więcej na temat scenariuszy uwierzytelniania Blazor i
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/26/2019
+ms.date: 08/29/2019
 uid: security/blazor/index
-ms.openlocfilehash: 87d61a7ccda209243a62bc54467b8f02dad92c24
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: 8714acbeb6e8a00992a601030811b24f53426b82
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68994185"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310527"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>ASP.NET Core uwierzytelnianie i autoryzacja Blazor
 
@@ -219,17 +219,21 @@ Jeśli dane stanu uwierzytelniania są wymagane dla logiki proceduralnej, na prz
 
 Jeśli `user.Identity.IsAuthenticated` jest`true`, oświadczenia mogą być wyliczane i członkostwo w rolach oceniane.
 
-Skonfiguruj parametr `CascadingAuthenticationState` kaskadowy przy użyciu składnika: `Task<AuthenticationState>`
+Skonfiguruj parametr `AuthorizeRouteView`kaskadowy przy użyciu składników i `CascadingAuthenticationState`: `Task<AuthenticationState>`
 
 ```cshtml
-<CascadingAuthenticationState>
-    <Router AppAssembly="typeof(Startup).Assembly">
-        <NotFoundContent>
-            <h1>Sorry</h1>
-            <p>Sorry, there's nothing at this address.</p>
-        </NotFoundContent>
-    </Router>
-</CascadingAuthenticationState>
+<Router AppAssembly="@typeof(Program).Assembly">
+    <Found Context="routeData">
+        <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+    </Found>
+    <NotFound>
+        <CascadingAuthenticationState>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <p>Sorry, there's nothing at this address.</p>
+            </LayoutView>
+        </CascadingAuthenticationState>
+    </NotFound>
+</Router>
 ```
 
 ## <a name="authorization"></a>Autoryzacja
@@ -240,7 +244,7 @@ Dostęp jest zazwyczaj udzielany lub odrzucany w zależności od tego, czy:
 
 * Użytkownik jest uwierzytelniany (zalogowany).
 * Użytkownik należy do *roli*.
-* Użytkownik ma wierzytelność.
+* Użytkownik ma *wierzytelność*.
 * *Zasady* są spełnione.
 
 Każda z tych koncepcji jest taka sama jak w aplikacji ASP.NET Core MVC lub Razor Pages. Aby uzyskać więcej informacji na temat zabezpieczeń ASP.NET Core, zapoznaj się z artykułami w obszarze [ASP.NET Core zabezpieczenia i tożsamość](xref:security/index).
@@ -275,7 +279,7 @@ Jeśli użytkownik nie jest uwierzytelniony, można również podać inną zawar
 
 Zawartość `<Authorized>` i`<NotAuthorized>` może zawierać dowolne elementy, takie jak inne składniki interaktywne.
 
-Warunki autoryzacji, takie jak role lub zasady kontrolujące opcje interfejsu użytkownika lub dostęp, są omówione w [](#authorization) sekcji autoryzacja.
+Warunki autoryzacji, takie jak role lub zasady kontrolujące opcje interfejsu użytkownika lub dostęp, są omówione w sekcji [autoryzacja](#authorization) .
 
 Jeśli warunki autoryzacji nie są określone `AuthorizeView` , program używa domyślnych zasad i traktuje je:
 
@@ -372,7 +376,7 @@ Jeśli ani nie `[Authorize]` zostanie określony, program używa domyślnych zas
 
 ## <a name="customize-unauthorized-content-with-the-router-component"></a>Dostosowywanie nieautoryzowanej zawartości za pomocą składnika routera
 
-`Router` Składnik umożliwia aplikacji określenie zawartości niestandardowej, jeśli:
+Składnik, w połączeniu `AuthorizeRouteView` z składnikiem, umożliwia aplikacji określenie zawartości niestandardowej, jeśli: `Router`
 
 * Nie znaleziono zawartości.
 * Użytkownik nie może `[Authorize]` wykonać warunku zastosowanego do składnika. Ten `[Authorize]` atrybut jest pokryty w sekcji [atrybutu [autoryzuje]](#authorize-attribute) .
@@ -381,28 +385,34 @@ Jeśli ani nie `[Authorize]` zostanie określony, program używa domyślnych zas
 W domyślnym szablonie projektu po stronie serwera Blazor plik *App. Razor* ilustruje sposób ustawiania zawartości niestandardowej:
 
 ```cshtml
-<CascadingAuthenticationState>
-    <Router AppAssembly="typeof(Startup).Assembly">
-        <NotFoundContent>
-            <h1>Sorry</h1>
-            <p>Sorry, there's nothing at this address.</p>
-        </NotFoundContent>
-        <NotAuthorizedContent>
-            <h1>Sorry</h1>
-            <p>You're not authorized to reach this page.</p>
-            <p>You may need to log in as a different user.</p>
-        </NotAuthorizedContent>
-        <AuthorizingContent>
-            <h1>Authentication in progress</h1>
-            <p>Only visible while authentication is in progress.</p>
-        </AuthorizingContent>
-    </Router>
-</CascadingAuthenticationState>
+<Router AppAssembly="@typeof(Program).Assembly">
+    <Found Context="routeData">
+        <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+            <NotAuthorized>
+                <h1>Sorry</h1>
+                <p>You're not authorized to reach this page.</p>
+                <p>You may need to log in as a different user.</p>
+            </NotAuthorized>
+            <Authorizing>
+                <h1>Authentication in progress</h1>
+                <p>Only visible while authentication is in progress.</p>
+            </Authorizing>
+        </AuthorizeRouteView>
+    </Found>
+    <NotFound>
+        <CascadingAuthenticationState>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <h1>Sorry</h1>
+                <p>Sorry, there's nothing at this address.</p>
+            </LayoutView>
+        </CascadingAuthenticationState>
+    </NotFound>
+</Router>
 ```
 
-Zawartość `<NotFoundContent>`, `<NotAuthorizedContent>`i możezawieraćdowolneelementy,takiejakinneskładnikiinteraktywne.`<AuthorizingContent>`
+Zawartość `<NotFound>`, `<NotAuthorized>`i możezawieraćdowolneelementy,takiejakinneskładnikiinteraktywne.`<Authorizing>`
 
-Jeśli `<NotAuthorizedContent>` nie jest określony, router używa następującego komunikatu powrotu:
+Jeśli `<NotAuthorized>` nie jest określony, `<AuthorizeRouteView>` zostanie użyty następujący komunikat rezerwowy:
 
 ```html
 Not authorized.
@@ -478,4 +488,5 @@ Dostarcza parametr kaskadowy, który z kolei otrzymuje od podstawowej `Authentic
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * <xref:security/index>
+* <xref:security/blazor/server-side>
 * <xref:security/authentication/windowsauth>

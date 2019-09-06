@@ -5,14 +5,14 @@ description: Dowiedz się, jak tworzyć i używać składników Razor, w tym jak
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/13/2019
+ms.date: 09/04/2019
 uid: blazor/components
-ms.openlocfilehash: 07e9153ccfdc78d1da57b815d33220f7fa597cc7
-ms.sourcegitcommit: 4b00e77f9984ce76356e829cfe7f75f0f61a7a8f
+ms.openlocfilehash: ce9da14bbe19cbee960d215f6167a0e760bd607a
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70145729"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310376"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
@@ -59,7 +59,7 @@ Składowe składnika mogą być używane jako część logiki renderowania skła
 
 Po pierwszym wyrenderowaniu składnika składnik generuje jego drzewo renderowania w odpowiedzi na zdarzenia. Blazor następnie porównuje nowe drzewo renderowania z poprzednią i zastosuje wszelkie modyfikacje Document Object Model przeglądarki (DOM).
 
-Składniki są zwykłymi C# klasami i mogą być umieszczane w dowolnym miejscu w projekcie. Składniki, które generują strony sieci Web, zwykle znajdują się w folderze *strony* . Składniki niestronicowe są często umieszczane w folderze udostępnionym lub w folderze niestandardowym dodanym do projektu. Aby użyć folderu niestandardowego, należy dodać przestrzeń nazw folderu niestandardowego do składnika nadrzędnego lub do pliku *_Imports. Razor* aplikacji. Na przykład następująca przestrzeń nazw sprawia, że składniki w folderze Components są dostępne, gdy główna przestrzeń nazw `WebApplication`aplikacji to:
+Składniki są zwykłymi C# klasami i mogą być umieszczane w dowolnym miejscu w projekcie. Składniki, które generują strony sieci Web, zwykle znajdują się w folderze *strony* . Składniki niestronicowe są często umieszczane w folderze *udostępnionym* lub w folderze niestandardowym dodanym do projektu. Aby użyć folderu niestandardowego, należy dodać przestrzeń nazw folderu niestandardowego do składnika nadrzędnego lub do pliku *_Imports. Razor* aplikacji. Na przykład następująca przestrzeń nazw sprawia, że składniki w folderze *Components* są dostępne, gdy główna przestrzeń nazw `WebApplication`aplikacji to:
 
 ```cshtml
 @using WebApplication.Components
@@ -72,8 +72,8 @@ Używaj składników z istniejącymi aplikacjami Razor Pages i MVC. Nie ma potrz
 Aby renderować składnik ze strony lub widoku, użyj `RenderComponentAsync<TComponent>` metody pomocnika HTML:
 
 ```cshtml
-<div id="Counter">
-    @(await Html.RenderComponentAsync<Counter>(new { IncrementAmount = 10 }))
+<div id="MyComponent">
+    @(await Html.RenderComponentAsync<MyComponent>(RenderMode.ServerPrerendered))
 </div>
 ```
 
@@ -420,23 +420,23 @@ W poniższym przykładzie `UpdateHeading` jest wywoływana asynchronicznie po wy
 
 W przypadku niektórych zdarzeń dozwolone są typy argumentów zdarzeń. Jeśli dostęp do jednego z tych typów zdarzeń nie jest konieczny, nie jest to wymagane w wywołaniu metody.
 
-Obsługiwane [UIEventArgs](https://github.com/aspnet/AspNetCore/blob/release/3.0-preview8/src/Components/Components/src/UIEventArgs.cs) są przedstawione w poniższej tabeli.
+Obsługiwane [EventArgs](https://github.com/aspnet/AspNetCore/tree/release/3.0-preview9/src/Components/Web/src/Web) są przedstawione w poniższej tabeli.
 
-| Wydarzenie | Klasa |
+| Zdarzenie | Class |
 | ----- | ----- |
-| Schowek | `UIClipboardEventArgs` |
-| Przeciągnij  | `UIDragEventArgs`służy do przechowywania przeciąganych danych podczas operacji przeciągania i upuszczania oraz może zawierać jeden lub więcej `UIDataTransferItem`. &ndash; `DataTransfer` `UIDataTransferItem`reprezentuje jeden element danych przeciągania. |
-| Błąd | `UIErrorEventArgs` |
-| Fokus | `UIFocusEventArgs`Nie obejmuje obsługi dla `relatedTarget`. &ndash; |
-| `<input>`stąp | `UIChangeEventArgs` |
-| Klawiatury | `UIKeyboardEventArgs` |
-| Wskaźnik | `UIMouseEventArgs` |
-| Wskaźnik myszy | `UIPointerEventArgs` |
-| Kółko myszy | `UIWheelEventArgs` |
-| Postęp | `UIProgressEventArgs` |
-| Dotyk | `UITouchEventArgs`&ndash; reprezentujepojedynczypunktkontaktunaurządzeniuz`UITouchPoint` wrażliwym dotknięciem. |
+| Schowek        | `ClipboardEventArgs` |
+| Przeciągnij             | `DragEventArgs`&ndash; iprzytrzymaj`DataTransferItem` przeciągane dane elementu. `DataTransfer` |
+| Błąd            | `ErrorEventArgs` |
+| Fokus            | `FocusEventArgs`Nie obejmuje obsługi dla `relatedTarget`. &ndash; |
+| `<input>`stąp | `ChangeEventArgs` |
+| Klawiatura         | `KeyboardEventArgs` |
+| Wskaźnik            | `MouseEventArgs` |
+| Wskaźnik myszy    | `PointerEventArgs` |
+| Kółko myszy      | `WheelEventArgs` |
+| Postęp         | `ProgressEventArgs` |
+| Dotyk            | `TouchEventArgs`&ndash; reprezentujepojedynczypunktkontaktunaurządzeniuz`TouchPoint` wrażliwym dotknięciem. |
 
-Aby uzyskać informacje o zachowaniu właściwości i obsłudze zdarzeń zdarzeń w powyższej tabeli, zobacz [EventArgs Classes in source Reference (ASPNET/AspNetCore Release/3.0-preview9)](https://github.com/aspnet/AspNetCore/tree/release/3.0-preview9/src/Components/Web/src).
+Aby uzyskać informacje o zachowaniu właściwości i obsłudze zdarzeń zdarzeń w powyższej tabeli, zobacz [EventArgs Classes in source Reference (ASPNET/AspNetCore Release/3.0-preview9)](https://github.com/aspnet/AspNetCore/tree/release/3.0-preview9/src/Components/Web/src/Web).
 
 ### <a name="lambda-expressions"></a>Wyrażenia lambda
 
@@ -523,10 +523,9 @@ Odwołania do składników zapewniają sposób odwoływania się do wystąpienia
 
 * [@ref](xref:mvc/views/razor#ref) Dodaj atrybut do składnika podrzędnego.
 * Zdefiniuj pole z tym samym typem co składnik podrzędny.
-* `@ref:suppressField` Podaj parametr, który pomija generowanie pól zapasowych. Aby uzyskać więcej informacji, zobacz [usuwanie automatycznej obsługi pola do @ref tworzenia kopii zapasowych w programie 3.0.0-preview9](https://github.com/aspnet/Announcements/issues/381).
 
 ```cshtml
-<MyLoginDialog @ref="loginDialog" @ref:suppressField ... />
+<MyLoginDialog @ref="loginDialog" ... />
 
 @code {
     private MyLoginDialog loginDialog;
@@ -543,34 +542,67 @@ Gdy składnik jest renderowany, `loginDialog` pole zostanie wypełnione `MyLogin
 > [!IMPORTANT]
 > Zmienna jest wypełniana tylko po wyrenderowaniu składnika, a jego wyjście `MyLoginDialog` zawiera element. `loginDialog` Do tego momentu nie ma niczego do odwołania. Aby manipulować odwołaniami do składników po zakończeniu renderowania składnika, użyj `OnAfterRenderAsync` metod lub. `OnAfterRender`
 
-<!-- HOLD https://github.com/aspnet/AspNetCore.Docs/pull/13818
-Component references provide a way to reference a component instance so that you can issue commands to that instance, such as `Show` or `Reset`.
+Podczas przechwytywania odwołań do składników użycie podobnej składni do [przechwytywania odwołań do elementów](xref:blazor/javascript-interop#capture-references-to-elements)nie jest funkcją [międzyoperacyjności języka JavaScript](xref:blazor/javascript-interop) . Odwołania do składników nie są przenoszone&mdash;do kodu JavaScript, są używane tylko w kodzie platformy .NET.
 
-The Razor compiler automatically generates a backing field for element and component references when using [@ref](xref:mvc/views/razor#ref). In the following example, there's no need to create a `myLoginDialog` field for the `LoginDialog` component:
+> [!NOTE]
+> **Nie** należy używać odwołań do składników do mutacji stanu składników podrzędnych. Zamiast tego należy używać zwykłych parametrów deklaratywnych do przekazywania danych do składników podrzędnych. Użycie normalnych parametrów deklaratywnych powoduje, że składniki podrzędne, które automatycznie uruchamiają się w prawidłowym czasie.
+
+## <a name="invoke-component-methods-externally-to-update-state"></a>Wywołaj metody składnika zewnętrznie, aby zaktualizować stan
+
+Blazor używa w `SynchronizationContext` celu wymuszenia pojedynczego wątku logicznego wykonywania. W tym `SynchronizationContext`przypadku są wykonywane metody cyklu życia składnika i wszystkie wywołania zwrotne zdarzeń wywoływane przez Blazor. W przypadku zdarzenia składnik należy zaktualizować w oparciu o zdarzenie zewnętrzne, takie jak czasomierz lub inne powiadomienia, przy użyciu `InvokeAsync` metody, która będzie wysyłana do `SynchronizationContext`Blazor.
+
+Rozważmy na przykład *usługę powiadamiania* , która może powiadomić dowolny składnik nasłuchujący zaktualizowanego stanu:
+
+```csharp
+public class NotifierService
+{
+    // Can be called from anywhere
+    public async Task Update(string key, int value)
+    {
+        if (Notify != null)
+        {
+            await Notify.Invoke(key, value);
+        }
+    }
+
+    public event Action<string, int, Task> Notify;
+}
+```
+
+Użycie programu w celu zaktualizowania składnika: `NotifierService`
 
 ```cshtml
-<LoginDialog @ref="myLoginDialog" ... />
+@page "/"
+@inject NotifierService Notifier
+@implements IDisposable
+
+<p>Last update: @lastNotification.key = @lastNotification.value</p>
 
 @code {
-    private void OnSomething()
+    private (string key, int value) lastNotification;
+
+    protected override void OnInitialized()
     {
-        myLoginDialog.Show();
+        Notifier.Notify += OnNotify;
+    }
+
+    public async Task OnNotify(string key, int value)
+    {
+        await InvokeAsync(() =>
+        {
+            lastNotification = (key, value);
+            StateHasChanged();
+        });
+    }
+
+    public void Dispose()
+    {
+        Notifier.Notify -= OnNotify;
     }
 }
 ```
 
-When the component is rendered, the generated `myLoginDialog` field is populated with the `LoginDialog` component instance. You can then invoke .NET methods on the component instance.
-
-In some cases, a backing field is required. For example, declare a backing field when referencing generic components. To suppress backing field generation, specify the `@ref:suppressField` parameter.
-
-> [!IMPORTANT]
-> The generated `myLoginDialog` variable is only populated after the component is rendered and its output includes the `LoginDialog` element. Until that point, there's nothing to reference. To manipulate components references after the component has finished rendering, use the `OnAfterRenderAsync` or `OnAfterRender` methods.
--->
-
-Podczas przechwytywania odwołań do składników użycie podobnej składni do [przechwytywania odwołań do elementów](xref:blazor/javascript-interop#capture-references-to-elements)nie jest funkcją międzyoperacyjności [języka JavaScript](xref:blazor/javascript-interop) . Odwołania do składników nie są przenoszone&mdash;do kodu JavaScript, są używane tylko w kodzie platformy .NET.
-
-> [!NOTE]
-> **Nie** należy używać odwołań do składników do mutacji stanu składników podrzędnych. Zamiast tego należy używać zwykłych parametrów deklaratywnych do przekazywania danych do składników podrzędnych. Użycie normalnych parametrów deklaratywnych powoduje, że składniki podrzędne, które automatycznie uruchamiają się w prawidłowym czasie.
+W poprzednim przykładzie `NotifierService` wywołuje `OnNotify` metodę składnika poza Blazor. `SynchronizationContext` `InvokeAsync`służy do przełączania do poprawnego kontekstu i kolejki renderowania.
 
 ## <a name="use-key-to-control-the-preservation-of-elements-and-components"></a>Użyj \@klawisza, aby kontrolować zachowywanie elementów i składników
 
@@ -1006,18 +1038,7 @@ Przykładowo aplikacja Przykładowa określa informacje o motywie`ThemeInfo`() w
 }
 ```
 
-Aby korzystać z wartości kaskadowych, składniki deklarują kaskadowe parametry przy użyciu `[CascadingParameter]` atrybutu lub na podstawie wartości nazwy ciągu:
-
-```cshtml
-<CascadingValue Value=@PermInfo Name="UserPermissions">...</CascadingValue>
-
-[CascadingParameter(Name = "UserPermissions")]
-private PermInfo Permissions { get; set; }
-```
-
-Powiązanie z wartością nazwy ciągu jest istotne, jeśli istnieje wiele wartości kaskadowych tego samego typu i trzeba je odróżnić w ramach tego samego poddrzewa.
-
-Wartości kaskadowe są powiązane z parametrami kaskadowymi według typu.
+Aby korzystać z wartości kaskadowych, składniki deklarują kaskadowe parametry przy użyciu `[CascadingParameter]` atrybutu. Wartości kaskadowe są powiązane z parametrami kaskadowymi według typu.
 
 W przykładowej aplikacji `CascadingValuesParametersTheme` składnik wiąże `ThemeInfo` wartość kaskadową z parametrem kaskadowym. Parametr służy do ustawiania klasy CSS dla jednego z przycisków wyświetlanych przez składnik.
 
@@ -1057,13 +1078,46 @@ W przykładowej aplikacji `CascadingValuesParametersTheme` składnik wiąże `Th
 }
 ```
 
+Aby przetworzyć kaskadowo wiele wartości tego samego typu w ramach tego samego poddrzewa `Name` , podaj unikatowy `CascadingValue` ciąg dla każdego składnika `CascadingParameter`i odpowiadający mu. W poniższym przykładzie dwa `CascadingValue` składniki kaskaduje różne wystąpienia o `MyCascadingType` nazwie:
+
+```cshtml
+<CascadingValue Value=@ParentCascadeParameter1 Name="CascadeParam1">
+    <CascadingValue Value=@ParentCascadeParameter2 Name="CascadeParam2">
+        ...
+    </CascadingValue>
+</CascadingValue>
+
+@code {
+    private MyCascadingType ParentCascadeParameter1;
+
+    [Parameter]
+    public MyCascadingType ParentCascadeParameter2 { get; set; }
+
+    ...
+}
+```
+
+W składniku potomnym, kaskadowe parametry odbierają swoje wartości z odpowiednich kaskadowych wartości w składniku nadrzędnym według nazwy:
+
+```cshtml
+...
+
+@code {
+    [CascadingParameter(Name = "CascadeParam1")]
+    protected MyCascadingType ChildCascadeParameter1 { get; set; }
+    
+    [CascadingParameter(Name = "CascadeParam2")]
+    protected MyCascadingType ChildCascadeParameter2 { get; set; }
+}
+```
+
 ### <a name="tabset-example"></a>Przykład TabSet
 
 Parametry kaskadowe umożliwiają również współdziałanie składników w hierarchii składników. Rozważmy na przykład następujący przykład *TabSet* w aplikacji przykładowej.
 
 Przykładowa aplikacja ma `ITab` interfejs, który implementuje karty:
 
-[!code-cs[](common/samples/3.x/BlazorSample/UIInterfaces/ITab.cs)]
+[!code-csharp[](common/samples/3.x/BlazorSample/UIInterfaces/ITab.cs)]
 
 Składnik używa składnika, który zawiera kilka `Tab` składników: `TabSet` `CascadingValuesParametersTabSet`
 
@@ -1089,7 +1143,7 @@ Fragmenty renderowania można definiować przy użyciu składni szablonu Razor. 
 @<{HTML tag}>...</{HTML tag}>
 ```
 
-Poniższy przykład ilustruje sposób określania `RenderFragment` i `RenderFragment<T>` wartości oraz renderowania szablonów bezpośrednio w składniku. Fragmenty renderowania mogą być również przekazane jako argumenty do [składników](#templated-components)z szablonem.
+Poniższy przykład ilustruje sposób określania `RenderFragment` i `RenderFragment<T>` wartości oraz renderowania szablonów bezpośrednio w składniku. Fragmenty renderowania mogą być również przekazane jako argumenty do [składników z szablonem](#templated-components).
 
 ```cshtml
 @timeTemplate
@@ -1202,14 +1256,14 @@ builder.AddContent(1, "Second");
 
 Gdy kod jest wykonywany po raz pierwszy, jeśli `someFlag` jest `true`, Konstruktor odbiera:
 
-| Sekwencja | Type      | Data   |
+| Sequence | Typ      | Dane   |
 | :------: | --------- | :----: |
 | 0        | Węzeł tekstu | Pierwszego  |
 | 1        | Węzeł tekstu | Sekunda |
 
 Wyobraź sobie `someFlag` , `false`że zostanie ona przerenderowana, a znaczniki są renderowane ponownie. Tym razem Konstruktor odbiera:
 
-| Sekwencja | Type       | Data   |
+| Sequence | Typ       | Dane   |
 | :------: | ---------- | :----: |
 | 1        | Węzeł tekstu  | Sekunda |
 
@@ -1234,14 +1288,14 @@ builder.AddContent(seq++, "Second");
 
 Teraz pierwsze dane wyjściowe to:
 
-| Sekwencja | Type      | Data   |
+| Sequence | Typ      | Dane   |
 | :------: | --------- | :----: |
 | 0        | Węzeł tekstu | Pierwszego  |
 | 1        | Węzeł tekstu | Sekunda |
 
 Ten wynik jest identyczny z poprzednim przypadkiem, dlatego nie istnieją żadne negatywne problemy. `someFlag`znajduje `false` się na drugim renderingu, a dane wyjściowe:
 
-| Sekwencja | Type      | Data   |
+| Sequence | Typ      | Dane   |
 | :------: | --------- | ------ |
 | 0        | Węzeł tekstu | Sekunda |
 
@@ -1309,7 +1363,7 @@ Lokalizacja jest obsługiwana w aplikacji:
 
 ## <a name="provide-ui-to-choose-the-culture"></a>Podaj interfejs użytkownika, aby wybrać kulturę
 
-Aby zapewnić interfejs użytkownika, aby umożliwić użytkownikowi wybranie kultury, zalecane jest *podejście oparte na* przekierowaniu. Ten proces jest podobny do tego, co się dzieje w aplikacji sieci Web, gdy użytkownik próbuje uzyskać&mdash;dostęp do bezpiecznego zasobu, użytkownik zostanie przekierowany do strony logowania, a następnie przekierowany z powrotem do oryginalnego zasobu. 
+Aby zapewnić interfejs użytkownika, aby umożliwić użytkownikowi wybranie kultury, zalecane jest *podejście oparte na przekierowaniu* . Ten proces jest podobny do tego, co się dzieje w aplikacji sieci Web, gdy użytkownik próbuje uzyskać&mdash;dostęp do bezpiecznego zasobu, użytkownik zostanie przekierowany do strony logowania, a następnie przekierowany z powrotem do oryginalnego zasobu. 
 
 Aplikacja utrzymuje wybraną kulturę użytkownika za pośrednictwem przekierowania do kontrolera. Kontroler ustawia wybraną kulturę użytkownika na plik cookie i przekierowuje użytkownika z powrotem do oryginalnego identyfikatora URI.
 
@@ -1340,7 +1394,7 @@ public class CultureController : Controller
 Poniższy składnik przedstawia przykład sposobu wykonywania wstępnego przekierowania, gdy użytkownik wybierze kulturę:
 
 ```cshtml
-@inject IUriHelper UriHelper
+@inject NavigationManager NavigationManager
 
 <h3>Select your language</h3>
 
@@ -1356,12 +1410,12 @@ Poniższy składnik przedstawia przykład sposobu wykonywania wstępnego przekie
     private void OnSelected(UIChangeEventArgs e)
     {
         var culture = (string)e.Value;
-        var uri = new Uri(UriHelper.GetAbsoluteUri())
+        var uri = new Uri(NavigationManager.Uri())
             .GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
         var query = $"?culture={Uri.EscapeDataString(culture)}&" +
             $"redirectUri={Uri.EscapeDataString(uri)}";
 
-        UriHelper.NavigateTo("/Culture/SetCulture" + query, forceLoad: true);
+        NavigationManager.NavigateTo("/Culture/SetCulture" + query, forceLoad: true);
     }
 }
 ```
@@ -1381,3 +1435,21 @@ Obecnie obsługiwane są ograniczone zestawy ASP.NET Core scenariuszy lokalizacj
 * `IHtmlLocalizer<>`Lokalizacje adnotacji danych są ASP.NET Core w scenariuszach MVC i nie są obsługiwane w aplikacjach Blazor. `IViewLocalizer<>`
 
 Aby uzyskać więcej informacji, zobacz <xref:fundamentals/localization>.
+
+## <a name="scalable-vector-graphics-svg-images"></a>Skalowalne obrazy wektorowe (SVG)
+
+Ponieważ Blazor renderuje HTML, obrazy obsługiwane przez przeglądarkę, w tym obrazy*SVG (Scalable*Vector Graphics), są obsługiwane przez `<img>` Tag:
+
+```html
+<img alt="Example image" src="some-image.svg" />
+```
+
+Podobnie Obrazy SVG są obsługiwane w regułach CSS pliku arkusza stylów (*CSS*):
+
+```css
+.my-element {
+    background-image: url("some-image.svg");
+}
+```
+
+Jednak wbudowane znaczniki SVG nie są obsługiwane we wszystkich scenariuszach. Jeśli umieścisz `<svg>` tag bezpośrednio w pliku składnika ( *. Razor*), podstawowe renderowanie obrazu jest obsługiwane, ale wiele scenariuszy zaawansowanych nie jest jeszcze obsługiwanych. Na przykład `<use>` Tagi nie są obecnie przestrzegane i `@bind` nie mogą być używane z niektórymi tagami SVG. Oczekujemy, że te ograniczenia są opisane w przyszłej wersji.

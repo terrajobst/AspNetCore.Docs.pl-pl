@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/get-started
-ms.openlocfilehash: 1358a2e92af9d9104e565718692b1ca1940b9d9e
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: 030c289e072efad43d4f6cdd63cba07cc623a090
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68993405"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310433"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>Wprowadzenie do ASP.NET Core Blazor
 
@@ -20,12 +20,12 @@ Autorzy [Daniel Roth](https://github.com/danroth27) i [Luke Latham](https://gith
 
 Rozpocznij pracę z usługą Blazor:
 
-1. Zainstaluj najnowszą wersję [zestawu SDK programu .NET Core 3,0](https://dotnet.microsoft.com/download/dotnet-core/3.0) w wersji zapoznawczej.
+1. Zainstaluj najnowszą wersję [zestawu SDK programu .NET Core 3,0 w wersji zapoznawczej](https://dotnet.microsoft.com/download/dotnet-core/3.0) .
 
 1. Zainstaluj szablony Blazor, uruchamiając następujące polecenie w powłoce poleceń:
 
    ```console
-   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.0.0-preview8.19405.7
+   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.0.0-preview9.19424.4
    ```
 
 1. Postępuj zgodnie ze wskazówkami dotyczącymi wybranego narzędzia:

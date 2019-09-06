@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 8/7/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 8866ee9210a91754d8050d0b91ff52c3d3fe0836
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: 9407de4ee91ba43b2c95fa98f0cf479bf8539cab
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975437"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310497"
 ---
 # <a name="app-startup-in-aspnet-core"></a>Uruchamianie aplikacji w ASP.NET Core
 
@@ -23,7 +23,7 @@ ms.locfileid: "69975437"
 
 Aplikacje ASP.NET Core używają `Startup` klasy, która jest nazywana `Startup` Konwencją. `Startup` Klasa:
 
-* Opcjonalnie zawiera <xref:Microsoft.AspNetCore.Hosting.StartupBase.ConfigureServices*> metodę konfigurowania *usług*aplikacji. Usługa to składnik wielokrotnego użytku, który zapewnia funkcjonalność aplikacji. Usługi są konfigurowane&mdash;również jako *zarejestrowane*&mdash; `ConfigureServices` w aplikacji i używane przez [iniekcję zależności (di)](xref:fundamentals/dependency-injection) lub. <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices*>
+* Opcjonalnie zawiera <xref:Microsoft.AspNetCore.Hosting.StartupBase.ConfigureServices*> metodę konfigurowania *usług*aplikacji. Usługa to składnik wielokrotnego użytku, który zapewnia funkcjonalność aplikacji. Usługi są konfigurowane&mdash;również jako *zarejestrowane*&mdash; `ConfigureServices` w aplikacji i używane przez [iniekcję zależności (di)](xref:fundamentals/dependency-injection) lub <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices*>.
 * <xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*> Zawiera metodę tworzenia potoku przetwarzania żądań aplikacji.
 
 `ConfigureServices`i `Configure` są wywoływane przez środowisko uruchomieniowe ASP.NET Core podczas uruchamiania aplikacji:
@@ -80,15 +80,11 @@ Typowym zastosowaniem [iniekcji zależności](xref:fundamentals/dependency-injec
 
 [!code-csharp[](startup/sample_snapshot/Startup2.cs?highlight=7-8)]
 
-::: moniker-end
-Alternatywą dla iniekcji `IWebHostEnvironment` jest użycie podejścia opartego na konwencjach.
-::: moniker range=">= aspnetcore-3.0"
+Większość usług nie jest dostępna do momentu `Configure` wywołania metody.
 
 ::: moniker-end
 
-::: moniker range="< aspnetcore-3.0"
-Alternatywą dla iniekcji `IHostingEnvironment` jest użycie podejścia opartego na konwencjach.
-::: moniker-end
+### <a name="multiple-startup"></a>Wielokrotne uruchomienie
 
 Gdy aplikacja definiuje oddzielne `Startup` klasy dla różnych środowisk (na `StartupDevelopment`przykład), odpowiednia `Startup` Klasa jest wybierana w czasie wykonywania. Kategoria, której sufiks nazwy jest zgodny z bieżącym środowiskiem, ma priorytet. Jeśli aplikacja jest uruchamiana w środowisku deweloperskim i zawiera `Startup` klasę `StartupDevelopment` i klasę, `StartupDevelopment` używana jest Klasa. Aby uzyskać więcej informacji, zobacz [Korzystanie z wielu środowisk](xref:fundamentals/environments#environment-based-startup-class-and-methods).
 
@@ -118,7 +114,7 @@ W przypadku funkcji wymagających znaczącej konfiguracji `Add{Service}` istniej
 
 ::: moniker-end
 
-Dodanie usług do kontenera usług sprawia, że są one dostępne w aplikacji i w `Configure` metodzie. Usługi są rozwiązywane za pośrednictwem iniekcji <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices*> [zależności](xref:fundamentals/dependency-injection) lub z.
+Dodanie usług do kontenera usług sprawia, że są one dostępne w aplikacji i w `Configure` metodzie. Usługi są rozwiązywane za pośrednictwem [iniekcji zależności](xref:fundamentals/dependency-injection) lub z <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices*>.
 
 ::: moniker range="< aspnetcore-3.0"
 
@@ -128,7 +124,7 @@ Aby [](xref:mvc/compatibility-version) uzyskać więcej informacji `SetCompatibi
 
 ## <a name="the-configure-method"></a>Metoda Configure
 
-<xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*> Metoda służy do określania, w jaki sposób aplikacja reaguje na żądania HTTP. Potok żądań jest konfigurowany przez dodanie do [](xref:fundamentals/middleware/index) <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder> wystąpienia składników pośredniczących. `IApplicationBuilder`jest dostępny dla `Configure` metody, ale nie jest ona zarejestrowana w kontenerze usługi. Hosting tworzy `IApplicationBuilder` i przekazuje go bezpośrednio do programu `Configure`.
+<xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*> Metoda służy do określania, w jaki sposób aplikacja reaguje na żądania HTTP. Potok żądań jest konfigurowany przez dodanie do <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder> wystąpienia składników [pośredniczących](xref:fundamentals/middleware/index) . `IApplicationBuilder`jest dostępny dla `Configure` metody, ale nie jest ona zarejestrowana w kontenerze usługi. Hosting tworzy `IApplicationBuilder` i przekazuje go bezpośrednio do programu `Configure`.
 
 [Szablony ASP.NET Core](/dotnet/core/tools/dotnet-new) konfigurują potok z obsługą:
 

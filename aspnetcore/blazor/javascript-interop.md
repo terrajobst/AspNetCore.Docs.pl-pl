@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: 00ea14ca95c328b5f8779785a92aa0720a96eb05
-ms.sourcegitcommit: 7a46973998623aead757ad386fe33602b1658793
+ms.openlocfilehash: e578a8ad1484a2ef93bdc7470985937c4f28b7ed
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69487557"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310452"
 ---
 # <a name="aspnet-core-blazor-javascript-interop"></a>ASP.NET Core Blazor JavaScript interop
 
@@ -34,7 +34,7 @@ Dla aplikacji po stronie serwera:
 * `IJSRuntime` Wstrzyknąć streszczenie i użyć wstrzykniętego obiektu do wystawienia wywołań międzyoperacyjnych języka JavaScript.
 * Gdy aplikacja Blazor jest wstępnie renderowana, wywołanie do języka JavaScript nie jest możliwe, ponieważ połączenie z przeglądarką nie zostało nawiązane. Aby uzyskać więcej informacji, zobacz sekcję [wykrywanie, kiedy aplikacja Blazor jest renderowana](#detect-when-a-blazor-app-is-prerendering) .
 
-Poniższy przykład jest oparty na dekoderze, eksperymentalnym dekoderem JavaScript. [](https://developer.mozilla.org/docs/Web/API/TextDecoder) W przykładzie pokazano, jak wywołać funkcję JavaScript z C# metody. Funkcja JavaScript akceptuje tablicę bajtową z C# metody, dekoduje tablicę i zwraca tekst do składnika do wyświetlenia.
+Poniższy przykład jest oparty na [dekoderze](https://developer.mozilla.org/docs/Web/API/TextDecoder), eksperymentalnym dekoderem JavaScript. W przykładzie pokazano, jak wywołać funkcję JavaScript z C# metody. Funkcja JavaScript akceptuje tablicę bajtową z C# metody, dekoduje tablicę i zwraca tekst do składnika do wyświetlenia.
 
 Wewnątrz elementu wwwroot/index.html (Blazor po stronie klienta) lub *stron/_Host. cshtml* (Blazor po stronie serwera), podaj funkcję, która używa `TextDecoder` do zdekodowania przekazaną tablicę: `<head>`
 
@@ -48,7 +48,7 @@ Kod JavaScript, taki jak kod przedstawiony w powyższym przykładzie, można ró
 
 Następujący składnik:
 
-* Wywołuje funkcję `JsRuntime` JavaScript przy użyciu przycisku składnika (Konwertuj tablicę). `ConvertArray`
+* Wywołuje funkcję `JsRuntime` JavaScript przy użyciu przycisku składnika (**Konwertuj tablicę).** `ConvertArray`
 * Po wywołaniu funkcji języka JavaScript przenoszona tablica jest konwertowana na ciąg. Ciąg jest zwracany do składnika do wyświetlenia.
 
 [!code-cshtml[](javascript-interop/samples_snapshot/call-js-example.razor?highlight=2,34-35)]
@@ -111,7 +111,7 @@ Przykładowa aplikacja zawiera składnik demonstrujący międzyoperacyjność Ja
 
 ## <a name="call-a-void-javascript-function"></a>Wywoływanie funkcji języka JavaScript typu void
 
-Funkcje języka JavaScript zwracające wartość [void (0)/void 0](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/void) lub undefined są wywoływane `null`przy użyciu [](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined) `IJSRuntime.InvokeAsync<object>`wartości, która zwraca wartość.
+Funkcje języka JavaScript zwracające wartość [void (0)/void 0](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/void) lub [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined) są wywoływane `null`przy użyciu `IJSRuntime.InvokeAsync<object>`wartości, która zwraca wartość.
 
 ## <a name="detect-when-a-blazor-app-is-prerendering"></a>Wykryj, kiedy aplikacja Blazor jest renderowana
  
@@ -119,18 +119,17 @@ Funkcje języka JavaScript zwracające wartość [void (0)/void 0](https://devel
 
 ## <a name="capture-references-to-elements"></a>Przechwyć odwołania do elementów
 
-Niektóre scenariusze międzyoperacyjności [języka JavaScript](xref:blazor/javascript-interop) wymagają odwołań do elementów HTML. Na przykład Biblioteka interfejsu użytkownika może wymagać odwołania do elementu dla inicjalizacji lub może być konieczne wywołanie interfejsów API, takich jak `focus` lub. `play`
+Niektóre scenariusze [międzyoperacyjności języka JavaScript](xref:blazor/javascript-interop) wymagają odwołań do elementów HTML. Na przykład Biblioteka interfejsu użytkownika może wymagać odwołania do elementu dla inicjalizacji lub może być konieczne wywołanie interfejsów API, takich jak `focus` lub. `play`
 
 Przechwyć odwołania do elementów HTML w składniku, korzystając z następującej metody:
 
 * `@ref` Dodaj atrybut do elementu HTML.
 * Zdefiniuj pole typu `ElementReference` , którego nazwa pasuje do wartości `@ref` atrybutu.
-* `@ref:suppressField` Podaj parametr, który pomija generowanie pól zapasowych. Aby uzyskać więcej informacji, zobacz [usuwanie automatycznej obsługi pola do @ref tworzenia kopii zapasowych w programie 3.0.0-preview9](https://github.com/aspnet/Announcements/issues/381).
 
 Poniższy przykład pokazuje przechwytywanie odwołania do `username` `<input>` elementu:
 
 ```cshtml
-<input @ref="username" @ref:suppressField ... />
+<input @ref="username" ... />
 
 @code {
     ElementReference username;
@@ -156,22 +155,7 @@ window.exampleJsFunctions = {
 
 Użyj `IJSRuntime.InvokeAsync<T>` i `exampleJsFunctions.focusElement` Wywołaj`ElementReference` , aby skoncentrować element:
 
-```cshtml
-@inject IJSRuntime JSRuntime
-
-<input @ref="username" @ref:suppressField />
-<button @onclick="SetFocus">Set focus on username</button>
-
-@code {
-    private ElementReference username;
-
-    public async void SetFocus()
-    {
-        await JSRuntime.InvokeAsync<object>(
-                "exampleJsFunctions.focusElement", username);
-    }
-}
-```
+[!code-cshtml[](javascript-interop/samples_snapshot/component1.razor?highlight=1,3,11-12)]
 
 Aby użyć metody rozszerzenia do skoncentrowania się na elemencie, Utwórz statyczną metodę rozszerzenia, która `IJSRuntime` odbiera wystąpienie:
 
@@ -185,71 +169,10 @@ public static Task Focus(this ElementReference elementRef, IJSRuntime jsRuntime)
 
 Metoda jest wywoływana bezpośrednio dla obiektu. W poniższym przykładzie przyjęto założenie `Focus` , że metoda statyczna `JsInteropClasses` jest dostępna z przestrzeni nazw:
 
-```cshtml
-@inject IJSRuntime JSRuntime
-@using JsInteropClasses
-
-<input @ref="username" @ref:suppressField />
-<button @onclick="SetFocus">Set focus on username</button>
-
-@code {
-    private ElementReference username;
-
-    public async Task SetFocus()
-    {
-        await username.Focus(JSRuntime);
-    }
-}
-```
+[!code-cshtml[](javascript-interop/samples_snapshot/component2.razor?highlight=1,4,12)]
 
 > [!IMPORTANT]
 > `username` Zmienna jest wypełniana tylko po wyrenderowaniu składnika. W przypadku przekazanie niewypełnionego `ElementReference` kodu JavaScript kod JavaScript otrzymuje `null`wartość. Aby manipulować odwołaniami do elementów po zakończeniu renderowania składnika (aby ustawić początkowy fokus w elemencie), `OnAfterRenderAsync` Użyj metody lub [](xref:blazor/components#lifecycle-methods) `OnAfterRender` cyklu życia składnika.
-
-<!-- HOLD https://github.com/aspnet/AspNetCore.Docs/pull/13818
-Capture a reference to an HTML element in a component by adding an `@ref` attribute to the HTML element. The following example shows capturing a reference to the `username` `<input>` element:
-
-```cshtml
-<input @ref="username" ... />
-```
-
-> [!NOTE]
-> Do **not** use captured element references as a way of populating or manipulating the DOM when Blazor interacts with the elements referenced. Doing so may interfere with the declarative rendering model.
-
-As far as .NET code is concerned, an `ElementReference` is an opaque handle. The *only* thing you can do with `ElementReference` is pass it through to JavaScript code via JavaScript interop. When you do so, the JavaScript-side code receives an `HTMLElement` instance, which it can use with normal DOM APIs.
-
-For example, the following code defines a .NET extension method that enables setting the focus on an element:
-
-*exampleJsInterop.js*:
-
-```javascript
-window.exampleJsFunctions = {
-  focusElement : function (element) {
-    element.focus();
-  }
-}
-```
-
-Use `IJSRuntime.InvokeAsync<T>` and call `exampleJsFunctions.focusElement` with an `ElementReference` to focus an element:
-
-[!code-cshtml[](javascript-interop/samples_snapshot/component1.razor?highlight=1,3,9-10)]
-
-To use an extension method to focus an element, create a static extension method that receives the `IJSRuntime` instance:
-
-```csharp
-public static Task Focus(this ElementReference elementRef, IJSRuntime jsRuntime)
-{
-    return jsRuntime.InvokeAsync<object>(
-        "exampleJsFunctions.focusElement", elementRef);
-}
-```
-
-The method is called directly on the object. The following example assumes that the static `Focus` method is available from the `JsInteropClasses` namespace:
-
-[!code-cshtml[](javascript-interop/samples_snapshot/component2.razor?highlight=1,4,10)]
-
-> [!IMPORTANT]
-> The `username` variable is only populated after the component is rendered. If an unpopulated `ElementReference` is passed to JavaScript code, the JavaScript code receives a value of `null`. To manipulate element references after the component has finished rendering (to set the initial focus on an element) use the `OnAfterRenderAsync` or `OnAfterRender` [component lifecycle methods](xref:blazor/components#lifecycle-methods).
--->
 
 ## <a name="invoke-net-methods-from-javascript-functions"></a>Wywoływanie metod .NET przy użyciu funkcji języka JavaScript
 
@@ -283,7 +206,7 @@ Czwarta wartość tablicy jest wypychana do tablicy (`data.push(4);`) zwracanej 
 
 Można również wywołać metody wystąpienia platformy .NET z poziomu języka JavaScript. Aby wywołać metodę wystąpienia platformy .NET z poziomu języka JavaScript:
 
-* Przekaż wystąpienie programu .NET do języka JavaScript, zawijając je `DotNetObjectRef` w wystąpieniu. Wystąpienie programu .NET jest przesyłane przez odwołanie do języka JavaScript.
+* Przekaż wystąpienie programu .NET do języka JavaScript, zawijając je `DotNetObjectReference` w wystąpieniu. Wystąpienie programu .NET jest przesyłane przez odwołanie do języka JavaScript.
 * Wywołaj metody wystąpienia platformy .NET w wystąpieniu przy `invokeMethod` użyciu `invokeMethodAsync` funkcji lub. Wystąpienie programu .NET może być również przekazywać jako argument podczas wywoływania innych metod .NET z JavaScript.
 
 > [!NOTE]

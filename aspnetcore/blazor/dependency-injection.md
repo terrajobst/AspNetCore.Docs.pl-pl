@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/02/2019
 uid: blazor/dependency-injection
-ms.openlocfilehash: a9330caa81eec0910206312283b3424c70cd1289
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: a2bfa0cbe951e817ed6264f1a151d5a716cd795c
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819772"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310350"
 ---
 # <a name="aspnet-core-blazor-dependency-injection"></a>ASP.NET Core iniekcja zależności Blazor
 
@@ -22,7 +22,7 @@ Blazor obsługuje [iniekcję zależności (di)](xref:fundamentals/dependency-inj
 
 DI jest techniką uzyskiwania dostępu do usług skonfigurowanych w centralnej lokalizacji. Może to być przydatne w aplikacjach Blazor do:
 
-* Udostępnianie pojedynczego wystąpienia klasy usługi w wielu składnikach, znanej jako pojedyncze usługi.
+* Udostępnianie pojedynczego wystąpienia klasy usługi w wielu składnikach, znanej jako *pojedyncze usługi.*
 * Oddziel składniki od klas konkretnych usług za pomocą abstrakcji odwołań. Rozważmy na przykład interfejs `IDataAccess` do uzyskiwania dostępu do danych w aplikacji. Interfejs jest implementowany przez konkretną `DataAccess` klasę i zarejestrowany jako usługa w kontenerze usługi aplikacji. Gdy składnik używa elementu di do odbierania `IDataAccess` implementacji, składnik nie jest połączony z konkretnym typem. Implementacja może zostać zamieniony, być może dla implementacji makiety w testach jednostkowych.
 
 ## <a name="default-services"></a>Usługi domyślne
@@ -33,7 +33,7 @@ Domyślne usługi są automatycznie dodawane do kolekcji usług aplikacji.
 | ------- | -------- | ----------- |
 | <xref:System.Net.Http.HttpClient> | Pojedynczego | Zapewnia metody wysyłania żądań HTTP i odbierania odpowiedzi HTTP z zasobu identyfikowanego przez identyfikator URI. Należy zauważyć, że to `HttpClient` wystąpienie programu używa przeglądarki do obsługi ruchu HTTP w tle. [HttpClient. BaseAddress](xref:System.Net.Http.HttpClient.BaseAddress) jest automatycznie ustawiany na podstawowy prefiks identyfikatora URI aplikacji. Aby uzyskać więcej informacji, zobacz <xref:blazor/call-web-api>. |
 | `IJSRuntime` | Pojedynczego | Reprezentuje wystąpienie środowiska uruchomieniowego JavaScript, w którym są wysyłane wywołania języka JavaScript. Aby uzyskać więcej informacji, zobacz <xref:blazor/javascript-interop>. |
-| `IUriHelper` | Pojedynczego | Zawiera pomocników do pracy z identyfikatorami URI i stanem nawigacji. Aby uzyskać więcej informacji, zobacz [identyfikatory URI i pomocnika stanu nawigacji](xref:blazor/routing#uri-and-navigation-state-helpers). |
+| `NavigationManager` | Pojedynczego | Zawiera pomocników do pracy z identyfikatorami URI i stanem nawigacji. Aby uzyskać więcej informacji, zobacz [identyfikatory URI i pomocnika stanu nawigacji](xref:blazor/routing#uri-and-navigation-state-helpers). |
 
 Niestandardowy dostawca usług nie dostarcza automatycznie usług domyślnych wymienionych w tabeli. W przypadku użycia niestandardowego dostawcy usług i wymagania usług wymienionych w tabeli należy dodać wymagane usługi do nowego dostawcy usług.
 
@@ -69,7 +69,7 @@ System DI jest oparty na systemie DI w ASP.NET Core. Aby uzyskać więcej inform
 
 ## <a name="request-a-service-in-a-component"></a>Żądanie usługi w składniku
 
-Po dodaniu usług do kolekcji usług należy wstrzyknąć usługi do składników za pomocą [ \@](xref:mvc/views/razor#inject) dyrektywy wstrzyknięcia Razor. `@inject`ma dwa parametry:
+Po dodaniu usług do kolekcji usług należy wstrzyknąć usługi do składników za pomocą [ \@dyrektywy wstrzyknięcia](xref:mvc/views/razor#inject) Razor. `@inject`ma dwa parametry:
 
 * Wpisz &ndash; typ usługi do dodania.
 * Właściwość &ndash; nazwa właściwości otrzymującej wstrzykiwanej usługi App Service. Właściwość nie wymaga ręcznego tworzenia. Kompilator tworzy właściwość.

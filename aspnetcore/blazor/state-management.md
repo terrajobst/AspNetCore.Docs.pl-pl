@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/state-management
-ms.openlocfilehash: af040635302fbf2dae8192dcf37d55bfcfedfcec
-ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
+ms.openlocfilehash: 01f32130e43b7235cb438ad71321256882f53573
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030372"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310302"
 ---
 # <a name="aspnet-core-blazor-state-management"></a>ASP.NET Core zarządzanie stanem Blazor
 
@@ -197,7 +197,7 @@ Jeśli parametry składnika obejmują stan nawigacji, wywołaj `ProtectedSession
 >
 > > W tej chwili nie można wystawić wywołań międzyoperacyjnych języka JavaScript. Dzieje się tak, ponieważ składnik jest wstępnie renderowany.
 >
-> Wyłącz renderowanie lub Dodaj dodatkowy kod, aby współpracował z renderowaniem. Aby dowiedzieć się więcej na temat pisania kodu, który działa z renderowaniem, zobacz sekcję [Obsługa](#handle-prerendering) przed renderowaniem.
+> Wyłącz renderowanie lub Dodaj dodatkowy kod, aby współpracował z renderowaniem. Aby dowiedzieć się więcej na temat pisania kodu, który działa z renderowaniem, zobacz sekcję [Obsługa przed renderowaniem](#handle-prerendering) .
 
 ### <a name="handle-the-loading-state"></a>Obsłuż stan ładowania
 
@@ -237,10 +237,7 @@ Podczas renderowania:
 
 Jednym ze sposobów na rozwiązanie błędu jest wyłączenie renderowania. Jest to zazwyczaj najlepszym wyborem, jeśli aplikacja znacznie korzysta z magazynu opartego na przeglądarce. Renderowanie zwiększa złożoność i nie korzysta z aplikacji, ponieważ aplikacja nie może przeprowadzić renderowania żadnej `localStorage` przydatnej zawartości do momentu, `sessionStorage` gdy nie jest dostępna.
 
-Aby wyłączyć renderowanie:
-
-1. Otwórz plik *Pages/_Host. cshtml* i Usuń wywołanie metody `Html.RenderComponentAsync`.
-1. Otwórz plik i Zastąp wywołanie `endpoints.MapBlazorHub<App>("app")`do `endpoints.MapBlazorHub()`. `Startup.cs` `App`jest typem składnika głównego. `"app"`jest selektorem CSS określającym lokalizację głównego składnika.
+Aby wyłączyć renderowanie, Otwórz plik *Pages/_Host. cshtml* i Zmień wywołanie na `Html.RenderComponentAsync<App>(RenderMode.Server)`.
 
 Renderowanie może być przydatne w przypadku innych stron, które `localStorage` nie `sessionStorage`używają ani. Aby włączyć renderowanie, odłóż operację ładowania do momentu podłączenia przeglądarki do obwodu. Poniżej przedstawiono przykład przechowywania wartości licznika:
 
@@ -374,7 +371,7 @@ Zapakowane składniki są odbierane i mogą modyfikować stan trwałych licznik�
 
 Poprzedni składnik nie jest wymagany do współpracy z `ProtectedBrowserStorage`programem ani nie zajmuje się fazą "Ładowanie".
 
-Aby można było zaradzić sobie z instrukcją `CounterStateProvider` prerenderingu zgodnie z wcześniejszym opisem, może zostać zmieniona, aby wszystkie składniki korzystające z danych licznika automatycznie działały z użyciem prerenderowania. Szczegółowe informacje znajdują się w sekcji [Obsługa](#handle-prerendering) przed renderowaniem.
+Aby można było zaradzić sobie z instrukcją `CounterStateProvider` prerenderingu zgodnie z wcześniejszym opisem, może zostać zmieniona, aby wszystkie składniki korzystające z danych licznika automatycznie działały z użyciem prerenderowania. Szczegółowe informacje znajdują się w sekcji [Obsługa przed renderowaniem](#handle-prerendering) .
 
 Ogólnie rzecz biorąc, zalecany jest wzorzec *składnika nadrzędnego dostawcy stanu* :
 
