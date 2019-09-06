@@ -1,33 +1,42 @@
 ---
-title: Konfigurowanie uwierzytelniania certyfikatów w programie ASP.NET Core
+title: Konfigurowanie uwierzytelniania certyfikatów w ASP.NET Core
 author: blowdart
-description: Dowiedz się, jak skonfigurować uwierzytelnianie certyfikatu w programie ASP.NET Core dla usług IIS i sterownik HTTP.sys.
+description: Dowiedz się, jak skonfigurować uwierzytelnianie certyfikatów w ASP.NET Core dla usług IIS i HTTP. sys.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: bdorrans
-ms.date: 06/11/2019
+ms.date: 08/19/2019
 uid: security/authentication/certauth
-ms.openlocfilehash: 8609c58265340da1d618135795915d6c49e750a3
-ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
+ms.openlocfilehash: ce7bcdbfb8ce0f1febf34b49786e92c917be139c
+ms.sourcegitcommit: 116bfaeab72122fa7d586cdb2e5b8f456a2dc92a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538721"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384853"
 ---
 # <a name="overview"></a>Omówienie
 
-`Microsoft.AspNetCore.Authentication.Certificate` Podobnie jak implementację [uwierzytelnianie certyfikatu](https://tools.ietf.org/html/rfc5246#section-7.4.4) dla platformy ASP.NET Core. Uwierzytelnianie certyfikatu odbywa się na poziomie protokołu TLS, long, zanim stanie się kiedykolwiek do platformy ASP.NET Core. Dokładniej mówiąc, jest to program obsługi uwierzytelniania, która sprawdza poprawność certyfikatu i proponuje następnie zdarzenie, w którym można rozwiązać tego certyfikatu do `ClaimsPrincipal`. 
+`Microsoft.AspNetCore.Authentication.Certificate`zawiera implementację podobną do [uwierzytelniania certyfikatu](https://tools.ietf.org/html/rfc5246#section-7.4.4) dla ASP.NET Core. Uwierzytelnianie certyfikatu odbywa się na poziomie protokołu TLS, o ile nie zostanie kiedykolwiek przeASP.NET Core. Dokładniej, jest to procedura obsługi uwierzytelniania, która sprawdza poprawność certyfikatu, a następnie przekazuje zdarzenie, w którym można rozwiązać ten certyfikat do `ClaimsPrincipal`. 
 
-[Konfigurowanie hosta](#configure-your-host-to-require-certificates) uwierzytelniania certyfikatu, są to usługi IIS, Kestrel, Azure Web Apps lub cokolwiek innego używasz.
+[Skonfiguruj hosta](#configure-your-host-to-require-certificates) na potrzeby uwierzytelniania certyfikatów, to usługi IIS, Kestrel, Azure Web Apps lub inne, z których korzystasz.
+
+## <a name="proxy-and-load-balancer-scenarios"></a>Scenariusze dotyczące serwerów proxy i równoważenia obciążenia
+
+Uwierzytelnianie certyfikatu jest scenariuszem stanowym głównie używanym w przypadku, gdy serwer proxy lub moduł równoważenia obciążenia nie obsługuje ruchu między klientami i serwerami. Jeśli jest używany serwer proxy lub moduł równoważenia obciążenia, uwierzytelnianie certyfikatu działa tylko wtedy, gdy serwer proxy lub moduł równoważenia obciążenia:
+
+* Obsługuje uwierzytelnianie.
+* Przekazuje informacje o uwierzytelnianiu użytkownika do aplikacji (na przykład w nagłówku żądania), która działa na informacje o uwierzytelnianiu.
+
+Alternatywą dla uwierzytelniania certyfikatu w środowiskach, w których są używane serwery proxy i moduły równoważenia obciążenia, są Active Directory usług federacyjnych (AD FS) za pomocą OpenID Connect Connect (OIDC).
 
 ## <a name="get-started"></a>Wprowadzenie
 
-Uzyskać certyfikat HTTPS, zastosuj go, a [skonfigurować hosta](#configure-your-host-to-require-certificates) wymagające certyfikatów.
+Uzyskaj certyfikat HTTPS, zastosuj go i [skonfiguruj hosta](#configure-your-host-to-require-certificates) , aby wymagał certyfikatów.
 
-W aplikacji sieci web Dodaj odwołanie do `Microsoft.AspNetCore.Authentication.Certificate` pakietu. Następnie w `Startup.Configure` metody, wywołanie `app.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).UseCertificateAuthentication(...);` przy użyciu opcji, dostarczenie delegata dla `OnCertificateValidated` celu wszelkie dodatkowe sprawdzanie poprawności certyfikatu klienta wysłanego z żądaniami. Włącz te informacje do `ClaimsPrincipal` i ustaw ją na `context.Principal` właściwości.
+W aplikacji sieci Web Dodaj odwołanie do `Microsoft.AspNetCore.Authentication.Certificate` pakietu. Następnie w `Startup.Configure` metodzie Zadzwoń `app.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).UseCertificateAuthentication(...);` z własnymi opcjami `OnCertificateValidated` , podając delegata w celu wykonania dodatkowej weryfikacji dla certyfikatu klienta wysyłanego z żądaniami. Zmień te informacje `ClaimsPrincipal` na i ustaw `context.Principal` dla właściwości.
 
-Jeśli uwierzytelnianie nie powiedzie się, zwraca ten program obsługi `403 (Forbidden)` odpowiedzi zamiast `401 (Unauthorized)`, zgodnie z oczekiwaniami. Przyczyny, dla których jest to, czy uwierzytelnienie ma się zdarzyć podczas pierwszego połączenia TLS. Przez razem, gdy zostanie osiągnięty, program obsługi jest za późno. Nie ma możliwości do połączenia z połączeniem anonimowym odpowiednią aktualizację przy użyciu certyfikatu.
+Jeśli uwierzytelnianie nie powiedzie się, ta `403 (Forbidden)` procedura obsługi zwróci `401 (Unauthorized)`odpowiedź zamiast elementu, zgodnie z oczekiwaniami. Powodem jest to, że uwierzytelnianie powinno nastąpić podczas początkowego połączenia TLS. Przez czas, gdy dociera do programu obsługi, jest zbyt opóźniony. Nie ma możliwości uaktualnienia połączenia z anonimowego połączenia z certyfikatem.
 
-Również dodać `app.UseAuthentication();` w `Startup.Configure` metody. W przeciwnym razie HttpContext.User nie zostanie ustawiona, `ClaimsPrincipal` utworzone na podstawie certyfikatu. Na przykład:
+`app.UseAuthentication();` Dodaj`Startup.Configure` również metodę. W przeciwnym razie Właściwość HttpContext. User nie zostanie ustawiona jako `ClaimsPrincipal` utworzona na podstawie certyfikatu. Na przykład:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -46,50 +55,50 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-Poprzedni przykład pokazuje sposób domyślne, aby dodać certyfikat uwierzytelniania. Program obsługi tworzy jednostki użytkownika, przy użyciu wspólnej właściwości certyfikatu.
+W powyższym przykładzie przedstawiono domyślny sposób dodawania uwierzytelniania przy użyciu certyfikatu. Program obsługi konstruuje jednostkę główną użytkownika przy użyciu wspólnych właściwości certyfikatu.
 
-## <a name="configure-certificate-validation"></a>Skonfiguruj weryfikację certyfikatu
+## <a name="configure-certificate-validation"></a>Konfigurowanie weryfikacji certyfikatu
 
-`CertificateAuthenticationOptions` Program obsługi ma kilka wbudowanych sprawdzanie poprawności, które są minimalne operacji sprawdzania poprawności, należy wykonać na certyfikacie. Każde z tych ustawień jest domyślnie włączona.
+`CertificateAuthenticationOptions` Program obsługi ma pewne wbudowane walidacje, które są minimalnymi walidacjami, które należy wykonać na certyfikacie. Każdy z tych ustawień jest domyślnie włączony.
 
-### <a name="allowedcertificatetypes--chained-selfsigned-or-all-chained--selfsigned"></a>AllowedCertificateTypes = łańcuchowa SelfSigned lub wszystkich (łańcuchowych | SelfSigned)
+### <a name="allowedcertificatetypes--chained-selfsigned-or-all-chained--selfsigned"></a>AllowedCertificateTypes = łańcuchy, SelfSigned lub wszystkie (łańcuchowo | SelfSigned)
 
-Ten test weryfikuje, czy jest dozwolony tylko typ odpowiedni certyfikat.
+Ten test sprawdza, czy dozwolony jest tylko odpowiedni typ certyfikatu.
 
 ### <a name="validatecertificateuse"></a>ValidateCertificateUse
 
-Ten test weryfikuje, czy certyfikat przedstawiony przez klienta ma uwierzytelniania klienta na wszystkich rozszerzone użycia klucza (EKU) lub brak rozszerzeń EKU. Ponieważ specyfikacji powiedzieć, jeśli nie określono żadnych rozszerzenia EKU, następnie wszystkich wartości EKU uznaje za prawidłowe.
+Ten test sprawdza, czy certyfikat przedstawiony przez klienta ma rozszerzone użycie klucza uwierzytelniania klienta (EKU) lub nie rozszerzeń EKU w ogóle. Zgodnie ze specyfikacją, jeśli nie określono rozszerzenia EKU, wszystkie rozszerzeń EKU są uznawane za prawidłowe.
 
 ### <a name="validatevalidityperiod"></a>ValidateValidityPeriod
 
-Ten test weryfikuje, czy certyfikat jest okresem ważności. Na każde żądanie obsługi gwarantuje, że certyfikat, który była prawidłowa, gdy go został przedstawiony nie upłynął podczas bieżącej sesji.
+Ten test sprawdza, czy certyfikat jest w jego okresie ważności. W przypadku każdego żądania program obsługi zapewnia, że certyfikat, który był ważny, gdy był prezentowany, nie upłynął podczas bieżącej sesji.
 
 ### <a name="revocationflag"></a>RevocationFlag
 
-Flaga określająca o certyfikatach w łańcuchu są sprawdzane pod kątem odwołań.
+Flaga określająca, które certyfikaty w łańcuchu są sprawdzane pod kątem odwołania.
 
-Sprawdzanie odwołań są wykonywane tylko w sytuacji, gdy certyfikat jest powiązany z certyfikatem głównym.
+Sprawdzanie odwołań jest wykonywane tylko wtedy, gdy certyfikat jest powiązany z certyfikatem głównym.
 
-### <a name="revocationmode"></a>revocationMode
+### <a name="revocationmode"></a>Odwołaniemode
 
-Flaga określająca sposób odwołania są sprawdzane.
+Flaga określająca sposób sprawdzania odwołania.
 
-Określanie kontroli w trybie online może spowodować duże opóźnienie podczas skontaktować się z urzędu certyfikacji.
+Określenie, że sprawdzanie online może skutkować długim opóźnieniem podczas kontaktowania się z urzędem certyfikacji.
 
-Sprawdzanie odwołań są wykonywane tylko w sytuacji, gdy certyfikat jest powiązany z certyfikatem głównym.
+Sprawdzanie odwołań jest wykonywane tylko wtedy, gdy certyfikat jest powiązany z certyfikatem głównym.
 
-### <a name="can-i-configure-my-app-to-require-a-certificate-only-on-certain-paths"></a>Można skonfigurować aplikację, aby wymagają certyfikatu tylko na określone ścieżki?
+### <a name="can-i-configure-my-app-to-require-a-certificate-only-on-certain-paths"></a>Czy mogę skonfigurować aplikację, aby wymagać certyfikatu tylko w określonych ścieżkach?
 
-Nie jest to możliwe. Pamiętaj, że wymiany certyfikatu odbywa się czy początek komunikacji HTTPS to się robi przez serwer przed otrzymaniem pierwsze żądanie dla tego połączenia, więc nie jest możliwe do zakresu na podstawie pól wszelkie żądania.
+Nie jest to możliwe. Należy pamiętać, że wymiana certyfikatów jest wykonywana na początku konwersacji HTTPS, przez serwer przed odebraniem pierwszego żądania w ramach tego połączenia, aby nie było możliwe Określanie zakresu na podstawie pól żądania.
 
-## <a name="handler-events"></a>Program obsługi zdarzeń
+## <a name="handler-events"></a>Zdarzenia programu obsługi
 
 Program obsługi ma dwa zdarzenia:
 
-* `OnAuthenticationFailed` &ndash; Wywoływane, jeśli wyjątek będzie się działo podczas uwierzytelniania i pozwala reagować.
-* `OnCertificateValidated` &ndash; Wywołuje się, gdy certyfikat został zweryfikowany przeszły sprawdzanie poprawności i domyślne podmiot zabezpieczeń został utworzony. To zdarzenie umożliwia należy przeprowadzić własne poprawności i rozszerzyć lub Zastąp podmiot zabezpieczeń. Przykłady obejmują:
-  * Określanie, jeśli certyfikat jest znane usługi.
-  * Konstruowanie własne jednostki. Rozważmy następujący przykład w `Startup.ConfigureServices`:
+* `OnAuthenticationFailed`&ndash; Wywołuje się, gdy wyjątek występuje podczas uwierzytelniania i pozwala na reagowanie.
+* `OnCertificateValidated`&ndash; Wywoływana po zweryfikowaniu certyfikatu, została pomyślnie utworzona Walidacja i domyślny podmiot zabezpieczeń. To zdarzenie umożliwia wykonywanie własnych weryfikacji i rozszerzanie lub zastępowanie podmiotu zabezpieczeń. Przykłady obejmują:
+  * Ustalanie, czy certyfikat jest znany dla usług.
+  * Konstruowanie własnego podmiotu zabezpieczeń. Rozważmy następujący przykład w `Startup.ConfigureServices`:
 
 ```csharp
 services.AddAuthentication(
@@ -123,9 +132,9 @@ services.AddAuthentication(
     });
 ```
 
-Jeśli okaże się ruchu przychodzącego certyfikat nie spełnia wymagań Twojej dodatkową walidację, wywołaj `context.Fail("failure reason")` wraz z przyczyną niepowodzenia.
+Jeśli okaże się, że certyfikat ruchu przychodzącego nie spełnia dodatkowej weryfikacji `context.Fail("failure reason")` , wywołaj z przyczynę niepowodzenia.
 
-Rzeczywiste funkcjonalności, prawdopodobnie należy wywołać usługę sieci jest zarejestrowany w wstrzykiwanie zależności, który nawiązuje połączenie z bazą danych lub inny rodzaj magazynu użytkowników. Dostęp do usługi przy użyciu kontekstu przekazywany do pełnomocnika. Rozważmy następujący przykład w `Startup.ConfigureServices`:
+W przypadku rzeczywistej funkcjonalności prawdopodobnie chcesz wywołać usługę zarejestrowaną w iniekcji zależności, która łączy się z bazą danych lub innym typem magazynu użytkownika. Uzyskaj dostęp do usługi przy użyciu kontekstu przesłanego do obiektu delegowanego. Rozważmy następujący przykład w `Startup.ConfigureServices`:
 
 ```csharp
 services.AddAuthentication(
@@ -168,13 +177,13 @@ services.AddAuthentication(
     });
 ```
 
-Koncepcyjnie weryfikację certyfikatu jest kwestią autoryzacji. Zaznaczenie, na przykład, wystawca lub odcisku palca w zasadach autoryzacji, a nie wewnątrz `OnCertificateValidated`, jest idealnie zgodna.
+Koncepcyjnie sprawdzenie poprawności certyfikatu jest problemem z autoryzacją. Dodanie kontroli, na przykład wystawcy lub odcisk palca w zasadach autoryzacji, a nie wewnątrz `OnCertificateValidated`, jest doskonale akceptowalne.
 
-## <a name="configure-your-host-to-require-certificates"></a>Konfigurowanie hosta o wymagają certyfikatów
+## <a name="configure-your-host-to-require-certificates"></a>Konfigurowanie hosta tak, aby wymagał certyfikatów
 
 ### <a name="kestrel"></a>Kestrel
 
-W *Program.cs*, konfigurowanie usługi Kestrel w następujący sposób:
+W *program.cs*Skonfiguruj Kestrel w następujący sposób:
 
 ```csharp
 public static IWebHost BuildWebHost(string[] args) =>
@@ -191,14 +200,14 @@ public static IWebHost BuildWebHost(string[] args) =>
 
 ### <a name="iis"></a>IIS
 
-Wykonaj następujące czynności w Menedżerze usług IIS:
+Wykonaj następujące kroki w Menedżerze usług IIS:
 
-1. Wybierz lokację z **połączeń** kartę.
-1. Kliknij dwukrotnie **ustawienia protokołu SSL** opcji **widoku funkcji** okna.
-1. Sprawdź **Wymagaj protokołu SSL** zaznacz pole wyboru i wybrać **wymagają** przycisku radiowego w **certyfikaty klienta** sekcji.
+1. Wybierz swoją witrynę z karty **połączenia** .
+1. Kliknij dwukrotnie opcję **Ustawienia protokołu SSL** w oknie **Widok funkcji** .
+1. Zaznacz pole wyboru **Wymagaj protokołu SSL** , a następnie wybierz przycisk **Wymagaj** przycisku radiowego w sekcji **Certyfikaty klienta** .
 
 ![Ustawienia certyfikatu klienta w usługach IIS](README-IISConfig.png)
 
-### <a name="azure-and-custom-web-proxies"></a>Platforma Azure i niestandardowego internetowego serwera proxy
+### <a name="azure-and-custom-web-proxies"></a>Azure i niestandardowe serwery proxy sieci Web
 
-Zobacz [hostowanie i wdrażanie dokumentacji](xref:host-and-deploy/proxy-load-balancer#certificate-forwarding) dotyczące sposobu konfigurowania certyfikatów przekazywania oprogramowania pośredniczącego.
+Zapoznaj się z [dokumentacją hosta i Wdróż](xref:host-and-deploy/proxy-load-balancer#certificate-forwarding) , jak skonfigurować oprogramowanie pośredniczące przesyłania certyfikatów.

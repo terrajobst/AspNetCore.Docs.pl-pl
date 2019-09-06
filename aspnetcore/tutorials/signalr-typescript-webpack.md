@@ -1,111 +1,113 @@
 ---
-title: Używanie biblioteki SignalR platformy ASP.NET Core za pomocą TypeScript i Webpack
+title: Korzystanie z ASP.NET Core sygnalizującego za pomocą języka TypeScript i pakietu WebPack
 author: ssougnez
-description: W tym samouczku skonfigurujesz Webpack połączyć w paczkę i Utwórz aplikację sieci web biblioteki SignalR platformy ASP.NET Core, którego klient został napisany w TypeScript.
+description: W tym samouczku skonfigurujesz pakiet WebPack do tworzenia i kompilowania aplikacji internetowej sygnalizującej ASP.NET Core, której klient został zapisany w języku TypeScript.
 ms.author: bradyg
 ms.custom: mvc
 ms.date: 04/23/2019
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: b186dffd724fb2fed49bbc2587ec066db319dffc
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: fec89cab52b5909344d2ebc0d69582ecf97ecefc
+ms.sourcegitcommit: 116bfaeab72122fa7d586cdb2e5b8f456a2dc92a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610437"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384949"
 ---
-# <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>Używanie biblioteki SignalR platformy ASP.NET Core za pomocą TypeScript i Webpack
+# <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>Korzystanie z ASP.NET Core sygnalizującego za pomocą języka TypeScript i pakietu WebPack
 
-Przez [Sébastien Sougnez](https://twitter.com/ssougnez) i [Scott Addie](https://twitter.com/Scott_Addie)
+Autorzy [Sébastien Sougnez](https://twitter.com/ssougnez) i [Scott Addie](https://twitter.com/Scott_Addie)
 
-[Webpack](https://webpack.js.org/) umożliwia deweloperom połączyć w paczkę i tworzyć zasoby po stronie klienta aplikacji sieci web. Ten samouczek pokazuje, za pomocą Webpack w aplikacji sieci web biblioteki SignalR platformy ASP.NET Core, którego klient został napisany w [TypeScript](https://www.typescriptlang.org/).
+[Pakiet WebPack](https://webpack.js.org/) umożliwia deweloperom tworzenie i kompilowanie zasobów po stronie klienta aplikacji sieci Web. W tym samouczku pokazano, jak używać pakietu WebPack w aplikacji sieci Web sygnalizującej ASP.NET Core, której klient został zapisany w języku [TypeScript](https://www.typescriptlang.org/).
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Tworzenia szkieletu początkową aplikację biblioteki SignalR platformy ASP.NET Core
-> * Konfigurowanie klienta SignalR TypeScript
-> * Konfigurowanie potoku kompilacji przy użyciu Webpack
-> * Konfigurowanie serwera SignalR
-> * Włącz komunikację między klientem i serwerem
+> * Tworzenie szkieletu aplikacji dla programu Start ASP.NET Core
+> * Konfigurowanie klienta TypeScript sygnalizującego
+> * Konfigurowanie potoku kompilacji przy użyciu pakietu WebPack
+> * Konfigurowanie serwera sygnalizującego
+> * Włącz komunikację między klientem a serwerem
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+
+::: moniker range=">= aspnetcore-3.0"
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) z **ASP.NET i tworzenie aplikacji internetowych** obciążenia
-* [.NET core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download/all)
-* [Node.js](https://nodejs.org/) z [npm](https://www.npmjs.com/)
+* [Program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) z **ASP.NET i programowaniem aplikacji sieci Web**
+* [Zestaw .NET Core SDK 3,0 lub nowszy](https://www.microsoft.com/net/download/all)
+* [Node. js](https://nodejs.org/) z [npm](https://www.npmjs.com/)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
-* [.NET core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download/all)
-* [C#dla wersji programu Visual Studio Code 1.17.1 lub nowszej](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-* [Node.js](https://nodejs.org/) z [npm](https://www.npmjs.com/)
+* [Zestaw .NET Core SDK 3,0 lub nowszy](https://www.microsoft.com/net/download/all)
+* [C#dla Visual Studio Code w wersji 1.17.1 lub nowszej](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* [Node. js](https://nodejs.org/) z [npm](https://www.npmjs.com/)
 
 ---
 
-## <a name="create-the-aspnet-core-web-app"></a>Tworzenie aplikacji sieci web platformy ASP.NET Core
+## <a name="create-the-aspnet-core-web-app"></a>Tworzenie aplikacji sieci Web ASP.NET Core
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Konfigurowanie programu Visual Studio, aby wyszukać pakiety npm w usłudze *ścieżki* zmiennej środowiskowej. Domyślnie program Visual Studio korzysta z wersji npm znajduje się w jego katalogu instalacji. Wykonaj te instrukcje w programie Visual Studio:
+Skonfiguruj program Visual Studio, aby szukać npm w zmiennej środowiskowej *Path* . Domyślnie program Visual Studio używa wersji npm znajdującej się w katalogu instalacyjnym. Wykonaj te instrukcje w programie Visual Studio:
 
-1. Przejdź do **narzędzia** > **opcje** > **projekty i rozwiązania** > **sieci Web zarządzania pakietami**  >  **Zewnętrzne narzędzia sieci Web**.
-1. Wybierz *$(PATH)* wpis na liście. Kliknij strzałkę w górę, aby przenieść wpis do drugiej pozycji na liście.
+1. Przejdź do **opcji narzędzia** > **Opcje** > **projekty i rozwiązania** > **Sieć Web zarządzanie pakietami** > **zewnętrznych narzędzi sieci Web**.
+1. Wybierz z listy wpis *$ (Path)* . Kliknij strzałkę w górę, aby przenieść wpis do drugiej pozycji na liście.
 
-    ![Visual Studio Configuration](signalr-typescript-webpack/_static/signalr-configure-path-visual-studio.png)
+    ![Konfiguracja programu Visual Studio](signalr-typescript-webpack/_static/signalr-configure-path-visual-studio.png)
 
-Visual Studio zostało zakończone. Nadszedł czas, aby utworzyć projekt.
+Konfiguracja programu Visual Studio została ukończona. Czas na utworzenie projektu.
 
-1. Użyj **pliku** > **New** > **projektu** menu opcji, a następnie wybierz **aplikacji sieci Web programu ASP.NET Core** szablon.
-1. Nadaj projektowi nazwę *SignalRWebPack*i wybierz **OK**.
-1. Wybierz *platformy .NET Core* z listy rozwijanej i wybierz platformę docelową *platformy ASP.NET Core 2.2* z listy rozwijanej selektorów framework. Wybierz **pusty** szablonu, a następnie wybierz **OK**.
+1. Użyj opcji menu **plik** > **Nowy** > **projekt** , a następnie wybierz szablon **aplikacja sieci Web ASP.NET Core** .
+1. Nazwij projekt *SignalRWebPack*, a następnie wybierz pozycję **Utwórz**.
+1. Wybierz pozycję *.NET Core* z listy rozwijanej platforma docelowa, a następnie wybierz pozycję *ASP.NET Core 3,0* z listy rozwijanej selektora struktury. Wybierz **pusty** szablon i wybierz pozycję **Utwórz**.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Uruchom następujące polecenie **zintegrowany Terminal**:
+Uruchom następujące polecenie w **zintegrowanym terminalu**:
 
 ```console
 dotnet new web -o SignalRWebPack
 ```
 
-Pusta aplikacja internetowa platformy ASP.NET Core, przeznaczonych dla platformy .NET Core jest tworzony w *SignalRWebPack* katalogu.
+Pusta aplikacja sieci Web ASP.NET Core, ukierunkowana na .NET Core, jest tworzona w katalogu *SignalRWebPack* .
 
 ---
 
-## <a name="configure-webpack-and-typescript"></a>Konfigurowanie Webpack i TypeScript
+## <a name="configure-webpack-and-typescript"></a>Konfigurowanie pakietu WebPack i języka TypeScript
 
-Poniższe kroki konfigurowania konwersji TypeScript w kodzie JavaScript i paczki zasoby po stronie klienta.
+Poniższe kroki umożliwiają skonfigurowanie konwersji języka TypeScript na JavaScript i zgrupowanie zasobów po stronie klienta.
 
-1. Wykonaj następujące polecenie w katalogu głównym projektu, aby utworzyć *package.json* pliku:
+1. Wykonaj następujące polecenie w katalogu głównym projektu, aby utworzyć plik *Package. JSON* :
 
     ```console
     npm init -y
     ```
 
-1. Dodaj wyróżnione właściwość do *package.json* pliku:
+1. Dodaj wyróżnioną właściwość do pliku *Package. JSON* :
 
-    [!code-json[package.json](signalr-typescript-webpack/sample/snippets/package1.json?highlight=4)]
+    [!code-json[package.json](signalr-typescript-webpack/sample/3.x/snippets/package1.json?highlight=4)]
 
-    Ustawienie `private` właściwość `true` zapobiega ostrzeżeń instalacji pakietu w następnym kroku.
+    Ustawienie właściwości w celu `true` uniemożliwienia ostrzeżeń instalacji pakietu w następnym kroku. `private`
 
-1. Zainstaluj pakiety npm wymagane. Wykonaj następujące polecenie w katalogu głównym projektu:
+1. Zainstaluj wymagane pakiety npm. Wykonaj następujące polecenie w katalogu głównym projektu:
 
     ```console
     npm install -D -E clean-webpack-plugin@1.0.1 css-loader@2.1.0 html-webpack-plugin@4.0.0-beta.5 mini-css-extract-plugin@0.5.0 ts-loader@5.3.3 typescript@3.3.3 webpack@4.29.3 webpack-cli@3.2.3
     ```
 
-    Niektóre szczegóły polecenia należy pamiętać:
+    Niektóre szczegóły polecenia do uwagi:
 
-    * Numer wersji jest zgodna `@` podpisywania dla każdej nazwy pakietu. npm instaluje te wersje określonego pakietu.
-    * `-E` Opcja wyłącza npm domyślne zachowanie dotyczące pisania [wersji semantycznej](https://semver.org/) zakresu operatorom *package.json*. Na przykład `"webpack": "4.29.3"` jest używana zamiast `"webpack": "^4.29.3"`. Ta opcja uniemożliwia niezamierzone uaktualnienia do nowszej wersji pakietu.
+    * Numer wersji następuje po `@` znaku dla każdej nazwy pakietu. npm instaluje te określone wersje pakietu.
+    * Opcja wyłącza domyślne zachowanie npm podczas pisania operatorów zakresu [wersji semantycznej](https://semver.org/) w pliku *Package. JSON.* `-E` Na przykład, `"webpack": "4.29.3"` jest używany `"webpack": "^4.29.3"`zamiast. Ta opcja Zapobiega niezamierzonym uaktualnianiu do nowszych wersji pakietu.
 
-    Można znaleźć w oficjalnej [npm install](https://docs.npmjs.com/cli/install) docs, aby uzyskać więcej szczegółów.
+    Aby uzyskać więcej informacji, zobacz oficjalne dokumenty z [npm-Install](https://docs.npmjs.com/cli/install) .
 
-1. Zastąp `scripts` właściwość *package.json* pliku następującym fragmentem kodu:
+1. Zastąp właściwość pliku *Package. JSON* następującym fragmentem kodu: `scripts`
 
     ```json
     "scripts": {
@@ -115,81 +117,81 @@ Poniższe kroki konfigurowania konwersji TypeScript w kodzie JavaScript i paczki
     },
     ```
 
-    Niektórych wyjaśnienie skrypty:
+    Niektóre objaśnienia dotyczące skryptów:
 
-    * `build`: Razem z zasobami klienta w trybie projektowania, a następnie oczekuje na zmiany w plikach. Obserwator plików powoduje, że pakiet ponownie wygenerować każdorazowo zmiany w pliku projektu. `mode` Opcja wyłącza optymalizacje, produkcji, takie jak potrząsając drzewa i minimalizowanie. Używaj tylko `build` w trakcie opracowywania.
-    * `release`: Zawiera zasoby po stronie klienta w trybie produkcyjnym.
-    * `publish`: Przebiegi `release` skrypt, aby powiązać zasoby po stronie klienta w trybie produkcyjnym. Wywołuje .NET Core interfejsu wiersza polecenia [publikowania](/dotnet/core/tools/dotnet-publish) polecenie, aby opublikować aplikację.
+    * `build`: Pakiet umożliwia łączenie zasobów po stronie klienta w trybie tworzenia i czujki pod kątem zmian plików. Obserwator plików powoduje, że pakiet jest generowany ponownie za każdym razem, gdy plik projektu jest zmieniany. `mode` Opcja wyłącza optymalizacje produkcyjne, takie jak wstrząsanie i minifikacjaowanie drzewa. Używać `build` tylko w programowaniu.
+    * `release`: Pakiet umożliwia łączenie zasobów po stronie klienta w trybie produkcyjnym.
+    * `publish`: `release` Uruchamia skrypt służący do łączenia zasobów po stronie klienta w trybie produkcyjnym. Wywołuje polecenie [publikowania](/dotnet/core/tools/dotnet-publish) interfejs wiersza polecenia platformy .NET Core, aby opublikować aplikację.
 
-1. Utwórz plik o nazwie *webpack.config.js*, w katalogu głównym projektu o następującej zawartości:
+1. Utwórz plik o nazwie *WebPack. config. js*w katalogu głównym projektu o następującej zawartości:
 
-    [!code-javascript[webpack.config.js](signalr-typescript-webpack/sample/webpack.config.js)]
+    [!code-javascript[webpack.config.js](signalr-typescript-webpack/sample/3.x/webpack.config.js)]
 
-    Poprzedni plik konfiguruje kompilacji Webpack. Niektóre szczegóły konfiguracji należy pamiętać:
+    Poprzedni plik konfiguruje kompilację pakietu WebPack. Niektóre szczegóły konfiguracji do uwagi:
 
-    * `output` Właściwość zastępuje wartość domyślną *dist*. Zamiast tego znacznikowej pakietu w *wwwroot* katalogu.
-    * `resolve.extensions` Tablica zawiera *js* do zaimportowania klienta SignalR JavaScript.
+    * Właściwość zastępuje domyślną wartość *rozkłu.* `output` Pakiet jest emitowany w katalogu *wwwroot* .
+    * Tablica zawiera *. js* do zaimportowania klienta sygnału JavaScript. `resolve.extensions`
 
-1. Utwórz nową *src* katalogu w folderze głównym projektu. Jego celem jest do przechowywania zasobów po stronie klienta projektu.
+1. Utwórz nowy katalog *src* w katalogu głównym projektu. Celem jest przechowywanie zasobów po stronie klienta.
 
-1. Tworzenie *src/index.html* o następującej zawartości.
+1. Utwórz *src/index.html* z następującą zawartością.
 
-    [!code-html[index.html](signalr-typescript-webpack/sample/src/index.html)]
+    [!code-html[index.html](signalr-typescript-webpack/sample/3.x/src/index.html)]
 
-    Poprzedni kod HTML definiuje znaczników standardowy na stronie głównej.
+    Powyższy kod HTML definiuje standardowe znaczniki strony głównej.
 
-1. Utwórz nową *src/css* katalogu. Jej celem jest zapisanie projektu *.css* plików.
+1. Utwórz nowy katalog *src/CSS* . Celem jest przechowywanie plików *CSS* projektu.
 
-1. Tworzenie *src/css/main.css* o następującej zawartości:
+1. Utwórz *src/CSS/Main. css* z następującą zawartością:
 
-    [!code-css[main.css](signalr-typescript-webpack/sample/src/css/main.css)]
+    [!code-css[main.css](signalr-typescript-webpack/sample/3.x/src/css/main.css)]
 
-    Poprzedni *main.css* pliku style aplikacji.
+    Poprzedni plik *Main. css* jest stylem aplikacji.
 
-1. Tworzenie *src/tsconfig.json* o następującej zawartości:
+1. Utwórz plik *src/tsconfig. JSON* z następującą zawartością:
 
-    [!code-json[tsconfig.json](signalr-typescript-webpack/sample/src/tsconfig.json)]
+    [!code-json[tsconfig.json](signalr-typescript-webpack/sample/3.x/src/tsconfig.json)]
 
-    Powyższy kod konfiguruje kompilatora TypeScript, aby wygenerować [ECMAScript](https://wikipedia.org/wiki/ECMAScript) zgodnego z 5 JavaScript.
+    Poprzedni kod konfiguruje kompilator języka TypeScript w celu utworzenia kodu JavaScript zgodnego z [ECMAScript](https://wikipedia.org/wiki/ECMAScript) 5.
 
-1. Tworzenie *src/index.ts* o następującej zawartości:
+1. Utwórz *src/index. TS* z następującą zawartością:
 
-    [!code-typescript[index.ts](signalr-typescript-webpack/sample/snippets/index1.ts?name=snippet_IndexTsPhase1File)]
+    [!code-typescript[index.ts](signalr-typescript-webpack/sample/3.x/snippets/index1.ts?name=snippet_IndexTsPhase1File)]
 
-    Poprzedni TypeScript pobiera odwołania do elementów modelu DOM i dołącza dwóch programów obsługi zdarzeń:
+    Poprzedni kod TypeScript pobiera odwołania do elementów DOM i dołącza dwa programy obsługi zdarzeń:
 
-    * `keyup`: To zdarzenie jest uruchamiana, gdy użytkownik wpisze coś w pole tekstowe zidentyfikowane jako `tbMessage`. `send` Funkcja jest wywoływana, gdy użytkownik naciśnie **Enter** klucza.
-    * `click`: To zdarzenie jest uruchamiana, gdy użytkownik kliknie **wysyłania** przycisku. `send` Funkcja jest wywoływana.
+    * `keyup`: To zdarzenie jest wyzwalane, gdy użytkownik wpisze coś w polu tekstowym `tbMessage`określonym jako. Funkcja jest wywoływana, gdy użytkownik naciśnie klawisz ENTER. `send`
+    * `click`: To zdarzenie jest wyzwalane, gdy użytkownik kliknie przycisk **Wyślij** . `send` Funkcja jest wywoływana.
 
-## <a name="configure-the-aspnet-core-app"></a>Konfigurowanie aplikacji platformy ASP.NET Core
+## <a name="configure-the-aspnet-core-app"></a>Konfigurowanie aplikacji ASP.NET Core
 
-1. Kod zawarty w `Startup.Configure` metoda Wyświetla *Hello World!*. Zastąp `app.Run` wywołanie metody z wywołaniami [UseDefaultFiles](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) i [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_).
+1. W metodzie Dodaj wywołania do [UseDefaultFiles](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) i [UseStaticFiles.](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) `Startup.Configure`
 
-    [!code-csharp[Startup](signalr-typescript-webpack/sample/Startup.cs?name=snippet_UseStaticDefaultFiles)]
+   [!code-csharp[Startup](signalr-typescript-webpack/sample/3.x/Startup.cs?name=snippet_UseStaticDefaultFiles&highlight=2-3)]
 
-    Powyższy kod zezwala serwerowi do lokalizowania i obsługiwać *index.html* pliku, czy użytkownik musi wprowadzić jej pełny adres URL lub adres URL katalogu głównego aplikacji sieci web.
+   Poprzedni kod pozwala serwerowi zlokalizować i obsłużyć plik *index. html* , niezależnie od tego, czy użytkownik wprowadza pełny adres URL, czy główny adres URL aplikacji sieci Web.
 
-1. Wywołaj [AddSignalR](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr#Microsoft_Extensions_DependencyInjection_SignalRDependencyInjectionExtensions_AddSignalR_Microsoft_Extensions_DependencyInjection_IServiceCollection_) w `Startup.ConfigureServices` metody. Usługi SignalR dodaje do projektu.
+1. Na końcu `Startup.Configure` metody zamapuj trasę */Hub* do `ChatHub` centrum. Zastąp kod, który wyświetla *Hello World!* z następującym wierszem: 
 
-    [!code-csharp[Startup](signalr-typescript-webpack/sample/Startup.cs?name=snippet_AddSignalR)]
+   [!code-csharp[Startup](signalr-typescript-webpack/sample/3.x/Startup.cs?name=snippet_UseSignalR&highlight=3)]
 
-1. Mapa */hub* kierować do `ChatHub` koncentratora. Dodaj następujące wiersze na końcu `Startup.Configure` metody:
+1. W metodzie Wywołaj [addsignaler.](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr#Microsoft_Extensions_DependencyInjection_SignalRDependencyInjectionExtensions_AddSignalR_Microsoft_Extensions_DependencyInjection_IServiceCollection_) `Startup.ConfigureServices` Dodaje do projektu usługi sygnalizujące.
 
-    [!code-csharp[Startup](signalr-typescript-webpack/sample/Startup.cs?name=snippet_UseSignalR)]
+   [!code-csharp[Startup](signalr-typescript-webpack/sample/3.x/Startup.cs?name=snippet_AddSignalR)]
 
-1. Utwórz nowy katalog o nazwie *koncentratory*, w katalogu głównym projektu. Jego celem jest do przechowywania Centrum SignalR, który jest tworzony w następnym kroku.
+1. Utwórz nowy katalog o nazwie *Hubs*w katalogu głównym projektu. Celem jest przechowywanie centrum sygnalizującego, które jest tworzone w następnym kroku.
 
-1. Utwórz koncentrator *Hubs/ChatHub.cs* następującym kodem:
+1. Utwórz centra centrów */ChatHub. cs* przy użyciu następującego kodu:
 
-    [!code-csharp[ChatHub](signalr-typescript-webpack/sample/snippets/ChatHub.cs?name=snippet_ChatHubStubClass)]
+    [!code-csharp[ChatHub](signalr-typescript-webpack/sample/3.x/snippets/ChatHub.cs?name=snippet_ChatHubStubClass)]
 
-1. Dodaj następujący kod w górnej części *Startup.cs* plik, aby rozwiązać `ChatHub` odwołania:
+1. Dodaj następujący kod w górnej części pliku *Startup.cs* , aby rozwiązać `ChatHub` odwołanie:
 
-    [!code-csharp[Startup](signalr-typescript-webpack/sample/Startup.cs?name=snippet_HubsNamespace)]
+    [!code-csharp[Startup](signalr-typescript-webpack/sample/3.x/Startup.cs?name=snippet_HubsNamespace)]
 
-## <a name="enable-client-and-server-communication"></a>Włącz komunikację z klientem i serwerem
+## <a name="enable-client-and-server-communication"></a>Włączanie komunikacji klienta i serwera
 
-Aplikacja Wyświetla obecnie prosty formularz do wysyłania wiadomości. Podczas próby zrobić nic się nie dzieje. Serwer nasłuchuje do określonej trasy, ale nie robi nic za pomocą wysłanych komunikatów.
+W aplikacji jest obecnie wyświetlany prosty formularz służący do wysyłania komunikatów. Nic się nie dzieje, gdy użytkownik spróbuje to zrobić. Serwer nasłuchuje określonej trasy, ale nic nie robi z wysłanymi komunikatami.
 
 1. Wykonaj następujące polecenie w katalogu głównym projektu:
 
@@ -197,69 +199,306 @@ Aplikacja Wyświetla obecnie prosty formularz do wysyłania wiadomości. Podczas
     npm install @aspnet/signalr
     ```
 
-    Poprzednie polecenie instaluje [klienta SignalR TypeScript](https://www.npmjs.com/package/@aspnet/signalr), co pozwala klientowi wysłać wiadomości do serwera.
+    Poprzednie polecenie instaluje klienta języka [TypeScript sygnalizującego](https://www.npmjs.com/package/@aspnet/signalr), który umożliwia klientowi wysyłanie komunikatów do serwera.
 
-1. Dodaj wyróżniony kod do *src/index.ts* pliku:
+1. Dodaj wyróżniony kod do pliku *src/index. TS* :
 
-    [!code-typescript[index.ts](signalr-typescript-webpack/sample/snippets/index2.ts?name=snippet_IndexTsPhase2File&highlight=2,9-23)]
+    [!code-typescript[index.ts](signalr-typescript-webpack/sample/3.x/snippets/index2.ts?name=snippet_IndexTsPhase2File&highlight=2,9-23)]
 
-    Powyższy kod obsługuje odbieranie komunikatów z serwera. `HubConnectionBuilder` Klasy tworzy nowy konstruktor do skonfigurowania połączenia z serwerem. `withUrl` Funkcja konfiguruje adres URL koncentratora.
+    Poprzedni kod obsługuje otrzymywanie komunikatów z serwera. `HubConnectionBuilder` Klasa tworzy nowy Konstruktor służący do konfigurowania połączenia z serwerem. `withUrl` Funkcja konfiguruje adres URL centrum.
 
-    SignalR umożliwia wymianę wiadomości między klientem a serwerem. Każdy komunikat ma określoną nazwę. Na przykład masz wiadomości o nazwie `messageReceived` , wykonana logiki odpowiada za wyświetlanie nowy komunikat w strefie wiadomości. Nasłuchiwanie szczegółowy komunikat o błędzie może odbywać się za pośrednictwem `on` funkcji. Można słuchać dowolną liczbę nazw wiadomości. Istnieje również możliwość przekazania parametrów do wiadomości, takie jak imię i nazwisko autora i zawartość odebrany komunikat. Gdy klient odbierze komunikat nową `div` zostanie utworzony element o nazwie autora i komunikat zawartość w jego `innerHTML` atrybutu. Jest ona dodawana do głównej `div` element wyświetlania komunikatów.
+    Program sygnalizujący umożliwia wymianę komunikatów między klientem a serwerem. Każdy komunikat ma określoną nazwę. Można na przykład mieć komunikaty o nazwie `messageReceived` , która wykonuje logikę odpowiedzialną za wyświetlanie nowej wiadomości w strefie messages. Nasłuchiwanie określonego komunikatu można wykonać za pomocą `on` funkcji. Można nasłuchiwać dowolnej liczby nazw komunikatów. Możliwe jest również przekazywanie parametrów do wiadomości, takich jak nazwa autora i zawartość otrzymanej wiadomości. Po odebraniu komunikatu przez klienta zostanie utworzony nowy `div` element z nazwą autora i treścią komunikatu w jego `innerHTML` atrybucie. Jest on dodawany do elementu głównego `div` wyświetlającego komunikaty.
 
-1. Teraz, gdy klient może otrzymać komunikat, należy skonfigurować go do wysyłania wiadomości. Dodaj wyróżniony kod do *src/index.ts* pliku:
+1. Teraz, gdy klient może odebrać komunikat, skonfiguruj go do wysyłania wiadomości. Dodaj wyróżniony kod do pliku *src/index. TS* :
 
-    [!code-typescript[index.ts](signalr-typescript-webpack/sample/src/index.ts?highlight=34-35)]
+    [!code-typescript[index.ts](signalr-typescript-webpack/sample/3.x/src/index.ts?highlight=34-35)]
 
-    Wysyłanie wiadomości przez połączenie Websocket wymaga wywołania `send` metody. Pierwszy parametr metody jest nazwa komunikatu. Dane wiadomości zamieszkuje innych parametrów. W tym przykładzie wiadomość zidentyfikowane jako `newMessage` są wysyłane do serwera. Komunikat składa się z nazwy użytkownika i dane wejściowe z pola tekstowego użytkownika. Jeśli działa wysyłania, wartość pola tekstowego jest wyczyszczone.
+    Wysyłanie komunikatu przez połączenie z usługą WebSockets wymaga wywołania `send` metody. Pierwszym parametrem metody jest nazwa komunikatu. Dane komunikatu są nieodpowiednie dla innych parametrów. W tym przykładzie komunikat identyfikowany jako `newMessage` jest wysyłany do serwera. Komunikat składa się z nazwy użytkownika i danych wejściowych użytkownika z pola tekstowego. Jeśli wysyłanie działa, wartość pola tekstowego jest wyczyszczona.
 
-1. Dodaj metodę wyróżnione `ChatHub` klasy:
+1. Dodaj podświetloną metodę do `ChatHub` klasy:
 
-    [!code-csharp[ChatHub](signalr-typescript-webpack/sample/Hubs/ChatHub.cs?highlight=8-11)]
+    [!code-csharp[ChatHub](signalr-typescript-webpack/sample/3.x/Hubs/ChatHub.cs?highlight=8-11)]
 
-    Powyższy kod emituje Odebrane komunikaty do wszystkich połączonych użytkowników, gdy serwer otrzymuje je. Nie jest konieczne zapewnienie ogólnej `on` metodę, aby otrzymywać wszystkie komunikaty. Metodę o nazwie po sufiksy nazwa komunikatu.
+    Poprzedni kod emituje odebrane komunikaty wszystkim połączonym użytkownikom po ich odebraniu przez serwer. Nie jest konieczne posiadanie metody ogólnej `on` do odbierania wszystkich komunikatów. Metoda o nazwie po wystarczającej nazwie.
 
-    W tym przykładzie klient TypeScript wysyła komunikat, który został zidentyfikowany jako `newMessage`. C# `NewMessage` metoda oczekuje, że dane wysłane przez klienta. Połączenie jest nawiązywane w przypadku [SendAsync](/dotnet/api/microsoft.aspnetcore.signalr.clientproxyextensions.sendasync) metody [Clients.All](/dotnet/api/microsoft.aspnetcore.signalr.ihubclients-1.all). Odebrane komunikaty są wysyłane do wszystkich klientów podłączone do koncentratora.
+    W tym przykładzie klient języka TypeScript wysyła komunikat identyfikowany jako `newMessage`. C# klienta.`NewMessage` Wykonano wywołanie metody [SendAsync](/dotnet/api/microsoft.aspnetcore.signalr.clientproxyextensions.sendasync) na [klientach. All](/dotnet/api/microsoft.aspnetcore.signalr.ihubclients-1.all). Odebrane komunikaty są wysyłane do wszystkich klientów podłączonych do centrum.
 
 ## <a name="test-the-app"></a>Testowanie aplikacji
 
-Upewnij się, że aplikacja działa wykonując następujące kroki.
+Upewnij się, że aplikacja działa z następującymi krokami.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-1. Uruchamianie Webpack w *wersji* trybu. Za pomocą **Konsola Menedżera pakietów** okna, wykonaj następujące polecenie w katalogu głównym projektu. Jeśli nie jesteś w katalogu głównym projektu, wprowadź `cd SignalRWebPack` przed wpisaniem polecenia.
+1. Uruchom pakiet WebPack w trybie *wydania* . Za pomocą okna **konsoli Menedżera pakietów** wykonaj następujące polecenie w katalogu głównym projektu. Jeśli nie jesteś w katalogu głównym projektu, wprowadź `cd SignalRWebPack` przed wprowadzeniem polecenia.
 
     [!INCLUDE [npm-run-release](../includes/signalr-typescript-webpack/npm-run-release.md)]
 
-1. Wybierz **debugowania** > **Uruchom bez debugowania** do uruchomienia aplikacji w przeglądarce, bez dołączania debugera. *Wwwroot/index.html* plików jest obsługiwany w `http://localhost:<port_number>`.
+1. Wybierz pozycję **Debuguj** > **Uruchom bez debugowania** , aby uruchomić aplikację w przeglądarce bez dołączania debugera. Plik *wwwroot/index.html* jest obsługiwany przez `http://localhost:<port_number>`.
 
-1. Otwórz inne wystąpienie przeglądarki (w dowolnej przeglądarce). Wklej adres URL w pasku adresu.
+   Jeśli zostaną wyświetlone błędy kompilacji, spróbuj zamknąć i ponownie otworzyć rozwiązanie. 
 
-1. Wybierz albo przeglądarki, wpisz coś w **komunikat** pola tekstowego, a następnie kliknij przycisk **wysyłania** przycisku. Unikatowa nazwa użytkownika i wiadomości są wyświetlane na obu stronach natychmiast.
+1. Otwórz inne wystąpienie przeglądarki (dowolna przeglądarka). Wklej adres URL na pasku adresu.
+
+1. Wybierz opcję przeglądarka, wpisz coś w polu tekstowym **komunikat** , a następnie kliknij przycisk **Wyślij** . Unikatowa nazwa użytkownika i komunikat są wyświetlane na obu stronach natychmiastowo.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-1. Uruchamianie Webpack w *wersji* trybu, wykonując następujące polecenie w katalogu głównym projektu:
+1. Uruchom pakiet WebPack w trybie *wydania* , wykonując następujące polecenie w katalogu głównym projektu:
 
     [!INCLUDE [npm-run-release](../includes/signalr-typescript-webpack/npm-run-release.md)]
 
-1. Tworzenie i uruchamianie aplikacji, wykonując następujące polecenie w katalogu głównym projektu:
+1. Skompiluj i uruchom aplikację, wykonując następujące polecenie w katalogu głównym projektu:
 
     ```console
     dotnet run
     ```
 
-    Serwer sieci web uruchamia aplikację i udostępnia je na hoście lokalnym.
+    Serwer sieci Web uruchamia aplikację i udostępnia ją na hoście lokalnym.
 
-1. Otwórz w przeglądarce `http://localhost:<port_number>`. *Wwwroot/index.html* plików jest obsługiwany. Skopiuj adres URL z paska adresu.
+1. Otwórz przeglądarkę do `http://localhost:<port_number>`programu. Plik *wwwroot/index.html* jest obsługiwany. Skopiuj adres URL z paska adresu.
 
-1. Otwórz inne wystąpienie przeglądarki (w dowolnej przeglądarce). Wklej adres URL w pasku adresu.
+1. Otwórz inne wystąpienie przeglądarki (dowolna przeglądarka). Wklej adres URL na pasku adresu.
 
-1. Wybierz albo przeglądarki, wpisz coś w **komunikat** pola tekstowego, a następnie kliknij przycisk **wysyłania** przycisku. Unikatowa nazwa użytkownika i wiadomości są wyświetlane na obu stronach natychmiast.
+1. Wybierz opcję przeglądarka, wpisz coś w polu tekstowym **komunikat** , a następnie kliknij przycisk **Wyślij** . Unikatowa nazwa użytkownika i komunikat są wyświetlane na obu stronach natychmiastowo.
 
 ---
 
-![komunikat wyświetlany w oba okna przeglądarki](signalr-typescript-webpack/_static/browsers-message-broadcast.png)
+![komunikat wyświetlany w obu oknach przeglądarki](signalr-typescript-webpack/_static/browsers-message-broadcast.png)
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.2"
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+* [Program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) z **ASP.NET i programowaniem aplikacji sieci Web**
+* [.NET core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download/all)
+* [Node. js](https://nodejs.org/) z [npm](https://www.npmjs.com/)
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+* [Visual Studio Code](https://code.visualstudio.com/download)
+* [.NET core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download/all)
+* [C#dla Visual Studio Code w wersji 1.17.1 lub nowszej](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* [Node. js](https://nodejs.org/) z [npm](https://www.npmjs.com/)
+
+---
+
+## <a name="create-the-aspnet-core-web-app"></a>Tworzenie aplikacji sieci Web ASP.NET Core
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+Skonfiguruj program Visual Studio, aby szukać npm w zmiennej środowiskowej *Path* . Domyślnie program Visual Studio używa wersji npm znajdującej się w katalogu instalacyjnym. Wykonaj te instrukcje w programie Visual Studio:
+
+1. Przejdź do **opcji narzędzia** > **Opcje** > **projekty i rozwiązania** > **Sieć Web zarządzanie pakietami** > **zewnętrznych narzędzi sieci Web**.
+1. Wybierz z listy wpis *$ (Path)* . Kliknij strzałkę w górę, aby przenieść wpis do drugiej pozycji na liście.
+
+    ![Konfiguracja programu Visual Studio](signalr-typescript-webpack/_static/signalr-configure-path-visual-studio.png)
+
+Konfiguracja programu Visual Studio została ukończona. Czas na utworzenie projektu.
+
+1. Użyj opcji menu **plik** > **Nowy** > **projekt** , a następnie wybierz szablon **aplikacja sieci Web ASP.NET Core** .
+1. Nazwij projekt *SignalRWebPack*, a następnie wybierz pozycję **Utwórz**.
+1. Wybierz pozycję *.NET Core* z listy rozwijanej platforma docelowa, a następnie wybierz pozycję *ASP.NET Core 2,2* z listy rozwijanej selektora struktury. Wybierz **pusty** szablon i wybierz pozycję **Utwórz**.
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+Uruchom następujące polecenie w **zintegrowanym terminalu**:
+
+```console
+dotnet new web -o SignalRWebPack
+```
+
+Pusta aplikacja sieci Web ASP.NET Core, ukierunkowana na .NET Core, jest tworzona w katalogu *SignalRWebPack* .
+
+---
+
+## <a name="configure-webpack-and-typescript"></a>Konfigurowanie pakietu WebPack i języka TypeScript
+
+Poniższe kroki umożliwiają skonfigurowanie konwersji języka TypeScript na JavaScript i zgrupowanie zasobów po stronie klienta.
+
+1. Wykonaj następujące polecenie w katalogu głównym projektu, aby utworzyć plik *Package. JSON* :
+
+    ```console
+    npm init -y
+    ```
+
+1. Dodaj wyróżnioną właściwość do pliku *Package. JSON* :
+
+    [!code-json[package.json](signalr-typescript-webpack/sample/2.x/snippets/package1.json?highlight=4)]
+
+    Ustawienie właściwości w celu `true` uniemożliwienia ostrzeżeń instalacji pakietu w następnym kroku. `private`
+
+1. Zainstaluj wymagane pakiety npm. Wykonaj następujące polecenie w katalogu głównym projektu:
+
+    ```console
+    npm install -D -E clean-webpack-plugin@1.0.1 css-loader@2.1.0 html-webpack-plugin@4.0.0-beta.5 mini-css-extract-plugin@0.5.0 ts-loader@5.3.3 typescript@3.3.3 webpack@4.29.3 webpack-cli@3.2.3
+    ```
+
+    Niektóre szczegóły polecenia do uwagi:
+
+    * Numer wersji następuje po `@` znaku dla każdej nazwy pakietu. npm instaluje te określone wersje pakietu.
+    * Opcja wyłącza domyślne zachowanie npm podczas pisania operatorów zakresu [wersji semantycznej](https://semver.org/) w pliku *Package. JSON.* `-E` Na przykład, `"webpack": "4.29.3"` jest używany `"webpack": "^4.29.3"`zamiast. Ta opcja Zapobiega niezamierzonym uaktualnianiu do nowszych wersji pakietu.
+
+    Aby uzyskać więcej informacji, zobacz oficjalne dokumenty z [npm-Install](https://docs.npmjs.com/cli/install) .
+
+1. Zastąp właściwość pliku *Package. JSON* następującym fragmentem kodu: `scripts`
+
+    ```json
+    "scripts": {
+      "build": "webpack --mode=development --watch",
+      "release": "webpack --mode=production",
+      "publish": "npm run release && dotnet publish -c Release"
+    },
+    ```
+
+    Niektóre objaśnienia dotyczące skryptów:
+
+    * `build`: Pakiet umożliwia łączenie zasobów po stronie klienta w trybie tworzenia i czujki pod kątem zmian plików. Obserwator plików powoduje, że pakiet jest generowany ponownie za każdym razem, gdy plik projektu jest zmieniany. `mode` Opcja wyłącza optymalizacje produkcyjne, takie jak wstrząsanie i minifikacjaowanie drzewa. Używać `build` tylko w programowaniu.
+    * `release`: Pakiet umożliwia łączenie zasobów po stronie klienta w trybie produkcyjnym.
+    * `publish`: `release` Uruchamia skrypt służący do łączenia zasobów po stronie klienta w trybie produkcyjnym. Wywołuje polecenie [publikowania](/dotnet/core/tools/dotnet-publish) interfejs wiersza polecenia platformy .NET Core, aby opublikować aplikację.
+
+1. Utwórz plik o nazwie *WebPack. config. js*w katalogu głównym projektu o następującej zawartości:
+
+    [!code-javascript[webpack.config.js](signalr-typescript-webpack/sample/2.x/webpack.config.js)]
+
+    Poprzedni plik konfiguruje kompilację pakietu WebPack. Niektóre szczegóły konfiguracji do uwagi:
+
+    * Właściwość zastępuje domyślną wartość *rozkłu.* `output` Pakiet jest emitowany w katalogu *wwwroot* .
+    * Tablica zawiera *. js* do zaimportowania klienta sygnału JavaScript. `resolve.extensions`
+
+1. Utwórz nowy katalog *src* w katalogu głównym projektu. Celem jest przechowywanie zasobów po stronie klienta.
+
+1. Utwórz *src/index.html* z następującą zawartością.
+
+    [!code-html[index.html](signalr-typescript-webpack/sample/2.x/src/index.html)]
+
+    Powyższy kod HTML definiuje standardowe znaczniki strony głównej.
+
+1. Utwórz nowy katalog *src/CSS* . Celem jest przechowywanie plików *CSS* projektu.
+
+1. Utwórz *src/CSS/Main. css* z następującą zawartością:
+
+    [!code-css[main.css](signalr-typescript-webpack/sample/2.x/src/css/main.css)]
+
+    Poprzedni plik *Main. css* jest stylem aplikacji.
+
+1. Utwórz plik *src/tsconfig. JSON* z następującą zawartością:
+
+    [!code-json[tsconfig.json](signalr-typescript-webpack/sample/2.x/src/tsconfig.json)]
+
+    Poprzedni kod konfiguruje kompilator języka TypeScript w celu utworzenia kodu JavaScript zgodnego z [ECMAScript](https://wikipedia.org/wiki/ECMAScript) 5.
+
+1. Utwórz *src/index. TS* z następującą zawartością:
+
+    [!code-typescript[index.ts](signalr-typescript-webpack/sample/2.x/snippets/index1.ts?name=snippet_IndexTsPhase1File)]
+
+    Poprzedni kod TypeScript pobiera odwołania do elementów DOM i dołącza dwa programy obsługi zdarzeń:
+
+    * `keyup`: To zdarzenie jest wyzwalane, gdy użytkownik wpisze coś w polu tekstowym `tbMessage`określonym jako. Funkcja jest wywoływana, gdy użytkownik naciśnie klawisz ENTER. `send`
+    * `click`: To zdarzenie jest wyzwalane, gdy użytkownik kliknie przycisk **Wyślij** . `send` Funkcja jest wywoływana.
+
+## <a name="configure-the-aspnet-core-app"></a>Konfigurowanie aplikacji ASP.NET Core
+
+1. Kod podany w `Startup.Configure` metodzie wyświetla *Hello World!* . Zastąp wywołanie [](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) [](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_)metody wywołaniami do UseDefaultFiles i `app.Run` UseStaticFiles.
+
+    [!code-csharp[Startup](signalr-typescript-webpack/sample/2.x/Startup.cs?name=snippet_UseStaticDefaultFiles)]
+
+    Poprzedni kod pozwala serwerowi zlokalizować i obsłużyć plik *index. html* , niezależnie od tego, czy użytkownik wprowadza pełny adres URL, czy główny adres URL aplikacji sieci Web.
+
+1. Wywołaj `Startup.ConfigureServices` metodę [addsignaler](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr#Microsoft_Extensions_DependencyInjection_SignalRDependencyInjectionExtensions_AddSignalR_Microsoft_Extensions_DependencyInjection_IServiceCollection_) w metodzie. Dodaje do projektu usługi sygnalizujące.
+
+    [!code-csharp[Startup](signalr-typescript-webpack/sample/2.x/Startup.cs?name=snippet_AddSignalR)]
+
+1. Mapuj trasę */Hub* do `ChatHub` centrum. Dodaj następujące wiersze na końcu `Startup.Configure` metody:
+
+    [!code-csharp[Startup](signalr-typescript-webpack/sample/2.x/Startup.cs?name=snippet_UseSignalR)]
+
+1. Utwórz nowy katalog o nazwie *Hubs*w katalogu głównym projektu. Celem jest przechowywanie centrum sygnalizującego, które jest tworzone w następnym kroku.
+
+1. Utwórz centra centrów */ChatHub. cs* przy użyciu następującego kodu:
+
+    [!code-csharp[ChatHub](signalr-typescript-webpack/sample/2.x/snippets/ChatHub.cs?name=snippet_ChatHubStubClass)]
+
+1. Dodaj następujący kod w górnej części pliku *Startup.cs* , aby rozwiązać `ChatHub` odwołanie:
+
+    [!code-csharp[Startup](signalr-typescript-webpack/sample/2.x/Startup.cs?name=snippet_HubsNamespace)]
+
+## <a name="enable-client-and-server-communication"></a>Włączanie komunikacji klienta i serwera
+
+W aplikacji jest obecnie wyświetlany prosty formularz służący do wysyłania komunikatów. Nic się nie dzieje, gdy użytkownik spróbuje to zrobić. Serwer nasłuchuje określonej trasy, ale nic nie robi z wysłanymi komunikatami.
+
+1. Wykonaj następujące polecenie w katalogu głównym projektu:
+
+    ```console
+    npm install @aspnet/signalr
+    ```
+
+    Poprzednie polecenie instaluje klienta języka [TypeScript sygnalizującego](https://www.npmjs.com/package/@aspnet/signalr), który umożliwia klientowi wysyłanie komunikatów do serwera.
+
+1. Dodaj wyróżniony kod do pliku *src/index. TS* :
+
+    [!code-typescript[index.ts](signalr-typescript-webpack/sample/2.x/snippets/index2.ts?name=snippet_IndexTsPhase2File&highlight=2,9-23)]
+
+    Poprzedni kod obsługuje otrzymywanie komunikatów z serwera. `HubConnectionBuilder` Klasa tworzy nowy Konstruktor służący do konfigurowania połączenia z serwerem. `withUrl` Funkcja konfiguruje adres URL centrum.
+
+    Program sygnalizujący umożliwia wymianę komunikatów między klientem a serwerem. Każdy komunikat ma określoną nazwę. Można na przykład mieć komunikaty o nazwie `messageReceived` , która wykonuje logikę odpowiedzialną za wyświetlanie nowej wiadomości w strefie messages. Nasłuchiwanie określonego komunikatu można wykonać za pomocą `on` funkcji. Można nasłuchiwać dowolnej liczby nazw komunikatów. Możliwe jest również przekazywanie parametrów do wiadomości, takich jak nazwa autora i zawartość otrzymanej wiadomości. Po odebraniu komunikatu przez klienta zostanie utworzony nowy `div` element z nazwą autora i treścią komunikatu w jego `innerHTML` atrybucie. Jest on dodawany do elementu głównego `div` wyświetlającego komunikaty.
+
+1. Teraz, gdy klient może odebrać komunikat, skonfiguruj go do wysyłania wiadomości. Dodaj wyróżniony kod do pliku *src/index. TS* :
+
+    [!code-typescript[index.ts](signalr-typescript-webpack/sample/2.x/src/index.ts?highlight=34-35)]
+
+    Wysyłanie komunikatu przez połączenie z usługą WebSockets wymaga wywołania `send` metody. Pierwszym parametrem metody jest nazwa komunikatu. Dane komunikatu są nieodpowiednie dla innych parametrów. W tym przykładzie komunikat identyfikowany jako `newMessage` jest wysyłany do serwera. Komunikat składa się z nazwy użytkownika i danych wejściowych użytkownika z pola tekstowego. Jeśli wysyłanie działa, wartość pola tekstowego jest wyczyszczona.
+
+1. Dodaj podświetloną metodę do `ChatHub` klasy:
+
+    [!code-csharp[ChatHub](signalr-typescript-webpack/sample/2.x/Hubs/ChatHub.cs?highlight=8-11)]
+
+    Poprzedni kod emituje odebrane komunikaty wszystkim połączonym użytkownikom po ich odebraniu przez serwer. Nie jest konieczne posiadanie metody ogólnej `on` do odbierania wszystkich komunikatów. Metoda o nazwie po wystarczającej nazwie.
+
+    W tym przykładzie klient języka TypeScript wysyła komunikat identyfikowany jako `newMessage`. C# klienta.`NewMessage` Wykonano wywołanie metody [SendAsync](/dotnet/api/microsoft.aspnetcore.signalr.clientproxyextensions.sendasync) na [klientach. All](/dotnet/api/microsoft.aspnetcore.signalr.ihubclients-1.all). Odebrane komunikaty są wysyłane do wszystkich klientów podłączonych do centrum.
+
+## <a name="test-the-app"></a>Testowanie aplikacji
+
+Upewnij się, że aplikacja działa z następującymi krokami.
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+1. Uruchom pakiet WebPack w trybie *wydania* . Za pomocą okna **konsoli Menedżera pakietów** wykonaj następujące polecenie w katalogu głównym projektu. Jeśli nie jesteś w katalogu głównym projektu, wprowadź `cd SignalRWebPack` przed wprowadzeniem polecenia.
+
+    [!INCLUDE [npm-run-release](../includes/signalr-typescript-webpack/npm-run-release.md)]
+
+1. Wybierz pozycję **Debuguj** > **Uruchom bez debugowania** , aby uruchomić aplikację w przeglądarce bez dołączania debugera. Plik *wwwroot/index.html* jest obsługiwany przez `http://localhost:<port_number>`.
+
+1. Otwórz inne wystąpienie przeglądarki (dowolna przeglądarka). Wklej adres URL na pasku adresu.
+
+1. Wybierz opcję przeglądarka, wpisz coś w polu tekstowym **komunikat** , a następnie kliknij przycisk **Wyślij** . Unikatowa nazwa użytkownika i komunikat są wyświetlane na obu stronach natychmiastowo.
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+1. Uruchom pakiet WebPack w trybie *wydania* , wykonując następujące polecenie w katalogu głównym projektu:
+
+    [!INCLUDE [npm-run-release](../includes/signalr-typescript-webpack/npm-run-release.md)]
+
+1. Skompiluj i uruchom aplikację, wykonując następujące polecenie w katalogu głównym projektu:
+
+    ```console
+    dotnet run
+    ```
+
+    Serwer sieci Web uruchamia aplikację i udostępnia ją na hoście lokalnym.
+
+1. Otwórz przeglądarkę do `http://localhost:<port_number>`programu. Plik *wwwroot/index.html* jest obsługiwany. Skopiuj adres URL z paska adresu.
+
+1. Otwórz inne wystąpienie przeglądarki (dowolna przeglądarka). Wklej adres URL na pasku adresu.
+
+1. Wybierz opcję przeglądarka, wpisz coś w polu tekstowym **komunikat** , a następnie kliknij przycisk **Wyślij** . Unikatowa nazwa użytkownika i komunikat są wyświetlane na obu stronach natychmiastowo.
+
+---
+
+![komunikat wyświetlany w obu oknach przeglądarki](signalr-typescript-webpack/_static/browsers-message-broadcast.png)
+
+::: moniker-end
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
