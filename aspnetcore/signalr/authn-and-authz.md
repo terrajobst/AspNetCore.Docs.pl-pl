@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 07/15/2019
 uid: signalr/authn-and-authz
-ms.openlocfilehash: e7e7a9fd537ba89b64c15594652a290357a00038
-ms.sourcegitcommit: f30b18442ed12831c7e86b0db249183ccd749f59
+ms.openlocfilehash: da226f4e192be8e34a0b2cec1493a1353c995279
+ms.sourcegitcommit: 387cf29f5d5addef2cbc70670a11d612806b36b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68412531"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70746528"
 ---
 # <a name="authentication-and-authorization-in-aspnet-core-signalr"></a>Uwierzytelnianie i autoryzacja w usłudze ASP.NET Core sygnalizujący
 
@@ -26,13 +26,39 @@ Program sygnalizujący może być używany z [uwierzytelnianiem ASP.NET Core](xr
 
 Poniżej przedstawiono przykład, w `Startup.Configure` którym jest używany program sygnalizujący i ASP.NET Core Authentication:
 
+::: moniker range=">= aspnetcore-3.0"
+
 ```csharp
 public void Configure(IApplicationBuilder app)
 {
     ...
 
     app.UseStaticFiles();
-    
+
+    app.UseRouting();
+
+    app.UseAuthentication();
+    app.UseAuthorization();
+
+    app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapHub<ChatHub>("/chat");
+        endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+    });
+}
+```
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.2"
+
+```csharp
+public void Configure(IApplicationBuilder app)
+{
+    ...
+
+    app.UseStaticFiles();
+
     app.UseAuthentication();
 
     app.UseSignalR(hubs =>
@@ -49,6 +75,8 @@ public void Configure(IApplicationBuilder app)
 
 > [!NOTE]
 > Kolejność, w której zarejestrowano sygnał i ASP.NET Core uwierzytelniania oprogramowania pośredniczącego. Zawsze wywołuj `UseAuthentication` przed `UseSignalR` tym, że sygnalizujący `HttpContext`ma użytkownika na.
+
+::: moniker-end
 
 ### <a name="cookie-authentication"></a>Uwierzytelnianie plików cookie
 
