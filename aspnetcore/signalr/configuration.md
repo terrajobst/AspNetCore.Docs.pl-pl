@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 08/05/2019
 uid: signalr/configuration
-ms.openlocfilehash: 475d9664c588c06bfcd816959be8a425ee01c023
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: 156ffac83fbdf61fd88ad8acc307c2c701c46bca
+ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68915083"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773928"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>Konfiguracja sygnałów ASP.NET Core
 
@@ -122,6 +122,30 @@ services.AddSignalR().AddHubOptions<MyHub>(options =>
 
 ### <a name="advanced-http-configuration-options"></a>Zaawansowane opcje konfiguracji HTTP
 
+::: moniker range=">= aspnetcore-3.0"
+
+Służy `HttpConnectionDispatcherOptions` do konfigurowania ustawień zaawansowanych związanych z transportami i zarządzaniem buforem pamięci. Te opcje są konfigurowane przez przekazanie delegata [do\<MapHub T >](/dotnet/api/microsoft.aspnetcore.builder.hubendpointroutebuilderextensions.maphub) w. `Startup.Configure`
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    app.UseRouting();
+
+    app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapHub<MyHub>("/myhub", options =>
+        {
+            options.Transports =
+                HttpTransportType.WebSockets |
+                HttpTransportType.LongPolling;
+        });
+    });
+}
+```
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.2"
+
 Służy `HttpConnectionDispatcherOptions` do konfigurowania ustawień zaawansowanych związanych z transportami i zarządzaniem buforem pamięci. Te opcje są konfigurowane przez przekazanie delegata [do\<MapHub T >](/dotnet/api/microsoft.aspnetcore.signalr.hubroutebuilder.maphub) w. `Startup.Configure`
 
 ```csharp
@@ -140,6 +164,8 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     });
 }
 ```
+
+::: moniker-end
 
 W poniższej tabeli opisano opcje konfigurowania zaawansowanych opcji protokołu HTTP w programie ASP.NET Core Signal:
 
@@ -225,7 +251,7 @@ let connection = new signalR.HubConnectionBuilder()
     .build();
 ```
 
-Poniższa tabela zawiera listę dostępnych poziomów dzienników. Wartość określana przez użytkownika `configureLogging` w celu ustawienia minimalnego poziomu dziennika, który zostanie zarejestrowany. Komunikaty zarejestrowane na tym poziomie **lub poziomy wymienione po nim w tabeli**zostaną zarejestrowane.
+Poniższa tabela zawiera listę dostępnych poziomów dzienników. Wartość określana przez użytkownika `configureLogging` w celu ustawienia **minimalnego** poziomu dziennika, który zostanie zarejestrowany. Komunikaty zarejestrowane na tym poziomie **lub poziomy wymienione po nim w tabeli**zostaną zarejestrowane.
 
 | String                      | LogLevel               |
 | --------------------------- | ---------------------- |
@@ -412,7 +438,7 @@ Dodatkowe opcje `WithUrl` można skonfigurować w metodzie (`withUrl` w języku 
 | Opcja .NET |  Wartość domyślna | Opis |
 | ----------- | -------------- | ----------- |
 | `AccessTokenProvider` | `null` | Funkcja zwracająca ciąg, który jest dostarczany jako token uwierzytelniania okaziciela w żądaniach HTTP. |
-| `SkipNegotiation` | `false` | Ustaw tę `true` wartość na, aby pominąć krok negocjowania. **Obsługiwane tylko wtedy, gdy transport Sockets jest jedynym włączonym**transportem. Nie można włączyć tego ustawienia w przypadku korzystania z usługi Azure Signal Service. |
+| `SkipNegotiation` | `false` | Ustaw tę `true` wartość na, aby pominąć krok negocjowania. **Obsługiwane tylko wtedy, gdy transport Sockets jest jedynym włączonym transportem**. Nie można włączyć tego ustawienia w przypadku korzystania z usługi Azure Signal Service. |
 | `ClientCertificates` | Pusty | Kolekcja certyfikatów TLS do wysłania w celu uwierzytelniania żądań. |
 | `Cookies` | Pusty | Kolekcja plików cookie protokołu HTTP do wysłania w każdym żądaniu HTTP. |
 | `Credentials` | Pusty | Poświadczenia do wysyłania przy każdym żądaniu HTTP. |
@@ -428,14 +454,14 @@ Dodatkowe opcje `WithUrl` można skonfigurować w metodzie (`withUrl` w języku 
 | Opcja języka JavaScript | Wartość domyślna | Opis |
 | ----------------- | ------------- | ----------- |
 | `accessTokenFactory` | `null` | Funkcja zwracająca ciąg, który jest dostarczany jako token uwierzytelniania okaziciela w żądaniach HTTP. |
-| `skipNegotiation` | `false` | Ustaw tę `true` wartość na, aby pominąć krok negocjowania. **Obsługiwane tylko wtedy, gdy transport Sockets jest jedynym włączonym**transportem. Nie można włączyć tego ustawienia w przypadku korzystania z usługi Azure Signal Service. |
+| `skipNegotiation` | `false` | Ustaw tę `true` wartość na, aby pominąć krok negocjowania. **Obsługiwane tylko wtedy, gdy transport Sockets jest jedynym włączonym transportem**. Nie można włączyć tego ustawienia w przypadku korzystania z usługi Azure Signal Service. |
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
 | Opcja Java | Wartość domyślna | Opis |
 | ----------- | ------------- | ----------- |
 | `withAccessTokenProvider` | `null` | Funkcja zwracająca ciąg, który jest dostarczany jako token uwierzytelniania okaziciela w żądaniach HTTP. |
-| `shouldSkipNegotiate` | `false` | Ustaw tę `true` wartość na, aby pominąć krok negocjowania. **Obsługiwane tylko wtedy, gdy transport Sockets jest jedynym włączonym**transportem. Nie można włączyć tego ustawienia w przypadku korzystania z usługi Azure Signal Service. |
+| `shouldSkipNegotiate` | `false` | Ustaw tę `true` wartość na, aby pominąć krok negocjowania. **Obsługiwane tylko wtedy, gdy transport Sockets jest jedynym włączonym transportem**. Nie można włączyć tego ustawienia w przypadku korzystania z usługi Azure Signal Service. |
 | `withHeader``withHeaders` | Pusty | Mapa dodatkowych nagłówków HTTP do wysłania w każdym żądaniu HTTP. |
 
 ---

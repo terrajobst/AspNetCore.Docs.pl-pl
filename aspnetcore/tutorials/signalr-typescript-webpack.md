@@ -6,12 +6,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 04/23/2019
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: fec89cab52b5909344d2ebc0d69582ecf97ecefc
-ms.sourcegitcommit: 116bfaeab72122fa7d586cdb2e5b8f456a2dc92a
+ms.openlocfilehash: 628fbb9940ad14cb15e3abd88b8b6a524b24d70a
+ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384949"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773958"
 ---
 # <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>Korzystanie z ASP.NET Core sygnalizującego za pomocą języka TypeScript i pakietu WebPack
 
@@ -413,6 +413,8 @@ Poniższe kroki umożliwiają skonfigurowanie konwersji języka TypeScript na Ja
 1. Mapuj trasę */Hub* do `ChatHub` centrum. Dodaj następujące wiersze na końcu `Startup.Configure` metody:
 
     [!code-csharp[Startup](signalr-typescript-webpack/sample/2.x/Startup.cs?name=snippet_UseSignalR)]
+
+::: moniker-end
 
 1. Utwórz nowy katalog o nazwie *Hubs*w katalogu głównym projektu. Celem jest przechowywanie centrum sygnalizującego, które jest tworzone w następnym kroku.
 

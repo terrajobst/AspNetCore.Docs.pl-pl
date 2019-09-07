@@ -1,122 +1,158 @@
 ---
-title: Rozproszonej pamięci podręcznej w programie ASP.NET Core
+title: Rozproszone buforowanie w ASP.NET Core
 author: guardrex
-description: Dowiedz się, jak poprawić wydajność aplikacji i skalowalności, szczególnie w środowisku farmy, chmurze i na serwerze za pomocą platformy ASP.NET Core rozproszonej pamięci podręcznej.
+description: Dowiedz się, jak za pomocą rozproszonej pamięci podręcznej ASP.NET Core poprawić wydajność i skalowalność aplikacji, szczególnie w środowisku chmury lub farmy serwerów.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/30/2019
+ms.date: 08/27/2019
 uid: performance/caching/distributed
-ms.openlocfilehash: 871e27c068de3a465cedb517418a35a87f992300
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 8417463038bcdc0f77852bec3c3bb8a618153009
+ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65085836"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773853"
 ---
-# <a name="distributed-caching-in-aspnet-core"></a>Rozproszonej pamięci podręcznej w programie ASP.NET Core
+# <a name="distributed-caching-in-aspnet-core"></a>Rozproszone buforowanie w ASP.NET Core
 
-Przez [Luke Latham](https://github.com/guardrex) i [Steve Smith](https://ardalis.com/)
+Autorzy [Luke Latham](https://github.com/guardrex) i [Steve Smith](https://ardalis.com/)
 
-Rozproszonej pamięci podręcznej jest pamięć podręczna współużytkowane przez wiele serwerów aplikacji, zazwyczaj przechowywane jako zewnętrznej usługi na serwerach aplikacji, mających do niej dostęp. Rozproszonej pamięci podręcznej może zwiększyć wydajność i skalowalność aplikacji ASP.NET Core, szczególnie w przypadku, gdy aplikacja jest hostowana w usłudze usługi w chmurze lub w farmie serwerów.
+Rozproszonej pamięci podręcznej to pamięć podręczna współdzielona przez wiele serwerów aplikacji, zazwyczaj obsługiwana jako usługa zewnętrzna do serwerów aplikacji, które mają do niego dostęp. Rozproszona pamięć podręczna może zwiększyć wydajność i skalowalność aplikacji ASP.NET Core, szczególnie gdy aplikacja jest hostowana przez usługę w chmurze lub farmę serwerów.
 
-Rozproszonej pamięci podręcznej ma kilka zalet w stosunku do innych scenariuszy buforowania, gdzie buforowane dane są przechowywane na serwerach poszczególnych aplikacji.
+Rozproszonej pamięci podręcznej ma kilka zalet w porównaniu z innymi scenariuszami buforowania, w których buforowane dane są przechowywane na poszczególnych serwerach aplikacji.
 
-Gdy dane w pamięci podręcznej jest rozpowszechniana, dane:
+Dane przechowywane w pamięci podręcznej są dystrybuowane:
 
-* Jest *spójnego* (spójność) w ramach żądania na wielu serwerach.
-* Przeżyje serwer zostanie ponownie uruchomiony i wdrożenia aplikacji.
-* Nie korzysta z lokalnej pamięci.
+* Jest *spójna* (spójna) między żądaniami do wielu serwerów.
+* Przeżyje ponowne uruchomienia serwera i wdrożenia aplikacji.
+* Nie używa pamięci lokalnej.
 
-Konfiguracja rozproszonej pamięci podręcznej jest zależne od implementacji. W tym artykule opisano sposób konfigurowania programu SQL Server i rozproszonej pamięci podręczne redis Cache. Implementacje firm również są dostępne, takich jak [NCache](http://www.alachisoft.com/ncache/aspnet-core-idistributedcache-ncache.html) ([NCache w serwisie GitHub](https://github.com/Alachisoft/NCache)). Niezależnie od tego, która implementacja jest zaznaczone, aplikacja korzysta z pamięci podręcznej przy użyciu <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> interfejsu.
+Konfiguracja rozproszonej pamięci podręcznej jest specyficzna dla implementacji. W tym artykule opisano sposób konfigurowania SQL Server i rozproszonej pamięci podręcznej Redis. Dostępne są również implementacje innych firm, takie jak [NCache](http://www.alachisoft.com/ncache/aspnet-core-idistributedcache-ncache.html) ([NCache w witrynie GitHub](https://github.com/Alachisoft/NCache)). Niezależnie od tego, która implementacja została wybrana, aplikacja współdziała z pamięcią podręczną przy <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> użyciu interfejsu.
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/distributed/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-::: moniker range=">= aspnetcore-2.2"
+::: moniker range=">= aspnetcore-3.0"
 
-Używanie programu SQL Server rozproszonej pamięci podręcznej, odwołanie [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) lub Dodaj odwołanie do pakietu [Microsoft.Extensions.Caching.SqlServer](https://www.nuget.org/packages/Microsoft.Extensions.Caching.SqlServer) pakietu.
+Aby użyć rozproszonej pamięci podręcznej SQL Server, Dodaj odwołanie do pakietu do pakietu [Microsoft. Extensions. cache. SqlServer](https://www.nuget.org/packages/Microsoft.Extensions.Caching.SqlServer) .
 
-Do użycia pamięci podręcznej Redis rozproszonej pamięci podręcznej, odwołanie [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) i Dodaj odwołanie do pakietu [Microsoft.Extensions.Caching.StackExchangeRedis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.StackExchangeRedis) pakietu. Pakiet Redis nie jest zawarty w `Microsoft.AspNetCore.App` pakietu, więc użytkownik musi odwoływać się pakietu Redis oddzielnie w pliku projektu.
+Aby użyć rozproszonej pamięci podręcznej Redis, Dodaj odwołanie do pakietu do pakietu [Microsoft. Extensions. cache. StackExchangeRedis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.StackExchangeRedis) .
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.2"
+
+Aby użyć rozproszonej pamięci podręcznej SQL Server, należy odwołać się do pakietu [Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app) lub dodać odwołanie do pakietu do pakietu [Microsoft. Extensions. cache. SqlServer](https://www.nuget.org/packages/Microsoft.Extensions.Caching.SqlServer) .
+
+Aby użyć rozproszonej pamięci podręcznej Redis, odwołuje się do pakietu [Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app) , a następnie Dodaj odwołanie do pakietu do pakietu [Microsoft. Extensions. cache. StackExchangeRedis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.StackExchangeRedis) . Pakiet Redis nie znajduje się w `Microsoft.AspNetCore.App` pakiecie, dlatego należy odwołać się do pakietu Redis oddzielnie w pliku projektu.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
-Używanie programu SQL Server rozproszonej pamięci podręcznej, odwołanie [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) lub Dodaj odwołanie do pakietu [Microsoft.Extensions.Caching.SqlServer](https://www.nuget.org/packages/Microsoft.Extensions.Caching.SqlServer) pakietu.
+Aby użyć rozproszonej pamięci podręcznej SQL Server, należy odwołać się do pakietu [Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app) lub dodać odwołanie do pakietu do pakietu [Microsoft. Extensions. cache. SqlServer](https://www.nuget.org/packages/Microsoft.Extensions.Caching.SqlServer) .
 
-Do użycia pamięci podręcznej Redis rozproszonej pamięci podręcznej, odwołanie [meta Microsoft.aspnetcore.all Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) i Dodaj odwołanie do pakietu [Microsoft.Extensions.Caching.Redis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Redis) pakietu. Pakiet Redis nie jest zawarty w `Microsoft.AspNetCore.App` pakietu, więc użytkownik musi odwoływać się pakietu Redis oddzielnie w pliku projektu.
+Aby użyć rozproszonej pamięci podręcznej Redis, odwołuje się do pakietu [Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app) , a następnie Dodaj odwołanie do pakietu do pakietu [Microsoft. Extensions. cache. Redis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Redis) . Pakiet Redis nie znajduje się w `Microsoft.AspNetCore.App` pakiecie, dlatego należy odwołać się do pakietu Redis oddzielnie w pliku projektu.
 
 ::: moniker-end
 
-## <a name="idistributedcache-interface"></a>Interfejs IDistributedCache
+## <a name="idistributedcache-interface"></a>IDistributedCache, interfejs
 
-<xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> Interfejsu udostępnia następujące metody do manipulowania elementów w implementacja rozproszonej pamięci podręcznej:
+<xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> Interfejs udostępnia następujące metody do manipulowania elementami w implementacji rozproszonej pamięci podręcznej:
 
-* <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.Get*>, <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.GetAsync*> &ndash; Akceptuje klucza typu ciąg i pobiera element pamięci podręcznej jako `byte[]` tablicy, jeśli znaleziono w pamięci podręcznej.
-* <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.Set*>, <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.SetAsync*> &ndash; Dodaje element (jako `byte[]` tablicy) do pamięci podręcznej przy użyciu klucza typu ciąg.
-* <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.Refresh*>, <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.RefreshAsync*> &ndash; Odświeża element w pamięci podręcznej na podstawie jego klucza zresetowanie jej przewijania limit czasu wygaśnięcia (jeśli istnieje).
-* <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.Remove*>, <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.RemoveAsync*> &ndash; Usuwa element pamięci podręcznej na podstawie jego ciągu klucza.
+* <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.Get*>`byte[]` , <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.GetAsync*> Akceptujekluczciąguipobierabuforowanyelementjakotablicę,jeśliznajdujesięwpamięci&ndash; podręcznej.
+* <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.Set*>`byte[]` , <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.SetAsync*> Dodaje&ndash; element (jako tablicowy) do pamięci podręcznej przy użyciu klucza ciągu.
+* <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.Refresh*><xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.RefreshAsync*> ,&ndash; Odświeża element w pamięci podręcznej na podstawie jego klucza, resetowanie przekroczenia limitu czasu wygaśnięcia (jeśli istnieje).
+* <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.Remove*><xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.RemoveAsync*> ,&ndash; Usuwa element pamięci podręcznej na podstawie jego klucza ciągu.
 
-## <a name="establish-distributed-caching-services"></a>Ustanowić rozproszonego usługi pamięci podręcznej
+## <a name="establish-distributed-caching-services"></a>Ustanów usługi rozproszonej pamięci podręcznej
 
-Zarejestruj implementację <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> w `Startup.ConfigureServices`. Implementacje dostarczone przez Framework opisane w tym temacie obejmują:
+Zarejestruj implementację <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> programu w `Startup.ConfigureServices`programie. Implementacje wdrożone w ramach platformy opisane w tym temacie:
 
-* [Rozproszonej pamięci podręcznej](#distributed-memory-cache)
-* [Rozproszonej pamięci podręcznej programu SQL Server](#distributed-sql-server-cache)
-* [Rozproszonej pamięci podręcznej redis Cache](#distributed-redis-cache)
+* [Pamięć podręczna pamięci rozproszonej](#distributed-memory-cache)
+* [Pamięć podręczna rozproszonej SQL Server](#distributed-sql-server-cache)
+* [Pamięć podręczna Redis rozproszonej](#distributed-redis-cache)
 
-### <a name="distributed-memory-cache"></a>Rozproszonej pamięci podręcznej
+### <a name="distributed-memory-cache"></a>Pamięć podręczna pamięci rozproszonej
 
-Rozproszonej pamięci podręcznej (<xref:Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions.AddDistributedMemoryCache*>) to implementacja dostarczone przez framework <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> , elementy są przechowywane w pamięci. Rozproszonej pamięci podręcznej nie jest rzeczywisty rozproszonej pamięci podręcznej. Elementy pamięci podręcznej są przechowywane przez wystąpienie aplikacji na serwerze, na którym działa aplikacja.
+Pamięć podręczna pamięci podręcznej (<xref:Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions.AddDistributedMemoryCache*>) to <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> implementacja udostępniona przez platformę, która przechowuje elementy w pamięci. Pamięć podręczna pamięci rozproszonej nie jest rzeczywistą rozproszoną pamięcią podręczną. Elementy buforowane są przechowywane przez wystąpienie aplikacji na serwerze, na którym działa aplikacja.
 
-Rozproszonej pamięci podręcznej jest przydatne w implementacji:
+Pamięć podręczna pamięci rozproszonej jest przydatną implementacją:
 
-* W zakresie projektowania i testowania scenariuszy.
-* Gdy jeden serwer jest używany w produkcji i pamięci, użycie nie będzie to problemem. Implementowanie streszczenia rozproszonej pamięci podręcznej pamięci podręcznej magazynu danych. Umożliwia ona wdrażanie true rozproszonych rozwiązanie pamięci podręcznej w przyszłości w przypadku wielu węzłów lub odporności na uszkodzenia stają się niezbędne.
+* W scenariuszach projektowania i testowania.
+* Gdy jest używany pojedynczy serwer w środowisku produkcyjnym i użycie pamięci nie jest problemem. Implementacja rozproszonej pamięci podręcznej pamięć podręczna magazynu danych. Pozwala to na wdrożenie prawdziwego rozwiązania do buforowania rozproszonego w przyszłości, jeśli będzie konieczne przeprowadzenie wielu węzłów lub odporności na uszkodzenia.
 
-Przykładowa aplikacja korzysta z rozproszonej pamięci podręcznej, gdy aplikacja jest uruchamiana w środowisku programistycznym w `Startup.ConfigureServices`:
+Przykładowa aplikacja korzysta z pamięci podręcznej pamięci rozproszonej, gdy aplikacja jest uruchamiana w środowisku `Startup.ConfigureServices`programistycznym w programie:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](distributed/samples/3.x/DistCacheSample/Startup.cs?name=snippet_AddDistributedMemoryCache)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](distributed/samples/2.x/DistCacheSample/Startup.cs?name=snippet_AddDistributedMemoryCache)]
 
-### <a name="distributed-sql-server-cache"></a>Rozproszone programu SQL Server w pamięci podręcznej
+::: moniker-end
 
-Implementacja rozproszonej pamięci podręcznej serwera SQL (<xref:Microsoft.Extensions.DependencyInjection.SqlServerCachingServicesExtensions.AddDistributedSqlServerCache*>) umożliwia rozproszonej pamięci podręcznej do użycia bazę danych programu SQL Server jako jego magazyn zapasowy. Aby utworzyć tabelę element pamięci podręcznej programu SQL Server w wystąpieniu programu SQL Server, można użyć `sql-cache` narzędzia. Narzędzie tworzy tabelę o nazwie i schemat, który określisz.
+### <a name="distributed-sql-server-cache"></a>Pamięć podręczna rozproszonej SQL Server
 
-Utwórz tabelę w programie SQL Server, uruchamiając `sql-cache create` polecenia. Podaj wystąpienie programu SQL Server (`Data Source`), bazy danych (`Initial Catalog`), schematu (na przykład `dbo`) i nazwę tabeli (na przykład `TestCache`):
+Implementacja rozproszonej pamięci podręcznej SQL Server (<xref:Microsoft.Extensions.DependencyInjection.SqlServerCachingServicesExtensions.AddDistributedSqlServerCache*>) umożliwia rozproszonej pamięci podręcznej użycie bazy danych SQL Server jako magazynu zapasowego. Aby utworzyć SQL Server tabelę elementów w pamięci podręcznej w wystąpieniu SQL Server, można użyć `sql-cache` narzędzia. Narzędzie tworzy tabelę z określoną nazwą i schematem.
+
+Utwórz tabelę w SQL Server, uruchamiając `sql-cache create` polecenie. Podaj`Data Source`wystąpienie SQL Server (), bazę danych (`Initial Catalog`), `dbo`schemat (na przykład) i nazwę tabeli (na przykład `TestCache`):
 
 ```console
 dotnet sql-cache create "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DistCache;Integrated Security=True;" dbo TestCache
 ```
 
-Aby wskazać, że narzędzie zakończyła się pomyślnie, zostanie zarejestrowany komunikat:
+Komunikat jest rejestrowany w celu wskazania, że narzędzie zakończyło się pomyślnie:
 
 ```console
 Table and index were created successfully.
 ```
 
-Tabelę utworzoną przez `sql-cache` narzędzie posiada zgodny z następującym schematem:
+Tabela utworzona przez `sql-cache` narzędzie ma następujący schemat:
 
 ![SqlServer Cache Table](distributed/_static/SqlServerCacheTable.png)
 
 > [!NOTE]
-> Aplikacja powinna manipulowania wartości pamięci podręcznej przy użyciu wystąpienia <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache>, a nie <xref:Microsoft.Extensions.Caching.SqlServer.SqlServerCache>.
+> Aplikacja powinna manipulować wartościami pamięci podręcznej przy użyciu <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache>wystąpienia, a <xref:Microsoft.Extensions.Caching.SqlServer.SqlServerCache>nie.
 
-Implementuje aplikacji przykładowej <xref:Microsoft.Extensions.Caching.SqlServer.SqlServerCache> w środowisku bez rozwoju w `Startup.ConfigureServices`:
+Przykładowa aplikacja jest <xref:Microsoft.Extensions.Caching.SqlServer.SqlServerCache> wdrażana w środowisku innym niż programowanie `Startup.ConfigureServices`w programie:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](distributed/samples/3.x/DistCacheSample/Startup.cs?name=snippet_AddDistributedSqlServerCache)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](distributed/samples/2.x/DistCacheSample/Startup.cs?name=snippet_AddDistributedSqlServerCache)]
 
+::: moniker-end
+
 > [!NOTE]
-> A <xref:Microsoft.Extensions.Caching.SqlServer.SqlServerCacheOptions.ConnectionString*> (i, opcjonalnie, <xref:Microsoft.Extensions.Caching.SqlServer.SqlServerCacheOptions.SchemaName*> i <xref:Microsoft.Extensions.Caching.SqlServer.SqlServerCacheOptions.TableName*>) są zazwyczaj przechowywane poza kontrolą źródła (na przykład przechowywane przez [Menedżera klucz tajny](xref:security/app-secrets) lub *appsettings.json* / *appsettings. {ŚRODOWISKA} .json* plików). Parametry połączenia mogą zawierać poświadczenia, które powinny być przechowywane poza systemów kontroli źródła.
+> / [](xref:security/app-secrets) (I <xref:Microsoft.Extensions.Caching.SqlServer.SqlServerCacheOptions.SchemaName*> Opcjonalnie<xref:Microsoft.Extensions.Caching.SqlServer.SqlServerCacheOptions.TableName*>) są zwykle przechowywane poza kontrolą źródła (na przykład przechowywane przez Menedżera wpisów tajnych lub w pliku appSettings. JSON. { <xref:Microsoft.Extensions.Caching.SqlServer.SqlServerCacheOptions.ConnectionString*>  *ENVIRONMENT}. JSON* — pliki). Parametry połączenia mogą zawierać poświadczenia, które powinny być przechowywane w systemach kontroli źródła.
 
-### <a name="distributed-redis-cache"></a>Rozproszonej pamięci podręcznej Redis Cache
+### <a name="distributed-redis-cache"></a>Redis Cache dystrybuowane
 
-[Redis](https://redis.io/) to magazyn danych w pamięci "open source", która jest często używana jako rozproszonej pamięci podręcznej. Magazynu Redis można używać lokalnie i można skonfigurować [usługi Azure Redis Cache](https://azure.microsoft.com/services/cache/) dla aplikacji hostowanych na platformie Azure ASP.NET Core.
+[Redis](https://redis.io/) to magazyn danych typu "open source", który jest często używany jako rozproszonej pamięci podręcznej. Można używać Redis lokalnie i można skonfigurować [Azure Redis Cache](https://azure.microsoft.com/services/cache/) dla aplikacji ASP.NET Core hostowanej na platformie Azure.
 
-::: moniker range=">= aspnetcore-2.2"
+::: moniker range=">= aspnetcore-3.0"
 
-Konfiguruje aplikację, za pomocą implementacji pamięci podręcznej <xref:Microsoft.Extensions.Caching.StackExchangeRedis.RedisCache> wystąpienia (<xref:Microsoft.Extensions.DependencyInjection.StackExchangeRedisCacheServiceCollectionExtensions.AddStackExchangeRedisCache*>) w środowisku bez rozwoju w `Startup.ConfigureServices`:
+Aplikacja konfiguruje implementację pamięci podręcznej przy<xref:Microsoft.Extensions.DependencyInjection.StackExchangeRedisCacheServiceCollectionExtensions.AddStackExchangeRedisCache*>użyciu <xref:Microsoft.Extensions.Caching.StackExchangeRedis.RedisCache> wystąpienia () w środowisku innym niż `Startup.ConfigureServices`programowanie w programie:
+
+[!code-csharp[](distributed/samples/3.x/DistCacheSample/Startup.cs?name=snippet_AddStackExchangeRedisCache)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.2"
+
+Aplikacja konfiguruje implementację pamięci podręcznej przy<xref:Microsoft.Extensions.DependencyInjection.StackExchangeRedisCacheServiceCollectionExtensions.AddStackExchangeRedisCache*>użyciu <xref:Microsoft.Extensions.Caching.StackExchangeRedis.RedisCache> wystąpienia () w środowisku innym niż `Startup.ConfigureServices`programowanie w programie:
 
 [!code-csharp[](distributed/samples/2.x/DistCacheSample/Startup.cs?name=snippet_AddStackExchangeRedisCache)]
 
@@ -124,7 +160,7 @@ Konfiguruje aplikację, za pomocą implementacji pamięci podręcznej <xref:Micr
 
 ::: moniker range="< aspnetcore-2.2"
 
-Konfiguruje aplikację, za pomocą implementacji pamięci podręcznej <xref:Microsoft.Extensions.Caching.Redis.RedisCache> wystąpienia (<xref:Microsoft.Extensions.DependencyInjection.RedisCacheServiceCollectionExtensions.AddDistributedRedisCache*>):
+Aplikacja konfiguruje implementację pamięci podręcznej przy<xref:Microsoft.Extensions.DependencyInjection.RedisCacheServiceCollectionExtensions.AddDistributedRedisCache*>użyciu <xref:Microsoft.Extensions.Caching.Redis.RedisCache> wystąpienia ():
 
 ```csharp
 services.AddDistributedRedisCache(options =>
@@ -136,52 +172,74 @@ services.AddDistributedRedisCache(options =>
 
 ::: moniker-end
 
-Aby zainstalować usługi Redis na maszynie lokalnej:
+Aby zainstalować Redis na komputerze lokalnym:
 
-* Zainstaluj [pakietu Chocolatey Redis](https://chocolatey.org/packages/redis-64/).
-* Uruchom `redis-server` z poziomu wiersza polecenia.
+* Zainstaluj [pakiet Redis czekolady](https://chocolatey.org/packages/redis-64/).
+* Uruchom `redis-server` polecenie w wierszu polecenia.
 
-## <a name="use-the-distributed-cache"></a>Przy użyciu rozproszonej pamięci podręcznej
+## <a name="use-the-distributed-cache"></a>Korzystanie z rozproszonej pamięci podręcznej
 
-Do użycia <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> interfejsu, żądań wystąpienie <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> z dowolnym konstruktora w aplikacji. Wystąpienie jest dostarczany przez [wstrzykiwanie zależności (DI)](xref:fundamentals/dependency-injection).
+Aby użyć <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> interfejsu, zażądaj <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> wystąpienia z dowolnego konstruktora w aplikacji. Wystąpienie jest dostarczane przez [wstrzyknięcie zależności (di)](xref:fundamentals/dependency-injection).
 
-Po uruchomieniu aplikacji, <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> są wstrzykiwane do `Startup.Configure`. Bieżący czas jest buforowana przy użyciu <xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime> (Aby uzyskać więcej informacji, zobacz [hosta sieci Web: Interfejs IApplicationLifetime](xref:fundamentals/host/web-host#iapplicationlifetime-interface)):
+::: moniker range=">= aspnetcore-3.0"
+
+Po rozpoczęciu <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> przykładowej aplikacji jest wstrzykiwana `Startup.Configure`do. Bieżący czas jest buforowany przy użyciu <xref:Microsoft.Extensions.Hosting.IHostApplicationLifetime> (Aby uzyskać więcej informacji, [Zobacz Host ogólny: IHostApplicationLifetime](xref:fundamentals/host/generic-host#ihostapplicationlifetime)):
+
+[!code-csharp[](distributed/samples/3.x/DistCacheSample/Startup.cs?name=snippet_Configure&highlight=10)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Po rozpoczęciu <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> przykładowej aplikacji jest wstrzykiwana `Startup.Configure`do. Bieżący czas jest buforowany przy użyciu <xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime> (Aby uzyskać więcej informacji, [Zobacz host sieci Web: Interfejs](xref:fundamentals/host/web-host#iapplicationlifetime-interface)IApplicationLifetime):
 
 [!code-csharp[](distributed/samples/2.x/DistCacheSample/Startup.cs?name=snippet_Configure&highlight=10)]
 
-Przykładowa aplikacja wprowadza <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> do `IndexModel` do użytku przez stronę indeksu.
+::: moniker-end
 
-Każdym załadowaniu strony indeksu pamięci podręcznej są sprawdzane pod kątem pamięci podręcznej czas w `OnGetAsync`. Jeśli nie upłynął czas pamięci podręcznej, jest wyświetlany czas. Po upływie 20 sekund od czasu ostatniego czasu pamięci podręcznej uzyskano dostęp (ostatni czas, ta strona została załadowana), zostanie wyświetlona strona *upłynął limit czasu pamięci podręcznej*.
+Przykładowa aplikacja wstrzykiwa <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> `IndexModel` do użycia na stronie indeksu.
 
-Natychmiast zaktualizować pamięci podręcznej czas bieżący czas, wybierając **zresetować czasu pamięci podręcznej** przycisku. Wyzwalacze przycisk `OnPostResetCachedTime` metodę procedury obsługi.
+Za każdym razem, gdy strona indeksu zostanie załadowana, pamięć podręczna jest sprawdzana `OnGetAsync`pod kątem pamięci podręcznej w programie. Jeśli czas w pamięci podręcznej nie upłynął, zostanie wyświetlony czas. Jeśli od czasu ostatniego dostępu do pamięci podręcznej upłynie 20 sekund (podczas ostatniego ładowania strony), na stronie zostanie wyświetlona *godzina wygaśnięcia pamięci podręcznej*.
+
+Natychmiast Aktualizuj buforowany czas do bieżącego czasu, wybierając przycisk **Resetuj buforowany czas** . Przycisk wyzwala `OnPostResetCachedTime` metodę procedury obsługi.
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](distributed/samples/3.x/DistCacheSample/Pages/Index.cshtml.cs?name=snippet_IndexModel&highlight=7,14-20,25-29)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](distributed/samples/2.x/DistCacheSample/Pages/Index.cshtml.cs?name=snippet_IndexModel&highlight=7,14-20,25-29)]
 
+::: moniker-end
+
 > [!NOTE]
-> Nie ma potrzeby używania pojedynczego wystąpienia lub polu Okres istnienia <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> wystąpienia (co najmniej wbudowanych implementacji).
+> Nie ma potrzeby używania pojedynczego lub zakresu okresu istnienia dla <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> wystąpień (co najmniej dla wbudowanych implementacji).
 >
-> Można również utworzyć <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> wystąpienia wszędzie tam, gdzie może być konieczne zamiast DI, ale Tworzenie wystąpienia usługi w kodzie może być trudniejsze do testowania kodu i narusza [jawne zależności zasady](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies).
+> Możesz również utworzyć <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> wystąpienie wszędzie tam, gdzie może być potrzebne, zamiast używać di, ale utworzenie wystąpienia w kodzie może sprawić, że kod będzie trudniejszy do przetestowania i narusza [zasadę jawnych zależności](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies).
 
 ## <a name="recommendations"></a>Zalecenia
 
-Podczas podejmowania decyzji o życie <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> sprawdza się najlepiej w swojej aplikacji, należy wziąć pod uwagę następujące czynności:
+Podczas decydowania, która implementacja <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> jest Najlepsza dla aplikacji, należy wziąć pod uwagę następujące kwestie:
 
-* Istniejącą infrastrukturę
+* Istniejąca infrastruktura
 * Wymagania dotyczące wydajności
 * Koszt
-* Doświadczenia zespołu użytkownika
+* Środowisko pracy zespołu
 
-Rozwiązań buforowania na ogół magazynu w pamięci w celu zapewnienia szybkiego pobierania danych z pamięci podręcznej pamięci jest jednak ograniczona zasobów i kosztowna rozwinąć. Tylko magazynu często używane dane w pamięci podręcznej.
+Rozwiązania pamięci podręcznej zwykle polegają na magazynie w pamięci, aby zapewnić szybkie pobieranie danych z pamięci podręcznej, ale pamięć jest ograniczonym zasobem i kosztowna. Przechowuj tylko często używane dane w pamięci podręcznej.
 
-Ogólnie rzecz biorąc usługi Redis cache zapewnia wyższą przepływność i mniejsze opóźnienia niż pamięć podręczna programu SQL Server. Jednak testów porównawczych jest zazwyczaj wymagane, aby określić charakterystyki wydajności strategii buforowania.
+Ogólnie pamięć podręczna Redis zapewnia wyższą przepływność i mniejsze opóźnienia niż w przypadku pamięci podręcznej SQL Server. Jednak testy porównawcze są zwykle wymagane do określenia charakterystyki wydajności strategii buforowania.
 
-Gdy program SQL Server jest używana jako magazyn zapasowy rozproszonej pamięci podręcznej, użycie tej samej bazy danych dla pamięci podręcznej i przechowywanie danych zwykłych aplikacji i pobierania może niekorzystnie wpłynąć na wydajność zarówno. Zalecamy używanie dedykowanego wystąpienia programu SQL Server dla rozproszonej pamięci podręcznej, magazyn zapasowy.
+Gdy SQL Server jest używany jako magazyn zapasowy rozproszonej pamięci podręcznej, korzystanie z tej samej bazy danych dla pamięci podręcznej i zwykłego magazynu danych aplikacji może mieć negatywny wpływ na wydajność obu tych elementów. Zalecamy używanie dedykowanego wystąpienia SQL Server dla magazynu zapasowego rozproszonej pamięci podręcznej.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Usługa redis Cache na platformie Azure](/azure/azure-cache-for-redis/)
-* [Bazy danych SQL na platformie Azure](/azure/sql-database/)
-* [ASP.NET Core IDistributedCache dostarczyciela NCache w formularzach sieci Web](http://www.alachisoft.com/ncache/aspnet-core-idistributedcache-ncache.html) ([NCache w serwisie GitHub](https://github.com/Alachisoft/NCache))
+* [Redis Cache na platformie Azure](/azure/azure-cache-for-redis/)
+* [SQL Database na platformie Azure](/azure/sql-database/)
+* [ASP.NET Core dostawcę IDistributedCache dla NCache w farmach sieci Web](http://www.alachisoft.com/ncache/aspnet-core-idistributedcache-ncache.html) ([NCache w serwisie GitHub](https://github.com/Alachisoft/NCache))
 * <xref:performance/caching/memory>
 * <xref:fundamentals/change-tokens>
 * <xref:performance/caching/response>

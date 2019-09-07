@@ -1,35 +1,35 @@
 ---
-title: Podstawy platformy ASP.NET Core
+title: Podstawy ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, podstawowe pojęcia do tworzenia aplikacji platformy ASP.NET Core.
+description: Poznaj podstawowe koncepcje tworzenia aplikacji ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/11/2019
+ms.date: 09/02/2019
 uid: fundamentals/index
-ms.openlocfilehash: a6c848987c97103864fd5410922346e85a68c353
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: 7e2901919c8b0165d0f169abf74fe5bc0edd8be4
+ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856233"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773756"
 ---
-# <a name="aspnet-core-fundamentals"></a>Podstawy platformy ASP.NET Core
+# <a name="aspnet-core-fundamentals"></a>Podstawy ASP.NET Core
 
-W tym artykule przedstawiono kluczowe tematy zrozumieć, jak opracowywać aplikacje platformy ASP.NET Core.
+Ten artykuł zawiera omówienie najważniejszych tematów dotyczących sposobu tworzenia aplikacji ASP.NET Core.
 
 ## <a name="the-startup-class"></a>Klasa Startup
 
-`Startup` Klasy jest, gdy:
+`Startup` Klasa jest:
 
-* Skonfigurowano usługi wymagane przez aplikację.
-* Żądanie obsługi potoku jest zdefiniowana.
+* Usługi wymagane przez aplikację są skonfigurowane.
+* Zdefiniowano potok obsługi żądań.
 
-*Usługi* przedstawiono składniki, które są używane przez aplikację. Na przykład rejestrowanie składnik to usługa. Kod, aby skonfigurować (lub *zarejestrować*) usługi jest dodawany do `Startup.ConfigureServices` metody.
+*Usługi* są składnikami, które są używane przez aplikację. Na przykład składnik rejestrowania to usługa. Kod do konfigurowania (lub *rejestrowania*) usług jest dodawany do `Startup.ConfigureServices` metody.
 
-Żądanie obsługi Potok składa się jako serię *oprogramowania pośredniczącego* składników. Na przykład oprogramowanie pośredniczące może obsługiwać żądań dotyczących plików statycznych lub przekierowywanie żądań HTTP do HTTPS. Każdy oprogramowania pośredniczącego wykonuje operacje asynchroniczne na `HttpContext` i następnie wywoła następne oprogramowanie pośredniczące w potoku lub kończy żądanie. Kod, aby skonfigurować żądanie obsługi potoku jest dodawany do `Startup.Configure` metody.
+Potok obsługi żądań składa się z serii komponentów *oprogramowania pośredniczącego* . Na przykład oprogramowanie pośredniczące może obsługiwać żądania dotyczące plików statycznych lub przekierowywać żądania HTTP do protokołu HTTPS. Każde oprogramowanie pośredniczące wykonuje operacje asynchroniczne na `HttpContext` serwerze, a następnie wywołuje następne oprogramowanie pośredniczące w potoku lub kończy żądanie. Kod do konfigurowania potoku obsługi żądań został dodany do `Startup.Configure` metody.
 
-Poniżej znajduje się przykładowy `Startup` klasy:
+Oto przykładowa `Startup` Klasa:
 
 [!code-csharp[](index/snapshots/2.x/Startup1.cs?highlight=3,12)]
 
@@ -37,55 +37,55 @@ Aby uzyskać więcej informacji, zobacz <xref:fundamentals/startup>.
 
 ## <a name="dependency-injection-services"></a>Wstrzykiwanie zależności (usługi)
 
-ASP.NET Core ma framework iniekcji (DI) wbudowane zależności czy services sprawia, że skonfigurowano dostępne dla klasy aplikacji. Jednym ze sposobów, aby pobrać wystąpienie usługi w klasie jest tworzenie konstruktora przy użyciu parametru wymaganego typu. Parametr może być typ usługi lub interfejs. DI system oferuje usługi w czasie wykonywania.
+ASP.NET Core ma wbudowaną platformę wstrzykiwania zależności (DI), która udostępnia skonfigurowane usługi dla klas aplikacji. Jednym ze sposobów uzyskania wystąpienia usługi w klasie jest utworzenie konstruktora z parametrem wymaganego typu. Parametr może być typem usługi lub interfejsem. System DI zapewnia usługę w czasie wykonywania.
 
-W tym miejscu to klasa, która używa DI w celu uzyskania obiektu kontekstu platformy Entity Framework Core. Przykładem iniekcji konstruktora jest wyróżniony wiersz:
+Oto Klasa, która używa funkcji DI do pobrania obiektu kontekstu Entity Framework Core. Wyróżniony wiersz jest przykładem iniekcji konstruktora:
 
 [!code-csharp[](index/snapshots/2.x/Index.cshtml.cs?highlight=5)]
 
-Gdy DI jest wbudowany, służy ona do umożliwiają podłączenie w kontenerze Inwersja kontroli (IoC) innych firm, jeśli użytkownik sobie tego życzy.
+Podczas gdy program jest wbudowany, został zaprojektowany z myślą o umożliwieniu podłączenia kontenera kontroli (IoC) innej firmy.
 
 Aby uzyskać więcej informacji, zobacz <xref:fundamentals/dependency-injection>.
 
 ## <a name="middleware"></a>Oprogramowanie pośredniczące
 
-Żądanie obsługi Potok składa się jako serię składników oprogramowania pośredniczącego. Każdy składnik wykonuje operacje asynchroniczne na `HttpContext` i następnie wywoła następne oprogramowanie pośredniczące w potoku lub kończy żądanie.
+Potok obsługi żądań składa się z serii komponentów oprogramowania pośredniczącego. Każdy składnik wykonuje operacje asynchroniczne na serwerze `HttpContext` , a następnie wywołuje następne oprogramowanie pośredniczące w potoku lub kończy żądanie.
 
-Zgodnie z Konwencją składnik oprogramowania pośredniczącego jest dodawane do potoku za pomocą jego `Use...` metody rozszerzenia w `Startup.Configure` metody. Na przykład, aby umożliwić renderowanie pliki statyczne, należy wywołać `UseStaticFiles`.
+Zgodnie z Konwencją składnik pośredniczący jest dodawany do potoku przez wywołanie jego `Use...` metody rozszerzenia `Startup.Configure` w metodzie. Na przykład, aby włączyć renderowanie plików statycznych, wywołaj `UseStaticFiles`.
 
-Wyróżniony kod w poniższym przykładzie konfiguruje żądania obsługi potoku:
+Wyróżniony kod w poniższym przykładzie konfiguruje potok obsługi żądań:
 
 [!code-csharp[](index/snapshots/2.x/Startup1.cs?highlight=14-16)]
 
-Platforma ASP.NET Core zawiera bogaty zestaw wbudowanych oprogramowania pośredniczącego i możesz napisać niestandardowego oprogramowania pośredniczącego.
+ASP.NET Core zawiera rozbudowany zestaw wbudowanych programów pośredniczących i można napisać niestandardowe oprogramowanie pośredniczące.
 
 Aby uzyskać więcej informacji, zobacz <xref:fundamentals/middleware/index>.
 
 ## <a name="host"></a>Host
 
-Tworzy aplikację ASP.NET Core *hosta* przy uruchamianiu. Host jest obiektem, który hermetyzuje wszystkie zasoby aplikacji, takich jak:
+Aplikacja ASP.NET Core kompiluje *hosta* podczas uruchamiania. Host jest obiektem, który hermetyzuje wszystkie zasoby aplikacji, takie jak:
 
-* Implementację serwera HTTP
+* Implementacja serwera HTTP
 * Składniki oprogramowania pośredniczącego
 * Rejestrowanie
-* DI
+* FOSFORAN
 * Konfiguracja
 
-Głównym powodem wraz ze wszystkimi zasobami współzależne aplikacji w jeden obiekt jest zarządzanie okresem istnienia: kontrolę nad uruchamianiem aplikacji i łagodne zamykanie.
+Główną przyczyną uwzględnienia wszystkich zasobów zależnych od aplikacji w jednym obiekcie jest zarządzanie okresem istnienia: Kontrola uruchamiania aplikacji i bezpieczne zamykanie.
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Dostępne są dwa hosty: ogólne hosta i hosta sieci Web. Ogólny hosta jest zalecana i hosta sieci Web jest dostępna tylko dla zapewnienia zgodności.
+Dostępne są dwa hosty: Host ogólny i host sieci Web. Zalecany jest host ogólny, a host sieci Web jest dostępny tylko w celu zapewnienia zgodności z poprzednimi wersjami.
 
-Kod w celu utworzenia hosta jest `Program.Main`:
+Kod służący do tworzenia hosta `Program.Main`:
 
 [!code-csharp[](index/snapshots/3.x/Program1.cs)]
 
-`CreateDefaultBuilder` i `ConfigureWebHostDefaults` metody Konfigurowanie hosta z powszechnie używane opcje, takie jak następujące:
+Metody `CreateDefaultBuilder` i`ConfigureWebHostDefaults` umożliwiają skonfigurowanie hosta z najczęściej używanymi opcjami, takimi jak następujące:
 
-* Użyj [Kestrel](#servers) jako integracja sieci web serwera i Włącz usługi IIS.
-* Konfiguracja obciążenia z *appsettings.json*, *appsettings. { Nazwa środowiska} .json*, zmienne środowiskowe, argumenty wiersza polecenia i inne źródła konfiguracji.
-* Wyślij rejestrowania danych wyjściowych do konsoli i debugowanie dostawców.
+* Użyj [Kestrel](#servers) jako serwera sieci Web i Włącz INTEGRACJĘ usług IIS.
+* Załaduj konfigurację z pliku *appSettings. JSON*, *appSettings. { Nazwa środowiska}. JSON*, zmienne środowiskowe, argumenty wiersza polecenia i inne źródła konfiguracji.
+* Wyślij dane wyjściowe rejestrowania do konsoli programu i dostawców debugowania.
 
 Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host>.
 
@@ -93,47 +93,47 @@ Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host>.
 
 ::: moniker range="< aspnetcore-3.0"
 
-Dostępne są dwa hosty: Host sieci Web i ogólny hosta. W programie ASP.NET Core 2.x, ogólny Host znajduje się tylko w scenariuszach bez sieci web.
+Dostępne są dwa hosty: host sieci Web i Host ogólny. W ASP.NET Core 2. x Host generyczny jest przeznaczony tylko dla scenariuszy innych niż sieci Web.
 
-Kod w celu utworzenia hosta jest `Program.Main`:
+Kod służący do tworzenia hosta `Program.Main`:
 
 [!code-csharp[](index/snapshots/2.x/Program1.cs)]
 
-`CreateDefaultBuilder` Metoda konfiguruje hosta przy użyciu powszechnie używane opcje, takie jak następujące:
+`CreateDefaultBuilder` Metoda konfiguruje hosta z najczęściej używanymi opcjami, takimi jak:
 
-* Użyj [Kestrel](#servers) jako integracja sieci web serwera i Włącz usługi IIS.
-* Konfiguracja obciążenia z *appsettings.json*, *appsettings. { Nazwa środowiska} .json*, zmienne środowiskowe, argumenty wiersza polecenia i inne źródła konfiguracji.
-* Wyślij rejestrowania danych wyjściowych do konsoli i debugowanie dostawców.
+* Użyj [Kestrel](#servers) jako serwera sieci Web i Włącz INTEGRACJĘ usług IIS.
+* Załaduj konfigurację z pliku *appSettings. JSON*, *appSettings. { Nazwa środowiska}. JSON*, zmienne środowiskowe, argumenty wiersza polecenia i inne źródła konfiguracji.
+* Wyślij dane wyjściowe rejestrowania do konsoli programu i dostawców debugowania.
 
 Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/web-host>.
 
 ::: moniker-end
 
-### <a name="non-web-scenarios"></a>Scenariusze non-sieci web
+### <a name="non-web-scenarios"></a>Scenariusze inne niż internetowe
 
-Ogólny hosta umożliwia innych typów aplikacji, aby korzystać z kompleksowych framework rozszerzeń, takich jak rejestrowanie, wstrzykiwanie zależności (DI), Konfiguracja i zarządzanie okresem istnienia aplikacji. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host> i <xref:fundamentals/host/hosted-services>.
+Host ogólny umożliwia innym typom aplikacji korzystanie z rozszerzeń struktury wycinania, takich jak rejestrowanie, iniekcja zależności (DI), konfiguracja i zarządzanie okresem istnienia aplikacji. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host> i <xref:fundamentals/host/hosted-services>.
 
 ## <a name="servers"></a>Serwery
 
-Aplikacji ASP.NET Core używa implementację serwera HTTP, aby nasłuchiwała żądań HTTP. Żądania powierzchnie serwerów aplikacji jako zbiór [funkcje na żądanie](xref:fundamentals/request-features) składające się na `HttpContext`.
+Aplikacja ASP.NET Core używa implementacji serwera HTTP do nasłuchiwania żądań HTTP. Serwer wyświetla żądania do aplikacji jako zestaw [funkcji żądania](xref:fundamentals/request-features) złożonych w `HttpContext`.
 
 ::: moniker range=">= aspnetcore-2.2"
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-Platforma ASP.NET Core oferuje następujące implementacje serwera:
+ASP.NET Core udostępnia następujące implementacje serwera:
 
-* *Kestrel* jest serwerem sieci web dla wielu platform. Kestrel często jest uruchamiany w konfiguracji zwrotny serwer proxy przy użyciu [IIS](https://www.iis.net/). ASP.NET Core w wersji 2.0 lub nowszej Kestrel może działać jako serwer graniczny publicznymi, bezpośrednie połączenie z Internetem.
-* *Serwer HTTP IIS* jest serwerem dla systemu windows, która korzysta z usług IIS. Z tym serwerem aplikacji ASP.NET Core i usługi IIS uruchamiane w tym samym procesie.
-* *Sterownik HTTP.sys* dotyczy serwera Windows, który nie jest używany z usługami IIS.
+* *Kestrel* to Międzyplatformowy serwer sieci Web. Kestrel jest często uruchamiana w odwrotnej konfiguracji serwera proxy za pomocą [usług IIS](https://www.iis.net/). W ASP.NET Core 2,0 lub nowszej Kestrel może być uruchamiany jako publiczny serwer graniczny uwidoczniony bezpośrednio w Internecie.
+* *Serwer http IIS* jest serwerem dla systemu Windows, który korzysta z usług IIS. Na tym serwerze aplikacja ASP.NET Core i usługi IIS działają w tym samym procesie.
+* *Http. sys* to serwer dla systemu Windows, który nie jest używany z usługami IIS.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-ASP.NET Core oferuje *Kestrel* implementacji serwera dla wielu platform. ASP.NET Core w wersji 2.0 lub nowszej Kestrel może działać jako serwer graniczny publicznymi, bezpośrednie połączenie z Internetem. Kestrel często jest uruchamiany w ramach konfiguracji zwrotny serwer proxy przy użyciu [Nginx](https://nginx.org) lub [Apache](https://httpd.apache.org/).
+ASP.NET Core udostępnia międzyplatformową implementację serwera *Kestrel* . W ASP.NET Core 2,0 lub nowszej Kestrel może być uruchamiany jako publiczny serwer graniczny uwidoczniony bezpośrednio w Internecie. Kestrel jest często uruchamiana w odwrotnej konfiguracji serwera proxy z [Nginx](https://nginx.org) lub [Apache](https://httpd.apache.org/).
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-ASP.NET Core oferuje *Kestrel* implementacji serwera dla wielu platform. ASP.NET Core w wersji 2.0 lub nowszej Kestrel może działać jako serwer graniczny publicznymi, bezpośrednie połączenie z Internetem. Kestrel często jest uruchamiany w ramach konfiguracji zwrotny serwer proxy przy użyciu [Nginx](https://nginx.org) lub [Apache](https://httpd.apache.org/).
+ASP.NET Core udostępnia międzyplatformową implementację serwera *Kestrel* . W ASP.NET Core 2,0 lub nowszej Kestrel może być uruchamiany jako publiczny serwer graniczny uwidoczniony bezpośrednio w Internecie. Kestrel jest często uruchamiana w odwrotnej konfiguracji serwera proxy z [Nginx](https://nginx.org) lub [Apache](https://httpd.apache.org/).
 
 ---
 
@@ -143,18 +143,18 @@ ASP.NET Core oferuje *Kestrel* implementacji serwera dla wielu platform. ASP.NET
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-Platforma ASP.NET Core oferuje następujące implementacje serwera:
+ASP.NET Core udostępnia następujące implementacje serwera:
 
-* *Kestrel* jest serwerem sieci web dla wielu platform. Kestrel często jest uruchamiany w konfiguracji zwrotny serwer proxy przy użyciu [IIS](https://www.iis.net/). ASP.NET Core w wersji 2.0 lub nowszej Kestrel może działać jako serwer graniczny publicznymi, bezpośrednie połączenie z Internetem.
-* *Sterownik HTTP.sys* dotyczy serwera Windows, który nie jest używany z usługami IIS.
+* *Kestrel* to Międzyplatformowy serwer sieci Web. Kestrel jest często uruchamiana w odwrotnej konfiguracji serwera proxy za pomocą [usług IIS](https://www.iis.net/). W ASP.NET Core 2,0 lub nowszej Kestrel może być uruchamiany jako publiczny serwer graniczny uwidoczniony bezpośrednio w Internecie.
+* *Http. sys* to serwer dla systemu Windows, który nie jest używany z usługami IIS.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-ASP.NET Core oferuje *Kestrel* implementacji serwera dla wielu platform. ASP.NET Core w wersji 2.0 lub nowszej Kestrel może działać jako serwer graniczny publicznymi, bezpośrednie połączenie z Internetem. Kestrel często jest uruchamiany w ramach konfiguracji zwrotny serwer proxy przy użyciu [Nginx](https://nginx.org) lub [Apache](https://httpd.apache.org/).
+ASP.NET Core udostępnia międzyplatformową implementację serwera *Kestrel* . W ASP.NET Core 2,0 lub nowszej Kestrel może być uruchamiany jako publiczny serwer graniczny uwidoczniony bezpośrednio w Internecie. Kestrel jest często uruchamiana w odwrotnej konfiguracji serwera proxy z [Nginx](https://nginx.org) lub [Apache](https://httpd.apache.org/).
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-ASP.NET Core oferuje *Kestrel* implementacji serwera dla wielu platform. ASP.NET Core w wersji 2.0 lub nowszej Kestrel może działać jako serwer graniczny publicznymi, bezpośrednie połączenie z Internetem. Kestrel często jest uruchamiany w ramach konfiguracji zwrotny serwer proxy przy użyciu [Nginx](https://nginx.org) lub [Apache](https://httpd.apache.org/).
+ASP.NET Core udostępnia międzyplatformową implementację serwera *Kestrel* . W ASP.NET Core 2,0 lub nowszej Kestrel może być uruchamiany jako publiczny serwer graniczny uwidoczniony bezpośrednio w Internecie. Kestrel jest często uruchamiana w odwrotnej konfiguracji serwera proxy z [Nginx](https://nginx.org) lub [Apache](https://httpd.apache.org/).
 
 ---
 
@@ -164,19 +164,19 @@ Aby uzyskać więcej informacji, zobacz <xref:fundamentals/servers/index>.
 
 ## <a name="configuration"></a>Konfiguracja
 
-Platforma ASP.NET Core zapewnia środowisko konfiguracji, które pobiera ustawienia jako pary nazwa wartość z uporządkowany zestaw dostawców konfiguracji. Brak dostawców wbudowanych konfiguracji dla różnych źródeł, takich jak *.json* pliki, *.xml* plików, zmienne środowiskowe i argumenty wiersza polecenia. Można także napisać dostawców konfiguracji niestandardowej.
+ASP.NET Core udostępnia platformę konfiguracji, która pobiera ustawienia jako pary nazwa-wartość z uporządkowanego zestawu dostawców konfiguracji. Istnieją Wbudowani dostawcy konfiguracji dla różnych źródeł, takich jak pliki *. JSON* , pliki *. XML* , zmienne środowiskowe i argumenty wiersza polecenia. Możesz również napisać niestandardowych dostawców konfiguracji.
 
-Na przykład, można określić tę konfigurację pochodzi z *appsettings.json* i zmiennych środowiskowych. Wówczas, gdy wartość *ConnectionString* jest wymagana, struktura wygląda pierwszy w *appsettings.json* pliku. Jeśli wartość znajduje się tam, ale także w zmiennej środowiskowej, wartość zmiennej środowiskowej wyższy priorytet.
+Można na przykład określić, że konfiguracja pochodzi z pliku *appSettings. JSON* i zmiennych środowiskowych. Następnie po zażądaniu wartości parametru *ConnectionString* struktura najpierw sprawdza plik *appSettings. JSON* . Jeśli wartość jest tam znaleziona, ale również w zmiennej środowiskowej, pierwszeństwo ma wartość ze zmiennej środowiskowej.
 
-Zarządzanie konfiguracji poufne dane, takie jak hasła, ASP.NET Core zapewnia [narzędzie Menedżer klucz tajny](xref:security/app-secrets). Wpisy tajne w środowisku produkcyjnym, zaleca się [usługi Azure Key Vault](xref:security/key-vault-configuration).
+Aby zarządzać poufnymi danymi konfiguracyjnymi, takimi jak hasła, ASP.NET Core zapewnia [Narzędzie tajnego Menedżera](xref:security/app-secrets). W przypadku wpisów tajnych produkcji zalecamy [Azure Key Vault](xref:security/key-vault-configuration).
 
 Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/index>.
 
 ## <a name="options"></a>Opcje
 
-Jeśli to możliwe, następujące platformy ASP.NET Core *wzorzec opcje* do przechowywania i pobierania wartości konfiguracji. Wzorzec opcje używa klas do reprezentowania grup powiązane ustawienia.
+Jeśli to możliwe, ASP.NET Core są zgodne ze *wzorcem opcji* przechowywania i pobierania wartości konfiguracyjnych. Wzorzec opcji używa klas do reprezentowania grup powiązanych ustawień.
 
-Na przykład poniższy kod ustawia opcje WebSockets:
+Na przykład poniższy kod ustawia opcje obiektów WebSockets:
 
 ```csharp
 var options = new WebSocketOptions  
@@ -189,11 +189,11 @@ app.UseWebSockets(options);
 
 Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/options>.
 
-## <a name="environments"></a>Środowiska
+## <a name="environments"></a>Wiejski
 
-Środowiska wykonawcze, takich jak *rozwoju*, *przemieszczania*, i *produkcji*, to najwyższej jakości pojęcie w programie ASP.NET Core. Można określić, ustawiając działa w środowisku aplikacji `ASPNETCORE_ENVIRONMENT` zmiennej środowiskowej. Platforma ASP.NET Core odczytuje tę zmienną przy uruchamianiu aplikacji i przechowuje wartość w `IHostingEnvironment` implementacji. Obiekt środowiska jest dostępny w aplikacji za pośrednictwem DI w dowolnym miejscu.
+Środowiska wykonawcze, takie jak *programowanie*, *przemieszczanie*i *produkcja*, są pierwszą klasą koncepcji w ASP.NET Core. Aby określić środowisko, w którym działa aplikacja, należy ustawić `ASPNETCORE_ENVIRONMENT` zmienną środowiskową. ASP.NET Core odczytuje tę zmienną środowiskową przy uruchamianiu aplikacji i zapisuje wartość w `IHostingEnvironment` implementacji. Obiekt środowiska jest dostępny w dowolnym miejscu w aplikacji za pomocą funkcji DI.
 
-Poniższy przykładowy kod z `Startup` klasy konfiguruje aplikację, aby zapewnić szczegółowe informacje o błędzie, tylko wtedy, gdy działa w trakcie opracowywania:
+Następujący przykładowy kod z `Startup` klasy służy do konfigurowania aplikacji w celu zapewnienia szczegółowych informacji o błędzie tylko wtedy, gdy jest ona uruchamiana w programie Development:
 
 [!code-csharp[](index/snapshots/2.x/Startup2.cs?highlight=3-6)]
 
@@ -201,75 +201,87 @@ Aby uzyskać więcej informacji, zobacz <xref:fundamentals/environments>.
 
 ## <a name="logging"></a>Rejestrowanie
 
-Platforma ASP.NET Core obsługuje interfejs API rejestrowania, która współdziała z różnych dostawców rejestrowania wbudowanych oraz innych firm. Dostępni dostawcy są następujące:
+ASP.NET Core obsługuje interfejs API rejestrowania, który współpracuje z różnymi dostawcami rejestrowania wbudowanych i innych firm. Dostępne są następujące dostawcy:
 
 * Konsola
 * Debugowanie
-* Śledzenie zdarzeń na Windows
-* Dziennik zdarzeń Windows
+* Śledzenie zdarzeń w systemie Windows
+* Dziennik zdarzeń systemu Windows
 * TraceSource
 * Usługa Azure App Service
-* Usługi Azure Application Insights
+* Application Insights platformy Azure
 
-Zapis loguje się z dowolnego miejsca w kodzie aplikacji uzyskując `ILogger` obiekt z DI i wywoływania metod dziennika.
+Zapisuj dzienniki z dowolnego miejsca w kodzie aplikacji, pobierając `ILogger` obiekt z metod rejestrowania i wywoływania.
 
-Poniżej przedstawiono przykładowy kod, który używa `ILogger` obiektu przy użyciu iniekcji konstruktora i wywołań metod rejestrowania, które są wyróżnione.
+Oto przykładowy kod, który używa `ILogger` obiektu, z iniekcją konstruktora i wyróżniania wywołań metody rejestrowania.
 
 [!code-csharp[](index/snapshots/2.x/TodoController.cs?highlight=5,13,17)]
 
-`ILogger` Interfejs pozwala przekazać dowolną liczbę pól do dostawcy logowania. Pola są często używane do konstruowania ciąg komunikatu, ale dostawca może także wysłać im jako oddzielne pola w magazynie danych. Ta funkcja umożliwia rejestrowanie dostawców, aby zaimplementować [semantycznego rejestrowania, nazywana również rejestrowaniem strukturalnym](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
+`ILogger` Interfejs umożliwia przekazanie dowolnej liczby pól dostawcy rejestrowania. Pola są często używane do konstruowania ciągu komunikatu, ale dostawcy mogą również wysyłać je jako oddzielne pola do magazynu danych. Ta funkcja umożliwia dostawcom rejestrowania implementowanie [rejestrowania semantycznego, znanego również jako rejestrowanie strukturalne](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
 Aby uzyskać więcej informacji, zobacz <xref:fundamentals/logging/index>.
 
 ## <a name="routing"></a>Routing
 
-A *trasy* jest wzorzec adresu URL, który jest mapowany do obsługi. Program obsługi jest zwykle strony Razor, metody akcji kontrolera MVC lub oprogramowanie pośredniczące. ASP.NET Core routingu zapewnia kontrolę nad adresów URL używanych przez aplikację.
+*Trasa* jest WZORCEM adresu URL, który jest mapowany do procedury obsługi. Procedura obsługi jest zazwyczaj stroną Razor, metodą akcji w kontrolerze MVC lub w oprogramowaniu pośredniczącym. Routing ASP.NET Core zapewnia kontrolę nad adresami URL używanymi przez aplikację.
 
 Aby uzyskać więcej informacji, zobacz <xref:fundamentals/routing>.
 
 ## <a name="error-handling"></a>Obsługa błędów
 
-Platforma ASP.NET Core ma wbudowane funkcje obsługi błędów, takich jak:
+ASP.NET Core ma wbudowane funkcje do obsługi błędów, takie jak:
 
-* Stronie wyjątków dla deweloperów
-* Strony błędów niestandardowych
-* Stan statycznej strony kodowe
+* Strona wyjątków dla deweloperów
+* Niestandardowe strony błędów
+* Statyczne strony kodów stanu
 * Obsługa wyjątków uruchamiania
 
 Aby uzyskać więcej informacji, zobacz <xref:fundamentals/error-handling>.
 
 ## <a name="make-http-requests"></a>Zgłaszanie żądań HTTP
 
-Implementacja `IHttpClientFactory` jest dostępna dla tworzenia `HttpClient` wystąpień. Fabryka:
+Implementacja programu `IHttpClientFactory` jest dostępna do tworzenia `HttpClient` wystąpień. Fabryka:
 
-* Stanowi centralną lokalizację do nazywania i konfigurowanie logiczne `HttpClient` wystąpień. Na przykład *github* klienta można zarejestrować i skonfigurowane do korzystania z usługi GitHub. Domyślne klienta można zarejestrować do innych celów.
-* Obsługuje rejestrację i tworzenie łańcucha wielu obsługi delegowania do tworzenia potoku oprogramowania pośredniczącego usługi wychodzące żądanie. Wzorzec ten jest podobny do potoku oprogramowanie pośredniczące dla ruchu przychodzącego w programie ASP.NET Core. Wzorzec zapewnia mechanizm zarządzania odciąż przekrojowe zagadnienia dotyczące żądań HTTP, w tym usługi pamięć podręczna obsługi serializacji i rejestrowania błędów.
-* Integruje się z *Polly*, popularne biblioteki innych firm dotyczące obsługi błędów przejściowych.
-* Zarządza buforowanie i okresem istnienia bazowego `HttpClientMessageHandler` wystąpienia, aby uniknąć problemów DNS, które występują, gdy ręcznego zarządzania `HttpClient` okresy istnienia.
-* Dodanie obsługi można skonfigurować rejestrowania (za pośrednictwem `ILogger`) dla wszystkich żądań wysłanych przez klientów utworzonych przez fabrykę.
+* Zapewnia centralną lokalizację do nazywania i konfigurowania `HttpClient` wystąpień logicznych. Na przykład klient usługi *GitHub* można zarejestrować i skonfigurować do uzyskiwania dostępu do usługi GitHub. Domyślny klient można zarejestrować do innych celów.
+* Obsługuje rejestrację i łańcuch wielu procedur delegowania, aby utworzyć potok pośredniczący żądania wychodzącego. Ten wzorzec jest podobny do przychodzącego potoku oprogramowania pośredniczącego w ASP.NET Core. Wzorzec zapewnia mechanizm zarządzania problemami z wycinaniem między żądaniami HTTP, takimi jak buforowanie, obsługa błędów, serializacja i rejestrowanie.
+* Integruje się z usługą *Polly*, popularną biblioteką innej firmy na potrzeby obsługi błędów przejściowych.
+* Zarządza buforowaniem i okresem istnienia `HttpClientMessageHandler` podstawowych wystąpień, aby uniknąć typowych problemów z usługą DNS występujących podczas ręcznego zarządzania `HttpClient` okresami istnienia.
+* Dodaje konfigurowalne środowisko rejestrowania (za `ILogger`pośrednictwem programu) dla wszystkich żądań wysyłanych przez klientów utworzonych przez fabrykę.
 
 Aby uzyskać więcej informacji, zobacz <xref:fundamentals/http-requests>.
 
-## <a name="content-root"></a>Zawartość katalogu głównego
+## <a name="content-root"></a>Katalog główny zawartości
 
-Główny zawartości jest ścieżka podstawowa do prywatnej zawartości używany przez aplikację, takie jak jego pliki Razor. Domyślnie zawartość katalogu głównego jest podstawową ścieżkę dla pliku wykonywalnego hostingu aplikacji. Być może alternatywną lokalizację określony podczas [tworzenia hosta](#host).
+Katalog zawartości jest ścieżką bazową do wszystkich prywatnych treści używanych przez aplikację, takich jak pliki Razor. Domyślnie zawartość jest ścieżką podstawową dla pliku wykonywalnego, który obsługuje aplikację. Podczas [kompilowania hosta](#host)można określić alternatywną lokalizację.
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Aby uzyskać więcej informacji, zobacz [zawartości głównego](xref:fundamentals/host/generic-host#content-root).
+Aby uzyskać więcej informacji, zobacz [katalog główny zawartości](xref:fundamentals/host/generic-host#content-root).
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-Aby uzyskać więcej informacji, zobacz [zawartości głównego](xref:fundamentals/host/web-host#content-root).
+Aby uzyskać więcej informacji, zobacz [katalog główny zawartości](xref:fundamentals/host/web-host#content-root).
 
 ::: moniker-end
 
 ## <a name="web-root"></a>Katalog główny sieci Web
 
-Katalog główny sieci web (znany także jako *webroot*) to ścieżka podstawowa do publicznej, statycznej zasobów, takich jak CSS, JavaScript i plików obrazów. Oprogramowanie pośredniczące plików statycznych posłużą tylko pliki z katalogu głównego sieci web (i jego podkatalogi) domyślnie. Ścieżka katalogu głównego sieci web, wartość domyślna to *{głównego zawartości} / wwwroot*, ale może innej lokalizacji, należy określić podczas [tworzenia hosta](#host).
+Katalog główny sieci Web (znany również jako *Webroot*) to podstawowa ścieżka do publicznych, statycznych zasobów, takich jak CSS, JavaScript i pliki obrazów. Pliki statyczne oprogramowanie pośredniczące domyślnie tylko pliki z katalogu głównego sieci Web (i katalogów podrzędnych). Ścieżka katalogu głównego sieci Web jest domyślnie ustawiona na *{Content root}/wwwroot*, ale podczas [kompilowania hosta](#host)można określić inną lokalizację.
 
-W aparacie Razor ( *.cshtml*) plików ukośnika tylda `~/` wskazuje katalog główny sieci web. Począwszy od ścieżki `~/` są określane jako ścieżek wirtualnych.
+::: moniker range=">= aspnetcore-3.0"
+
+Aby uzyskać więcej informacji, zobacz [ContentRootPath](/aspnet/core/fundamentals/host/generic-host?view=aspnetcore-3.0#contentrootpath)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Aby uzyskać więcej informacji, zobacz [katalog główny sieci Web](/aspnet/core/fundamentals/host/web-host#webroot).
+
+::: moniker-end
+
+W plikach Razor ( *. cshtml*) kreska ułamkowa `~/` wskazuje katalog główny sieci Web. Ścieżki zaczynające `~/` się od są nazywane ścieżkami wirtualnymi.
 
 Aby uzyskać więcej informacji, zobacz <xref:fundamentals/static-files>.

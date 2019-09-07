@@ -5,14 +5,14 @@ description: Dowiedz się, jak tworzyć i używać składników Razor, w tym jak
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/04/2019
+ms.date: 09/06/2019
 uid: blazor/components
-ms.openlocfilehash: ce9da14bbe19cbee960d215f6167a0e760bd607a
-ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
+ms.openlocfilehash: e877abfb568f71046c3603cac5e888e99ffc8d15
+ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310376"
+ms.lasthandoff: 09/07/2019
+ms.locfileid: "70800421"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
@@ -716,17 +716,30 @@ protected override void OnParametersSet()
 
 `OnAfterRenderAsync`i `OnAfterRender` są wywoływane po zakończeniu renderowania składnika. Odwołania do elementów i składników są wypełniane w tym momencie. Ten etap służy do wykonywania dodatkowych kroków inicjowania przy użyciu renderowanej zawartości, takiej jak aktywacja bibliotek języka JavaScript innych firm, które działają na renderowanych elementach DOM.
 
+`OnAfterRender`*nie jest wywoływana podczas renderowania na serwerze.*
+
+Parametr dla `OnAfterRenderAsync` i`OnAfterRender` jest: `firstRender`
+
+* `true` Ustawiana przy pierwszym wywołaniu wystąpienia składnika.
+* Zapewnia, że operacja inicjowania jest wykonywana tylko raz.
+
 ```csharp
-protected override async Task OnAfterRenderAsync()
+protected override async Task OnAfterRenderAsync(bool firstRender)
 {
-    await ...
+    if (firstRender)
+    {
+        await ...
+    }
 }
 ```
 
 ```csharp
-protected override void OnAfterRender()
+protected override void OnAfterRender(bool firstRender)
 {
-    ...
+    if (firstRender)
+    {
+        ...
+    }
 }
 ```
 

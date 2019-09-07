@@ -1,46 +1,46 @@
 ---
-title: Hostowanie i wdrażanie platformy ASP.NET Core Blazor po stronie serwera
+title: Hostowanie i wdrażanie ASP.NET Core Blazor po stronie serwera
 author: guardrex
-description: Dowiedz się, jak hostowanie i wdrażanie aplikacji po stronie serwera Blazor, przy użyciu platformy ASP.NET Core.
+description: Dowiedz się, jak hostować i wdrażać aplikację Blazor po stronie serwera przy użyciu ASP.NET Core.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/11/2019
+ms.date: 09/05/2019
 uid: host-and-deploy/blazor/server-side
-ms.openlocfilehash: 56a03ff583bf85497e2b3bacc70123845a046e3d
-ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
+ms.openlocfilehash: 8da71faf6abc5929d6cd43d42fd896e378d99ef6
+ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67892695"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773570"
 ---
 # <a name="host-and-deploy-blazor-server-side"></a>Hostowanie i wdrażanie Blazor po stronie serwera
 
-Przez [Luke Latham](https://github.com/guardrex), [Rainer Stropek](https://www.timecockpit.com), i [Daniel Roth](https://github.com/danroth27)
+[Luke Latham](https://github.com/guardrex), [Rainer Stropek](https://www.timecockpit.com)i [Daniel Roth](https://github.com/danroth27)
 
 ## <a name="host-configuration-values"></a>Wartości konfiguracji hosta
 
-Aplikacje serwerowe, które używają [po stronie serwera modelu hostingu](xref:blazor/hosting-models#server-side) może akceptować [wartości konfiguracji hosta ogólny](xref:fundamentals/host/generic-host#host-configuration).
+Aplikacje po stronie serwera, które używają [modelu hostingu po stronie serwera](xref:blazor/hosting-models#server-side) , mogą akceptować [ogólne wartości konfiguracji hosta](xref:fundamentals/host/generic-host#host-configuration).
 
 ## <a name="deployment"></a>wdrażania
 
-Za pomocą [po stronie serwera modelu hostingu](xref:blazor/hosting-models#server-side), Blazor jest wykonywana na serwerze z poziomu aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika, obsługa zdarzeń i wywołania języka JavaScript są obsługiwane za pośrednictwem [SignalR](xref:signalr/introduction) połączenia.
+[Model hostingu po stronie serwera](xref:blazor/hosting-models#server-side)Blazor jest wykonywany na serwerze z poziomu aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika, obsługa zdarzeń i wywołania języka JavaScript są obsługiwane przez połączenie [sygnalizujące](xref:signalr/introduction) .
 
-Wymagany jest serwer sieci web, zdolne do obsługi aplikacji ASP.NET Core. Program Visual Studio obejmuje **Blazor Server App** szablonu projektu (`blazorserverside` szablon, korzystając z [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenie).
+Wymagany jest serwer sieci Web obsługujący aplikację ASP.NET Core. Program Visual Studio zawiera szablon projektu **aplikacji Blazor Server** (`blazorserverside` szablon w przypadku używania polecenia [dotnet New](/dotnet/core/tools/dotnet-new) ).
 
-## <a name="connection-scale-out"></a>Skalowanie do połączenia
+## <a name="connection-scale-out"></a>Skalowanie w poziomie połączenia
 
-Aplikacje serwerowe Blazor wymagają jednego aktywnego połączenia SignalR dla każdego użytkownika. Produkcyjne wdrożenie po stronie serwera Blazor wymaga rozwiązanie do obsługi dowolnej liczby jednoczesnych połączeń, zgodnie z wymaganiami aplikacji. [Usługi Azure SignalR Service](/azure/azure-signalr/) obsługuje skalowanie połączeń i jest zalecana jako rozwiązanie skalowania dla aplikacji po stronie serwera Blazor. Aby uzyskać więcej informacji, zobacz <xref:signalr/publish-to-azure-web-app>.
+Blazor aplikacje po stronie serwera wymagają jednego aktywnego połączenia sygnalizującego dla każdego użytkownika. Wdrożenie po stronie serwera produkcyjnego Blazor wymaga rozwiązania do obsługi tylu połączeń współbieżnych wymaganych przez aplikację. [Usługa Azure Signal](/azure/azure-signalr/) obsługuje skalowanie połączeń i jest zalecana jako rozwiązanie do skalowania dla aplikacji po stronie serwera Blazor. Aby uzyskać więcej informacji, zobacz <xref:signalr/publish-to-azure-web-app>.
 
-## <a name="signalr-configuration"></a>Konfiguracja SignalR
+## <a name="signalr-configuration"></a>Konfiguracja sygnalizującego
 
-Dla najbardziej typowych scenariuszy serwerowych Blazor skonfigurowano SignalR, ASP.NET Core. Niestandardowe i zaawansowane scenariusze, można znaleźć w artykułach SignalR w [dodatkowe zasoby](#additional-resources) sekcji.
+Program sygnalizujący jest konfigurowany przez ASP.NET Core dla najpopularniejszych scenariuszy po stronie serwera Blazor. W przypadku scenariuszy niestandardowych i zaawansowanych zapoznaj się z artykułami dotyczącymi sygnałów w sekcji [dodatkowe zasoby](#additional-resources) .
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * <xref:signalr/introduction>
-* [Dokumentacja usługi Azure SignalR Service](/azure/azure-signalr/)
-* [Szybki start: Tworzenie pokoju rozmów przy użyciu usługi SignalR](/azure/azure-signalr/signalr-quickstart-dotnet-core)
+* [Dokumentacja usługi Azure sygnalizującego](/azure/azure-signalr/)
+* [Szybki start: Tworzenie pokoju rozmów przy użyciu usługi sygnalizującej](/azure/azure-signalr/signalr-quickstart-dotnet-core)
 * <xref:host-and-deploy/index>
 * <xref:tutorials/publish-to-azure-webapp-using-vs>
-* [Wdrażanie platformy ASP.NET Core w wersji zapoznawczej w usłudze Azure App Service](xref:host-and-deploy/azure-apps/index#deploy-aspnet-core-preview-release-to-azure-app-service)
+* [Wdróż ASP.NET Core wersji zapoznawczej do Azure App Service](xref:host-and-deploy/azure-apps/index#deploy-aspnet-core-preview-release-to-azure-app-service)

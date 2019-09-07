@@ -5,14 +5,14 @@ description: Dowiedz się, jak kierować żądania w aplikacjach i informacje o 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/23/2019
+ms.date: 09/06/2019
 uid: blazor/routing
-ms.openlocfilehash: ae3d7ab01185dd6f2e8e0f59b78c2e693fe464b0
-ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
+ms.openlocfilehash: d348908261c51b477aa698a407266d05c0df5a33
+ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310353"
+ms.lasthandoff: 09/07/2019
+ms.locfileid: "70800343"
 ---
 # <a name="aspnet-core-blazor-routing"></a>ASP.NET Core Routing Blazor
 
@@ -28,9 +28,7 @@ Blazor po stronie serwera jest zintegrowana z [routingiem punktu końcowego ASP.
 
 ## <a name="route-templates"></a>Szablony tras
 
-`Router` Składnik włącza Routing, a szablon trasy jest dostarczany do każdego dostępnego składnika. Składnik pojawi się w pliku *App. Razor:* `Router`
-
-W aplikacji po stronie serwera lub po stronie klienta programu Blazor:
+`Router` Składnik umożliwia kierowanie do każdego składnika z określoną trasą. Składnik pojawi się w pliku *App. Razor:* `Router`
 
 ```cshtml
 <Router AppAssembly="typeof(Startup).Assembly">
@@ -43,20 +41,27 @@ W aplikacji po stronie serwera lub po stronie klienta programu Blazor:
 </Router>
 ```
 
-Gdy plik *Razor* z `@page` dyrektywą jest kompilowany, wygenerowana Klasa jest dostarczana z <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> określeniem szablonu trasy. W czasie wykonywania router szuka klas składników z `RouteAttribute` i renderuje składnik przy użyciu szablonu trasy zgodnego z żądanym adresem URL.
+Gdy plik *Razor* z `@page` dyrektywą jest kompilowany, wygenerowana Klasa jest dostarczana z <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> określeniem szablonu trasy.
+
+W środowisku uruchomieniowym `RouteView` składnik:
+
+* `RouteData` Odbiera`Router` od siebie wraz z dowolnymi żądanymi parametrami.
+* Renderuje określony składnik za pomocą układu (lub opcjonalnego układu domyślnego) przy użyciu określonych parametrów.
+
+Opcjonalnie można określić `DefaultLayout` parametr z klasą układu, która ma być używana dla składników, które nie określają układu. Domyślne szablony Blazor określają `MainLayout` składnik. *MainLayout. Razor* znajduje się w folderze *udostępnionym* projektu szablonu. Aby uzyskać więcej informacji na temat układów <xref:blazor/layouts>, zobacz.
 
 Do składnika można zastosować wiele szablonów tras. Poniższy składnik odpowiada na żądania dla `/BlazorRoute` i: `/DifferentBlazorRoute`
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
 > [!IMPORTANT]
-> Aby adresy URL zostały poprawnie rozpoznane, aplikacja `<base>` musi zawierać tag w pliku *wwwroot/index.html* (po stronie klienta Blazor) lub *strony/_Host. cshtml* (po stronie serwera) z ścieżką bazową `href` aplikacji określoną w atrybucie ( `<base href="/">`). Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/blazor/client-side#app-base-path>.
+> Aby adresy URL zostały poprawnie rozpoznane, aplikacja `<base>` musi zawierać tag w pliku *wwwroot/index.html* (po stronie klienta Blazor) lub *strony/_Host. cshtml* (po stronie serwera) z ścieżką bazową `href` aplikacji określoną w atrybucie ( `<base href="/">`). Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/blazor/index#app-base-path>.
 
 ## <a name="provide-custom-content-when-content-isnt-found"></a>Podaj zawartość niestandardową, jeśli nie można odnaleźć zawartości
 
 `Router` Składnik umożliwia aplikacji określenie zawartości niestandardowej, jeśli nie można odnaleźć zawartości dla żądanej trasy.
 
-W pliku *App. Razor* Ustaw zawartość niestandardową w `<NotFound>` parametrze `Router` szablonu składnika:
+W pliku *App. Razor* Ustaw zawartość niestandardową w `NotFound` parametrze `Router` szablonu składnika:
 
 ```cshtml
 <Router AppAssembly="typeof(Startup).Assembly">
@@ -70,7 +75,13 @@ W pliku *App. Razor* Ustaw zawartość niestandardową w `<NotFound>` parametrze
 </Router>
 ```
 
-Zawartość `<NotFound>` może zawierać dowolne elementy, takie jak inne składniki interaktywne.
+Zawartość `<NotFound>` tagów może zawierać dowolne elementy, takie jak inne składniki interaktywne. Aby zastosować domyślny układ do `NotFound` zawartości, zobacz. <xref:blazor/layouts>
+
+## <a name="route-to-components-from-multiple-assemblies"></a>Kierowanie do składników z wielu zestawów
+
+Użyj parametru `AdditionalAssemblies` , aby określić dodatkowe zestawy `Router` dla składnika do uwzględnienia podczas wyszukiwania składników routingu. Określone zestawy są traktowane jako uzupełnienie `AppAssembly`określonego zestawu. W poniższym przykładzie `Component1` jest składnikiem rutowanym zdefiniowanym w bibliotece klas, do której się odwołuje. W poniższym `AdditionalAssemblies` przykładzie przedstawiono obsługę routingu dla: `Component1`
+
+< router AppAssembly = "typeof (program). Zestaw "AdditionalAssemblies =" New [] {typeof (Component1). Zestaw} >...</Router>
 
 ## <a name="route-parameters"></a>Parametry trasy
 
@@ -181,4 +192,3 @@ Poniższy składnik przechodzi do `Counter` składnika aplikacji po wybraniu prz
     }
 }
 ```
-

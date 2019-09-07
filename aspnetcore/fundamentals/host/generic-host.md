@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/01/2019
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 9f5ecc7840fc7ffd9432a3bb67d0418efb7e8fd6
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: 261abae499a0d5f807a14aebd224949881067bc7
+ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975616"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773814"
 ---
 # <a name="net-generic-host"></a>Host ogólny .NET
 
@@ -29,7 +29,7 @@ W tym artykule przedstawiono hosta ogólnego platformy .NET Core<xref:Microsoft.
 * Konfiguracja
 * `IHostedService`metod
 
-Po uruchomieniu hosta wywołuje `IHostedService.StartAsync` on każdą <xref:Microsoft.Extensions.Hosting.IHostedService> implementację, która znajduje się w kontenerze di. W aplikacji sieci Web jedną z `IHostedService` implementacji jest usługa sieci Web, która uruchamia implementację [serwera http](xref:fundamentals/index#servers).
+Po uruchomieniu hosta wywołuje `IHostedService.StartAsync` on każdą <xref:Microsoft.Extensions.Hosting.IHostedService> implementację, która znajduje się w kontenerze di. W aplikacji sieci Web jedną z `IHostedService` implementacji jest usługa sieci Web, która uruchamia [implementację serwera http](xref:fundamentals/index#servers).
 
 Główną przyczyną uwzględnienia wszystkich zasobów zależnych od aplikacji w jednym obiekcie jest zarządzanie okresem istnienia: Kontrola uruchamiania aplikacji i bezpieczne zamykanie.
 
@@ -169,6 +169,8 @@ Aby uzyskać więcej informacji, zobacz [Konfiguracja w ASP.NET Core](xref:funda
 ## <a name="settings-for-all-app-types"></a>Ustawienia dla wszystkich typów aplikacji
 
 Ta sekcja zawiera listę ustawień hosta, które dotyczą zarówno obciążeń HTTP, jak i innych niż HTTP. Domyślnie zmienne środowiskowe używane do konfigurowania tych ustawień mogą mieć `DOTNET_` prefiks lub. `ASPNETCORE_`
+
+<!-- In the following sections, two spaces at end of line are used to force line breaks in the rendered page. -->
 
 ### <a name="applicationname"></a>ApplicationName
 
@@ -312,8 +314,9 @@ webBuilder.UseSetting(WebHostDefaults.HostingStartupExcludeAssembliesKey, "assem
 
 Port przekierowania protokołu HTTPS. Używany do [wymuszania protokołu HTTPS](xref:security/enforcing-ssl).
 
-**Key**: https_port **Type**:
-**wartość domyślna**: Nie ustawiono wartości domyślnej.
+**Klucz**: https_port  
+**Typ**: *ciąg*  
+**Wartość domyślna**: Nie ustawiono wartości domyślnej.  
 **Zmienna środowiskowa**:`<PREFIX_>HTTPS_PORT`
 
 Aby ustawić tę wartość, użyj konfiguracji lub wywołania `UseSetting`:
@@ -356,7 +359,8 @@ webBuilder.UseSetting(WebHostDefaults.PreventHostingStartupKey, "true");
 
 Zestaw do wyszukiwania `Startup` klasy.
 
-**Klucz**: startupAssembly **Typ**: *ciąg*  
+**Klucz**: startupAssembly  
+**Typ**: *ciąg*  
 **Wartość domyślna**: Zestaw aplikacji  
 **Zmienna środowiskowa**:`<PREFIX_>STARTUPASSEMBLY`
 
@@ -376,8 +380,8 @@ Rozdzielana średnikami lista adresów IP lub adresów hostów z portami i proto
 
 **Klucz**: adresy URL  
 **Typ**: *ciąg*  
-**Wartość domyślna** `http://localhost:5000` : `https://localhost:5001`i zmienna
- **środowiskowa**:`<PREFIX_>URLS`
+**Wartość domyślna**: `http://localhost:5000` i`https://localhost:5001`  
+**Zmienna środowiskowa**:`<PREFIX_>URLS`
 
 Aby ustawić tę wartość, użyj zmiennej środowiskowej lub wywołaj `UseUrls`:
 
@@ -555,7 +559,7 @@ Właściwość [IHostingEnvironment. ApplicationName](xref:Microsoft.Extensions.
 **Typ**: *ciąg*  
 **Wartość domyślna**: Nazwa zestawu zawierającego punkt wejścia aplikacji.  
 **Ustaw przy użyciu**:`HostBuilderContext.HostingEnvironment.ApplicationName`  
-**Zmienna**środowiskowa `<PREFIX_>APPLICATIONNAME` :`<PREFIX_>` (jest [opcjonalne i zdefiniowane przez użytkownika](#configurehostconfiguration))
+**Zmienna środowiskowa** `<PREFIX_>APPLICATIONNAME` :`<PREFIX_>` (jest [opcjonalne i zdefiniowane przez użytkownika](#configurehostconfiguration))
 
 ### <a name="content-root"></a>Katalog główny zawartości
 
@@ -565,7 +569,7 @@ To ustawienie określa, gdzie host rozpoczyna wyszukiwanie plików zawartości.
 **Typ**: *ciąg*  
 **Wartość domyślna**: Domyślnie znajduje się w folderze, w którym znajduje się zestaw aplikacji.  
 **Ustaw przy użyciu**:`UseContentRoot`  
-**Zmienna**środowiskowa `<PREFIX_>CONTENTROOT` :`<PREFIX_>` (jest [opcjonalne i zdefiniowane przez użytkownika](#configurehostconfiguration))
+**Zmienna środowiskowa** `<PREFIX_>CONTENTROOT` :`<PREFIX_>` (jest [opcjonalne i zdefiniowane przez użytkownika](#configurehostconfiguration))
 
 Jeśli ścieżka nie istnieje, uruchomienie hosta nie powiedzie się.
 
@@ -579,7 +583,7 @@ Ustawia [środowisko](xref:fundamentals/environments)aplikacji.
 **Typ**: *ciąg*  
 **Wartość domyślna**: Narzędzi  
 **Ustaw przy użyciu**:`UseEnvironment`  
-**Zmienna**środowiskowa `<PREFIX_>ENVIRONMENT` :`<PREFIX_>` (jest [opcjonalne i zdefiniowane przez użytkownika](#configurehostconfiguration))
+**Zmienna środowiskowa** `<PREFIX_>ENVIRONMENT` :`<PREFIX_>` (jest [opcjonalne i zdefiniowane przez użytkownika](#configurehostconfiguration))
 
 Dla środowiska można ustawić dowolną wartość. Wartości zdefiniowane przez platformę `Development`obejmują `Staging`,, `Production`i. W wartościach nie jest rozróżniana wielkość liter.
 
@@ -652,11 +656,11 @@ Aby przenieść pliki ustawień do katalogu wyjściowego, określ pliki ustawie�
 
 ## <a name="configureservices"></a>ConfigureServices
 
-<xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.ConfigureServices*>dodaje usługi do kontenera iniekcji [zależności](xref:fundamentals/dependency-injection) aplikacji. <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.ConfigureServices*>może być wywoływana wiele razy z wynikami.
+<xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.ConfigureServices*>dodaje usługi do kontenera [iniekcji zależności](xref:fundamentals/dependency-injection) aplikacji. <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.ConfigureServices*>może być wywoływana wiele razy z wynikami.
 
 Usługa hostowana jest klasą z logiką zadań w tle, <xref:Microsoft.Extensions.Hosting.IHostedService> która implementuje interfejs. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/hosted-services>.
 
-[Przykładowa aplikacja](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) `AddHostedService` używa metody rozszerzającej, aby dodać usługę dla zdarzeń okresu istnienia, `LifetimeEventsHostedService` `TimedHostedService`oraz zadanie w tle czasu, do aplikacji:
+[Przykładowa aplikacja](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) używa `AddHostedService` metody rozszerzającej, aby dodać usługę dla zdarzeń okresu istnienia, `LifetimeEventsHostedService` `TimedHostedService`oraz zadanie w tle czasu, do aplikacji:
 
 [!code-csharp[](generic-host/samples-snapshot/2.x/GenericHostSample/Program.cs?name=snippet_ConfigureServices)]
 

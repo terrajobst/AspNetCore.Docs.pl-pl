@@ -5,14 +5,14 @@ description: Poznaj ASP.NET Core Blazor, aby utworzyć interaktywny interfejs u�
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc, seoapril2019
-ms.date: 08/13/2019
+ms.date: 09/05/2019
 uid: blazor/index
-ms.openlocfilehash: b13446651603fe23c4595028272ba19ed7bbd5fd
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: 6b62eb372d642c1ad9df880a4b71e5d5a8e40b60
+ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68993381"
+ms.lasthandoff: 09/07/2019
+ms.locfileid: "70800325"
 ---
 # <a name="introduction-to-blazor"></a>Wprowadzenie do Blazor
 
@@ -107,7 +107,7 @@ Blazor po stronie klienta jest platformą aplikacji jednostronicowej do tworzeni
 
 Uruchamianie kodu platformy .NET wewnątrz przeglądarek sieci Web jest możliwe przez [zestaw webassembly](https://webassembly.org) (skrócony *wasm*). Webassembly to kompaktowy format kodu bajtowego zoptymalizowany pod kątem szybkiego pobierania i maksymalnej szybkości wykonywania. Webassembly to otwarty standard sieci Web, który jest obsługiwany w przeglądarkach sieci Web bez wtyczek.
 
-Kod webassembly może uzyskać dostęp do pełnej funkcjonalności przeglądarki za pośrednictwem języka JavaScript, nazywanego współdziałaniem *JavaScript* (lub międzyoperacyjną *JavaScript*). Kod .NET wykonywany za pośrednictwem webassembly w przeglądarce jest uruchamiany w piaskownicy języka JavaScript przeglądarki z ochroną, którą piaskownica zapewnia przed złośliwymi działaniami na komputerze klienckim.
+Kod webassembly może uzyskać dostęp do pełnej funkcjonalności przeglądarki za pośrednictwem języka JavaScript, nazywanego *współdziałaniem JavaScript* (lub *międzyoperacyjną JavaScript*). Kod .NET wykonywany za pośrednictwem webassembly w przeglądarce jest uruchamiany w piaskownicy języka JavaScript przeglądarki z ochroną, którą piaskownica zapewnia przed złośliwymi działaniami na komputerze klienckim.
 
 ![Blazor kod .NET uruchamiany po stronie klienta w przeglądarce z zestawem webassembly.](index/_static/blazor-client-side.png)
 
@@ -125,7 +125,7 @@ Rozmiar opublikowanej aplikacji, jej *rozmiaru ładunku*, jest krytycznym czynni
 
 ## <a name="blazor-server-side"></a>Blazor po stronie serwera
 
-Blazor oddziela logikę renderowania składników od sposobu stosowania aktualizacji interfejsu użytkownika. Po stronie serwera Blazor zapewnia obsługę hostowania składników Razor na serwerze w aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika są obsługiwane przez [](xref:signalr/introduction) połączenie sygnalizujące.
+Blazor oddziela logikę renderowania składników od sposobu stosowania aktualizacji interfejsu użytkownika. Po stronie serwera Blazor zapewnia obsługę hostowania składników Razor na serwerze w aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika są obsługiwane przez połączenie [sygnalizujące](xref:signalr/introduction) .
 
 Środowisko uruchomieniowe obsługuje wysyłanie zdarzeń interfejsu użytkownika z przeglądarki do serwera i zastosowanie aktualizacji interfejsu użytkownika wysyłanych przez serwer z powrotem do przeglądarki po uruchomieniu składników programu.
 

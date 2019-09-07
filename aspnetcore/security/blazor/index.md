@@ -5,14 +5,14 @@ description: Dowiedz się więcej na temat scenariuszy uwierzytelniania Blazor i
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/29/2019
+ms.date: 09/05/2019
 uid: security/blazor/index
-ms.openlocfilehash: 8714acbeb6e8a00992a601030811b24f53426b82
-ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
+ms.openlocfilehash: 2ba7b0612c2be50ae0797c50dc3cb0d63c0f0c2d
+ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310527"
+ms.lasthandoff: 09/07/2019
+ms.locfileid: "70800511"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>ASP.NET Core uwierzytelnianie i autoryzacja Blazor
 
@@ -277,7 +277,7 @@ Jeśli użytkownik nie jest uwierzytelniony, można również podać inną zawar
 </AuthorizeView>
 ```
 
-Zawartość `<Authorized>` i`<NotAuthorized>` może zawierać dowolne elementy, takie jak inne składniki interaktywne.
+Zawartość `<Authorized>` i`<NotAuthorized>` Tagi mogą zawierać dowolne elementy, takie jak inne składniki interaktywne.
 
 Warunki autoryzacji, takie jak role lub zasady kontrolujące opcje interfejsu użytkownika lub dostęp, są omówione w sekcji [autoryzacja](#authorization) .
 
@@ -410,9 +410,9 @@ W domyślnym szablonie projektu po stronie serwera Blazor plik *App. Razor* ilus
 </Router>
 ```
 
-Zawartość `<NotFound>`, `<NotAuthorized>`i możezawieraćdowolneelementy,takiejakinneskładnikiinteraktywne.`<Authorizing>`
+Zawartość `<NotFound>`, `<NotAuthorized>`, i`<Authorizing>` Tagi mogą zawierać dowolne elementy, takie jak inne składniki interaktywne.
 
-Jeśli `<NotAuthorized>` nie jest określony, `<AuthorizeRouteView>` zostanie użyty następujący komunikat rezerwowy:
+Jeśli element nie jest określony, zostanie `AuthorizeRouteView` użyty następujący komunikat rezerwowy: `<NotAuthorized>`
 
 ```html
 Not authorized.

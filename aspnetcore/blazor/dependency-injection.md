@@ -5,14 +5,14 @@ description: Zobacz, jak aplikacje Blazor mogą wstrzyknąć usługi do składni
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/02/2019
+ms.date: 09/06/2019
 uid: blazor/dependency-injection
-ms.openlocfilehash: a2bfa0cbe951e817ed6264f1a151d5a716cd795c
-ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
+ms.openlocfilehash: 0b48cd0cbe14d2b07627f56ab78611bbd3209fa1
+ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310350"
+ms.lasthandoff: 09/07/2019
+ms.locfileid: "70800396"
 ---
 # <a name="aspnet-core-blazor-dependency-injection"></a>ASP.NET Core iniekcja zależności Blazor
 
@@ -61,7 +61,7 @@ Usługi można skonfigurować przy użyciu okresów istnienia podanych w poniżs
 
 | Okres istnienia | Opis |
 | -------- | ----------- |
-| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Scoped*> | Po stronie klienta Blazor nie ma obecnie koncepcji DI Scopes. `Scoped`-zarejestrowane usługi zachowują `Singleton` się jak usługi. Jednak model hostingu po stronie serwera obsługuje `Scoped` okres istnienia. W składniku Razor Rejestracja usługi w zakresie jest objęta zakresem połączenia. Z tego powodu użycie usług objętych zakresem jest preferowane dla usług, które powinny być objęte zakresem bieżącego użytkownika, nawet jeśli bieżącym celem jest uruchomienie po stronie klienta w przeglądarce. |
+| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Scoped*> | Aplikacje webassembly Blazor nie mają obecnie koncepcji DI Scopes. `Scoped`-zarejestrowane usługi zachowują `Singleton` się jak usługi. Jednak model hostingu po stronie serwera obsługuje `Scoped` okres istnienia. W aplikacjach Blazor Server Rejestracja usługi w zakresie jest objęta zakresem *połączenia*. Z tego powodu użycie usług objętych zakresem jest preferowane dla usług, które powinny być objęte zakresem bieżącego użytkownika, nawet jeśli bieżącym celem jest uruchomienie po stronie klienta w przeglądarce. |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Singleton*> | DI tworzy *pojedyncze wystąpienie* usługi. Wszystkie składniki wymagające `Singleton` usługi odbierają wystąpienie tej samej usługi. |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Transient*> | Za każdym razem, gdy składnik uzyskuje wystąpienie `Transient` usługi z kontenera usługi, otrzymuje *nowe wystąpienie* usługi. |
 
@@ -124,6 +124,29 @@ Wymagania wstępne dotyczące iniekcji konstruktora:
 * Jeden Konstruktor musi istnieć, którego argumenty mogą być zrealizowane przez DI. Dodatkowe parametry, które nie są objęte przez DI, są dozwolone, jeśli określają wartości domyślne.
 * Odpowiedni Konstruktor musi być *publiczny*.
 * Musi istnieć jeden odpowiedni Konstruktor. W przypadku niejednoznaczności, polecenie DI zgłasza wyjątek.
+
+## <a name="utility-base-component-classes-to-manage-a-di-scope"></a>Klasy składników podstawowych narzędzi do zarządzania DI zakresem
+
+W przypadku aplikacji ASP.NET Core usługi o określonym zakresie są zwykle objęte zakresem bieżącego żądania. Po zakończeniu żądania wszystkie usługi w zakresie lub przejściowym są usuwane przez system DI. W aplikacjach serwera Blazor zakres żądań jest stosowany przez czas trwania połączenia klienta, co może spowodować, że usługi przejściowe i w zakresie są znacznie dłuższe niż oczekiwano.
+
+Aby zakres usług był okresem istnienia składnika, można użyć `OwningComponentBase` klas i. `OwningComponentBase<TService>` Te klasy bazowe uwidaczniają `ScopedServices` właściwość typu `IServiceProvider` , który rozwiązuje usługi, które są objęte zakresem czasu istnienia składnika. Aby utworzyć składnik, który dziedziczy z klasy podstawowej w Razor, użyj `@inherits` dyrektywy.
+
+```cshtml
+@page "/users"
+@attribute [Authorize]
+@inherits OwningComponentBase<Data.ApplicationDbContext>
+
+<h1>Users (@Service.Users.Count())</h1>
+<ul>
+    @foreach (var user in Service.Users)
+    {
+        <li>@user.UserName</li>
+    }
+</ul>
+```
+
+> [!NOTE]
+> Usługi wprowadzone do składnika przy użyciu `@inject` `InjectAttribute` lub nie są tworzone w zakresie składnika i są powiązane z zakresem żądania.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
