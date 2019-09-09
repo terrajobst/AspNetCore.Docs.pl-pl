@@ -1,10 +1,11 @@
-# <a name="aspnet-core-web-api-sample"></a>Przykładowe Core Web API platformy ASP.NET
+# <a name="aspnet-core-web-api-samples"></a>Przykłady interfejsu Web API ASP.NET Core
 
-Poniższa tabela zawiera opis różnych plików składających się na przykładowym rozwiązaniu:
+Poniższa tabela zawiera opis różnych katalogów składających się na przykładowe rozwiązanie:
 
-|              Folder              |                                        Cel                                        |
-|----------------------------------|---------------------------------------------------------------------------------------|
-|   *WebApiSample.Api.21*   |                         Projekt interfejsu API platformy ASP.NET Core 2.1 w sieci Web.                          |
-| *WebApiSample.Api.Pre21*  |                         Projekt interfejsu API platformy ASP.NET Core 2.0 sieci Web.                          |
-| *WebApiSample.DataAccess* | .NET Standard 2.0 danych dostęp do warstwy projekt, który jest używany przez oba projekty interfejsu API sieci Web. |
-
+| Katalog                   | Cel |
+|-----------------------------|------------------------------------------------------------|
+| *3/WebApiSample. API. 30*    | Projekt interfejsu API sieci Web ASP.NET Core 3,0.                       |
+| *od 3 do WebApiSample. dostęp do*| Projekt warstwy dostępu do danych .NET Standard 2,1, który jest używany przez projekt ASP.NET Core 3. x interfejsu API sieci Web.|
+| *2x/WebApiSample. API. 21*    | Projekt interfejsu API sieci Web ASP.NET Core 2,1.                         |
+| *2x/WebApiSample. API. Pre21* | Projekt interfejsu API sieci Web ASP.NET Core 2,0.                         |
+| *"2x/WebApiSample. DataAccess"*| Projekt warstwy dostępu do danych .NET Standard 2,0, który jest używany przez projekty interfejsu API sieci Web ASP.NET Core 2. x.|

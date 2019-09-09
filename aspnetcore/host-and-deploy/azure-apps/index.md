@@ -5,14 +5,14 @@ description: Ten artykuł zawiera linki do hosta platformy Azure i wdrażania za
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/28/2019
+ms.date: 09/07/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 5035a31526e0290964e0fdee05753aeaf6cb3790
-ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
+ms.openlocfilehash: 5da32b5fd1026263f721db442b2676d45b239b8d
+ms.sourcegitcommit: 2d4c1732c4866ed26b83da35f7bc2ad021a9c701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602440"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815602"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Wdróż aplikacje ASP.NET Core w Azure App Service
 
@@ -97,17 +97,7 @@ Gdy aplikacja kompiluje hosta za pomocą elementu [webhost. CreateDefaultBuilder
 
 ## <a name="monitoring-and-logging"></a>Monitorowanie i rejestrowanie
 
-::: moniker range=">= aspnetcore-3.0"
-
-ASP.NET Core aplikacje wdrożone do App Service automatycznie otrzymują rozszerzenie App Service **ASP.NET Core integrację rejestrowania**. Rozszerzenie włącza integrację rejestrowania dla aplikacji ASP.NET Core w Azure App Service.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
-
-ASP.NET Core aplikacje wdrożone do App Service automatycznie otrzymują rozszerzenia App Service **ASP.NET Core rejestrowania rozszerzeń**. Rozszerzenie włącza integrację rejestrowania dla aplikacji ASP.NET Core w Azure App Service.
-
-::: moniker-end
+Azure App Service oferuje **rozszerzenia rejestrowania ASP.NET Core**, które umożliwiają integrację rejestrowania dla aplikacji ASP.NET Core. Aby automatycznie dodać rozszerzenie do App Service, Użyj procesu **publikowania** programu Visual Studio z profilem **App Service** Publish. Gdy nie używasz programu Visual Studio do wdrożenia aplikacji, ręcznie zainstaluj rozszerzenie w witrynie Azure Portal za pomocą okna dialogowego > **rozszerzenia** **narzędzi programistycznych**App Service.
 
 Informacje o monitorowaniu, rejestrowaniu i rozwiązywaniu problemów znajdują się w następujących artykułach:
 
@@ -143,8 +133,8 @@ Aby uzyskać więcej informacji, zobacz <xref:security/data-protection/implement
 
 Jeśli aplikacja korzysta z wersji zapoznawczej programu .NET Core, użyj jednej z następujących metod:
 
-* [Zainstaluj rozszerzenie witryny w wersji](#install-the-preview-site-extension)zapoznawczej.
-* [Wdróż samodzielną aplikację w wersji](#deploy-a-self-contained-preview-app)zapoznawczej.
+* [Zainstaluj rozszerzenie witryny w wersji zapoznawczej](#install-the-preview-site-extension).
+* [Wdróż samodzielną aplikację w wersji zapoznawczej](#deploy-a-self-contained-preview-app).
 * [Użyj platformy Docker z Web Apps dla kontenerów](#use-docker-with-web-apps-for-containers).
 
 ### <a name="install-the-preview-site-extension"></a>Zainstaluj rozszerzenie witryny w wersji zapoznawczej
@@ -189,7 +179,7 @@ Po zakończeniu operacji zostanie zainstalowana najnowsza wersja programu .NET C
 
 **Używanie rozszerzenia witryny w wersji zapoznawczej z szablonem ARM**
 
-Jeśli szablon ARM jest używany do tworzenia i wdrażania aplikacji, `siteextensions` typ zasobu może służyć do dodawania rozszerzenia witryny do aplikacji sieci Web. Na przykład:
+Jeśli szablon ARM jest używany do tworzenia i wdrażania aplikacji, `siteextensions` typ zasobu może służyć do dodawania rozszerzenia witryny do aplikacji sieci Web. Przykład:
 
 [!code-json[](index/sample/arm.json?highlight=2)]
 
@@ -199,10 +189,10 @@ Jeśli szablon ARM jest używany do tworzenia i wdrażania aplikacji, `siteexten
 
 Podczas wdrażania aplikacji samodzielnej:
 
-* Lokacja w Azure App Service nie wymaga [rozszerzenia witryny w wersji](#install-the-preview-site-extension)zapoznawczej.
+* Lokacja w Azure App Service nie wymaga [rozszerzenia witryny w wersji zapoznawczej](#install-the-preview-site-extension).
 * Aplikacja musi zostać opublikowana przy użyciu innego podejścia niż w przypadku publikowania dla [wdrożenia zależnego od platformy (FDD)](/dotnet/core/deploying#framework-dependent-deployments-fdd).
 
-Postępuj zgodnie ze wskazówkami zawartymi w sekcji [Wdróż aplikację](#deploy-the-app-self-contained) samodzielną.
+Postępuj zgodnie ze wskazówkami [zawartymi w sekcji Wdróż aplikację samodzielną](#deploy-the-app-self-contained) .
 
 ### <a name="use-docker-with-web-apps-for-containers"></a>Korzystanie z platformy Docker z Web Apps dla kontenerów
 
@@ -259,7 +249,7 @@ Użyj programu Visual Studio lub narzędzi interfejsu wiersza polecenia (CLI) dl
 1. Wybierz pozycję **Zaawansowane**. Zostanie otwarte okno dialogowe **Publikowanie** .
 1. W **Publikuj** okno dialogowe:
    * Upewnij się, że wybrano konfigurację **wydania** .
-   * Otwórz listę rozwijaną **tryb wdrażania** i wybierz pozycję samodzielny.
+   * Otwórz listę rozwijaną **tryb wdrażania** i wybierz pozycję **samodzielny**.
    * Wybierz docelowe środowisko uruchomieniowe z listy rozwijanej **docelowy środowisko uruchomieniowe** . Wartość domyślna to `win-x86`.
    * Jeśli konieczne jest usunięcie dodatkowych plików po wdrożeniu, Otwórz **Opcje publikowania plików** i zaznacz pole wyboru w celu usunięcia dodatkowych plików w miejscu docelowym.
    * Wybierz pozycję **Zapisz**.
