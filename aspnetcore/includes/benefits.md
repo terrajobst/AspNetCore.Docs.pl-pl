@@ -10,6 +10,12 @@ Platforma ASP. NET Core oferuje następujące zalety:
 * Gotowy do pracy w chmurze, oparty na środowisku [system konfiguracji](xref:fundamentals/configuration/index).
 * Wbudowane [wstrzykiwanie zależności](xref:fundamentals/dependency-injection).
 * Uproszczony, modułowy potok żądań HTTP zapewniający [wysoką wydajność](https://github.com/aspnet/benchmarks).
-* Możliwość hostowania w [systemie Kestrel](xref:fundamentals/servers/kestrel), ([IIS](xref:host-and-deploy/iis/index), [Nginx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache), [Docker](xref:host-and-deploy/docker/index)lub samodzielnego hosta we własnym procesie.
+* Możliwość hostowania w następujący sposób:
+  * [Kestrel](xref:fundamentals/servers/kestrel)
+  * [IIS](xref:host-and-deploy/iis/index)
+  * [HTTP.sys](xref:fundamentals/servers/httpsys)
+  * [Nginx](xref:host-and-deploy/linux-nginx)
+  * [Apache](xref:host-and-deploy/linux-apache)
+  * [Docker](xref:host-and-deploy/docker/index)
 * [Przechowywanie wersji równoległych](/dotnet/standard/choosing-core-framework-server#a-need-for-side-by-side-of-net-versions-per-application-level).
 * Narzędzia, które upraszczają tworzenie nowoczesnych aplikacji internetowych.
