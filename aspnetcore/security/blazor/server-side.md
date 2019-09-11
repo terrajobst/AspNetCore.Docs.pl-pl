@@ -5,14 +5,14 @@ description: Dowiedz się, jak wyeliminować zagrożenia bezpieczeństwa, Blazor
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/05/2019
+ms.date: 09/07/2019
 uid: security/blazor/server-side
-ms.openlocfilehash: 13bb4475b4beac78cf489d83fb59a3e0d6d8f2d9
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: d30f19bfbbcdb6c142f03a6e0cc6e1fc154c2091
+ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800498"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878526"
 ---
 # <a name="secure-aspnet-core-blazor-server-side-apps"></a>Bezpieczne ASP.NET Core Blazor aplikacje po stronie serwera
 
@@ -115,7 +115,7 @@ Klient współdziała z serwerem za pomocą wysyłania zdarzeń międzyoperacyjn
 Dla wywołań z metod .NET do języka JavaScript:
 
 * Wszystkie wywołania mają konfigurowalny limit czasu, po którym kończą się niepowodzeniem, <xref:System.OperationCanceledException> zwracając do obiektu wywołującego.
-  * Istnieje domyślny limit czasu dla wywołań (`CircuitOptions.JSInteropDefaultCallTimeout`) o jednej minucie.
+  * Istnieje domyślny limit czasu dla wywołań (`CircuitOptions.JSInteropDefaultCallTimeout`) o jednej minucie. Aby skonfigurować ten limit, zobacz <xref:blazor/javascript-interop#harden-js-interop-calls>.
   * Można podać token anulowania, aby kontrolować anulowanie dla każdego wywołania. Należy polegać na domyślnym limicie czasu wywołań, gdy jest to możliwe, oraz o każdym wywołaniu klienta w przypadku podanego tokenu anulowania.
 * Nie można zaufać wyniku wywołania języka JavaScript. Klient aplikacji Blazor uruchomiony w przeglądarce szuka funkcji języka JavaScript do wywołania. Funkcja jest wywoływana, a wynik lub błąd jest generowany. Złośliwy klient może próbować:
   * Przyczyna problemu w aplikacji przez zwrócenie błędu z funkcji JavaScript.
@@ -145,7 +145,7 @@ Nie ufaj wywołań z języka JavaScript do metod .NET. Gdy metoda .NET jest nara
 
 Zdarzenia zapewniają punkt wejścia do aplikacji po stronie serwera Blazor. Te same reguły zabezpieczania punktów końcowych w aplikacjach sieci Web mają zastosowanie do obsługi zdarzeń w aplikacjach po stronie serwera Blazor. Złośliwy klient może wysłać dowolne dane, które chcą wysłać jako ładunek dla zdarzenia.
 
-Na przykład:
+Przykład:
 
 * Zdarzenie zmiany dla elementu `<select>` może wysłać wartość, która nie należy do opcji prezentowanych przez aplikację dla klienta.
 * `<input>` Może wysłać dowolne dane tekstowe do serwera, pomijając sprawdzanie poprawności po stronie klienta.
@@ -200,6 +200,72 @@ Klient może wysłać co najmniej jedno zdarzenie przyrostu, zanim środowisko g
 ```
 
 Po dodaniu `if (count < 3) { ... }` kontroli wewnątrz procedury obsługi decyzja o zwiększeniu `count` zależy od bieżącego stanu aplikacji. Decyzja nie jest oparta na stanie interfejsu użytkownika, ponieważ była w poprzednim przykładzie, co może być czasowo przestarzałe.
+
+### <a name="guard-against-multiple-dispatches"></a>Ochrona przed wieloma operacjami wysyłania
+
+Jeśli wywołanie zwrotne zdarzenia wywołuje długotrwałą operację, taką jak pobieranie danych z zewnętrznej usługi lub bazy danych, należy rozważyć użycie funkcji Guard. Funkcja Guard może uniemożliwić użytkownikowi kolejkowanie wielu operacji, gdy operacja jest w toku i zawiera wizualne Opinie. Poniższy kod składnika jest ustawiany `isLoading` na `true` podczas `GetForecastAsync` pobierania danych z serwera. Mimo `isLoading`że przycisk jest wyłączony w interfejsie użytkownika: `true`
+
+```cshtml
+@page "/fetchdata"
+@using BlazorServerSample.Data
+@inject WeatherForecastService ForecastService
+
+<button disabled="@isLoading" @onclick="UpdateForecasts">Update</button>
+
+@code {
+    private bool isLoading;
+    private WeatherForecast[] forecasts;
+
+    private async Task UpdateForecasts()
+    {
+        if (!isLoading)
+        {
+            isLoading = true;
+            forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+            isLoading = false;
+        }
+    }
+}
+```
+
+### <a name="cancel-early-and-avoid-use-after-dispose"></a>Anuluj wczesne i Unikaj używania-After-Dispose
+
+Oprócz używania ochrony opisanej w sekcji [Guard dla wielu odniesień](#guard-against-multiple-dispatches) należy rozważyć użycie elementu <xref:System.Threading.CancellationToken> , aby anulować długotrwałe operacje, gdy składnik zostanie usunięty. Takie podejście ma dodatkową korzyść, unikając *użycia-After-Dispose* w składnikach:
+
+```cshtml
+@implements IDisposable
+
+...
+
+@code {
+    private readonly CancellationTokenSource TokenSource = 
+        new CancellationTokenSource();
+
+    private async Task UpdateForecasts()
+    {
+        ...
+
+        forecasts = await ForecastService.GetForecastAsync(DateTime.Now, 
+            TokenSource.Token);
+
+        if (TokenSource.Token.IsCancellationRequested)
+        {
+           return;
+        }
+
+        ...
+    }
+
+    public void Dispose()
+    {
+        CancellationTokenSource.Cancel();
+    }
+}
+```
+
+### <a name="avoid-events-that-produce-large-amounts-of-data"></a>Unikaj zdarzeń, które generują duże ilości danych
+
+Niektóre zdarzenia dom, takie jak `oninput` lub `onscroll`, mogą generować dużą ilość danych. Unikaj używania tych zdarzeń w aplikacjach serwera Blazor.
 
 ## <a name="additional-security-guidance"></a>Dodatkowe wskazówki dotyczące zabezpieczeń
 
@@ -330,6 +396,9 @@ Poniżej wymieniono zagadnienia dotyczące zabezpieczeń, które nie są wyczerp
 * Uniemożliwiaj klientowi alokowanie nieograniczonej ilości pamięci.
   * Dane w składniku.
   * `DotNetObject`odwołania zwracane do klienta.
+* Ochrona przed wieloma operacjami wysyłania.
+* Anuluj długotrwałe operacje, gdy składnik zostanie usunięty.
+* Unikaj zdarzeń, które generują duże ilości danych.
 * Unikaj korzystania z danych wejściowych użytkownika jako części `NavigationManager.Navigate` wywołań i weryfikowania danych wejściowych użytkownika dla adresów URL w odniesieniu do zestawu dozwolonych źródeł najpierw w przypadku, gdy jest to nieuniknione.
 * Nie należy podejmować decyzji dotyczących autoryzacji na podstawie stanu interfejsu użytkownika, ale tylko ze stanu składnika.
 * Rozważ użycie [zasad zabezpieczeń zawartości (CSP)](https://developer.mozilla.org/docs/Web/HTTP/CSP) do ochrony przed atakami XSS.

@@ -7,12 +7,12 @@ ms.author: jamesnk
 ms.custom: mvc
 ms.date: 09/05/2019
 uid: grpc/troubleshoot
-ms.openlocfilehash: 86517ec90c1df782da796e4dcf74cdc426565eb6
-ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.openlocfilehash: 33864ceb18304eb1d3413bcc9aebacd6eaffdbc6
+ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773652"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878504"
 ---
 # <a name="troubleshoot-grpc-on-net-core"></a>Rozwiązywanie problemów z gRPC na platformie .NET Core
 
@@ -82,7 +82,7 @@ Dodatkowa konfiguracja jest wymagana do wywołania niezabezpieczonych usług gRP
 AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
 
 // The port number(5000) must match the port of the gRPC server.
-var channel = GrpcChannel.ForAddress("https://localhost:5001");
+var channel = GrpcChannel.ForAddress("http://localhost:5000");
 var client = new Greet.GreeterClient(channel);
 ```
 

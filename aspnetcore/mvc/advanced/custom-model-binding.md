@@ -5,12 +5,12 @@ description: Dowiedz się, jak powiązanie modelu umożliwia akcjom kontrolera b
 ms.author: riande
 ms.date: 11/13/2018
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 64429d3d9a64219216f3432924dbd0977dd6e1bb
-ms.sourcegitcommit: 2d4c1732c4866ed26b83da35f7bc2ad021a9c701
+ms.openlocfilehash: 91f42393ffee3249f9167e10eaea7b279a7cb70b
+ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815623"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878412"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Niestandardowe powiązanie modelu w ASP.NET Core
 
@@ -133,6 +133,13 @@ Dodanie swojego dostawcy do końca kolekcji może spowodować wywołanie wbudowa
 ### <a name="polymorphic-model-binding"></a>Powiązanie modelu polimorficznego
 
 Powiązanie z różnymi modelami typów pochodnych jest znane jako powiązanie modelu polimorficzne. Niestandardowe powiązanie modelu jest wymagane, gdy wartość żądania musi być powiązana z konkretnym typem modelu pochodnego. Chyba że takie podejście jest wymagane, zalecamy uniknięcie powiązania modelu polimorficznego. Powiązanie modelu polimorficznego utrudnia powody dotyczące modeli powiązanych. Jeśli jednak aplikacja wymaga powiązania modelu polimorficznego, implementacja może wyglądać podobnie do następującego kodu:
+
+Powiązanie z różnymi modelami typów pochodnych jest znane jako powiązanie modelu polimorficzne. Niestandardowe powiązanie modelu jest wymagane, gdy wartość żądania musi być powiązana z konkretnym typem modelu pochodnego. Powiązanie modelu polimorficznego:
+
+* Nie jest typowy dla interfejsu API REST, który jest przeznaczony do współpracy ze wszystkimi językami.
+* Utrudniają powody dotyczące modeli powiązanych.
+
+Jeśli jednak aplikacja wymaga powiązania modelu polimorficznego, implementacja może wyglądać podobnie do następującego kodu:
 
 [!code-csharp[](custom-model-binding/3.0sample/PolymorphicModelBinding/ModelBinders/PolymorphicModelBinder.cs?name=snippet)]
 

@@ -1,38 +1,38 @@
 ---
-title: Biblioteka klienta przejęcia w programie ASP.NET Core za pomocą LibMan
+title: Pozyskiwanie biblioteki po stronie klienta w ASP.NET Core z LibMan
 author: scottaddie
-description: Dowiedz się, jak zainstalować zasoby biblioteki po stronie klienta w projektach programu ASP.NET Core za pomocą Menedżera biblioteki (LibMan).
+description: Dowiedz się, jak zainstalować zasoby biblioteki po stronie klienta w projekcie ASP.NET Core przy użyciu programu Library Manager (LibMan).
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/14/2018
 uid: client-side/libman/index
-ms.openlocfilehash: a6ff0cc3342cfac74739387aa17046ed5050232f
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 87987446b7f2c625da90951510e697e06569ba36
+ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900151"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878333"
 ---
-# <a name="client-side-library-acquisition-in-aspnet-core-with-libman"></a>Biblioteka klienta przejęcia w programie ASP.NET Core za pomocą LibMan
+# <a name="client-side-library-acquisition-in-aspnet-core-with-libman"></a>Pozyskiwanie biblioteki po stronie klienta w ASP.NET Core z LibMan
 
 Przez [Scott Addie](https://twitter.com/Scott_Addie)
 
-Menedżer biblioteki (LibMan) jest narzędziem przejęcia biblioteki lekki, po stronie klienta. LibMan pobiera popularnych bibliotek i struktur, z systemu plików lub [sieci dostarczania zawartości (CDN)](https://wikipedia.org/wiki/Content_delivery_network). Obsługiwane CDN obejmują [CDNJS](https://cdnjs.com/) i [unpkg](https://unpkg.com/#/). Pliki wybranej biblioteki są pobierane i umieszczane w odpowiedniej lokalizacji w projekcie platformy ASP.NET Core.
+Library Manager (LibMan) to lekkie narzędzie do pozyskiwania bibliotek po stronie klienta. LibMan pobiera popularne biblioteki i struktury z systemu plików lub z usługi [Content Delivery Network (CDN)](https://wikipedia.org/wiki/Content_delivery_network). Obsługiwane sieci CDN obejmują [CDNJS](https://cdnjs.com/), [jsDelivr](https://www.jsdelivr.com/)i [unpkg](https://unpkg.com/#/). Wybrane pliki biblioteki są pobierane i umieszczane w odpowiedniej lokalizacji w ramach projektu ASP.NET Core.
 
 ## <a name="libman-use-cases"></a>LibMan przypadki użycia
 
 LibMan oferuje następujące korzyści:
 
-* Pobierane są pliki biblioteki, które są potrzebne.
-* Dodatkowe narzędzia, takie jak [Node.js](https://nodejs.org), [npm](https://www.npmjs.com), i [WebPack](https://webpack.js.org), nie jest konieczne w celu uzyskania podzbiór plików w bibliotece.
-* Pliki można umieścić w określonej lokalizacji, bez konieczności uciekania się do zadań kompilacji lub kopiowania plików ręczne.
+* Pobierane są tylko pliki biblioteki, które są potrzebne.
+* Dodatkowe narzędzia, takie jak [Node. js](https://nodejs.org), [npm](https://www.npmjs.com)i [WebPack](https://webpack.js.org), nie są niezbędne do uzyskania podzestawu plików w bibliotece.
+* Pliki można umieścić w określonej lokalizacji bez konieczności tworzenia zadań kompilacji ani ręcznego kopiowania plików.
 
-Aby uzyskać więcej informacji na temat korzyści firmy LibMan Obejrzyj [nowoczesnych frontonu sieci web development w programie Visual Studio 2017: LibMan segment](https://channel9.msdn.com/Events/Build/2017/B8073#time=43m34s).
+Aby uzyskać więcej informacji na temat korzyści z programu [LibMan, zobacz nowoczesny rozwój sieci Web frontonu w programie Visual Studio 2017: Segment](https://channel9.msdn.com/Events/Build/2017/B8073#time=43m34s)LibMan.
 
-LibMan jest system zarządzania pakietami. Jeśli już używasz Menedżera pakietów, takich jak npm lub [yarn](https://yarnpkg.com), dalej. LibMan nie został opracowany, aby zastąpić tych narzędzi.
+LibMan nie jest system zarządzania pakietami. Jeśli już używasz Menedżera pakietów, takiego jak npm lub [przędza](https://yarnpkg.com), Kontynuuj. Nie opracowano LibMan do zastępowania tych narzędzi.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * <xref:client-side/libman/libman-vs>
 * <xref:client-side/libman/libman-cli>
-* [Repozytorium LibMan GitHub](https://github.com/aspnet/LibraryManager)
+* [Repozytorium GitHub LibMan](https://github.com/aspnet/LibraryManager)

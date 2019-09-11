@@ -5,14 +5,14 @@ description: Dowiedz się, jak hostować i wdrażać aplikację Blazor po stroni
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/05/2019
+ms.date: 09/07/2019
 uid: host-and-deploy/blazor/server-side
-ms.openlocfilehash: 8da71faf6abc5929d6cd43d42fd896e378d99ef6
-ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.openlocfilehash: fc47dfa1344b74ec7110211e3698217e246ab86d
+ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773570"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878488"
 ---
 # <a name="host-and-deploy-blazor-server-side"></a>Hostowanie i wdrażanie Blazor po stronie serwera
 
@@ -24,23 +24,64 @@ Aplikacje po stronie serwera, które używają [modelu hostingu po stronie serwe
 
 ## <a name="deployment"></a>wdrażania
 
-[Model hostingu po stronie serwera](xref:blazor/hosting-models#server-side)Blazor jest wykonywany na serwerze z poziomu aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika, obsługa zdarzeń i wywołania języka JavaScript są obsługiwane przez połączenie [sygnalizujące](xref:signalr/introduction) .
+[Model hostingu po stronie serwera](xref:blazor/hosting-models#server-side)Blazor jest wykonywany na serwerze z poziomu aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika, obsługa zdarzeń i wywołania języka JavaScript są obsługiwane przez [](xref:signalr/introduction) połączenie sygnalizujące.
 
 Wymagany jest serwer sieci Web obsługujący aplikację ASP.NET Core. Program Visual Studio zawiera szablon projektu **aplikacji Blazor Server** (`blazorserverside` szablon w przypadku używania polecenia [dotnet New](/dotnet/core/tools/dotnet-new) ).
 
-## <a name="connection-scale-out"></a>Skalowanie w poziomie połączenia
+## <a name="scalability"></a>Skalowalność
 
-Blazor aplikacje po stronie serwera wymagają jednego aktywnego połączenia sygnalizującego dla każdego użytkownika. Wdrożenie po stronie serwera produkcyjnego Blazor wymaga rozwiązania do obsługi tylu połączeń współbieżnych wymaganych przez aplikację. [Usługa Azure Signal](/azure/azure-signalr/) obsługuje skalowanie połączeń i jest zalecana jako rozwiązanie do skalowania dla aplikacji po stronie serwera Blazor. Aby uzyskać więcej informacji, zobacz <xref:signalr/publish-to-azure-web-app>.
+Zaplanuj wdrożenie, aby najlepiej wykorzystać dostępną infrastrukturę dla aplikacji serwera Blazor. Zapoznaj się z poniższymi zasobami, aby rozwiązać o skalowalność aplikacji serwera Blazor:
 
-## <a name="signalr-configuration"></a>Konfiguracja sygnalizującego
+* [Podstawy aplikacji serwera Blazor](xref:blazor/hosting-models#server-side)
+* <xref:security/blazor/server-side>
 
-Program sygnalizujący jest konfigurowany przez ASP.NET Core dla najpopularniejszych scenariuszy po stronie serwera Blazor. W przypadku scenariuszy niestandardowych i zaawansowanych zapoznaj się z artykułami dotyczącymi sygnałów w sekcji [dodatkowe zasoby](#additional-resources) .
+### <a name="deployment-server"></a>Serwer wdrażania
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+Gdy rozważasz skalowalność pojedynczego serwera (skalowanie w górę), pamięć dostępna dla aplikacji jest prawdopodobnie pierwszym zasobem, który zostanie wyczerpany przez aplikację w miarę wzrostu wymagań użytkownika. Dostępna pamięć na serwerze ma wpływ na:
 
-* <xref:signalr/introduction>
-* [Dokumentacja usługi Azure sygnalizującego](/azure/azure-signalr/)
-* [Szybki start: Tworzenie pokoju rozmów przy użyciu usługi sygnalizującej](/azure/azure-signalr/signalr-quickstart-dotnet-core)
-* <xref:host-and-deploy/index>
-* <xref:tutorials/publish-to-azure-webapp-using-vs>
-* [Wdróż ASP.NET Core wersji zapoznawczej do Azure App Service](xref:host-and-deploy/azure-apps/index#deploy-aspnet-core-preview-release-to-azure-app-service)
+* Liczba aktywnych obwodów obsługiwanych przez serwer.
+* Opóźnienie interfejsu użytkownika na kliencie.
+
+Aby uzyskać wskazówki dotyczące tworzenia bezpiecznych i skalowalnych aplikacji serwera Blazor <xref:security/blazor/server-side>, zobacz.
+
+Każdy obwód wykorzystuje około 250 KB pamięci w przypadku aplikacji o minimalnej *Hello World*. Rozmiar obwodu zależy od kodu aplikacji i wymagań dotyczących konserwacji stanu związanych z poszczególnymi składnikami. Zalecamy mierzenie wymagań dotyczących zasobów podczas opracowywania aplikacji i infrastruktury, ale następujący punkt odniesienia może być punktem początkowym w planowaniu celu wdrożenia: Jeśli oczekujesz, że aplikacja będzie obsługiwać 5 000 użytkowników współbieżnych, rozważ budżetowanie co najmniej 1,3 GB pamięci serwera do aplikacji (lub ~ 273 KB na użytkownika).
+
+### <a name="signalr-configuration"></a>Konfiguracja sygnalizującego
+
+Aplikacje serwera Blazor używają sygnalizacji ASP.NET Core do komunikowania się z przeglądarką. [Warunki hostingu i skalowania sygnalizującego](xref:signalr/publish-to-azure-web-app) dotyczą aplikacji serwera Blazor.
+
+Blazor najlepiej sprawdza się w przypadku korzystania z usługi WebSockets jako transportu sygnalizującego ze względu na mniejsze opóźnienia, niezawodność i [bezpieczeństwo](xref:signalr/security). Długi sondowanie jest używane przez program sygnalizujący, gdy obiekty WebSockets nie są dostępne lub gdy aplikacja jest jawnie skonfigurowana do korzystania z długiego sondowania. Podczas wdrażania programu w celu Azure App Service Skonfiguruj aplikację do używania obiektów WebSockets w ustawieniach Azure Portal dla usługi. Aby uzyskać szczegółowe informacje dotyczące konfigurowania aplikacji na potrzeby Azure App Service, zobacz [wskazówki dotyczące publikowania sygnałów](xref:signalr/publish-to-azure-web-app).
+
+Zalecamy korzystanie z [usługi Azure Signal Service](/azure/azure-signalr) dla aplikacji serwera Blazor. Usługa umożliwia skalowanie aplikacji serwera Blazor na dużą liczbę współbieżnych połączeń sygnałów. Ponadto globalne zasięgi i wysokiej wydajności centrów danych usługi sygnalizujących znacznie ułatwiają zredukowanie opóźnień ze względu na lokalizację geograficzną.
+
+### <a name="measure-network-latency"></a>Mierzenie opóźnienia sieci
+
+Przy użyciu kodu [js Interop](xref:blazor/javascript-interop) można mierzyć opóźnienia sieci, jak pokazano w poniższym przykładzie:
+
+```cshtml
+@inject IJSRuntime JS
+
+@if (latency is null)
+{
+    <span>Calculating...</span>
+}
+else
+{
+    <span>@(latency.Value.TotalMilliseconds)ms</span>
+}
+
+@code
+{
+    private DateTime startTime;
+    private TimeSpan? latency;
+
+    protected override async Task OnInitializedAsync()
+    {
+        startTime = DateTime.UtcNow;
+        var _ = await JS.InvokeAsync<string>("toString");
+        latency = DateTime.UtcNow - startTime;
+    }
+}
+```
+
+W celu uzyskania odpowiedniego środowiska interfejsu użytkownika zalecamy opóźnienia interfejsu użytkownika 250ms lub mniej.
