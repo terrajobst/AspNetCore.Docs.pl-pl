@@ -1,24 +1,24 @@
 ---
 title: ASP.NET Core zarządzanie stanem Blazor
 author: guardrex
-description: Dowiedz się, jak utrwalać stan w aplikacjach po stronie serwera Blazor.
+description: Dowiedz się, jak utrwalać stan w aplikacjach Blazor Server.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 09/05/2019
 uid: blazor/state-management
-ms.openlocfilehash: 000736dde53670d1df76f41cc7cf4f95ef48800a
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: e1c3b030f466a820d49c36839d7ee26bb7cea4d3
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800355"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963850"
 ---
 # <a name="aspnet-core-blazor-state-management"></a>ASP.NET Core zarządzanie stanem Blazor
 
 [Steve Sanderson](https://github.com/SteveSandersonMS)
 
-Blazor po stronie serwera jest platformą aplikacji stanowej. W większości przypadków aplikacja utrzymuje ciągłe połączenie z serwerem. Stan użytkownika jest przechowywany w pamięci serwera w ramach *obwodu*. 
+Serwer Blazor jest platformą aplikacji stanowych. W większości przypadków aplikacja utrzymuje ciągłe połączenie z serwerem. Stan użytkownika jest przechowywany w pamięci serwera w ramach *obwodu*. 
 
 Przykłady stanu przechowywanego dla obwodu użytkownika obejmują:
 
@@ -27,7 +27,7 @@ Przykłady stanu przechowywanego dla obwodu użytkownika obejmują:
 * Dane przechowywane w wystąpieniach usługi [wtrysku zależności (di)](xref:fundamentals/dependency-injection) , które są objęte zakresem obwodu.
 
 > [!NOTE]
-> Ten artykuł rozwiązuje trwałość stanu w aplikacjach po stronie serwera Blazor. Blazor aplikacje po stronie klienta mogą korzystać z [trwałości stanu po stronie klienta w przeglądarce,](#client-side-in-the-browser) ale wymagają niestandardowych rozwiązań lub pakietów innych firm wykraczających poza zakres tego artykułu.
+> Ten artykuł dotyczy trwałości stanu w aplikacjach Blazor Server. Blazor aplikacje webassembly mogą korzystać z [trwałości stanu po stronie klienta w przeglądarce,](#client-side-in-the-browser) ale wymagają niestandardowych rozwiązań lub pakietów innych firm wykraczających poza zakres tego artykułu.
 
 ## <a name="blazor-circuits"></a>Obwody usługi Blazor
 
@@ -62,7 +62,7 @@ Zwykle nie jest konieczne zachowywanie stanu łatwego ponownego tworzenia, takie
 
 ## <a name="where-to-persist-state"></a>Gdzie będzie trwały stan
 
-Trzy Popularne lokalizacje istnieją dla stanu utrwalania w aplikacji po stronie serwera Blazor. Każde podejście jest najlepiej dostosowane do różnych scenariuszy i ma inne zastrzeżenia:
+Trzy Popularne lokalizacje istnieją dla stanu utrwalania w aplikacji serwera Blazor. Każde podejście jest najlepiej dostosowane do różnych scenariuszy i ma inne zastrzeżenia:
 
 * [Po stronie serwera w bazie danych](#server-side-in-a-database)
 * [Adres URL](#url)
@@ -100,7 +100,7 @@ Aby uzyskać informacje na temat definiowania wzorców adresów `@page` URL za p
 W przypadku danych przejściowych, które użytkownik aktywnie tworzy, wspólny magazyn kopii zapasowych jest `localStorage` przeglądarką `sessionStorage` i kolekcjami. Aplikacja nie jest wymagana do zarządzania lub czyszczenia stanu przechowywanego, jeśli obwód został porzucony, co jest korzystne w porównaniu z magazynem po stronie serwera.
 
 > [!NOTE]
-> "Po stronie klienta" w tej sekcji odwołuje się do scenariuszy po stronie klienta w przeglądarce, a nie [modelu hostingu po stronie klienta Blazor](xref:blazor/hosting-models#client-side). `localStorage`i `sessionStorage` mogą być używane w aplikacjach po stronie klienta Blazor, ale tylko przez napisanie kodu niestandardowego lub użycie pakietu innej firmy.
+> "Po stronie klienta" w tej sekcji odwołuje się do scenariuszy po stronie klienta w przeglądarce, a nie [modelu hostingu Blazor webassembly](xref:blazor/hosting-models#blazor-webassembly). `localStorage`i `sessionStorage` mogą być używane w aplikacjach Blazor webassembly, ale tylko przez napisanie kodu niestandardowego lub użycie pakietu innej firmy.
 
 `localStorage`i `sessionStorage` różnią się w następujący sposób:
 
@@ -118,7 +118,7 @@ Ostrzeżenia dotyczące korzystania z magazynu przeglądarki:
 
 * Podobnie jak w przypadku korzystania z bazy danych po stronie serwera, ładowanie i zapisywanie danych są asynchroniczne.
 * W przeciwieństwie do bazy danych po stronie serwera, magazyn nie jest dostępny podczas renderowania wstępnego, ponieważ żądana strona nie istnieje w przeglądarce na etapie renderowania.
-* Przechowywanie kilku kilobajtów danych jest rozsądne dla Blazor aplikacji po stronie serwera. Po kilku kilobajtach należy wziąć pod uwagę wpływ na wydajność, ponieważ dane są ładowane i zapisywane w sieci.
+* Przechowywanie kilku kilobajtów danych jest rozsądne dla aplikacji Blazor Server. Po kilku kilobajtach należy wziąć pod uwagę wpływ na wydajność, ponieważ dane są ładowane i zapisywane w sieci.
 * Użytkownicy mogą wyświetlać i modyfikować dane. [Ochrona danych](xref:security/data-protection/introduction) ASP.NET Core może ograniczyć ryzyko.
 
 ## <a name="third-party-browser-storage-solutions"></a>Rozwiązania do magazynowania przeglądarki innych firm
@@ -138,7 +138,7 @@ Przykład pakietu NuGet, który zapewnia [ochronę danych](xref:security/data-pr
 
 Aby zainstalować `Microsoft.AspNetCore.ProtectedBrowserStorage` pakiet:
 
-1. W projekcie aplikacji po stronie serwera Blazor Dodaj odwołanie do pakietu do [Microsoft. AspNetCore. ProtectedBrowserStorage](https://www.nuget.org/packages/Microsoft.AspNetCore.ProtectedBrowserStorage).
+1. W projekcie aplikacji serwera Blazor Dodaj odwołanie do pakietu do [Microsoft. AspNetCore. ProtectedBrowserStorage](https://www.nuget.org/packages/Microsoft.AspNetCore.ProtectedBrowserStorage).
 1. W kodzie HTML najwyższego poziomu (na przykład w pliku *Pages/_Host. cshtml* w domyślnym szablonie projektu) Dodaj następujący `<script>` Tag:
 
    ```html

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/06/2019
 uid: blazor/handle-errors
-ms.openlocfilehash: 52f55af99881b09c84d9cf88f5845efcb1ea76a1
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: d3e261e83f375574339a8ce3428e8bfb73df4307
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913862"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963987"
 ---
 # <a name="handle-errors-in-aspnet-core-blazor-apps"></a>Obsługa błędów w aplikacjach ASP.NET Core Blazor
 

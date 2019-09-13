@@ -5,24 +5,28 @@ description: Dowiedz się, jak tworzyć i używać niestandardowych elementów f
 ms.author: riande
 ms.date: 02/08/2017
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: 6fb7e192bf3e943eb9018b08fb87a833d3643208
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: 122edfd4ccd06ed62e071691f421d2aeef8002b4
+ms.sourcegitcommit: 488cc779fc71377d9371e7a14356113e9c7eff17
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975666"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70913514"
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>Niestandardowe elementy formatujące w ASP.NET Core Web API
 
 Autor [Dykstra](https://github.com/tdykstra)
 
-ASP.NET Core MVC ma wbudowaną obsługę wymiany danych w interfejsach API sieci Web przy użyciu formatu JSON lub XML. W tym artykule pokazano, jak dodać obsługę dodatkowych formatów, tworząc niestandardowe elementy formatujące.
+ASP.NET Core MVC obsługuje wymianę danych w interfejsach API sieci Web przy użyciu danych wejściowych i wyjściowych. Wejściowe elementy formatującego są używane przez [powiązanie modelu](xref:mvc/models/model-binding). Wyjściowe elementy formatujące są używane do [formatowania odpowiedzi](xref:web-api/advanced/formatting).
+
+Struktura zawiera wbudowane, wejściowe i wyjściowe elementy formatujące dla JSON i XML. Udostępnia wbudowany program formatujący dane wyjściowe dla zwykłego tekstu, ale nie udostępnia wejściowego programu formatującego dla zwykłego tekstu.
+
+W tym artykule pokazano, jak dodać obsługę dodatkowych formatów, tworząc niestandardowe elementy formatujące. Aby zapoznać się z przykładem niestandardowego wejściowego programu formatującego dla zwykłego tekstu, zobacz [TextPlainInputFormatter](https://github.com/aspnet/Entropy/blob/master/samples/Mvc.Formatters/TextPlainInputFormatter.cs) w witrynie GitHub.
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-custom-formatters"></a>Kiedy używać niestandardowych elementów formatujących
 
-Użyj niestandardowego programu formatującego, jeśli chcesz, aby proces [negocjacji zawartości](xref:web-api/advanced/formatting#content-negotiation) obsługiwał typ zawartości, który nie jest obsługiwany przez wbudowane elementy formatujące (JSON i XML).
+Użyj niestandardowego programu formatującego, jeśli chcesz, aby proces [negocjacji zawartości](xref:web-api/advanced/formatting#content-negotiation) obsługiwał typ zawartości, który nie jest obsługiwany przez wbudowane elementy formatujące.
 
 Na przykład jeśli niektórzy klienci dla internetowego interfejsu API mogą obsłużyć format [protobuf](https://github.com/google/protobuf) , możesz chcieć użyć protobuf z tymi klientami, ponieważ jest to bardziej wydajne. Możesz też chcieć, aby internetowy interfejs API wysyłał nazwy i adresy kontaktów w formacie [vCard](https://wikipedia.org/wiki/VCard) , powszechnie używany format do wymiany danych kontaktowych. Przykładowa aplikacja udostępniona w tym artykule implementuje prosty program formatujący vCard.
 
@@ -104,7 +108,6 @@ Elementy formatujące są oceniane w kolejności, w jakiej je wstawiasz. Pierwsz
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Przykładowy kod w formacie zwykłego tekstu w serwisie GitHub.](https://github.com/aspnet/Entropy/tree/master/samples/Mvc.Formatters)
 * [Przykładowa aplikacja dla tego dokumentu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample), która implementuje proste elementy formatujące dane wejściowe i wyjściowe w formacie vCard. Aplikacje odczytuje i zapisuje wizytówki vCard, które wyglądają jak w poniższym przykładzie:
 
 ```

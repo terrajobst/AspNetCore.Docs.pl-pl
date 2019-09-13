@@ -5,20 +5,22 @@ description: Uzyskaj porady dotyczące rozwiązywania problemów z typowymi bł�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/10/2019
+ms.date: 09/11/2019
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 3030bc57be113d9034123c96403742442b9240bb
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: f6afd6491181830f4d79486fa26a64423cd4a0ac
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308103"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963673"
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Informacje dotyczące typowych błędów dla Azure App Service i usług IIS z ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-Ten temat zawiera wskazówki dotyczące rozwiązywania problemów z typowymi błędami podczas hostowania aplikacji ASP.NET Core w usłudze Azure Apps i usługach IIS.
+W tym temacie opisano typowe błędy i przedstawiono porady dotyczące rozwiązywania problemów w przypadku hostowania aplikacji ASP.NET Core w usłudze Azure Apps i usługach IIS.
+
+Ogólne wskazówki dotyczące rozwiązywania problemów <xref:test/troubleshoot-azure-iis>znajdują się w temacie.
 
 Zbierz wymienione poniżej informacje.
 
@@ -279,7 +281,7 @@ Rozwiązywanie problemów:
 
 * Upewnij się, że aplikacja działa lokalnie na Kestrel. Niepowodzenie procesu może być wynikiem problemu w aplikacji. Aby uzyskać więcej informacji, zobacz <xref:test/troubleshoot-azure-iis>.
 
-* Sprawdź atrybut  `<aspNetCore>` arguments w elemencie w *pliku Web. config* , aby upewnić się, że jest ( `.\{ASSEMBLY}.dll` a) dla wdrożenia zależnego od platformy (FDD); lub (b) nie istnieje, pusty ciąg`arguments=""`() lub lista argumenty aplikacji (`arguments="{ARGUMENT_1}, {ARGUMENT_2}, ... {ARGUMENT_X}"`) dla samodzielnego wdrożenia (SCD).
+* Sprawdź atrybut `<aspNetCore>` arguments w elemencie w *pliku Web. config* , aby upewnić się, że jest ( `.\{ASSEMBLY}.dll` a) dla wdrożenia zależnego od platformy (FDD); lub (b) nie istnieje, pusty ciąg`arguments=""`() lub lista argumenty aplikacji (`arguments="{ARGUMENT_1}, {ARGUMENT_2}, ... {ARGUMENT_X}"`) dla samodzielnego wdrożenia (SCD).
 
 ::: moniker range=">= aspnetcore-2.2"
 

@@ -7,31 +7,31 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/call-web-api
-ms.openlocfilehash: 60ebd01bc07da22cd1dcd0b16297ee54c97867fc
-ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
+ms.openlocfilehash: 152a2d5ac9a4325592ca414e9ea5e70c947d079f
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030379"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963696"
 ---
 # <a name="call-a-web-api-from-aspnet-core-blazor"></a>Wywoływanie interfejsu API sieci Web z ASP.NET Core Blazor
 
 Autorzy [Luke Latham](https://github.com/guardrex) i [Daniel Roth](https://github.com/danroth27)
 
-Blazor aplikacje po stronie klienta wywołują interfejsy API sieci Web przy użyciu `HttpClient` wstępnie skonfigurowanej usługi. Twórz żądania, które mogą obejmować opcje [interfejsu API pobierania](https://developer.mozilla.org/docs/Web/API/Fetch_API) języka JavaScript, za pomocą pomocników JSON Blazor <xref:System.Net.Http.HttpRequestMessage>lub za pomocą polecenia.
+Blazor aplikacje webassembly wywołują interfejsy API sieci Web przy użyciu `HttpClient` wstępnie skonfigurowanej usługi. Twórz żądania, które mogą obejmować opcje [interfejsu API pobierania](https://developer.mozilla.org/docs/Web/API/Fetch_API) języka JavaScript, za pomocą pomocników JSON Blazor <xref:System.Net.Http.HttpRequestMessage>lub za pomocą polecenia.
 
-Blazor aplikacje po stronie serwera wywołują interfejsy API <xref:System.Net.Http.HttpClient> sieci Web przy użyciu <xref:System.Net.Http.IHttpClientFactory>wystąpień zwykle utworzonych przy użyciu. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/http-requests>.
+Aplikacje serwera Blazor wywołują interfejsy API <xref:System.Net.Http.HttpClient> sieci Web przy użyciu <xref:System.Net.Http.IHttpClientFactory>wystąpień zwykle utworzonych przy użyciu. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/http-requests>.
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
-Aby zapoznać się z przykładami po stronie klienta Blazor, zobacz następujące składniki w przykładowej aplikacji:
+Przykłady Blazor webassembly można znaleźć w następujących składnikach w przykładowej aplikacji:
 
 * Wywoływanie interfejsu API sieci Web (*strony/CallWebAPI. Razor*)
 * Tester żądania HTTP (*Components/HTTPRequestTester. Razor*)
 
 ## <a name="httpclient-and-json-helpers"></a>HttpClient i pomocnicy JSON
 
-W Blazor aplikacje po stronie klienta [HttpClient](xref:fundamentals/http-requests) jest dostępny jako usługa wstępnie skonfigurowana do wykonywania żądań z powrotem do serwera pochodzenia. Aby skorzystać `HttpClient` z pomocników JSON, Dodaj odwołanie do pakietu `Microsoft.AspNetCore.Blazor.HttpClient`do. `HttpClient`i pomocniki JSON są również używane do wywoływania punktów końcowych interfejsu API sieci Web innych firm. `HttpClient`Program jest implementowany przy użyciu [interfejsu API pobierania](https://developer.mozilla.org/docs/Web/API/Fetch_API) przeglądarki i podlega jego ograniczeniom, w tym wymuszania tych samych zasad pochodzenia.
+W aplikacjach Blazor webassembly [HttpClient](xref:fundamentals/http-requests) jest dostępny jako usługa wstępnie skonfigurowana do wykonywania żądań z powrotem do serwera pochodzenia. Aby skorzystać `HttpClient` z pomocników JSON, Dodaj odwołanie do pakietu `Microsoft.AspNetCore.Blazor.HttpClient`do. `HttpClient`i pomocniki JSON są również używane do wywoływania punktów końcowych interfejsu API sieci Web innych firm. `HttpClient`Program jest implementowany przy użyciu [interfejsu API pobierania](https://developer.mozilla.org/docs/Web/API/Fetch_API) przeglądarki i podlega jego ograniczeniom, w tym wymuszania tych samych zasad pochodzenia.
 
 Adres podstawowy klienta jest ustawiany na adres serwera źródłowego. `HttpClient` Wstrzyknąć wystąpienie `@inject` przy użyciu dyrektywy:
 
@@ -151,7 +151,7 @@ Aby umożliwić innym lokacjom wykonywanie żądań funkcji udostępniania zasob
 
 ## <a name="httpclient-and-httprequestmessage-with-fetch-api-request-options"></a>HttpClient i HttpRequestMessage za pomocą opcji żądania interfejsu API pobierania
 
-W przypadku uruchamiania na zestawie webassembly w aplikacji po stronie klienta Blazor należy [](xref:fundamentals/http-requests) użyć HttpClient <xref:System.Net.Http.HttpRequestMessage> i aby dostosować żądania. Na przykład można określić identyfikator URI żądania, metodę HTTP i wszystkie żądane nagłówki żądania.
+W przypadku uruchamiania w zestawie webassembly w aplikacji Blazor webassembly Użyj [HttpClient](xref:fundamentals/http-requests) i <xref:System.Net.Http.HttpRequestMessage> aby dostosować żądania. Na przykład można określić identyfikator URI żądania, metodę HTTP i wszystkie żądane nagłówki żądania.
 
 Opcje żądania dostarczenia do źródłowego [interfejsu API pobierania](https://developer.mozilla.org/docs/Web/API/Fetch_API) JavaScript przy użyciu `WebAssemblyHttpMessageHandler.FetchArgs` właściwości w żądaniu. Jak pokazano w poniższym przykładzie, `credentials` właściwość jest ustawiana na jedną z następujących wartości:
 

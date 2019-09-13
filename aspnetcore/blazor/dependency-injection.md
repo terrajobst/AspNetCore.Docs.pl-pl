@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/06/2019
 uid: blazor/dependency-injection
-ms.openlocfilehash: 0b48cd0cbe14d2b07627f56ab78611bbd3209fa1
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: 6c01fdc390cc9150cf81673c717b73c4b10c31f1
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800396"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963968"
 ---
 # <a name="aspnet-core-blazor-dependency-injection"></a>ASP.NET Core iniekcja zależności Blazor
 
@@ -61,7 +61,7 @@ Usługi można skonfigurować przy użyciu okresów istnienia podanych w poniżs
 
 | Okres istnienia | Opis |
 | -------- | ----------- |
-| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Scoped*> | Aplikacje webassembly Blazor nie mają obecnie koncepcji DI Scopes. `Scoped`-zarejestrowane usługi zachowują `Singleton` się jak usługi. Jednak model hostingu po stronie serwera obsługuje `Scoped` okres istnienia. W aplikacjach Blazor Server Rejestracja usługi w zakresie jest objęta zakresem *połączenia*. Z tego powodu użycie usług objętych zakresem jest preferowane dla usług, które powinny być objęte zakresem bieżącego użytkownika, nawet jeśli bieżącym celem jest uruchomienie po stronie klienta w przeglądarce. |
+| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Scoped*> | Aplikacje webassembly Blazor nie mają obecnie koncepcji DI Scopes. `Scoped`-zarejestrowane usługi zachowują `Singleton` się jak usługi. Jednak model hostingu serwera Blazor obsługuje `Scoped` okres istnienia. W aplikacjach Blazor Server Rejestracja usługi w zakresie jest objęta zakresem *połączenia*. Z tego powodu użycie usług objętych zakresem jest preferowane dla usług, które powinny być objęte zakresem bieżącego użytkownika, nawet jeśli bieżącym celem jest uruchomienie po stronie klienta w przeglądarce. |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Singleton*> | DI tworzy *pojedyncze wystąpienie* usługi. Wszystkie składniki wymagające `Singleton` usługi odbierają wystąpienie tej samej usługi. |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Transient*> | Za każdym razem, gdy składnik uzyskuje wystąpienie `Transient` usługi z kontenera usługi, otrzymuje *nowe wystąpienie* usługi. |
 

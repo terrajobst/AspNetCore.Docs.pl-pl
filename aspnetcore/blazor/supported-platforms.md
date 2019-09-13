@@ -1,48 +1,48 @@
 ---
-title: Platformy obsługiwane przez Blazor platformy ASP.NET Core
+title: Obsługiwane platformy ASP.NET Core Blazor
 author: guardrex
-description: Dowiedz się więcej o obsługiwanych platform dla platformy ASP.NET Core Blazor.
+description: Poznaj obsługiwane platformy dla ASP.NET Core Blazor.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 07/01/2019
 uid: blazor/supported-platforms
-ms.openlocfilehash: 01f3a55a8536feedf713e07ea3724a0bc51e7c63
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: 042fbb1b2c7f92b7dc6443319f3f195a12a55adc
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67855799"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963884"
 ---
-# <a name="aspnet-core-blazor-supported-platforms"></a>Platformy obsługiwane przez Blazor platformy ASP.NET Core
+# <a name="aspnet-core-blazor-supported-platforms"></a>Obsługiwane platformy ASP.NET Core Blazor
 
 Przez [Luke Latham](https://github.com/guardrex)
 
 ## <a name="browser-requirements"></a>Wymagania dotyczące przeglądarki
 
-### <a name="blazor-client-side"></a>Blazor po stronie klienta
+### <a name="blazor-webassembly"></a>Zestaw webBlazor
 
 | Przeglądarka                          | Wersja               |
 | -------------------------------- | :-------------------: |
-| Microsoft Edge                   | bieżący               |
-| Mozilla Firefox                  | bieżący               |
-| Google Chrome, łącznie z systemami Android | bieżący               |
-| Safari, łącznie z systemem iOS            | bieżący               |
-| Microsoft Internet Explorer      | Nie jest obsługiwany&dagger; |
+| Microsoft Edge                   | Obecne               |
+| Mozilla Firefox                  | Obecne               |
+| Google Chrome, w tym Android | Obecne               |
+| Safari, w tym iOS            | Obecne               |
+| Microsoft Internet Explorer      | Nieobsługiwane&dagger; |
 
-&dagger;Program Microsoft Internet Explorer nie obsługuje [format WebAssembly](https://webassembly.org).
+&dagger;Program Microsoft Internet Explorer nie obsługuje [zestawu webassembly](https://webassembly.org).
 
-### <a name="blazor-server-side"></a>Blazor po stronie serwera
+### <a name="blazor-server"></a>Serwer Blazor
 
 | Przeglądarka                          | Wersja    |
 | -------------------------------- | :--------: |
-| Microsoft Edge                   | bieżący    |
-| Mozilla Firefox                  | bieżący    |
-| Google Chrome, łącznie z systemami Android | bieżący    |
-| Safari, łącznie z systemem iOS            | bieżący    |
+| Microsoft Edge                   | Obecne    |
+| Mozilla Firefox                  | Obecne    |
+| Google Chrome, w tym Android | Obecne    |
+| Safari, w tym iOS            | Obecne    |
 | Microsoft Internet Explorer      | 11&dagger; |
 
-&dagger;Wymagane są dodatkowe polyfills (na przykład można dodać obietnic za pośrednictwem [Polyfill.io](https://polyfill.io/v3/) pakietu).
+&dagger;Wymagane są dodatkowe wypełnienie (na przykład niesie obietnice zwiększenia można dodać za pośrednictwem pakietu [polyfill.IO](https://polyfill.io/v3/) ).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

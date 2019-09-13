@@ -1,4 +1,4 @@
-Gdy aplikacja po stronie serwera Blazor jest wstępnie renderowana, niektóre akcje, takie jak wywoływanie kodu JavaScript, nie są możliwe, ponieważ połączenie z przeglądarką nie zostało nawiązane. Składniki mogą być konieczne w różny sposób, gdy są wstępnie renderowane.
+Gdy aplikacja serwera Blazor jest wstępnie renderowana, niektóre akcje, takie jak wywoływanie kodu JavaScript, nie są możliwe, ponieważ połączenie z przeglądarką nie zostało nawiązane. Składniki mogą być konieczne w różny sposób, gdy są wstępnie renderowane.
 
 Aby opóźnić wywołania międzyoperacyjne języka JavaScript do momentu ustanowienia połączenia z przeglądarką, można `OnAfterRenderAsync` użyć zdarzenia cyklu życia składnika. To zdarzenie jest wywoływane tylko wtedy, gdy aplikacja jest w pełni renderowana, a połączenie z klientem zostanie nawiązane.
 
@@ -62,7 +62,7 @@ Gdzie `JSRuntime.InvokeAsync` jest wywoływana, `ElementRef` jest używana tylko
 }
 ```
 
-Aby warunkowo renderować inną zawartość w zależności od tego, czy aplikacja aktualnie renderuje zawartość, użyj `IsConnected` właściwości `IComponentContext` usługi. Po uruchomieniu po stronie serwera program `IsConnected` zwraca `true` tylko wtedy, gdy istnieje aktywne połączenie z klientem. Zawsze jest on `true` zwracany podczas uruchamiania po stronie klienta.
+Aby warunkowo renderować inną zawartość w zależności od tego, czy aplikacja aktualnie renderuje zawartość, użyj `IsConnected` właściwości `IComponentContext` usługi. W przypadku aplikacji serwera Blazor `IsConnected` funkcja zwraca `true` tylko wtedy, gdy istnieje aktywne połączenie z klientem. Zawsze jest on `true` zwracany w aplikacjach Blazor webassembly.
 
 ```cshtml
 @page "/isconnected-example"

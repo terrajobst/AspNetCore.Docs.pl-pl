@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/06/2019
 uid: blazor/routing
-ms.openlocfilehash: d348908261c51b477aa698a407266d05c0df5a33
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: 1c61eedf7dbf0bbc8796eaa11360783b9d7aba6c
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800343"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963873"
 ---
 # <a name="aspnet-core-blazor-routing"></a>ASP.NET Core Routing Blazor
 
@@ -22,7 +22,7 @@ Dowiedz się, jak kierować żądania oraz jak używać `NavLink` składnika do 
 
 ## <a name="aspnet-core-endpoint-routing-integration"></a>ASP.NET Core integracja z routingiem punktu końcowego
 
-Blazor po stronie serwera jest zintegrowana z [routingiem punktu końcowego ASP.NET Core](xref:fundamentals/routing). Aplikacja ASP.NET Core jest skonfigurowana do akceptowania połączeń przychodzących dla składników interaktywnych za `MapBlazorHub` pomocą `Startup.Configure`programu w programie:
+Serwer Blazor jest zintegrowany z [routingiem punktu końcowego ASP.NET Core](xref:fundamentals/routing). Aplikacja ASP.NET Core jest skonfigurowana do akceptowania połączeń przychodzących dla składników interaktywnych za `MapBlazorHub` pomocą `Startup.Configure`programu w programie:
 
 [!code-csharp[](routing/samples_snapshot/3.x/Startup.cs?highlight=5)]
 
@@ -55,7 +55,7 @@ Do składnika można zastosować wiele szablonów tras. Poniższy składnik odpo
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
 > [!IMPORTANT]
-> Aby adresy URL zostały poprawnie rozpoznane, aplikacja `<base>` musi zawierać tag w pliku *wwwroot/index.html* (po stronie klienta Blazor) lub *strony/_Host. cshtml* (po stronie serwera) z ścieżką bazową `href` aplikacji określoną w atrybucie ( `<base href="/">`). Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/blazor/index#app-base-path>.
+> Aby można było poprawnie rozwiązać adresy URL, aplikacja musi zawierać `<base>` tag w pliku *wwwroot/index.html* (Blazor webassembly) lub *Pages/_Host. cshtml* (Blazor Server) z ścieżką bazową `href` aplikacji określoną w atrybucie (`<base href="/">`). Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/blazor/index#app-base-path>.
 
 ## <a name="provide-custom-content-when-content-isnt-found"></a>Podaj zawartość niestandardową, jeśli nie można odnaleźć zawartości
 
@@ -120,7 +120,7 @@ Dostępne są ograniczenia trasy podane w poniższej tabeli. W przypadku ogranic
 
 ### <a name="routing-with-urls-that-contain-dots"></a>Routing z adresami URL zawierającymi kropki
 
-W aplikacjach po stronie serwera Blazor domyślną trasą w *_Host. cshtml* jest `/` (`@page "/"`). Adres URL żądania, który zawiera kropkę`.`() nie pasuje do trasy domyślnej, ponieważ adres URL wygląda na żądanie pliku. Aplikacja Blazor zwraca *404 — nie odnaleziono* odpowiedzi dla pliku statycznego, który nie istnieje. Aby użyć tras zawierających kropkę, skonfiguruj *_Host. cshtml* przy użyciu następującego szablonu trasy:
+W aplikacjach serwera Blazor domyślną trasą w *_Host. cshtml* jest `/` (`@page "/"`). Adres URL żądania, który zawiera kropkę`.`() nie pasuje do trasy domyślnej, ponieważ adres URL wygląda na żądanie pliku. Aplikacja Blazor zwraca *404 — nie odnaleziono* odpowiedzi dla pliku statycznego, który nie istnieje. Aby użyć tras zawierających kropkę, skonfiguruj *_Host. cshtml* przy użyciu następującego szablonu trasy:
 
 ```cshtml
 @page "/{**path}"
@@ -167,7 +167,7 @@ Służy `Microsoft.AspNetCore.Components.NavigationManager` do pracy z identyfik
 | Element członkowski | Opis |
 | ------ | ----------- |
 | `Uri` | Pobiera bieżący bezwzględny identyfikator URI. |
-| `BaseUri` | Pobiera podstawowy identyfikator URI (z końcowym ukośnikiem), który można dołączać do względnych ścieżek URI w celu utworzenia bezwzględnego identyfikatora URI. `BaseUri` Zazwyczaj odpowiada `href` *atrybutowi* elementu dokumentu w wwwroot/index.html (Blazor po stronie klienta) lub *stron/_Host. cshtml* (Blazor po stronie serwera). `<base>` |
+| `BaseUri` | Pobiera podstawowy identyfikator URI (z końcowym ukośnikiem), który można dołączać do względnych ścieżek URI w celu utworzenia bezwzględnego identyfikatora URI. `BaseUri` Zazwyczaj odpowiada `href` *atrybutowi* elementu dokumentu w wwwroot/index.html (Blazor webassembly) lub *Pages/_Host. cshtml* (Blazor Server). `<base>` |
 | `NavigateTo` | Przechodzi do określonego identyfikatora URI. Jeśli `forceLoad` jest `true`:<ul><li>Routing po stronie klienta jest pomijany.</li><li>W przeglądarce wymuszone jest załadowanie nowej strony z serwera, niezależnie od tego, czy identyfikator URI jest zwykle obsługiwany przez router po stronie klienta.</li></ul> |
 | `LocationChanged` | Zdarzenie, które jest wyzwalane po zmianie lokalizacji nawigacji. |
 | `ToAbsoluteUri` | Konwertuje względny identyfikator URI na bezwzględny identyfikator URI. |

@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/22/2019
 uid: blazor/debug
-ms.openlocfilehash: c3188a1fe1b699b787f7a95630f3918d295d0f68
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: e9477e504d32fd1dd5d6c87392386d1131f46e9f
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69974910"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963995"
 ---
 # <a name="debug-aspnet-core-blazor"></a>Debuguj ASP.NET Core Blazor
 
 [Daniel Roth](https://github.com/danroth27)
 
-Na potrzeby debugowania Blazor aplikacje po stronie klienta działające w zestawie webassembly w programie Chrome istnieje wczesna pomoc techniczna.
+Istnieje *wczesna* pomoc techniczna dla debugowania Blazor aplikacje webassembly działające w zestawie webassembly w przeglądarce Chrome.
 
 Możliwości debugera są ograniczone. Dostępne scenariusze obejmują:
 
@@ -47,7 +47,7 @@ Debugowanie wymaga jednej z następujących przeglądarek:
 
 ## <a name="procedure"></a>Procedura
 
-1. Uruchom aplikację Blazor po stronie klienta w `Debug` konfiguracji. Przekaż opcję do polecenia [Run dotnet](/dotnet/core/tools/dotnet-run) : `dotnet run --configuration Debug`. `--configuration Debug`
+1. Uruchom aplikację webassembly Blazor w `Debug` konfiguracji. Przekaż opcję do polecenia [Run dotnet](/dotnet/core/tools/dotnet-run) : `dotnet run --configuration Debug`. `--configuration Debug`
 1. Uzyskaj dostęp do aplikacji w przeglądarce.
 1. Umieść fokus klawiatury w aplikacji, a nie na panelu Narzędzia deweloperskie. Po zainicjowaniu debugowania można zamknąć panel Narzędzia deweloperskie.
 1. Wybierz następujący skrót klawiaturowy dotyczący Blazor:

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: ea1111f43b6b8b4f47061056e8ad8d505f92dba6
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: ffbdf6991830d554fc508d1d2fe8e4b9586210df
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800479"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70964178"
 ---
 # <a name="build-your-first-blazor-app"></a>Tworzenie pierwszej aplikacji Blazor
 
@@ -57,7 +57,7 @@ Uwzględnij składnik w innym składniku przy użyciu składni języka HTML.
 
 1. `Index` `<Counter />` Dodaj składnik do składnika aplikacji ,`Index` dodając element do składnika (*index. Razor*). `Counter`
 
-   Jeśli używasz programu Blazor Client dla tego środowiska, `SurveyPrompt` składnik jest używany `Index` przez składnik. Zastąp `<Counter />`elementelementem. `<SurveyPrompt>` Jeśli używasz aplikacji po stronie serwera Blazor dla tego środowiska, Dodaj `<Counter />` element `Index` do składnika:
+   Jeśli używasz zestawu webBlazor dla tego środowiska, `SurveyPrompt` składnik jest używany `Index` przez składnik. Zastąp `<Counter />`elementelementem. `<SurveyPrompt>` Jeśli używasz aplikacji serwera Blazor dla tego środowiska, Dodaj `<Counter />` element `Index` do składnika:
 
    *Pages/index. Razor*:
 
@@ -101,7 +101,7 @@ Usługi zarejestrowane w kontenerze usługi aplikacji są dostępne dla składni
 
 Badanie dyrektyw `FetchData` składnika.
 
-W przypadku korzystania z aplikacji `WeatherForecastService` po stronie serwera Blazor usługa jest rejestrowana jako [Pojedyncza](xref:fundamentals/dependency-injection#service-lifetimes), więc jedno wystąpienie usługi jest dostępne w całej aplikacji. Dyrektywa służy do wstrzykiwania wystąpienia `WeatherForecastService` usługi do składnika. `@inject`
+W przypadku korzystania z aplikacji `WeatherForecastService` serwera Blazor usługa jest rejestrowana jako [Pojedyncza](xref:fundamentals/dependency-injection#service-lifetimes), więc jedno wystąpienie usługi jest dostępne w całej aplikacji. Dyrektywa służy do wstrzykiwania wystąpienia `WeatherForecastService` usługi do składnika. `@inject`
 
 *Strony/FetchData. Razor*:
 
@@ -111,7 +111,7 @@ Składnik używa wstrzykniętej usługi jako `ForecastService`, `WeatherForecast
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
 
-W przypadku pracy z aplikacją Blazor po stronie klienta program `HttpClient` wprowadza dane prognozy pogody z pliku *Pogoda. JSON* w folderze *wwwroot/Sample-Data* :
+W przypadku pracy z aplikacją `HttpClient` webassembly Blazor jest wprowadzana w celu uzyskania danych prognozy pogody z pliku *Pogoda. JSON* w folderze *wwwroot/Sample-Data* :
 
 *Strony/FetchData. Razor*:
 

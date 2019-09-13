@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/06/2019
 uid: blazor/components
-ms.openlocfilehash: dbd0879d200061151e8307346adef784967bf123
-ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
+ms.openlocfilehash: bc9fa06e5acccb773717fe87bf4aabb971b8dee5
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70878399"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963780"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
@@ -79,7 +79,7 @@ Aby renderować składnik ze strony lub widoku, użyj `RenderComponentAsync<TCom
 
 Podczas gdy strony i widoki mogą korzystać ze składników, wartość nie jest równa "true". Składniki nie mogą używać scenariuszy dotyczących widoków i stron, takich jak częściowe widoki i sekcje. Aby użyć logiki z widoku częściowego w składniku, należy rozłożyć logikę widoku częściowego na składnik.
 
-Aby uzyskać więcej informacji na temat sposobu renderowania składników i zarządzania stanem składnika w aplikacjach po stronie serwera Blazor, zobacz <xref:blazor/hosting-models> artykuł.
+Aby uzyskać więcej informacji na temat sposobu renderowania składników i zarządzania stanem składnika w aplikacjach serwera Blazor, zobacz <xref:blazor/hosting-models> artykuł.
 
 ## <a name="use-components"></a>Używanie składników
 
@@ -217,7 +217,7 @@ Używanie `@bind` `<input @bind="CurrentValue" />`z właściwością () jest zas
 
 ```cshtml
 <input value="@CurrentValue"
-    @onchange="@((UIChangeEventArgs __e) => CurrentValue = __e.Value)" />
+    @onchange="@((ChangeEventArgs __e) => CurrentValue = __e.Value)" />
 ```
 
 Gdy składnik jest renderowany, `value` element wejściowy pochodzi `CurrentValue` z właściwości. Gdy użytkownik wpisze w polu tekstowym, `onchange` zdarzenie jest wyzwalane, `CurrentValue` a właściwość jest ustawiona na wartość zmieniona. W rzeczywistości generowanie kodu jest nieco bardziej skomplikowane, ponieważ `@bind` obsługuje kilka przypadków, w których są wykonywane konwersje typów. W zasadzie `@bind` kojarzy bieżącą wartość wyrażenia `value` z atrybutem i obsługuje zmiany przy użyciu zarejestrowanej procedury obsługi.
@@ -379,7 +379,7 @@ Poniższy kod wywołuje metodę, `UpdateHeading` gdy przycisk zostanie wybrany w
 </button>
 
 @code {
-    private void UpdateHeading(UIMouseEventArgs e)
+    private void UpdateHeading(MouseEventArgs e)
     {
         ...
     }
@@ -409,7 +409,7 @@ W poniższym przykładzie `UpdateHeading` jest wywoływana asynchronicznie po wy
 </button>
 
 @code {
-    private async Task UpdateHeading(UIMouseEventArgs e)
+    private async Task UpdateHeading(MouseEventArgs e)
     {
         ...
     }
@@ -446,7 +446,7 @@ Wyrażenia lambda mogą być również używane:
 <button @onclick="@(e => Console.WriteLine("Hello, world!"))">Say hello</button>
 ```
 
-Często wygodnie jest blisko dodatkowych wartości, na przykład podczas iteracji na zestawie elementów. Poniższy przykład tworzy trzy przyciski, z których każdy wywołuje `UpdateHeading` przekazanie argumentu zdarzenia (`UIMouseEventArgs`) i jego numer przycisku (`buttonNumber`), po wybraniu w interfejsie użytkownika:
+Często wygodnie jest blisko dodatkowych wartości, na przykład podczas iteracji na zestawie elementów. Poniższy przykład tworzy trzy przyciski, z których każdy wywołuje `UpdateHeading` przekazanie argumentu zdarzenia (`MouseEventArgs`) i jego numer przycisku (`buttonNumber`), po wybraniu w interfejsie użytkownika:
 
 ```cshtml
 <h2>@message</h2>
@@ -464,7 +464,7 @@ Często wygodnie jest blisko dodatkowych wartości, na przykład podczas iteracj
 @code {
     private string message = "Select a button to learn its position.";
 
-    private void UpdateHeading(UIMouseEventArgs e, int buttonNumber)
+    private void UpdateHeading(MouseEventArgs e, int buttonNumber)
     {
         message = $"You selected Button #{buttonNumber} at " +
             $"mouse position: {e.ClientX} X {e.ClientY}.";
@@ -479,7 +479,7 @@ Często wygodnie jest blisko dodatkowych wartości, na przykład podczas iteracj
 
 Typowym scenariuszem ze składnikami zagnieżdżonymi jest uruchomienie metody składnika nadrzędnego, gdy występuje&mdash;zdarzenie składnika podrzędnego, gdy wystąpi zdarzenie w elemencie `onclick` podrzędnym. Aby uwidocznić zdarzenia między składnikami, `EventCallback`Użyj. Składnik nadrzędny może przypisać metodę wywołania zwrotnego do składnika `EventCallback`podrzędnego.
 
-W przykładowej aplikacji pokazano, jak `onclick` program obsługi przycisku został `EventCallback` skonfigurowany tak, aby otrzymać delegata z przykładu `ParentComponent`. `ChildComponent` Typ ma wartość, która jest odpowiednia dla `onclick` zdarzenia z urządzenia peryferyjnego: `UIMouseEventArgs` `EventCallback`
+W przykładowej aplikacji pokazano, jak `onclick` program obsługi przycisku został `EventCallback` skonfigurowany tak, aby otrzymać delegata z przykładu `ParentComponent`. `ChildComponent` Typ ma wartość, która jest odpowiednia dla `onclick` zdarzenia z urządzenia peryferyjnego: `MouseEventArgs` `EventCallback`
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Components/ChildComponent.razor?highlight=5-7,17-18)]
 
@@ -516,6 +516,126 @@ await callback.InvokeAsync(arg);
 Używaj `EventCallback` i`EventCallback<T>` dla parametrów składnika Obsługa zdarzeń i powiązania.
 
 Preferuj silnie wpisaną `EventCallback<T>` `EventCallback`wartość. `EventCallback<T>`zapewnia lepszą opinię o błędach dla użytkowników składnika. Podobnie jak w przypadku innych programów obsługi zdarzeń interfejsu użytkownika, określenie parametru zdarzenia jest opcjonalne. Użyj `EventCallback` w przypadku braku wartości przekazywania do wywołania zwrotnego.
+
+## <a name="chained-bind"></a>Powiązanie łańcuchowe
+
+Typowy scenariusz polega na łańcuchu parametru powiązanego z danymi do elementu strony w danych wyjściowych składnika. Ten scenariusz jest nazywany *powiązaniem łańcuchowym* , ponieważ wiele poziomów powiązań występuje jednocześnie.
+
+Nie można zaimplementować powiązania łańcuchowego przy użyciu `@bind` składni w elemencie strony. Program obsługi zdarzeń i wartość muszą być określone osobno. Składnik nadrzędny, jednak może używać `@bind` składni z parametrem składnika.
+
+Następujący `PasswordField` składnik (*PasswordField. Razor*):
+
+* Ustawia wartość `Password` elementu na właściwość. `<input>`
+* Uwidacznia zmiany `Password` właściwości w składniku nadrzędnym z [EventCallback](#eventcallback).
+
+```cshtml
+Password: 
+
+<input @oninput="OnPasswordChanged" 
+       required 
+       type="@(showPassword ? "text" : "password")" 
+       value="@Password" />
+
+<button class="btn btn-primary" @onclick="ToggleShowPassword">
+    Show password
+</button>
+
+@code {
+    private bool showPassword;
+
+    [Parameter]
+    public string Password { get; set; }
+
+    [Parameter]
+    public EventCallback<string> PasswordChanged { get; set; }
+
+    private Task OnPasswordChanged(ChangeEventArgs e)
+    {
+        Password = e.Value.ToString();
+
+        return PasswordChanged.InvokeAsync(Password);
+    }
+
+    private void ToggleShowPassword()
+    {
+        showPassword = !showPassword;
+    }
+}
+```
+
+`PasswordField` Składnik jest używany w innym składniku:
+
+```cshtml
+<PasswordField @bind-Password="password" />
+
+@code {
+    private string password;
+}
+```
+
+Aby przeprowadzić sprawdzenia lub błędy pułapki dla hasła w poprzednim przykładzie:
+
+* Utwórz pole zapasowe dla `Password` (`password` w poniższym przykładowym kodzie).
+* Wykonaj testy lub błędy pułapek w `Password` metodzie ustawiającej.
+
+Poniższy przykład przedstawia natychmiastową opinię dla użytkownika, jeśli w wartości hasła jest używana spacja:
+
+```cshtml
+Password: 
+
+<input @oninput="OnPasswordChanged" 
+       required 
+       type="@(showPassword ? "text" : "password")" 
+       value="@Password" />
+
+<button class="btn btn-primary" @onclick="ToggleShowPassword">
+    Show password
+</button>
+
+<span class="text-danger">@validationMessage</span>
+
+@code {
+    private bool showPassword;
+    private string password;
+    private string validationMessage;
+
+    [Parameter]
+    public string Password
+    {
+        get { return password ?? string.Empty; }
+        set
+        {
+            if (password != value)
+            {
+                if (value.Contains(' '))
+                {
+                    validationMessage = "Spaces not allowed!";
+                }
+                else
+                {
+                    password = value;
+                    validationMessage = string.Empty;
+                }
+            }
+        }
+    }
+
+    [Parameter]
+    public EventCallback<string> PasswordChanged { get; set; }
+
+    private Task OnPasswordChanged(ChangeEventArgs e)
+    {
+        Password = e.Value.ToString();
+
+        return PasswordChanged.InvokeAsync(Password);
+    }
+
+    private void ToggleShowPassword()
+    {
+        showPassword = !showPassword;
+    }
+}
+```
 
 ## <a name="capture-references-to-components"></a>Przechwyć odwołania do składników
 
@@ -565,7 +685,7 @@ public class NotifierService
         }
     }
 
-    public event Action<string, int, Task> Notify;
+    public event Func<string, int, Task> Notify;
 }
 ```
 
@@ -613,7 +733,7 @@ Rozważmy następujący przykład:
 ```csharp
 @foreach (var person in People)
 {
-    <DetailsEditor Details="@person.Details" />
+    <DetailsEditor Details="person.Details" />
 }
 
 @code {
@@ -629,7 +749,7 @@ Proces mapowania można kontrolować przy użyciu `@key` atrybutu dyrektywy. `@k
 ```csharp
 @foreach (var person in People)
 {
-    <DetailsEditor @key="@person" Details="@person.Details" />
+    <DetailsEditor @key="person" Details="person.Details" />
 }
 
 @code {
@@ -656,8 +776,8 @@ Zazwyczaj warto używać `@key` zawsze, gdy lista jest renderowana (na przykład
 Można również użyć `@key` , aby uniemożliwić Blazor z zachowaniem poddrzewa elementu lub składnika, gdy zmieniany jest obiekt:
 
 ```cshtml
-<div @key="@currentPerson">
-    ... content that depends on @currentPerson ...
+<div @key="currentPerson">
+    ... content that depends on currentPerson ...
 </div>
 ```
 
@@ -934,7 +1054,7 @@ Składnik szablonu jest definiowany przez określenie co najmniej jednego parame
 W przypadku korzystania z składnika z szablonem parametry szablonu można określić za pomocą elementów podrzędnych, które pasują do nazw parametrów (`TableHeader` i `RowTemplate` w poniższym przykładzie):
 
 ```cshtml
-<TableTemplate Items="@pets">
+<TableTemplate Items="pets">
     <TableHeader>
         <th>ID</th>
         <th>Name</th>
@@ -951,7 +1071,7 @@ W przypadku korzystania z składnika z szablonem parametry szablonu można okre�
 Argumenty składnika `RenderFragment<T>` typu przekazane jako elementy mają niejawny parametr o `context` nazwie (na przykład z poprzedniego przykładu `@context.PetId`kodu), ale można zmienić nazwę parametru przy użyciu `Context` atrybutu w elemencie podrzędnym postaci. W poniższym przykładzie `RowTemplate` `Context` atrybut elementu określa `pet` parametr:
 
 ```cshtml
-<TableTemplate Items="@pets">
+<TableTemplate Items="pets">
     <TableHeader>
         <th>ID</th>
         <th>Name</th>
@@ -966,7 +1086,7 @@ Argumenty składnika `RenderFragment<T>` typu przekazane jako elementy mają nie
 Alternatywnie można określić `Context` atrybut dla elementu składnika. Określony `Context` atrybut ma zastosowanie do wszystkich parametrów określonego szablonu. Może to być przydatne, jeśli chcesz określić nazwę parametru zawartości dla niejawnej zawartości podrzędnej (bez żadnego elementu podrzędnego otoki). W poniższym przykładzie `Context` atrybut pojawia się `TableTemplate` na elemencie i ma zastosowanie do wszystkich parametrów szablonu:
 
 ```cshtml
-<TableTemplate Items="@pets" Context="pet">
+<TableTemplate Items="pets" Context="pet">
     <TableHeader>
         <th>ID</th>
         <th>Name</th>
@@ -987,7 +1107,7 @@ Składniki z szablonami są często wpisywane ogólnie. Na przykład, składnik 
 W przypadku używania składników o typie ogólnym parametr typu jest wnioskowany, jeśli jest to możliwe:
 
 ```cshtml
-<ListViewTemplate Items="@pets">
+<ListViewTemplate Items="pets">
     <ItemTemplate Context="pet">
         <li>@pet.Name</li>
     </ItemTemplate>
@@ -997,7 +1117,7 @@ W przypadku używania składników o typie ogólnym parametr typu jest wnioskowa
 W przeciwnym razie parametr typu musi być jawnie określony przy użyciu atrybutu, który jest zgodny z nazwą parametru typu. W poniższym przykładzie `TItem="Pet"` określa typ:
 
 ```cshtml
-<ListViewTemplate Items="@pets" TItem="Pet">
+<ListViewTemplate Items="pets" TItem="Pet">
     <ItemTemplate Context="pet">
         <li>@pet.Name</li>
     </ItemTemplate>
@@ -1037,7 +1157,7 @@ Przykładowo aplikacja Przykładowa określa informacje o motywie`ThemeInfo`() w
             <NavMenu />
         </div>
         <div class="col-sm-9">
-            <CascadingValue Value="@theme">
+            <CascadingValue Value="theme">
                 <div class="content px-4">
                     @Body
                 </div>
@@ -1331,7 +1451,7 @@ Jest to prosty przykład. W bardziej realistycznych przypadkach ze złożonymi i
 
 ## <a name="localization"></a>Lokalizacja
 
-Blazor aplikacje po stronie serwera są zlokalizowane przy użyciu [oprogramowania pośredniczącego](xref:fundamentals/localization#localization-middleware). Oprogramowanie pośredniczące wybiera odpowiednią kulturę dla użytkowników żądających zasobów z aplikacji.
+Aplikacje serwera Blazor są zlokalizowane przy użyciu [oprogramowania pośredniczącego](xref:fundamentals/localization#localization-middleware). Oprogramowanie pośredniczące wybiera odpowiednią kulturę dla użytkowników żądających zasobów z aplikacji.
 
 Kulturę można ustawić przy użyciu jednej z następujących metod:
 
@@ -1348,7 +1468,7 @@ Użycie pliku cookie zapewnia, że połączenie z użyciem protokołu WebSocket 
 
 Każda technika może służyć do przypisywania kultury, jeśli kultura jest utrwalona w pliku cookie lokalizacji. Jeśli aplikacja ma już ustalony schemat lokalizacji dla ASP.NET Core po stronie serwera, Kontynuuj korzystanie z istniejącej infrastruktury lokalizacji aplikacji i Ustaw plik cookie kultury lokalizacji w schemacie aplikacji.
 
-Poniższy przykład pokazuje, jak ustawić bieżącą kulturę w pliku cookie, który może zostać odczytany przez oprogramowanie pośredniczące lokalizacji. Utwórz plik *strony/hosta. cshtml. cs* z następującą zawartością w aplikacji po stronie serwera Blazor:
+Poniższy przykład pokazuje, jak ustawić bieżącą kulturę w pliku cookie, który może zostać odczytany przez oprogramowanie pośredniczące lokalizacji. Utwórz plik *Pages/hosta. cshtml. cs* z następującą zawartością w aplikacji Blazor Server:
 
 ```csharp
 public class HostModel : PageModel
@@ -1370,9 +1490,9 @@ Lokalizacja jest obsługiwana w aplikacji:
 1. Przeglądarka wysyła początkowe żądanie HTTP do aplikacji.
 1. Kultura jest przypisana przez oprogramowanie pośredniczące lokalizacji.
 1. Metoda w *_Host. cshtml. cs* utrzymuje kulturę w pliku cookie jako część odpowiedzi. `OnGet`
-1. Przeglądarka otwiera połączenie WebSocket, aby utworzyć interaktywną sesję po stronie serwera Blazor.
+1. Przeglądarka otwiera połączenie WebSocket, aby utworzyć interaktywną sesję serwera Blazor.
 1. Oprogramowanie pośredniczące lokalizacji odczytuje plik cookie i przypisuje kulturę.
-1. Sesja po stronie serwera Blazor rozpoczyna się od poprawnej kultury.
+1. Sesja serwera Blazor jest rozpoczynana z poprawną kulturą.
 
 ## <a name="provide-ui-to-choose-the-culture"></a>Podaj interfejs użytkownika, aby wybrać kulturę
 
@@ -1420,7 +1540,7 @@ Poniższy składnik przedstawia przykład sposobu wykonywania wstępnego przekie
 @code {
     private double textNumber;
 
-    private void OnSelected(UIChangeEventArgs e)
+    private void OnSelected(ChangeEventArgs e)
     {
         var culture = (string)e.Value;
         var uri = new Uri(NavigationManager.Uri())
@@ -1469,4 +1589,4 @@ Jednak wbudowane znaczniki SVG nie są obsługiwane we wszystkich scenariuszach.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* <xref:security/blazor/server-side>&ndash; Zawiera wskazówki dotyczące tworzenia Blazor aplikacji po stronie serwera, które muszą będą konkurować o z wyczerpaniem zasobów.
+* <xref:security/blazor/server>&ndash; Zawiera wskazówki dotyczące tworzenia aplikacji serwera Blazor, które muszą będą konkurować o z wyczerpaniem zasobów.

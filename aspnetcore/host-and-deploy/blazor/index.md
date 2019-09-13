@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/05/2019
 uid: host-and-deploy/blazor/index
-ms.openlocfilehash: 5a56bbda5bb7727c7dbeaed7f2a91d0dcb6e7e71
-ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.openlocfilehash: 26c8fcf56ab8ca68aeca93560785fc6c1144ab86
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773585"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963690"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor"></a>Hostowanie i wdrażanie ASP.NET Core Blazor
 
@@ -40,7 +40,7 @@ dotnet publish -c Release
 
 Opublikowanie aplikacji wyzwala [przywracanie](/dotnet/core/tools/dotnet-restore) zależności projektu i [kompiluje](/dotnet/core/tools/dotnet-build) projekt przed utworzeniem zasobów do wdrożenia. W ramach procesu kompilacji nieużywane metody i zestawy są usuwane w celu zmniejszenia rozmiaru pobierania aplikacji i czasów ładowania.
 
-Aplikacja po stronie klienta Blazor jest publikowana w folderze */bin/Release/{Target Framework}/Publish/{Assembly Name}/dist* . Aplikacja po stronie serwera Blazor jest publikowana w folderze */bin/Release/{Target Framework}/Publish* .
+Aplikacja webassembly Blazor jest publikowana w folderze */bin/Release/{Target Framework}/Publish/{Assembly Name}/dist* . Aplikacja serwera Blazor jest publikowana w folderze */bin/Release/{Target Framework}/Publish* .
 
 Zasoby w folderze są wdrażane na serwerze sieci Web. Wdrożenie może być procesem ręcznym lub zautomatyzowanym w zależności od używanych narzędzi programistycznych.
 
@@ -87,5 +87,5 @@ Aplikacja reaguje lokalnie o `http://localhost:port/CoolApp`.
 
 Aby uzyskać wskazówki dotyczące wdrażania, zobacz następujące tematy:
 
-* <xref:host-and-deploy/blazor/client-side>
-* <xref:host-and-deploy/blazor/server-side>
+* <xref:host-and-deploy/blazor/webassembly>
+* <xref:host-and-deploy/blazor/server>
