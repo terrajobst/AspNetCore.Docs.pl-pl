@@ -1,18 +1,18 @@
 ---
 title: Implementacje serwera sieci Web w ASP.NET Core
-author: guardrex
+author: tdykstra
 description: Odkryj serwery sieci Web Kestrel i HTTP. sys dla ASP.NET Core. Dowiedz się, jak wybrać serwer i kiedy używać serwera zwrotnego serwera proxy.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/01/2019
+ms.date: 08/10/2019
 uid: fundamentals/servers/index
-ms.openlocfilehash: 404fec18409a675981fc0c068ee9a99001e06c16
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: cfea559725a644f167aa3afdf88c78bace4b5950
+ms.sourcegitcommit: dc5b293e08336dc236de66ed1834f7ef78359531
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975546"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71011155"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementacje serwera sieci Web w ASP.NET Core
 
@@ -34,7 +34,7 @@ Użyj Kestrel:
 
   ![Kestrel komunikuje się pośrednio z Internetem za pomocą odwrotnego serwera proxy, takiego jak IIS, Nginx lub Apache](kestrel/_static/kestrel-to-internet.png)
 
-W przypadku aplikacji&mdash;ASP.NET Core 2,1 lub nowszych jest obsługiwana konfiguracja&mdash;hostingu z serwerem zwrotnego serwera proxy lub bez niego.
+Obsługiwana jest konfiguracja&mdash;hostingu z serwerem&mdash;zwrotnego serwera proxy lub bez niego.
 
 Aby uzyskać wskazówki dotyczące konfiguracji Kestrel i informacje o tym, kiedy używać Kestrel w konfiguracji zwrotnego <xref:fundamentals/servers/kestrel>serwera proxy, zobacz.
 
@@ -156,7 +156,7 @@ Serwer jest uruchamiany po uruchomieniu aplikacji zintegrowanego środowiska pro
 * [Visual Studio Code](https://code.visualstudio.com/) Aplikacja i serwer są uruchamiane przez omnisharp, która aktywuje debuger CoreCLR. [](https://github.com/OmniSharp/omnisharp-vscode) &ndash;
 * [Visual Studio dla komputerów Mac](https://visualstudio.microsoft.com/vs/mac/) Aplikacja i serwer są uruchamiane przez [debuger trybu miękkiego mono.](https://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/) &ndash;
 
-Podczas uruchamiania aplikacji z poziomu wiersza polecenia w folderze projektu, [uruchomienie dotnet](/dotnet/core/tools/dotnet-run) uruchamia aplikację i serwer (tylko KESTREL i http. sys). Konfiguracja jest określana przez `-c|--configuration` opcję, która jest ustawiona na wartość `Debug` (domyślnie) lub `Release`. Jeśli w pliku *profilu launchsettings. JSON* istnieją profile uruchamiania, użyj `--launch-profile <NAME>` opcji, aby ustawić profil uruchamiania `Development` (na przykład lub `Production`). Aby uzyskać więcej informacji, zobacz pakietem rozkładu [dotnet](/dotnet/core/tools/dotnet-run) i [.NET Core](/dotnet/core/build/distribution-packaging).
+Podczas uruchamiania aplikacji z poziomu wiersza polecenia w folderze projektu, [uruchomienie dotnet](/dotnet/core/tools/dotnet-run) uruchamia aplikację i serwer (tylko KESTREL i http. sys). Konfiguracja jest określana przez `-c|--configuration` opcję, która jest ustawiona na wartość `Debug` (domyślnie) lub `Release`. Jeśli w pliku *profilu launchsettings. JSON* istnieją profile uruchamiania, użyj `--launch-profile <NAME>` opcji, aby ustawić profil uruchamiania `Development` (na przykład lub `Production`). Aby uzyskać więcej informacji, [](/dotnet/core/tools/dotnet-run) zobacz [pakietem rozkładu dotnet i .NET Core](/dotnet/core/build/distribution-packaging).
 
 ## <a name="http2-support"></a>Obsługa protokołu HTTP/2
 

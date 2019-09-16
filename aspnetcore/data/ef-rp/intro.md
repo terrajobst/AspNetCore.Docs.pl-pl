@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 07/22/2019
 uid: data/ef-rp/intro
-ms.openlocfilehash: c5347049151aed90f453f0ead2fc06649d9cf949
-ms.sourcegitcommit: bdaee0e8c657fe7546fd6b7990db9c03c2af04df
+ms.openlocfilehash: 3b3f159382bba82cf1b55ca34f52d3db38c5dc7c
+ms.sourcegitcommit: dc5b293e08336dc236de66ed1834f7ef78359531
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69908399"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71011111"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Strony razor za pomocą platformy Entity Framework Core w programie ASP.NET Core — samouczek 1 8
 
@@ -47,7 +47,7 @@ Jeśli zdecydujesz się na korzystanie z oprogramowania SQLite, Pobierz i zainst
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Jeśli wystąpi problem, którego nie można rozwiązać, porównaj swój kod z zakończonym [projektem](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). Dobrym sposobem uzyskania pomocy jest opublikowanie pytania do StackOverflow.com przy użyciu [tagu ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) lub [tagu EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
+Jeśli wystąpi problem, którego nie można rozwiązać, porównaj swój kod z [zakończonym projektem](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). Dobrym sposobem uzyskania pomocy jest opublikowanie pytania do StackOverflow.com przy użyciu [tagu ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) lub [tagu EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
 
 ## <a name="the-sample-app"></a>Przykładowa aplikacja
 
@@ -129,7 +129,7 @@ Skonfiguruj nagłówek, stopkę i menu witryny przez aktualizację *stron/Shared
 
 * Należy zmienić każde wystąpienie "ContosoUniversity" na "Uniwersytet firmy Contoso". Istnieją trzy wystąpienia.
 
-* Usuń wpisy **menu Home** i **privacy** oraz Dodaj wpisy dotyczące osób, **studentów**, kursów, **instruktorów**i działów.
+* Usuń wpisy menu **Home** i **privacy** oraz Dodaj wpisy dotyczące **osób,** **studentów**, **kursów**, **instruktorów**i **działów**.
 
 Zmiany są wyróżnione.
 
@@ -633,7 +633,7 @@ Narzędzie do tworzenia szkieletów automatycznie tworzone kontekst bazy danych 
 
 Sprawdź `ConfigureServices` method in Class metoda *Startup.cs*. Wyróżniony wiersz został dodany w procesie tworzenia szkieletu:
 
-[!code-csharp[](intro/samples/cu21/Startup.cs?name=snippet_SchoolContext&highlight=5-6)]
+[!code-csharp[](intro/samples/cu21/Startup.cs?name=snippet_SchoolContext&highlight=13-14)]
 
 Nazwa ciągu połączenia jest przekazywany do kontekstu przez wywołanie metody na [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) obiektu. Na potrzeby lokalnego programowania dla [systemu konfiguracji platformy ASP.NET Core](xref:fundamentals/configuration/index) odczytuje parametry połączenia z *appsettings.json* pliku.
 
@@ -694,7 +694,7 @@ W *danych* folderu, Utwórz nowy plik klasy o nazwie *DbInitializer.cs* i Dodaj 
 
 [!code-csharp[](intro/samples/cu21/Data/DbInitializer.cs?name=snippet_Intro)]
 
-Uwaga: Poprzedzający kod używa `Models` dla przestrzeni nazw (`namespace ContosoUniversity.Models`), a `Data`nie. `Models`jest spójny z kodem generowanym przez program rusztowaer. Aby uzyskać więcej informacji, zobacz [ten problem](https://github.com/aspnet/Scaffolding/issues/822)z szkieletem usługi GitHub.
+Uwaga: Poprzedzający kod używa `Models` dla przestrzeni nazw (`namespace ContosoUniversity.Models`), a `Data`nie. `Models`jest spójny z kodem generowanym przez program rusztowaer. Aby uzyskać więcej informacji, zobacz [ten problem z szkieletem usługi GitHub](https://github.com/aspnet/Scaffolding/issues/822).
 
 Kod sprawdza, czy wszystkie studentów w bazie danych. W przypadku nie studentów w bazie danych, baza danych jest inicjowany z danych testowych. Ładuje dane testowe do tablic zamiast `List<T>` kolekcje w celu zoptymalizowania wydajności.
 
