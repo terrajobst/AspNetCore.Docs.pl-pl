@@ -304,8 +304,8 @@
           items:
             - name: Omówienie
               uid: security/blazor/index
-            - name: Po stronie serwera
-              uid: security/blazor/server-side
+            - name: Serwer Blazor
+              uid: security/blazor/server
         - name: Zarządzanie stanem
           uid: blazor/state-management
         - name: Obsługa błędów
@@ -318,10 +318,10 @@
           items:
             - name: Omówienie
               uid: host-and-deploy/blazor/index
-            - name: Po stronie klienta
-              uid: host-and-deploy/blazor/client-side
-            - name: Po stronie serwera
-              uid: host-and-deploy/blazor/server-side
+            - name: Zestaw WebAssembly Blazor
+              uid: host-and-deploy/blazor/webassembly
+            - name: Serwer Blazor
+              uid: host-and-deploy/blazor/server
             - name: Konfigurowanie konsolidatora
               uid: host-and-deploy/blazor/configure-linker
     - name: Programowanie po stronie klienta
@@ -785,10 +785,10 @@
       items:
         - name: Omówienie
           uid: host-and-deploy/blazor/index
-        - name: Po stronie klienta
-          uid: host-and-deploy/blazor/client-side
-        - name: Po stronie serwera
-          uid: host-and-deploy/blazor/server-side
+        - name: Zestaw WebAssembly Blazor
+          uid: host-and-deploy/blazor/webassembly
+        - name: Serwer Blazor
+          uid: host-and-deploy/blazor/server
         - name: Konfigurowanie konsolidatora
           uid: host-and-deploy/blazor/configure-linker
 - name: Zabezpieczenia i tożsamość
@@ -999,8 +999,8 @@
       items:
         - name: Omówienie
           uid: security/blazor/index
-        - name: Po stronie serwera
-          uid: security/blazor/server-side
+        - name: Serwer Blazor
+          uid: security/blazor/server
 - name: Wydajność
   items:
     - name: Omówienie
