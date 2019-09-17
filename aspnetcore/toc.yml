@@ -153,6 +153,9 @@
 - name: Samouczki (Microsoft Learn)
   displayName: tutorial
   items:
+    - name: Aplikacje internetowe
+      displayName: 'tutorial, razor, razor pages, ui'
+      href: /learn/modules/create-razor-pages-aspnet-core/
     - name: Aplikacje internetowego interfejsu API
       href: /learn/modules/build-web-api-net-core/
     - name: Dostęp do danych
@@ -435,6 +438,8 @@
           uid: tutorials/get-started-with-nswag
     - name: Zwracane typy akcji
       uid: web-api/action-return-types
+    - name: Obsługa żądań poprawek JSON
+      uid: web-api/jsonpatch
     - name: Formatowanie danych odpowiedzi
       uid: web-api/advanced/formatting
     - name: Niestandardowe elementy formatujące
