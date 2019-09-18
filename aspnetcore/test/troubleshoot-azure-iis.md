@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/18/2019
 uid: test/troubleshoot-azure-iis
-ms.openlocfilehash: deae568a6ba88c9a8365b9d7f2df629899bc64a1
-ms.sourcegitcommit: 16502797ea749e2690feaa5e652a65b89c007c89
+ms.openlocfilehash: 384ae6645ce083fba76a430dfc3bec3a59d3870e
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68483319"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081535"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service-and-iis"></a>Rozwiązywanie problemów ASP.NET Core na Azure App Service i usługach IIS
 
@@ -226,7 +226,7 @@ Jeśli błąd wystąpi po nagłówki są wysyłane, jest za późno serwera wys�
 
 ### <a name="default-startup-limits"></a>Domyślne limity uruchamiania
 
-[Moduł ASP.NET Core](xref:host-and-deploy/aspnet-core-module) jest skonfigurowany z domyślną startupTimeLimitą  120 sekund. Gdy pozostawić wartość domyślną, aplikacja może potrwać do dwóch minut przed moduł dzienniki awarii procesu. Aby uzyskać informacje na temat konfigurowania modułu, zobacz [atrybuty elementu aspNetCore](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element).
+[Moduł ASP.NET Core](xref:host-and-deploy/aspnet-core-module) jest skonfigurowany z domyślną startupTimeLimitą 120 sekund. Gdy pozostawić wartość domyślną, aplikacja może potrwać do dwóch minut przed moduł dzienniki awarii procesu. Aby uzyskać informacje na temat konfigurowania modułu, zobacz [atrybuty elementu aspNetCore](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element).
 
 ## <a name="troubleshoot-on-azure-app-service"></a>Rozwiązywanie problemów dotyczących Azure App Service
 
@@ -265,7 +265,7 @@ Wiele błędów uruchamiania przestaną generować przydatne informacje w dzienn
 1. Uruchom aplikację:
    * Jeśli aplikacja jest [wdrożenia zależny od struktury](/dotnet/core/deploying/#framework-dependent-deployments-fdd):
 
-     ```console
+     ```dotnetcli
      dotnet .\{ASSEMBLY NAME}.dll
      ```
 
@@ -317,7 +317,7 @@ Dziennik modułu ASP.NET Core stdout często rejestruje przydatne komunikaty o b
 1. W obszarze **sugerowane rozwiązania** > **Włącz przekierowywanie dziennika stdout**, wybierz przycisk, aby **otworzyć konsolę kudu, aby edytować plik Web. config**.
 1. W **konsoli diagnostyki**kudu Otwórz foldery w **witrynie** > Path**wwwroot**. Przewiń w dół, aby wyświetlić plik *Web. config* w dolnej części listy.
 1. Kliknij ikonę ołówka obok pliku *Web. config* .
-1. Ustaw  wartość stdoutLogEnabled `true` na i zmień ścieżkę **stdoutLogFile** na: `\\?\%home%\LogFiles\stdout`.
+1. Ustaw wartość stdoutLogEnabled `true` na i zmień ścieżkę **stdoutLogFile** na: `\\?\%home%\LogFiles\stdout`.
 1. Wybierz pozycję **Zapisz** , aby zapisać zaktualizowany plik *Web. config* .
 1. Wysłać żądanie do aplikacji.
 1. Wróć do Azure Portal. Wybierz blok **Narzędzia zaawansowane** w obszarze **Narzędzia programistyczne** . Wybierz przycisk **Przejdź&rarr;**  . Konsola kudu otwiera się w nowej karcie lub oknie przeglądarki.
@@ -399,7 +399,7 @@ Jeśli rejestrowanie stdout nie jest włączone, wykonaj następujące kroki:
 1. Korzystając z paska nawigacyjnego w górnej części strony, Otwórz **konsolę debugowanie** i wybierz polecenie **cmd**.
 1. Otwórz foldery w **witrynie** > Path**wwwroot** i przewiń w dół, aby wyświetlić plik *Web. config* w dolnej części listy.
 1. Kliknij ikonę ołówka obok pliku *Web. config* .
-1. Ustaw  wartość stdoutLogEnabled `true` na i zmień ścieżkę **stdoutLogFile** na: `\\?\%home%\LogFiles\stdout`.
+1. Ustaw wartość stdoutLogEnabled `true` na i zmień ścieżkę **stdoutLogFile** na: `\\?\%home%\LogFiles\stdout`.
 1. Wybierz pozycję **Zapisz** , aby zapisać zaktualizowany plik *Web. config* .
 
 Wykonaj aktywację rejestrowania diagnostycznego:

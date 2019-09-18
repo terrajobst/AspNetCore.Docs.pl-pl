@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 0a42a8adbe485f47853fa05fb500f4480f06e3f5
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: e8c88ed2811ad221d94c963c6e14fea9bc1607ea
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975117"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080455"
 ---
 # <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>Samouczek: Obsługa współbieżności ASP.NET MVC z EF Core
 
@@ -116,11 +116,11 @@ Przez dodanie właściwości, która zmieniła model bazy danych, należy wykona
 
 Zapisz zmiany i skompiluj projekt, a następnie wprowadź następujące polecenia w oknie polecenia:
 
-```console
+```dotnetcli
 dotnet ef migrations add RowVersion
 ```
 
-```console
+```dotnetcli
 dotnet ef database update
 ```
 
@@ -292,7 +292,7 @@ Zastąp kod w *widokach/działach/Create. cshtml* , aby dodać opcję Select do 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
- Aby uzyskać więcej informacji o sposobie obsługi współbieżności w EF Core, [](/ef/core/saving/concurrency)Zobacz konflikty współbieżności.
+ Aby uzyskać więcej informacji o sposobie obsługi współbieżności w EF Core, zobacz [konflikty współbieżności](/ef/core/saving/concurrency).
 
 ## <a name="next-steps"></a>Następne kroki
 

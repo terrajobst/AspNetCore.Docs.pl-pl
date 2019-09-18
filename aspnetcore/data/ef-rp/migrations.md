@@ -5,12 +5,12 @@ description: W tym samouczku rozpocznie się korzystanie z funkcji migracji EF C
 ms.author: riande
 ms.date: 07/22/2019
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 110ffa8ecea1fe6e55a2f979a4ce851ed59e1807
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: 8a4929a905c6a488231d7d29e1101f6fd887477f
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583505"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082081"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Razor Pages z EF Core w ASP.NET Core-migrations-4 z 8
 
@@ -44,7 +44,7 @@ Drop-Database
 
 * Uruchom następujące polecenie w wierszu polecenia, aby zainstalować narzędzia EF CLI:
 
-  ```console
+  ```dotnetcli
   dotnet tool install --global dotnet-ef --version 3.0.0-*
   ```
 
@@ -52,7 +52,7 @@ Drop-Database
 
 * Usuń plik *cu. DB* lub uruchom następujące polecenie:
 
-  ```console
+  ```dotnetcli
   dotnet ef database drop --force
   ```
 
@@ -73,7 +73,7 @@ Update-Database
 
 Upewnij się, że wiersz polecenia znajduje się w folderze projektu, i uruchom następujące polecenia:
 
-```console
+```dotnetcli
 dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
@@ -102,7 +102,7 @@ Parametr name migracji ("InitialCreate" w przykładzie) jest używany jako nazwa
 
 ## <a name="the-data-model-snapshot"></a>Migawka modelu danych
 
-Migracja tworzy migawkę bieżącego modelu danych w *migracji/SchoolContextModelSnapshot. cs*. Po dodaniu migracji, EF określa zmiany, porównując bieżący model danych z plikiem migawki.
+Migracja tworzy *migawkę* bieżącego modelu danych w *migracji/SchoolContextModelSnapshot. cs*. Po dodaniu migracji, EF określa zmiany, porównując bieżący model danych z plikiem migawki.
 
 Ponieważ plik migawek śledzi stan modelu danych, nie można usunąć migracji, usuwając `<timestamp>_<migrationname>.cs` plik. Aby wykonać kopię zapasową najnowszej migracji, należy użyć `migrations remove` polecenia. To polecenie usuwa migrację i gwarantuje, że migawka zostanie prawidłowo zresetowana. Aby uzyskać więcej informacji, zobacz [migracja programu dotnet EF Usuń](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove).
 
@@ -192,7 +192,7 @@ Otwórz okno polecenia i przejdź do folderu projektu. Folder projektu zawiera p
 
 Wprowadź następujące polecenie w oknie polecenia:
 
- ```console
+ ```dotnetcli
  dotnet ef database drop
  ```
 
@@ -211,7 +211,7 @@ Update-Database
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-```console
+```dotnetcli
 dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
@@ -249,7 +249,7 @@ Usuń migrację
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-```console
+```dotnetcli
 dotnet ef migrations remove
 ```
 

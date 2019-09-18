@@ -22,7 +22,7 @@ Dodaj parametry połączenia do pliku *appSettings. JSON* , jak pokazano w nast�
 
 Otwórz Terminal dla projektu RazorPagesMovie.  Kliknij prawym przyciskiem myszy nazwę projektu na pasku projektowania/układu i przejdź do pozycji **narzędzia > Otwórz** w terminalu. Uruchom następujące polecenia interfejs wiersza polecenia platformy .NET Core w tym czasie:
 
-```console
+```dotnetcli
 dotnet tool install --global dotnet-ef --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 3.0.0-*
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
@@ -57,11 +57,10 @@ Zarejestruj kontekst bazy danych z kontenerem [iniekcji zależności](xref:funda
 
 Uruchom następujące polecenie interfejs wiersza polecenia platformy .NET Core, aby dodać program SQLite i CodeGeneration. Design do projektu:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.EntityFrameworkCore.SQLite
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet add package Microsoft.EntityFrameworkCore.Design
-
 ```
 
 `Microsoft.VisualStudio.Web.CodeGeneration.Design` Pakiet jest wymagany do tworzenia szkieletów.

@@ -1,51 +1,51 @@
 ---
-title: Szablon projektu biblioteki Angular za pomocą platformy ASP.NET Core
+title: Użyj szablonu projektu kątowego z ASP.NET Core
 author: SteveSandersonMS
-description: Dowiedz się, jak rozpocząć pracę przy użyciu szablonu projektu ASP.NET Core jednej strony aplikacji (SPA) do usługi Angular i Angular interfejsu wiersza polecenia.
+description: Dowiedz się, jak rozpocząć pracę z szablonem projektu aplikacji jednostronicowej (SPA) ASP.NET Core dla elementu kątowego i kątowego interfejsu wiersza polecenia.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: stevesa
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: spa/angular
-ms.openlocfilehash: 6d0107ef52d63a0f6f5713c518ddc54ac4230d53
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 62654ca040be99de8063a63c7e4ac09cbb8564eb
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899998"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080404"
 ---
-# <a name="use-the-angular-project-template-with-aspnet-core"></a>Szablon projektu biblioteki Angular za pomocą platformy ASP.NET Core
+# <a name="use-the-angular-project-template-with-aspnet-core"></a>Użyj szablonu projektu kątowego z ASP.NET Core
 
-Szablon projektu biblioteki Angular zaktualizowane udostępnia dogodny punkt początkowy dla platformy ASP.NET Core aplikacji za pomocą usługi Angular i Angular interfejsu wiersza polecenia, aby zaimplementować interfejs rozbudowane, po stronie klienta użytkownika (UI).
+Zaktualizowany szablon projektu kątowego zapewnia wygodny punkt początkowy dla ASP.NET Core aplikacji przy użyciu funkcji kątowych i kątowych interfejsu wiersza polecenia, aby zaimplementować rozbudowany interfejs użytkownika po stronie klienta.
 
-Szablon jest odpowiednikiem Tworzenie projektu ASP.NET Core jako zaplecza interfejsu API i projekt usługi Angular interfejsu wiersza polecenia pełnić rolę interfejsu użytkownika. Ten szablon oferuje wygodne hostingu obu typów projektów w projekcie pojedynczej aplikacji. W związku z tym projekt aplikacji można skompilować i opublikowane jako pojedyncza jednostka.
+Szablon jest równoznaczny z tworzeniem ASP.NET Core projektu do działania jako zaplecza interfejsu API oraz projektu kątowego interfejsu wiersza polecenia do działania jako interfejs użytkownika. Szablon oferuje wygodę hostingu obu typów projektów w jednym projekcie aplikacji. W związku z tym projekt aplikacji można skompilować i opublikować jako pojedynczą jednostkę.
 
 ## <a name="create-a-new-app"></a>Tworzenie nowej aplikacji
 
-Jeśli masz zainstalowany program ASP.NET Core 2.1, nie ma potrzeby instalowania szablon projektu biblioteki Angular.
+Jeśli zainstalowano ASP.NET Core 2,1, nie ma potrzeby instalowania szablonu projektu kątowego.
 
-Utwórz nowy projekt z wiersza polecenia za pomocą polecenia `dotnet new angular` w pustym katalogu. Na przykład, następujące polecenia tworzą aplikację w *Moje aplikacyjnego nowe* katalogu i przełącz się do tego katalogu:
+Utwórz nowy projekt z wiersza polecenia przy użyciu polecenia `dotnet new angular` w pustym katalogu. Na przykład następujące polecenia tworzą aplikację w katalogu *My-New-App* i przełączają się do tego katalogu:
 
-```console
+```dotnetcli
 dotnet new angular -o my-new-app
 cd my-new-app
 ```
 
-Uruchom aplikację z programu Visual Studio lub platformy .NET Core interfejsu wiersza polecenia:
+Uruchom aplikację z poziomu programu Visual Studio lub interfejs wiersza polecenia platformy .NET Core:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-Otwórz wygenerowany *.csproj* pliku i uruchom aplikację w zwykły z tego miejsca.
+Otwórz wygenerowany plik *csproj* i uruchom aplikację w zwykły sposób.
 
-Proces kompilacji przywraca zależności rozwiązania npm przy pierwszym uruchomieniu może potrwać kilka minut. Kolejne kompilacje są znacznie szybciej.
+Proces kompilacji przywraca zależności npm w pierwszym przebiegu, co może potrwać kilka minut. Kolejne kompilacje są znacznie szybsze.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
 
-Upewnij się, że zmienna środowiskowa o nazwie `ASPNETCORE_Environment` o wartości `Development`. Na Windows (w monity-PowerShell), uruchom `SET ASPNETCORE_Environment=Development`. W systemie Linux lub macOS Uruchom `export ASPNETCORE_Environment=Development`.
+Upewnij się, że masz zmienną środowiskową o nazwie `ASPNETCORE_Environment` z `Development`wartością. W systemie Windows (w komunikatach innych niż programu PowerShell `SET ASPNETCORE_Environment=Development`) Uruchom polecenie. W systemie Linux lub macOS Uruchom `export ASPNETCORE_Environment=Development`polecenie.
 
-Uruchom [kompilacji dotnet](/dotnet/core/tools/dotnet-build) Aby sprawdzić, aplikacja poprawnie się kompiluje. Przy pierwszym uruchomieniu procesu kompilacji przywraca zależności rozwiązania npm, co może zająć kilka minut. Kolejne kompilacje są znacznie szybciej.
+Uruchom [kompilację dotnet](/dotnet/core/tools/dotnet-build) , aby sprawdzić, czy aplikacja jest poprawnie skompilowana. W pierwszym uruchomieniu proces kompilacji przywraca zależności npm, co może potrwać kilka minut. Kolejne kompilacje są znacznie szybsze.
 
-Uruchom [dotnet, uruchom](/dotnet/core/tools/dotnet-run) Aby uruchomić aplikację. Zostanie zarejestrowany komunikat podobny do następującego:
+Uruchom [uruchomienie programu dotnet](/dotnet/core/tools/dotnet-run) , aby uruchomić aplikację. Rejestrowany jest komunikat podobny do następującego:
 
 ```console
 Now listening on: http://localhost:<port>
@@ -53,33 +53,33 @@ Now listening on: http://localhost:<port>
 
 Przejdź do tego adresu URL w przeglądarce.
 
-Wystąpienie serwera Angular interfejsu wiersza polecenia w tle uruchamiania aplikacji. Zostanie zarejestrowany komunikat podobny do następującego: *NG Live Development Server nasłuchuje na hoście lokalnym:&lt;otherport&gt;, otwórz przeglądarkę na http://localhost:&lt; otherport&gt;/*. Zignoruj ten komunikat&mdash;ma **nie** adres URL dla połączonych aplikacji platformy ASP.NET Core i wiersza polecenia usługi Angular.
+Aplikacja uruchamia wystąpienie kątowego serwera interfejsu wiersza polecenia w tle. Rejestrowany jest komunikat podobny do następującego: *Serwer programistyczny na żywo nasłuchuje na&lt;hoście&gt;lokalnym: otherport, Otwórz http://localhost:&lt przeglądarkę w&gt; lokalizacji; otherport/* . Zignoruj ten komunikat&mdash;, ponieważ **nie** jest to adres URL połączonej ASP.NET Core i aplikacji interfejsu wiersza polecenia.
 
 ---
 
-Szablon projektu umożliwia utworzenie aplikacji ASP.NET Core oraz aplikacji Angular. Aplikacja platformy ASP.NET Core jest przeznaczona do użytku z dostępem do danych, autoryzację i inne problemy po stronie serwera. Platformy Angular aplikacji znajdujących się w *ClientApp* podkatalogu, jest przeznaczona do użycia dla wszystkich obaw interfejsu użytkownika.
+Szablon projektu tworzy aplikację ASP.NET Core i aplikację kątową. Aplikacja ASP.NET Core jest przeznaczona do użycia na potrzeby dostępu do danych, autoryzacji i innych zagadnień po stronie serwera. Aplikacja kątowa znajdująca się w podkatalogu *ClientApp* jest przeznaczona do użycia dla wszystkich zagadnień związanych z interfejsem użytkownika.
 
-## <a name="add-pages-images-styles-modules-etc"></a>Dodawanie stron, obrazów, style, moduły, itp.
+## <a name="add-pages-images-styles-modules-etc"></a>Dodawanie stron, obrazów, stylów, modułów itp.
 
-*ClientApp* katalog zawiera standardowe aplikacji Angular interfejsu wiersza polecenia. Można znaleźć w oficjalnej [dokumentacji usługi Angular](https://github.com/angular/angular-cli/wiki) Aby uzyskać więcej informacji.
+Katalog *ClientApp* zawiera standardową aplikację interfejsu wiersza polecenia. Aby uzyskać więcej informacji, zobacz oficjalną [dokumentację kątową](https://github.com/angular/angular-cli/wiki) .
 
-Istnieją drobne różnice między Angular aplikację utworzoną za pomocą tego szablonu, a ten, który został utworzony przez wierszem polecenia platformy Angular (za pośrednictwem `ng new`); jednak możliwości aplikacji nie ulegną zmianie. Aplikacja utworzona przez szablon zawiera [Bootstrap](https://getbootstrap.com/)— na podstawie układu oraz przykład podstawowej routingu.
+Istnieją niewielkie różnice między aplikacją kątową utworzoną przez ten szablon a nią utworzoną przez skośny interfejs wiersza polecenia (za `ng new`pośrednictwem), jednak możliwości aplikacji nie są zmieniane. Aplikacja utworzona przez szablon zawiera układ oparty na [Bootstrap](https://getbootstrap.com/)i podstawowy przykład routingu.
 
-## <a name="run-ng-commands"></a>Uruchom polecenia ng
+## <a name="run-ng-commands"></a>Uruchamianie poleceń ng
 
-W wierszu polecenia przejdź do *ClientApp* podkatalogu:
+W wierszu polecenia przejdź do podkatalogu *ClientApp* :
 
 ```console
 cd ClientApp
 ```
 
-Jeśli masz `ng` narzędzie jest zainstalowane globalnie, możesz uruchomić dowolne z jego poleceń. Na przykład, można uruchomić `ng lint`, `ng test`, ani żadnego innego [Angular polecenia interfejsu wiersza polecenia](https://github.com/angular/angular-cli/wiki#additional-commands). Nie ma potrzeby uruchomić `ng serve` , ponieważ dotyczy zarówno po stronie serwera i klienta części Twojej aplikacji obsługujących aplikacji platformy ASP.NET Core. Używa wewnętrznie, `ng serve` w trakcie opracowywania.
+`ng` Jeśli narzędzie jest zainstalowane globalnie, można uruchomić dowolne z jego poleceń. Na przykład można uruchomić `ng lint`, `ng test`lub dowolne z innych [poleceń kątowych interfejsu wiersza polecenia](https://github.com/angular/angular-cli/wiki#additional-commands). Nie ma potrzeby uruchamiania `ng serve` mimo tego, że aplikacja ASP.NET Core obsługuje zarówno części aplikacji po stronie serwera, jak i klienta. Wewnętrznie używa `ng serve` go w trakcie opracowywania.
 
-Jeśli nie masz `ng` narzędzie jest zainstalowane, uruchom `npm run ng` zamiast tego. Na przykład, można uruchomić `npm run ng lint` lub `npm run ng test`.
+Jeśli nie masz `ng` zainstalowanego narzędzia, uruchom `npm run ng` polecenie. Na przykład można uruchomić system `npm run ng lint` lub. `npm run ng test`
 
-## <a name="install-npm-packages"></a>Instalowanie pakietów npm
+## <a name="install-npm-packages"></a>Zainstaluj pakiety npm
 
-Aby zainstalować pakiety npm innych firm, należy użyć wiersza polecenia w *ClientApp* podkatalogu. Na przykład:
+Aby zainstalować pakiety npm innych firm, należy użyć wiersza polecenia w podkatalogu *ClientApp* . Przykład:
 
 ```console
 cd ClientApp
@@ -88,19 +88,19 @@ npm install --save <package_name>
 
 ## <a name="publish-and-deploy"></a>Publikowanie i wdrażanie
 
-Na etapie opracowywania aplikacji jest uruchamiany w trybie zoptymalizowane pod kątem dla wygody deweloperów. Na przykład pakiety języka JavaScript obejmują map źródeł (tak, aby podczas debugowania, możesz zobaczyć oryginalnego kodu TypeScript). Aplikacja oczekuje na TypeScript, HTML i CSS zmian plików na dysku i automatycznie następuje rekompilacja i ponowne załadowanie po wykryciu tych plików, zmiany.
+W trakcie opracowywania aplikacja jest uruchamiana w trybie zoptymalizowanym pod kątem wygody dla deweloperów. Na przykład pakiety JavaScript zawierają mapy źródłowe (w przypadku debugowania można zobaczyć oryginalny kod TypeScript). Aplikacja będzie oglądać zmiany w plikach TypeScript, HTML i CSS na dysku, a następnie automatycznie ponownie kompilować i ładuje je, gdy zobaczy zmiany tych plików.
 
-W środowisku produkcyjnym obsługiwać wersję aplikacji, która jest zoptymalizowana pod kątem wydajności. Jest ona konfigurowana automatycznie. Podczas publikowania, zminimalizowany emituje konfigurację kompilacji, z wyprzedzeniem of-time (AoT) skompilowany kompilację kodu po stronie klienta. W przeciwieństwie do tworzenia kompilacji kompilacja w produkcji nie wymaga środowiska Node.js można zainstalować na serwerze (o ile nie włączono renderowania po stronie serwera (SSR)).
+W środowisku produkcyjnym można korzystać z wersji aplikacji zoptymalizowanej pod kątem wydajności. To jest skonfigurowane tak, aby były wykonywane automatycznie. Podczas publikowania konfiguracja kompilacji emituje kompilowaną kompilację kodu po stronie klienta (zminimalizowanego). W przeciwieństwie do kompilacji deweloperskiej kompilacja produkcyjna nie wymaga zainstalowania na serwerze programu Node. js (o ile nie włączono renderowania po stronie serwera (SSR)).
 
-Można użyć standardowego [metody hosting i wdrażanie platformy ASP.NET Core](xref:host-and-deploy/index).
+Można użyć standardowych [ASP.NET Core metod hostingu i wdrażania](xref:host-and-deploy/index).
 
-## <a name="run-ng-serve-independently"></a>Uruchom niezależnie "ng służą"
+## <a name="run-ng-serve-independently"></a>Uruchom "anie" niezależnie
 
-Projekt jest skonfigurowana do uruchamiania własne wystąpienie serwera, usługi Angular interfejsu wiersza polecenia w tle, gdy aplikacja platformy ASP.NET Core jest uruchamiany w trybie projektowania. Jest to wygodne, ponieważ nie trzeba ręcznie uruchomić oddzielny serwer.
+Projekt jest skonfigurowany tak, aby uruchamiał własne wystąpienie kątowego serwera interfejsu wiersza polecenia w tle podczas uruchamiania aplikacji ASP.NET Core w trybie tworzenia. Jest to wygodne, ponieważ nie trzeba ręcznie uruchamiać oddzielnego serwera.
 
-Brak wadą tego ustawienia domyślnego. Po każdej zmianie kodu C# i ASP.NET Core aplikacja wymaga ponownego uruchomienia, powoduje ponowne uruchomienie serwera Angular interfejsu wiersza polecenia. Około 10 sekund jest wymagana, aby rozpocząć tworzenie kopii zapasowej. Jeśli wprowadzasz częste C# kodu edycji i nie chcesz czekać na Angular interfejsu wiersza polecenia ponownie uruchomić, uruchom serwer platformy Angular interfejsu wiersza polecenia w zewnętrznie, niezależnie od procesu, ASP.NET Core. Aby to zrobić:
+Istnieje zwrot do tej konfiguracji domyślnej. Za każdym razem, gdy C# modyfikujesz kod i aplikacja ASP.NET Core wymaga ponownego uruchomienia, serwer interfejsu wiersza polecenia jest uruchamiany ponownie. Aby rozpocząć tworzenie kopii zapasowej, wymagane jest około 10 sekund. Jeśli wprowadzasz częste C# zmiany kodu i nie chcesz czekać na ponowne uruchomienie interfejsu wiersza polecenia, uruchom skośny serwer interfejsu wiersza polecenia, niezależnie od procesu ASP.NET Core. Aby to zrobić:
 
-1. W wierszu polecenia przejdź do *ClientApp* podkatalogu, a następnie uruchom serwera wdrożeniowego programu Angular interfejsu wiersza polecenia:
+1. W wierszu polecenia przejdź do podkatalogu *ClientApp* i uruchom kątowy serwer programistyczny CLI:
 
     ```console
     cd ClientApp
@@ -108,19 +108,19 @@ Brak wadą tego ustawienia domyślnego. Po każdej zmianie kodu C# i ASP.NET Cor
     ```
 
     > [!IMPORTANT]
-    > Użyj `npm start` można uruchomić serwera wdrożeniowego programu Angular interfejsu wiersza polecenia nie `ng serve`, dzięki czemu konfiguracji w *package.json* jest zachowana. Aby przekazywać dodatkowych parametrów do serwera usługi Angular interfejsu wiersza polecenia, dodaj je do odpowiedniego `scripts` wiersz w Twojej *package.json* pliku.
+    > Użyj `npm start` polecenia, aby uruchomić serwer programistyczny języka CLI `ng serve`, a nie, aby była przestrzegana konfiguracja w pliku *Package. JSON* . Aby przekazać dodatkowe parametry do serwera kątowego interfejsu wiersza polecenia, należy dodać je `scripts` do odpowiedniego wiersza w pliku *Package. JSON* .
 
-2. Zmodyfikuj do korzystania z zewnętrznego wystąpienia usługi Angular interfejsu wiersza polecenia zamiast uruchamiania jednego z własnych aplikacji platformy ASP.NET Core. W swojej *uruchamiania* klasy, Zastąp `spa.UseAngularCliServer` wywołania następującym kodem:
+2. Zmodyfikuj aplikację ASP.NET Core tak, aby korzystała z zewnętrznego wystąpienia interfejsu wiersza polecenia, zamiast uruchamiania jednego z nich. W klasie *uruchomieniowej* Zastąp `spa.UseAngularCliServer` wywołanie następującym:
 
     ```csharp
     spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
     ```
 
-Po uruchomieniu aplikacji platformy ASP.NET Core, nie będzie go uruchomić serwera Angular interfejsu wiersza polecenia. Wystąpienie, które można uruchomić ręcznie jest używana zamiast tego. To umożliwia uruchamianie i ponowne uruchamianie szybciej. Oczekuje się już na Angular interfejsu wiersza polecenia ponownie skompilować aplikację kliencką każdorazowo.
+Po uruchomieniu aplikacji ASP.NET Core nie zostanie uruchomiony kątowy serwer interfejsu wiersza polecenia. Wystąpienie, które zostało uruchomione ręcznie, jest używane w zamian. Pozwala to na szybkie uruchamianie i ponowne uruchamianie. Nie czeka już na kątowy interfejs wiersza polecenia, aby ponownie skompilować aplikację kliencką za każdym razem.
 
-### <a name="pass-data-from-net-code-into-typescript-code"></a>Przekazywanie danych od kodu platformy .NET do kodu TypeScript
+### <a name="pass-data-from-net-code-into-typescript-code"></a>Przekazywanie danych z kodu platformy .NET do kodu TypeScript
 
-Podczas SSR można przekazać dane na żądanie z aplikacji platformy ASP.NET Core w swojej aplikacji Angular. Na przykład można przekazywać informacje dotyczące pliku cookie lub coś odczytu z bazy danych. Aby to zrobić, Edytuj swoje *uruchamiania* klasy. Podczas wywołania zwrotnego dla `UseSpaPrerendering`, ustaw wartość `options.SupplyData` podobny do następującego:
+Podczas procesu SSR możesz chcieć przekazać dane dla żądania z aplikacji ASP.NET Core do aplikacji kątowej. Na przykład można przekazać informacje o pliku cookie lub coś odczytanego z bazy danych. Aby to zrobić, Edytuj klasę *uruchomieniową* . W polu wywołania zwrotne dla `UseSpaPrerendering`ustaw wartość dla `options.SupplyData` opcji:
 
 ```csharp
 options.SupplyData = (context, data) =>
@@ -130,17 +130,17 @@ options.SupplyData = (context, data) =>
 };
 ```
 
-`SupplyData` Umożliwia wywołanie zwrotne przekazania dowolnych, żądań, możliwy do serializacji JSON danych (na przykład ciągi, wartości logicznych lub liczb). Twoje *main.server.ts* kodu odbiera jako `params.data`. Na przykład w poprzednim przykładzie kodu przekazuje wartość typu boolean jako `params.data.isHttpsRequest` do `createServerRenderer` wywołania zwrotnego. Możesz przekazać ten do innych części aplikacji w jakikolwiek sposób obsługiwane przez usługi Angular. Na przykład, zobacz temat jak *main.server.ts* przekazuje `BASE_URL` wartość każdego składnika, której Konstruktor jest zadeklarowany do jej otrzymania.
+`SupplyData` Wywołanie zwrotne umożliwia przekazywanie dowolnych danych z możliwością serializacji kodu JSON (na przykład ciągów, wartości logicznych lub cyfr). *Główny kod. Server. TS* odbiera to jako `params.data`. Na przykład poprzedni przykładowy kod przekazuje wartość logiczną jako `params.data.isHttpsRequest` `createServerRenderer` wywołanie zwrotne. Można przekazać ten program do innych części aplikacji w dowolny sposób, który jest obsługiwany przez kątowe. Na przykład, zobacz jak *Main. Server. TS* przekazuje `BASE_URL` wartość do dowolnego składnika, którego Konstruktor został zadeklarowany w celu otrzymania go.
 
-### <a name="drawbacks-of-ssr"></a>Wady SSR
+### <a name="drawbacks-of-ssr"></a>Wady systemu SSR
 
-Nie wszystkie aplikacje korzystają z SSR. Główną Korzyścią płynącą jest traktowany wydajności. Osoby odwiedzające osiągnięcia swojej aplikacji za pośrednictwem z wolnym połączeniem sieciowym lub na urządzeniach przenośnych powolne początkowej interfejsu użytkownika szybkie wyświetlenie, nawet jeśli zajmuje trochę czasu, aby pobrać lub przeanalizować pakiety języka JavaScript. Jednak wiele aplikacji jednostronicowych są używane głównie za pośrednictwem sieci firmy szybkie, wewnętrzne na komputerach z szybkich, gdzie aplikacja będzie wyświetlana niemal natychmiast.
+Nie wszystkie aplikacje korzystają z programu SSR. Główną korzyścią jest postrzeganie wydajności. Goście korzystający z aplikacji przez wolne połączenie sieciowe lub wolne urządzenia przenośne szybko zobaczą początkowy interfejs użytkownika, nawet jeśli pobieranie lub analizowanie pakietów JavaScript trwa dłużej. Jednak wiele aplikacji jednostronicowych jest używanych głównie w szybkich, wewnętrznych sieciach firmowych na szybkich komputerach, na których aplikacja jest widoczna niemal natychmiast.
 
-W tym samym czasie istnieją istotne wady włączania SSR. Dodaje złożoności do procesu opracowywania. Kod, należy uruchomić w dwóch różnych środowiskach: po stronie klienta i po stronie serwera (w środowisku Node.js, wywoływana z platformą ASP.NET Core). Oto kilka rzeczy, aby mieć na uwadze:
+W tym samym czasie istnieją znaczne wady umożliwiające włączenie SSR. Zwiększa złożoność procesu tworzenia. Kod musi działać w dwóch różnych środowiskach: po stronie klienta i po stronie serwera (w środowisku Node. js wywoływanym z ASP.NET Core). Oto kilka rzeczy, na których warto mieć świadomość:
 
-* SSR wymaga instalacji środowiska Node.js na serwerach produkcyjnych. Automatycznie jest przypadek, w przypadku niektórych scenariuszy wdrażania, takie jak usługi Azure App Services, ale nie dla inne, takie jak usługi Azure Service Fabric.
-* Włączanie `BuildServerSideRenderer` kompilacji flaga powoduje, że Twoje *node_modules* katalogu publikowania. Ten folder zawiera 20 000 + plików, co zwiększa czas wdrażania.
-* Aby uruchomić kod w środowisku Node.js, go nie można polegać na istnienie interfejsów API języka JavaScript w przeglądarce specyficzne takich jak `window` lub `localStorage`. Jeśli kod (lub niektórych biblioteki innych firm, którą możesz odwoływać się) próbuje użyć tych interfejsów API, otrzymasz błąd podczas SSR. Na przykład nie używaj jQuery, ponieważ widok odwołuje się interfejsami API właściwymi dla przeglądarki w wielu miejscach. Aby zapobiec wystąpieniu błędów, możesz uniknąć SSR lub uniknąć interfejsów API specyficznych dla przeglądarki lub biblioteki. Wszelkie wywołania do tych interfejsów API można opakować w kontrole, aby upewnić się, że nie są one wywoływane podczas SSR. W kodzie JavaScript i TypeScript, na przykład użyć wyboru podobny do następującego:
+* SSR wymaga instalacji środowiska Node. js na serwerach produkcyjnych. W przypadku niektórych scenariuszy wdrażania, takich jak Azure App Services, ale nie dla innych, takich jak Azure Service Fabric.
+* Włączenie flagi `BuildServerSideRenderer` kompilacji powoduje, że katalog *node_modules* jest publikowany. Ten folder zawiera 20 000 plików, co wydłuża czas wdrażania.
+* Do uruchamiania kodu w środowisku Node. js nie można polegać na istnieniu interfejsów API JavaScript specyficznych dla przeglądarki, takich jak `window` lub `localStorage`. Jeśli Twój kod (lub pewna dostosowana Biblioteka innej firmy) próbuje użyć tych interfejsów API, wystąpi błąd podczas procesu SSR. Na przykład nie należy używać jQuery, ponieważ odwołuje się do interfejsów API specyficznych dla przeglądarki w wielu miejscach. Aby zapobiec błędom, należy koniecznie uniknąć lub uniknąć używania interfejsów API lub bibliotek specyficznych dla przeglądarki. Możesz otoczyć wszystkie wywołania takich interfejsów API w celu upewnienia się, że nie są one wywoływane podczas SSR. Na przykład użyj sprawdzenia, takiego jak następujące w kodzie JavaScript lub TypeScript:
 
     ```javascript
     if (typeof window !== 'undefined') {

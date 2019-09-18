@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/05/2019
 uid: security/docker-https
-ms.openlocfilehash: f17a3abe1b00b39b7b6787be5b20ce65771190b8
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: c13ba02845eef5c53a939feec2be8a01bc4ca128
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619712"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082534"
 ---
 # <a name="hosting-aspnet-core-images-with-docker-over-https"></a>Hostowanie ASP.NET Core obrazów przy użyciu platformy Docker za pośrednictwem protokołu HTTPS
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core [domyślnie używa protokołu HTTPS](/aspnet/core/security/enforcing-ssl). [Protokół https](https://en.wikipedia.org/wiki/HTTPS) opiera się [](https://en.wikipedia.org/wiki/Public_key_certificate) na certyfikatach do zaufania, tożsamości i szyfrowania.
+ASP.NET Core [domyślnie używa protokołu HTTPS](/aspnet/core/security/enforcing-ssl). [Protokół https](https://en.wikipedia.org/wiki/HTTPS) opiera się na [certyfikatach](https://en.wikipedia.org/wiki/Public_key_certificate) do zaufania, tożsamości i szyfrowania.
 
 W tym dokumencie wyjaśniono, jak uruchamiać wstępnie skompilowane obrazy kontenerów przy użyciu protokołu HTTPS.
 
@@ -55,7 +55,7 @@ Wykonaj następujące instrukcje dotyczące konfiguracji systemu operacyjnego.
 
 Generuj certyfikat i skonfiguruj komputer lokalny:
 
-```console
+```dotnetcli
 dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\aspnetapp.pfx -p { password here }
 dotnet dev-certs https --trust
 ```
@@ -75,7 +75,7 @@ Hasło musi być zgodne z hasłem użytym dla certyfikatu.
 
 Generuj certyfikat i skonfiguruj komputer lokalny:
 
-```console
+```dotnetcli
 dotnet dev-certs https -ep ${HOME}/.aspnet/https/aspnetapp.pfx -p { password here }
 dotnet dev-certs https --trust
 ```
@@ -97,7 +97,7 @@ Hasło musi być zgodne z hasłem użytym dla certyfikatu.
 
 Generuj certyfikat i skonfiguruj komputer lokalny:
 
-```console
+```dotnetcli
 dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\aspnetapp.pfx -p { password here }
 dotnet dev-certs https --trust
 ```

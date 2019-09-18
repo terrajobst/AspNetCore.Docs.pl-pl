@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/06/2019
 uid: blazor/components
-ms.openlocfilehash: e51f6745f6e0c748e51d7f8a49193f3d81fd2a06
-ms.sourcegitcommit: 07cd66e367d080acb201c7296809541599c947d1
+ms.openlocfilehash: 521421ac413218c1f04dd9feade2a49dc1f7b918
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71039183"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080533"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
@@ -1473,7 +1473,7 @@ Jest to prosty przykład. W bardziej realistycznych przypadkach ze złożonymi i
 
 * Wydajność aplikacji ma wpływ na to, że numery sekwencji są generowane dynamicznie.
 * Struktura nie może automatycznie tworzyć własnych numerów sekwencji w czasie wykonywania, ponieważ niezbędne informacje nie istnieją, chyba że są przechwytywane w czasie kompilacji.
-* Nie zapisuj długich bloków logiki wykonywanej `RenderTreeBuilder` ręcznie. Preferuj `.razor` pliki i Zezwalaj kompilatorowi na rozpatruje numery sekwencji.
+* Nie zapisuj długich bloków logiki wykonywanej `RenderTreeBuilder` ręcznie. Preferuj `.razor` pliki i Zezwalaj kompilatorowi na rozpatruje numery sekwencji. Jeśli `RenderTreeBuilder` nie możesz uniknąć ręcznej logiki, Podziel długie bloki kodu na mniejsze fragmenty `OpenRegion` / `CloseRegion` opakowane. Każdy region ma własne oddzielne miejsce numerów sekwencyjnych, więc można uruchomić ponownie od zera (lub dowolnego innego numeru) w każdym regionie.
 * Jeśli numery sekwencji są stałee, algorytm diff wymaga tylko zwiększenia wartości sekwencji. Początkowa wartość i przerwy są nieistotne. Jedną z wiarygodnych opcji jest użycie numeru wiersza kodu jako numeru sekwencyjnego lub rozpoczęcie od zera i zwiększenie według wartości lub setek (lub dowolnego preferowanego interwału). 
 * Blazor używa numerów sekwencji, podczas gdy inne struktury interfejsu użytkownika porównujące drzewa nie są używane. Różnica jest znacznie szybsza, gdy są używane numery sekwencji, a Blazor ma zalety kroku kompilacji, który zajmuje się automatycznie numerami sekwencyjnymi dla deweloperów tworzących `.razor` pliki.
 

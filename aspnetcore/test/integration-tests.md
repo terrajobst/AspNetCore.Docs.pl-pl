@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2019
 uid: test/integration-tests
-ms.openlocfilehash: 195acd3e03f3de63ebd61767f2c86d1c0f38fca5
-ms.sourcegitcommit: 983b31449fe398e6e922eb13e9eb6f4287ec91e8
+ms.openlocfilehash: 272f0f2140647dd31319f8feada0ec04c7ab4e44
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2019
-ms.locfileid: "70017434"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082501"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Testy integracji w ASP.NET Core
 
@@ -44,7 +44,7 @@ Te szersze testy są używane do testowania infrastruktury aplikacji i całego �
 * Urządzenia sieciowe
 * Potok żądania-odpowiedź
 
-Testy jednostkowe wykorzystują składniki, znane jako elementy sztucznelub makiety, zamiast składników infrastruktury.
+Testy jednostkowe wykorzystują składniki, *znane jako elementy* sztuczne lub *makiety*, zamiast składników infrastruktury.
 
 W przeciwieństwie do testów jednostkowych, testy integracji:
 
@@ -68,13 +68,13 @@ Testy integracji w ASP.NET Core wymagają następujących czynności:
 * Projekt testowy tworzy testowy host sieci Web dla SUT i używa klienta serwera testowego do obsługi żądań i odpowiedzi do SUT.
 * Moduł uruchamiający testy służy do wykonywania testów i raportujących wyniki testów.
 
-Testy integracji są zgodne z sekwencją zdarzeń, które obejmujątypowe kroki testu rozmieszczenia, *działania*i potwierdzeń:
+Testy integracji są zgodne z sekwencją zdarzeń, które obejmują typowe kroki testu *rozmieszczenia*, *działania*i *potwierdzeń* :
 
 1. SUT hosta sieci Web.
 1. Klient serwera testowego jest tworzony w celu przesyłania żądań do aplikacji.
 1. Krok *Rozmieść* test jest wykonywany: Aplikacja testowa przygotowuje żądanie.
 1. Krok testu *Act* jest wykonywany: Klient przesyła żądanie i otrzymuje odpowiedź.
-1. Krok testu *potwierdzenia* jest wykonywany: Rzeczywista odpowiedź jest sprawdzana jako *przebieg* lub *Niepowodzenie* w zależności od *oczekiwanej* odpowiedzi.
+1. Krok testu *potwierdzenia* jest wykonywany: *Rzeczywista* odpowiedź jest sprawdzana jako *przebieg* lub *Niepowodzenie* w zależności od *oczekiwanej* odpowiedzi.
 1. Proces jest kontynuowany, dopóki wszystkie testy nie zostaną wykonane.
 1. Wyniki testu są zgłaszane.
 
@@ -175,7 +175,7 @@ Wszelkie żądania POST do SUT muszą być zgodne z sprawdzeniem, czy jest ono a
 1. Przeanalizuj plik cookie dotyczący fałszowania i token walidacji żądania z odpowiedzi.
 1. Wprowadź żądanie POST przy użyciu pliku cookie służącego do fałszerstwa i tokenu walidacji żądania.
 
-[](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/) `GetDocumentAsync` [](https://anglesharp.github.io/)Metody rozszerzenia pomocnika(pomocnicys/HttpClientExtensions.cs)imetodapomocnika(pomocnicys/HtmlHelpers.cs)wprzykładowejaplikacjiużywająanalizatoraAngleSharpdoobsługiochronyprzedfałszerstwem`SendAsync` Sprawdź następujące metody:
+`GetDocumentAsync` [](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/) [](https://anglesharp.github.io/)Metody rozszerzenia pomocnika(pomocnicys/HttpClientExtensions.cs)imetodapomocnika(pomocnicys/HtmlHelpers.cs)wprzykładowejaplikacjiużywająanalizatoraAngleSharpdoobsługiochronyprzedfałszerstwem`SendAsync` Sprawdź następujące metody:
 
 * `GetDocumentAsync`Odbiera HttpResponseMessage [](/dotnet/api/system.net.http.httpresponsemessage) i zwraca `IHtmlDocument`. &ndash; `GetDocumentAsync`używa fabryki przygotowującej *odpowiedź wirtualną* na podstawie oryginału `HttpResponseMessage`. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją AngleSharp](https://github.com/AngleSharp/AngleSharp#documentation).
 * `SendAsync`metody `HttpClient` rozszerzające [HttpRequestMessage](/dotnet/api/system.net.http.httprequestmessage) i Call [SendAsync (HttpRequestMessage)](/dotnet/api/system.net.http.httpclient.sendasync#System_Net_Http_HttpClient_SendAsync_System_Net_Http_HttpRequestMessage_) do przesyłania żądań do SUT. Przeciążenia dla `SendAsync` Zaakceptuj formularz HTML (`IHtmlFormElement`) i następujące:
@@ -311,7 +311,7 @@ Po wykonaniu `IClassFixture` testów wdrożenia [TestServer](/dotnet/api/microso
 
 Testy można uruchamiać przy użyciu wbudowanych funkcji testowych środowiska IDE, takich jak [Visual Studio](https://visualstudio.microsoft.com). W przypadku używania [Visual Studio Code](https://code.visualstudio.com/) lub wiersza polecenia wykonaj następujące polecenie w wierszu polecenia w katalogu *Tests/RazorPagesProject. Tests* :
 
-```console
+```dotnetcli
 dotnet test
 ```
 
@@ -319,14 +319,14 @@ dotnet test
 
 SUT to system komunikatów Razor Pages o następujących cechach:
 
-* Strona indeks aplikacji (*Pages/index. cshtml* i Pages */index. cshtml. cs*) zawiera metody interfejsu użytkownika i modelu strony umożliwiające sterowanie dodawaniem, usuwaniem i analizą komunikatów (średnia liczba wyrazów na komunikat).
+* Strona indeks aplikacji (*Pages/index. cshtml* i *Pages/index. cshtml. cs*) zawiera metody interfejsu użytkownika i modelu strony umożliwiające sterowanie dodawaniem, usuwaniem i analizą komunikatów (średnia liczba wyrazów na komunikat).
 * Komunikat jest opisywany `Message` przez klasę (*Data/Message. cs*) z dwiema właściwościami: `Id` (Key) i `Text` (Message). `Text` Właściwość jest wymagana i jest ograniczona do 200 znaków.
 * Komunikaty są przechowywane przy użyciu&#8224; [bazy danych znajdującej się w pamięci Entity Framework](/ef/core/providers/in-memory/).
 * Aplikacja zawiera warstwę dostępu do danych (dal) w swojej klasie `AppDbContext` kontekstu bazy danych (*Data/AppDbContext. cs*).
 * Jeśli baza danych jest pusta podczas uruchamiania aplikacji, magazyn komunikatów zostanie zainicjowany przy użyciu trzech komunikatów.
 * Aplikacja zawiera dostęp do `/SecurePage` programu, do którego jest dostępny tylko uwierzytelniony użytkownik.
 
-&#8224;W temacie EF [test z](/ef/core/miscellaneous/testing/in-memory)niepamięcią, wyjaśniono, jak korzystać z bazy danych w pamięci dla testów z MSTest. W tym temacie jest stosowane środowisko testowe [xUnit](https://xunit.github.io/) . Koncepcje testowe i implementacje testów w różnych strukturach testów są podobne, ale nie są identyczne.
+&#8224;W temacie EF [test z niepamięcią](/ef/core/miscellaneous/testing/in-memory), wyjaśniono, jak korzystać z bazy danych w pamięci dla testów z MSTest. W tym temacie jest stosowane środowisko testowe [xUnit](https://xunit.github.io/) . Koncepcje testowe i implementacje testów w różnych strukturach testów są podobne, ale nie są identyczne.
 
 Mimo że aplikacja nie używa wzorca repozytorium i nie jest skutecznym przykładem [wzorca jednostki pracy](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor Pages obsługuje te wzorce rozwoju. Aby uzyskać więcej informacji, zobacz [projektowanie warstwy trwałości infrastruktury](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) i [logiki kontrolera testów](/aspnet/core/mvc/controllers/testing) (przykład implementuje wzorzec repozytorium).
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/05/2019
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: 06316cacb02d9d7619ff7a210bd596696f86021b
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: f6c143cc17d08e0cada67ec831e090661c4fed56
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70964255"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081448"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor-webassembly"></a>Hostowanie i wdrażanie ASP.NET Core Blazor webassembly
 
@@ -200,7 +200,7 @@ W przypadku korzystania z witryny projektu zamiast witryny organizacji Dodaj lub
 
 * Przekaż argument podczas lokalnego uruchamiania aplikacji w wierszu polecenia. W katalogu aplikacji wykonaj następujące polecenie:
 
-  ```console
+  ```dotnetcli
   dotnet run --contentroot=/content-root-path
   ```
 
@@ -225,7 +225,7 @@ Argument ustawia ścieżkę bazową aplikacji dla aplikacji uruchamianej lokalni
 
 * Przekaż argument podczas lokalnego uruchamiania aplikacji w wierszu polecenia. W katalogu aplikacji wykonaj następujące polecenie:
 
-  ```console
+  ```dotnetcli
   dotnet run --pathbase=/relative-URL-path
   ```
 
@@ -247,7 +247,7 @@ Argument ustawia ścieżkę bazową aplikacji dla aplikacji uruchamianej lokalni
 
 * Przekaż argument podczas lokalnego uruchamiania aplikacji w wierszu polecenia. W katalogu aplikacji wykonaj następujące polecenie:
 
-  ```console
+  ```dotnetcli
   dotnet run --urls=http://127.0.0.1:0
   ```
 

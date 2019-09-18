@@ -7,12 +7,12 @@ ms.author: jukotali
 ms.custom: mvc
 ms.date: 08/29/2019
 uid: fundamentals/middleware/request-response
-ms.openlocfilehash: e992401da2d194b178afbe51a293d103def0f940
-ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
+ms.openlocfilehash: 5e531c0ce0ed48097054fd81ddc3655a66cc7c5f
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70238155"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081674"
 ---
 # <a name="request-and-response-operations-in-aspnet-core"></a>Operacje żądań i odpowiedzi w ASP.NET Core
 
@@ -20,7 +20,7 @@ Autor [Justin Kotalik](https://github.com/jkotalik)
 
 W tym artykule wyjaśniono sposób odczytywania treści żądania i zapisywania jej w treści odpowiedzi. Kod dla tych operacji może być wymagany podczas pisania oprogramowania pośredniczącego. Poza pisaniem oprogramowania pośredniczącego kod niestandardowy nie jest zazwyczaj wymagany, ponieważ operacje są obsługiwane przez MVC i Razor Pages.
 
-Istnieją dwa abstrakcje treści żądania i odpowiedzi: <xref:System.IO.Stream> i. <xref:System.IO.Pipelines.Pipe> W przypadku odczytu żądania żądanie [HttpRequest. Body](xref:Microsoft.AspNetCore.Http.HttpRequest.Body) ma <xref:System.IO.Stream>wartość <xref:System.IO.Pipelines.PipeReader>, `HttpRequest.BodyReader` a jest. Na potrzeby pisania odpowiedzi [HttpResponse. Body](xref:Microsoft.AspNetCore.Http.HttpResponse.Body) to `HttpResponse.BodyWriter` <xref:System.IO.Pipelines.PipeWriter>a.
+Istnieją dwa abstrakcje treści żądania i odpowiedzi: <xref:System.IO.Stream> i. <xref:System.IO.Pipelines.Pipe> W przypadku odczytu żądania żądanie [HttpRequest. Body](xref:Microsoft.AspNetCore.Http.HttpRequest.Body) ma <xref:System.IO.Stream>wartość <xref:System.IO.Pipelines.PipeReader>, `HttpRequest.BodyReader` a jest. Do pisania odpowiedzi [HttpResponse. Body](xref:Microsoft.AspNetCore.Http.HttpResponse.Body) jest <xref:System.IO.Stream>i `HttpResponse.BodyWriter` <xref:System.IO.Pipelines.PipeWriter>.
 
 Potoki są zalecane za pośrednictwem strumieni. Strumienie mogą być łatwiejsze w przypadku niektórych prostych operacji, ale potoki mają zalety wydajności i są łatwiejsze w większości scenariuszy. ASP.NET Core zaczyna używać potoków zamiast strumieni wewnętrznie. Przykłady obejmują:
 
@@ -58,7 +58,7 @@ Jednak nadal występują pewne problemy:
 
 Te problemy są fixable, ale kod staje się coraz bardziej skomplikowany przy niewielkim ulepszaniu. Potoki umożliwiają rozwiązanie tych problemów przy minimalnej złożoności kodu.
 
-## <a name="pipelines"></a>Potoki
+## <a name="pipelines"></a>potoki
 
 Poniższy przykład pokazuje, jak można obsłużyć ten sam scenariusz przy `PipeReader`użyciu:
 

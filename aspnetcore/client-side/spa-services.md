@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: H1Hack27Feb2017
 ms.date: 09/06/2019
 uid: client-side/spa-services
-ms.openlocfilehash: 16c9eb1d79bca792062d292795763c54dd02bd37
-ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.openlocfilehash: 7aff46f739239246191763e0590046b2d9995922
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773413"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080506"
 ---
 # <a name="use-javascript-services-to-create-single-page-applications-in-aspnet-core"></a>Korzystanie z usług JavaScript do tworzenia aplikacji jednostronicowych w ASP.NET Core
 
@@ -219,7 +219,7 @@ Usługi JavaScript udostępniają wstępnie skonfigurowane szablony aplikacji. S
 
 Szablony te można zainstalować za pomocą interfejsu wiersza polecenia platformy .NET Core, uruchamiając następujące polecenie:
 
-```console
+```dotnetcli
 dotnet new --install Microsoft.AspNetCore.SpaTemplates::*
 ```
 
@@ -233,7 +233,7 @@ Zostanie wyświetlona lista dostępnych szablonów SPA:
 
 Aby utworzyć nowy projekt za pomocą jednego z szablonów SPA, należy dołączyć **krótką nazwę** szablonu w [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia. Następujące polecenie tworzy aplikację platformy Angular z platformą ASP.NET Core MVC skonfigurowany po stronie serwera:
 
-```console
+```dotnetcli
 dotnet new angular
 ```
 
@@ -254,13 +254,13 @@ Platforma ASP.NET Core używa zmiennej środowiskowej o nazwie `ASPNETCORE_ENVIR
 
 Przywróć pakiety npm i wymagany NuGet, uruchamiając następujące polecenie w katalogu głównym projektu:
 
-```console
+```dotnetcli
 dotnet restore && npm i
 ```
 
 Kompilowanie i uruchamianie aplikacji:
 
-```console
+```dotnetcli
 dotnet run
 ```
 
@@ -303,7 +303,7 @@ Element docelowy programu MSBuild ma następujące obowiązki:
 
 Element docelowy programu MSBuild jest wywoływane, gdy uruchomiona:
 
-```console
+```dotnetcli
 dotnet publish -c Release
 ```
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/08/2019
 uid: tutorials/publish-to-iis
-ms.openlocfilehash: c31beae16f46153daac188ab1638e5530584ac88
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: 4ac7b3a2f738e443263dd888f556e0aff7c8099b
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927215"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082384"
 ---
 # <a name="publish-an-aspnet-core-app-to-iis"></a>Publikowanie aplikacji ASP.NET Core w usługach IIS
 
@@ -51,7 +51,7 @@ Pobierz Instalatora, korzystając z następującego linku:
 
 1. Uruchom Instalatora na serwerze usług IIS.
 
-1. Uruchom ponownie serwer, a następnie wykonaj polecenie **net start W3SVC** w powłoce poleceń.
+1. Uruchom ponownie serwer, a **następnie wykonaj polecenie** **net start W3SVC** w powłoce poleceń.
 
 ## <a name="create-the-iis-site"></a>Tworzenie witryny usług IIS
 
@@ -84,7 +84,7 @@ Postępuj <xref:getting-started> zgodnie z samouczkiem, aby utworzyć aplikację
 
 1. W powłoce poleceń Opublikuj aplikację w konfiguracji wydania przy użyciu polecenia [dotnet Publish](/dotnet/core/tools/dotnet-publish) :
 
-   ```console
+   ```dotnetcli
    dotnet publish --configuration Release
    ```
 

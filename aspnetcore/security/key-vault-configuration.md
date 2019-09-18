@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/01/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: 0d0b6e20a1901d4a2630ce263b5fd0cd7bcca8fe
-ms.sourcegitcommit: 4fe3ae892f54dc540859bff78741a28c2daa9a38
+ms.openlocfilehash: fe6cdca1f7180f9da26fe2838e529becb26ccd45
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2019
-ms.locfileid: "68776653"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081103"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault dostawcę konfiguracji w programie ASP.NET Core
 
@@ -61,13 +61,13 @@ Wpisy tajne są tworzone jako pary nazwa-wartość. Wartości hierarchiczne (sek
 
 Menedżer wpisów tajnych jest używany z poziomu powłoki poleceń otwartej w katalogu głównym zawartości projektu, `{SECRET NAME}` gdzie jest nazwą i `{SECRET VALUE}` jest wartością:
 
-```console
+```dotnetcli
 dotnet user-secrets set "{SECRET NAME}" "{SECRET VALUE}"
 ```
 
 Wykonaj następujące polecenia w powłoce poleceń z poziomu głównego zawartości projektu, aby ustawić wpisy tajne dla przykładowej aplikacji:
 
-```console
+```dotnetcli
 dotnet user-secrets set "SecretName" "secret_value_1_dev"
 dotnet user-secrets set "Section:SecretName" "secret_value_2_dev"
 ```
@@ -113,7 +113,7 @@ Instrukcje podane [w przewodniku szybki start: Ustawianie i pobieranie wpisu taj
 
 ## <a name="use-application-id-and-x509-certificate-for-non-azure-hosted-apps"></a>Używanie identyfikatora aplikacji i certyfikatu X. 509 dla aplikacji nieobsługiwanych przez platformę Azure
 
-Skonfiguruj usługę Azure AD, Azure Key Vault i aplikację, aby używać identyfikatora aplikacji Azure Active Directory i certyfikatu X. 509 do uwierzytelniania w magazynie kluczy **, gdy aplikacja jest hostowana poza platformą Azure**. Aby uzyskać więcej informacji, zobacz [Informacje o kluczach,](/azure/key-vault/about-keys-secrets-and-certificates)wpisach tajnych i certyfikatach.
+Skonfiguruj usługę Azure AD, Azure Key Vault i aplikację, aby używać identyfikatora aplikacji Azure Active Directory i certyfikatu X. 509 do uwierzytelniania w magazynie kluczy **, gdy aplikacja jest hostowana poza platformą Azure**. Aby uzyskać więcej informacji, zobacz [Informacje o kluczach, wpisach tajnych i certyfikatach](/azure/key-vault/about-keys-secrets-and-certificates).
 
 > [!NOTE]
 > Chociaż użycie identyfikatora aplikacji i certyfikatu X. 509 jest obsługiwane w przypadku aplikacji hostowanych na platformie Azure, zalecamy używanie [zarządzanych tożsamości dla zasobów platformy Azure](#use-managed-identities-for-azure-resources) podczas hostowania aplikacji na platformie Azure. Tożsamości zarządzane nie wymagają przechowywania certyfikatu w aplikacji ani w środowisku deweloperskim.
@@ -126,15 +126,15 @@ Przykładowa aplikacja używa identyfikatora aplikacji i certyfikatu X. 509, `#d
 1. Zarejestruj aplikację w usłudze Azure AD (**rejestracje aplikacji**).
 1. Przekaż certyfikat szyfrowany algorytmem DER (*CER*) do usługi Azure AD:
    1. Wybierz aplikację w usłudze Azure AD.
-   1. Przejdź do **przystawki certyfikaty &** wpisy tajne.
+   1. Przejdź do **przystawki certyfikaty & wpisy tajne**.
    1. Wybierz pozycję **Przekaż certyfikat** , aby przekazać certyfikat zawierający klucz publiczny. Akceptowany jest certyfikat *CER*, *PEM*lub *CRT* .
 1. Zapisz nazwę magazynu kluczy, identyfikator aplikacji i odcisk palca certyfikatu w pliku *appSettings. JSON* aplikacji.
 1. Przejdź do **magazynu kluczy** w Azure Portal.
-1. Wybierz magazyn kluczy utworzony w magazynie wpisów tajnych [w środowisku produkcyjnym z](#secret-storage-in-the-production-environment-with-azure-key-vault) sekcją Azure Key Vault.
+1. Wybierz magazyn kluczy utworzony w [magazynie wpisów tajnych w środowisku produkcyjnym z](#secret-storage-in-the-production-environment-with-azure-key-vault) sekcją Azure Key Vault.
 1. Wybierz pozycję **zasady dostępu**.
 1. Wybierz pozycję **Dodaj nowy**.
 1. Wybierz pozycję **Wybierz podmiot zabezpieczeń** i wybierz zarejestrowaną aplikację według nazwy. Wybierz przycisk **Wybierz** .
-1. Otwórz **uprawnienia** do wpisów tajnych i Udostępnij aplikację z uprawnieniami **pobierania** i **wyświetlania listy** .
+1. Otwórz **uprawnienia do wpisów tajnych** i Udostępnij aplikację z uprawnieniami **pobierania** i **wyświetlania listy** .
 1. Kliknij przycisk **OK**.
 1. Wybierz pozycję **Zapisz**.
 1. Wdróż aplikację.
@@ -233,7 +233,7 @@ Gdy takie podejście jest zaimplementowane:
 
    Zapisz następujące wpisy tajne lokalnie za pomocą [Narzędzia tajnego Menedżera](xref:security/app-secrets):
 
-   ```console
+   ```dotnetcli
    dotnet user-secrets set "5000-AppSecret" "5.0.0.0_secret_value_dev"
    dotnet user-secrets set "5100-AppSecret" "5.1.0.0_secret_value_dev"
    ```

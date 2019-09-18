@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/27/2019
 uid: performance/caching/distributed
-ms.openlocfilehash: 8417463038bcdc0f77852bec3c3bb8a618153009
-ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.openlocfilehash: dbcdfcd07877fabfe6d18cd4d840b5597afa1afd
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773853"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081549"
 ---
 # <a name="distributed-caching-in-aspnet-core"></a>Rozproszone buforowanie w ASP.NET Core
 
@@ -104,7 +104,7 @@ Implementacja rozproszonej pamięci podręcznej SQL Server (<xref:Microsoft.Exte
 
 Utwórz tabelę w SQL Server, uruchamiając `sql-cache create` polecenie. Podaj`Data Source`wystąpienie SQL Server (), bazę danych (`Initial Catalog`), `dbo`schemat (na przykład) i nazwę tabeli (na przykład `TestCache`):
 
-```console
+```dotnetcli
 dotnet sql-cache create "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DistCache;Integrated Security=True;" dbo TestCache
 ```
 

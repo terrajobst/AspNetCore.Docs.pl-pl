@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 7/23/2019
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: 4af41422288847c5e77057215390b901d1074c88
-ms.sourcegitcommit: 7001657c00358b082734ba4273693b9b3ed35d2a
+ms.openlocfilehash: 0629605f4d5597a9694cb20ce00b91ff4a768468
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68670104"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082468"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>Dodaj nowe pole do strony Razor w ASP.NET Core
 
@@ -122,7 +122,7 @@ Innym rozwiązaniem jest usunięcie bazy danych i użycie migracji w celu ponown
 
 Usuń folder migracji.  Użyj następujących poleceń, aby ponownie utworzyć bazę danych.
 
-```console
+```dotnetcli
 dotnet ef database drop
 dotnet ef migrations add InitialCreate
 dotnet ef database update
@@ -247,7 +247,7 @@ Innym rozwiązaniem jest usunięcie bazy danych i użycie migracji w celu ponown
 
 Usuń bazę danych i użyj migracji, aby ponownie utworzyć bazę danych. Aby usunąć bazę danych, usuń plik bazy danych (*MvcMovie. DB*). Następnie uruchom `ef database update` polecenie:
 
-```console
+```dotnetcli
 dotnet ef database update
 ```
 

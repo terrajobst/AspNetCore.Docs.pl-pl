@@ -5,12 +5,12 @@ description: Więcej informacji o dostawcy magazynu kluczy na platformie ASP.NET
 ms.author: riande
 ms.date: 06/11/2019
 uid: security/data-protection/implementation/key-storage-providers
-ms.openlocfilehash: 19d51399e24d085f7c34f70098ca02cbba7a888f
-ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
+ms.openlocfilehash: d5d15779d89a2d746ca2165abab2840232ae0128
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67167044"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082041"
 ---
 # <a name="key-storage-providers-in-aspnet-core"></a>Dostawcy magazynu kluczy w programie ASP.NET Core
 
@@ -35,9 +35,9 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="azure-storage"></a>Azure Storage
 
-[Microsoft.AspNetCore.DataProtection.AzureStorage](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.AzureStorage/) pakiet umożliwia przechowywanie kluczy ochrony danych w usłudze Azure Blob Storage. Klucze mogą być współużytkowane przez wiele wystąpień aplikacji sieci web. Aplikacje mogą udostępniać pliki cookie uwierzytelniania lub CSRF ochronę na wielu serwerach.
+Pakiet [Microsoft. AspNetCore. dataprotection. AzureStorage](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.AzureStorage/) umożliwia przechowywanie kluczy ochrony danych w usłudze Azure Blob Storage. Klucze mogą być współużytkowane przez wiele wystąpień aplikacji sieci web. Aplikacje mogą udostępniać pliki cookie uwierzytelniania lub CSRF ochronę na wielu serwerach.
 
-Aby skonfigurować dostawcę usługi Azure Blob Storage, należy wywołać jedną z [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage) przeciążenia.
+Aby skonfigurować dostawcę usługi Azure Blob Storage, wywołaj jedno z przeciążeń [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage) .
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -47,7 +47,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Jeśli aplikacja sieci web działa jako usługa platformy Azure, tokeny uwierzytelniania mogą być automatycznie tworzone za pomocą [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/).
+Jeśli aplikacja sieci Web działa jako usługa platformy Azure, tokeny uwierzytelniania mogą być tworzone automatycznie przy użyciu [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/).
 
 ```csharp
 var tokenProvider = new AzureServiceTokenProvider();
@@ -64,19 +64,19 @@ services.AddDataProtection()
     .PersistKeysToAzureBlobStorage(container, "keys.xml");
 ```
 
-Zobacz [więcej szczegółów na temat konfigurowania usługi do uwierzytelniania.](/azure/key-vault/service-to-service-authentication)
+Zobacz [więcej szczegółów na temat konfigurowania uwierzytelniania](/azure/key-vault/service-to-service-authentication) między usługami.
 
-## <a name="redis"></a>Redis Cache
+## <a name="redis"></a>Redis
 
 ::: moniker range=">= aspnetcore-2.2"
 
-[Microsoft.AspNetCore.DataProtection.StackExchangeRedis](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.StackExchangeRedis/) pakiet umożliwia przechowywanie kluczy ochrony danych w pamięci podręcznej Redis. Klucze mogą być współużytkowane przez wiele wystąpień aplikacji sieci web. Aplikacje mogą udostępniać pliki cookie uwierzytelniania lub CSRF ochronę na wielu serwerach.
+Pakiet [Microsoft. AspNetCore. dataprotection. StackExchangeRedis](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.StackExchangeRedis/) umożliwia przechowywanie kluczy ochrony danych w pamięci podręcznej Redis. Klucze mogą być współużytkowane przez wiele wystąpień aplikacji sieci web. Aplikacje mogą udostępniać pliki cookie uwierzytelniania lub CSRF ochronę na wielu serwerach.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
-[Microsoft.AspNetCore.DataProtection.Redis](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Redis/) pakiet umożliwia przechowywanie kluczy ochrony danych w pamięci podręcznej Redis. Klucze mogą być współużytkowane przez wiele wystąpień aplikacji sieci web. Aplikacje mogą udostępniać pliki cookie uwierzytelniania lub CSRF ochronę na wielu serwerach.
+Pakiet [Microsoft. AspNetCore. dataprotection. Redis](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Redis/) umożliwia przechowywanie kluczy ochrony danych w pamięci podręcznej Redis. Klucze mogą być współużytkowane przez wiele wystąpień aplikacji sieci web. Aplikacje mogą udostępniać pliki cookie uwierzytelniania lub CSRF ochronę na wielu serwerach.
 
 ::: moniker-end
 
@@ -145,15 +145,15 @@ Aby skonfigurować dostawcę programu EF Core, należy wywołać [ `PersistKeysT
 
 [!code-csharp[Main](key-storage-providers/sample/Startup.cs?name=snippet&highlight=13-15)]
 
-Parametr ogólny, `TContext`, musi dziedziczyć [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) i zaimplementować [IDataProtectionKeyContext](/dotnet/api/microsoft.aspnetcore.dataprotection.entityframeworkcore.idataprotectionkeycontext):
+Parametr `TContext`generyczny musi dziedziczyć z [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) i implementować [IDataProtectionKeyContext](/dotnet/api/microsoft.aspnetcore.dataprotection.entityframeworkcore.idataprotectionkeycontext):
 
 [!code-csharp[Main](key-storage-providers/sample/MyKeysContext.cs)]
 
-Utwórz `DataProtectionKeys` tabeli.
+`DataProtectionKeys` Utwórz tabelę.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Wykonaj następujące polecenia w **Konsola Menedżera pakietów** okna (PMC):
+W oknie **konsola Menedżera pakietów** (PMC) wykonaj następujące polecenia:
 
 ```PowerShell
 Add-Migration AddDataProtectionKeys -Context MyKeysContext
@@ -164,22 +164,22 @@ Update-Database -Context MyKeysContext
 
 Wykonaj następujące polecenia w powłoce poleceń:
 
-```console
+```dotnetcli
 dotnet ef migrations add AddDataProtectionKeys --context MyKeysContext
 dotnet ef database update --context MyKeysContext
 ```
 
 ---
 
-`MyKeysContext` jest `DbContext` zdefiniowane w poprzednim przykładzie kodu. Jeśli używasz `DbContext` pod inną nazwą podstaw swoje `DbContext` nazwę `MyKeysContext`.
+`MyKeysContext``DbContext` jest zdefiniowany w poprzednim przykładzie kodu. Jeśli używasz `DbContext` innej nazwy, `DbContext` Zastąp nazwę `MyKeysContext`.
 
-`DataProtectionKeys` Klasy na jednostkę przyjmuje strukturę pokazano w poniższej tabeli.
+`DataProtectionKeys` Klasa/jednostka przyjmuje strukturę pokazaną w poniższej tabeli.
 
-| Właściwości/pola | Typ CLR | Typ SQL              |
+| Właściwość/pole | Typ CLR | Typ SQL              |
 | -------------- | -------- | --------------------- |
-| `Id`           | `int`    | `int`, Klucz podstawowy, nie ma wartości null   |
-| `FriendlyName` | `string` | `nvarchar(MAX)`, o wartości null |
-| `Xml`          | `string` | `nvarchar(MAX)`, o wartości null |
+| `Id`           | `int`    | `int`, PK, not null   |
+| `FriendlyName` | `string` | `nvarchar(MAX)`, null |
+| `Xml`          | `string` | `nvarchar(MAX)`, null |
 
 ::: moniker-end
 

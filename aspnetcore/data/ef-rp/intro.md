@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 07/22/2019
 uid: data/ef-rp/intro
-ms.openlocfilehash: 3b3f159382bba82cf1b55ca34f52d3db38c5dc7c
-ms.sourcegitcommit: dc5b293e08336dc236de66ed1834f7ef78359531
+ms.openlocfilehash: 107b348b4484301b86eeb5528833914fe4c1eaf7
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71011111"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080926"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Strony razor za pomocą platformy Entity Framework Core w programie ASP.NET Core — samouczek 1 8
 
@@ -86,7 +86,7 @@ Aby uruchomić aplikację po pobraniu ukończonego projektu:
 * Skompiluj projekt.
 * W wierszu polecenia w folderze projektu uruchom następujące polecenia:
 
-  ```console
+  ```dotnetcli
   dotnet tool install --global dotnet-ef --version 3.0.0-*
   dotnet ef database update
   ```
@@ -116,7 +116,7 @@ Aby uruchomić aplikację po pobraniu ukończonego projektu:
 
 * Uruchom następujące polecenia, aby utworzyć projekt Razor Pages i `cd` w nowym folderze projektu:
 
-  ```console
+  ```dotnetcli
   dotnet new webapp -o ContosoUniversity
   cd ContosoUniversity
   ```
@@ -228,7 +228,7 @@ Następujące pakiety są instalowane automatycznie:
 
 * Uruchom następujące polecenia interfejs wiersza polecenia platformy .NET Core, aby zainstalować wymagane pakiety NuGet:
 
-  ```console
+  ```dotnetcli
   dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 3.0.0-*
   dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
   dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0-*
@@ -243,7 +243,7 @@ Następujące pakiety są instalowane automatycznie:
 
 * Uruchom następujące polecenie, aby zainstalować narzędzie do tworzenia [szkieletu ASPNET-CodeGenerator](xref:fundamentals/tools/dotnet-aspnet-codegenerator).
 
-  ```console
+  ```dotnetcli
   dotnet tool install --global dotnet-aspnet-codegenerator --version 3.0.0-*
   ```
 
@@ -251,13 +251,13 @@ Następujące pakiety są instalowane automatycznie:
 
   **W systemie Windows**
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Student -dc ContosoUniversity.Data.SchoolContext -udl -outDir Pages\Students --referenceScriptLibraries
   ```
 
   **W systemie macOS lub Linux**
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Student -dc ContosoUniversity.Data.SchoolContext -udl -outDir Pages/Students --referenceScriptLibraries
   ```
 
@@ -500,7 +500,7 @@ Uruchom aplikację.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-```CLI
+```dotnetcli
 dotnet new webapp -o ContosoUniversity
 cd ContosoUniversity
 dotnet run
@@ -605,7 +605,7 @@ Zobacz [tworzenia szkieletu modelu movie](xref:tutorials/razor-pages/model#scaff
 
 Uruchom następujące polecenia, aby utworzyć szkielet modelu dla uczniów.
 
-```console
+```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
 dotnet tool install --global dotnet-aspnet-codegenerator
 dotnet aspnet-codegenerator razorpage -m Student -dc ContosoUniversity.Models.SchoolContext -udl -outDir Pages/Students --referenceScriptLibraries

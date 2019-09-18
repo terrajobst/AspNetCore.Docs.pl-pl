@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/05/2019
 uid: host-and-deploy/blazor/index
-ms.openlocfilehash: 26c8fcf56ab8ca68aeca93560785fc6c1144ab86
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: 0ded2979b8576f10812e20ae3385c94fd29689c2
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70963690"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081036"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor"></a>Hostowanie i wdrażanie ASP.NET Core Blazor
 
@@ -32,7 +32,7 @@ Aplikacje są publikowane do wdrożenia w konfiguracji wydania.
 
 Użyj [dotnet Publish](/dotnet/core/tools/dotnet-publish) polecenia, aby opublikować aplikację z konfiguracją wydania:
 
-```console
+```dotnetcli
 dotnet publish -c Release
 ```
 
@@ -71,13 +71,13 @@ Aby ustawić ścieżkę bazową aplikacji, zaktualizuj `<base>` tag `<head>` wew
 
 W przypadku aplikacji z ścieżką względną adresu URL niegłówną (na przykład `<base href="/CoolApp/">`) aplikacja nie będzie mogła znaleźć zasobów w *przypadku uruchamiania lokalnego*. Aby rozwiązać ten problem podczas lokalnego tworzenia i testowania, można podać podstawowy argument *ścieżki* , który jest zgodny `href` z wartością `<base>` tagu w czasie wykonywania. Aby przekazać argument podstawowy ścieżki podczas lokalnego uruchamiania aplikacji, należy wykonać `dotnet run` polecenie z katalogu aplikacji `--pathbase` z opcją:
 
-```console
+```dotnetcli
 dotnet run --pathbase=/{RELATIVE URL PATH (no trailing slash)}
 ```
 
 W przypadku aplikacji ze względną ścieżką `/CoolApp/` URL (`<base href="/CoolApp/">`) polecenie to:
 
-```console
+```dotnetcli
 dotnet run --pathbase=/CoolApp
 ```
 

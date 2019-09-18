@@ -10,7 +10,7 @@
 
 Użyj przełącznika `h` , aby uzyskać pomoc `aspnet-codegenerator razorpage` dotyczącą polecenia:
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator razorpage -h
 ```
 

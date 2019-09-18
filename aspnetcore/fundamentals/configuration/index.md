@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/12/2019
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 5723295c70f8d893f758ca5dc87180c6b707f493
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: 0de2222e8072523ff0e5d261a9fe5ef8eb9a7606
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68994169"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081821"
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguracja w ASP.NET Core
 
@@ -187,7 +187,7 @@ Wartości konfiguracyjne przyjmują następujące konwencje:
 * Wartości są ciągami.
 * Wartości null nie można przechowywać w konfiguracji ani powiązana z obiektami.
 
-## <a name="providers"></a>Udostępnia
+## <a name="providers"></a>udostępnia
 
 W poniższej tabeli przedstawiono dostawców konfiguracji dostępnych do ASP.NET Core aplikacji.
 
@@ -354,7 +354,7 @@ W tym samym poleceniu nie należy mieszać par klucz-wartość argumentu wiersza
 
 Przykładowe polecenia:
 
-```console
+```dotnetcli
 dotnet run CommandLineKey1=value1 --CommandLineKey2=value2 /CommandLineKey3=value3
 dotnet run --CommandLineKey1 value1 /CommandLineKey2 value2
 dotnet run CommandLineKey1= CommandLineKey2=value2
@@ -402,7 +402,7 @@ Po utworzeniu słownika mapowań przełączników zawiera dane przedstawione w p
 
 Jeśli klucze mapowane przez przełącznik są używane podczas uruchamiania aplikacji, konfiguracja otrzymuje wartość konfiguracji klucza dostarczonego przez słownik:
 
-```console
+```dotnetcli
 dotnet run -CLKey1=value1 -CLKey2=value2
 ```
 
@@ -425,7 +425,7 @@ Aby uaktywnić konfigurację zmiennych środowiskowych, <xref:Microsoft.Extensio
 
 ::: moniker range=">= aspnetcore-3.0"
 
-`AddEnvironmentVariables`służy do ładowania zmiennych środowiskowych, które są `DOTNET_` poprzedzone [konfiguracją hosta](#host-versus-app-configuration) , gdy nowy Konstruktor hosta zostanie zainicjowany z hostem `CreateDefaultBuilder` [ogólnym](xref:fundamentals/host/generic-host) i jest wywoływany. Aby uzyskać więcej informacji, zobacz sekcję [Konfiguracja domyślna](#default-configuration) .
+`AddEnvironmentVariables`służy do ładowania zmiennych środowiskowych, które są `DOTNET_` poprzedzone [konfiguracją hosta](#host-versus-app-configuration) , gdy nowy Konstruktor hosta zostanie zainicjowany z [hostem ogólnym](xref:fundamentals/host/generic-host) i `CreateDefaultBuilder` jest wywoływany. Aby uzyskać więcej informacji, zobacz sekcję [Konfiguracja domyślna](#default-configuration) .
 
 ::: moniker-end
 

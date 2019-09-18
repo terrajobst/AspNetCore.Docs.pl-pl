@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/27/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 25bfccb136d875b454034bd011828c9f3b6cd3d8
-ms.sourcegitcommit: de17150e5ec7507d7114dde0e5dbc2e45a66ef53
+ms.openlocfilehash: 1cc4fffc50978a3a958a96e1eb250cb85a8d2879
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113286"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082068"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Samouczek: Tworzenie internetowego interfejsu API za pomocą ASP.NET Core
 
@@ -81,7 +81,7 @@ Na poniższym diagramie przedstawiono projekt aplikacji.
 * Zmień katalog (`cd`) do folderu, który będzie zawierać folder projektu.
 * Uruchom następujące polecenia:
 
-   ```console
+   ```dotnetcli
    dotnet new webapi -o TodoApi
    cd TodoAPI
    dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
@@ -102,11 +102,11 @@ Na poniższym diagramie przedstawiono projekt aplikacji.
 
   ![Nowe rozwiązanie w systemie macOS](first-web-api-mac/_static/sln.png)
 
-* Wybierzpozycję **interfejs API** > > aplikacji.NET> Core.
+* Wybierz pozycję **interfejs API** > > aplikacji> .NET Core.
 
   ![okno dialogowe z systemem macOS nowego projektu](first-web-api-mac/_static/1.png)
   
-* W oknie dialogowym **Konfigurowanie nowego interfejsu API sieci Web ASP.NET Core** wybierz pozycję docelowa **platforma** * *.NET Core 3,0*.
+* W oknie dialogowym **Konfigurowanie nowego interfejsu API sieci Web ASP.NET Core** wybierz pozycję **docelowa platforma** * *.NET Core 3,0*.
 
 * Wprowadź *TodoApi* dla **Nazwa projektu** , a następnie wybierz **Utwórz**.
 
@@ -116,7 +116,7 @@ Na poniższym diagramie przedstawiono projekt aplikacji.
 
 Otwórz Terminal poleceń w folderze projektu i uruchom następujące polecenia:
 
-   ```console
+   ```dotnetcli
    dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
    dotnet add package Microsoft.EntityFrameworkCore.InMemory --version 3.0.0-*
    ```
@@ -229,7 +229,7 @@ Klasy modeli może przejść w dowolnym miejscu w projekcie, ale *modeli* folder
 * W menu **Narzędzia** wybierz pozycję **menedżer pakietów NuGet > Zarządzanie pakietami NuGet dla rozwiązania**.
 * Zaznacz pole wyboru **Uwzględnij wersję wstępną** .
 * Wybierz kartę **Przeglądaj** , a następnie w polu wyszukiwania wprowadź ciąg **Microsoft. EntityFrameworkCore. SqlServer** .
-* W lewym okienku wybierz pozycję **Microsoft. EntityFrameworkCore. SqlServer v 3.0.0 — wersja** zapoznawcza.
+* W lewym okienku wybierz pozycję **Microsoft. EntityFrameworkCore. SqlServer v 3.0.0 — wersja zapoznawcza** .
 * Zaznacz pole wyboru **projekt** w prawym okienku, a następnie wybierz pozycję **Zainstaluj**.
 * Aby dodać `Microsoft.EntityFrameworkCore.InMemory` pakiet NuGet, użyj powyższych instrukcji.
 
@@ -280,7 +280,7 @@ Powyższy kod:
 
 Uruchom następujące polecenia:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0-*
 dotnet tool install --global dotnet-aspnet-codegenerator
@@ -367,7 +367,7 @@ Te metody zaimplementować dwa GET punkty końcowe:
 * `GET /api/TodoItems`
 * `GET /api/TodoItems/{id}`
 
-Przetestuj aplikację, wywołując dwa punkty końcowe z przeglądarki lub wpisu. Przykład:
+Przetestuj aplikację, wywołując dwa punkty końcowe z przeglądarki lub wpisu. Na przykład:
 
 * [https://localhost:5001/api/TodoItems](https://localhost:5001/api/TodoItems)
 * [https://localhost:5001/api/TodoItems/1](https://localhost:5001/api/TodoItems/1)
@@ -533,7 +533,7 @@ Na poniższym diagramie przedstawiono projekt aplikacji.
 * Zmień katalog (`cd`) do folderu, który będzie zawierać folder projektu.
 * Uruchom następujące polecenia:
 
-   ```console
+   ```dotnetcli
    dotnet new webapi -o TodoApi
    code -r TodoApi
    ```
@@ -548,7 +548,7 @@ Na poniższym diagramie przedstawiono projekt aplikacji.
 
   ![Nowe rozwiązanie w systemie macOS](first-web-api-mac/_static/sln.png)
 
-* Wybierzpozycję **interfejs API** > > aplikacji.NET> Core.
+* Wybierz pozycję **interfejs API** > > aplikacji> .NET Core.
 
   ![okno dialogowe z systemem macOS nowego projektu](first-web-api-mac/_static/1.png)
   
@@ -753,7 +753,7 @@ Ten samouczek używa narzędzia Postman do testowania internetowego interfejsu A
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
-* Z > poziomu**preferencji** programu Poster (karta**Ogólne** ) Wyłącz **weryfikację certyfikatu SSL**. Alternatywnie wybierz klucz i wybierz pozycję **Ustawienia**, a następnie wyłącz weryfikację certyfikatu SSL.
+* Z poziomu**preferencji** programu **Poster** > (karta**Ogólne** ) Wyłącz **weryfikację certyfikatu SSL**. Alternatywnie wybierz klucz i wybierz pozycję **Ustawienia**, a następnie wyłącz weryfikację certyfikatu SSL.
 
 ---
   

@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 06/18/2019
 ms.custom: mvc, seodec18
 uid: security/authentication/add-user-data
-ms.openlocfilehash: c219500b7595fd8d200e4e5e742b1e1fda836ba3
-ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
+ms.openlocfilehash: f5a47ffd2e068414268ed9037d4376bfd21ba1bb
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67207738"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080811"
 ---
 # <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>Dodawanie, pobieranie i usuwanie danych niestandardowych użytkownika w tożsamości w projektach programu ASP.NET Core
 
@@ -20,7 +20,7 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 W tym artykule przedstawiono sposób:
 
 * Dodawanie danych niestandardowych użytkownika do aplikacji sieci web platformy ASP.NET Core.
-* Dekoracji modelu danych niestandardowych użytkownika za pomocą <xref:Microsoft.AspNetCore.Identity.PersonalDataAttribute> atrybutu, więc jest automatycznie dostępne do pobrania i usuwania. Udostępnianie danych może zostać pobrana i usunąć pomaga spełnić wymagania [RODO](xref:security/gdpr) wymagania.
+* Dekorować niestandardowy model danych użytkownika przy użyciu <xref:Microsoft.AspNetCore.Identity.PersonalDataAttribute> atrybutu, aby był on automatycznie dostępny do pobrania i usunięcia. Udostępnianie danych może zostać pobrana i usunąć pomaga spełnić wymagania [RODO](xref:security/gdpr) wymagania.
 
 Przykładowy projekt jest tworzony na podstawie aplikacja internetowa ze stronami Razor, ale instrukcje są podobne dla aplikacji sieci web platformy ASP.NET Core MVC.
 
@@ -36,13 +36,13 @@ Przykładowy projekt jest tworzony na podstawie aplikacja internetowa ze stronam
 
 * W programie Visual Studio **pliku** menu, wybierz opcję **New** > **projektu**. Nadaj projektowi nazwę **WebApp1** Jeśli chcesz go odpowiada przestrzeni nazw z [Pobierz przykładowe](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/authentication/add-user-data) kodu.
 * Wybierz **aplikacji sieci Web platformy ASP.NET Core** > **OK**
-* Wybierz **platformy ASP.NET Core 2.2** na liście rozwijanej
+* Na liście rozwijanej wybierz pozycję **ASP.NET Core 2,2**
 * Wybierz **aplikacji sieci Web**  > **OK**
 * Skompiluj i uruchom projekt.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-```cli
+```dotnetcli
 dotnet new webapp -o WebApp1
 ```
 
@@ -67,26 +67,26 @@ dotnet new webapp -o WebApp1
 
 Jeśli nie zainstalowano wcześniej Generator szkieletu ASP.NET Core, zainstalowanie go teraz:
 
-```cli
+```dotnetcli
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
 Dodaj odwołanie do pakietu [Microsoft.VisualStudio.Web.CodeGeneration.Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) do pliku projektu (.csproj). Uruchom następujące polecenie w katalogu projektu:
 
-```cli
+```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
 ```
 
 Uruchom następujące polecenie, aby wyświetlić listę opcji Generator szkieletu tożsamości:
 
-```cli
+```dotnetcli
 dotnet aspnet-codegenerator identity -h
 ```
 
 W folderze projektu Uruchom Generator szkieletu tożsamości:
 
-```cli
+```dotnetcli
 dotnet aspnet-codegenerator identity -u WebApp1User -fi Account.Register;Account.Manage.Index
 ```
 
@@ -143,14 +143,14 @@ Skompiluj projekt.
 
 W programie Visual Studio **Konsola Menedżera pakietów**:
 
-```PMC
+```powershell
 Add-Migration CustomUserData
 Update-Database
 ```
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-```cli
+```dotnetcli
 dotnet ef migrations add CustomUserData
 dotnet ef database update
 ```

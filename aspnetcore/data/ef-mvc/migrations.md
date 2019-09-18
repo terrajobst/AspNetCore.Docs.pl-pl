@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: fcb238c132a774200e9f54f1141f5ba79fa2f802
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: 3ee95d9b648a90c90d06e33a30b568626a1eb0aa
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975167"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080833"
 ---
 # <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Samouczek: Korzystanie z funkcji migracji ASP.NET MVC z EF Core
 
@@ -51,7 +51,7 @@ Ta zmiana konfiguruje projekt w taki sposób, aby podczas pierwszej migracji utw
 > [!NOTE]
 > Alternatywą dla zmiany nazwy bazy danych jest usunięcie bazy danych. Użyj **Eksplorator obiektów SQL Server** (SSOX) lub `database drop` interfejsu wiersza polecenia:
 >
-> ```console
+> ```dotnetcli
 > dotnet ef database drop
 > ```
 >
@@ -71,7 +71,7 @@ Zapisz zmiany i skompiluj projekt. Następnie otwórz okno polecenia i przejdź 
 
 Wprowadź następujące polecenie w oknie polecenia:
 
-```console
+```dotnetcli
 dotnet ef migrations add InitialCreate
 ```
 
@@ -90,7 +90,7 @@ Jeśli zostanie wyświetlony komunikat o błędzie "*nie można uzyskać dostęp
 
 ## <a name="examine-up-and-down-methods"></a>Sprawdzanie metod w górę i w dół
 
-Po wykonaniu `migrations add` polecenia EF wygenerowało kod, który spowoduje utworzenie bazy danych od podstaw. Ten kod znajduje się w folderze migrations, w pliku o nazwie  *\<timestamp > _InitialCreate. cs*. Metoda klasy tworzy tabele bazy danych, które odpowiadają zestawom `Down` jednostek modelu danych, a metoda usuwa je, jak pokazano w poniższym przykładzie. `InitialCreate` `Up`
+Po wykonaniu `migrations add` polecenia EF wygenerowało kod, który spowoduje utworzenie bazy danych od podstaw. Ten kod znajduje się w folderze *migrations* , w pliku o nazwie  *\<timestamp > _InitialCreate. cs*. Metoda klasy tworzy tabele bazy danych, które odpowiadają zestawom `Down` jednostek modelu danych, a metoda usuwa je, jak pokazano w poniższym przykładzie. `InitialCreate` `Up`
 
 [!code-csharp[](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
 
@@ -102,9 +102,9 @@ W przypadku utworzenia początkowej migracji, gdy baza danych już istnieje, kod
 
 ## <a name="the-data-model-snapshot"></a>Migawka modelu danych
 
-Migracja tworzy migawkę bieżącego schematu bazy danych w *migracji/SchoolContextModelSnapshot. cs*. Po dodaniu migracji, EF określa, co zmieniło się, porównując model danych z plikiem migawki.
+Migracja tworzy *migawkę* bieżącego schematu bazy danych w *migracji/SchoolContextModelSnapshot. cs*. Po dodaniu migracji, EF określa, co zmieniło się, porównując model danych z plikiem migawki.
 
-Podczas usuwania migracji należy użyć polecenia "migracje z programu [dotnet Dr](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) ". `dotnet ef migrations remove`usuwa migrację i gwarantuje, że migawka zostanie prawidłowo zresetowana.
+Podczas usuwania migracji należy użyć polecenia " [migracje z programu dotnet Dr](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) ". `dotnet ef migrations remove`usuwa migrację i gwarantuje, że migawka zostanie prawidłowo zresetowana.
 
 Aby uzyskać więcej informacji na temat sposobu użycia pliku migawek, zobacz [EF Core migracji w środowiskach zespołu](/ef/core/managing-schemas/migrations/teams) .
 
@@ -112,7 +112,7 @@ Aby uzyskać więcej informacji na temat sposobu użycia pliku migawek, zobacz [
 
 W oknie wiersza polecenia wprowadź następujące polecenie, aby utworzyć bazę danych i tabele.
 
-```console
+```dotnetcli
 dotnet ef database update
 ```
 

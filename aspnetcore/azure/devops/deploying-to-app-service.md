@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: e09d03f1d30f128b1db1588aa92b28ec3e4ae626
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: df41f296e9c4e1eff6e31d45b29ec30ee1e20cf4
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898939"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080438"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Wdrażanie aplikacji w usłudze App Service
 
@@ -35,7 +35,7 @@ Możesz przejrzeć kod, ale jest ważne dowiedzieć się, że nie ma nic specjal
 
 Z powłoki poleceń należy pobrać kod, skompilować projekt i uruchomić go w następujący sposób.
 
-> *Uwaga: Użytkownicy systemu Linux/macOS należy wprowadzenie odpowiednich zmian dla ścieżek, np. przy użyciu ukośnika (`/`) zamiast ukośnika (`\`).*
+> *Uwaga: Użytkownicy systemu Linux/macOS powinni wprowadzać odpowiednie zmiany w ścieżkach, np. przy użyciu ukośnika (`/`), a nie ukośnika odwrotnego (`\`).*
 
 1. Klonowanie kodu do folderu na komputerze lokalnym.
 
@@ -51,13 +51,13 @@ Z powłoki poleceń należy pobrać kod, skompilować projekt i uruchomić go w 
 
 3. Przywróć pakiety i Skompiluj rozwiązanie.
 
-    ```console
+    ```dotnetcli
     dotnet build
     ```
 
 4. Uruchom aplikację.
 
-    ```console
+    ```dotnetcli
     dotnet run
     ```
 
@@ -73,7 +73,7 @@ Z powłoki poleceń należy pobrać kod, skompilować projekt i uruchomić go w 
 
 Aby wdrożyć aplikację, musisz utworzyć usługi App Service [aplikacji sieci Web](/azure/app-service/app-service-web-overview). Po utworzeniu aplikacji sieci Web będzie można wdrożyć na go z komputera lokalnego przy użyciu narzędzia Git.
 
-1. Zaloguj się do [usługi Azure Cloud Shell](https://shell.azure.com/bash). Uwaga: Po zalogowaniu się po raz pierwszy, usługa Cloud Shell wyświetli monit o utworzenie konta magazynu dla plików konfiguracji. Zaakceptuj wartości domyślne lub Podaj unikatową nazwę.
+1. Zaloguj się do [usługi Azure Cloud Shell](https://shell.azure.com/bash). Uwaga: Po pierwszym zalogowaniu Cloud Shell zostanie wyświetlony komunikat z prośbą o utworzenie konta magazynu dla plików konfiguracji. Zaakceptuj wartości domyślne lub Podaj unikatową nazwę.
 
 2. Użyliśmy usługi Cloud Shell dla następujących kroków.
 
@@ -141,7 +141,7 @@ Aby wdrożyć aplikację, musisz utworzyć usługi App Service [aplikacji sieci 
 
 ## <a name="deployment-with-visual-studio"></a>Wdrażanie za pomocą programu Visual Studio
 
-> *Uwaga: Ta sekcja dotyczy tylko Windows. Użytkownicy systemu Linux i macOS wprowadzić zmiany, opisanej w kroku 2 poniżej. Zapisz plik i zatwierdź zmianę w repozytorium lokalnym za pomocą `git commit`. Na koniec wypchnąć zmiany z `git push`, jak w pierwszej sekcji.*
+> *Uwaga: Ta sekcja dotyczy tylko systemu Windows. Użytkownicy systemu Linux i macOS wprowadzić zmiany, opisanej w kroku 2 poniżej. Zapisz plik i zatwierdź zmianę w repozytorium lokalnym za pomocą `git commit`. Na koniec wypchnąć zmiany z `git push`, jak w pierwszej sekcji.*
 
 Aplikacja została już wdrożona z powłoki poleceń. Utwórzmy wdrażanie aktualizacji w aplikacji za pomocą zintegrowanych narzędzi programu Visual Studio. W tle programu Visual Studio w ramach tak samo, jak narzędzie wiersza polecenia, ale w obrębie znajomy interfejs użytkownika programu Visual Studio.
 

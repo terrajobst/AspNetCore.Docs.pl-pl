@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/11/2019
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: 6b6fa3e50f602a92fec9112ac3ba43583de33a70
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: 5182f1647acb664bf35f086fcddbe909559a62f7
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68994283"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082305"
 ---
 # <a name="twitter-external-sign-in-setup-with-aspnet-core"></a>Konfiguracja logowania zewnętrznego usługi Twitter za pomocą ASP.NET Core
 
 Przez [Valeriy Novytskyy](https://github.com/01binary) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Ten przykład pokazuje, jak umożliwić użytkownikom zalogowanie się przy użyciu [konta usługi Twitter](https://dev.twitter.com/web/sign-in/desktop-browser) za pomocą przykładowego projektu ASP.NET Core 2,2 utworzonego na [poprzedniej stronie](xref:security/authentication/social/index).
+Ten przykład pokazuje, jak umożliwić użytkownikom [zalogowanie](https://dev.twitter.com/web/sign-in/desktop-browser) się przy użyciu konta usługi Twitter za pomocą przykładowego projektu ASP.NET Core 2,2 utworzonego na [poprzedniej stronie](xref:security/authentication/social/index).
 
 ## <a name="create-the-app-in-twitter"></a>Tworzenie aplikacji w usłudze Twitter
 
@@ -34,14 +34,14 @@ Ten przykład pokazuje, jak umożliwić użytkownikom zalogowanie się przy uży
 
 ## <a name="storing-twitter-consumer-api-key-and-secret"></a>Przechowywanie klucza i wpisu tajnego interfejsu API użytkownika usługi Twitter
 
-Uruchom następujące polecenia, aby bezpiecznie przechowywać `ClientId` i `ClientSecret` używać [Menedżera](xref:security/app-secrets)wpisów tajnych:
+Uruchom następujące polecenia, aby bezpiecznie przechowywać `ClientId` i `ClientSecret` używać [Menedżera wpisów tajnych](xref:security/app-secrets):
 
-```console
+```dotnetcli
 dotnet user-secrets set Authentication:Twitter:ConsumerAPIKey <Key>
 dotnet user-secrets set Authentication:Twitter:ConsumerSecret <Secret>
 ```
 
-Połącz poufne ustawienia, takie `Consumer Key` jak `Consumer Secret` Twitter i konfiguracja aplikacji, za pomocą [Menedżera](xref:security/app-secrets)wpisów tajnych. Na potrzeby tego przykładu Nazwij tokeny `Authentication:Twitter:ConsumerKey` i. `Authentication:Twitter:ConsumerSecret`
+Połącz poufne ustawienia, takie `Consumer Key` jak `Consumer Secret` Twitter i konfiguracja aplikacji, za pomocą [Menedżera wpisów tajnych](xref:security/app-secrets). Na potrzeby tego przykładu Nazwij tokeny `Authentication:Twitter:ConsumerKey` i. `Authentication:Twitter:ConsumerSecret`
 
 Te tokeny można znaleźć na karcie **klucze i tokeny dostępu** po utworzeniu nowej aplikacji usługi Twitter:
 

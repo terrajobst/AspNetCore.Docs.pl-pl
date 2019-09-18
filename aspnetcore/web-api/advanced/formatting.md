@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 05/29/2019
 uid: web-api/advanced/formatting
-ms.openlocfilehash: e3417c9bfd3824133b86de2fe74f5f71367e1560
-ms.sourcegitcommit: 41f2c1a6b316e6e368a4fd27a8b18d157cef91e1
+ms.openlocfilehash: 8bee4efdae5341ddab5bd3aec278ecfef37f0c08
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69886533"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082348"
 ---
 <!-- DO NOT EDIT BEFORE https://github.com/aspnet/AspNetCore.Docs/pull/12077 MERGES -->
 # <a name="format-response-data-in-aspnet-core-web-api"></a>Formatowanie danych odpowiedzi w ASP.NET Core Web API
@@ -100,19 +100,35 @@ services.AddMvc(options =>
 
 ## <a name="configuring-formatters"></a>Konfigurowanie elementów formatujących
 
-Jeśli aplikacja wymaga obsługi dodatkowych formatów poza wartością domyślną JSON, można dodać pakiety NuGet i skonfigurować MVC do ich obsługi. Istnieją osobne elementy formatujące dla danych wejściowych i wyjściowych. Wejściowe elementy formatującego są używane przez [powiązanie modelu](xref:mvc/models/model-binding); wyjściowe elementy formatujące są używane do formatowania odpowiedzi. Możesz również skonfigurować [niestandardowe](xref:web-api/advanced/custom-formatters)elementy formatujące.
+Jeśli aplikacja wymaga obsługi dodatkowych formatów poza wartością domyślną JSON, można dodać pakiety NuGet i skonfigurować MVC do ich obsługi. Istnieją osobne elementy formatujące dla danych wejściowych i wyjściowych. Wejściowe elementy formatującego są używane przez [powiązanie modelu](xref:mvc/models/model-binding); wyjściowe elementy formatujące są używane do formatowania odpowiedzi. Możesz również skonfigurować [niestandardowe elementy formatujące](xref:web-api/advanced/custom-formatters).
 
 ::: moniker range=">= aspnetcore-3.0"
 
 ### <a name="configure-systemtextjson-based-formatters"></a>Skonfiguruj elementy formatujące system. Text. JSON w oparciu o
 
-Funkcje dla `System.Text.Json`elementów formatujących opartych na programie można skonfigurować `Microsoft.AspNetCore.Mvc.MvcOptions.SerializerOptions`przy użyciu polecenia.
+Funkcje dla `System.Text.Json`elementów formatujących opartych na programie można skonfigurować `Microsoft.AspNetCore.Mvc.JsonOptions.SerializerOptions`przy użyciu polecenia.
 
 ```csharp
-services.AddMvc(options =>
+services.AddControllers().AddJsonOptions(options =>
 {
-    options.SerializerOptions.WriterSettings.Indented = true;
+    // Use the default property (Pascal) casing.
+    options.SerializerOptions.PropertyNamingPolicy = null;
+
+    // Configure a custom converter.
+    options.SerializerOptions.Converters.Add(new MyCustomJsonConverter());
 });
+```
+
+Opcje serializacji danych wyjściowych dla poszczególnych akcji można skonfigurować przy użyciu polecenia `JsonResult`. Przykład:
+
+```csharp
+public IActionResult Get()
+{
+    return Json(model, new JsonSerializerOptions
+    {
+        options.WriteIndented = true,
+    });
+}
 ```
 
 ### <a name="add-newtonsoftjson-based-json-format-support"></a>Dodawanie obsługi formatu JSON opartego na Newtonsoft. JSON
@@ -120,7 +136,7 @@ services.AddMvc(options =>
 Przed ASP.NET Core 3,0, MVC domyślnie korzysta z elementów formatujących JSON wdrożonych przy użyciu `Newtonsoft.Json` pakietu. W ASP.NET Core 3,0 lub nowszych domyślne elementy formatujące JSON są oparte na `System.Text.Json`. Obsługa programów formatującego i funkcji opartych na programie jest dostępna przez zainstalowanie pakietu NuGet [Microsoft. AspNetCore. MVC. NewtonsoftJson](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.NewtonsoftJson/) i skonfigurowanie go w `Startup.ConfigureServices`programie. `Newtonsoft.Json`
 
 ```csharp
-services.AddMvc()
+services.AddControllers()
     .AddNewtonsoftJson();
 ```
 
@@ -129,6 +145,31 @@ Niektóre funkcje mogą nie współdziałać `System.Text.Json`z modułami forma
 * Używa `Newtonsoft.Json` atrybutów (na `[JsonProperty]` przykład lub `[JsonIgnore]`), dostosowuje `Newtonsoft.Json` ustawienia serializacji lub opiera się na udostępnianych funkcjach.
 * Konfiguruje `Microsoft.AspNetCore.Mvc.JsonResult.SerializerSettings`. Przed ASP.NET Core 3,0, `JsonResult.SerializerSettings` akceptuje `JsonSerializerSettings` wystąpienie, które jest specyficzne dla `Newtonsoft.Json`.
 * Generuje dokumentację [openapi](<xref:tutorials/web-api-help-pages-using-swagger>) .
+
+Funkcje dla `Newtonsoft.Json`elementów formatujących opartych na programie można skonfigurować `Microsoft.AspNetCore.Mvc.MvcNewtonsoftJsonOptions.SerializerSettings`przy użyciu:
+
+```csharp
+services.AddControllers().AddNewtonsoftJson(options =>
+{
+    // Use the default property (Pascal) casing
+    options.SerializerSettings.ContractResolver = new DefautlContractResolver();
+
+    // Configure a custom converter
+    options.SerializerOptions.Converters.Add(new MyCustomJsonConverter());
+});
+```
+
+Opcje serializacji danych wyjściowych dla poszczególnych akcji można skonfigurować przy użyciu polecenia `JsonResult`. Na przykład:
+
+```csharp
+public IActionResult Get()
+{
+    return Json(model, new JsonSerializerSettings
+    {
+        options.Formatting = Formatting.Indented,
+    });
+}
+```
 
 ::: moniker-end
 

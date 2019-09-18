@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc, seodec18
 ms.date: 08/17/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: 2f7202945b3de03709b5f2e192a03549e55a04f7
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: acf2ded8b92a8f77678af7b772ac2a69264a642c
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583614"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082375"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core i usługi MongoDB
 
@@ -163,7 +163,7 @@ Baza danych jest gotowy. Możesz rozpocząć tworzenie interfejsu API sieci web 
 
 1. Uruchom następujące polecenia w powłoce poleceń:
 
-   ```console
+   ```dotnetcli
    dotnet new webapi -o BooksApi
    code BooksApi
    ```
@@ -173,15 +173,15 @@ Baza danych jest gotowy. Możesz rozpocząć tworzenie interfejsu API sieci web 
 1. Gdy ikona płomienia OmniSharp na pasku stanu zmieni kolor na zielony, w **oknie dialogowym zostanie wyświetlony monit o podanie wymaganych zasobów do skompilowania i debugowania z elementu "BooksApi". Dodać je?** . Wybierz pozycję **tak**.
 1. Odwiedź galerię [NuGet: MongoDB. Driver](https://www.nuget.org/packages/MongoDB.Driver/) , aby określić najnowszą stabilną wersję sterownika .NET dla usługi MongoDB. Otwórz **zintegrowany Terminal** i przejdź do katalogu głównego projektu. Uruchom następujące polecenie, aby zainstalować sterownik platformy .NET dla bazy danych MongoDB:
 
-   ```console
+   ```dotnetcli
    dotnet add BooksApi.csproj package MongoDB.Driver -v {VERSION}
    ```
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-1. Przejdź do **pozycji plik** > **nowe rozwiązanie** > **.NET Core** > .
+1. Przejdź do pozycji **plik** > **nowe rozwiązanie** > **.NET Core** > **.**
 1. Wybierz szablon projektu C# **interfejsu API sieci Web ASP.NET Core** i kliknij przycisk **dalej**.
-1. Z listy rozwijanej **platforma** docelowa wybierz pozycję **.NET Core 3,0** , a następnie wybierz pozycję **Next (dalej**).
+1. Z listy rozwijanej **platforma docelowa** wybierz pozycję **.NET Core 3,0** , a następnie wybierz pozycję **Next (dalej**).
 1. Wprowadź *BooksApi* jako **nazwę projektu**, a następnie wybierz pozycję **Utwórz**.
 1. W **rozwiązania** konsoli kliknij prawym przyciskiem myszy projekt **zależności** a następnie wybierz węzeł **Dodawanie pakietów**.
 1. Wprowadź *MongoDB. Driver* w polu wyszukiwania, wybierz pakiet *MongoDB. Driver* , a następnie wybierz pozycję **Dodaj pakiet**.
@@ -264,7 +264,7 @@ Baza danych jest gotowy. Możesz rozpocząć tworzenie interfejsu API sieci web 
 
    [!code-csharp[](first-mongo-app/samples_snapshot/3.x/SampleApp/Startup.ConfigureServices.AddSingletonService.cs?highlight=9)]
 
-   W poprzednim kodzie `BookService` Klasa jest zarejestrowana przy użyciu funkcji di, aby obsługiwać iniekcję konstruktora w klasach zużywających. Okres istnienia usługi pojedynczej jest najbardziej `BookService` odpowiedni, ponieważ pobiera bezpośrednią zależność od. `MongoClient` Zgodnie z oficjalnymi wskazówkami dotyczącymi `MongoClient` [ponownego użycia klienta Mongo](https://mongodb.github.io/mongo-csharp-driver/2.8/reference/driver/connecting/#re-use)należy zarejestrować się w programie di z pojedynczym okresem istnienia usługi.
+   W poprzednim kodzie `BookService` Klasa jest zarejestrowana przy użyciu funkcji di, aby obsługiwać iniekcję konstruktora w klasach zużywających. Okres istnienia usługi pojedynczej jest najbardziej `BookService` odpowiedni, ponieważ pobiera bezpośrednią zależność od. `MongoClient` Zgodnie z oficjalnymi `MongoClient` [wskazówkami dotyczącymi ponownego użycia klienta Mongo](https://mongodb.github.io/mongo-csharp-driver/2.8/reference/driver/connecting/#re-use)należy zarejestrować się w programie di z pojedynczym okresem istnienia usługi.
 
 1. Dodaj następujący kod na początku *Startup.cs* , aby rozwiązać `BookService` odwołanie:
 
@@ -513,7 +513,7 @@ Baza danych jest gotowy. Możesz rozpocząć tworzenie interfejsu API sieci web 
 
 1. Uruchom następujące polecenia w powłoce poleceń:
 
-   ```console
+   ```dotnetcli
    dotnet new webapi -o BooksApi
    code BooksApi
    ```
@@ -523,15 +523,15 @@ Baza danych jest gotowy. Możesz rozpocząć tworzenie interfejsu API sieci web 
 1. Gdy ikona płomienia OmniSharp na pasku stanu zmieni kolor na zielony, w **oknie dialogowym zostanie wyświetlony monit o podanie wymaganych zasobów do skompilowania i debugowania z elementu "BooksApi". Dodać je?** . Wybierz pozycję **tak**.
 1. Odwiedź galerię [NuGet: MongoDB. Driver](https://www.nuget.org/packages/MongoDB.Driver/) , aby określić najnowszą stabilną wersję sterownika .NET dla usługi MongoDB. Otwórz **zintegrowany Terminal** i przejdź do katalogu głównego projektu. Uruchom następujące polecenie, aby zainstalować sterownik platformy .NET dla bazy danych MongoDB:
 
-   ```console
+   ```dotnetcli
    dotnet add BooksApi.csproj package MongoDB.Driver -v {VERSION}
    ```
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-1. Przejdź do **pozycji plik** > **nowe rozwiązanie** > **.NET Core** > .
+1. Przejdź do pozycji **plik** > **nowe rozwiązanie** > **.NET Core** > **.**
 1. Wybierz szablon projektu C# **interfejsu API sieci Web ASP.NET Core** i kliknij przycisk **dalej**.
-1. Z listy rozwijanej **platforma** docelowa wybierz pozycję **.NET Core 2,2** , a następnie wybierz pozycję **Next (dalej**).
+1. Z listy rozwijanej **platforma docelowa** wybierz pozycję **.NET Core 2,2** , a następnie wybierz pozycję **Next (dalej**).
 1. Wprowadź *BooksApi* jako **nazwę projektu**, a następnie wybierz pozycję **Utwórz**.
 1. W **rozwiązania** konsoli kliknij prawym przyciskiem myszy projekt **zależności** a następnie wybierz węzeł **Dodawanie pakietów**.
 1. Wprowadź *MongoDB. Driver* w polu wyszukiwania, wybierz pakiet *MongoDB. Driver* , a następnie wybierz pozycję **Dodaj pakiet**.
@@ -614,7 +614,7 @@ Baza danych jest gotowy. Możesz rozpocząć tworzenie interfejsu API sieci web 
 
    [!code-csharp[](first-mongo-app/samples_snapshot/2.x/SampleApp/Startup.ConfigureServices.AddSingletonService.cs?highlight=9)]
 
-   W poprzednim kodzie `BookService` Klasa jest zarejestrowana przy użyciu funkcji di, aby obsługiwać iniekcję konstruktora w klasach zużywających. Okres istnienia usługi pojedynczej jest najbardziej `BookService` odpowiedni, ponieważ pobiera bezpośrednią zależność od. `MongoClient` Zgodnie z oficjalnymi wskazówkami dotyczącymi `MongoClient` [ponownego użycia klienta Mongo](https://mongodb.github.io/mongo-csharp-driver/2.8/reference/driver/connecting/#re-use)należy zarejestrować się w programie di z pojedynczym okresem istnienia usługi.
+   W poprzednim kodzie `BookService` Klasa jest zarejestrowana przy użyciu funkcji di, aby obsługiwać iniekcję konstruktora w klasach zużywających. Okres istnienia usługi pojedynczej jest najbardziej `BookService` odpowiedni, ponieważ pobiera bezpośrednią zależność od. `MongoClient` Zgodnie z oficjalnymi `MongoClient` [wskazówkami dotyczącymi ponownego użycia klienta Mongo](https://mongodb.github.io/mongo-csharp-driver/2.8/reference/driver/connecting/#re-use)należy zarejestrować się w programie di z pojedynczym okresem istnienia usługi.
 
 1. Dodaj następujący kod na początku *Startup.cs* , aby rozwiązać `BookService` odwołanie:
 

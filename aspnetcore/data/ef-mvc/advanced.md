@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 913511948def86cb2065459a3fcf5f16362a92d5
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: 7a67efad187f29773c1cac7a5a2457d02080114b
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975030"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080546"
 ---
 # <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Samouczek: Więcej informacji na temat scenariuszy zaawansowanych — ASP.NET MVC z EF Core
 
@@ -187,7 +187,7 @@ Chociaż kod źródłowy jest otwarty, Entity Framework Core jest w pełni obsł
 
 ## <a name="reverse-engineer-from-existing-database"></a>Odtwarzanie z istniejącej bazy danych
 
-Aby odtworzyć model danych, w tym klasy jednostek z istniejącej bazy danych, użyj polecenia [szkielet-DbContext](/ef/core/miscellaneous/cli/powershell#scaffold-dbcontext) . Zobacz [samouczek](/ef/core/get-started/aspnetcore/existing-db)z wprowadzeniem.
+Aby odtworzyć model danych, w tym klasy jednostek z istniejącej bazy danych, użyj polecenia [szkielet-DbContext](/ef/core/miscellaneous/cli/powershell#scaffold-dbcontext) . Zobacz [samouczek z wprowadzeniem](/ef/core/get-started/aspnetcore/existing-db).
 
 <a id="dynamic-linq"></a>
 
@@ -235,7 +235,7 @@ Aby usunąć bazę danych w programie SSOX, kliknij prawym przyciskiem myszy baz
 
 Aby usunąć bazę danych przy użyciu interfejsu wiersza polecenia, uruchom `database drop` polecenie CLI:
 
-```console
+```dotnetcli
 dotnet ef database drop
 ```
 

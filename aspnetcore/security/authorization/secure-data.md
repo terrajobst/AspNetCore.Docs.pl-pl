@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 12/18/2018
 ms.custom: mvc, seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: d95f44394d6ecc3c3896b45c5bebc73fa2d92445
-ms.sourcegitcommit: dc5b293e08336dc236de66ed1834f7ef78359531
+ms.openlocfilehash: d827f6f839c9e42e6d3d7b04fe8b24a1c9732aee
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71011189"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082443"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Tworzenie aplikacji platformy ASP.NET Core przy użyciu danych użytkownika chronionych przez autoryzację
 
@@ -103,7 +103,7 @@ Za pomocą programu ASP.NET [tożsamości](xref:security/authentication/identity
 
 Tworzenie nowej migracji i aktualizowanie bazy danych:
 
-```console
+```dotnetcli
 dotnet ef migrations add userID_Status
 dotnet ef database update
 ```
@@ -130,7 +130,7 @@ Dodaj [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanony
 
 `SeedData` Klasy tworzy dwa konta: administrator i Menedżer. Użyj [narzędzie Menedżer klucz tajny](xref:security/app-secrets) ustawić hasło dla tych kont. Ustaw hasło z katalogu projektu (katalogu zawierającego *Program.cs*):
 
-```console
+```dotnetcli
 dotnet user-secrets set SeedUserPW <PW>
 ```
 
@@ -279,7 +279,7 @@ Jeśli nie został jeszcze ustawiony hasła dla kont użytkowników wypełnionyc
 * Wybierz silne hasło: Użyj ośmiu lub więcej znaków i co najmniej jednego znaku wielkie litery, cyfry i symbolu. Na przykład `Passw0rd!` spełnia wymagania silne hasło.
 * Wykonaj następujące polecenie z folderu projektu, gdzie `<PW>` jest hasłem:
 
-  ```console
+  ```dotnetcli
   dotnet user-secrets set SeedUserPW <PW>
   ```
 
@@ -310,7 +310,7 @@ Utwórz kontakt w przeglądarce administratora. Skopiuj adres URL do usunięcia,
   * Nadaj mu nazwę "ContactManager", przestrzeń nazw używaną w próbce pasujących przestrzeni nazw.
   * `-uld` Określa LocalDB zamiast bazy danych SQLite
 
-  ```console
+  ```dotnetcli
   dotnet new webapp -o ContactManager -au Individual -uld
   ```
 
@@ -321,14 +321,14 @@ Utwórz kontakt w przeglądarce administratora. Skopiuj adres URL do usunięcia,
 * Tworzenie szkieletu `Contact` modelu.
 * Tworzenie początkowej migracji i aktualizowanie bazy danych:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet tool install -g dotnet-aspnet-codegenerator
 dotnet aspnet-codegenerator razorpage -m Contact -udl -dc ApplicationDbContext -outDir Pages\Contacts --referenceScriptLibraries
 dotnet ef database drop -f
 dotnet ef migrations add initial
 dotnet ef database update
-  ```
+```
 
 Jeśli wystąpi usterka z `dotnet aspnet-codegenerator razorpage` poleceniem, zobacz [ten problem](https://github.com/aspnet/Scaffolding/issues/984)w usłudze GitHub.
 
@@ -426,7 +426,7 @@ Za pomocą programu ASP.NET [tożsamości](xref:security/authentication/identity
 
 Tworzenie nowej migracji i aktualizowanie bazy danych:
 
-```console
+```dotnetcli
 dotnet ef migrations add userID_Status
 dotnet ef database update
 ```
@@ -453,7 +453,7 @@ Dodaj [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanony
 
 `SeedData` Klasy tworzy dwa konta: administrator i Menedżer. Użyj [narzędzie Menedżer klucz tajny](xref:security/app-secrets) ustawić hasło dla tych kont. Ustaw hasło z katalogu projektu (katalogu zawierającego *Program.cs*):
 
-```console
+```dotnetcli
 dotnet user-secrets set SeedUserPW <PW>
 ```
 
@@ -602,16 +602,16 @@ Jeśli nie został jeszcze ustawiony hasła dla kont użytkowników wypełnionyc
 * Wybierz silne hasło: Użyj ośmiu lub więcej znaków i co najmniej jednego znaku wielkie litery, cyfry i symbolu. Na przykład `Passw0rd!` spełnia wymagania silne hasło.
 * Wykonaj następujące polecenie z folderu projektu, gdzie `<PW>` jest hasłem:
 
-  ```console
+  ```dotnetcli
   dotnet user-secrets set SeedUserPW <PW>
   ```
 
 * Porzuć i zaktualizuj bazę danych
 
-    ```console
-     dotnet ef database drop -f
-     dotnet ef database update  
-     ```
+  ```dotnetcli
+  dotnet ef database drop -f
+  dotnet ef database update  
+  ```
 
 * Ponowne uruchomienie aplikacji w celu umieszczenia bazy danych.
 
@@ -637,7 +637,7 @@ Utwórz kontakt w przeglądarce administratora. Skopiuj adres URL do usunięcia,
   * Nadaj mu nazwę "ContactManager", przestrzeń nazw używaną w próbce pasujących przestrzeni nazw.
   * `-uld` Określa LocalDB zamiast bazy danych SQLite
 
-  ```console
+  ```dotnetcli
   dotnet new webapp -o ContactManager -au Individual -uld
   ```
 
@@ -648,7 +648,7 @@ Utwórz kontakt w przeglądarce administratora. Skopiuj adres URL do usunięcia,
 * Tworzenie szkieletu `Contact` modelu.
 * Tworzenie początkowej migracji i aktualizowanie bazy danych:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Contact -udl -dc ApplicationDbContext -outDir Pages\Contacts --referenceScriptLibraries
   dotnet ef database drop -f
   dotnet ef migrations add initial

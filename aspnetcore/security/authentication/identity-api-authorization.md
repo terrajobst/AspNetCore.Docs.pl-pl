@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/05/2019
 uid: security/authentication/identity/spa
-ms.openlocfilehash: cb51df0267a5eabd4a2694727e9c896d0554265e
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: 4f6e3a4922c0a8a74b0e13edf1f00fe5f7bb76ba
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583595"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082329"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Uwierzytelnianie i autoryzacja dla aplikacji jednostronicowych
 
@@ -26,13 +26,13 @@ Uwierzytelnianie i autoryzacja użytkowników mogą być używane z aplikacji je
 
 **Kątowy**:
 
-```console
+```dotnetcli
 dotnet new angular -o <output_directory_name> -au Individual
 ```
 
 **Reagowanie**:
 
-```console
+```dotnetcli
 dotnet new react -o <output_directory_name> -au Individual
 ```
 

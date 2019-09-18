@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 08/02/2019
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: 3be036d9b4fc6c9898faf14e8a60a8cc7a8683b7
-ms.sourcegitcommit: b5e63714afc26e94be49a92619586df5189ed93a
+ms.openlocfilehash: f20f8c4e9b1089acca6689d14cdf84bef648d461
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68739548"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081757"
 ---
 # <a name="use-hosting-startup-assemblies-in-aspnet-core"></a>Korzystanie z obsługi zestawów uruchamiania w programie ASP.NET Core
 
@@ -203,13 +203,13 @@ Hostingu implementacji uruchamiania jest umieszczany w [magazynu środowiska uru
 
 Po utworzeniu hostingu uruchamiania magazynu środowiska uruchomieniowego jest generowana z użyciem pliku manifestu projektu i [magazynu dotnet](/dotnet/core/tools/dotnet-store) polecenia.
 
-```console
+```dotnetcli
 dotnet store --manifest {MANIFEST FILE} --runtime {RUNTIME IDENTIFIER} --output {OUTPUT LOCATION} --skip-optimization
 ```
 
 W przykładowej aplikacji (*RuntimeStore* projektu) służy następujące polecenie:
 
-``` console
+```dotnetcli
 dotnet store --manifest store.manifest.csproj --runtime win7-x64 --output ./deployment/store --skip-optimization
 ```
 
@@ -361,7 +361,7 @@ Do uruchomienia przykładu:
 
 W przypadku wprowadzenia zmian do *HostingStartupPackage* projektu i ponownie ją kompilując, wyczyść pamięciach podręcznych pakietu NuGet, aby upewnić się, że *HostingStartupApp* otrzymuje zaktualizowany pakiet i nie nieodświeżone pakiet z lokalnej pamięci podręcznej. Aby wyczyścić pamięciach podręcznych NuGet, wykonaj następujące czynności, [lokalne nuget dotnet](/dotnet/core/tools/dotnet-nuget-locals) polecenia:
 
-```console
+```dotnetcli
 dotnet nuget locals all --clear
 ```
 

@@ -22,7 +22,7 @@ Dodaj parametry połączenia do pliku *appSettings. JSON* :
 
 Uruchom następujące polecenia interfejs wiersza polecenia platformy .NET Core:
 
-```console
+```dotnetcli
 dotnet tool install --global dotnet-ef --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 3.0.0-*
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
@@ -71,7 +71,7 @@ Dodaj parametry połączenia do pliku *appSettings. JSON* :
 
 Uruchom następujące polecenie interfejs wiersza polecenia platformy .NET Core, aby dodać program SQLite i CodeGeneration. Design do projektu:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.EntityFrameworkCore.SQLite
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 ```

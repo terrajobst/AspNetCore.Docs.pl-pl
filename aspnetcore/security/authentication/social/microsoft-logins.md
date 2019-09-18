@@ -1,65 +1,65 @@
 ---
-title: Konfigurowanie logowania zewnętrznego Account firmy Microsoft za pomocą programu ASP.NET Core
+title: Konfiguracja logowania zewnętrznego konta Microsoft z ASP.NET Core
 author: rick-anderson
-description: Niniejszy przykład pokazuje, integracja uwierzytelniania użytkownika konta Microsoft do istniejącej aplikacji platformy ASP.NET Core.
+description: Ten przykład pokazuje integrację konto Microsoft uwierzytelniania użytkowników w istniejącej aplikacji ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/11/2019
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: 2c690e5bd8465806d42091616917cfdd747ef8f0
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 91ace293fd16cd180b3d5c183c637af6db1d08c3
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815573"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082340"
 ---
-# <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>Konfigurowanie logowania zewnętrznego Account firmy Microsoft za pomocą programu ASP.NET Core
+# <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>Konfiguracja logowania zewnętrznego konta Microsoft z ASP.NET Core
 
 Przez [Valeriy Novytskyy](https://github.com/01binary) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-W tym przykładzie pokazano, jak umożliwić użytkownikom logowanie za pomocą swojego konta Microsoft, za pomocą projektu programu ASP.NET Core 2.2 utworzone na [poprzedniej strony](xref:security/authentication/social/index).
+Ten przykład pokazuje, jak umożliwić użytkownikom logowanie się za pomocą konto Microsoft przy użyciu projektu ASP.NET Core 2,2 utworzonego na [poprzedniej stronie](xref:security/authentication/social/index).
 
 ## <a name="create-the-app-in-microsoft-developer-portal"></a>Tworzenie aplikacji w portalu dla deweloperów firmy Microsoft
 
-* Przejdź do [witryna Azure portal — rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) strony i utworzyć lub zaloguj się do konta Microsoft:
+* Przejdź do strony [Azure Portal-rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) i Utwórz lub Zaloguj się do konto Microsoft:
 
-Jeśli nie masz konta Microsoft, wybierz opcję **utworzyć**. Po zarejestrowaniu się nastąpi przekierowanie do **rejestracje aplikacji** strony:
+Jeśli nie masz konto Microsoft, wybierz pozycję **Utwórz**. Po zalogowaniu nastąpi przekierowanie do strony **rejestracje aplikacji** :
 
-* Wybierz **nowej rejestracji**
-* Wprowadź **nazwa**.
-* Wybierz opcję **obsługiwane typy kont**.  <!-- Accounts for any org work with MS domain accounts. Most folks probably want the last option, personal MS accounts -->
-* W obszarze **identyfikator URI przekierowania**, wprowadź adres URL programowania za pomocą `/signin-microsoft` dołączane. Na przykład `https://localhost:44389/signin-microsoft`. Schemat uwierzytelniania firmy Microsoft, skonfigurować je później w tym przykładzie będzie automatycznie obsługiwać żądań w `/signin-microsoft` trasy do zaimplementowania przepływu uwierzytelniania OAuth.
-* Wybierz **zarejestrować**
+* Wybierz **nową rejestrację**
+* Wprowadź **nazwę**.
+* Wybierz opcję dla **obsługiwanych typów kont**.  <!-- Accounts for any org work with MS domain accounts. Most folks probably want the last option, personal MS accounts -->
+* W obszarze **Identyfikator URI przekierowania**wprowadź adres URL `/signin-microsoft` programowania z dołączonym. Na przykład `https://localhost:44389/signin-microsoft`. Schemat uwierzytelniania firmy Microsoft skonfigurowany w dalszej części tego przykładu będzie automatycznie `/signin-microsoft` obsługiwał żądania w marszrucie w celu zaimplementowania przepływu OAuth.
+* Wybierz pozycję **zarejestruj**
 
 ### <a name="create-client-secret"></a>Utwórz klucz tajny klienta
 
-* W okienku po lewej stronie wybierz **certyfikaty i klucze tajne**.
-* W obszarze **wpisów tajnych klienta**, wybierz opcję **nowy wpis tajny klienta**
+* W lewym okienku wybierz pozycję **certyfikaty & wpisy tajne**.
+* W obszarze wpisy **tajne klienta**wybierz pozycję **nowy klucz tajny klienta** .
 
-  * Dodaj opis klucza tajnego klienta.
-  * Wybierz **Dodaj** przycisku.
+  * Dodaj opis wpisu tajnego klienta.
+  * Wybierz przycisk **Dodaj** .
 
-* W obszarze **wpisów tajnych klienta**, skopiuj wartość klucza tajnego klienta.
+* W obszarze wpisy **tajne klienta**skopiuj wartość klucza tajnego klienta.
 
 > [!NOTE]
-> Segmentem identyfikatora URI `/signin-microsoft` jest ustawiony jako domyślny wywołania zwrotnego dostawcy uwierzytelniania firmy Microsoft. Identyfikator URI wywołania zwrotnego domyślne można zmienić podczas konfigurowania oprogramowania pośredniczącego uwierzytelniania firmy Microsoft za pośrednictwem dziedziczonego [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) właściwość [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.authentication.microsoftaccount.microsoftaccountoptions) klasy.
+> Segment `/signin-microsoft` identyfikatora URI jest ustawiany jako domyślne wywołanie zwrotne dostawcy uwierzytelniania firmy Microsoft. Można zmienić domyślny identyfikator URI wywołania zwrotnego podczas konfigurowania oprogramowania pośredniczącego uwierzytelniania firmy Microsoft za pośrednictwem dziedziczonej właściwości [RemoteAuthenticationOptions. CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) klasy [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.authentication.microsoftaccount.microsoftaccountoptions) .
 
-## <a name="store-the-microsoft-client-id-and-client-secret"></a>Store Microsoft klienta identyfikator i klucz tajny klienta
+## <a name="store-the-microsoft-client-id-and-client-secret"></a>Zapisz identyfikator klienta firmy Microsoft i klucz tajny klienta
 
-Uruchom następujące polecenia, aby bezpiecznie przechowywać `ClientId` i `ClientSecret` przy użyciu [Menedżera klucz tajny](xref:security/app-secrets):
+Uruchom następujące polecenia, aby bezpiecznie przechowywać `ClientId` i `ClientSecret` używać [Menedżera wpisów tajnych](xref:security/app-secrets):
 
-```console
+```dotnetcli
 dotnet user-secrets set Authentication:Microsoft:ClientId <Client-Id>
 dotnet user-secrets set Authentication:Microsoft:ClientSecret <Client-Secret>
 ```
 
-Link ustawienia poufne, takie jak Microsoft `ClientId` i `ClientSecret` z konfiguracji aplikacji za pomocą [Menedżera klucz tajny](xref:security/app-secrets). Do celów tego przykładu, nazwa tokeny `Authentication:Microsoft:ClientId` i `Authentication:Microsoft:ClientSecret`.
+Połącz poufne ustawienia, takie `ClientId` jak `ClientSecret` Microsoft i konfiguracja aplikacji, za pomocą [Menedżera wpisów tajnych](xref:security/app-secrets). Na potrzeby tego przykładu Nazwij tokeny `Authentication:Microsoft:ClientId` i. `Authentication:Microsoft:ClientSecret`
 
 [!INCLUDE[](~/includes/environmentVarableColon.md)]
 
-## <a name="configure-microsoft-account-authentication"></a>Skonfiguruj uwierzytelnianie za pomocą konta Microsoft
+## <a name="configure-microsoft-account-authentication"></a>Konfigurowanie uwierzytelniania konta Microsoft
 
-Dodaj usługę Account Microsoft do `Startup.ConfigureServices`:
+Dodaj usługę konta Microsoft do `Startup.ConfigureServices`:
 
 [!code-csharp[](~/security/authentication/social/social-code/StartupMS.cs?name=snippet&highlight=10-14)]
 
@@ -67,30 +67,30 @@ Dodaj usługę Account Microsoft do `Startup.ConfigureServices`:
 
 [!INCLUDE[](includes/chain-auth-providers.md)]
 
-Zobacz [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.builder.microsoftaccountoptions) dokumentacja interfejsu API, aby uzyskać więcej informacji na temat opcji konfiguracji obsługiwanych przez uwierzytelnianie Account firmy Microsoft. Może to służyć do żądania różne informacje o użytkowniku.
+Zobacz Dokumentacja interfejsu API [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.builder.microsoftaccountoptions) , aby uzyskać więcej informacji na temat opcji konfiguracji obsługiwanych przez uwierzytelnianie konta Microsoft. Może to służyć do żądania różne informacje o użytkowniku.
 
-## <a name="sign-in-with-microsoft-account"></a>Zaloguj się przy użyciu konta Microsoft
+## <a name="sign-in-with-microsoft-account"></a>Konto Zaloguj się przy użyciu konta Microsoft
 
-Uruchom i kliknij przycisk **Zaloguj**. Pojawi się opcja Zaloguj się przy użyciu konta Microsoft. Po kliknięciu firmy Microsoft są przekierowywane do firmy Microsoft do uwierzytelniania. Po zarejestrowaniu się przy użyciu Account firmy Microsoft (Jeśli nie zostało to zrobione) użytkownik jest monitowany, aby umożliwić aplikacji dostęp do informacji:
+Uruchom polecenie i kliknij przycisk **Zaloguj**. Zostanie wyświetlona opcja zalogowania się do firmy Microsoft. Po kliknięciu firmy Microsoft nastąpi przekierowanie do firmy Microsoft w celu uwierzytelnienia. Po zalogowaniu się przy użyciu konta Microsoft (jeśli jeszcze nie jest zalogowany) zostanie wyświetlony monit o zezwolenie aplikacji na dostęp do informacji:
 
-Naciśnij pozycję **tak** i nastąpi przekierowanie do witryny sieci web, w którym można ustawić swój adres e-mail.
+Naciśnij pozycję **tak** . nastąpi przekierowanie z powrotem do witryny sieci Web, w której można ustawić swój adres e-mail.
 
-Obecnie zalogowano Cię przy użyciu poświadczeń konta Microsoft:
+Jesteś teraz zalogowany przy użyciu poświadczeń firmy Microsoft:
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-* Jeśli dostawca Account Microsoft przekieruje Cię do strony logowania w błąd, weź pod uwagę błąd tytuł i opis parametrów ciągu zapytania bezpośrednio po `#` (hasztag) w identyfikatorze Uri.
+* Jeśli dostawca kont Microsoft przekieruje Cię do strony błędu logowania, należy zwrócić uwagę na tytuły i opis błędu parametrów zapytania bezpośrednio po `#` elemencie (hasztagów) w identyfikatorze URI.
 
-  Mimo, że komunikat o błędzie wydaje się, że wskazywać na problem z uwierzytelniania firmy Microsoft, Najczęstszą przyczyną jest niezgodne żadnego z identyfikatora Uri aplikacji **identyfikatory URI przekierowań** określony dla **Web** platformy .
-* Jeśli tożsamość nie jest skonfigurowana, wywołując `services.AddIdentity` w `ConfigureServices`, próby uwierzytelnienia będą powodować *ArgumentException: Opcja "SignInScheme" musi być podana*. Szablon projektu, używane w tym przykładzie gwarantuje, że odbywa się.
+  Mimo że zostanie wyświetlony komunikat o błędzie z informacją o problemie z uwierzytelnianiem firmy Microsoft, najbardziej typową przyczyną jest to, że identyfikator URI aplikacji nie pasuje do żadnego z **identyfikatorów URI przekierowania** określonych dla danej platformy **sieci Web** .
+* Jeśli tożsamość nie jest skonfigurowana przez `services.AddIdentity` wywołanie `ConfigureServices`w, próba uwierzytelnienia spowoduje powstanie *argumentuexception: Należy podać*opcję "SignInScheme". Szablon projektu używany w tym przykładzie zapewnia, że jest to gotowe.
 * Jeśli nie utworzono bazy danych lokacji, stosując początkowej migracji, zostanie wyświetlony *operacji bazy danych nie powiodło się podczas przetwarzania żądania* błędu. Naciśnij pozycję **zastosować migracje** do tworzenia bazy danych i Odśwież, aby kontynuować po błędzie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* W tym artykule pokazano, jak można uwierzytelniać z firmą Microsoft. Możesz wykonać podejście podobne do uwierzytelniania przy użyciu innych dostawców na [poprzedniej strony](xref:security/authentication/social/index).
+* W tym artykule pokazano, jak można uwierzytelnić się w firmie Microsoft. Możesz wykonać podejście podobne do uwierzytelniania przy użyciu innych dostawców na [poprzedniej strony](xref:security/authentication/social/index).
 
-* Po możesz opublikować witrynę sieci web do aplikacji sieci web platformy Azure, Utwórz nowy klient wpisów tajnych w portalu dla deweloperów firmy Microsoft.
+* Po opublikowaniu witryny sieci Web w usłudze Azure Web App Utwórz nowe wpisy tajne klienta w portalu dla deweloperów firmy Microsoft.
 
 * Ustaw `Authentication:Microsoft:ClientId` i `Authentication:Microsoft:ClientSecret` jako ustawienia aplikacji w witrynie Azure portal. System konfiguracji jest skonfigurowany do odczytu klucze ze zmiennych środowiskowych.

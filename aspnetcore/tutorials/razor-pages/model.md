@@ -5,12 +5,12 @@ description: Dowiedz się, jak można dodać klas związanych z zarządzaniem fi
 ms.author: riande
 ms.date: 07/22/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 39e2a38e0b91b7dbecf05c084ca0be5e312dcb0d
-ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
+ms.openlocfilehash: 18cf9aea930a7989bb844bc6c40dfa1ce84b7b4d
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68862870"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082593"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Dodawanie modelu strony Razor aplikacji w programie ASP.NET Core
 
@@ -98,19 +98,19 @@ Wykonaj **dodać strony Razor za pomocą programu Entity Framework (CRUD)** okno
 * Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
 * Zainstaluj narzędzia do tworzenia szkieletów:
 
-  ```console
+  ```dotnetcli
    dotnet tool install --global dotnet-aspnet-codegenerator --version 3.0.0-*
    ```
 
 * **Dla systemu Windows**: Uruchom następujące polecenie:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages\Movies --referenceScriptLibraries
   ```
 
 * **W przypadku systemów macOS i Linux**: Uruchom następujące polecenie:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
   ```
 
@@ -121,13 +121,13 @@ Wykonaj **dodać strony Razor za pomocą programu Entity Framework (CRUD)** okno
 * Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
 * Zainstaluj narzędzia do tworzenia szkieletów:
 
-  ```console
+  ```dotnetcli
    dotnet tool install --global dotnet-aspnet-codegenerator --version 3.0.0-*
    ```
 
 * Uruchom następujące polecenie:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
   ```
 
@@ -144,7 +144,7 @@ Proces szkieletu tworzy i aktualizuje następujące pliki:
 * *Strony/filmy*: Tworzenie, usuwanie, szczegóły, edytowanie i indeksowanie.
 * *Data/RazorPagesMovieContext.cs*
 
-### <a name="updated"></a>Aktualny
+### <a name="updated"></a>aktualny
 
 * *Startup.cs*
 
@@ -355,19 +355,19 @@ to use Data, it should not use models. That will make the namespace the same for
 * Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
 * Zainstaluj narzędzia do tworzenia szkieletów:
 
-  ```console
+  ```dotnetcli
    dotnet tool install --global dotnet-aspnet-codegenerator
    ```
 
 * **Dla systemu Windows**: Uruchom następujące polecenie:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages\Movies --referenceScriptLibraries
   ```
 
 * **W przypadku systemów macOS i Linux**: Uruchom następujące polecenie:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
   ```
 
@@ -378,13 +378,13 @@ to use Data, it should not use models. That will make the namespace the same for
 * Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
 * Zainstaluj narzędzia do tworzenia szkieletów:
 
-  ```console
+  ```dotnetcli
    dotnet tool install --global dotnet-aspnet-codegenerator
    ```
 
 * Uruchom następujące polecenie:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
   ```
 

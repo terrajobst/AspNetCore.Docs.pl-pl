@@ -1,7 +1,7 @@
 
-Uruchom następujące polecenia interfejsu wiersza polecenia platformy .NET Core:
+Uruchom następujące polecenia interfejs wiersza polecenia platformy .NET Core:
 
-```console
+```dotnetcli
 dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```

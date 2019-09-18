@@ -5,12 +5,12 @@ description: W tej serii samouczków pokazano, jak używać Razor Pages w ASP.NE
 ms.author: riande
 ms.date: 07/25/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 67a5fcee0a37861fd39a018443edbc0b9e513213
-ms.sourcegitcommit: 7a46973998623aead757ad386fe33602b1658793
+ms.openlocfilehash: 0cc00cb85b6054752417b82c783cfd4c306aeda5
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69487665"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082575"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Samouczek: Wprowadzenie do Razor Pages w ASP.NET Core
 
@@ -78,7 +78,7 @@ Na końcu tego samouczka będziesz mieć działającą Razor Pagesową aplikacj�
 
 * Uruchom następujące polecenia:
 
-  ```console
+  ```dotnetcli
   dotnet new webapp -o RazorPagesMovie
   code -r RazorPagesMovie
   ```
@@ -96,11 +96,11 @@ Na końcu tego samouczka będziesz mieć działającą Razor Pagesową aplikacj�
 
 ![Nowe rozwiązanie w systemie macOS](../first-mvc-app/start-mvc/_static/new_project_vsmac.png)
 
-* Wybierz pozycję **aplikacja** > > internetowaaplikacji.NET> Core.
+* Wybierz pozycję > **aplikacja** > internetowa> aplikacji .NET Core.
 
   ![okno dialogowe z systemem macOS nowego projektu](razor-pages-start/_static/webapp.png)
 
-* W oknie dialogowym **Konfigurowanie nowego interfejsu API sieci Web ASP.NET Core** Ustaw platformę docelową na **.NET Core 3,0**.
+* W oknie dialogowym **Konfigurowanie nowego interfejsu API sieci Web ASP.NET Core** Ustaw platformę **docelową** na **.NET Core 3,0**.
 
   ![wybór macOS .NET Core 3,0](razor-pages-start/_static/targetframework3.png)
 
@@ -255,7 +255,7 @@ Na końcu tego samouczka będziesz mieć działającą Razor Pagesową aplikacj�
 
 * Uruchom następujące polecenia:
 
-  ```console
+  ```dotnetcli
   dotnet new webapp -o RazorPagesMovie
   code -r RazorPagesMovie
   ```
@@ -273,7 +273,7 @@ W terminalu uruchom następujące polecenie:
 
 <!-- TODO: update these instruction once mac support 2.2 projects -->
 
-```console
+```dotnetcli
 dotnet new webapp -o RazorPagesMovie
 ```
 

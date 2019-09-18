@@ -11,7 +11,7 @@ W poniższej tabeli przedstawiono szczegóły ASP.NET Core parametrów generator
 
 Użyj przełącznika `h` , aby uzyskać pomoc `aspnet-codegenerator controller` dotyczącą polecenia:
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator controller -h
 ```
 

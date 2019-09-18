@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/03/2019
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 3d4279a291182da60c0cb2fbb93a3922ed673cde
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: 1db3ee1a9bcc0d41edf24df55bcd8d54fb0e9724
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68914023"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081781"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Zadania w tle z usługami hostowanymi w ASP.NET Core
 
@@ -49,7 +49,7 @@ Szablon usługi ASP.NET Core Worker zapewnia punkt początkowy do pisania długo
 
 Użyj szablonu usługi procesu roboczego`worker`() z poleceniem [dotnet New](/dotnet/core/tools/dotnet-new) z powłoki poleceń. W poniższym przykładzie jest tworzona aplikacja usługi Worker o nazwie `ContosoWorkerService`. Folder dla `ContosoWorkerService` aplikacji jest tworzony automatycznie podczas wykonywania polecenia.
 
-```console
+```dotnetcli
 dotnet new worker -o ContosoWorkerService
 ```
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/14/2019
 uid: test/razor-pages-tests
-ms.openlocfilehash: 35feb5dd95fa79ceca7ff03523cef30d29ccbdd3
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: afac97d686ef190ebb92d20a55a15dd774b0d1de
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69022576"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081426"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>Testy jednostkowe Razor Pages w ASP.NET Core
 
@@ -44,7 +44,7 @@ Przykładowy projekt składa się z dwóch aplikacji:
 
 Testy można uruchamiać przy użyciu wbudowanych funkcji testowych środowiska IDE, takich jak [Visual Studio](/visualstudio/test/unit-test-your-code) lub [Visual Studio dla komputerów Mac](/dotnet/core/tutorials/using-on-mac-vs-full-solution). W przypadku używania [Visual Studio Code](https://code.visualstudio.com/) lub wiersza polecenia wykonaj następujące polecenie w wierszu polecenia w folderze *Tests/RazorPagesTestSample. Tests* :
 
-```console
+```dotnetcli
 dotnet test
 ```
 
@@ -52,13 +52,13 @@ dotnet test
 
 Aplikacja wiadomości jest systemem komunikatów Razor Pages o następujących cechach:
 
-* Strona indeks aplikacji (*Pages/index. cshtml* i Pages */index. cshtml. cs*) zawiera metody interfejsu użytkownika i modelu strony umożliwiające sterowanie dodawaniem, usuwaniem i analizą komunikatów (Znajdź średnią liczbę wyrazów na komunikat).
+* Strona indeks aplikacji (*Pages/index. cshtml* i *Pages/index. cshtml. cs*) zawiera metody interfejsu użytkownika i modelu strony umożliwiające sterowanie dodawaniem, usuwaniem i analizą komunikatów (Znajdź średnią liczbę wyrazów na komunikat).
 * Komunikat jest opisywany `Message` przez klasę (*Data/Message. cs*) z dwiema właściwościami: `Id` (Key) i `Text` (Message). `Text` Właściwość jest wymagana i jest ograniczona do 200 znaków.
 * Komunikaty są przechowywane przy użyciu&#8224; [bazy danych znajdującej się w pamięci Entity Framework](/ef/core/providers/in-memory/).
 * Aplikacja zawiera dal w swojej klasie `AppDbContext` kontekstu bazy danych (*Data/AppDbContext. cs*). Metody dal są oznaczone `virtual`, co umożliwia imitację metod do użycia w testach.
 * Jeśli baza danych jest pusta podczas uruchamiania aplikacji, magazyn komunikatów zostanie zainicjowany przy użyciu trzech komunikatów. Te *rozsiane komunikaty* są również używane w testach.
 
-&#8224;W temacie EF [test z](/ef/core/miscellaneous/testing/in-memory)niepamięcią, wyjaśniono, jak korzystać z bazy danych w pamięci dla testów z MSTest. W tym temacie jest stosowane środowisko testowe [xUnit](https://xunit.github.io/) . Koncepcje testowe i implementacje testów w różnych strukturach testów są podobne, ale nie są identyczne.
+&#8224;W temacie EF [test z niepamięcią](/ef/core/miscellaneous/testing/in-memory), wyjaśniono, jak korzystać z bazy danych w pamięci dla testów z MSTest. W tym temacie jest stosowane środowisko testowe [xUnit](https://xunit.github.io/) . Koncepcje testowe i implementacje testów w różnych strukturach testów są podobne, ale nie są identyczne.
 
 Chociaż Przykładowa aplikacja nie korzysta ze wzorca repozytorium i nie jest skutecznym przykładem [wzorca jednostki pracy](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor Pages obsługuje te wzorce rozwoju. Aby uzyskać więcej informacji, zobacz [projektowanie warstwy trwałości infrastruktury](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) i <xref:mvc/controllers/testing> (przykład implementuje wzorzec repozytorium).
 
@@ -96,7 +96,7 @@ using (var db = new AppDbContext(optionsBuilder.Options))
 }
 ```
 
-Problem z tym podejściem polega na tym, że każdy test otrzymuje bazę danych w dowolnym stanie, w którym został pozostawiony poprzedni test. Może to być przyczyną problemów podczas próby zapisania niepodzielnych testów jednostkowych, które nie zakłócają siebie nawzajem. Aby wymusić `AppDbContext` użycie nowego kontekstu bazy danych dla każdego testu, `DbContextOptions` Podaj wystąpienie, które jest oparte na nowym dostawcy usług. Aplikacja testowa pokazuje, jak to zrobić za pomocą `Utilities` metody `TestDbContextOptions` klasy (Tests */RazorPagesTestSample. Tests/Utilities/Utilities. cs*):
+Problem z tym podejściem polega na tym, że każdy test otrzymuje bazę danych w dowolnym stanie, w którym został pozostawiony poprzedni test. Może to być przyczyną problemów podczas próby zapisania niepodzielnych testów jednostkowych, które nie zakłócają siebie nawzajem. Aby wymusić `AppDbContext` użycie nowego kontekstu bazy danych dla każdego testu, `DbContextOptions` Podaj wystąpienie, które jest oparte na nowym dostawcy usług. Aplikacja testowa pokazuje, jak to zrobić za pomocą `Utilities` metody `TestDbContextOptions` klasy (*Tests/RazorPagesTestSample. Tests/Utilities/Utilities. cs*):
 
 [!code-csharp[](razor-pages-tests/samples/3.x/tests/RazorPagesTestSample.Tests/Utilities/Utilities.cs?name=snippet1)]
 
@@ -156,7 +156,7 @@ Inny zestaw testów jednostkowych jest odpowiedzialny za testy metod modelu stro
 | `OnPostDeleteMessageAsync` | Wykonuje `DeleteMessageAsync` , aby usunąć komunikat `Id` z określonym. |
 | `OnPostAnalyzeMessagesAsync` | Jeśli co najmniej jeden komunikat znajduje się w bazie danych, program oblicza średnią liczbę wyrazów na komunikat. |
 
-Metody modelu strony są testowane przy użyciu siedmiu testów w `IndexPageTests` klasie (Tests */RazorPagesTestSample. Tests/UnitTests/IndexPageTests. cs*). Testy używają znanego wzorca porządkowania i potwierdzeń. Te testy koncentrują się na:
+Metody modelu strony są testowane przy użyciu siedmiu testów w `IndexPageTests` klasie (*Tests/RazorPagesTestSample. Tests/UnitTests/IndexPageTests. cs*). Testy używają znanego wzorca porządkowania i potwierdzeń. Te testy koncentrują się na:
 
 * Określanie, czy metody są zgodne z prawidłowym zachowaniem, gdy [ModelState](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary) jest nieprawidłowe.
 * Potwierdzenie metod daje poprawne <xref:Microsoft.AspNetCore.Mvc.IActionResult>.
@@ -228,7 +228,7 @@ Przykładowy projekt składa się z dwóch aplikacji:
 
 Testy można uruchamiać przy użyciu wbudowanych funkcji testowych środowiska IDE, takich jak [Visual Studio](/visualstudio/test/unit-test-your-code) lub [Visual Studio dla komputerów Mac](/dotnet/core/tutorials/using-on-mac-vs-full-solution). W przypadku używania [Visual Studio Code](https://code.visualstudio.com/) lub wiersza polecenia wykonaj następujące polecenie w wierszu polecenia w folderze *Tests/RazorPagesTestSample. Tests* :
 
-```console
+```dotnetcli
 dotnet test
 ```
 
@@ -236,13 +236,13 @@ dotnet test
 
 Aplikacja wiadomości jest systemem komunikatów Razor Pages o następujących cechach:
 
-* Strona indeks aplikacji (*Pages/index. cshtml* i Pages */index. cshtml. cs*) zawiera metody interfejsu użytkownika i modelu strony umożliwiające sterowanie dodawaniem, usuwaniem i analizą komunikatów (Znajdź średnią liczbę wyrazów na komunikat).
+* Strona indeks aplikacji (*Pages/index. cshtml* i *Pages/index. cshtml. cs*) zawiera metody interfejsu użytkownika i modelu strony umożliwiające sterowanie dodawaniem, usuwaniem i analizą komunikatów (Znajdź średnią liczbę wyrazów na komunikat).
 * Komunikat jest opisywany `Message` przez klasę (*Data/Message. cs*) z dwiema właściwościami: `Id` (Key) i `Text` (Message). `Text` Właściwość jest wymagana i jest ograniczona do 200 znaków.
 * Komunikaty są przechowywane przy użyciu&#8224; [bazy danych znajdującej się w pamięci Entity Framework](/ef/core/providers/in-memory/).
 * Aplikacja zawiera dal w swojej klasie `AppDbContext` kontekstu bazy danych (*Data/AppDbContext. cs*). Metody dal są oznaczone `virtual`, co umożliwia imitację metod do użycia w testach.
 * Jeśli baza danych jest pusta podczas uruchamiania aplikacji, magazyn komunikatów zostanie zainicjowany przy użyciu trzech komunikatów. Te *rozsiane komunikaty* są również używane w testach.
 
-&#8224;W temacie EF [test z](/ef/core/miscellaneous/testing/in-memory)niepamięcią, wyjaśniono, jak korzystać z bazy danych w pamięci dla testów z MSTest. W tym temacie jest stosowane środowisko testowe [xUnit](https://xunit.github.io/) . Koncepcje testowe i implementacje testów w różnych strukturach testów są podobne, ale nie są identyczne.
+&#8224;W temacie EF [test z niepamięcią](/ef/core/miscellaneous/testing/in-memory), wyjaśniono, jak korzystać z bazy danych w pamięci dla testów z MSTest. W tym temacie jest stosowane środowisko testowe [xUnit](https://xunit.github.io/) . Koncepcje testowe i implementacje testów w różnych strukturach testów są podobne, ale nie są identyczne.
 
 Chociaż Przykładowa aplikacja nie korzysta ze wzorca repozytorium i nie jest skutecznym przykładem [wzorca jednostki pracy](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor Pages obsługuje te wzorce rozwoju. Aby uzyskać więcej informacji, zobacz [projektowanie warstwy trwałości infrastruktury](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) i <xref:mvc/controllers/testing> (przykład implementuje wzorzec repozytorium).
 
@@ -280,7 +280,7 @@ using (var db = new AppDbContext(optionsBuilder.Options))
 }
 ```
 
-Problem z tym podejściem polega na tym, że każdy test otrzymuje bazę danych w dowolnym stanie, w którym został pozostawiony poprzedni test. Może to być przyczyną problemów podczas próby zapisania niepodzielnych testów jednostkowych, które nie zakłócają siebie nawzajem. Aby wymusić `AppDbContext` użycie nowego kontekstu bazy danych dla każdego testu, `DbContextOptions` Podaj wystąpienie, które jest oparte na nowym dostawcy usług. Aplikacja testowa pokazuje, jak to zrobić za pomocą `Utilities` metody `TestDbContextOptions` klasy (Tests */RazorPagesTestSample. Tests/Utilities/Utilities. cs*):
+Problem z tym podejściem polega na tym, że każdy test otrzymuje bazę danych w dowolnym stanie, w którym został pozostawiony poprzedni test. Może to być przyczyną problemów podczas próby zapisania niepodzielnych testów jednostkowych, które nie zakłócają siebie nawzajem. Aby wymusić `AppDbContext` użycie nowego kontekstu bazy danych dla każdego testu, `DbContextOptions` Podaj wystąpienie, które jest oparte na nowym dostawcy usług. Aplikacja testowa pokazuje, jak to zrobić za pomocą `Utilities` metody `TestDbContextOptions` klasy (*Tests/RazorPagesTestSample. Tests/Utilities/Utilities. cs*):
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/Utilities/Utilities.cs?name=snippet1)]
 
@@ -340,7 +340,7 @@ Inny zestaw testów jednostkowych jest odpowiedzialny za testy metod modelu stro
 | `OnPostDeleteMessageAsync` | Wykonuje `DeleteMessageAsync` , aby usunąć komunikat `Id` z określonym. |
 | `OnPostAnalyzeMessagesAsync` | Jeśli co najmniej jeden komunikat znajduje się w bazie danych, program oblicza średnią liczbę wyrazów na komunikat. |
 
-Metody modelu strony są testowane przy użyciu siedmiu testów w `IndexPageTests` klasie (Tests */RazorPagesTestSample. Tests/UnitTests/IndexPageTests. cs*). Testy używają znanego wzorca porządkowania i potwierdzeń. Te testy koncentrują się na:
+Metody modelu strony są testowane przy użyciu siedmiu testów w `IndexPageTests` klasie (*Tests/RazorPagesTestSample. Tests/UnitTests/IndexPageTests. cs*). Testy używają znanego wzorca porządkowania i potwierdzeń. Te testy koncentrują się na:
 
 * Określanie, czy metody są zgodne z prawidłowym zachowaniem, gdy [ModelState](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary) jest nieprawidłowe.
 * Potwierdzenie metod daje poprawne <xref:Microsoft.AspNetCore.Mvc.IActionResult>.

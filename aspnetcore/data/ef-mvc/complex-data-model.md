@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: a69f1fdd38fec35dec6bb8125bf29859a437a891
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: 85a11ba082fc8f6b364019f6cefcd5b1fe5a9215
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975091"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080474"
 ---
 # <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Samouczek: Tworzenie złożonego modelu danych — ASP.NET MVC z EF Core
 
@@ -98,11 +98,11 @@ Model bazy danych został zmieniony w sposób, który wymaga zmiany w schemacie 
 
 Zapisz zmiany i skompiluj projekt. Następnie otwórz okno polecenia w folderze projektu i wprowadź następujące polecenia:
 
-```console
+```dotnetcli
 dotnet ef migrations add MaxLengthOnNames
 ```
 
-```console
+```dotnetcli
 dotnet ef database update
 ```
 
@@ -126,11 +126,11 @@ Dodanie `Column` atrybutu zmienia model przy użyciu `SchoolContext`kopii zapaso
 
 Zapisz zmiany i skompiluj projekt. Następnie otwórz okno polecenia w folderze projektu i wprowadź następujące polecenia, aby utworzyć kolejną migrację:
 
-```console
+```dotnetcli
 dotnet ef migrations add ColumnFirstName
 ```
 
-```console
+```dotnetcli
 dotnet ef database update
 ```
 
@@ -434,7 +434,7 @@ Jak przedstawiono w pierwszym samouczku, większość tego kodu po prostu tworzy
 
 Zapisz zmiany i skompiluj projekt. Następnie otwórz okno polecenia w folderze projektu i wprowadź `migrations add` polecenie (nie wykonuj jeszcze polecenia Update-Database):
 
-```console
+```dotnetcli
 dotnet ef migrations add ComplexDataModel
 ```
 
@@ -483,7 +483,7 @@ Zapisz zmiany w pliku *appSettings. JSON*.
 > [!NOTE]
 > Alternatywą dla zmiany nazwy bazy danych jest usunięcie bazy danych. Użyj **Eksplorator obiektów SQL Server** (SSOX) lub `database drop` interfejsu wiersza polecenia:
 >
-> ```console
+> ```dotnetcli
 > dotnet ef database drop
 > ```
 
@@ -491,7 +491,7 @@ Zapisz zmiany w pliku *appSettings. JSON*.
 
 Po zmianie nazwy bazy danych lub usunięciu bazy danych Uruchom `database update` polecenie w oknie wiersza polecenia, aby wykonać migracje.
 
-```console
+```dotnetcli
 dotnet ef database update
 ```
 

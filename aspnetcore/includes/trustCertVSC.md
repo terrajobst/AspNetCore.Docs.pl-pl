@@ -1,6 +1,6 @@
 * Aby ufać certyfikatowi programistycznemu HTTPS, należy uruchomić następujące polecenie:
 
-  ```console
+  ```dotnetcli
   dotnet dev-certs https --trust
   ```
   

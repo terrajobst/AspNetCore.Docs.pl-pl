@@ -21,32 +21,32 @@ Uwaga: W przypadku tworzenia nowego kontekstu użytkownika nie trzeba wybierać 
 
 Jeśli nie zainstalowano wcześniej Generator szkieletu ASP.NET Core, zainstalowanie go teraz:
 
-```console
+```dotnetcli
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
 Dodaj odwołanie do pakietu do [Microsoft. VisualStudio. Web. CodeGeneration. Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) do pliku projektu (\*. csproj). Uruchom następujące polecenie w katalogu projektu:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
 ```
 
 Uruchom następujące polecenie, aby wyświetlić listę opcji Generator szkieletu tożsamości:
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator identity -h
 ```
 
 W folderze projektu uruchom program do tworzenia szkieletu tożsamości z żądanymi opcjami. Na przykład, aby skonfigurować tożsamość przy użyciu domyślnego interfejsu użytkownika i minimalnej liczby plików, uruchom następujące polecenie. Użyj prawidłowej w pełni kwalifikowanej nazwy dla kontekstu bazy danych:
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files Account.Register
 ```
 
 Program PowerShell używa średnika jako separatora poleceń. W przypadku korzystania z programu PowerShell wpisz średniki na liście plików lub Umieść listę plików w podwójnych cudzysłowach. Na przykład:
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
 ```
 

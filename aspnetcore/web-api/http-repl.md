@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/29/2019
 uid: web-api/http-repl
-ms.openlocfilehash: b93641c96ad093b40aaa887f19409d4c2e1490df
-ms.sourcegitcommit: efb9c16321b34f8ede802822b26eb983de16479b
+ms.openlocfilehash: 8ef49797fed3379e33810f311bfc474e524122e0
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70842267"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082584"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Testowanie interfejsów API sieci Web przy użyciu protokołu HTTP REPL
 
@@ -44,7 +44,7 @@ Aby wykonać te czynności, [Wyświetl lub Pobierz przykładowy ASP.NET Core int
 
 Aby zainstalować REPL HTTP, uruchom następujące polecenie:
 
-```console
+```dotnetcli
 dotnet tool install -g Microsoft.dotnet-httprepl --version "3.0.0-*"
 ```
 
@@ -146,7 +146,7 @@ Alternatywnie Uruchom następujące polecenie w dowolnym momencie podczas dział
 connect <ROOT URI>
 ```
 
-Na przykład:
+Przykład:
 
 ```console
 (Disconnected)~ connect https://localhost:5001
@@ -160,7 +160,7 @@ Powyższe polecenie Connect podejmie próbę automatycznego znalezienia dokument
 connect <ROOT URI> --swagger <SWAGGER URI>
 ```
 
-Na przykład:
+Przykład:
 
 ```console
 (Disconnected)~ connect https://localhost:5001 --swagger /swagger/v1/swagger.json
@@ -281,7 +281,7 @@ Jeśli określone klucze kolorów nie są ustawione, brane są więcej kluczy og
 
 ### <a name="set-indentation-size"></a>Ustaw rozmiar wcięcia
 
-Dostosowanie rozmiaru wcięcia odpowiedzi jest obecnie obsługiwane tylko w przypadku formatu JSON. Domyślny rozmiar to dwie spacje. Przykład:
+Dostosowanie rozmiaru wcięcia odpowiedzi jest obecnie obsługiwane tylko w przypadku formatu JSON. Domyślny rozmiar to dwie spacje. Na przykład:
 
 ```json
 [
@@ -585,7 +585,7 @@ Aby wydać żądanie HTTP PUT:
     https://localhost:5001/fruits~ put 2 -h Content-Type=application/json
     ```
 
-    W poprzednim poleceniu nagłówek żądania `Content-Type` http jest ustawiany w taki sposób, aby wskazywał typ nośnika treści żądania JSON. Domyślny edytor tekstu otwiera plik *. tmp* z szablonem JSON reprezentującym treść żądania HTTP. Przykład:
+    W poprzednim poleceniu nagłówek żądania `Content-Type` http jest ustawiany w taki sposób, aby wskazywał typ nośnika treści żądania JSON. Domyślny edytor tekstu otwiera plik *. tmp* z szablonem JSON reprezentującym treść żądania HTTP. Na przykład:
 
     ```json
     {
@@ -798,7 +798,7 @@ Aby ustawić nagłówek żądania HTTP, należy użyć jednej z następujących 
 
   W przypadku wcześniejszego podejścia każdy unikatowy nagłówek żądania HTTP wymaga własnej `-h` opcji.
 
-1. Ustaw przed wysłaniem żądania HTTP. Przykład:
+1. Ustaw przed wysłaniem żądania HTTP. Na przykład:
 
   ```console
   https://localhost:5001/people~ set header Content-Type application/json
@@ -861,7 +861,7 @@ https://localhost:5001/people~
 
 ### <a name="disable-request-display"></a>Wyłącz wyświetlanie żądań
 
-Pomijaj wyświetlanie wysyłanego żądania HTTP przez uruchomienie `echo off` polecenia. Przykład:
+Pomijaj wyświetlanie wysyłanego żądania HTTP przez uruchomienie `echo off` polecenia. Na przykład:
 
 ```console
 https://localhost:5001/people~ echo off

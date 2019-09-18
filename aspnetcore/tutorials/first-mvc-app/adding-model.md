@@ -5,12 +5,12 @@ description: Dodaj model do prostej aplikacji ASP.NET Core.
 ms.author: riande
 ms.date: 8/15/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 038ea8cf7c72e4aaca6e06c0208d3dd1d5597577
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: b0efaf76cb2172f5b7568e42065b99b1259949de
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69022461"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082009"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Dodawanie modelu do aplikacji ASP.NET Core MVC
 
@@ -20,7 +20,7 @@ W tej sekcji dodasz klasy do zarządzania filmami w bazie danych. Te klasy będ�
 
 Te klasy są używane z [Entity Framework Core](/ef/core) (Ef Core) do pracy z bazą danych. EF Core to struktura obiektu mapowania relacyjnego (ORM), która upraszcza kod dostępu do danych, który trzeba napisać.
 
-Klasy modelu, które tworzysz, są nazywane klasami POCO (z Lain **P**LR **o**biekty), ponieważ nie mają żadnej zależności od EF Core. Po prostu definiują właściwości danych, które będą przechowywane w bazie danych.
+Klasy modelu, które tworzysz, są nazywane klasami POCO ( **z Lain** **P**LR **o**biekty), ponieważ nie mają żadnej zależności od EF Core. Po prostu definiują właściwości danych, które będą przechowywane w bazie danych.
 
 W tym samouczku najpierw napiszesz klasy modelu, a EF Core tworzy bazę danych. Alternatywnym podejściem nieopisanym w tym miejscu jest wygenerowanie klas modelu z istniejącej bazy danych. Aby uzyskać informacje na temat tego podejścia, zobacz [ASP.NET Core — istniejąca baza danych](/ef/core/get-started/aspnetcore/existing-db).
 
@@ -49,7 +49,7 @@ Atrybut [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal
   * Użytkownik nie musi wprowadzać informacji o czasie w polu Data.
   * Tylko data jest wyświetlana, a nie informacje o czasie.
 
-[Adnotacje](/dotnet/api/system.componentmodel.dataannotations) DataAnnotations są omówione w kolejnym samouczku.
+[Adnotacje DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) są omówione w kolejnym samouczku.
 
 ## <a name="add-nuget-packages"></a>Dodaj pakiety NuGet
 
@@ -71,7 +71,7 @@ Poprzednie polecenie dodaje dostawcę SQL Server EF Core. Pakiet dostawcy instal
 
 Uruchom następujące polecenia interfejs wiersza polecenia platformy .NET Core:
 
-```console
+```dotnetcli
 dotnet tool install --global dotnet-ef --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 3.0.0-*
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
@@ -152,7 +152,7 @@ Użyj narzędzia do tworzenia szkieletu, aby utworzyć strony z przykładem twor
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder controllers, **> Dodaj > nowy element szkieletowy**.
+W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder *controllers* , **> Dodaj > nowy element szkieletowy**.
 
 ![Widok powyżej kroku](adding-model/_static/add_controller21.png)
 
@@ -176,7 +176,7 @@ Program Visual Studio tworzy:
 * Kontroler filmów (*controllers/MoviesController. cs*)
 * Pliki widoku Razor na potrzeby tworzenia, usuwania, szczegółów, edytowania i indeksowania stron (*widoki/filmy/\*. cshtml*)
 
-Automatyczne tworzenie tych plików jest znane jako rusztowania.
+Automatyczne tworzenie tych plików jest znane jako *rusztowania*.
 
 ### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
 
@@ -190,8 +190,8 @@ Automatyczne tworzenie tych plików jest znane jako rusztowania.
 
 * Uruchom następujące polecenie:
 
-  ```console
-     dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMovieContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+  ```dotnetcli
+   dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMovieContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
   ```
 
   [!INCLUDE [explains scaffold generated params](~/includes/mvc-intro/model4.md)]
@@ -202,8 +202,8 @@ Automatyczne tworzenie tych plików jest znane jako rusztowania.
 
 * Uruchom następujące polecenie:
 
-  ```console
-     dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMovieContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+  ```dotnetcli
+   dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMovieContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
   ```
 
   [!INCLUDE [explains scaffold generated params](~/includes/mvc-intro/model4.md)]
@@ -247,7 +247,7 @@ Update-Database
 
 Uruchom następujące polecenia interfejs wiersza polecenia platformy .NET Core:
 
-```console
+```dotnetcli
 dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
@@ -331,7 +331,7 @@ Można również przekazać `id` za pomocą ciągu zapytania w następujący spo
 
 `https://localhost:5001/movies/details?id=1`
 
-Parametr jest zdefiniowany jako typ dopuszczający wartość`int?`null () w przypadku, gdy nie podano wartości identyfikatora. [](/dotnet/csharp/programming-guide/nullable-types/index) `id`
+Parametr jest zdefiniowany jako [typ dopuszczający](/dotnet/csharp/programming-guide/nullable-types/index) wartość`int?`null () w przypadku, gdy nie podano wartości identyfikatora. `id`
 
 [Wyrażenie lambda](/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions) jest przesyłane do `FirstOrDefaultAsync` , aby wybrać jednostki filmu, które pasują do wartości danych trasy lub ciągu zapytania.
 
@@ -356,7 +356,7 @@ Zapoznaj się z zawartością pliku *widoki/filmy/szczegóły. cshtml* :
 @model MvcMovie.Models.Movie
    ```
 
-Ta `@model` dyrektywa zezwala na dostęp do filmu, który kontroler przeszedł do widoku. `Model` Obiekt ma silną wartość. Na przykład w widoku Details *. cshtml* kod przekazuje każde pole filmu do `DisplayNameFor` `DisplayFor` pomocników HTML z obiektem o jednoznacznie określonym typie `Model` . Metody `Create` i `Edit` iwidokirównieżprzekazują`Movie` obiekt modelu.
+Ta `@model` dyrektywa zezwala na dostęp do filmu, który kontroler przeszedł do widoku. `Model` Obiekt ma silną wartość. Na przykład w widoku *details. cshtml* kod przekazuje każde pole filmu do `DisplayNameFor` `DisplayFor` pomocników HTML z obiektem o jednoznacznie określonym typie `Model` . Metody `Create` i `Edit` iwidokirównieżprzekazują`Movie` obiekt modelu.
 
 Sprawdź widok *index. cshtml* i `Index` metodę w kontrolerze filmów. Zwróć uwagę, jak kod tworzy `List` obiekt, gdy `View` wywołuje metodę. Kod przekazuje tę `Movies` listę `Index` z metody akcji do widoku:
 
@@ -410,7 +410,7 @@ W tej sekcji modelu movie jest szkielet. Oznacza to, że narzędzie do tworzenia
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder controllers, **> Dodaj > nowy element szkieletowy**.
+W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder *controllers* , **> Dodaj > nowy element szkieletowy**.
 
 ![Widok powyżej kroku](adding-model/_static/add_controller21.png)
 
@@ -447,7 +447,7 @@ Automatyczne tworzenie kontekstu bazy danych i metod akcji [CRUD](https://wikipe
 * Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
 * Zainstaluj narzędzia do tworzenia szkieletów:
 
-  ```console
+  ```dotnetcli
    dotnet tool install --global dotnet-aspnet-codegenerator
    ```
 
@@ -459,8 +459,8 @@ Automatyczne tworzenie kontekstu bazy danych i metod akcji [CRUD](https://wikipe
 
 * Uruchom następujące polecenie:
 
-  ```console
-     dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMovieContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+  ```dotnetcli
+   dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMovieContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
   ```
 
 [!INCLUDE [explains scaffold generated params](~/includes/mvc-intro/model4.md)]
@@ -472,14 +472,14 @@ Automatyczne tworzenie kontekstu bazy danych i metod akcji [CRUD](https://wikipe
 * Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
 * Zainstaluj narzędzia do tworzenia szkieletów:
 
-  ```console
+  ```dotnetcli
    dotnet tool install --global dotnet-aspnet-codegenerator
    ```
 
 * Uruchom następujące polecenie:
 
-  ```console
-     dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMovieContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+  ```dotnetcli
+   dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMovieContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
   ```
 
 [!INCLUDE [explains scaffold generated params](~/includes/mvc-intro/model4.md)]
@@ -640,7 +640,7 @@ Można również przekazać `id` za pomocą ciągu zapytania w następujący spo
 
 `https://localhost:5001/movies/details?id=1`
 
-Parametr jest zdefiniowany jako typ dopuszczający wartość`int?`null () w przypadku, gdy nie podano wartości identyfikatora. [](/dotnet/csharp/programming-guide/nullable-types/index) `id`
+Parametr jest zdefiniowany jako [typ dopuszczający](/dotnet/csharp/programming-guide/nullable-types/index) wartość`int?`null () w przypadku, gdy nie podano wartości identyfikatora. `id`
 
 [Wyrażenie lambda](/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions) jest przesyłane do `FirstOrDefaultAsync` , aby wybrać jednostki filmu, które pasują do wartości danych trasy lub ciągu zapytania.
 
@@ -659,13 +659,13 @@ Zapoznaj się z zawartością pliku *widoki/filmy/szczegóły. cshtml* :
 
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/DetailsOriginal.cshtml)]
 
-Dołączając `@model` instrukcję w górnej części pliku widoku, można określić typ obiektu, którego oczekuje widok. Po utworzeniu kontrolera filmu Poniższa `@model` instrukcja została automatycznie uwzględniona w górnej części pliku Details *. cshtml* :
+Dołączając `@model` instrukcję w górnej części pliku widoku, można określić typ obiektu, którego oczekuje widok. Po utworzeniu kontrolera filmu Poniższa `@model` instrukcja została automatycznie uwzględniona w górnej części pliku *details. cshtml* :
 
 ```HTML
 @model MvcMovie.Models.Movie
    ```
 
-Ta `@model` dyrektywa pozwala uzyskać dostęp do filmu, który kontroler przeszedł do widoku przy `Model` użyciu jednoznacznie określonego obiektu. Na przykład w widoku Details *. cshtml* kod przekazuje każde pole filmu do `DisplayNameFor` `DisplayFor` pomocników HTML z obiektem o jednoznacznie określonym typie `Model` . Metody `Create` i `Edit` iwidokirównieżprzekazują`Movie` obiekt modelu.
+Ta `@model` dyrektywa pozwala uzyskać dostęp do filmu, który kontroler przeszedł do widoku przy `Model` użyciu jednoznacznie określonego obiektu. Na przykład w widoku *details. cshtml* kod przekazuje każde pole filmu do `DisplayNameFor` `DisplayFor` pomocników HTML z obiektem o jednoznacznie określonym typie `Model` . Metody `Create` i `Edit` iwidokirównieżprzekazują`Movie` obiekt modelu.
 
 Sprawdź widok *index. cshtml* i `Index` metodę w kontrolerze filmów. Zwróć uwagę, jak kod tworzy `List` obiekt, gdy `View` wywołuje metodę. Kod przekazuje tę `Movies` listę `Index` z metody akcji do widoku:
 

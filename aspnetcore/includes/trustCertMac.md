@@ -1,6 +1,6 @@
-* Zaufanie certyfikatu deweloperskiego HTTPS, uruchamiając następujące polecenie:
+* Aby ufać certyfikatowi programistycznemu HTTPS, należy uruchomić następujące polecenie:
 
-    ```console
+    ```dotnetcli
     dotnet dev-certs https --trust
     ```
 
@@ -16,6 +16,6 @@
     The HTTPS developer certificate was generated successfully.
     ```
 
-* Jeśli zostanie wyświetlony monit, wprowadź nazwę i hasło administratora.  Certyfikat zostanie teraz zainstalowany i zaufany.
+* Jeśli zostanie wyświetlony monit, wprowadź nazwę użytkownika i hasło administratora.  Certyfikat zostanie teraz zainstalowany i zaufany.
 
-    Zobacz [ufać certyfikatowi rozwoju platformy ASP.NET Core HTTPS](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos) Aby uzyskać więcej informacji.
+    Aby uzyskać więcej informacji, zobacz artykuł [Ufaj certyfikatowi deweloperskim protokołu HTTPS ASP.NET Core](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos) .

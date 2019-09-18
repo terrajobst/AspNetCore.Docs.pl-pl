@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 06/21/2019
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: af8e2a266e54364857f0b49cc78a54683dff9de4
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: cdaa5aff3007030c70bc959bbf07903bdf39e736
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68915093"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082434"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>Wprowadzenie do NSwag i ASP.NET Core
 
@@ -75,7 +75,7 @@ Aby zainstalować pakiet NuGet NSwag, należy użyć jednej z następujących me
 
 Uruchom następujące polecenie:
 
-```console
+```dotnetcli
 dotnet add TodoApi.csproj package NSwag.AspNetCore
 ```
 
@@ -265,7 +265,7 @@ Poprzednia Akcja `IActionResult`zwróci wartość, ale wewnątrz akcji, która z
 
 ::: moniker range=">= aspnetcore-2.1"
 
- Ponieważ NSwag używa [odbicia](/dotnet/csharp/programming-guide/concepts/reflection), a zalecanym typem zwracanym dla akcji interfejsu API sieci Web jest [\<ActionResult T >](xref:Microsoft.AspNetCore.Mvc.ActionResult%601), można tylko wnioskować o typie `T`zwracanym zdefiniowanym przez. Nie można automatycznie wywnioskować innych możliwych typów zwracanych.
+ Ponieważ NSwag używa [odbicia](/dotnet/csharp/programming-guide/concepts/reflection), a zalecanym typem zwracanym dla akcji interfejsu API sieci Web jest [ActionResult\<T >](xref:Microsoft.AspNetCore.Mvc.ActionResult%601), można tylko wnioskować o typie `T`zwracanym zdefiniowanym przez. Nie można automatycznie wywnioskować innych możliwych typów zwracanych.
 
 Rozważmy następujący przykład:
 

@@ -1,34 +1,34 @@
 ---
-title: Wprowadzenie do biblioteki SignalR platformy ASP.NET Core
+title: Wprowadzenie do ASP.NET Core sygnalizującego
 author: bradygaster
-description: W tym samouczku utworzysz aplikację rozmowy, która korzysta z biblioteki SignalR platformy ASP.NET Core.
+description: W tym samouczku utworzysz aplikację czatu korzystającą z ASP.NET Core sygnalizującego.
 ms.author: bradyg
 ms.custom: mvc
 ms.date: 07/08/2019
 uid: tutorials/signalr
-ms.openlocfilehash: 53d3763a93cc72b6bcf85b64a706500299b3597f
-ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
+ms.openlocfilehash: 2dfa994b9763a0139cb70cbf9847ac3b02b568e4
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67893735"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081970"
 ---
-# <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Samouczek: Wprowadzenie do biblioteki SignalR platformy ASP.NET Core
+# <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Samouczek: Wprowadzenie do ASP.NET Core sygnalizującego
 
 ::: moniker range=">= aspnetcore-3.0"
 
-W tym samouczku pokazano podstawowe informacje dotyczące tworzenia aplikacji w czasie rzeczywistym przy użyciu biblioteki SignalR. Dowiesz się, jak:
+W tym samouczku przedstawiono podstawy tworzenia aplikacji w czasie rzeczywistym przy użyciu usługi sygnalizującej. Dowiesz się, jak:
 
 > [!div class="checklist"]
 > * Utwórz projekt sieci web.
-> * Dodaj bibliotekę klienta SignalR.
-> * Utwórz Centrum SignalR.
-> * Skonfiguruj projekt do korzystania z SignalR.
+> * Dodaj bibliotekę klienta sygnalizującego.
+> * Utwórz centrum sygnałów.
+> * Skonfiguruj projekt do używania sygnalizującego.
 > * Dodaj kod, który wysyła komunikaty z dowolnego klienta do wszystkich połączonych klientów.
 
-Po zakończeniu będziesz mieć działającą aplikację rozmowy:
+Na końcu będziesz mieć działającą aplikację czatu:
 
-![SignalR przykładowej aplikacji](signalr/_static/3.x/signalr-get-started-finished.png)
+![Przykładowa aplikacja sygnalizująca](signalr/_static/3.x/signalr-get-started-finished.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -46,19 +46,19 @@ Po zakończeniu będziesz mieć działającą aplikację rozmowy:
 
 ---
 
-## <a name="create-a-web-app-project"></a>Tworzenie projektu aplikacji sieci web
+## <a name="create-a-web-app-project"></a>Tworzenie projektu aplikacji sieci Web
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-* W menu, wybierz opcję **Plik > Nowy projekt**.
+* Z menu wybierz pozycję **plik > nowy projekt**.
 
-* W **Utwórz nowy projekt** okno dialogowe, wybierz opcję **aplikacji sieci Web programu ASP.NET Core**, a następnie wybierz pozycję **dalej**.
+* W oknie dialogowym **Tworzenie nowego projektu** wybierz pozycję **ASP.NET Core aplikacja sieci Web**, a następnie wybierz przycisk **dalej**.
 
-* W **konfigurowania nowego projektu** okno dialogowe, nazwę projektu *SignalRChat*, a następnie wybierz pozycję **Utwórz**.
+* W oknie dialogowym **Konfigurowanie nowego projektu** Nazwij projekt *SignalRChat*, a następnie wybierz pozycję **Utwórz**.
 
-* W **Tworzenie nowej aplikacji sieci Web platformy ASP.NET Core** okno dialogowe, wybierz opcję **platformy .NET Core** i **platformy ASP.NET Core 3.0**. 
+* W oknie dialogowym **Tworzenie nowej ASP.NET Core aplikacji sieci Web** wybierz pozycję **.net Core** i **ASP.NET Core 3,0**. 
 
-* Wybierz **aplikacji sieci Web** utworzyć projekt, który korzysta ze stronami Razor, a następnie wybierz pozycję **Utwórz**.
+* Wybierz pozycję **aplikacja sieci Web** , aby utworzyć projekt, który używa Razor Pages, a następnie wybierz pozycję **Utwórz**.
 
   ![Okno dialogowe nowego projektu w programie Visual Studio](signalr/_static/3.x/signalr-new-project-dialog.png)
 
@@ -68,64 +68,64 @@ Po zakończeniu będziesz mieć działającą aplikację rozmowy:
 
 * Uruchom następujące polecenia:
 
-   ```console
+   ```dotnetcli
    dotnet new webapp -o SignalRChat
    code -r SignalRChat
    ```
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-* W menu, wybierz opcję **Plik > nowe rozwiązanie**.
+* Z menu wybierz pozycję **plik > nowe rozwiązanie**.
 
-* Wybierz **platformy .NET Core > aplikacji > Aplikacja sieci Web** (nie wybieraj **aplikacji sieci Web (Model-View-Controller)** ), a następnie wybierz pozycję **dalej**.
+* Wybierz pozycję **.NET Core > App > aplikacji sieci Web** (nie zaznaczaj **aplikacji sieci Web (Model-View-Controller)** ), a następnie wybierz przycisk **dalej**.
 
-* Upewnij się, że **platformy docelowej** jest ustawiona na **.NET Core 3.0 to**, a następnie wybierz pozycję **dalej**.
+* Upewnij się, że **platforma docelowa** jest ustawiona na **platformę .NET Core 3,0**, a następnie wybierz przycisk **dalej**.
 
-* Nadaj projektowi nazwę *SignalRChat*, a następnie wybierz pozycję **Utwórz**.
+* Nazwij projekt *SignalRChat*, a następnie wybierz pozycję **Utwórz**.
 
 ---
 
-## <a name="add-the-signalr-client-library"></a>Dodaj bibliotekę klienta SignalR
+## <a name="add-the-signalr-client-library"></a>Dodawanie biblioteki klienta sygnalizującego
 
-Serwer biblioteki SignalR znajduje się w udostępnionej platformy ASP.NET Core 3.0. Biblioteki klienta JavaScript automatycznie nie jest zawarty w projekcie. W tym samouczku używasz Library Manager (LibMan) można pobrać z biblioteki klienta z *unpkg*. unpkg jest usługa content delivery network (CDN)), można dostarczać niczego w Menedżer pakietów npm oraz Menedżera pakietów środowiska Node.js.
+Biblioteka serwera sygnalizującego jest dołączona do struktury udostępnionej ASP.NET Core 3,0. Biblioteka klienta JavaScript nie jest automatycznie dołączana do projektu. W tym samouczku użyjesz programu Library Manager (LibMan), aby uzyskać bibliotekę kliencką z *unpkg*. unpkg to usługa Content Delivery Network (CDN), która umożliwia dostarczanie elementów znalezionych w programie npm, w Menedżerze pakietów środowiska Node. js.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-* W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** > **biblioteki po stronie klienta**.
+* W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Dodaj** > **bibliotekę po stronie klienta**.
 
-* W **Dodaj biblioteki po stronie klienta** okno dialogowe, aby uzyskać **dostawcy** wybierz **unpkg**.
+* W oknie dialogowym **Dodawanie biblioteki po stronie klienta** dla **dostawcy** wybierz pozycję **unpkg**.
 
-* Aby uzyskać **biblioteki**, wprowadź `@aspnet/signalr@next`.
+* W obszarze **Biblioteka**wprowadź `@aspnet/signalr@next`.
 <!-- when 3.0 is released, change @next to @latest -->
 
-* Wybierz **wybierz konkretne pliki**, rozwiń węzeł *dist/przeglądarki* folder, a następnie wybierz *signalr.js* i *signalr.min.js*.
+* Wybierz pozycję **Wybierz określone pliki**, rozwiń folder *dist/przeglądarka* , a następnie wybierz pozycję *sygnalizujące. js* i *sygnalizujący. min. js*.
 
-* Ustaw **lokalizacji docelowej** do *wwwroot/lib/signalr/* i wybierz **zainstalować**.
+* Ustaw **lokalizację docelową** na plik *wwwroot/lib/sygnalizujący/* , a następnie wybierz pozycję **Zainstaluj**.
 
-  ![Dodaj okno dialogowe biblioteki po stronie klienta — Wybieranie biblioteki](signalr/_static/3.x/libman1.png)
+  ![Okno dialogowe Dodawanie biblioteki po stronie klienta — wybór biblioteki](signalr/_static/3.x/libman1.png)
 
-  Tworzy LibMan *wwwroot/lib/signalr* folder i kopiuje wybrane pliki.
+  LibMan tworzy folder *wwwroot/lib/sygnalizujący* i kopiuje do niego wybrane pliki.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
 * W zintegrowanym terminalu uruchom następujące polecenie, aby zainstalować LibMan.
 
-  ```console
+  ```dotnetcli
   dotnet tool install -g Microsoft.Web.LibraryManager.Cli
   ```
 
-* Uruchom następujące polecenie, aby przy użyciu LibMan uzyskać biblioteki klienta SignalR. Być może musisz odczekaj kilka sekund, zanim dane wyjściowe.
+* Uruchom następujące polecenie, aby uzyskać bibliotekę klienta sygnalizującego za pomocą LibMan. Może być konieczne odczekanie kilku sekund przed wyświetleniem danych wyjściowych.
 
   ```console
   libman install @aspnet/signalr@next -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
-  Parametry określ następujące opcje:
+  Parametry określają następujące opcje:
   * Użyj dostawcy unpkg.
-  * Skopiuj pliki do *wwwroot/lib/signalr* docelowego.
-  * Skopiuj tylko określonych plików.
+  * Kopiuj pliki do lokalizacji *wwwroot/lib/sygnalizującej* .
+  * Skopiuj tylko określone pliki.
 
-  Dane wyjściowe wyglądają jak w poniższym przykładzie:
+  Dane wyjściowe wyglądają podobnie do poniższego przykładu:
 
   ```console
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk
@@ -135,26 +135,26 @@ Serwer biblioteki SignalR znajduje się w udostępnionej platformy ASP.NET Core 
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-* W **terminalu**, uruchom następujące polecenie, aby zainstalować LibMan.
+* W **terminalu**Uruchom następujące polecenie, aby zainstalować LibMan.
 
-  ```console
+  ```dotnetcli
   dotnet tool install -g Microsoft.Web.LibraryManager.Cli
   ```
 
-* Przejdź do folderu projektu (zawierającego *SignalRChat.csproj* pliku).
+* Przejdź do folderu projektu (taki, który zawiera plik *SignalRChat. csproj* ).
 
-* Uruchom następujące polecenie, aby przy użyciu LibMan uzyskać biblioteki klienta SignalR.
+* Uruchom następujące polecenie, aby uzyskać bibliotekę klienta sygnalizującego za pomocą LibMan.
 
   ```console
   libman install @aspnet/signalr@next -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
-  Parametry określ następujące opcje:
+  Parametry określają następujące opcje:
   * Użyj dostawcy unpkg.
-  * Skopiuj pliki do *wwwroot/lib/signalr* docelowego.
-  * Skopiuj tylko określonych plików.
+  * Kopiuj pliki do lokalizacji *wwwroot/lib/sygnalizującej* .
+  * Skopiuj tylko określone pliki.
 
-  Dane wyjściowe wyglądają jak w poniższym przykładzie:
+  Dane wyjściowe wyglądają podobnie do poniższego przykładu:
 
   ```console
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk
@@ -164,112 +164,113 @@ Serwer biblioteki SignalR znajduje się w udostępnionej platformy ASP.NET Core 
 
 ---
 
-## <a name="create-a-signalr-hub"></a>Tworzenie Centrum SignalR
+## <a name="create-a-signalr-hub"></a>Tworzenie centrum sygnałów
 
-A *Centrum* jest klasa, która służy jako ogólny potok, który obsługuje komunikację klient serwer.
+*Koncentrator* jest klasą, która służy jako potok wysokiego poziomu, który obsługuje komunikację klient-serwer.
 
-* W folderze projektu SignalRChat Utwórz *koncentratory* folderu.
+* W folderze projektu SignalRChat Utwórz folder *Hubs* .
 
-* W *Hubs* folderze utwórz *ChatHub.cs* pliku następującym kodem:
+* W folderze *Hubs* utwórz plik *ChatHub.cs* o następującym kodzie:
 
   [!code-csharp[Startup](signalr/sample-snapshot/3.x/ChatHub.cs)]
 
-  `ChatHub` Klasa dziedziczy z elementu SignalR `Hub` klasy. `Hub` Klasa zarządza połączeń, grup i komunikatów.
+  Klasa dziedziczy od `Hub` klasy sygnalizującej. `ChatHub` `Hub` Klasa zarządza połączeniami, grupami i obsługą wiadomości.
 
-  `SendMessage` Metoda może być wywoływana przez połączone klienta, aby wysłać wiadomość do wszystkich klientów. Kod klienta JavaScript, który wywołuje metodę przedstawiono w dalszej części tego samouczka. Kod SignalR jest asynchroniczne w celu zapewnienia maksymalnej skalowalności.
+  `SendMessage` Metoda może być wywoływana przez połączonego klienta w celu wysłania komunikatu do wszystkich klientów. Kod klienta JavaScript, który wywołuje metodę, jest wyświetlany w dalszej części samouczka. Kod sygnalizujący jest asynchroniczny, aby zapewnić maksymalną skalowalność.
 
-## <a name="configure-signalr"></a>Konfigurowanie biblioteki SignalR
+## <a name="configure-signalr"></a>Konfigurowanie sygnalizującego
 
-Serwer biblioteki SignalR musi być skonfigurowany do przekazywania żądań SignalR z SignalR.
+Serwer sygnalizujący musi być skonfigurowany tak, aby przekazywać żądania sygnałów do sygnalizującego.
 
-* Dodaj następujący wyróżniony kod do *Startup.cs* pliku.
+* Dodaj następujący wyróżniony kod do pliku *Startup.cs* .
 
   [!code-csharp[Startup](signalr/sample-snapshot/3.x/Startup.cs?highlight=6,30,58)]
 
-  Te zmiany dodanie SignalR do wstrzykiwania zależności platformy ASP.NET Core i routing systemów.
+  Te zmiany umożliwiają dodanie sygnalizacji do ASP.NET Core systemów iniekcji i routingu.
 
-## <a name="add-signalr-client-code"></a>Dodaj kod klienta SignalR
+## <a name="add-signalr-client-code"></a>Dodaj kod klienta sygnalizującego
 
-* Zastąp zawartość *Pages\Index.cshtml* następującym kodem:
+* Zastąp zawartość w *Pages\Index.cshtml* następującym kodem:
 
   [!code-cshtml[Index](signalr/sample-snapshot/3.x/Index.cshtml)]
 
   Powyższy kod:
 
-  * Tworzy pola tekstowe nazwy i tekst wiadomość i przycisk Prześlij.
-  * Tworzy listę z `id="messagesList"` do wyświetlania komunikatów odebranych z Centrum SignalR.
-  * Zawiera odwołania do skryptu z SignalR i *chat.js* kod aplikacji, który zostanie utworzony w następnym kroku.
+  * Tworzy pola tekstowe dla nazwy i tekstu komunikatu oraz przycisk Prześlij.
+  * Tworzy listę z `id="messagesList"` do wyświetlania komunikatów odbieranych z centrum sygnałów.
+  * Zawiera odwołania do skryptów do programu Sygnalizującer i kod aplikacji *czatu. js* , który tworzysz w następnym kroku.
 
-* W *wwwroot/js* folderze utwórz *chat.js* pliku następującym kodem:
+* W folderze *wwwroot/js* Utwórz plik *czatu. js* o następującym kodzie:
 
   [!code-javascript[Index](signalr/sample-snapshot/3.x/chat.js)]
 
   Powyższy kod:
 
   * Tworzy i uruchamia połączenie.
-  * Dodaje przycisk przesyłania program obsługi, która wysyła komunikaty do Centrum.
-  * Dodaje do obiektu połączenia program obsługi, który odbiera komunikaty z Centrum i dodaje je do listy.
+  * Dodaje do przycisku Prześlij procedurę obsługi, która wysyła komunikaty do centrum.
+  * Dodaje do obiektu Connection program obsługi, który odbiera komunikaty z centrum i dodaje je do listy.
 
 ## <a name="run-the-app"></a>Uruchamianie aplikacji
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Naciśnij klawisz **kombinację klawiszy CTRL + F5** Aby uruchomić aplikację bez debugowania.
+* Naciśnij **klawisze CTRL + F5** , aby uruchomić aplikację bez debugowania.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * W zintegrowanym terminalu uruchom następujące polecenie:
 
-  ```console
+  ```dotnetcli
   dotnet run -p SignalRChat.csproj
   ```
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-* W menu, wybierz opcję **Uruchom > Uruchom bez debugowania**.
+* Z menu wybierz polecenie **uruchom > Uruchom bez debugowania**.
 
 ---
 
-* Skopiuj adres URL z paska adresu, a następnie otwórz innego wystąpienia przeglądarki lub karty i wklej adres URL w pasku adresu.
+* Skopiuj adres URL z paska adresu, Otwórz inne wystąpienie przeglądarki lub kartę, a następnie wklej adres URL na pasku adresu.
 
-* Wybierz albo przeglądarki, wprowadź nazwę i komunikat, a następnie wybierz **wysyłania komunikatu** przycisku.
+* Wybierz opcję przeglądarka, wprowadź nazwę i komunikat, a następnie wybierz przycisk **Wyślij wiadomość** .
 
-  Nazwa i wiadomości są wyświetlane na obu stronach natychmiast.
+  Nazwa i komunikat są natychmiast wyświetlane na obu stronach.
 
-  ![SignalR przykładowej aplikacji](signalr/_static/3.x/signalr-get-started-finished.png)
+  ![Przykładowa aplikacja sygnalizująca](signalr/_static/3.x/signalr-get-started-finished.png)
 
 > [!TIP]
-> * Jeśli aplikacja nie działa, Otwórz swoje narzędzia deweloperskie przeglądarki (F12) i przejdź do konsoli. Może pojawić się błędy związane z Twoim kodem HTML i JavaScript. Załóżmy, że możesz umieścić *signalr.js* w innym folderze niż bezpośredniego. W takim przypadku odwołania do tego pliku nie będzie działać, a następnie zostanie wyświetlony błąd 404 w konsoli.
->   ![błąd — nie znaleziono signalr.js](signalr/_static/3.x/f12-console.png)
-> * Jeśli wystąpi błąd, ERR_SPDY_INADEQUATE_TRANSPORT_SECURITY w przeglądarce Chrome lub NS_ERROR_NET_INADEQUATE_SECURITY w przeglądarce Firefox, uruchom następujące polecenia, aby zaktualizować certyfikat deweloperski:
->   ```
+> * Jeśli aplikacja nie działa, Otwórz narzędzia deweloperskie przeglądarki (F12) i przejdź do konsoli programu. Mogą pojawić się błędy związane z kodem HTML i JavaScript. Załóżmy na przykład, że umieścisz polecenie *signaler. js* w innym folderze niż skierowany. W takim przypadku odwołanie do tego pliku nie będzie działało i zobaczysz błąd 404 w konsoli.
+>   ![błąd podczas znajdowania sygnalizującer. js](signalr/_static/3.x/f12-console.png)
+> * Jeśli wystąpi błąd ERR_SPDY_INADEQUATE_TRANSPORT_SECURITY w przeglądarce Chrome lub NS_ERROR_NET_INADEQUATE_SECURITY w programie Firefox, uruchom następujące polecenia, aby zaktualizować certyfikat deweloperski:
+>
+>   ```dotnetcli
 >   dotnet dev-certs https --clean
 >   dotnet dev-certs https --trust
 >   ```
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat biblioteki SignalR, zobacz wprowadzenie:
+Aby dowiedzieć się więcej na temat sygnalizacji, zobacz Wprowadzenie:
 
 > [!div class="nextstepaction"]
-> [Wprowadzenie do SignalR platformy ASP.NET Core](xref:signalr/introduction)
+> [Wprowadzenie do ASP.NET Core sygnalizującego](xref:signalr/introduction)
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-W tym samouczku pokazano podstawowe informacje dotyczące tworzenia aplikacji w czasie rzeczywistym przy użyciu biblioteki SignalR. Dowiesz się, jak:
+W tym samouczku przedstawiono podstawy tworzenia aplikacji w czasie rzeczywistym przy użyciu usługi sygnalizującej. Dowiesz się, jak:
 
 > [!div class="checklist"]
 > * Utwórz projekt sieci web.
-> * Dodaj bibliotekę klienta SignalR.
-> * Utwórz Centrum SignalR.
-> * Skonfiguruj projekt do korzystania z SignalR.
+> * Dodaj bibliotekę klienta sygnalizującego.
+> * Utwórz centrum sygnałów.
+> * Skonfiguruj projekt do używania sygnalizującego.
 > * Dodaj kod, który wysyła komunikaty z dowolnego klienta do wszystkich połączonych klientów.
 
-Po zakończeniu będziesz mieć działającą aplikację rozmowy:
+Na końcu będziesz mieć działającą aplikację czatu:
 
-![SignalR przykładowej aplikacji](signalr/_static/2.x/signalr-get-started-finished.png)
+![Przykładowa aplikacja sygnalizująca](signalr/_static/2.x/signalr-get-started-finished.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -291,15 +292,15 @@ Po zakończeniu będziesz mieć działającą aplikację rozmowy:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-* W menu, wybierz opcję **Plik > Nowy projekt**.
+* Z menu wybierz pozycję **plik > nowy projekt**.
 
-* W **nowy projekt** okno dialogowe, wybierz opcję **zainstalowane > Visual C# > sieci Web > Aplikacja sieci Web programu ASP.NET Core**. Nadaj projektowi nazwę *SignalRChat*.
+* W oknie dialogowym **Nowy projekt** wybierz pozycję **zainstalowane > Visual C# > Web > ASP.NET Core aplikacji sieci Web**. Nazwij projekt *SignalRChat*.
 
   ![Okno dialogowe nowego projektu w programie Visual Studio](signalr/_static/2.x/signalr-new-project-dialog.png)
 
-* Wybierz **aplikacji sieci Web** do tworzenia projektu, który używa stron Razor.
+* Wybierz pozycję **aplikacja sieci Web** , aby utworzyć projekt, który używa Razor Pages.
 
-* Wybierz docelową platformę **platformy .NET Core**, wybierz opcję **platformy ASP.NET Core 2.2**i kliknij przycisk **OK**.
+* Wybierz platformę docelową programu **.NET Core**, wybierz pozycję **ASP.NET Core 2,2**, a następnie kliknij przycisk **OK**.
 
   ![Okno dialogowe nowego projektu w programie Visual Studio](signalr/_static/2.x/signalr-new-project-choose-type.png)
 
@@ -309,65 +310,65 @@ Po zakończeniu będziesz mieć działającą aplikację rozmowy:
 
 * Uruchom następujące polecenia:
 
-   ```console
+   ```dotnetcli
    dotnet new webapp -o SignalRChat
    code -r SignalRChat
    ```
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-* W menu, wybierz opcję **Plik > nowe rozwiązanie**.
+* Z menu wybierz pozycję **plik > nowe rozwiązanie**.
 
-* Wybierz **platformy .NET Core > aplikacji > aplikacji internetowej ASP.NET Core** (nie wybieraj **ASP.NET Core Web App (MVC)** ).
+* Wybierz pozycję **.NET Core > app > ASP.NET Core Web App** (nie wybieraj **ASP.NET Core Web App (MVC)** ).
 
 * Wybierz opcję **Dalej**.
 
-* Nadaj projektowi nazwę *SignalRChat*, a następnie wybierz pozycję **Utwórz**.
+* Nazwij projekt *SignalRChat*, a następnie wybierz pozycję **Utwórz**.
 
 ---
 
-## <a name="add-the-signalr-client-library"></a>Dodaj bibliotekę klienta SignalR
+## <a name="add-the-signalr-client-library"></a>Dodawanie biblioteki klienta sygnalizującego
 
-Serwer biblioteki SignalR znajduje się w `Microsoft.AspNetCore.App` meta Microsoft.aspnetcore.all. Biblioteki klienta JavaScript automatycznie nie jest zawarty w projekcie. W tym samouczku używasz Library Manager (LibMan) można pobrać z biblioteki klienta z *unpkg*. unpkg jest usługa content delivery network (CDN)), można dostarczać niczego w Menedżer pakietów npm oraz Menedżera pakietów środowiska Node.js.
+Biblioteka serwera sygnalizującego jest dołączona do `Microsoft.AspNetCore.App` pakietu. Biblioteka klienta JavaScript nie jest automatycznie dołączana do projektu. W tym samouczku użyjesz programu Library Manager (LibMan), aby uzyskać bibliotekę kliencką z *unpkg*. unpkg to usługa Content Delivery Network (CDN), która umożliwia dostarczanie elementów znalezionych w programie npm, w Menedżerze pakietów środowiska Node. js.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-* W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** > **biblioteki po stronie klienta**.
+* W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Dodaj** > **bibliotekę po stronie klienta**.
 
-* W **Dodaj biblioteki po stronie klienta** okno dialogowe, aby uzyskać **dostawcy** wybierz **unpkg**.
+* W oknie dialogowym **Dodawanie biblioteki po stronie klienta** dla **dostawcy** wybierz pozycję **unpkg**.
 
-* Aby uzyskać **biblioteki**, wprowadź `@aspnet/signalr@1`i wybierz najnowszą wersję, która nie jest w wersji zapoznawczej.
+* W polu **Biblioteka**wprowadź `@aspnet/signalr@1`i wybierz najnowszą wersję, która nie jest w wersji zapoznawczej.
 
-  ![Dodaj okno dialogowe biblioteki po stronie klienta — Wybieranie biblioteki](signalr/_static/2.x/libman1.png)
+  ![Okno dialogowe Dodawanie biblioteki po stronie klienta — wybór biblioteki](signalr/_static/2.x/libman1.png)
 
-* Wybierz **wybierz konkretne pliki**, rozwiń węzeł *dist/przeglądarki* folder, a następnie wybierz *signalr.js* i *signalr.min.js*.
+* Wybierz pozycję **Wybierz określone pliki**, rozwiń folder *dist/przeglądarka* , a następnie wybierz pozycję *sygnalizujące. js* i *sygnalizujący. min. js*.
 
-* Ustaw **lokalizacji docelowej** do *wwwroot/lib/signalr/* i wybierz **zainstalować**.
+* Ustaw **lokalizację docelową** na plik *wwwroot/lib/sygnalizujący/* , a następnie wybierz pozycję **Zainstaluj**.
 
-  ![Dodaj okno dialogowe z biblioteki klienta - wybranie plików i miejsce docelowe](signalr/_static/2.x/libman2.png)
+  ![Okno dialogowe Dodawanie biblioteki po stronie klienta — Wybieranie plików i lokalizacji docelowej](signalr/_static/2.x/libman2.png)
 
-  Tworzy LibMan *wwwroot/lib/signalr* folder i kopiuje wybrane pliki.
+  LibMan tworzy folder *wwwroot/lib/sygnalizujący* i kopiuje do niego wybrane pliki.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
 * W zintegrowanym terminalu uruchom następujące polecenie, aby zainstalować LibMan.
 
-  ```console
+  ```dotnetcli
   dotnet tool install -g Microsoft.Web.LibraryManager.Cli
   ```
 
-* Uruchom następujące polecenie, aby przy użyciu LibMan uzyskać biblioteki klienta SignalR. Być może musisz odczekaj kilka sekund, zanim dane wyjściowe.
+* Uruchom następujące polecenie, aby uzyskać bibliotekę klienta sygnalizującego za pomocą LibMan. Może być konieczne odczekanie kilku sekund przed wyświetleniem danych wyjściowych.
 
   ```console
   libman install @aspnet/signalr -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
-  Parametry określ następujące opcje:
+  Parametry określają następujące opcje:
   * Użyj dostawcy unpkg.
-  * Skopiuj pliki do *wwwroot/lib/signalr* docelowego.
-  * Skopiuj tylko określonych plików.
+  * Kopiuj pliki do lokalizacji *wwwroot/lib/sygnalizującej* .
+  * Skopiuj tylko określone pliki.
 
-  Dane wyjściowe wyglądają jak w poniższym przykładzie:
+  Dane wyjściowe wyglądają podobnie do poniższego przykładu:
 
   ```console
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk
@@ -377,26 +378,26 @@ Serwer biblioteki SignalR znajduje się w `Microsoft.AspNetCore.App` meta Micros
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-* W **terminalu**, uruchom następujące polecenie, aby zainstalować LibMan.
+* W **terminalu**Uruchom następujące polecenie, aby zainstalować LibMan.
 
-  ```console
+  ```dotnetcli
   dotnet tool install -g Microsoft.Web.LibraryManager.Cli
   ```
 
-* Przejdź do folderu projektu (zawierającego *SignalRChat.csproj* pliku).
+* Przejdź do folderu projektu (taki, który zawiera plik *SignalRChat. csproj* ).
 
-* Uruchom następujące polecenie, aby przy użyciu LibMan uzyskać biblioteki klienta SignalR.
+* Uruchom następujące polecenie, aby uzyskać bibliotekę klienta sygnalizującego za pomocą LibMan.
 
   ```console
   libman install @aspnet/signalr -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
-  Parametry określ następujące opcje:
+  Parametry określają następujące opcje:
   * Użyj dostawcy unpkg.
-  * Skopiuj pliki do *wwwroot/lib/signalr* docelowego.
-  * Skopiuj tylko określonych plików.
+  * Kopiuj pliki do lokalizacji *wwwroot/lib/sygnalizującej* .
+  * Skopiuj tylko określone pliki.
 
-  Dane wyjściowe wyglądają jak w poniższym przykładzie:
+  Dane wyjściowe wyglądają podobnie do poniższego przykładu:
 
   ```console
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk
@@ -406,98 +407,98 @@ Serwer biblioteki SignalR znajduje się w `Microsoft.AspNetCore.App` meta Micros
 
 ---
 
-## <a name="create-a-signalr-hub"></a>Tworzenie Centrum SignalR
+## <a name="create-a-signalr-hub"></a>Tworzenie centrum sygnałów
 
-A *Centrum* jest klasa, która służy jako ogólny potok, który obsługuje komunikację klient serwer.
+*Koncentrator* jest klasą, która służy jako potok wysokiego poziomu, który obsługuje komunikację klient-serwer.
 
-* W folderze projektu SignalRChat Utwórz *koncentratory* folderu.
+* W folderze projektu SignalRChat Utwórz folder *Hubs* .
 
-* W *Hubs* folderze utwórz *ChatHub.cs* pliku następującym kodem:
+* W folderze *Hubs* utwórz plik *ChatHub.cs* o następującym kodzie:
 
   [!code-csharp[Startup](signalr/sample-snapshot/2.x/ChatHub.cs)]
 
-  `ChatHub` Klasa dziedziczy z elementu SignalR `Hub` klasy. `Hub` Klasa zarządza połączeń, grup i komunikatów.
+  Klasa dziedziczy od `Hub` klasy sygnalizującej. `ChatHub` `Hub` Klasa zarządza połączeniami, grupami i obsługą wiadomości.
 
-  `SendMessage` Metoda może być wywoływana przez połączone klienta, aby wysłać wiadomość do wszystkich klientów. Kod klienta JavaScript, który wywołuje metodę przedstawiono w dalszej części tego samouczka. Kod SignalR jest asynchroniczne w celu zapewnienia maksymalnej skalowalności.
+  `SendMessage` Metoda może być wywoływana przez połączonego klienta w celu wysłania komunikatu do wszystkich klientów. Kod klienta JavaScript, który wywołuje metodę, jest wyświetlany w dalszej części samouczka. Kod sygnalizujący jest asynchroniczny, aby zapewnić maksymalną skalowalność.
 
-## <a name="configure-signalr"></a>Konfigurowanie biblioteki SignalR
+## <a name="configure-signalr"></a>Konfigurowanie sygnalizującego
 
-Serwer biblioteki SignalR musi być skonfigurowany do przekazywania żądań SignalR z SignalR.
+Serwer sygnalizujący musi być skonfigurowany tak, aby przekazywać żądania sygnałów do sygnalizującego.
 
-* Dodaj następujący wyróżniony kod do *Startup.cs* pliku.
+* Dodaj następujący wyróżniony kod do pliku *Startup.cs* .
 
   [!code-csharp[Startup](signalr/sample-snapshot/2.x/Startup.cs?highlight=7,33,52-55)]
 
-  Te zmiany dodanie SignalR systemu iniekcji zależności platformy ASP.NET Core i potoku oprogramowania pośredniczącego.
+  Te zmiany umożliwiają dodanie sygnału do ASP.NET Core systemu iniekcji zależności oraz potoku oprogramowania pośredniczącego.
 
-## <a name="add-signalr-client-code"></a>Dodaj kod klienta SignalR
+## <a name="add-signalr-client-code"></a>Dodaj kod klienta sygnalizującego
 
-* Zastąp zawartość *Pages\Index.cshtml* następującym kodem:
+* Zastąp zawartość w *Pages\Index.cshtml* następującym kodem:
 
   [!code-cshtml[Index](signalr/sample-snapshot/2.x/Index.cshtml)]
 
   Powyższy kod:
 
-  * Tworzy pola tekstowe nazwy i tekst wiadomość i przycisk Prześlij.
-  * Tworzy listę z `id="messagesList"` do wyświetlania komunikatów odebranych z Centrum SignalR.
-  * Zawiera odwołania do skryptu z SignalR i *chat.js* kod aplikacji, który zostanie utworzony w następnym kroku.
+  * Tworzy pola tekstowe dla nazwy i tekstu komunikatu oraz przycisk Prześlij.
+  * Tworzy listę z `id="messagesList"` do wyświetlania komunikatów odbieranych z centrum sygnałów.
+  * Zawiera odwołania do skryptów do programu Sygnalizującer i kod aplikacji *czatu. js* , który tworzysz w następnym kroku.
 
-* W *wwwroot/js* folderze utwórz *chat.js* pliku następującym kodem:
+* W folderze *wwwroot/js* Utwórz plik *czatu. js* o następującym kodzie:
 
   [!code-javascript[Index](signalr/sample-snapshot/2.x/chat.js)]
 
   Powyższy kod:
 
   * Tworzy i uruchamia połączenie.
-  * Dodaje przycisk przesyłania program obsługi, która wysyła komunikaty do Centrum.
-  * Dodaje do obiektu połączenia program obsługi, który odbiera komunikaty z Centrum i dodaje je do listy.
+  * Dodaje do przycisku Prześlij procedurę obsługi, która wysyła komunikaty do centrum.
+  * Dodaje do obiektu Connection program obsługi, który odbiera komunikaty z centrum i dodaje je do listy.
 
 ## <a name="run-the-app"></a>Uruchamianie aplikacji
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Naciśnij klawisz **kombinację klawiszy CTRL + F5** Aby uruchomić aplikację bez debugowania.
+* Naciśnij **klawisze CTRL + F5** , aby uruchomić aplikację bez debugowania.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * W zintegrowanym terminalu uruchom następujące polecenie:
 
-  ```console
+  ```dotnetcli
   dotnet run -p SignalRChat.csproj
   ```
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-* W menu, wybierz opcję **Uruchom > Uruchom bez debugowania**.
+* Z menu wybierz polecenie **uruchom > Uruchom bez debugowania**.
 
 ---
 
-* Skopiuj adres URL z paska adresu, a następnie otwórz innego wystąpienia przeglądarki lub karty i wklej adres URL w pasku adresu.
+* Skopiuj adres URL z paska adresu, Otwórz inne wystąpienie przeglądarki lub kartę, a następnie wklej adres URL na pasku adresu.
 
-* Wybierz albo przeglądarki, wprowadź nazwę i komunikat, a następnie wybierz **wysyłania komunikatu** przycisku.
+* Wybierz opcję przeglądarka, wprowadź nazwę i komunikat, a następnie wybierz przycisk **Wyślij wiadomość** .
 
-  Nazwa i wiadomości są wyświetlane na obu stronach natychmiast.
+  Nazwa i komunikat są natychmiast wyświetlane na obu stronach.
 
-  ![SignalR przykładowej aplikacji](signalr/_static/2.x/signalr-get-started-finished.png)
+  ![Przykładowa aplikacja sygnalizująca](signalr/_static/2.x/signalr-get-started-finished.png)
 
 > [!TIP]
-> Jeśli aplikacja nie działa, Otwórz swoje narzędzia deweloperskie przeglądarki (F12) i przejdź do konsoli. Może pojawić się błędy związane z Twoim kodem HTML i JavaScript. Załóżmy, że możesz umieścić *signalr.js* w innym folderze niż bezpośredniego. W takim przypadku odwołania do tego pliku nie będzie działać, a następnie zostanie wyświetlony błąd 404 w konsoli.
-> ![błąd — nie znaleziono signalr.js](signalr/_static/2.x/f12-console.png)
+> Jeśli aplikacja nie działa, Otwórz narzędzia deweloperskie przeglądarki (F12) i przejdź do konsoli programu. Mogą pojawić się błędy związane z kodem HTML i JavaScript. Załóżmy na przykład, że umieścisz polecenie *signaler. js* w innym folderze niż skierowany. W takim przypadku odwołanie do tego pliku nie będzie działało i zobaczysz błąd 404 w konsoli.
+> ![błąd podczas znajdowania sygnalizującer. js](signalr/_static/2.x/f12-console.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Tworzenie projektu aplikacji sieci web.
-> * Dodaj bibliotekę klienta SignalR.
-> * Utwórz Centrum SignalR.
-> * Skonfiguruj projekt do korzystania z SignalR.
-> * Dodaj kod używający koncentratora, aby wysyłać komunikaty z dowolnego klienta do wszystkich połączonych klientów.
+> * Utwórz projekt aplikacji sieci Web.
+> * Dodaj bibliotekę klienta sygnalizującego.
+> * Utwórz centrum sygnałów.
+> * Skonfiguruj projekt do używania sygnalizującego.
+> * Dodaj kod używający centrum do wysyłania komunikatów z dowolnego klienta do wszystkich podłączonych klientów.
 
-Aby dowiedzieć się więcej na temat biblioteki SignalR, zobacz wprowadzenie:
+Aby dowiedzieć się więcej na temat sygnalizacji, zobacz Wprowadzenie:
 
 > [!div class="nextstepaction"]
-> [Wprowadzenie do SignalR platformy ASP.NET Core](xref:signalr/introduction)
+> [Wprowadzenie do ASP.NET Core sygnalizującego](xref:signalr/introduction)
 
 ::: moniker-end

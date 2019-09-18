@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: ab29cf687c80551d275cae69f28b7576016bfff6
-ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
+ms.openlocfilehash: 78ff36b291b3215460d9ae8e560f49871862d19f
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70238126"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080973"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor Pages EF Core w ASP.NET Core — model danych-5 z 8
 
@@ -59,7 +59,7 @@ Poprzedni kod dodaje `FullName` Właściwość i dodaje następujące atrybuty d
 
 W przypadku dat rejestracji uczniów wszystkie strony wyświetlają teraz godzinę i datę, chociaż tylko data jest ważna. Używając atrybutów adnotacji danych, można wprowadzić jedną zmianę kodu, która naprawi format wyświetlania na każdej stronie, która wyświetla dane. 
 
-Atrybut [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) określa typ danych, który jest bardziej szczegółowy niż typ wewnętrzny bazy danych. W tym przypadku należy wyświetlić tylko datę, a nie datę i godzinę. [Wyliczenie DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) zawiera wiele typów danych, takich jak data, godzina, numer telefonu, waluta, EmailAddress itp. Ten `DataType` atrybut może również umożliwić aplikacji automatyczne udostępnianie funkcji specyficznych dla typu. Przykład:
+Atrybut [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) określa typ danych, który jest bardziej szczegółowy niż typ wewnętrzny bazy danych. W tym przypadku należy wyświetlić tylko datę, a nie datę i godzinę. [Wyliczenie DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) zawiera wiele typów danych, takich jak data, godzina, numer telefonu, waluta, EmailAddress itp. Ten `DataType` atrybut może również umożliwić aplikacji automatyczne udostępnianie funkcji specyficznych dla typu. Na przykład:
 
 * Łącze jest tworzone automatycznie dla `DataType.EmailAddress`. `mailto:`
 * Selektor daty jest dostępny `DataType.Date` w większości przeglądarek.
@@ -197,7 +197,7 @@ SqliteException: SQLite Error 1: 'no such column: s.FirstName'.
 
 * Otwórz okno polecenia w folderze projektu. Wprowadź następujące polecenia, aby utworzyć nową migrację i zaktualizować bazę danych:
 
-  ```console
+  ```dotnetcli
   dotnet ef migrations add ColumnFirstName
   dotnet ef database update
   ```
@@ -213,7 +213,7 @@ W tym samouczku sposób, w jaki można to zrobić, jest usunięcie i ponowne utw
 * Usuń folder *migracji* .
 * Uruchom następujące polecenia, aby usunąć bazę danych, utworzyć nową migrację początkową i zastosować migrację:
 
-  ```console
+  ```dotnetcli
   dotnet ef database drop --force
   dotnet ef migrations add InitialCreate
   dotnet ef database update
@@ -612,13 +612,13 @@ Aby wymusić EF Core tworzenia nowej bazy danych, Porzuć i zaktualizuj bazę da
 
 * Uruchom następujące polecenie:
 
-  ```console
+  ```dotnetcli
   dotnet ef database drop --force
   ```
 
 * Usuń folder *migrations* , a następnie uruchom następujące polecenie:
 
-  ```console
+  ```dotnetcli
   dotnet ef migrations add InitialCreate
   dotnet ef database update
   ```
@@ -705,7 +705,7 @@ Sposób obsługi pokazanej tutaj sytuacji jest uproszczony dla tego samouczka. A
 
 * Jeśli używasz SQL Server LocalDB z Visual Studio Code, uruchom następujące polecenie:
 
-  ```console
+  ```dotnetcli
   dotnet ef database update
   ```
 
@@ -839,7 +839,7 @@ Update-Database
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-```console
+```dotnetcli
 dotnet ef migrations add ColumnFirstName
 dotnet ef database update
 ```
@@ -1246,13 +1246,13 @@ Skompiluj projekt.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-```PMC
+```powershell
 Add-Migration ComplexDataModel
 ```
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-```console
+```dotnetcli
 dotnet ef migrations add ComplexDataModel
 ```
 
@@ -1303,10 +1303,10 @@ Otwórz okno polecenia i przejdź do folderu projektu. Folder projektu zawiera p
 
 Wprowadź następujące polecenie w oknie polecenia:
 
- ```console
- dotnet ef database drop
+```dotnetcli
+dotnet ef database drop
 dotnet ef database update
- ```
+```
 
 ---
 

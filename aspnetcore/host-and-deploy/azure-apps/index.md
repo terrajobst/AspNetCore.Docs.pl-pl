@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/07/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 5da32b5fd1026263f721db442b2676d45b239b8d
-ms.sourcegitcommit: 2d4c1732c4866ed26b83da35f7bc2ad021a9c701
+ms.openlocfilehash: 7736888c43aafd2f64e3d7b079f2099fe548a825
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815602"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081074"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Wdróż aplikacje ASP.NET Core w Azure App Service
 
@@ -133,8 +133,8 @@ Aby uzyskać więcej informacji, zobacz <xref:security/data-protection/implement
 
 Jeśli aplikacja korzysta z wersji zapoznawczej programu .NET Core, użyj jednej z następujących metod:
 
-* [Zainstaluj rozszerzenie witryny w wersji zapoznawczej](#install-the-preview-site-extension).
-* [Wdróż samodzielną aplikację w wersji zapoznawczej](#deploy-a-self-contained-preview-app).
+* [Zainstaluj rozszerzenie witryny w wersji](#install-the-preview-site-extension)zapoznawczej.
+* [Wdróż samodzielną aplikację w wersji](#deploy-a-self-contained-preview-app)zapoznawczej.
 * [Użyj platformy Docker z Web Apps dla kontenerów](#use-docker-with-web-apps-for-containers).
 
 ### <a name="install-the-preview-site-extension"></a>Zainstaluj rozszerzenie witryny w wersji zapoznawczej
@@ -179,7 +179,7 @@ Po zakończeniu operacji zostanie zainstalowana najnowsza wersja programu .NET C
 
 **Używanie rozszerzenia witryny w wersji zapoznawczej z szablonem ARM**
 
-Jeśli szablon ARM jest używany do tworzenia i wdrażania aplikacji, `siteextensions` typ zasobu może służyć do dodawania rozszerzenia witryny do aplikacji sieci Web. Przykład:
+Jeśli szablon ARM jest używany do tworzenia i wdrażania aplikacji, `siteextensions` typ zasobu może służyć do dodawania rozszerzenia witryny do aplikacji sieci Web. Na przykład:
 
 [!code-json[](index/sample/arm.json?highlight=2)]
 
@@ -189,10 +189,10 @@ Jeśli szablon ARM jest używany do tworzenia i wdrażania aplikacji, `siteexten
 
 Podczas wdrażania aplikacji samodzielnej:
 
-* Lokacja w Azure App Service nie wymaga [rozszerzenia witryny w wersji zapoznawczej](#install-the-preview-site-extension).
+* Lokacja w Azure App Service nie wymaga [rozszerzenia witryny w wersji](#install-the-preview-site-extension)zapoznawczej.
 * Aplikacja musi zostać opublikowana przy użyciu innego podejścia niż w przypadku publikowania dla [wdrożenia zależnego od platformy (FDD)](/dotnet/core/deploying#framework-dependent-deployments-fdd).
 
-Postępuj zgodnie ze wskazówkami [zawartymi w sekcji Wdróż aplikację samodzielną](#deploy-the-app-self-contained) .
+Postępuj zgodnie ze wskazówkami zawartymi w sekcji [Wdróż aplikację](#deploy-the-app-self-contained) samodzielną.
 
 ### <a name="use-docker-with-web-apps-for-containers"></a>Korzystanie z platformy Docker z Web Apps dla kontenerów
 
@@ -230,7 +230,7 @@ W przypadku wdrożenia 64-bitowego [zależnego od platformy](/dotnet/core/deploy
 
 1. W powłoce poleceń Opublikuj aplikację w konfiguracji wydania przy użyciu polecenia [dotnet Publish](/dotnet/core/tools/dotnet-publish) . W poniższym przykładzie aplikacja jest publikowana jako aplikacja zależna od platformy:
 
-   ```console
+   ```dotnetcli
    dotnet publish --configuration Release
    ```
 
@@ -249,7 +249,7 @@ Użyj programu Visual Studio lub narzędzi interfejsu wiersza polecenia (CLI) dl
 1. Wybierz pozycję **Zaawansowane**. Zostanie otwarte okno dialogowe **Publikowanie** .
 1. W **Publikuj** okno dialogowe:
    * Upewnij się, że wybrano konfigurację **wydania** .
-   * Otwórz listę rozwijaną **tryb wdrażania** i wybierz pozycję **samodzielny**.
+   * Otwórz listę rozwijaną **tryb wdrażania** i wybierz pozycję samodzielny.
    * Wybierz docelowe środowisko uruchomieniowe z listy rozwijanej **docelowy środowisko uruchomieniowe** . Wartość domyślna to `win-x86`.
    * Jeśli konieczne jest usunięcie dodatkowych plików po wdrożeniu, Otwórz **Opcje publikowania plików** i zaznacz pole wyboru w celu usunięcia dodatkowych plików w miejscu docelowym.
    * Wybierz pozycję **Zapisz**.
@@ -268,7 +268,7 @@ Użyj programu Visual Studio lub narzędzi interfejsu wiersza polecenia (CLI) dl
 
 1. W powłoce poleceń Opublikuj aplikację w konfiguracji wydania dla środowiska uruchomieniowego hosta za pomocą polecenia [dotnet Publish](/dotnet/core/tools/dotnet-publish) . W poniższym przykładzie aplikacja jest publikowana dla `win-x86` identyfikatora RID. Identyfikator RID dostarczony do `--runtime` opcji musi być podany `<RuntimeIdentifier>` we właściwości (lub `<RuntimeIdentifiers>`) w pliku projektu.
 
-   ```console
+   ```dotnetcli
    dotnet publish --configuration Release --runtime win-x86
    ```
 

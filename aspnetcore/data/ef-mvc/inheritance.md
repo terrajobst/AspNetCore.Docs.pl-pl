@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 60d97137fbc6a08152b7b8a631b7a32940875b38
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: 8e092ac47b2fd5fb6f3a0524bf1c559b7c3935c4
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975103"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080427"
 ---
 # <a name="tutorial-implement-inheritance---aspnet-mvc-with-ef-core"></a>Samouczek: Implementowanie dziedziczenia-ASP.NET MVC z EF Core
 
@@ -93,13 +93,13 @@ To wszystko, co Entity Framework potrzebuje w celu skonfigurowania dziedziczenia
 
 Zapisz zmiany i skompiluj projekt. Następnie otwórz okno polecenia w folderze projektu i wprowadź następujące polecenie:
 
-```console
+```dotnetcli
 dotnet ef migrations add Inheritance
 ```
 
 Nie uruchamiaj `database update` jeszcze polecenia. To polecenie spowoduje utratę danych, ponieważ spowoduje porzucenie tabeli instruktora i zmianę nazwy tabeli uczniów na osobę. Musisz podać niestandardowy kod, aby zachować istniejące dane.
 
-Otwórz przystawkę *migracje/\<sygnatura czasowa > _Inheritance. cs* i Zastąp `Up` metodę następującym kodem:
+Otwórz przystawkę *\<migracje/sygnatura czasowa > _Inheritance. cs* i Zastąp `Up` metodę następującym kodem:
 
 [!code-csharp[](intro/samples/cu/Migrations/20170216215525_Inheritance.cs?name=snippet_Up)]
 
@@ -127,7 +127,7 @@ Ten kod obejmuje następujące zadania aktualizacji bazy danych:
 
 `database update` Uruchom polecenie:
 
-```console
+```dotnetcli
 dotnet ef database update
 ```
 
@@ -154,7 +154,7 @@ Kliknij prawym przyciskiem myszy tabelę osoba, a następnie kliknij polecenie *
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-Aby uzyskać więcej informacji na temat dziedziczenia w [](/ef/core/modeling/inheritance)Entity Framework Core, zobacz Dziedziczenie.
+Aby uzyskać więcej informacji na temat dziedziczenia w Entity Framework Core, zobacz [dziedziczenie](/ef/core/modeling/inheritance).
 
 ## <a name="next-steps"></a>Następne kroki
 

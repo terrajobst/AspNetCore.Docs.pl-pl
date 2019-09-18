@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/11/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 21e7ee144bdf0355cac8bd8a7706f100c15342da
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: 03734addcc0e063c2c216b26b59762d27d35d47c
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975507"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081157"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Rejestrowanie w programie .NET Core i ASP.NET Core
 
@@ -144,7 +144,7 @@ Zapisywanie dzienników przed ukończeniem instalacji programu di Container w `S
 
 Przyczyną tego ograniczenia jest to, że rejestrowanie jest zależne od typu i konfiguracji, która z tego powodu zależy od DI. Kontener di nie jest ustawiany do momentu `ConfigureServices` zakończenia.
 
-Wstrzykiwanie konstruktora rejestratora do `Startup` działa we wcześniejszych wersjach ASP.NET Core, ponieważ dla hosta sieci Web jest tworzony oddzielny kontener di. Aby uzyskać informacje o tym, dlaczego dla hosta generycznego jest tworzony tylko jeden kontener, zobacz zawiadomienie o rozdzieleniu [zmian](https://github.com/aspnet/Announcements/issues/353).
+Wstrzykiwanie konstruktora rejestratora do `Startup` działa we wcześniejszych wersjach ASP.NET Core, ponieważ dla hosta sieci Web jest tworzony oddzielny kontener di. Aby uzyskać informacje o tym, dlaczego dla hosta generycznego jest tworzony tylko jeden kontener, zobacz [zawiadomienie o rozdzieleniu zmian](https://github.com/aspnet/Announcements/issues/353).
 
 Jeśli trzeba skonfigurować usługę, która zależy od `ILogger<T>`programu, można to zrobić za pomocą iniekcji konstruktora lub dostarczając metodę fabryki. Podejście metody fabryki jest zalecane tylko wtedy, gdy nie ma żadnych innych opcji. Załóżmy na przykład, że musisz wypełnić Właściwość usługą z:
 
@@ -392,7 +392,7 @@ ASP.NET Core definiuje następujące poziomy dziennika uporządkowane w tym miej
 
   Dla niepowodzeń, które wymagają natychmiastowej uwagi. Przykłady: scenariusze utraty danych, brak miejsca na dysku.
 
-Poziom dziennika służy do kontrolowania, ile danych wyjściowych dziennika jest zapisywana w określonym nośniku lub oknie wyświetlania. Przykład:
+Poziom dziennika służy do kontrolowania, ile danych wyjściowych dziennika jest zapisywana w określonym nośniku lub oknie wyświetlania. Na przykład:
 
 * W obszarze produkcja, `Trace` Wyślij `Information` przez poziom do magazynu danych woluminu. Wyślij `Warning`domagazynudanych wartości.`Critical`
 * `Warning` Podczas tworzenia, wysyłaj `Critical` do `Trace` konsoli i dodawaj podczas rozwiązywania problemów. `Information`
@@ -679,7 +679,7 @@ Jeśli poziom minimalny nie został jawnie ustawiony, wartość domyślna to `In
 
 ### <a name="filter-functions"></a>Funkcje filtrowania
 
-Funkcja filtru jest wywoływana dla wszystkich dostawców i kategorii, które nie mają przypisanych do nich reguł przez konfigurację lub kod. Kod w funkcji ma dostęp do typu dostawcy, kategorii i poziomu dziennika. Na przykład:
+Funkcja filtru jest wywoływana dla wszystkich dostawców i kategorii, które nie mają przypisanych do nich reguł przez konfigurację lub kod. Kod w funkcji ma dostęp do typu dostawcy, kategorii i poziomu dziennika. Przykład:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -784,7 +784,7 @@ logging.AddConsole();
 
 Aby wyświetlić dane wyjściowe rejestrowania konsoli, Otwórz wiersz polecenia w folderze projektu i uruchom następujące polecenie:
 
-```console
+```dotnetcli
 dotnet run
 ```
 
@@ -820,7 +820,7 @@ Pakiet dostawcy [Microsoft. Extensions. Logging. EventLog](https://www.nuget.org
 logging.AddEventLog();
 ```
 
-[](xref:Microsoft.Extensions.Logging.EventLoggerFactoryExtensions) Przeciążenia addeventlog umożliwiają przekazywanie <xref:Microsoft.Extensions.Logging.EventLog.EventLogSettings>.
+[Przeciążenia addeventlog](xref:Microsoft.Extensions.Logging.EventLoggerFactoryExtensions) umożliwiają przekazywanie <xref:Microsoft.Extensions.Logging.EventLog.EventLogSettings>.
 
 ### <a name="tracesource-provider"></a>Dostawca TraceSource
 

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 8/26/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: f643ed786366fa6bdadadbc5d67fa2d40a195861
-ms.sourcegitcommit: 07cd66e367d080acb201c7296809541599c947d1
+ms.openlocfilehash: 924aa3880fc7f2aa777d4ab2e5ea3bed38e227d4
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71039263"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081187"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Samouczek: Utwórz klienta i serwer gRPC w ASP.NET Core
 
@@ -67,7 +67,7 @@ W tym samouczku przedstawiono następujące instrukcje:
 * Zmień katalogi (`cd`) na folder, który będzie zawierać projekt.
 * Uruchom następujące polecenia:
 
-  ```console
+  ```dotnetcli
   dotnet new grpc -o GrpcGreeter
   code -r GrpcGreeter
   ```
@@ -82,9 +82,9 @@ W tym samouczku przedstawiono następujące instrukcje:
 
 W terminalu uruchom następujące polecenia:
 
-```console
-  dotnet new grpc -o GrpcGreeter
-  cd GrpcGreeter
+```dotnetcli
+dotnet new grpc -o GrpcGreeter
+cd GrpcGreeter
 ```
 
 Poprzednie polecenia używają [interfejs wiersza polecenia platformy .NET Core](/dotnet/core/tools/dotnet) do tworzenia usługi gRPC.
@@ -153,7 +153,7 @@ info: Microsoft.Hosting.Lifetime[0]
 * Zmień katalogi (`cd`) na folder, który będzie zawierać projekt.
 * Uruchom następujące polecenia:
 
-  ```console
+  ```dotnetcli
   dotnet new console -o GrpcGreeterClient
   code -r GrpcGreeterClient
   ```
@@ -200,7 +200,7 @@ Zainstaluj pakiety przy użyciu konsoli Menedżera pakietów (PMC) lub Zarządza
 
 Uruchom następujące polecenia w zintegrowanym **terminalu**:
 
-```console
+```dotnetcli
 dotnet add GrpcGreeterClient.csproj package Grpc.Net.Client
 dotnet add GrpcGreeterClient.csproj package Google.Protobuf
 dotnet add GrpcGreeterClient.csproj package Grpc.Tools

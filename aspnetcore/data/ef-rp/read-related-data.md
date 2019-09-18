@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 62224312aa9b7f3e0164b5300e491f59b0832acd
-ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
+ms.openlocfilehash: f53f8edef7fe8690d0e414bc094d81dc99ad198a
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70024721"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082086"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor Pages z EF Core w ASP.NET Core odczytu danych powiązanych — 6 z 8
 
@@ -48,11 +48,11 @@ Istnieje kilka sposobów, EF Core mogą ładować powiązane dane do właściwo�
 
   Uwaga: EF Core automatycznie naprawia właściwości nawigacji do wszystkich innych jednostek, które zostały wcześniej załadowane do wystąpienia kontekstu. Nawet jeśli dane dla właściwości nawigacji *nie* są jawnie uwzględniane, właściwość można nadal wypełnić, jeśli niektóre lub wszystkie powiązane jednostki zostały wcześniej załadowane.
 
-* [Jawne ładowanie](/ef/core/querying/related-data#explicit-loading). Gdy obiekt jest najpierw odczytywany, powiązane dane nie są pobierane. Kod musi być zapisany, aby można było pobrać powiązane dane, gdy jest to konieczne. Jawne ładowanie z oddzielnymi zapytania powoduje wysłanie wielu zapytań do bazy danych. W przypadku jawnego ładowania kod określa właściwości nawigacji do załadowania. Użyj metody `Load` , aby przeprowadzić jawne ładowanie. Przykład:
+* [Jawne ładowanie](/ef/core/querying/related-data#explicit-loading). Gdy obiekt jest najpierw odczytywany, powiązane dane nie są pobierane. Kod musi być zapisany, aby można było pobrać powiązane dane, gdy jest to konieczne. Jawne ładowanie z oddzielnymi zapytania powoduje wysłanie wielu zapytań do bazy danych. W przypadku jawnego ładowania kod określa właściwości nawigacji do załadowania. Użyj metody `Load` , aby przeprowadzić jawne ładowanie. Na przykład:
 
   ![Przykład jawnego ładowania](read-related-data/_static/explicit-loading.png)
 
-* [Ładowanie](/ef/core/querying/related-data#lazy-loading)z opóźnieniem. [Ładowanie z opóźnieniem zostało dodane do EF Core w wersji 2,1](/ef/core/querying/related-data#lazy-loading). Gdy obiekt jest najpierw odczytywany, powiązane dane nie są pobierane. Podczas pierwszego uzyskiwania dostępu do właściwości nawigacji dane wymagane dla tej właściwości nawigacji są pobierane automatycznie. Zapytanie jest wysyłane do bazy danych przy każdym dostępie do właściwości nawigacji po raz pierwszy.
+* [Ładowanie z opóźnieniem](/ef/core/querying/related-data#lazy-loading). [Ładowanie z opóźnieniem zostało dodane do EF Core w wersji 2,1](/ef/core/querying/related-data#lazy-loading). Gdy obiekt jest najpierw odczytywany, powiązane dane nie są pobierane. Podczas pierwszego uzyskiwania dostępu do właściwości nawigacji dane wymagane dla tej właściwości nawigacji są pobierane automatycznie. Zapytanie jest wysyłane do bazy danych przy każdym dostępie do właściwości nawigacji po raz pierwszy.
 
 ## <a name="create-course-pages"></a>Tworzenie stron kursu
 
@@ -71,7 +71,7 @@ Aby wyświetlić nazwę przypisanego działu dla kursu:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Postępuj zgodnie z instrukcjami na [stronach uczniów](xref:data/ef-rp/intro#scaffold-student-pages) tworzenia szkieletów z następującymi wyjątkami:
+* Postępuj zgodnie z instrukcjami na [stronach uczniów tworzenia szkieletów](xref:data/ef-rp/intro#scaffold-student-pages) z następującymi wyjątkami:
 
   * Utwórz folder *strony/kursy* .
   * Użyj `Course` dla klasy model.
@@ -85,13 +85,13 @@ Aby wyświetlić nazwę przypisanego działu dla kursu:
 
   **Na Windows:**
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
   ```
 
   **W systemie Linux lub macOS:**
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages/Courses --referenceScriptLibraries
   ```
 
@@ -182,13 +182,13 @@ Utwórz *SchoolViewModels/InstructorIndexData. cs* przy użyciu następującego 
 
   **Na Windows:**
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
   ```
 
   **W systemie Linux lub macOS:**
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages/Instructors --referenceScriptLibraries
   ```
 
@@ -258,7 +258,7 @@ Poprzedni kod wprowadza następujące zmiany:
   }
   ```
 
-* Dodaje kolumnę **kursów** , która wyświetla nauczanie kursów przez każdego instruktora. Aby uzyskać więcej informacji na temat składni Razor, zobacz [ `@:` jawne przejście liniowe](xref:mvc/views/razor#explicit-line-transition-with-) .
+* Dodaje kolumnę **kursów** , która wyświetla nauczanie kursów przez każdego instruktora. Aby uzyskać więcej informacji na temat składni Razor, zobacz [jawne przejście `@:` liniowe](xref:mvc/views/razor#explicit-line-transition-with-) .
 
 * Dodaje kod, który dynamicznie `class="success"` dodaje `tr` do elementu wybranego instruktora i kursu. Ustawia kolor tła dla wybranego wiersza przy użyciu klasy Bootstrap.
 
@@ -297,7 +297,7 @@ Metoda może `Where` przekazać`Where` warunek zamiast wywołania metody osobno:
 
 `Single` Użycie z warunkiem WHERE jest kwestią preferencji osobistych. Nie zapewnia żadnych korzyści z używania `Where` metody.
 
-## <a name="explicit-loading"></a>Jawne ładowanie
+## <a name="explicit-loading"></a>jawne ładowanie
 
 Bieżący kod określa eager ładowania dla `Enrollments` i: `Students`
 
@@ -363,7 +363,7 @@ Istnieje kilka sposobów, EF Core mogą ładować powiązane dane do właściwo�
 
   ![Przykład jawnego ładowania](read-related-data/_static/explicit-loading.png)
 
-* [Ładowanie](/ef/core/querying/related-data#lazy-loading)z opóźnieniem. [Ładowanie z opóźnieniem zostało dodane do EF Core w wersji 2,1](/ef/core/querying/related-data#lazy-loading). Gdy obiekt jest najpierw odczytywany, powiązane dane nie są pobierane. Podczas pierwszego uzyskiwania dostępu do właściwości nawigacji dane wymagane dla tej właściwości nawigacji są pobierane automatycznie. Zapytanie jest wysyłane do bazy danych przy każdym dostępie do właściwości nawigacji po raz pierwszy.
+* [Ładowanie z opóźnieniem](/ef/core/querying/related-data#lazy-loading). [Ładowanie z opóźnieniem zostało dodane do EF Core w wersji 2,1](/ef/core/querying/related-data#lazy-loading). Gdy obiekt jest najpierw odczytywany, powiązane dane nie są pobierane. Podczas pierwszego uzyskiwania dostępu do właściwości nawigacji dane wymagane dla tej właściwości nawigacji są pobierane automatycznie. Zapytanie jest wysyłane do bazy danych przy każdym dostępie do właściwości nawigacji po raz pierwszy.
 
 * `Select` Operator ładuje tylko powiązane dane.
 
@@ -390,7 +390,7 @@ Postępuj zgodnie z instrukcjami w [tworzenia szkieletu modelu uczniów](xref:da
 
  Uruchom następujące polecenie:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
   ```
 
@@ -477,7 +477,7 @@ Postępuj zgodnie z instrukcjami w [tworzenia szkieletu modelu uczniów](xref:da
 
  Uruchom następujące polecenie:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
   ```
 
@@ -527,7 +527,7 @@ Poprzedni kod znaczników wprowadza następujące zmiany:
   }
   ```
 
-* Dodano kolumnę **kursów** , która wyświetla nauczanie kursów przez każdego instruktora. Aby uzyskać więcej informacji na temat składni Razor, zobacz [ `@:` jawne przejście liniowe](xref:mvc/views/razor#explicit-line-transition-with-) .
+* Dodano kolumnę **kursów** , która wyświetla nauczanie kursów przez każdego instruktora. Aby uzyskać więcej informacji na temat składni Razor, zobacz [jawne przejście `@:` liniowe](xref:mvc/views/razor#explicit-line-transition-with-) .
 
 * Dodano kod, który dynamicznie `class="success"` dodaje `tr` do elementu wybranego instruktora. Ustawia kolor tła dla wybranego wiersza przy użyciu klasy Bootstrap.
 
@@ -617,7 +617,7 @@ Metoda może `Where` przekazać`Where` warunek zamiast wywołania metody osobno:
 
 Poprzednie `Single` podejście nie zapewnia żadnych korzyści w porównaniu `Where`z korzystaniem z programu. Niektórzy deweloperzy preferują `Single` styl podejścia.
 
-## <a name="explicit-loading"></a>Jawne ładowanie
+## <a name="explicit-loading"></a>jawne ładowanie
 
 Bieżący kod określa eager ładowania dla `Enrollments` i: `Students`
 

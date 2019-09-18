@@ -1,53 +1,53 @@
 ---
 title: Wprowadzenie do platformy ASP.NET Core
 author: rick-anderson
-description: Krótki samouczek, który tworzy i uruchamia podstawową aplikację Hello World przy użyciu platformy ASP.NET Core.
+description: Krótki samouczek, który tworzy i uruchamia podstawową aplikację Hello world przy użyciu ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/15/2019
 uid: getting-started
-ms.openlocfilehash: c35251a0e49fbbffee7b8f5ea6905322b9042261
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: d1edf91f1b37ba2b69732471dc6c1f306ac5ad24
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67814936"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081129"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Samouczek: Wprowadzenie do platformy ASP.NET Core
 
-W tym samouczku przedstawiono sposób tworzenia i uruchamiania aplikacji sieci web platformy ASP.NET Core przy użyciu interfejsu wiersza polecenia platformy .NET Core.
+W tym samouczku pokazano, jak utworzyć i uruchomić ASP.NET Core aplikację sieci Web przy użyciu interfejsu wiersza polecenia platformy .NET Core.
 
 Dowiesz się, jak:
 
 > [!div class="checklist"]
-> * Tworzenie projektu aplikacji sieci web.
-> * Zaufanie certyfikatu deweloperskiego.
+> * Utwórz projekt aplikacji sieci Web.
+> * Zaufaj certyfikatowi Deweloperskiemu.
 > * Uruchom aplikację.
 > * Edytuj stronę Razor.
 
-Po zakończeniu będziesz mieć działającą aplikację sieci web uruchomiony na komputerze lokalnym.
+Na końcu będziesz mieć działającą aplikację sieci Web na komputerze lokalnym.
 
 ![Strona główna aplikacji sieci Web](_static/home-page.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [.NET core SDK 2,2](https://www.microsoft.com/net/download/all)
+* [Zestaw SDK platformy .NET Core 2,2](https://www.microsoft.com/net/download/all)
 
-## <a name="create-a-web-app-project"></a>Tworzenie projektu aplikacji sieci web
+## <a name="create-a-web-app-project"></a>Tworzenie projektu aplikacji sieci Web
 
-Otwórz powłokę wiersza polecenia i wpisz następujące polecenie:
+Otwórz powłokę poleceń i wprowadź następujące polecenie:
 
-```console
+```dotnetcli
 dotnet new webapp -o aspnetcoreapp
 ```
 
-### <a name="trust-the-development-certificate"></a>Zaufanie certyfikatu deweloperskiego
+### <a name="trust-the-development-certificate"></a>Ufanie certyfikatowi Deweloperskiemu
 
-Zaufanie certyfikatu deweloperskiego HTTPS:
+Ufaj certyfikatowi deweloperskim HTTPS:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-```console
+```dotnetcli
 dotnet dev-certs https --trust
 ```
 
@@ -59,56 +59,56 @@ Wybierz **Tak**, jeśli zgadzasz się ufać certyfikatowi programistycznemu.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-```console
+```dotnetcli
 dotnet dev-certs https --trust
 ```
 
-Poprzednie polecenie wyświetli następujący komunikat:
+Poprzednie polecenie wyświetla następujący komunikat:
 
-*Zażądano ufające certyfikatu deweloperskiego protokołu HTTPS. Jeśli certyfikat nie jest zaufany, firma Microsoft będzie uruchom następujące polecenie:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
+*Zażądano zaufania certyfikatu deweloperskiego HTTPS. Jeśli certyfikat nie jest już zaufany, zostanie uruchomione następujące polecenie:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
 
-To polecenie może monitować o hasło, aby zainstalować certyfikat w pęku kluczy systemu. Wprowadź hasło, jeśli zgadzasz się ufać certyfikatowi programistycznemu.
+To polecenie może wyświetlać monit o podanie hasła w celu zainstalowania certyfikatu w łańcuchu kluczy systemu. Wprowadź hasło, jeśli zgadzasz się ufać certyfikatowi programistycznemu.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-Dla podsystemu Windows dla systemu Linux, zobacz [z podsystemu Windows dla systemu Linux przy użyciu certyfikatu HTTPS zaufania](xref:security/enforcing-ssl#wsl).
+W przypadku podsystemu Windows dla systemu Linux Zobacz temat [zaufanie certyfikatu HTTPS z podsystemu Windows dla systemu Linux](xref:security/enforcing-ssl#wsl).
 
 Sprawdź w dokumentacji dla Twojej dystrybucji systemu Linux informacje na temat dodania certyfikatu deweloperskiego do zaufanych certyfikatów protokołu HTTPS.
 
 ---
 
-Aby uzyskać więcej informacji, zobacz [ufać certyfikatowi rozwoju platformy ASP.NET Core HTTPS](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos)
+Aby uzyskać więcej informacji, zobacz artykuł [ufanie certyfikatowi Deweloperskiemu protokołu HTTPS ASP.NET Core](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos)
 
 ## <a name="run-the-app"></a>Uruchamianie aplikacji
 
 Uruchom następujące polecenia:
 
-```console
+```dotnetcli
 cd aspnetcoreapp
 dotnet run
 ```
 
-Po powłoki poleceń wskazuje, że aplikacja została uruchomiona, przejdź do [ https://localhost:5001 ](https://localhost:5001). Kliknij przycisk **Akceptuj**, aby zaakceptować zasady ochrony prywatności i plików cookie. Ta aplikacja nie zachowuje informacji osobistych.
+Po powłoce poleceń wskazuje, że aplikacja została uruchomiona, przejdź do [https://localhost:5001](https://localhost:5001). Kliknij przycisk **Akceptuj**, aby zaakceptować zasady ochrony prywatności i plików cookie. Ta aplikacja nie zachowuje informacji osobistych.
 
-## <a name="edit-a-razor-page"></a>Edytuj stronę Razor
+## <a name="edit-a-razor-page"></a>Edytowanie strony Razor
 
-Otwórz *Pages/Index.cshtml* i modyfikować strony z następujący wyróżniony kod znaczników:
+Otwórz stronę *Pages/index. cshtml* i zmodyfikuj ją, korzystając z następującego wyróżnionego znacznika:
 
 [!code-cshtml[](sample/index.cshtml?highlight=9)]
 
-Przejdź do [ https://localhost:5001 ](https://localhost:5001)i Sprawdź zmiany są wyświetlane.
+Przejdź do [https://localhost:5001](https://localhost:5001)okna i sprawdź, czy zmiany są wyświetlane.
 
 ## <a name="next-steps"></a>Następne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Tworzenie projektu aplikacji sieci web.
-> * Zaufanie certyfikatu deweloperskiego.
+> * Utwórz projekt aplikacji sieci Web.
+> * Zaufaj certyfikatowi Deweloperskiemu.
 > * Uruchom projekt.
-> * Wprowadź zmiany.
+> * Wprowadź zmianę.
 
-Aby dowiedzieć się więcej na temat platformy ASP.NET Core, zobacz ze ścieżką szkoleniową zalecany we wstępie:
+Aby dowiedzieć się więcej na temat ASP.NET Core, zapoznaj się ze zalecaną ścieżką szkoleniową we wprowadzeniu:
 
 > [!div class="nextstepaction"]
 > <xref:index#recommended-learning-path>
