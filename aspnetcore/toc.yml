@@ -545,6 +545,10 @@
   items:
     - name: Wprowadzenie do usług gRPC
       uid: grpc/index
+    - name: Samouczki
+      items:
+        - name: Wprowadzenie do usługi gRPC
+          uid: tutorials/grpc/grpc-start
     - name: 'Usługi gRPC w środowisku C#'
       uid: grpc/basics
     - name: Usługi gRPC na platformie ASP.NET Core
@@ -563,6 +567,8 @@
       uid: grpc/migration
     - name: Porównanie usług gRPC za pomocą interfejsów API protokołu HTTP
       uid: grpc/comparison
+    - name: Przykłady
+      href: 'https://github.com/grpc/grpc-dotnet/tree/master/examples'
     - name: Rozwiązywanie problemów
       uid: grpc/troubleshoot
 - name: 'Testowanie, debugowanie i rozwiązywanie problemów'
@@ -999,7 +1005,7 @@
     - name: Lista bezpiecznych adresów IP
       uid: security/ip-safelist
     - name: Zabezpieczenia aplikacji — OWASP
-      href: 'https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/DotNet_Security_Cheat_Sheet.md'
+      href: 'https://cheatsheetseries.owasp.org/cheatsheets/DotNet_Security_Cheat_Sheet.html'
     - name: Blazor
       items:
         - name: Omówienie
