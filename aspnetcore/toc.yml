@@ -448,6 +448,8 @@
       uid: web-api/advanced/analyzers
     - name: Konwencje
       uid: web-api/advanced/conventions
+    - name: Obsługa błędów
+      uid: web-api/handle-errors
     - name: Testowanie interfejsów API za pomocą narzędzia HTTP REPL
       uid: web-api/http-repl
 - name: Aplikacje w czasie rzeczywistym

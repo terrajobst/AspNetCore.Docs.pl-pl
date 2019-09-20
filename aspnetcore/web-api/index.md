@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/12/2019
 uid: web-api/index
-ms.openlocfilehash: 6e1868690a2c384307a23c89467505d3ed8916db
-ms.sourcegitcommit: 805f625d16d74e77f02f5f37326e5aceafcb78e3
+ms.openlocfilehash: aab9b848eb6e69055b019c9253c716898e9847e2
+ms.sourcegitcommit: a11f09c10ef3d4eeab7ae9ce993e7f30427741c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985459"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71149343"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>Tworzenie internetowych interfejsów API za pomocą ASP.NET Core
 
@@ -141,7 +141,7 @@ namespace WebApiSample
 
 ## <a name="attribute-routing-requirement"></a>Wymagania dotyczące routingu atrybutów
 
-`[ApiController]` Atrybut powoduje, że atrybut routingu wymaga. Przykład:
+`[ApiController]` Atrybut powoduje, że atrybut routingu wymaga. Na przykład:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -159,7 +159,7 @@ Akcje są niedostępne za pośrednictwem [konwencjonalnych tras](xref:mvc/contro
 
 ::: moniker-end
 
-## <a name="automatic-http-400-responses"></a>Automatyczne odpowiedzi HTTP 400
+### <a name="automatic-http-400-responses"></a>Automatyczne odpowiedzi HTTP 400
 
 Ten `[ApiController]` atrybut sprawia, że błędy walidacji modelu automatycznie wyzwalają odpowiedź HTTP 400. W związku z tym Poniższy kod jest zbędny w metodzie akcji:
 
@@ -172,7 +172,7 @@ if (!ModelState.IsValid)
 
 ASP.NET Core MVC używa filtru <xref:Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter> akcji, aby wykonać poprzednią kontrolę.
 
-### <a name="default-badrequest-response"></a>Domyślna odpowiedź nieprawidłowego żądania 
+### <a name="default-badrequest-response"></a>Domyślna odpowiedź nieprawidłowego żądania
 
 W przypadku zgodności z wersją 2,1, domyślny typ odpowiedzi dla odpowiedzi HTTP 400 to <xref:Microsoft.AspNetCore.Mvc.SerializableError>. Następująca treść żądania jest przykładem serializowanego typu:
 
@@ -206,36 +206,6 @@ W przypadku zgodności z wersją 2,2 lub nowszą domyślny typ odpowiedzi dla od
 
 * Zapewnia czytelny dla maszyn format służący do określania błędów w odpowiedziach interfejsu API sieci Web.
 * Jest zgodna ze [specyfikacją RFC 7807](https://tools.ietf.org/html/rfc7807).
-
-Aby zmienić domyślny typ odpowiedzi na `SerializableError`, Zastosuj wyróżnione zmiany w: `Startup.ConfigureServices`
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-3.0"
-
-[!code-csharp[](index/samples/3.x/Startup.cs?name=snippet_DisableProblemDetailsInvalidModelStateResponseFactory&highlight=4-13)]
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.2"
-
-[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_DisableProblemDetailsInvalidModelStateResponseFactory&highlight=5-14)]
-
-::: moniker-end
-
-### <a name="customize-badrequest-response"></a>Dostosuj odpowiedź nieprawidłowego żądania
-
-Aby dostosować odpowiedź będącą wynikiem błędu walidacji, użyj <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory>. Na przykład:
-
-::: moniker range=">= aspnetcore-3.0"
-
-[!code-csharp[](index/samples/3.x/Startup.cs?name=snippet_ConfigureBadRequestResponse&highlight=4-20)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.2"
-
-[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureBadRequestResponse&highlight=5-21)]
 
 ::: moniker-end
 
@@ -283,7 +253,7 @@ W poniższym przykładzie `[FromQuery]` atrybut wskazuje, `discontinuedOnly` że
 
 Ten `[ApiController]` atrybut stosuje reguły wnioskowania dla domyślnych źródeł danych parametrów akcji. Te reguły zapisują nie trzeba ręcznie identyfikować źródeł powiązań przez zastosowanie atrybutów do parametrów akcji. Reguły wnioskowania źródła powiązań zachowują się w następujący sposób:
 
-* `[FromBody]`jest wywnioskowany dla parametrów typu złożonego. Wyjątek od `[FromBody]` reguły wnioskowania jest dowolnego złożonego, wbudowanego typu z specjalnym znaczeniem, takim jak <xref:Microsoft.AspNetCore.Http.IFormCollection> i <xref:System.Threading.CancellationToken>. Kod wnioskowania źródła powiązania ignoruje te typy specjalne. 
+* `[FromBody]`jest wywnioskowany dla parametrów typu złożonego. Wyjątek od `[FromBody]` reguły wnioskowania jest dowolnego złożonego, wbudowanego typu z specjalnym znaczeniem, takim jak <xref:Microsoft.AspNetCore.Http.IFormCollection> i <xref:System.Threading.CancellationToken>. Kod wnioskowania źródła powiązania ignoruje te typy specjalne.
 * `[FromForm]`jest wywnioskowany dla parametrów akcji typu <xref:Microsoft.AspNetCore.Http.IFormFile> i. <xref:Microsoft.AspNetCore.Http.IFormFileCollection> Nie jest wywnioskowane dla żadnego prostego lub zdefiniowanego przez użytkownika typu.
 * `[FromRoute]`jest wywnioskowany dla każdej nazwy parametru akcji pasującej do parametru w szablonie trasy. W przypadku, gdy więcej niż jedna trasa pasuje do parametru akcji, uwzględniana `[FromRoute]`jest jakakolwiek wartość trasy.
 * `[FromQuery]`jest wywnioskowany dla wszystkich innych parametrów akcji.
@@ -375,22 +345,6 @@ Metoda generuje kod stanu HTTP 404 `ProblemDetails` z treścią. `NotFound` Na p
 }
 ```
 
-### <a name="customize-problemdetails-response"></a>Dostosuj odpowiedź ProblemDetails
-
-Użyj właściwości <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.ClientErrorMapping*> , aby skonfigurować zawartość `ProblemDetails` odpowiedzi. Na przykład poniższy kod aktualizuje `type` właściwość dla 404 odpowiedzi:
-
-::: moniker range=">= aspnetcore-3.0"
-
-[!code-csharp[](index/samples/3.x/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=8-9)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.2"
-
-[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=9-10)]
-
-::: moniker-end
-
 ### <a name="disable-problemdetails-response"></a>Wyłącz odpowiedź ProblemDetails
 
 Automatyczne tworzenie `ProblemDetails` wystąpienia jest wyłączone, <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressMapClientErrors*> gdy właściwość jest ustawiona na `true`. Dodaj następujący kod w `Startup.ConfigureServices`:
@@ -407,9 +361,10 @@ Automatyczne tworzenie `ProblemDetails` wystąpienia jest wyłączone, <xref:Mic
 
 ::: moniker-end
 
-## <a name="additional-resources"></a>Dodatkowe zasoby 
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * <xref:web-api/action-return-types>
+* <xref:web-api/handle-errors>
 * <xref:web-api/advanced/custom-formatters>
 * <xref:web-api/advanced/formatting>
 * <xref:tutorials/web-api-help-pages-using-swagger>
