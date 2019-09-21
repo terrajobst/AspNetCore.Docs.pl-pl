@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc, seoapril2019
 ms.date: 09/05/2019
 uid: blazor/index
-ms.openlocfilehash: 767ec8f106bebb92cf13a10eb63fab4905715d3d
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: 378892efafa6b979d7f92a5e559b2dc8bb12295d
+ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70964100"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168252"
 ---
 # <a name="introduction-to-blazor"></a>Wprowadzenie do Blazor
 
@@ -101,7 +101,9 @@ Gdy ten składnik jest używany w aplikacji, funkcja IntelliSense w programie [V
 
 Składniki są renderowane w pamięci podręcznej Document Object Model (DOM) przeglądarki o nazwie *drzewo renderowania*, która jest używana do aktualizowania interfejsu użytkownika w elastyczny i wydajny sposób.
 
-## <a name="blazor-webassembly"></a>Zestaw webBlazor
+## <a name="blazor-webassembly"></a>Zestaw WebAssembly Blazor
+
+[!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
 Blazor webassembly to jednostronicowa platforma aplikacji służąca do tworzenia interaktywnych aplikacji sieci Web po stronie klienta przy użyciu platformy .NET. Blazor webassembly używa otwartych standardów sieci Web bez wtyczek lub kodu transpilation i działa we wszystkich nowoczesnych przeglądarkach sieci Web, w tym w przeglądarkach dla urządzeń przenośnych.
 

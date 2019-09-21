@@ -1,33 +1,35 @@
 ---
-title: Konfigurowanie konsolidatora dla Blazor platformy ASP.NET Core
+title: Skonfiguruj konsolidator dla ASP.NET Core Blazor
 author: guardrex
-description: Dowiedz się, jak kontrolować konsolidatora języka pośredniego (IL), podczas kompilowania aplikacji Blazor.
+description: Dowiedz się, jak kontrolować konsolidator języka pośredniego (IL) podczas kompilowania aplikacji Blazor.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 07/02/2019
 uid: host-and-deploy/blazor/configure-linker
-ms.openlocfilehash: 03be18e7ee6ca8103e1a666da9e693ff67267d83
-ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
+ms.openlocfilehash: cf017ec6d6de3c5848b866b0c29781f283c5de44
+ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538630"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71167991"
 ---
-# <a name="configure-the-linker-for-aspnet-core-blazor"></a>Konfigurowanie konsolidatora dla Blazor platformy ASP.NET Core
+# <a name="configure-the-linker-for-aspnet-core-blazor"></a>Skonfiguruj konsolidator dla ASP.NET Core Blazor
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-Wykonuje Blazor [języka pośredniego (IL)](/dotnet/standard/managed-code#intermediate-language--execution) łączenia podczas kompilacji wydania, aby usunąć niepotrzebne IL z aplikacji danych wyjściowych zestawów.
+[!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Zestaw Kontrola połączeń przy użyciu jednej z następujących metod:
+Blazor wykonuje konsolidację [języka pośredniego (IL)](/dotnet/standard/managed-code#intermediate-language--execution) podczas kompilacji wydania, aby usunąć niepotrzebny kod IL z zestawów wyjściowych aplikacji.
 
-* Wyłącz konsolidowanie globalnie za pomocą [właściwość MSBuild](#disable-linking-with-a-msbuild-property).
-* Formant konsolidacji na podstawie na zestawie [pliku konfiguracyjnego](#control-linking-with-a-configuration-file).
+Łączenie zestawu sterującego przy użyciu jednej z następujących metod:
 
-## <a name="disable-linking-with-a-msbuild-property"></a>Wyłącz konsolidowanie za pomocą właściwości programu MSBuild
+* Wyłącz konsolidację globalnie za pomocą [Właściwości programu MSBuild](#disable-linking-with-a-msbuild-property).
+* Kontrolowanie łączenia poszczególnych zestawów z [plikiem konfiguracyjnym](#control-linking-with-a-configuration-file).
 
-Łączenie jest domyślnie włączanych w trybie wydania kompilowana jest aplikacja, która obejmuje publikowania. Aby wyłączyć łączenie dla wszystkich zestawów, należy ustawić `BlazorLinkOnBuild` właściwości programu MSBuild `false` w pliku projektu:
+## <a name="disable-linking-with-a-msbuild-property"></a>Wyłącz łączenie z właściwością programu MSBuild
+
+Konsolidacja jest włączona domyślnie w trybie wydania, gdy aplikacja jest skompilowana, co obejmuje publikowanie. Aby wyłączyć łączenie dla wszystkich zestawów, ustaw `BlazorLinkOnBuild` Właściwość programu MSBuild na `false` w pliku projektu:
 
 ```xml
 <PropertyGroup>
@@ -35,9 +37,9 @@ Zestaw Kontrola połączeń przy użyciu jednej z następujących metod:
 </PropertyGroup>
 ```
 
-## <a name="control-linking-with-a-configuration-file"></a>Łączenie się z plikiem konfiguracyjnym kontroli
+## <a name="control-linking-with-a-configuration-file"></a>Kontrola łączenia z plikiem konfiguracji
 
-Kontrola konsolidacji na podstawie poszczególnych zestawów, zapewniając plik konfiguracyjny XML i określenie pliku jako element programu MSBuild w pliku projektu:
+Kontroluj łączenie dla poszczególnych zestawów, dostarczając plik konfiguracyjny XML i określając plik jako element programu MSBuild w pliku projektu:
 
 ```xml
 <ItemGroup>
@@ -45,7 +47,7 @@ Kontrola konsolidacji na podstawie poszczególnych zestawów, zapewniając plik 
 </ItemGroup>
 ```
 
-*Linker.XML*:
+*Konsolidator. XML*:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -77,4 +79,4 @@ Kontrola konsolidacji na podstawie poszczególnych zestawów, zapewniając plik 
 </linker>
 ```
 
-Aby uzyskać więcej informacji, zobacz [IL konsolidatora: Składnia xml deskryptora](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor).
+Aby uzyskać więcej informacji, [Zobacz Il konsolidator: Składnia deskryptora](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor)XML.

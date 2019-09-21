@@ -3,14 +3,14 @@ title: Dokumentacja składni razor dla platformy ASP.NET Core
 author: rick-anderson
 description: Więcej informacji na temat składni znacznikowania Razor do osadzania kodu na serwerze do stron sieci Web.
 ms.author: riande
-ms.date: 08/05/2019
+ms.date: 09/19/2019
 uid: mvc/views/razor
-ms.openlocfilehash: 75bf0e792ff7975f03e0f7c2fa6a71ed74d813e1
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: 9a319f7efb6d879559afd9faca6955aba719fa2f
+ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819796"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168291"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Dokumentacja składni razor dla platformy ASP.NET Core
 
@@ -459,7 +459,7 @@ W dalszej części tego artykułu sekcji [sprawdzić Razor C# klasy wygenerowane
 
 *Ten scenariusz dotyczy tylko składników Razor (Razor).*
 
-Blok umożliwia składnikowi [Razor](xref:blazor/components) Dodawanie C# elementów członkowskich (pól, właściwości i metod) do składnika: `@code`
+Blok umożliwia [składnikowi Razor](xref:blazor/components) Dodawanie C# elementów członkowskich (pól, właściwości i metod) do składnika: `@code`
 
 ```cshtml
 @code {
@@ -738,6 +738,12 @@ Atrybut `@key` dyrektywy powoduje, że algorytmy porównujące składniki, aby z
 *Ten scenariusz dotyczy tylko składników Razor (Razor).*
 
 Odwołania do składników`@ref`() umożliwiają odwoływanie się do wystąpienia składnika, dzięki czemu można wydać polecenia do tego wystąpienia. Aby uzyskać więcej informacji, zobacz <xref:blazor/components#capture-references-to-components>.
+
+### <a name="typeparam"></a>\@typeparam
+
+*Ten scenariusz dotyczy tylko składników Razor (Razor).*
+
+`@typeparam` Dyrektywa deklaruje parametr typu ogólnego dla wygenerowanej klasy składnika. Aby uzyskać więcej informacji, zobacz <xref:blazor/components#generic-typed-components>.
 
 ::: moniker-end
 
