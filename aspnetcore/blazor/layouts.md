@@ -5,14 +5,14 @@ description: Dowiedz się, jak tworzyć składniki układu wielokrotnego użytku
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/06/2019
+ms.date: 09/21/2019
 uid: blazor/layouts
-ms.openlocfilehash: 05a38c10e18407d50422192ab1ddf3ff4b0f3a5b
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: 6ae795f720cd2cc1010ebec46bcee877b31d20c6
+ms.sourcegitcommit: 04ce94b3c1b01d167f30eed60c1c95446dfe759d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800363"
+ms.lasthandoff: 09/21/2019
+ms.locfileid: "71176424"
 ---
 # <a name="aspnet-core-blazor-layouts"></a>ASP.NET Core układy Blazor
 
@@ -45,6 +45,8 @@ Aby podać domyślny układ `NotFound` zawartości, `LayoutView` Określ dla `No
 
 Aby uzyskać więcej informacji na `Router` temat składnika, <xref:blazor/routing>Zobacz.
 
+Określanie układu jako domyślnego układu w routerze jest przydatnym rozwiązaniem, ponieważ może być zastąpione dla poszczególnych składników lub folderów. Preferuj użycie routera do ustawienia domyślnego układu aplikacji, ponieważ jest to najbardziej ogólna technika.
+
 ## <a name="specify-a-layout-in-a-component"></a>Określanie układu w składniku
 
 Użyj dyrektywy `@layout` Razor, aby zastosować układ do składnika. Kompilator konwertuje `@layout` `LayoutAttribute`do, który jest stosowany do klasy składnika.
@@ -52,6 +54,8 @@ Użyj dyrektywy `@layout` Razor, aby zastosować układ do składnika. Kompilato
 Zawartość następującego `MasterList` składnika jest wstawiana `MasterLayout` do pozycji `@Body`:
 
 [!code-cshtml[](layouts/sample_snapshot/3.x/MasterList.razor?highlight=1)]
+
+Określanie układu bezpośrednio w składniku zastępuje domyślny zestaw *układów* w routerze lub `@layout` dyrektywę zaimportowaną z *_Imports. Razor*.
 
 ## <a name="centralized-layout-selection"></a>Scentralizowany wybór układu
 
@@ -66,6 +70,8 @@ Następujące Importy pliku *_Imports. Razor* :
 [!code-cshtml[](layouts/sample_snapshot/3.x/_Imports.razor)]
 
 Plik *_Imports. Razor* jest podobny do [pliku _ViewImports. cshtml dla widoków i stron Razor,](xref:mvc/views/layout#importing-shared-directives) ale jest stosowany w odniesieniu do plików składników Razor.
+
+Określanie układu w *_Imports. Razor* przesłania układ określony jako *domyślny układ*routera.
 
 ## <a name="nested-layouts"></a>Układy zagnieżdżone
 

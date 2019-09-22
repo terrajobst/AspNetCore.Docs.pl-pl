@@ -5,14 +5,14 @@ description: Dowiedz się, jak tworzyć i używać składników Razor, w tym jak
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/19/2019
+ms.date: 09/21/2019
 uid: blazor/components
-ms.openlocfilehash: 55b40bc640715bf4052fa99ed68f63250b67e8d1
-ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
+ms.openlocfilehash: cf12be950043095b7e3e5eab897dd626021cb982
+ms.sourcegitcommit: 04ce94b3c1b01d167f30eed60c1c95446dfe759d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168225"
+ms.lasthandoff: 09/21/2019
+ms.locfileid: "71176390"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
@@ -27,14 +27,6 @@ Aplikacje Blazor są kompilowane przy użyciu *składników*programu. Składnik 
 Składniki są zaimplementowane w plikach składników [Razor](xref:mvc/views/razor) ( *. Razor*) przy użyciu kombinacji C# i znaczników HTML. Składnik w Blazor jest formalnie określany jako *składnik Razor*.
 
 Nazwa składnika musi rozpoczynać się wielką literą. Na przykład *MyCoolComponent. Razor* jest prawidłowy, a *MyCoolComponent. Razor* jest nieprawidłowy.
-
-Składniki można tworzyć przy użyciu rozszerzenia pliku *. cshtml* , o ile pliki są identyfikowane jako pliki składników Razor przy użyciu `_RazorComponentInclude` właściwości MSBuild. Na przykład aplikacja, która określa, że wszystkie pliki *. cshtml* w folderze *Pages* powinny być traktowane jako pliki składników Razor:
-
-```xml
-<PropertyGroup>
-  <_RazorComponentInclude>Pages\**\*.cshtml</_RazorComponentInclude>
-</PropertyGroup>
-```
 
 Interfejs użytkownika dla składnika jest definiowany przy użyciu języka HTML. Logika renderowania dynamicznego (na przykład pętle, warunkowe, wyrażenia) jest dodawana przy C# użyciu osadzonej składni o nazwie [Razor](xref:mvc/views/razor). Po skompilowaniu aplikacji logika znaczników HTML i C# renderowania jest konwertowana na klasę składnika. Nazwa wygenerowanej klasy jest zgodna z nazwą pliku.
 
@@ -1046,6 +1038,9 @@ Jeśli `IsCompleted` jest`false`, pole wyboru jest renderowane jako:
 
 Aby uzyskać więcej informacji, zobacz <xref:mvc/views/razor>.
 
+> [!WARNING]
+> Niektóre atrybuty HTML, takie jak [Aria](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/button_role#Toggle_buttons), nie działają prawidłowo, gdy typem .NET jest `bool`. W takich przypadkach należy użyć `string` typu zamiast. `bool`
+
 ## <a name="raw-html"></a>Nieprzetworzony kod HTML
 
 Ciągi są zwykle renderowane przy użyciu węzłów tekstowych DOM, co oznacza, że wszystkie znaczniki, które mogą zawierać, są ignorowane i traktowane jako tekst literału. Aby renderować nieprzetworzony kod HTML, zawiń zawartość HTML w `MarkupString` wartości. Wartość jest analizowana jako plik HTML lub SVG i wstawiona do modelu DOM.
@@ -1333,7 +1328,7 @@ Renderowane dane wyjściowe poprzedniego kodu:
 
 ## <a name="manual-rendertreebuilder-logic"></a>Ręczna logika RenderTreeBuilder
 
-`Microsoft.AspNetCore.Components.RenderTree`zapewnia metody manipulowania składnikami i elementami, w tym ręczne Kompilowanie C# składników w kodzie.
+`Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder`zapewnia metody manipulowania składnikami i elementami, w tym ręczne Kompilowanie C# składników w kodzie.
 
 > [!NOTE]
 > Korzystanie z `RenderTreeBuilder` programu do tworzenia składników jest zaawansowanym scenariuszem. Nieprawidłowo sformułowany składnik (na przykład niezamknięty tag znacznika) może spowodować niezdefiniowane zachowanie.
@@ -1386,6 +1381,8 @@ W poniższym przykładzie pętla w `CreateComponent` metodzie generuje trzy `Pet
     }
 }
 ```
+
+> ! WYŚWIETLANIA Typy w programie `Microsoft.AspNetCore.Components.RenderTree` umożliwiają przetwarzanie *wyników* operacji renderowania. Są to wewnętrzne szczegóły implementacji platformy Blazor Framework. Te typy powinny być uznawane za *niestabilne* i mogą ulec zmianie w przyszłych wersjach.
 
 ### <a name="sequence-numbers-relate-to-code-line-numbers-and-not-execution-order"></a>Numery sekwencji odnoszą się do numerów wierszy kodu, a nie kolejności wykonywania
 
