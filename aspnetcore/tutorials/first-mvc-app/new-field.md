@@ -134,5 +134,5 @@ dotnet ef database update
 Uruchom aplikację i sprawdź, czy można tworzyć/edytować/wyświetlać filmy z `Rating` polem. Należy dodać `Rating` pole `Edit`do szablonów, `Details`i `Delete` .
 
 > [!div class="step-by-step"]
-> [Poprzedni](search.md)Następny
-> [](validation.md)
+> [Poprzedni](search.md)
+> [Następny](validation.md)
