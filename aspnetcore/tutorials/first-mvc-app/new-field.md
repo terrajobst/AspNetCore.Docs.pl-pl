@@ -13,116 +13,116 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 09/18/2019
 ms.locfileid: "71082314"
 ---
-# <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a><span data-ttu-id="b9855-103">Dodawanie nowego pola do aplikacji ASP.NET Core MVC</span><span class="sxs-lookup"><span data-stu-id="b9855-103">Add a new field to an ASP.NET Core MVC app</span></span>
+# <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a><span data-ttu-id="6bbc6-103">Dodawanie nowego pola do aplikacji ASP.NET Core MVC</span><span class="sxs-lookup"><span data-stu-id="6bbc6-103">Add a new field to an ASP.NET Core MVC app</span></span>
 
-<span data-ttu-id="b9855-104">Przez [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="b9855-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="6bbc6-104">Przez [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="6bbc6-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="b9855-105">W tej sekcji [Entity Framework](/ef/core/get-started/aspnetcore/new-db) migracje Code First służy do:</span><span class="sxs-lookup"><span data-stu-id="b9855-105">In this section [Entity Framework](/ef/core/get-started/aspnetcore/new-db) Code First Migrations is used to:</span></span>
+<span data-ttu-id="6bbc6-105">W tej sekcji [Entity Framework](/ef/core/get-started/aspnetcore/new-db) migracje Code First służy do:</span><span class="sxs-lookup"><span data-stu-id="6bbc6-105">In this section [Entity Framework](/ef/core/get-started/aspnetcore/new-db) Code First Migrations is used to:</span></span>
 
-* <span data-ttu-id="b9855-106">Dodaj nowe pole do modelu.</span><span class="sxs-lookup"><span data-stu-id="b9855-106">Add a new field to the model.</span></span>
-* <span data-ttu-id="b9855-107">Migruj nowe pole do bazy danych.</span><span class="sxs-lookup"><span data-stu-id="b9855-107">Migrate the new field to the database.</span></span>
+* <span data-ttu-id="6bbc6-106">Dodaj nowe pole do modelu.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-106">Add a new field to the model.</span></span>
+* <span data-ttu-id="6bbc6-107">Migruj nowe pole do bazy danych.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-107">Migrate the new field to the database.</span></span>
 
-<span data-ttu-id="b9855-108">Gdy Code First EF jest używany do automatycznego tworzenia bazy danych, Code First:</span><span class="sxs-lookup"><span data-stu-id="b9855-108">When EF Code First is used to automatically create a database, Code First:</span></span>
+<span data-ttu-id="6bbc6-108">Gdy Code First EF jest używany do automatycznego tworzenia bazy danych, Code First:</span><span class="sxs-lookup"><span data-stu-id="6bbc6-108">When EF Code First is used to automatically create a database, Code First:</span></span>
 
-* <span data-ttu-id="b9855-109">Dodaje tabelę do bazy danych w celu śledzenia schematu bazy danych.</span><span class="sxs-lookup"><span data-stu-id="b9855-109">Adds a table to the database to  track the schema of the database.</span></span>
-* <span data-ttu-id="b9855-110">Weryfikuje, czy baza danych jest zsynchronizowana z klasami modelu, z których została wygenerowana.</span><span class="sxs-lookup"><span data-stu-id="b9855-110">Verifies the database is in sync with the model classes it was generated from.</span></span> <span data-ttu-id="b9855-111">Jeśli nie są zsynchronizowane, EF zgłasza wyjątek.</span><span class="sxs-lookup"><span data-stu-id="b9855-111">If they aren't in sync, EF throws an exception.</span></span> <span data-ttu-id="b9855-112">Ułatwia to znalezienie niespójnych problemów z bazą danych i kodem.</span><span class="sxs-lookup"><span data-stu-id="b9855-112">This makes it easier to find inconsistent database/code issues.</span></span>
+* <span data-ttu-id="6bbc6-109">Dodaje tabelę do bazy danych w celu śledzenia schematu bazy danych.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-109">Adds a table to the database to  track the schema of the database.</span></span>
+* <span data-ttu-id="6bbc6-110">Weryfikuje, czy baza danych jest zsynchronizowana z klasami modelu, z których została wygenerowana.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-110">Verifies the database is in sync with the model classes it was generated from.</span></span> <span data-ttu-id="6bbc6-111">Jeśli nie są zsynchronizowane, EF zgłasza wyjątek.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-111">If they aren't in sync, EF throws an exception.</span></span> <span data-ttu-id="6bbc6-112">Ułatwia to znalezienie niespójnych problemów z bazą danych i kodem.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-112">This makes it easier to find inconsistent database/code issues.</span></span>
 
-## <a name="add-a-rating-property-to-the-movie-model"></a><span data-ttu-id="b9855-113">Dodawanie właściwości oceny do modelu filmu</span><span class="sxs-lookup"><span data-stu-id="b9855-113">Add a Rating Property to the Movie Model</span></span>
+## <a name="add-a-rating-property-to-the-movie-model"></a><span data-ttu-id="6bbc6-113">Dodawanie właściwości oceny do modelu filmu</span><span class="sxs-lookup"><span data-stu-id="6bbc6-113">Add a Rating Property to the Movie Model</span></span>
 
-<span data-ttu-id="b9855-114">Dodaj właściwość do *modeli/filmów. cs:* `Rating`</span><span class="sxs-lookup"><span data-stu-id="b9855-114">Add a `Rating` property to *Models/Movie.cs*:</span></span>
+<span data-ttu-id="6bbc6-114">Dodaj właściwość do *modeli/filmów. cs:* `Rating`</span><span class="sxs-lookup"><span data-stu-id="6bbc6-114">Add a `Rating` property to *Models/Movie.cs*:</span></span>
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Models/MovieDateRating.cs?highlight=13&name=snippet)]
 
-<span data-ttu-id="b9855-115">Tworzenie aplikacji</span><span class="sxs-lookup"><span data-stu-id="b9855-115">Build the app</span></span>
+<span data-ttu-id="6bbc6-115">Tworzenie aplikacji</span><span class="sxs-lookup"><span data-stu-id="6bbc6-115">Build the app</span></span>
 
-### <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="b9855-116">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b9855-116">Visual Studio</span></span>](#tab/visual-studio)
+### <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="6bbc6-116">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="6bbc6-116">Visual Studio</span></span>](#tab/visual-studio)
 
- <span data-ttu-id="b9855-117">Ctrl+Shift+B</span><span class="sxs-lookup"><span data-stu-id="b9855-117">Ctrl+Shift+B</span></span>
+ <span data-ttu-id="6bbc6-117">Ctrl+Shift+B</span><span class="sxs-lookup"><span data-stu-id="6bbc6-117">Ctrl+Shift+B</span></span>
 
-### <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="b9855-118">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="b9855-118">Visual Studio Code</span></span>](#tab/visual-studio-code)
+### <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="6bbc6-118">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="6bbc6-118">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
 ```dotnetcli
 dotnet build
 ```
 
-### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="b9855-119">Visual Studio for Mac</span><span class="sxs-lookup"><span data-stu-id="b9855-119">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="6bbc6-119">Visual Studio for Mac</span><span class="sxs-lookup"><span data-stu-id="6bbc6-119">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-<span data-ttu-id="b9855-120">Polecenie ⌘ + B</span><span class="sxs-lookup"><span data-stu-id="b9855-120">Command ⌘ + B</span></span>
+<span data-ttu-id="6bbc6-120">Polecenie ⌘ + B</span><span class="sxs-lookup"><span data-stu-id="6bbc6-120">Command ⌘ + B</span></span>
 
 ------
 
-<span data-ttu-id="b9855-121">Ponieważ dodano nowe pole do `Movie` klasy, należy zaktualizować białe listy powiązań, aby ta nowa właściwość została uwzględniona.</span><span class="sxs-lookup"><span data-stu-id="b9855-121">Because you've added a new field to the `Movie` class, you need to update the binding white list so this new property will be included.</span></span> <span data-ttu-id="b9855-122">W *programie MoviesController.cs*zaktualizuj `[Bind]` `Create` atrybut dla obu metod i `Edit` , aby uwzględnić `Rating` Właściwość:</span><span class="sxs-lookup"><span data-stu-id="b9855-122">In *MoviesController.cs*, update the `[Bind]` attribute for both the `Create` and `Edit` action methods to include the `Rating` property:</span></span>
+<span data-ttu-id="6bbc6-121">Ponieważ dodano nowe pole do `Movie` klasy, należy zaktualizować białe listy powiązań, aby ta nowa właściwość została uwzględniona.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-121">Because you've added a new field to the `Movie` class, you need to update the binding white list so this new property will be included.</span></span> <span data-ttu-id="6bbc6-122">W *programie MoviesController.cs*zaktualizuj `[Bind]` `Create` atrybut dla obu metod i `Edit` , aby uwzględnić `Rating` Właściwość:</span><span class="sxs-lookup"><span data-stu-id="6bbc6-122">In *MoviesController.cs*, update the `[Bind]` attribute for both the `Create` and `Edit` action methods to include the `Rating` property:</span></span>
 
 ```csharp
 [Bind("Id,Title,ReleaseDate,Genre,Price,Rating")]
    ```
 
-<span data-ttu-id="b9855-123">Aktualizowanie szablonów widoku w celu wyświetlania, tworzenia i edytowania nowej `Rating` właściwości w widoku przeglądarki.</span><span class="sxs-lookup"><span data-stu-id="b9855-123">Update the view templates in order to display, create, and edit the new `Rating` property in the browser view.</span></span>
+<span data-ttu-id="6bbc6-123">Aktualizowanie szablonów widoku w celu wyświetlania, tworzenia i edytowania nowej `Rating` właściwości w widoku przeglądarki.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-123">Update the view templates in order to display, create, and edit the new `Rating` property in the browser view.</span></span>
 
-<span data-ttu-id="b9855-124">Edytuj plik */views/Movies/index.cshtml* i Dodaj `Rating` pole:</span><span class="sxs-lookup"><span data-stu-id="b9855-124">Edit the */Views/Movies/Index.cshtml* file and add a `Rating` field:</span></span>
+<span data-ttu-id="6bbc6-124">Edytuj plik */views/Movies/index.cshtml* i Dodaj `Rating` pole:</span><span class="sxs-lookup"><span data-stu-id="6bbc6-124">Edit the */Views/Movies/Index.cshtml* file and add a `Rating` field:</span></span>
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexGenreRating.cshtml?highlight=16,38&range=24-64)]
 
-<span data-ttu-id="b9855-125">Zaktualizuj */views/Movies/Create.cshtml* z `Rating` polem.</span><span class="sxs-lookup"><span data-stu-id="b9855-125">Update the */Views/Movies/Create.cshtml* with a `Rating` field.</span></span>
+<span data-ttu-id="6bbc6-125">Zaktualizuj */views/Movies/Create.cshtml* z `Rating` polem.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-125">Update the */Views/Movies/Create.cshtml* with a `Rating` field.</span></span>
 
-# <a name="visual-studio--visual-studio-for-mactabvisual-studiovisual-studio-mac"></a>[<span data-ttu-id="b9855-126">Visual Studio/Visual Studio dla komputerów Mac</span><span class="sxs-lookup"><span data-stu-id="b9855-126">Visual Studio / Visual Studio for Mac</span></span>](#tab/visual-studio+visual-studio-mac)
+# <a name="visual-studio--visual-studio-for-mactabvisual-studiovisual-studio-mac"></a>[<span data-ttu-id="6bbc6-126">Visual Studio/Visual Studio dla komputerów Mac</span><span class="sxs-lookup"><span data-stu-id="6bbc6-126">Visual Studio / Visual Studio for Mac</span></span>](#tab/visual-studio+visual-studio-mac)
 
-<span data-ttu-id="b9855-127">Możesz skopiować/wkleić poprzednią "grupę formularzy" i pozwól, aby funkcja intelliSense mogła zaktualizować pola.</span><span class="sxs-lookup"><span data-stu-id="b9855-127">You can copy/paste the previous "form group" and let intelliSense help you update the fields.</span></span> <span data-ttu-id="b9855-128">Technologia IntelliSense współpracuje z [pomocnikami tagów](xref:mvc/views/tag-helpers/intro).</span><span class="sxs-lookup"><span data-stu-id="b9855-128">IntelliSense works with [Tag Helpers](xref:mvc/views/tag-helpers/intro).</span></span>
+<span data-ttu-id="6bbc6-127">Możesz skopiować/wkleić poprzednią "grupę formularzy" i pozwól, aby funkcja intelliSense mogła zaktualizować pola.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-127">You can copy/paste the previous "form group" and let intelliSense help you update the fields.</span></span> <span data-ttu-id="6bbc6-128">Technologia IntelliSense współpracuje z [pomocnikami tagów](xref:mvc/views/tag-helpers/intro).</span><span class="sxs-lookup"><span data-stu-id="6bbc6-128">IntelliSense works with [Tag Helpers](xref:mvc/views/tag-helpers/intro).</span></span>
 
 ![Deweloper wpisze literę R dla wartości atrybutu ASP-for w drugim elemencie Label widoku.](new-field/_static/cr.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="b9855-132">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="b9855-132">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="6bbc6-132">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="6bbc6-132">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
 <!-- This tab intentionally left blank. -->
 
 ---
 
-<span data-ttu-id="b9855-133">Zaktualizuj pozostałe szablony.</span><span class="sxs-lookup"><span data-stu-id="b9855-133">Update the remaining templates.</span></span>
+<span data-ttu-id="6bbc6-133">Zaktualizuj pozostałe szablony.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-133">Update the remaining templates.</span></span>
 
-<span data-ttu-id="b9855-134">`SeedData` Zaktualizuj klasę, aby zapewnić wartość nowej kolumny.</span><span class="sxs-lookup"><span data-stu-id="b9855-134">Update the `SeedData` class so that it provides a value for the new column.</span></span> <span data-ttu-id="b9855-135">Poniżej przedstawiono przykładową zmianę, ale trzeba wprowadzić tę zmianę dla każdej z nich `new Movie`.</span><span class="sxs-lookup"><span data-stu-id="b9855-135">A sample change is shown below, but you'll want to make this change for each `new Movie`.</span></span>
+<span data-ttu-id="6bbc6-134">`SeedData` Zaktualizuj klasę, aby zapewnić wartość nowej kolumny.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-134">Update the `SeedData` class so that it provides a value for the new column.</span></span> <span data-ttu-id="6bbc6-135">Poniżej przedstawiono przykładową zmianę, ale trzeba wprowadzić tę zmianę dla każdej z nich `new Movie`.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-135">A sample change is shown below, but you'll want to make this change for each `new Movie`.</span></span>
 
 [!code-csharp[](start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
 
-<span data-ttu-id="b9855-136">Aplikacja nie będzie działała, dopóki baza danych nie zostanie zaktualizowana w celu uwzględnienia nowego pola.</span><span class="sxs-lookup"><span data-stu-id="b9855-136">The app won't work until the DB is updated to include the new field.</span></span> <span data-ttu-id="b9855-137">Jeśli jest teraz uruchomiona, zgłaszane są następujące `SqlException` elementy:</span><span class="sxs-lookup"><span data-stu-id="b9855-137">If it's run now, the following `SqlException` is thrown:</span></span>
+<span data-ttu-id="6bbc6-136">Aplikacja nie będzie działała, dopóki baza danych nie zostanie zaktualizowana w celu uwzględnienia nowego pola.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-136">The app won't work until the DB is updated to include the new field.</span></span> <span data-ttu-id="6bbc6-137">Jeśli jest teraz uruchomiona, zgłaszane są następujące `SqlException` elementy:</span><span class="sxs-lookup"><span data-stu-id="6bbc6-137">If it's run now, the following `SqlException` is thrown:</span></span>
 
 `SqlException: Invalid column name 'Rating'.`
 
-<span data-ttu-id="b9855-138">Ten błąd występuje, ponieważ zaktualizowana Klasa modelu filmu jest inna niż schemat tabeli filmów istniejącej bazy danych.</span><span class="sxs-lookup"><span data-stu-id="b9855-138">This error occurs because the updated Movie model class is different than the schema of the Movie table of the existing database.</span></span> <span data-ttu-id="b9855-139">(Brak `Rating` kolumn w tabeli bazy danych).</span><span class="sxs-lookup"><span data-stu-id="b9855-139">(There's no `Rating` column in the database table.)</span></span>
+<span data-ttu-id="6bbc6-138">Ten błąd występuje, ponieważ zaktualizowana Klasa modelu filmu jest inna niż schemat tabeli filmów istniejącej bazy danych.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-138">This error occurs because the updated Movie model class is different than the schema of the Movie table of the existing database.</span></span> <span data-ttu-id="6bbc6-139">(Brak `Rating` kolumn w tabeli bazy danych).</span><span class="sxs-lookup"><span data-stu-id="6bbc6-139">(There's no `Rating` column in the database table.)</span></span>
 
-<span data-ttu-id="b9855-140">Istnieje kilka metod rozpoznawania błędu:</span><span class="sxs-lookup"><span data-stu-id="b9855-140">There are a few approaches to resolving the error:</span></span>
+<span data-ttu-id="6bbc6-140">Istnieje kilka metod rozpoznawania błędu:</span><span class="sxs-lookup"><span data-stu-id="6bbc6-140">There are a few approaches to resolving the error:</span></span>
 
-1. <span data-ttu-id="b9855-141">Entity Framework automatycznie porzucić i ponownie utworzyć bazę danych na podstawie nowego schematu klasy modelu.</span><span class="sxs-lookup"><span data-stu-id="b9855-141">Have the Entity Framework automatically drop and re-create the database based on the new model class schema.</span></span> <span data-ttu-id="b9855-142">To podejście jest bardzo wygodne w cyklu rozwoju, gdy chodzi o aktywne programowanie w testowej bazie danych. pozwala ona szybko rozwijać model i schemat bazy danych.</span><span class="sxs-lookup"><span data-stu-id="b9855-142">This approach is very convenient early in the development cycle when you're doing active development on a test database; it allows you to quickly evolve the model and database schema together.</span></span> <span data-ttu-id="b9855-143">Minusem, mimo że utracisz istniejące dane w bazie danych, więc nie chcesz używać tego podejścia w produkcyjnej bazie danych.</span><span class="sxs-lookup"><span data-stu-id="b9855-143">The downside, though, is that you lose existing data in the database — so you don't want to use this approach on a production database!</span></span> <span data-ttu-id="b9855-144">Użycie inicjatora do automatycznego umieszczania bazy danych z danymi testowymi jest często wydajnym sposobem na tworzenie aplikacji.</span><span class="sxs-lookup"><span data-stu-id="b9855-144">Using an initializer to automatically seed a database with test data is often a productive way to develop an application.</span></span> <span data-ttu-id="b9855-145">Jest to dobre podejście do wczesnego programowania i korzystania z oprogramowania SQLite.</span><span class="sxs-lookup"><span data-stu-id="b9855-145">This is a good approach for early development and when using SQLite.</span></span>
+1. <span data-ttu-id="6bbc6-141">Entity Framework automatycznie porzucić i ponownie utworzyć bazę danych na podstawie nowego schematu klasy modelu.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-141">Have the Entity Framework automatically drop and re-create the database based on the new model class schema.</span></span> <span data-ttu-id="6bbc6-142">To podejście jest bardzo wygodne w cyklu rozwoju, gdy chodzi o aktywne programowanie w testowej bazie danych. pozwala ona szybko rozwijać model i schemat bazy danych.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-142">This approach is very convenient early in the development cycle when you're doing active development on a test database; it allows you to quickly evolve the model and database schema together.</span></span> <span data-ttu-id="6bbc6-143">Minusem, mimo że utracisz istniejące dane w bazie danych, więc nie chcesz używać tego podejścia w produkcyjnej bazie danych.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-143">The downside, though, is that you lose existing data in the database — so you don't want to use this approach on a production database!</span></span> <span data-ttu-id="6bbc6-144">Użycie inicjatora do automatycznego umieszczania bazy danych z danymi testowymi jest często wydajnym sposobem na tworzenie aplikacji.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-144">Using an initializer to automatically seed a database with test data is often a productive way to develop an application.</span></span> <span data-ttu-id="6bbc6-145">Jest to dobre podejście do wczesnego programowania i korzystania z oprogramowania SQLite.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-145">This is a good approach for early development and when using SQLite.</span></span>
 
-2. <span data-ttu-id="b9855-146">Jawnie zmodyfikuj schemat istniejącej bazy danych, tak aby pasował do klas modelu.</span><span class="sxs-lookup"><span data-stu-id="b9855-146">Explicitly modify the schema of the existing database so that it matches the model classes.</span></span> <span data-ttu-id="b9855-147">Zaletą tego podejścia jest utrzymywanie danych.</span><span class="sxs-lookup"><span data-stu-id="b9855-147">The advantage of this approach is that you keep your data.</span></span> <span data-ttu-id="b9855-148">Tę zmianę można wprowadzić ręcznie lub przez utworzenie skryptu zmiany bazy danych.</span><span class="sxs-lookup"><span data-stu-id="b9855-148">You can make this change either manually or by creating a database change script.</span></span>
+2. <span data-ttu-id="6bbc6-146">Jawnie zmodyfikuj schemat istniejącej bazy danych, tak aby pasował do klas modelu.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-146">Explicitly modify the schema of the existing database so that it matches the model classes.</span></span> <span data-ttu-id="6bbc6-147">Zaletą tego podejścia jest utrzymywanie danych.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-147">The advantage of this approach is that you keep your data.</span></span> <span data-ttu-id="6bbc6-148">Tę zmianę można wprowadzić ręcznie lub przez utworzenie skryptu zmiany bazy danych.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-148">You can make this change either manually or by creating a database change script.</span></span>
 
-3. <span data-ttu-id="b9855-149">Użyj Migracje Code First, aby zaktualizować schemat bazy danych.</span><span class="sxs-lookup"><span data-stu-id="b9855-149">Use Code First Migrations to update the database schema.</span></span>
+3. <span data-ttu-id="6bbc6-149">Użyj Migracje Code First, aby zaktualizować schemat bazy danych.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-149">Use Code First Migrations to update the database schema.</span></span>
 
-<span data-ttu-id="b9855-150">W tym samouczku zostanie użyta Migracje Code First.</span><span class="sxs-lookup"><span data-stu-id="b9855-150">For this tutorial, Code First Migrations is used.</span></span>
+<span data-ttu-id="6bbc6-150">W tym samouczku zostanie użyta Migracje Code First.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-150">For this tutorial, Code First Migrations is used.</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="b9855-151">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b9855-151">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="6bbc6-151">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="6bbc6-151">Visual Studio</span></span>](#tab/visual-studio)
 
-<span data-ttu-id="b9855-152">W menu **Narzędzia** wybierz kolejno pozycje **menedżer pakietów NuGet > konsola Menedżera pakietów**.</span><span class="sxs-lookup"><span data-stu-id="b9855-152">From the **Tools** menu, select **NuGet Package Manager > Package Manager Console**.</span></span>
+<span data-ttu-id="6bbc6-152">W menu **Narzędzia** wybierz kolejno pozycje **menedżer pakietów NuGet > konsola Menedżera pakietów**.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-152">From the **Tools** menu, select **NuGet Package Manager > Package Manager Console**.</span></span>
 
   ![Menu konsoli zarządzania Pakietami](adding-model/_static/pmc.png)
 
-<span data-ttu-id="b9855-154">W konsoli zarządzania Pakietami wprowadź następujące polecenia:</span><span class="sxs-lookup"><span data-stu-id="b9855-154">In the PMC, enter the following commands:</span></span>
+<span data-ttu-id="6bbc6-154">W konsoli zarządzania Pakietami wprowadź następujące polecenia:</span><span class="sxs-lookup"><span data-stu-id="6bbc6-154">In the PMC, enter the following commands:</span></span>
 
 ```powershell
 Add-Migration Rating
 Update-Database
 ```
 
-<span data-ttu-id="b9855-155">Polecenie informuje platformę migracji, aby przeanalizować `Movie` bieżący model z bieżącym `Movie` schematem bazy danych i utworzyć wymagany kod w celu przeprowadzenia migracji bazy danych do nowego modelu. `Add-Migration`</span><span class="sxs-lookup"><span data-stu-id="b9855-155">The `Add-Migration` command tells the migration framework to examine the current `Movie` model with the current `Movie` DB schema and create the necessary code to migrate the DB to the new model.</span></span>
+<span data-ttu-id="6bbc6-155">Polecenie informuje platformę migracji, aby przeanalizować `Movie` bieżący model z bieżącym `Movie` schematem bazy danych i utworzyć wymagany kod w celu przeprowadzenia migracji bazy danych do nowego modelu. `Add-Migration`</span><span class="sxs-lookup"><span data-stu-id="6bbc6-155">The `Add-Migration` command tells the migration framework to examine the current `Movie` model with the current `Movie` DB schema and create the necessary code to migrate the DB to the new model.</span></span>
 
-<span data-ttu-id="b9855-156">Nazwa "Rating" jest arbitralna i jest używana do nazwy pliku migracji.</span><span class="sxs-lookup"><span data-stu-id="b9855-156">The name "Rating" is arbitrary and is used to name the migration file.</span></span> <span data-ttu-id="b9855-157">Warto użyć zrozumiałej nazwy dla pliku migracji.</span><span class="sxs-lookup"><span data-stu-id="b9855-157">It's helpful to use a meaningful name for the migration file.</span></span>
+<span data-ttu-id="6bbc6-156">Nazwa "Rating" jest arbitralna i jest używana do nazwy pliku migracji.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-156">The name "Rating" is arbitrary and is used to name the migration file.</span></span> <span data-ttu-id="6bbc6-157">Warto użyć zrozumiałej nazwy dla pliku migracji.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-157">It's helpful to use a meaningful name for the migration file.</span></span>
 
-<span data-ttu-id="b9855-158">Jeśli wszystkie rekordy w bazie danych zostaną usunięte, metoda Initialize będzie wypełniać bazę danych i zawierać `Rating` pole.</span><span class="sxs-lookup"><span data-stu-id="b9855-158">If all the records in the DB are deleted, the initialize method will seed the DB and include the `Rating` field.</span></span>
+<span data-ttu-id="6bbc6-158">Jeśli wszystkie rekordy w bazie danych zostaną usunięte, metoda Initialize będzie wypełniać bazę danych i zawierać `Rating` pole.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-158">If all the records in the DB are deleted, the initialize method will seed the DB and include the `Rating` field.</span></span>
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[<span data-ttu-id="b9855-159">Visual Studio Code/Visual Studio dla komputerów Mac</span><span class="sxs-lookup"><span data-stu-id="b9855-159">Visual Studio Code / Visual Studio for Mac</span></span>](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[<span data-ttu-id="6bbc6-159">Visual Studio Code/Visual Studio dla komputerów Mac</span><span class="sxs-lookup"><span data-stu-id="6bbc6-159">Visual Studio Code / Visual Studio for Mac</span></span>](#tab/visual-studio-code+visual-studio-mac)
 
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
-<span data-ttu-id="b9855-160">Usuń bazę danych i użyj migracji, aby ponownie utworzyć bazę danych.</span><span class="sxs-lookup"><span data-stu-id="b9855-160">Delete the database and use migrations to re-create the database.</span></span> <span data-ttu-id="b9855-161">Aby usunąć bazę danych, usuń plik bazy danych (*MvcMovie. DB*).</span><span class="sxs-lookup"><span data-stu-id="b9855-161">To delete the database, delete the database file (*MvcMovie.db*).</span></span> <span data-ttu-id="b9855-162">Następnie uruchom `ef database update` polecenie:</span><span class="sxs-lookup"><span data-stu-id="b9855-162">Then run the `ef database update` command:</span></span>
+<span data-ttu-id="6bbc6-160">Usuń bazę danych i użyj migracji, aby ponownie utworzyć bazę danych.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-160">Delete the database and use migrations to re-create the database.</span></span> <span data-ttu-id="6bbc6-161">Aby usunąć bazę danych, usuń plik bazy danych (*MvcMovie. DB*).</span><span class="sxs-lookup"><span data-stu-id="6bbc6-161">To delete the database, delete the database file (*MvcMovie.db*).</span></span> <span data-ttu-id="6bbc6-162">Następnie uruchom `ef database update` polecenie:</span><span class="sxs-lookup"><span data-stu-id="6bbc6-162">Then run the `ef database update` command:</span></span>
 
 ```dotnetcli
 dotnet ef database update
@@ -131,9 +131,9 @@ dotnet ef database update
 ---
 <!-- End of VS tabs -->
 
-<span data-ttu-id="b9855-163">Uruchom aplikację i sprawdź, czy można tworzyć/edytować/wyświetlać filmy z `Rating` polem.</span><span class="sxs-lookup"><span data-stu-id="b9855-163">Run the app and verify you can create/edit/display movies with a `Rating` field.</span></span> <span data-ttu-id="b9855-164">Należy dodać `Rating` pole `Edit`do szablonów, `Details`i `Delete` .</span><span class="sxs-lookup"><span data-stu-id="b9855-164">You should add the `Rating` field to the `Edit`, `Details`, and `Delete` view templates.</span></span>
+<span data-ttu-id="6bbc6-163">Uruchom aplikację i sprawdź, czy można tworzyć/edytować/wyświetlać filmy z `Rating` polem.</span><span class="sxs-lookup"><span data-stu-id="6bbc6-163">Run the app and verify you can create/edit/display movies with a `Rating` field.</span></span> <span data-ttu-id="6bbc6-164">Należy dodać `Rating` pole `Edit`do szablonów, `Details`i `Delete` .</span><span class="sxs-lookup"><span data-stu-id="6bbc6-164">You should add the `Rating` field to the `Edit`, `Details`, and `Delete` view templates.</span></span>
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="b9855-165">[Poprzedni](search.md)Następny
-> [](validation.md)</span><span class="sxs-lookup"><span data-stu-id="b9855-165">[Previous](search.md)
+> <span data-ttu-id="6bbc6-165">[Poprzedni](search.md)
+> [Następny](validation.md)</span><span class="sxs-lookup"><span data-stu-id="6bbc6-165">[Previous](search.md)
 [Next](validation.md)</span></span>
