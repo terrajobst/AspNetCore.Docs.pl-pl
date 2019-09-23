@@ -1,0 +1,3 @@
+# <a name="aspnet-core-middleware-extensibility-sample"></a>Przykład rozszerzalności oprogramowania pośredniczącego ASP.NET Core
+
+Ten przykład ilustruje użycie [IMiddleware](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.http.imiddleware) i [IMiddlewareFactory](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.http.imiddlewarefactory) z kontenerem iniekcji zależności innej firmy, [prostym wtryskiwaczem](https://simpleinjector.org). Ten przykład pokazuje funkcje opisane w [sekcji Aktywacja oprogramowania pośredniczącego za pomocą kontenera innej firmy w ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/middleware/extensibility-third-party-container).

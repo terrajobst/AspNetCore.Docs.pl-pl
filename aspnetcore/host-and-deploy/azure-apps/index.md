@@ -5,14 +5,14 @@ description: Ten artykuł zawiera linki do hosta platformy Azure i wdrażania za
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/07/2019
+ms.date: 07/28/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 7736888c43aafd2f64e3d7b079f2099fe548a825
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 4dc150ff4534e42e1995a185f650cea9df70ccc4
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081074"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71187047"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Wdróż aplikacje ASP.NET Core w Azure App Service
 
@@ -97,7 +97,17 @@ Gdy aplikacja kompiluje hosta za pomocą elementu [webhost. CreateDefaultBuilder
 
 ## <a name="monitoring-and-logging"></a>Monitorowanie i rejestrowanie
 
-Azure App Service oferuje **rozszerzenia rejestrowania ASP.NET Core**, które umożliwiają integrację rejestrowania dla aplikacji ASP.NET Core. Aby automatycznie dodać rozszerzenie do App Service, Użyj procesu **publikowania** programu Visual Studio z profilem **App Service** Publish. Gdy nie używasz programu Visual Studio do wdrożenia aplikacji, ręcznie zainstaluj rozszerzenie w witrynie Azure Portal za pomocą okna dialogowego > **rozszerzenia** **narzędzi programistycznych**App Service.
+::: moniker range=">= aspnetcore-3.0"
+
+ASP.NET Core aplikacje wdrożone do App Service automatycznie otrzymują rozszerzenie App Service **ASP.NET Core integrację rejestrowania**. Rozszerzenie włącza integrację rejestrowania dla aplikacji ASP.NET Core w Azure App Service.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+ASP.NET Core aplikacje wdrożone do App Service automatycznie otrzymują rozszerzenia App Service **ASP.NET Core rejestrowania rozszerzeń**. Rozszerzenie włącza integrację rejestrowania dla aplikacji ASP.NET Core w Azure App Service.
+
+::: moniker-end
 
 Informacje o monitorowaniu, rejestrowaniu i rozwiązywaniu problemów znajdują się w następujących artykułach:
 
@@ -128,10 +138,21 @@ W przypadku wymiany między miejscami wdrożenia każdy system korzystający z o
 * Pamięć podręczna Redis
 
 Aby uzyskać więcej informacji, zobacz <xref:security/data-protection/implementation/key-storage-providers>.
+<a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>
+<!-- revert this after 3.0 supported
+## Deploy ASP.NET Core preview release to Azure App Service
 
-## <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>Wdróż ASP.NET Core wersji zapoznawczej do Azure App Service
+Use one of the following approaches if the app relies on a preview release of .NET Core:
 
-Jeśli aplikacja korzysta z wersji zapoznawczej programu .NET Core, użyj jednej z następujących metod:
+* [Install the preview site extension](#install-the-preview-site-extension).
+* [Deploy a self-contained preview app](#deploy-a-self-contained-preview-app).
+* [Use Docker with Web Apps for containers](#use-docker-with-web-apps-for-containers).
+-->
+## <a name="deploy-aspnet-core-30-to-azure-app-service"></a>Wdróż ASP.NET Core 3,0 do Azure App Service
+
+Mamy nadzieję, że na Azure App Service wkrótce będzie dostępna ASP.NET Core 3,0.
+
+Jeśli aplikacja korzysta z platformy .NET Core 3,0, należy użyć jednej z następujących metod:
 
 * [Zainstaluj rozszerzenie witryny w wersji](#install-the-preview-site-extension)zapoznawczej.
 * [Wdróż samodzielną aplikację w wersji](#deploy-a-self-contained-preview-app)zapoznawczej.
@@ -230,7 +251,7 @@ W przypadku wdrożenia 64-bitowego [zależnego od platformy](/dotnet/core/deploy
 
 1. W powłoce poleceń Opublikuj aplikację w konfiguracji wydania przy użyciu polecenia [dotnet Publish](/dotnet/core/tools/dotnet-publish) . W poniższym przykładzie aplikacja jest publikowana jako aplikacja zależna od platformy:
 
-   ```dotnetcli
+   ```console
    dotnet publish --configuration Release
    ```
 
@@ -268,7 +289,7 @@ Użyj programu Visual Studio lub narzędzi interfejsu wiersza polecenia (CLI) dl
 
 1. W powłoce poleceń Opublikuj aplikację w konfiguracji wydania dla środowiska uruchomieniowego hosta za pomocą polecenia [dotnet Publish](/dotnet/core/tools/dotnet-publish) . W poniższym przykładzie aplikacja jest publikowana dla `win-x86` identyfikatora RID. Identyfikator RID dostarczony do `--runtime` opcji musi być podany `<RuntimeIdentifier>` we właściwości (lub `<RuntimeIdentifiers>`) w pliku projektu.
 
-   ```dotnetcli
+   ```console
    dotnet publish --configuration Release --runtime win-x86
    ```
 

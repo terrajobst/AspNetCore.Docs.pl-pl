@@ -5,12 +5,12 @@ description: W tym samouczku rozpocznie się korzystanie z funkcji migracji EF C
 ms.author: riande
 ms.date: 07/22/2019
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 8a4929a905c6a488231d7d29e1101f6fd887477f
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: efcf62d56a7b4cee4780d5f0475b4ef363fe1897
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082081"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71187072"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Razor Pages z EF Core w ASP.NET Core-migrations-4 z 8
 
@@ -45,7 +45,7 @@ Drop-Database
 * Uruchom następujące polecenie w wierszu polecenia, aby zainstalować narzędzia EF CLI:
 
   ```dotnetcli
-  dotnet tool install --global dotnet-ef --version 3.0.0-*
+  dotnet tool install --global dotnet-ef
   ```
 
 * W wierszu polecenia przejdź do folderu projektu. Folder projektu zawiera plik *ContosoUniversity. csproj* .
@@ -306,7 +306,7 @@ The login failed.
 Login failed for user 'user name'.
 ```
 
-Narzędzie Uruchom `dotnet ef database update`
+Narzędzie Uruchom polecenie `dotnet ef database update`
 
 ### <a name="additional-resources"></a>Dodatkowe zasoby
 
@@ -317,8 +317,8 @@ Narzędzie Uruchom `dotnet ef database update`
 
 
 > [!div class="step-by-step"]
-> [Poprzedni](xref:data/ef-rp/sort-filter-page)Następny
-> [](xref:data/ef-rp/complex-data-model)
+> [Poprzedni](xref:data/ef-rp/sort-filter-page)
+> [Następny](xref:data/ef-rp/complex-data-model)
 
 ::: moniker-end
 

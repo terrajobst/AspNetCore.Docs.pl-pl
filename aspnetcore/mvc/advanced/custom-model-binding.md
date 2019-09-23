@@ -5,12 +5,12 @@ description: Dowiedz się, jak powiązanie modelu umożliwia akcjom kontrolera b
 ms.author: riande
 ms.date: 11/13/2018
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 91f42393ffee3249f9167e10eaea7b279a7cb70b
-ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
+ms.openlocfilehash: b2fbe6a9f11315d1fb8863fbf62e8929c7ff3fc2
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70878412"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71186877"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Niestandardowe powiązanie modelu w ASP.NET Core
 
@@ -132,9 +132,7 @@ Dodanie swojego dostawcy do końca kolekcji może spowodować wywołanie wbudowa
 
 ### <a name="polymorphic-model-binding"></a>Powiązanie modelu polimorficznego
 
-Powiązanie z różnymi modelami typów pochodnych jest znane jako powiązanie modelu polimorficzne. Niestandardowe powiązanie modelu jest wymagane, gdy wartość żądania musi być powiązana z konkretnym typem modelu pochodnego. Chyba że takie podejście jest wymagane, zalecamy uniknięcie powiązania modelu polimorficznego. Powiązanie modelu polimorficznego utrudnia powody dotyczące modeli powiązanych. Jeśli jednak aplikacja wymaga powiązania modelu polimorficznego, implementacja może wyglądać podobnie do następującego kodu:
-
-Powiązanie z różnymi modelami typów pochodnych jest znane jako powiązanie modelu polimorficzne. Niestandardowe powiązanie modelu jest wymagane, gdy wartość żądania musi być powiązana z konkretnym typem modelu pochodnego. Powiązanie modelu polimorficznego:
+Powiązanie z różnymi modelami typów pochodnych jest znane jako powiązanie modelu polimorficzne. Powiązanie modelu niestandardowego polimorficzne jest wymagane, gdy wartość żądania musi być powiązana z konkretnym typem modelu pochodnego. Powiązanie modelu polimorficznego:
 
 * Nie jest typowy dla interfejsu API REST, który jest przeznaczony do współpracy ze wszystkimi językami.
 * Utrudniają powody dotyczące modeli powiązanych.
