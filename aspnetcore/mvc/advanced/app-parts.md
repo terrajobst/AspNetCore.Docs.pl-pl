@@ -5,17 +5,14 @@ description: Udostępnianie kontrolerów, przeglądanie, Razor Pages i nie tylko
 ms.author: riande
 ms.date: 05/14/2019
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: ad0372f25377115e6fc7c8ea42db75de56b3e6d2
-ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
+ms.openlocfilehash: 4b4c8c554a7045a180b56cf9998ab1a8496cde1b
+ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71187013"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71207351"
 ---
 # <a name="share-controllers-views-razor-pages-and-more-with-application-parts-in-aspnet-core"></a>Udostępnianie kontrolerów, widoków, Razor Pages i innych elementów aplikacji w programie ASP.NET Core
-=======
-
-<!-- DO NOT MAKE CHANGES BEFORE https://github.com/aspnet/AspNetCore.Docs/pull/12376 Merges -->
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -46,14 +43,14 @@ Aby uwzględnić widoki w zestawie:
 * Dodaj następujący znacznik do pliku projektu udostępnionego:
 
   ```csproj
-    <ItemGroup>
-      <EmbeddedResource Include = "Views\**\*.cshtml" />
-    </ ItemGroup >
+  <ItemGroup>
+      <EmbeddedResource Include="Views\**\*.cshtml" />
+  </ItemGroup>
   ```
 
 * <xref:Microsoft.Extensions.FileProviders.EmbeddedFileProvider> Dodaj<xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine>do:
 
-[!code-csharp[](./app-parts/sample1/WebAppParts/StartupViews.cs?name=snippet&highlight=3-7)]
+  [!code-csharp[](./app-parts/sample1/WebAppParts/StartupViews.cs?name=snippet&highlight=3-7)]
 
 ### <a name="prevent-loading-resources"></a>Zapobiegaj ładowaniu zasobów
 
@@ -64,7 +61,7 @@ Następujący kod używa <xref:Microsoft.AspNetCore.Mvc.ApplicationParts> do usu
 `ApplicationPartManager` Zawiera części dla:
 
 * Zestaw aplikacji i zestawy zależne.
-* `Microsoft.AspNetCore.Mvc.TagHelpers`
+* `Microsoft.AspNetCore.Mvc.TagHelpers`.
 * `Microsoft.AspNetCore.Mvc.Razor`.
 
 ## <a name="application-feature-providers"></a>Dostawcy funkcji aplikacji
@@ -79,7 +76,7 @@ Dostawcy funkcji dziedziczą <xref:Microsoft.AspNetCore.Mvc.ApplicationParts.IAp
 
 ### <a name="generic-controller-feature"></a>Funkcja kontrolera ogólnego
 
-ASP.NET Core ignoruje [Ogólne kontrolery](/dotnet/csharp/programming-guide/generics/generic-classes). Kontroler generyczny ma parametr typu (na przykład `MyController<T>`). Poniższy przykład dodaje wystąpienia kontrolera ogólnego dla określonej listy typów.
+ASP.NET Core ignoruje [Ogólne kontrolery](/dotnet/csharp/programming-guide/generics/generic-classes). Kontroler generyczny ma parametr typu (na przykład `MyController<T>`). Poniższy przykład dodaje wystąpienia kontrolera ogólnego dla określonej listy typów:
 
 [!code-csharp[](./app-parts/sample2/AppPartsSample/GenericControllerFeatureProvider.cs?name=snippet)]
 
@@ -99,10 +96,34 @@ Nazwy kontrolerów ogólnych używane do routingu mają postać *GenericControll
 
 [!code-csharp[](./app-parts/sample2/AppPartsSample/GenericController.cs)]
 
+Na przykład żądanie adresu URL `https://localhost:5001/Sprocket` wyników w następującej odpowiedzi:
+
+```text
+Hello from a generic Sprocket controller.
+```
+
 ### <a name="display-available-features"></a>Wyświetlanie dostępnych funkcji
 
-Funkcje dostępne dla aplikacji można wyliczyć przez zażądanie `ApplicationPartManager` [iniekcji zależności](../../fundamentals/dependency-injection.md):
+Funkcje dostępne dla aplikacji można wyliczyć, żądając `ApplicationPartManager` od [iniekcji zależności](../../fundamentals/dependency-injection.md):
 
 [!code-csharp[](./app-parts/sample2/AppPartsSample/Controllers/FeaturesController.cs?highlight=16,25-27)]
 
-[Przykład pobierania](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample2) używa poprzedniego kodu do wyświetlania funkcji aplikacji.
+[Przykład pobierania](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample2) używa powyższego kodu, aby wyświetlić funkcje aplikacji:
+
+```text
+Controllers:
+    - FeaturesController
+    - HomeController
+    - HelloController
+    - GenericController`1
+    - GenericController`1
+Tag Helpers:
+    - PrerenderTagHelper
+    - AnchorTagHelper
+    - CacheTagHelper
+    - DistributedCacheTagHelper
+    - EnvironmentTagHelper
+    - Additional Tag Helpers omitted for brevity.
+View Components:
+    - SampleViewComponent
+```
