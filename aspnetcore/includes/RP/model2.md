@@ -20,17 +20,7 @@ Dodaj parametry połączenia do pliku *appSettings. JSON* , jak pokazano w nast�
 
 ### <a name="add-nuget-packages-and-ef-tools"></a>Dodawanie pakietów NuGet i narzędzi EF
 
-Otwórz Terminal dla projektu RazorPagesMovie.  Kliknij prawym przyciskiem myszy nazwę projektu na pasku projektowania/układu i przejdź do pozycji **narzędzia > Otwórz** w terminalu. Uruchom następujące polecenia interfejs wiersza polecenia platformy .NET Core w tym czasie:
-
-```dotnetcli
-dotnet tool install --global dotnet-ef --version 3.0.0-*
-dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 3.0.0-*
-dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
-dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0-*
-dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
-```
-
-Powyższe polecenia umożliwiają dodanie Entity Framework Core narzędzi dla interfejsu wiersza polecenia platformy .NET i kilku pakietów do projektu. `Microsoft.VisualStudio.Web.CodeGeneration.Design` Pakiet jest wymagany do tworzenia szkieletów.
+[!INCLUDE[](~/includes/add-EF-NuGet-SQLite-CLI.md)]
 
 <a name="reg"></a>
 
