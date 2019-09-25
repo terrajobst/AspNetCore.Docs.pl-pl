@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/11/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 90b439603dd51ff02e40045b9420876d7200bef1
-ms.sourcegitcommit: 8a36be1bfee02eba3b07b7a86085ec25c38bae6b
+ms.openlocfilehash: 2d517a89c6002b5c85e98128605f95585354f8db
+ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219161"
+ms.locfileid: "71248257"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Rejestrowanie w programie .NET Core i ASP.NET Core
 
@@ -936,7 +936,7 @@ Niektóre struktury innych firm mogą wykonywać [Rejestrowanie semantyczne, zna
 Korzystanie z struktury innej firmy jest podobne do korzystania z jednego z wbudowanych dostawców:
 
 1. Dodaj pakiet NuGet do projektu.
-1. Wywołaj `ILoggerFactory`metodę.
+1. Wywoływanie `ILoggerFactory` metody rozszerzenia dostarczonej przez strukturę rejestrowania.
 
 Aby uzyskać więcej informacji, zobacz dokumentację każdego dostawcy. Dostawcy rejestrowania innych firm nie są obsługiwani przez firmę Microsoft.
 

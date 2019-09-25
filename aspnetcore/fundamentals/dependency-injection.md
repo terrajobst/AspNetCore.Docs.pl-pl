@@ -5,20 +5,20 @@ description: Dowiedz się, w jaki sposób ASP.NET Core implementuje iniekcję za
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/14/2019
+ms.date: 09/24/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: a984bb766e6876db4f8ed4c850a1984ba87d627d
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: fefd0b9df71d5b0e7c30a31620292fd37eeecfa4
+ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69022286"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71248264"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Wstrzykiwanie zależności w ASP.NET Core
 
 [Steve Kowalski](https://ardalis.com/), [Scott Addie](https://scottaddie.com)i [Luke Latham](https://github.com/guardrex)
 
-ASP.NET Core obsługuje wzorzec projektowania oprogramowania dla iniekcji zależności, który jest techniką do osiągnięcia niewersji [kontroli (IOC)](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) między klasami i ich zależnościami.
+ASP.NET Core obsługuje wzorzec projektowania oprogramowania dla iniekcji zależności, który jest techniką do osiągnięcia [niewersji kontroli (IOC)](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) między klasami i ich zależnościami.
 
 Aby uzyskać więcej informacji specyficznych dla iniekcji zależności w kontrolerach MVC, zobacz <xref:mvc/controllers/dependency-injection>.
 
@@ -74,15 +74,35 @@ Iniekcja zależności eliminuje te problemy w następujący sposób:
 
 W [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples) `IMyDependency` interfejs definiuje metodę dostarczaną przez usługę do aplikacji:
 
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](dependency-injection/samples/3.x/DependencyInjectionSample/Interfaces/IMyDependency.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Interfaces/IMyDependency.cs?name=snippet1)]
+
+::: moniker-end
 
 Ten interfejs jest implementowany przez konkretny typ `MyDependency`:
 
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](dependency-injection/samples/3.x/DependencyInjectionSample/Services/MyDependency.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Services/MyDependency.cs?name=snippet1)]
+
+::: moniker-end
 
 `MyDependency`<xref:Microsoft.Extensions.Logging.ILogger`1> żąda w konstruktorze. Użycie iniekcji zależności w łańcuchu nie jest nietypowe. Każda żądana zależność z kolei żąda własnych zależności. Kontener rozwiązuje zależności w grafie i zwraca w pełni rozwiązane usługi. Zestaw zbiorczy zależności, które muszą zostać rozwiązane, jest zwykle nazywany *drzewem zależności*, *wykresem zależności*lub *wykresem obiektów*.
 
-`IMyDependency`i `ILogger<TCategoryName>` musi być zarejestrowany w kontenerze usługi. `IMyDependency`jest zarejestrowany w `Startup.ConfigureServices`. `ILogger<TCategoryName>`jest zarejestrowany przez infrastrukturę abstrakcji rejestrowania, więc jest to [Usługa udostępniona](#framework-provided-services) przez platformę zarejestrowana domyślnie przez platformę.
+`IMyDependency`i `ILogger<TCategoryName>` musi być zarejestrowany w kontenerze usługi. `IMyDependency`jest zarejestrowany w `Startup.ConfigureServices`. `ILogger<TCategoryName>`jest zarejestrowany przez infrastrukturę abstrakcji rejestrowania, więc jest to [Usługa udostępniona przez platformę](#framework-provided-services) zarejestrowana domyślnie przez platformę.
 
 Kontener jest rozpoznawany `ILogger<TCategoryName>` przez wykorzystanie [(rodzajowe) otwartych typów](/dotnet/csharp/language-reference/language-specification/types#open-and-closed-types), eliminując konieczność zarejestrowania każdego [(rodzajowego) konstruowanego typu](/dotnet/csharp/language-reference/language-specification/types#constructed-types):
 
@@ -92,7 +112,17 @@ services.AddSingleton(typeof(ILogger<T>), typeof(Logger<T>));
 
 W przykładowej aplikacji `IMyDependency` usługa jest zarejestrowana w konkretnym typie `MyDependency`. Rejestracja zakresów okresu istnienia usługi do okresu istnienia pojedynczego żądania. [Okresy istnienia usługi](#service-lifetimes) zostały opisane w dalszej części tego tematu.
 
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](dependency-injection/samples/3.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=5)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=5)]
+
+::: moniker-end
 
 > [!NOTE]
 > Każda `services.Add{SERVICE_NAME}` Metoda rozszerzenia dodaje usługi (i potencjalnie konfiguruje). Na przykład `services.AddMvc()` dodaje usługi Razor Pages i MVC. Zalecamy, aby aplikacje były zgodne z tą konwencją. Umieść metody rozszerzające w przestrzeni nazw [Microsoft. Extensions. DependencyInjection](/dotnet/api/microsoft.extensions.dependencyinjection) , aby hermetyzować grupy rejestracji usług.
@@ -117,11 +147,63 @@ Wystąpienie usługi jest wymagane za pośrednictwem konstruktora klasy, w któr
 
 W przykładowej aplikacji `IMyDependency` wystąpienie jest wymagane i używane do wywołania `WriteMessage` metody usługi:
 
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](dependency-injection/samples/3.x/DependencyInjectionSample/Pages/Index.cshtml.cs?name=snippet1&highlight=3,6,13,29-30)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Pages/Index.cshtml.cs?name=snippet1&highlight=3,6,13,29-30)]
+
+::: moniker-end
+
+## <a name="services-injected-into-startup"></a>Usługi wstrzykiwane do uruchamiania
+
+Tylko następujące typy usług można wstrzyknąć do konstruktora, `Startup` gdy jest używany host generyczny (<xref:Microsoft.Extensions.Hosting.IHostBuilder>):
+
+* `IWebHostEnvironment`
+* <xref:Microsoft.Extensions.Hosting.IHostEnvironment>
+* <xref:Microsoft.Extensions.Configuration.IConfiguration>
+
+Usługi można wstrzyknąć do `Startup.Configure`:
+
+```csharp
+public void Configure(IApplicationBuilder app, IOptions<MyOptions> options)
+{
+    ...
+}
+```
+
+Aby uzyskać więcej informacji, zobacz <xref:fundamentals/startup>.
 
 ## <a name="framework-provided-services"></a>Usługi udostępniane przez platformę
 
-`Startup.ConfigureServices` Metoda jest odpowiedzialna za Definiowanie usług używanych przez aplikację, w tym funkcji platformy, takich jak Entity Framework Core i ASP.NET Core MVC. Początkowo, `IServiceCollection` `ConfigureServices` pod warunkiem, że zostały zdefiniowane następujące usługi (w zależności od [konfiguracji hosta](xref:fundamentals/index#host)):
+`Startup.ConfigureServices` Metoda jest odpowiedzialna za Definiowanie usług, z których korzysta aplikacja, w tym funkcje platformy, takie jak Entity Framework Core i ASP.NET Core MVC. Początkowo `IServiceCollection` dostarczone z `ConfigureServices` usługami zdefiniowanymi przez platformę, w zależności od [konfiguracji hosta](xref:fundamentals/index#host). Aplikacja oparta na ASP.NET Core szablonie nie jest nietypowa, aby mieć setki usług zarejestrowanych przez platformę. W poniższej tabeli wymieniono niewielki przykład usług zarejestrowanych w ramach platformy.
+
+::: moniker range=">= aspnetcore-3.0"
+
+| Typ usługi | Okres istnienia |
+| ------------ | -------- |
+| <xref:Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory?displayProperty=fullName> | Przejściowe |
+| `IHostApplicationLifetime` | Pojedynczego |
+| `IWebHostEnvironment` | Pojedynczego |
+| <xref:Microsoft.AspNetCore.Hosting.IStartup?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.AspNetCore.Hosting.IStartupFilter?displayProperty=fullName> | Przejściowe |
+| <xref:Microsoft.AspNetCore.Hosting.Server.IServer?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.AspNetCore.Http.IHttpContextFactory?displayProperty=fullName> | Przejściowe |
+| <xref:Microsoft.Extensions.Logging.ILogger`1?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.Extensions.Logging.ILoggerFactory?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.Extensions.ObjectPool.ObjectPoolProvider?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.Extensions.Options.IConfigureOptions`1?displayProperty=fullName> | Przejściowe |
+| <xref:Microsoft.Extensions.Options.IOptions`1?displayProperty=fullName> | Pojedynczego |
+| <xref:System.Diagnostics.DiagnosticSource?displayProperty=fullName> | Pojedynczego |
+| <xref:System.Diagnostics.DiagnosticListener?displayProperty=fullName> | Pojedynczego |
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 | Typ usługi | Okres istnienia |
 | ------------ | -------- |
@@ -140,11 +222,17 @@ W przykładowej aplikacji `IMyDependency` wystąpienie jest wymagane i używane 
 | <xref:System.Diagnostics.DiagnosticSource?displayProperty=fullName> | Pojedynczego |
 | <xref:System.Diagnostics.DiagnosticListener?displayProperty=fullName> | Pojedynczego |
 
-Gdy dostępna jest Metoda rozszerzenia kolekcji usług w celu zarejestrowania usługi (i zależnych od niej usług, jeśli jest to wymagane), Konwencja ma używać `Add{SERVICE_NAME}` pojedynczej metody rozszerzającej do rejestrowania wszystkich usług wymaganych przez tę usługę. Poniższy kod stanowi przykład dodawania dodatkowych usług do kontenera przy użyciu metod rozszerzających [\<AddDbContext TContext >](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext), <xref:Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions.AddIdentityCore*>i <xref:Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions.AddMvc*>:
+::: moniker-end
+
+## <a name="register-additional-services-with-extension-methods"></a>Rejestrowanie dodatkowych usług przy użyciu metod rozszerzających
+
+Gdy dostępna jest Metoda rozszerzenia kolekcji usług w celu zarejestrowania usługi (i zależnych od niej usług, jeśli jest to wymagane), Konwencja ma używać `Add{SERVICE_NAME}` pojedynczej metody rozszerzającej do rejestrowania wszystkich usług wymaganych przez tę usługę. Poniższy kod stanowi przykład dodawania dodatkowych usług do kontenera przy użyciu metod rozszerzających [\<AddDbContext TContext >](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext) i: <xref:Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions.AddIdentityCore*>
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
+    ...
+
     services.AddDbContext<ApplicationDbContext>(options =>
         options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -152,7 +240,7 @@ public void ConfigureServices(IServiceCollection services)
         .AddEntityFrameworkStores<ApplicationDbContext>()
         .AddDefaultTokenProviders();
 
-    services.AddMvc();
+    ...
 }
 ```
 
@@ -248,11 +336,31 @@ Konteksty Entity Framework są zazwyczaj dodawane do kontenera usługi przy uży
 
 Aby zademonstrować różnicę między opcjami czasu istnienia i rejestracji, należy wziąć pod uwagę następujące interfejsy, które reprezentują zadania jako operacje `OperationId`z unikatowym identyfikatorem. W zależności od sposobu skonfigurowania okresu istnienia usługi operacji dla następujących interfejsów kontener zawiera to samo lub inne wystąpienie usługi, gdy żądanie klasy:
 
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](dependency-injection/samples/3.x/DependencyInjectionSample/Interfaces/IOperation.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Interfaces/IOperation.cs?name=snippet1)]
+
+::: moniker-end
 
 Interfejsy są zaimplementowane w `Operation` klasie. `Operation` Konstruktor generuje identyfikator GUID, jeśli nie został podany:
 
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](dependency-injection/samples/3.x/DependencyInjectionSample/Models/Operation.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Models/Operation.cs?name=snippet1)]
+
+::: moniker-end
 
 Zarejestrowano, który zależy od poszczególnych `Operation` typów. `OperationService` Gdy `OperationService` żądanie jest wykonywane za pośrednictwem iniekcji zależności, otrzymuje nowe wystąpienie każdej usługi lub istniejące wystąpienie na podstawie okresu istnienia usługi zależnej.
 
@@ -260,17 +368,47 @@ Zarejestrowano, który zależy od poszczególnych `Operation` typów. `Operation
 * Gdy usługi w zakresie są tworzone dla każdego żądania klienta, `OperationId` `IOperationScoped` usługa jest taka sama jak `OperationService` w ramach żądania klienta. W przypadku żądań klientów obie te usługi współdzielą inną `OperationId` wartość.
 * Gdy pojedyncze i pojedyncze usługi wystąpienia są tworzone raz i używane przez wszystkie żądania klientów i wszystkie usługi, `OperationId` jest to stała między wszystkimi żądaniami obsługi.
 
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](dependency-injection/samples/3.x/DependencyInjectionSample/Services/OperationService.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Services/OperationService.cs?name=snippet1)]
+
+::: moniker-end
 
 W `Startup.ConfigureServices`programie każdy typ jest dodawany do kontenera zgodnie z jego nazwanym okresem istnienia:
 
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](dependency-injection/samples/3.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=6-9,12)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=6-9,12)]
+
+::: moniker-end
 
 Usługa używa określonego wystąpienia o znanym `Guid.Empty`identyfikatorze. `IOperationSingletonInstance` Jest to jasne, gdy ten typ jest używany (jego identyfikator GUID to wszystkie zera).
 
 Przykładowa aplikacja pokazuje okresy istnienia obiektów w ramach poszczególnych żądań i między nimi. Przykładowa aplikacja `IndexModel` wysyła żądania każdego `IOperation` rodzaju typu i `OperationService`. Następnie na stronie zostaną wyświetlone wszystkie `OperationId` wartości klasy modelu strony i usługi za pomocą przypisań właściwości:
 
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](dependency-injection/samples/3.x/DependencyInjectionSample/Pages/Index.cshtml.cs?name=snippet1&highlight=7-11,14-18,21-25)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Pages/Index.cshtml.cs?name=snippet1&highlight=7-11,14-18,21-25)]
+
+::: moniker-end
 
 Dwa następujące dane wyjściowe pokazują wyniki dwóch żądań:
 
@@ -308,7 +446,7 @@ Np 00000000-0000-0000-0000-000000000000
 
 Zauważ, że wartości `OperationId` różnią się w zależności od żądania i między żądaniami:
 
-* Obiekty przejściowe są zawsze różne. Wartość przejściowa `OperationId` dla pierwszego i drugiego żądania klienta różni się `OperationService` w zależności od operacji i między żądaniami klientów. Nowe wystąpienie jest dostarczane do każdego żądania obsługi i żądania klienta.
+* Obiekty *przejściowe* są zawsze różne. Wartość przejściowa `OperationId` dla pierwszego i drugiego żądania klienta różni się `OperationService` w zależności od operacji i między żądaniami klientów. Nowe wystąpienie jest dostarczane do każdego żądania obsługi i żądania klienta.
 * Obiekty w *zakresie* są takie same w obrębie żądania klienta, ale różnią się w zależności od żądań klientów.
 * *Pojedyncze* obiekty są takie same dla każdego obiektu i każdego żądania, niezależnie od tego, `Operation` czy wystąpienie jest dostarczone `Startup.ConfigureServices`w.
 
@@ -316,30 +454,93 @@ Zauważ, że wartości `OperationId` różnią się w zależności od żądania 
 
 Utwórz element <xref:Microsoft.Extensions.DependencyInjection.IServiceScope> with [IServiceScopeFactory. isscope](xref:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory.CreateScope*) , aby rozwiązać usługę objętą zakresem w zakresie aplikacji. Takie podejście jest przydatne do uzyskiwania dostępu do usługi w zakresie podczas uruchamiania do uruchamiania zadań inicjowania. Poniższy przykład pokazuje, jak uzyskać kontekst dla `MyScopedService`: `Program.Main`
 
+::: moniker range=">= aspnetcore-3.0"
+
 ```csharp
-public static void Main(string[] args)
+using System;
+using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+
+public class Program
 {
-    var host = CreateWebHostBuilder(args).Build();
-
-    using (var serviceScope = host.Services.CreateScope())
+    public static async Task Main(string[] args)
     {
-        var services = serviceScope.ServiceProvider;
+        var host = CreateHostBuilder(args).Build();
 
-        try
+        using (var serviceScope = host.Services.CreateScope())
         {
-            var serviceContext = services.GetRequiredService<MyScopedService>();
-            // Use the context here
+            var services = serviceScope.ServiceProvider;
+
+            try
+            {
+                var serviceContext = services.GetRequiredService<MyScopedService>();
+                // Use the context here
+            }
+            catch (Exception ex)
+            {
+                var logger = services.GetRequiredService<ILogger<Program>>();
+                logger.LogError(ex, "An error occurred.");
+            }
         }
-        catch (Exception ex)
-        {
-            var logger = services.GetRequiredService<ILogger<Program>>();
-            logger.LogError(ex, "An error occurred.");
-        }
+    
+        await host.RunAsync();
     }
 
-    host.Run();
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStartup<Startup>();
+            });
 }
 ```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+
+public class Program
+{
+    public static async Task Main(string[] args)
+    {
+        var host = CreateWebHostBuilder(args).Build();
+
+        using (var serviceScope = host.Services.CreateScope())
+        {
+            var services = serviceScope.ServiceProvider;
+
+            try
+            {
+                var serviceContext = services.GetRequiredService<MyScopedService>();
+                // Use the context here
+            }
+            catch (Exception ex)
+            {
+                var logger = services.GetRequiredService<ILogger<Program>>();
+                logger.LogError(ex, "An error occurred.");
+            }
+        }
+    
+        await host.RunAsync();
+    }
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .UseStartup<Startup>();
+}
+```
+
+::: moniker-end
 
 ## <a name="scope-validation"></a>Weryfikacja zakresu
 
@@ -405,7 +606,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="default-service-container-replacement"></a>Zastępowanie kontenera usług domyślnych
 
-Wbudowany kontener usługi jest przeznaczony do obsługi potrzeb platformy i większości aplikacji konsumenckich. Zalecamy użycie wbudowanego kontenera, chyba że potrzebna jest konkretna funkcja, której nie obsługuje. Niektóre funkcje obsługiwane w kontenerach innych firm nie znajdują się w kontenerze wbudowanym:
+Wbudowany kontener usług został zaprojektowany z myślą o potrzebach platformy i większości aplikacji konsumenckich. Zalecamy użycie wbudowanego kontenera, chyba że potrzebna jest konkretna funkcja, która nie jest obsługiwana przez wbudowany kontener, na przykład:
 
 * Iniekcja właściwości
 * Iniekcja oparta na nazwie
@@ -413,53 +614,21 @@ Wbudowany kontener usługi jest przeznaczony do obsługi potrzeb platformy i wi�
 * Niestandardowe zarządzanie okresem istnienia
 * `Func<T>`Obsługa inicjowania z opóźnieniem
 
-Zobacz [plik Readme.MD iniekcji zależności](https://github.com/aspnet/Extensions/tree/master/src/DependencyInjection) , aby uzyskać listę niektórych kontenerów, które obsługują karty sieciowe.
+Za pomocą aplikacji ASP.NET Core można używać następujących kontenerów innych firm:
 
-Poniższy przykład zastępuje wbudowany kontener z [Autofac](https://autofac.org/):
-
-* Zainstaluj odpowiednie pakiety kontenerów:
-
-  * [Autofac](https://www.nuget.org/packages/Autofac/)
-  * [Autofac. Extensions. DependencyInjection](https://www.nuget.org/packages/Autofac.Extensions.DependencyInjection/)
-
-* Skonfigurowanie kontenera w programie `Startup.ConfigureServices` i `IServiceProvider`zwrócenie:
-
-    ```csharp
-    public IServiceProvider ConfigureServices(IServiceCollection services)
-    {
-        services.AddMvc();
-        // Add other framework services
-
-        // Add Autofac
-        var containerBuilder = new ContainerBuilder();
-        containerBuilder.RegisterModule<DefaultModule>();
-        containerBuilder.Populate(services);
-        var container = containerBuilder.Build();
-        return new AutofacServiceProvider(container);
-    }
-    ```
-
-    Aby użyć kontenera innej firmy, `Startup.ConfigureServices` należy zwrócić `IServiceProvider`wartość.
-
-* Skonfiguruj Autofac w `DefaultModule`:
-
-    ```csharp
-    public class DefaultModule : Module
-    {
-        protected override void Load(ContainerBuilder builder)
-        {
-            builder.RegisterType<CharacterRepository>().As<ICharacterRepository>();
-        }
-    }
-    ```
-
-W czasie wykonywania Autofac jest używany do rozpoznawania typów i wtryskiwania zależności. Aby dowiedzieć się więcej o korzystaniu z programu Autofac z ASP.NET Core, zobacz [dokumentację Autofac](https://docs.autofac.org/en/latest/integration/aspnetcore.html).
+* [Autofac](https://autofac.readthedocs.io/en/latest/integration/aspnetcore.html)
+* [DryIoc](https://www.nuget.org/packages/DryIoc.Microsoft.DependencyInjection)
+* [Prolongaty](https://www.nuget.org/packages/Grace.DependencyInjection.Extensions)
+* [LightInject](https://github.com/seesharper/LightInject.Microsoft.DependencyInjection)
+* [Lamar](https://jasperfx.github.io/lamar/)
+* [Stashbox](https://github.com/z4kn4fein/stashbox-extensions-dependencyinjection)
+* [Unity](https://www.nuget.org/packages/Unity.Microsoft.DependencyInjection)
 
 ### <a name="thread-safety"></a>Bezpieczeństwo wątków
 
 Twórz bezpieczne dla wątków usługi pojedyncze. Jeśli usługa singleton ma zależność od przejściowej usługi, usługa przejściowa może również wymagać bezpieczeństwa wątku, w zależności od tego, w jaki sposób jest używana przez pojedyncze.
 
-Metoda fabryki pojedynczej usługi, taka jak drugi argument dla AddSingleton [\<TService > (IServiceCollection, Func\<IServiceProvider, TService >)](xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton*), nie musi być bezpieczna wątkowo. Podobnie jak w przypadku`static`konstruktora typu (), gwarantowane jest wywoływanie jednokrotne przez pojedynczy wątek.
+Metoda fabryki pojedynczej usługi, taka jak drugi argument dla [\<AddSingleton TService >\<(IServiceCollection, Func IServiceProvider, TService >)](xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton*), nie musi być bezpieczna wątkowo. Podobnie jak w przypadku`static`konstruktora typu (), gwarantowane jest wywoływanie jednokrotne przez pojedynczy wątek.
 
 ## <a name="recommendations"></a>Zalecenia
 
@@ -508,7 +677,7 @@ Metoda fabryki pojedynczej usługi, taka jak drugi argument dla AddSingleton [\<
   }
   ```
 
-* Inna odmiana lokalizatora usługi, aby uniknąć, wprowadza fabrykę, która rozwiązuje zależności w czasie wykonywania. Obie te praktyki mieszają się z niewersjami strategii [kontroli](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) .
+* Inna odmiana lokalizatora usługi, aby uniknąć, wprowadza fabrykę, która rozwiązuje zależności w czasie wykonywania. Obie te praktyki mieszają się [z niewersjami strategii kontroli](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) .
 
 * Unikaj dostępu statycznego do `HttpContext` (na przykład [IHttpContextAccessor. HttpContext](xref:Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext)).
 

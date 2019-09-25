@@ -4,14 +4,14 @@ author: bradygaster
 description: W tym samouczku utworzysz aplikację czatu korzystającą z ASP.NET Core sygnalizującego.
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 07/08/2019
+ms.date: 09/24/2019
 uid: tutorials/signalr
-ms.openlocfilehash: 2dfa994b9763a0139cb70cbf9847ac3b02b568e4
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 7a6574bd3c463f0890f5dc076944f1ab0f0c919a
+ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081970"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71248404"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Samouczek: Wprowadzenie do ASP.NET Core sygnalizującego
 
@@ -40,7 +40,7 @@ Na końcu będziesz mieć działającą aplikację czatu:
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-3.0.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-3.0.md)]
 
@@ -73,7 +73,7 @@ Na końcu będziesz mieć działającą aplikację czatu:
    code -r SignalRChat
    ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 * Z menu wybierz pozycję **plik > nowe rozwiązanie**.
 
@@ -133,7 +133,7 @@ Biblioteka serwera sygnalizującego jest dołączona do struktury udostępnionej
   Installed library "@aspnet/signalr@next" to "wwwroot/lib/signalr"
   ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 * W **terminalu**Uruchom następujące polecenie, aby zainstalować LibMan.
 
@@ -224,7 +224,7 @@ Serwer sygnalizujący musi być skonfigurowany tak, aby przekazywać żądania s
   dotnet run -p SignalRChat.csproj
   ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 * Z menu wybierz polecenie **uruchom > Uruchom bez debugowania**.
 
@@ -282,7 +282,7 @@ Na końcu będziesz mieć działającą aplikację czatu:
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-2.2.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-2.2.md)]
 
@@ -315,7 +315,7 @@ Na końcu będziesz mieć działającą aplikację czatu:
    code -r SignalRChat
    ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 * Z menu wybierz pozycję **plik > nowe rozwiązanie**.
 
@@ -376,7 +376,7 @@ Biblioteka serwera sygnalizującego jest dołączona do `Microsoft.AspNetCore.Ap
   Installed library "@aspnet/signalr@1.0.3" to "wwwroot/lib/signalr"
   ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 * W **terminalu**Uruchom następujące polecenie, aby zainstalować LibMan.
 
@@ -467,7 +467,7 @@ Serwer sygnalizujący musi być skonfigurowany tak, aby przekazywać żądania s
   dotnet run -p SignalRChat.csproj
   ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 * Z menu wybierz polecenie **uruchom > Uruchom bez debugowania**.
 
@@ -484,6 +484,10 @@ Serwer sygnalizujący musi być skonfigurowany tak, aby przekazywać żądania s
 > [!TIP]
 > Jeśli aplikacja nie działa, Otwórz narzędzia deweloperskie przeglądarki (F12) i przejdź do konsoli programu. Mogą pojawić się błędy związane z kodem HTML i JavaScript. Załóżmy na przykład, że umieścisz polecenie *signaler. js* w innym folderze niż skierowany. W takim przypadku odwołanie do tego pliku nie będzie działało i zobaczysz błąd 404 w konsoli.
 > ![błąd podczas znajdowania sygnalizującer. js](signalr/_static/2.x/f12-console.png)
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* [Wersja tego samouczka usługi YouTube](https://www.youtube.com/watch?v=iKlVmu-r0JQ)
 
 ## <a name="next-steps"></a>Następne kroki
 
