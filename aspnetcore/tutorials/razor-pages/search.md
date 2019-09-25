@@ -5,12 +5,12 @@ description: Pokazuje, jak dodać wyszukiwanie do ASP.NET Core Razor Pages
 ms.author: riande
 ms.date: 7/23/2019
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: d1aa3f914ebcab4d095b6fca1dac3cf44855d516
-ms.sourcegitcommit: 16502797ea749e2690feaa5e652a65b89c007c89
+ms.openlocfilehash: fde99d8fab00265294bccb2ecdb380d02a8f3673
+ms.sourcegitcommit: a7813a776809a5029c94aa503ee71994f156231f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68483287"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267753"
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>Dodaj wyszukiwanie do ASP.NET Core Razor Pages
 
@@ -51,7 +51,7 @@ Zapytanie jest zdefiniowane *tylko* w tym momencie, **nie** zostało uruchomione
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Index.cshtml.cs?name=snippet_SearchNull)]
 
-Kod jest wyrażeniem [lambda.](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions) `s => s.Title.Contains()` Wyrażenia lambda są używane w kwerendach [LINQ](/dotnet/csharp/programming-guide/concepts/linq/) opartych na metodach jako argumenty dla standardowych metod operatora zapytań, takich jak `Contains` Metoda [WHERE](/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq) lub (używana w poprzednim kodzie). Zapytania LINQ nie są wykonywane, gdy są zdefiniowane lub są modyfikowane przez wywołanie metody (takiej jak `Where` `Contains` lub `OrderBy`). Zamiast tego wykonywanie zapytania jest odroczone. Oznacza to, że Obliczanie wyrażenia jest opóźnione do momentu przekroczenia jego zrealizowanej wartości lub `ToListAsync` wywołania metody. Aby uzyskać więcej informacji, zobacz [wykonywanie zapytań](/dotnet/framework/data/adonet/ef/language-reference/query-execution) .
+Kod jest [wyrażeniem lambda.](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions) `s => s.Title.Contains()` Wyrażenia lambda są używane w kwerendach [LINQ](/dotnet/csharp/programming-guide/concepts/linq/) opartych na metodach jako argumenty dla standardowych metod operatora zapytań, takich jak `Contains` Metoda [WHERE](/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq) lub (używana w poprzednim kodzie). Zapytania LINQ nie są wykonywane, gdy są zdefiniowane lub są modyfikowane przez wywołanie metody (takiej jak `Where` `Contains` lub `OrderBy`). Zamiast tego wykonywanie zapytania jest odroczone. Oznacza to, że Obliczanie wyrażenia jest opóźnione do momentu przekroczenia jego zrealizowanej wartości lub `ToListAsync` wywołania metody. Aby uzyskać więcej informacji, zobacz [wykonywanie zapytań](/dotnet/framework/data/adonet/ef/language-reference/query-execution) .
 
 **Uwaga:** Metoda [Contains](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) jest uruchamiana w bazie danych, a C# nie w kodzie. Uwzględnianie wielkości liter w zapytaniu zależy od bazy danych i sortowania. Na SQL Server `Contains` mapuje do [programu SQL Server, np](/sql/t-sql/language-elements/like-transact-sql). bez uwzględniania wielkości liter. W ramach programu SQLite domyślne sortowanie uwzględnia wielkość liter.
 
@@ -77,7 +77,7 @@ Otwórz plik *Pages/Films/index. cshtml* i Dodaj `<form>` znaczniki wyróżnione
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie30/SnapShots/Index2.cshtml?highlight=14-19&range=1-22)]
 
-Tag HTML `<form>` używa następujących pomocników [tagów](xref:mvc/views/tag-helpers/intro):
+Tag HTML `<form>` używa następujących [pomocników tagów](xref:mvc/views/tag-helpers/intro):
 
 * [Pomocnik tagu formularza](xref:mvc/views/working-with-forms#the-form-tag-helper). Gdy formularz zostanie przesłany, ciąg filtru jest wysyłany do *stron/filmów/indeksu* za pośrednictwem ciągu zapytania.
 * [Pomocnik tagu wejściowego](xref:mvc/views/working-with-forms#the-input-tag-helper)
@@ -153,7 +153,7 @@ Zapytanie jest zdefiniowane *tylko* w tym momencie, **nie** zostało uruchomione
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index.cshtml.cs?name=snippet_SearchNull)]
 
-Kod jest wyrażeniem [lambda.](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions) `s => s.Title.Contains()` Wyrażenia lambda są używane w kwerendach [LINQ](/dotnet/csharp/programming-guide/concepts/linq/) opartych na metodach jako argumenty dla standardowych metod operatora zapytań, takich jak `Contains` Metoda [WHERE](/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq) lub (używana w poprzednim kodzie). Zapytania LINQ nie są wykonywane, gdy są zdefiniowane lub są modyfikowane przez wywołanie metody (takiej jak `Where` `Contains` lub `OrderBy`). Zamiast tego wykonywanie zapytania jest odroczone. Oznacza to, że Obliczanie wyrażenia jest opóźnione do momentu przekroczenia jego zrealizowanej wartości lub `ToListAsync` wywołania metody. Aby uzyskać więcej informacji, zobacz [wykonywanie zapytań](/dotnet/framework/data/adonet/ef/language-reference/query-execution) .
+Kod jest [wyrażeniem lambda.](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions) `s => s.Title.Contains()` Wyrażenia lambda są używane w kwerendach [LINQ](/dotnet/csharp/programming-guide/concepts/linq/) opartych na metodach jako argumenty dla standardowych metod operatora zapytań, takich jak `Contains` Metoda [WHERE](/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq) lub (używana w poprzednim kodzie). Zapytania LINQ nie są wykonywane, gdy są zdefiniowane lub są modyfikowane przez wywołanie metody (takiej jak `Where` `Contains` lub `OrderBy`). Zamiast tego wykonywanie zapytania jest odroczone. Oznacza to, że Obliczanie wyrażenia jest opóźnione do momentu przekroczenia jego zrealizowanej wartości lub `ToListAsync` wywołania metody. Aby uzyskać więcej informacji, zobacz [wykonywanie zapytań](/dotnet/framework/data/adonet/ef/language-reference/query-execution) .
 
 **Uwaga:** Metoda [Contains](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) jest uruchamiana w bazie danych, a C# nie w kodzie. Uwzględnianie wielkości liter w zapytaniu zależy od bazy danych i sortowania. Na SQL Server `Contains` mapuje do [programu SQL Server, np](/sql/t-sql/language-elements/like-transact-sql). bez uwzględniania wielkości liter. W ramach programu SQLite domyślne sortowanie uwzględnia wielkość liter.
 
@@ -179,7 +179,7 @@ Otwórz plik *Pages/Films/index. cshtml* i Dodaj `<form>` znaczniki wyróżnione
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index2.cshtml?highlight=14-19&range=1-22)]
 
-Tag HTML `<form>` używa następujących pomocników [tagów](xref:mvc/views/tag-helpers/intro):
+Tag HTML `<form>` używa następujących [pomocników tagów](xref:mvc/views/tag-helpers/intro):
 
 * [Pomocnik tagu formularza](xref:mvc/views/working-with-forms#the-form-tag-helper). Gdy formularz zostanie przesłany, ciąg filtru jest wysyłany do *stron/filmów/indeksu* za pośrednictwem ciągu zapytania.
 * [Pomocnik tagu wejściowego](xref:mvc/views/working-with-forms#the-input-tag-helper)
@@ -209,6 +209,7 @@ Zaktualizuj *indeks. cshtml* w następujący sposób:
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/IndexFormGenreNoRating.cshtml?highlight=16-18&range=1-26)]
 
 Przetestuj aplikację, wyszukując według gatunku, tytułu filmu i obu tych elementów.
+Powyższy kod używa pomocnika [SELECT tag](xref:mvc/views/working-with-forms#the-select-tag-helper) i znacznika opcji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
