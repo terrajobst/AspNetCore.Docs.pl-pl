@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/12/2019
 uid: fundamentals/app-state
-ms.openlocfilehash: 578be568b58dc630e8aabf8cb355266766741b9e
-ms.sourcegitcommit: 116bfaeab72122fa7d586cdb2e5b8f456a2dc92a
+ms.openlocfilehash: ccb37a422d972ab9113bb4115473d054282dac87
+ms.sourcegitcommit: 994da92edb0abf856b1655c18880028b15a28897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384739"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71278694"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Stan sesji i aplikacji w ASP.NET Core
 
@@ -315,6 +315,10 @@ Użyj [iniekcji zależności](xref:fundamentals/dependency-injection) , aby udos
   Na przykład użytkownik przechowuje koszyk w sesji. Użytkownik dodaje element do koszyka, ale zatwierdzanie kończy się niepowodzeniem. Aplikacja nie wie o niepowodzeniu, dlatego zgłasza użytkownikowi informacje o tym, że element został dodany do swojego koszyka, co nie jest prawdziwe.
 
   Zalecanym podejściem do sprawdzenia pod kątem błędów jest `await feature.Session.CommitAsync();` Wywoływanie kodu aplikacji, gdy aplikacja zakończy zapisywanie w sesji. `CommitAsync`zgłasza wyjątek, jeśli magazyn zapasowy jest niedostępny. Jeśli `CommitAsync` to się nie powiedzie, aplikacja może przetworzyć wyjątek. `LoadAsync`zgłasza w tych samych warunkach, w których magazyn danych jest niedostępny.
+  
+## <a name="signalr-and-session-state"></a>Sygnalizacja i stan sesji
+
+Aplikacje sygnalizujące nie powinny używać stanu sesji do przechowywania informacji. Aplikacje sygnalizujące mogą przechowywać stan dla połączenia w `Context.Items` centrum. <!-- https://github.com/aspnet/SignalR/issues/2139 -->
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

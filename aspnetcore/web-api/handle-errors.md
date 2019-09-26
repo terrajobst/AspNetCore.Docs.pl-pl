@@ -5,26 +5,26 @@ description: Dowiedz się więcej o obsłudze błędów przy użyciu ASP.NET Cor
 monikerRange: '>= aspnetcore-2.1'
 ms.author: prkrishn
 ms.custom: mvc
-ms.date: 09/18/2019
+ms.date: 09/25/2019
 uid: web-api/handle-errors
-ms.openlocfilehash: bf8229d37ef15c42b5d7bb4a12737ac65d7b753c
-ms.sourcegitcommit: a11f09c10ef3d4eeab7ae9ce993e7f30427741c1
+ms.openlocfilehash: 9c5dd2f89e7351f386d1f0633c831952dc58e568
+ms.sourcegitcommit: 994da92edb0abf856b1655c18880028b15a28897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71150909"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71278733"
 ---
 # <a name="handle-errors-in-aspnet-core-web-apis"></a>Obsługa błędów w ASP.NET Core interfejsów API sieci Web
 
 W tym artykule opisano sposób obsługi i dostosowywania obsługi błędów przy użyciu ASP.NET Core interfejsów API sieci Web.
 
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/handle-errors/samples) ([Jak pobrać](xref:index#how-to-download-a-sample))
+
 ## <a name="developer-exception-page"></a>Strona wyjątków dla deweloperów
 
 [Strona wyjątków dla deweloperów](xref:fundamentals/error-handling) to przydatne narzędzie do uzyskiwania szczegółowych śladów stosu dla błędów serwera.
 
-::: moniker range=">= aspnetcore-3.0"
-
-Na stronie wyjątku dewelopera jest wyświetlana odpowiedź w postaci zwykłego tekstu, jeśli klient nie akceptuje danych wyjściowych w formacie HTML:
+Na stronie wyjątku dewelopera jest wyświetlana odpowiedź w postaci zwykłego tekstu, jeśli klient nie akceptuje danych wyjściowych w formacie HTML. Na przykład:
 
 ```
 > curl https://localhost:5001/weatherforecast
@@ -35,8 +35,6 @@ System.ArgumentException: count
 ...
 ```
 
-::: moniker-end
-
 > [!WARNING]
 > Stronę wyjątku dla deweloperów należy włączyć tylko wtedy, **gdy aplikacja jest uruchomiona w środowisku deweloperskim**. Nie chcesz udostępniać szczegółowych informacji o wyjątku publicznie, gdy aplikacja jest uruchamiana w środowisku produkcyjnym. Aby uzyskać więcej informacji na temat konfigurowania środowisk <xref:fundamentals/environments>, zobacz.
 
@@ -46,36 +44,39 @@ W środowiskach innych niż programowanie [wyjątek obsługujący oprogramowanie
 
 1. W `Startup.Configure`programie Wywołaj <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> , aby użyć oprogramowania pośredniczącego:
 
-    ```csharp
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-    {
-        if (env.IsDevelopment())
-        {
-            app.UseDeveloperExceptionPage();
-        }
-        else
-        {
-            app.UseExceptionHandler("/error");
-        }
-    }
-    ```
+    ::: moniker range=">= aspnetcore-3.0"
+
+    [!code-csharp[](handle-errors/samples/3.x/Startup.cs?name=snippet_UseExceptionHandler&highlight=9)]
+
+    ::: moniker-end
+
+    ::: moniker range="<= aspnetcore-2.2"
+
+    [!code-csharp[](handle-errors/samples/2.x/2.2/Startup.cs?name=snippet_UseExceptionHandler&highlight=9)]
+
+    ::: moniker-end
 
 1. Skonfiguruj akcję kontrolera, aby odpowiedzieć na `/error` trasę:
 
-    ```csharp
-    [ApiController]
-    public class ErrorController : ControllerBase
-    {
-        [Route("/error")]
-        public IActionResult Error() => Problem();
-    }
-    ```
+    ::: moniker range=">= aspnetcore-3.0"
+
+    [!code-csharp[](handle-errors/samples/3.x/Controllers/ErrorController.cs?name=snippet_ErrorController)]
+
+    ::: moniker-end
+
+    ::: moniker range="<= aspnetcore-2.2"
+
+    [!code-csharp[](handle-errors/samples/2.x/2.2/Controllers/ErrorController.cs?name=snippet_ErrorController)]
+
+    ::: moniker-end
 
 Poprzednia `Error` akcja powoduje wysłanie do klienta ładunku zgodnego z [RFC7807](https://tools.ietf.org/html/rfc7807).
 
 Wyjątek obsługujący oprogramowanie pośredniczące może również dostarczyć bardziej szczegółowe dane wyjściowe negocjowane z zawartością w lokalnym środowisku programistycznym. Wykonaj następujące kroki, aby utworzyć spójny format ładunku w środowisku deweloperskim i produkcyjnym:
 
 1. W `Startup.Configure`programie Zarejestruj wyjątek specyficzny dla środowiska obsługi oprogramowania pośredniczącego:
+
+    ::: moniker range=">= aspnetcore-3.0"
 
     ```csharp
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -91,6 +92,26 @@ Wyjątek obsługujący oprogramowanie pośredniczące może również dostarczy�
     }
     ```
 
+    ::: moniker-end
+
+    ::: moniker range="<= aspnetcore-2.2"
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
+            app.UseExceptionHandler("/error-local-development");
+        }
+        else
+        {
+            app.UseExceptionHandler("/error");
+        }
+    }
+    ```
+
+    ::: moniker-end
+
     W poprzednim kodzie oprogramowanie pośredniczące jest zarejestrowane w:
 
     * Trasa `/error-local-development` w środowisku deweloperskim.
@@ -98,31 +119,17 @@ Wyjątek obsługujący oprogramowanie pośredniczące może również dostarczy�
     
 1. Zastosuj Routing atrybutów do akcji kontrolera:
 
-    ```csharp
-    [ApiController]
-    public class ErrorController : ControllerBase
-    {
-        [Route("/error-local-development")]
-        public IActionResult ErrorLocalDevelopment(
-            [FromServices] IWebHostEnvironment webHostEnvironment)
-        {
-            if (!webHostEnvironment.IsDevelopment())
-            {
-                throw new InvalidOperationException(
-                    "This shouldn't be invoked in non-development environments.");
-            }
-    
-            var context = HttpContext.Features.Get<IExceptionHandlerFeature>();
+    ::: moniker range=">= aspnetcore-3.0"
 
-            return Problem(
-                detail: context.Error.StackTrace,
-                title: context.Error.Message);
-        }
-    
-        [Route("/error")]
-        public IActionResult Error() => Problem();
-    }
-    ```
+    [!code-csharp[](handle-errors/samples/3.x/Controllers/ErrorController.cs?name=snippet_ErrorControllerEnvironmentSpecific)]
+
+    ::: moniker-end
+
+    ::: moniker range="<= aspnetcore-2.2"
+
+    [!code-csharp[](handle-errors/samples/2.x/2.2/Controllers/ErrorController.cs?name=snippet_ErrorControllerEnvironmentSpecific)]
+
+    ::: moniker-end
 
 ## <a name="use-exceptions-to-modify-the-response"></a>Modyfikowanie odpowiedzi przy użyciu wyjątków
 
@@ -130,47 +137,31 @@ Zawartość odpowiedzi można modyfikować poza kontrolerem. W przypadku interfe
 
 1. Utwórz dobrze znany typ wyjątku o nazwie `HttpResponseException`:
 
-    ```csharp
-    public class HttpResponseException : Exception
-    {
-        public int Status { get; set; } = 500;
-    
-        public object Value { get; set; }
-    }
-    ```
+    [!code-csharp[](handle-errors/samples/3.x/Exceptions/HttpResponseException.cs?name=snippet_HttpResponseException)]
 
 1. Utwórz filtr akcji o nazwie `HttpResponseExceptionFilter`:
 
-    ```csharp
-    public class HttpResponseExceptionFilter : IActionFilter, IOrderedFilter
-    {
-        public int Order { get; set; } = int.MaxValue - 10;
-    
-        public void OnActionExecuting(ActionExecutingContext context) {}
-    
-        public void OnActionExecuted(ActionExecutedContext context)
-        {
-            if (context.Exception is HttpResponseException exception)
-            {
-                context.Result = new ObjectResult(exception.Value)
-                {
-                    Status = exception.Status,
-                };
-                context.ExceptionHandled = true;
-            }
-        }
-    }
-    ```
+    [!code-csharp[](handle-errors/samples/3.x/Filters/HttpResponseExceptionFilter.cs?name=snippet_HttpResponseExceptionFilter)]
 
 1. W `Startup.ConfigureServices`programie Dodaj filtr akcji do kolekcji filters:
 
-    ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddControllers(options => 
-            options.Filters.Add(new HttpResponseExceptionFilter()));
-    }
-    ```
+    ::: moniker range=">= aspnetcore-3.0"
+
+    [!code-csharp[](handle-errors/samples/3.x/Startup.cs?name=snippet_AddExceptionFilter)]
+
+    ::: moniker-end
+
+    ::: moniker range="= aspnetcore-2.2"
+    
+    [!code-csharp[](handle-errors/samples/2.x/2.2/Startup.cs?name=snippet_AddExceptionFilter)]
+
+    ::: moniker-end
+
+    ::: moniker range="= aspnetcore-2.1"
+
+    [!code-csharp[](handle-errors/samples/2.x/2.1/Startup.cs?name=snippet_AddExceptionFilter)]
+
+    ::: moniker-end
 
 ## <a name="validation-failure-error-response"></a>Odpowiedź na błąd niepowodzenia weryfikacji
 
@@ -178,36 +169,19 @@ W przypadku kontrolerów interfejsu API sieci Web MVC reaguje <xref:Microsoft.As
 
 ::: moniker range=">= aspnetcore-3.0"
 
-[!code-csharp[](index/samples/3.x/Startup.cs?name=snippet_DisableProblemDetailsInvalidModelStateResponseFactory&highlight=4-13)]
+[!code-csharp[](handle-errors/samples/3.x/Startup.cs?name=snippet_DisableProblemDetailsInvalidModelStateResponseFactory&highlight=4-13)]
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.2"
 
-[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_DisableProblemDetailsInvalidModelStateResponseFactory&highlight=5-14)]
+[!code-csharp[](handle-errors/samples/2.x/2.2/Startup.cs?name=snippet_DisableProblemDetailsInvalidModelStateResponseFactory&highlight=5-14)]
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.1"
 
-```csharp
-services.AddMvc()
-    .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
-services.Configure<ApiBehaviorOptions>(options =>
-{
-    options.InvalidModelStateResponseFactory = context =>
-    {
-        var result = new BadRequestObjectResult(context.ModelState);
-
-        // TODO: add `using using System.Net.Mime;` to resolve MediaTypeNames
-        result.ContentTypes.Add(MediaTypeNames.Application.Json);
-        result.ContentTypes.Add(MediaTypeNames.Application.Xml);
-
-        return result;
-    };
-});
-```
+[!code-csharp[](handle-errors/samples/2.x/2.1/Startup.cs?name=snippet_DisableProblemDetailsInvalidModelStateResponseFactory&highlight=6-15)]
 
 ::: moniker-end
 
@@ -238,15 +212,19 @@ public void ConfigureServices(IServiceCollection serviceCollection)
 
 ::: moniker-end
 
-::: moniker range="<= aspnetcore-2.2"
+::: moniker range="= aspnetcore-2.2"
 
 Odpowiedź na błąd można skonfigurować zgodnie z opisem w sekcji [use ApiBehaviorOptions. ClientErrorMapping](#use-apibehavioroptionsclienterrormapping) .
 
 ::: moniker-end
 
+::: moniker range=">= aspnetcore-2.2"
+
 ### <a name="use-apibehavioroptionsclienterrormapping"></a>Użyj ApiBehaviorOptions. ClientErrorMapping
 
-Użyj właściwości <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.ClientErrorMapping*> , aby skonfigurować zawartość `ProblemDetails` odpowiedzi. Na przykład poniższy kod aktualizuje `type` właściwość dla 404 odpowiedzi:
+Użyj właściwości <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.ClientErrorMapping*> , aby skonfigurować zawartość `ProblemDetails` odpowiedzi. Na przykład poniższy kod w programie `Startup.ConfigureServices` `type` aktualizuje właściwość dla 404 odpowiedzi:
+
+::: moniker-end
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -254,7 +232,7 @@ Użyj właściwości <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.ClientErr
 
 ::: moniker-end
 
-::: moniker range="<= aspnetcore-2.2"
+::: moniker range="= aspnetcore-2.2"
 
 [!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=9-10)]
 
