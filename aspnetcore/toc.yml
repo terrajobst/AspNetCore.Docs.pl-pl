@@ -576,7 +576,7 @@
       uid: grpc/diagnostics
     - name: Zagadnienia dotyczące bezpieczeństwa
       uid: grpc/security
-    - name: Migracja usług gRPC ze środowiska C Core
+    - name: Migracja usług gRPC ze środowiska C-core
       uid: grpc/migration
     - name: Porównanie usług gRPC za pomocą interfejsów API protokołu HTTP
       uid: grpc/comparison
