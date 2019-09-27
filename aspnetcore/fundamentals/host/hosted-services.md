@@ -5,14 +5,14 @@ description: Dowiedz się, jak wdrożyć zadania w tle z usługami hostowanymi n
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/18/2019
+ms.date: 09/26/2019
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 8df86b10d7ba853edb3265df0e02eabbf8a2c058
-ms.sourcegitcommit: fa61d882be9d0c48bd681f2efcb97e05522051d0
+ms.openlocfilehash: 5a29952c4e50edb953fa03c6ea1a1ae27b728bb0
+ms.sourcegitcommit: e644258c95dd50a82284f107b9bf3becbc43b2b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71205711"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71317720"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Zadania w tle z usługami hostowanymi w ASP.NET Core
 
@@ -45,7 +45,7 @@ Szablon usługi ASP.NET Core Worker zapewnia punkt początkowy do pisania długo
 1. W oknie dialogowym **Tworzenie nowej ASP.NET Core aplikacji sieci Web** upewnij się, że wybrano opcję **.net Core** i **ASP.NET Core 3,0** .
 1. Wybierz szablon **usługi procesu roboczego** . Wybierz pozycję **Utwórz**.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 1. Utwórz nowy projekt.
 1. Na pasku bocznym wybierz pozycję **aplikacja** na **platformie .NET Core** .
@@ -63,7 +63,7 @@ dotnet new worker -o ContosoWorker
 
 ---
 
-## <a name="package"></a>Package
+## <a name="package"></a>Pakiet
 
 Odwołanie do pakietu [Microsoft. Extensions. hosting](https://www.nuget.org/packages/Microsoft.Extensions.Hosting) jest dodawane niejawnie dla aplikacji ASP.NET Core.
 
@@ -123,10 +123,12 @@ Usługa hostowana jest uaktywniana raz podczas uruchamiania aplikacji i bezpiecz
 
 ## <a name="backgroundservice"></a>BackgroundService
 
-`BackgroundService`jest klasą bazową do implementowania długotrwałego działania <xref:Microsoft.Extensions.Hosting.IHostedService>. `BackgroundService`definiuje dwie metody dla operacji w tle:
+`BackgroundService`jest klasą bazową do implementowania długotrwałego działania <xref:Microsoft.Extensions.Hosting.IHostedService>. `BackgroundService`udostępnia metodę `ExecuteAsync(CancellationToken stoppingToken)` abstrakcyjną, która będzie zawierać logikę usługi. Jest `stoppingToken` wyzwalane, gdy wywoływana jest [IHostedService. StopAsync](xref:Microsoft.Extensions.Hosting.IHostedService.StopAsync*) . Implementacja tej metody zwraca `Task` wartość reprezentującą cały okres istnienia usługi w tle.
 
-* `ExecuteAsync(CancellationToken stoppingToken)`Wywoływana, gdyzostanie<xref:Microsoft.Extensions.Hosting.IHostedService>uruchomiony. &ndash; `ExecuteAsync` Implementacja powinna zwrócić `Task` , która reprezentuje okres istnienia długotrwałych operacji wykonywania. Wyzwalane, `stoppingToken` gdy wywoływana jest [IHostedService. StopAsync](xref:Microsoft.Extensions.Hosting.IHostedService.StopAsync*) .
-* `StopAsync(CancellationToken stoppingToken)`&ndash; jest wyzwalany,gdyhostaplikacji`StopAsync` wykonuje bezpieczne zamknięcie. `stoppingToken` Wskazuje, że proces zamykania nie powinien już być łagodny.
+Ponadto *Opcjonalnie* Przesłoń metody zdefiniowane na `IHostedService` potrzeby uruchamiania kodu uruchamiania i zamykania dla usługi:
+
+* `StopAsync(CancellationToken cancellationToken)`&ndash; jestwywoływana,gdyhost`StopAsync` aplikacji wykonuje bezpieczne zamknięcie. Jest `cancellationToken` on sygnalizowane, gdy host zdecyduje się wymusić zakończenie usługi. Jeśli ta metoda zostanie zastąpiona, **należy** wywołać metodę klasy `await`bazowej (i), aby upewnić się, że usługa jest prawidłowo zamykana.
+* `StartAsync(CancellationToken cancellationToken)`&ndash; jestwywoływanawcelu`StartAsync` uruchomienia usługi w tle. Jest `cancellationToken` on sygnalizowane, jeśli proces uruchamiania zostanie przerwany. Implementacja zwraca `Task` , która reprezentuje proces uruchamiania usługi. Żadne dalsze usługi nie są uruchamiane do `Task` momentu zakończenia tego procesu. Jeśli ta metoda zostanie zastąpiona, **należy** wywołać metodę klasy `await`bazowej (i), aby upewnić się, że usługa jest uruchamiana prawidłowo.
 
 ## <a name="timed-background-tasks"></a>Zadania w tle czasu
 
@@ -198,7 +200,7 @@ Przykładowa aplikacja jest dostępna w dwóch wersjach:
 * Host internetowy &ndash; hosta sieci Web jest przydatny do hostowania aplikacji sieci Web. Przykładowy kod przedstawiony w tym temacie pochodzi z wersji hosta sieci Web przykładowej. Aby uzyskać więcej informacji, zobacz temat [hosta sieci Web](xref:fundamentals/host/web-host) .
 * Host ogólny &ndash; hosta ogólnego jest nowy w ASP.NET Core 2,1. Aby uzyskać więcej informacji, zobacz temat [hosta ogólnego](xref:fundamentals/host/generic-host) .
 
-## <a name="package"></a>Package
+## <a name="package"></a>Pakiet
 
 Odwołuje się do pakietu [Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app) lub Dodaj odwołanie do pakietu do pakietu [Microsoft. Extensions. hosting](https://www.nuget.org/packages/Microsoft.Extensions.Hosting) .
 

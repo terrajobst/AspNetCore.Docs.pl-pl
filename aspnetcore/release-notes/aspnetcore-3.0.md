@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się więcej o nowych funkcjach w ASP.NET Core 3,0.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 09/26/2019
 uid: aspnetcore-3.0
-ms.openlocfilehash: 490d00da7282e2efe28fcc52e593dd71d7324d3f
-ms.sourcegitcommit: 0365af91518004c4a44a30dc3a8ac324558a399b
+ms.openlocfilehash: c1b61fee7264b972c70dbfa8f1461e33e3645746
+ms.sourcegitcommit: e644258c95dd50a82284f107b9bf3becbc43b2b2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71198994"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71317656"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>Co nowego w ASP.NET Core 3,0
 
@@ -64,7 +64,7 @@ Składniki w Blazor są zwykle tworzone przy użyciu składnia Razor, naturalnej
   * Binarny format serializacji.
 * Udostępnia funkcje takie jak:
 
-  * Uwierzytelnianie
+  * Authentication
   * Dwukierunkowe przesyłanie strumieniowe i sterowanie przepływem.
   * Anulowanie i przekroczenie limitu czasu.
 
@@ -319,6 +319,17 @@ Poniższa lista zawiera nowe dyrektywy Razor:
 * [@attribute](xref:mvc/views/razor#attribute)&ndash; Dyrektywastosujedanyatrybutdoklasywygenerowanej`@attribute` strony lub widoku. Na przykład `@attribute [Authorize]`.
 * [@implements](xref:mvc/views/razor#implements)&ndash; Dyrektywaimplementujeinterfejsdla`@implements` wygenerowanej klasy. Na przykład `@implements IDisposable`.
 
+## <a name="identityserver4-supports-authentication-and-authorization-for-web-apis-and-spas"></a>Usługi identityserver4 obsługuje uwierzytelnianie i autoryzację dla interfejsów API sieci Web i aplikacji jednostronicowych
+
+[Usługi identityserver4](https://identityserver.io) to struktura OpenID Connect Connect i OAuth 2,0 dla ASP.NET Core 3,0. Usługi identityserver4 włącza następujące funkcje zabezpieczeń:
+
+* Uwierzytelnianie jako usługa (AaaS)
+* Logowanie jednokrotne (SSO) dla wielu typów aplikacji
+* Kontrola dostępu do interfejsów API
+* Brama federacyjna
+
+Aby uzyskać więcej informacji, zobacz [Welcome to usługi identityserver4](http://docs.identityserver.io/en/latest/index.html).
+
 ## <a name="certificate-and-kerberos-authentication"></a>Certyfikat i uwierzytelnianie Kerberos
 
 Wymagane jest uwierzytelnianie certyfikatu:
@@ -420,9 +431,9 @@ Aby uzyskać więcej informacji, zobacz <xref:migration/22-to-30#kestrel>.
 
 Protokół HTTP/2 jest domyślnie włączony w Kestrel dla punktów końcowych HTTPS. Obsługa protokołu HTTP/2 dla usług IIS lub HTTP. sys jest włączona, gdy jest ona obsługiwana przez system operacyjny.
 
-## <a name="request-counters"></a>Liczniki żądań
+## <a name="eventcounters-on-request"></a>EventCounters na żądanie
 
-Hosting EventSource (Microsoft. AspNetCore. Hosting) emituje następujące EventCounters związane z żądaniami przychodzącymi:
+Hosting EventSource `Microsoft.AspNetCore.Hosting`,, emituje następujące nowe <xref:System.Diagnostics.Tracing.EventCounter> typy związane z żądaniami przychodzącymi:
 
 * `requests-per-second`
 * `total-requests`
