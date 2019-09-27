@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/14/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: aa42b1c7199e951714be809de9c9c5f857473485
-ms.sourcegitcommit: 994da92edb0abf856b1655c18880028b15a28897
+ms.openlocfilehash: 1d1bba6a1f1da2af959bc69b31f79bac53bf48b9
+ms.sourcegitcommit: fe3e556bf438fc4136fcf0bac61cf96e3e91caf5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71278755"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71341465"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Wymuszanie protokołu HTTPS w ASP.NET Core
 
@@ -313,7 +313,7 @@ Usuń zaznaczenie pola wyboru **Konfiguruj dla protokołu HTTPS** .
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
 
-`--no-https` Użyj opcji. Na przykład
+`--no-https` Użyj opcji. Na przykład:
 
 ```dotnetcli
 dotnet new webapp --no-https
@@ -393,8 +393,8 @@ Powyższe polecenia rozwiązują większość problemów z zaufaniem do przeglą
 * Uruchom następujące polecenia:
 
 ```dotnetcli
-dotnet devcerts https --clean
-dotnet devcerts https --trust
+dotnet dev-certs https --clean
+dotnet dev-certs https --trust
 ```
 
 Zamknij wszystkie otwarte wystąpienia przeglądarki. Otwórz nowe okno przeglądarki do aplikacji.
