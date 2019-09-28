@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/24/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 14fe4bf9266ec6b2d588fa26d7a460531e33aa30
-ms.sourcegitcommit: 14b25156e34c82ed0495b4aff5776ac5b1950b5e
+ms.openlocfilehash: c8037d79c79c5b7eb3b99d9724aa3e5361f92b8c
+ms.sourcegitcommit: 5d25a7f22c50ca6fdd0f8ecd8e525822e1b35b7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71295496"
+ms.lasthandoff: 09/28/2019
+ms.locfileid: "71482043"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w ASP.NET Core
 
@@ -44,7 +44,7 @@ Obsługa generowania adresów URL umożliwia tworzenie aplikacji bez adresów UR
 
 Routing używa *punktów końcowych* (`Endpoint`) do reprezentowania logicznych punktów końcowych w aplikacji.
 
-Punkt końcowy definiuje delegata do przetwarzania żądań i kolekcji dowolnych metadanych. Metadane są używane w celu zaimplementowania zagadnień związanych z wycinaniem w oparciu o zasady i konfigurację dołączone do każdego punktu końcowego.
+Punkt końcowy definiuje delegata do przetwarzania żądań i kolekcji dowolnych metadanych. Metadane służą do implementowania zagadnień związanych z wycinaniem w oparciu o zasady i konfigurację dołączone do każdego punktu końcowego.
 
 System routingu ma następujące cechy:
 

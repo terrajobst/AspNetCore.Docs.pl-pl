@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/27/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 5e5215f246c6c7a805a4c99f485d51a2fb3c712d
-ms.sourcegitcommit: cf9ffcce4fe0b69fe795aae9ae06e99fdb18bdfc
+ms.openlocfilehash: 366323416061bf729c092419f2f6a5912884252b
+ms.sourcegitcommit: 5d25a7f22c50ca6fdd0f8ecd8e525822e1b35b7a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306663"
+ms.lasthandoff: 09/28/2019
+ms.locfileid: "71551734"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Samouczek: Tworzenie internetowego interfejsu API za pomocą ASP.NET Core
 
@@ -21,7 +21,7 @@ W tym samouczku pokazano podstawy tworzenia internetowego interfejsu API za pomo
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz projekt interfejsu API sieci Web.
@@ -32,7 +32,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 Na końcu znajduje się internetowy interfejs API, który może zarządzać elementami do wykonania przechowywanymi w bazie danych.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Ten samouczek tworzy następujący interfejs API:
 
@@ -58,7 +58,7 @@ Na poniższym diagramie przedstawiono projekt aplikacji.
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-3.0.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-3.0.md)]
 
@@ -83,7 +83,7 @@ Na poniższym diagramie przedstawiono projekt aplikacji.
 
    ```dotnetcli
    dotnet new webapi -o TodoApi
-   cd TodoAPI
+   cd TodoApi
    dotnet add package Microsoft.EntityFrameworkCore.SqlServer
    dotnet add package Microsoft.EntityFrameworkCore.InMemory
    code -r ../TodoApi
@@ -96,7 +96,7 @@ Na poniższym diagramie przedstawiono projekt aplikacji.
   * Tworzy nowy projekt internetowego interfejsu API i otwiera go w Visual Studio Code.
   * Dodaje pakiety NuGet, które są wymagane w następnej sekcji.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * Wybierz pozycję **plik** > **nowe rozwiązanie**.
 
@@ -137,7 +137,7 @@ Jeśli pojawi się okno dialogowe z pytaniem, czy należy ufać certyfikat usłu
 
 Naciśnij klawisze Ctrl + F5, aby uruchomić aplikację. W przeglądarce przejdź do następującego adresu URL: [ https://localhost:5001/WeatherForecast ](https://localhost:5001/WeatherForecast).
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 Wybierz pozycję **Uruchom** > **Rozpocznij debugowanie** , aby uruchomić aplikację. Program Visual Studio for Mac otworzy w przeglądarce i przechodzi do `https://localhost:<port>`, gdzie `<port>` jest numer portu wybranego losowo. Jest zwracany błąd HTTP 404 (nie znaleziono). Dołącz `/WeatherForecast` do adresu URL (adres URL, aby zmienić `https://localhost:<port>/WeatherForecast`).
 
@@ -271,8 +271,8 @@ Powyższy kod:
 * Wybierz pozycję **kontroler interfejsu API z akcjami, używając Entity Framework**, a następnie wybierz pozycję **Dodaj**.
 * Na stronie **Dodawanie kontrolera interfejsu API z akcjami przy użyciu Entity Framework** dialogowego:
 
-  * Wybierz pozycję **TodoItem (TodoAPI. models)** w **klasie model**.
-  * W **klasie kontekstu danych**wybierz pozycję **TodoContext (TodoAPI. models)** .
+  * Wybierz pozycję **TodoItem (TodoApi. models)** w **klasie model**.
+  * W **klasie kontekstu danych**wybierz pozycję **TodoContext (TodoApi. models)** .
   * Wybierz pozycję **Dodaj**
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
@@ -469,7 +469,7 @@ Zobacz [samouczek: Wywołaj ASP.NET Core interfejs API sieci Web](xref:tutorials
 
 ::: moniker range="< aspnetcore-3.0"
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz projekt interfejsu API sieci Web.
@@ -509,7 +509,7 @@ Na poniższym diagramie przedstawiono projekt aplikacji.
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-2.2.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-2.2.md)]
 
@@ -541,7 +541,7 @@ Na poniższym diagramie przedstawiono projekt aplikacji.
 
 * Gdy zostanie wyświetlone okno dialogowe z pytaniem, czy chcesz dodać wymagane zasoby do projektu, wybierz opcję **tak**.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * Wybierz pozycję **plik** > **nowe rozwiązanie**.
 
@@ -573,7 +573,7 @@ Jeśli pojawi się okno dialogowe z pytaniem, czy należy ufać certyfikat usłu
 
 Naciśnij klawisze Ctrl + F5, aby uruchomić aplikację. W przeglądarce przejdź do następującego adresu URL: [ https://localhost:5001/api/values ](https://localhost:5001/api/values).
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 Wybierz pozycję **Uruchom** > **Rozpocznij debugowanie** , aby uruchomić aplikację. Program Visual Studio for Mac otworzy w przeglądarce i przechodzi do `https://localhost:<port>`, gdzie `<port>` jest numer portu wybranego losowo. Jest zwracany błąd HTTP 404 (nie znaleziono). Dołącz `/api/values` do adresu URL (adres URL, aby zmienić `https://localhost:<port>/api/values`).
 
