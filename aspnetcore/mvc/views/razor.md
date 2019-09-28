@@ -3,14 +3,14 @@ title: Dokumentacja składni razor dla platformy ASP.NET Core
 author: rick-anderson
 description: Więcej informacji na temat składni znacznikowania Razor do osadzania kodu na serwerze do stron sieci Web.
 ms.author: riande
-ms.date: 09/19/2019
+ms.date: 09/28/2019
 uid: mvc/views/razor
-ms.openlocfilehash: 9a319f7efb6d879559afd9faca6955aba719fa2f
-ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
+ms.openlocfilehash: 6f8835419dbf4c271617f57484c3408e0af30617
+ms.sourcegitcommit: f62014bb558ff6f8fdaef2e96cb05986e216aacd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168291"
+ms.lasthandoff: 09/28/2019
+ms.locfileid: "71592327"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Dokumentacja składni razor dla platformy ASP.NET Core
 
@@ -227,9 +227,9 @@ Tej metody można użyć do renderowania elementów HTML, który nie jest otoczo
 * Tylko zawartość między `<text>` tagiem jest renderowana.
 * W danych wyjściowych HTML nie `<text>` ma odstępów przed tagiem ani po nim.
 
-### <a name="explicit-line-transition-with-colon"></a>Jawne przejście liniowe z\@&colon;
+### <a name="explicit-line-transition"></a>Jawne przejście liniowe
 
-Aby renderować pozostałą część całego wiersza jako HTML wewnątrz bloku kodu, należy użyć `@:` składni:
+Aby renderować resztę całego wiersza jako HTML wewnątrz bloku kodu, użyj składni `@:`:
 
 ```cshtml
 @for (var i = 0; i < people.Length; i++)
@@ -649,7 +649,7 @@ Dyrektywa określa typ `Model`właściwości. `@model` Dyrektywa określa `T` w 
 W przykładzie Razor Pages przedstawionym w poniższej tabeli:
 
 * Każda Strona importuje *strony/_ViewImports. cshtml*.
-* *Strona/_ViewImports. cshtml* zawiera `@namespace Hello.World`.
+* *Strony/_ViewImports. cshtml* zawiera `@namespace Hello.World`.
 * Każda Strona ma `Hello.World` jako element główny przestrzeni nazw.
 
 | Stronic                                        | Przestrzeń nazw                             |

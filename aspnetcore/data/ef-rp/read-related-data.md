@@ -4,14 +4,14 @@ author: tdykstra
 description: W tym samouczku odczytasz i wyświetlasz powiązane dane, czyli dane, które Entity Framework ładowane do właściwości nawigacji.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/22/2019
+ms.date: 09/28/2019
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: f53f8edef7fe8690d0e414bc094d81dc99ad198a
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 02b52dee0b661ad26cd6fa9fea08fcea3d7dd9bd
+ms.sourcegitcommit: f62014bb558ff6f8fdaef2e96cb05986e216aacd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082086"
+ms.lasthandoff: 09/28/2019
+ms.locfileid: "71592297"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor Pages z EF Core w ASP.NET Core odczytu danych powiązanych — 6 z 8
 
@@ -258,7 +258,7 @@ Poprzedni kod wprowadza następujące zmiany:
   }
   ```
 
-* Dodaje kolumnę **kursów** , która wyświetla nauczanie kursów przez każdego instruktora. Aby uzyskać więcej informacji na temat składni Razor, zobacz [jawne przejście `@:` liniowe](xref:mvc/views/razor#explicit-line-transition-with-) .
+* Dodaje kolumnę **kursów** , która wyświetla nauczanie kursów przez każdego instruktora. Aby uzyskać więcej informacji na temat tej składni Razor, zobacz [jawne przejście liniowe](xref:mvc/views/razor#explicit-line-transition) .
 
 * Dodaje kod, który dynamicznie `class="success"` dodaje `tr` do elementu wybranego instruktora i kursu. Ustawia kolor tła dla wybranego wiersza przy użyciu klasy Bootstrap.
 
@@ -527,7 +527,7 @@ Poprzedni kod znaczników wprowadza następujące zmiany:
   }
   ```
 
-* Dodano kolumnę **kursów** , która wyświetla nauczanie kursów przez każdego instruktora. Aby uzyskać więcej informacji na temat składni Razor, zobacz [jawne przejście `@:` liniowe](xref:mvc/views/razor#explicit-line-transition-with-) .
+* Dodano kolumnę **kursów** , która wyświetla nauczanie kursów przez każdego instruktora. Aby uzyskać więcej informacji na temat tej składni Razor, zobacz [jawne przejście liniowe](xref:mvc/views/razor#explicit-line-transition) .
 
 * Dodano kod, który dynamicznie `class="success"` dodaje `tr` do elementu wybranego instruktora. Ustawia kolor tła dla wybranego wiersza przy użyciu klasy Bootstrap.
 
@@ -646,7 +646,7 @@ W następnym samouczku pokazano, jak zaktualizować powiązane dane.
 * [Wersja tego samouczka usługi YouTube (part2)](https://www.youtube.com/watch?v=xvDDrIHv5ko)
 
 >[!div class="step-by-step"]
->[Poprzedni](xref:data/ef-rp/complex-data-model)Następny
->[](xref:data/ef-rp/update-related-data)
+>[Poprzedni](xref:data/ef-rp/complex-data-model)
+>[Następny](xref:data/ef-rp/update-related-data)
 
 ::: moniker-end
