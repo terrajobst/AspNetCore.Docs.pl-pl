@@ -5,14 +5,14 @@ description: Dowiedz się, jak tworzyć i używać składników Razor, w tym jak
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 09/30/2019
 uid: blazor/components
-ms.openlocfilehash: 28e908968bd77c61da72d1bcc6032e580d15541b
-ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
+ms.openlocfilehash: ea216e405e5be52b578e99a529d8c6a726ea9cdd
+ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71207271"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71688031"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
@@ -440,23 +440,23 @@ W poniższym przykładzie `UpdateHeading` jest wywoływana asynchronicznie po wy
 
 W przypadku niektórych zdarzeń dozwolone są typy argumentów zdarzeń. Jeśli dostęp do jednego z tych typów zdarzeń nie jest konieczny, nie jest to wymagane w wywołaniu metody.
 
-Obsługiwane [EventArgs](https://github.com/aspnet/AspNetCore/tree/release/3.0-preview9/src/Components/Web/src/Web) są przedstawione w poniższej tabeli.
+W poniższej tabeli przedstawiono obsługiwane `EventArgs`.
 
-| Zdarzenie | Class |
+| Wydarzenie | Klasa |
 | ----- | ----- |
 | Schowek        | `ClipboardEventArgs` |
 | Przeciągnij             | `DragEventArgs`&ndash; iprzytrzymaj`DataTransferItem` przeciągane dane elementu. `DataTransfer` |
 | Błąd            | `ErrorEventArgs` |
 | Fokus            | `FocusEventArgs`Nie obejmuje obsługi dla `relatedTarget`. &ndash; |
 | `<input>`stąp | `ChangeEventArgs` |
-| Klawiatura         | `KeyboardEventArgs` |
+| Klawiatury         | `KeyboardEventArgs` |
 | Wskaźnik            | `MouseEventArgs` |
 | Wskaźnik myszy    | `PointerEventArgs` |
 | Kółko myszy      | `WheelEventArgs` |
 | Postęp         | `ProgressEventArgs` |
 | Dotyk            | `TouchEventArgs`&ndash; reprezentujepojedynczypunktkontaktunaurządzeniuz`TouchPoint` wrażliwym dotknięciem. |
 
-Aby uzyskać informacje o zachowaniu właściwości i obsłudze zdarzeń zdarzeń w powyższej tabeli, zobacz [EventArgs Classes in source Reference (ASPNET/AspNetCore Release/3.0-preview9)](https://github.com/aspnet/AspNetCore/tree/release/3.0-preview9/src/Components/Web/src/Web).
+Aby uzyskać informacje o zachowaniu właściwości i obsłudze zdarzeń zdarzeń w powyższej tabeli, zobacz [klasy EventArgs w źródle odwołań (gałąź ASPNET/AspNetCore Release/3.0)](https://github.com/aspnet/AspNetCore/tree/release/3.0/src/Components/Web/src/Web).
 
 ### <a name="lambda-expressions"></a>Wyrażenia lambda
 
@@ -1382,7 +1382,7 @@ W poniższym przykładzie pętla w `CreateComponent` metodzie generuje trzy `Pet
 }
 ```
 
-> ! WYŚWIETLANIA Typy w programie `Microsoft.AspNetCore.Components.RenderTree` umożliwiają przetwarzanie *wyników* operacji renderowania. Są to wewnętrzne szczegóły implementacji platformy Blazor Framework. Te typy powinny być uznawane za *niestabilne* i mogą ulec zmianie w przyszłych wersjach.
+> ! WYŚWIETLANIA Typy w `Microsoft.AspNetCore.Components.RenderTree` umożliwiają przetwarzanie *wyników* operacji renderowania. Są to wewnętrzne szczegóły implementacji platformy Blazor Framework. Te typy powinny być uznawane za *niestabilne* i mogą ulec zmianie w przyszłych wersjach.
 
 ### <a name="sequence-numbers-relate-to-code-line-numbers-and-not-execution-order"></a>Numery sekwencji odnoszą się do numerów wierszy kodu, a nie kolejności wykonywania
 
@@ -1414,14 +1414,14 @@ builder.AddContent(1, "Second");
 
 Gdy kod jest wykonywany po raz pierwszy, jeśli `someFlag` jest `true`, Konstruktor odbiera:
 
-| Sequence | Typ      | Dane   |
+| Sekwencja | Type      | Data   |
 | :------: | --------- | :----: |
 | 0        | Węzeł tekstu | pierwszego  |
 | 1        | Węzeł tekstu | Sekunda |
 
 Wyobraź sobie `someFlag` , `false`że zostanie ona przerenderowana, a znaczniki są renderowane ponownie. Tym razem Konstruktor odbiera:
 
-| Sequence | Typ       | Dane   |
+| Sekwencja | Type       | Data   |
 | :------: | ---------- | :----: |
 | 1        | Węzeł tekstu  | Sekunda |
 
@@ -1446,14 +1446,14 @@ builder.AddContent(seq++, "Second");
 
 Teraz pierwsze dane wyjściowe to:
 
-| Sequence | Typ      | Dane   |
+| Sekwencja | Type      | Data   |
 | :------: | --------- | :----: |
 | 0        | Węzeł tekstu | pierwszego  |
 | 1        | Węzeł tekstu | Sekunda |
 
 Ten wynik jest identyczny z poprzednim przypadkiem, dlatego nie istnieją żadne negatywne problemy. `someFlag`znajduje `false` się na drugim renderingu, a dane wyjściowe:
 
-| Sequence | Typ      | Dane   |
+| Sekwencja | Type      | Data   |
 | :------: | --------- | ------ |
 | 0        | Węzeł tekstu | Sekunda |
 
@@ -1514,7 +1514,7 @@ Lokalizacja jest obsługiwana w aplikacji:
 
 1. Przeglądarka wysyła początkowe żądanie HTTP do aplikacji.
 1. Kultura jest przypisana przez oprogramowanie pośredniczące lokalizacji.
-1. Metoda w *_Host. cshtml. cs* utrzymuje kulturę w pliku cookie jako część odpowiedzi. `OnGet`
+1. Metoda `OnGet` w *_Host. cshtml. cs* utrzymuje kulturę w pliku cookie jako część odpowiedzi.
 1. Przeglądarka otwiera połączenie WebSocket, aby utworzyć interaktywną sesję serwera Blazor.
 1. Oprogramowanie pośredniczące lokalizacji odczytuje plik cookie i przypisuje kulturę.
 1. Sesja serwera Blazor jest rozpoczynana z poprawną kulturą.

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/26/2019
 uid: aspnetcore-3.0
-ms.openlocfilehash: c1b61fee7264b972c70dbfa8f1461e33e3645746
-ms.sourcegitcommit: e644258c95dd50a82284f107b9bf3becbc43b2b2
+ms.openlocfilehash: a32307f6de01e03e548cbde2c38c9469db74b506
+ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71317656"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71688044"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>Co nowego w ASP.NET Core 3,0
 
@@ -423,7 +423,7 @@ Wszystkie usługi można nadal dodawać bezpośrednio jako argumenty `Startup.Co
 * Adaptery połączeń zostały usunięte z usługi Kestrel i zastąpione przez oprogramowanie pośredniczące połączenia, które jest podobne do oprogramowania pośredniczącego HTTP w potoku ASP.NET Core ale dla połączeń niższego poziomu.
 * Warstwa transportu Kestrel została udostępniona jako interfejs publiczny w programie `Connections.Abstractions`.
 * Niejednoznaczność między nagłówkami a przyczepami została rozwiązana przez przeniesienie końcowych nagłówków do nowej kolekcji.
-* Synchroniczne interfejsy API we/wy `HttpReqeuest.Body.Read`, takie jak, są typowym źródłem zablokowania wątków prowadzącego do awarii aplikacji. W 3,0, `AllowSynchronousIO` jest domyślnie wyłączona.
+* Synchroniczne interfejsy API we/wy `HttpRequest.Body.Read`, takie jak, są typowym źródłem zablokowania wątków prowadzącego do awarii aplikacji. W 3,0, `AllowSynchronousIO` jest domyślnie wyłączona.
 
 Aby uzyskać więcej informacji, zobacz <xref:migration/22-to-30#kestrel>.
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/26/2019
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 5a29952c4e50edb953fa03c6ea1a1ae27b728bb0
-ms.sourcegitcommit: e644258c95dd50a82284f107b9bf3becbc43b2b2
+ms.openlocfilehash: 0eaa3a62370c1e413840bb65f597dc664adafc38
+ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71317720"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71688098"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Zadania w tle z usługami hostowanymi w ASP.NET Core
 
@@ -37,29 +37,7 @@ Przykładowa aplikacja jest dostępna w dwóch wersjach:
 
 Szablon usługi ASP.NET Core Worker zapewnia punkt początkowy do pisania długotrwałych aplikacji usługi. Aby użyć szablonu jako podstawy dla aplikacji usług hostowanych:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
-1. Utwórz nowy projekt.
-1. Wybierz **aplikacji sieci Web platformy ASP.NET Core**. Wybierz opcję **Dalej**.
-1. Podaj nazwę projektu w polu **Nazwa projektu** lub zaakceptuj nazwę domyślną projektu. Wybierz pozycję **Utwórz**.
-1. W oknie dialogowym **Tworzenie nowej ASP.NET Core aplikacji sieci Web** upewnij się, że wybrano opcję **.net Core** i **ASP.NET Core 3,0** .
-1. Wybierz szablon **usługi procesu roboczego** . Wybierz pozycję **Utwórz**.
-
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
-
-1. Utwórz nowy projekt.
-1. Na pasku bocznym wybierz pozycję **aplikacja** na **platformie .NET Core** .
-1. Wybierz pozycję **proces roboczy** w obszarze **ASP.NET Core**. Wybierz opcję **Dalej**.
-1. Wybierz pozycję **.NET Core 3,0** dla **platformy docelowej**. Wybierz opcję **Dalej**.
-1. Podaj nazwę w polu **Nazwa projektu** . Wybierz pozycję **Utwórz**.
-
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
-
-Użyj szablonu usługi procesu roboczego`worker`() z poleceniem [dotnet New](/dotnet/core/tools/dotnet-new) z powłoki poleceń. W poniższym przykładzie jest tworzona aplikacja usługi Worker o nazwie `ContosoWorker`. Folder dla `ContosoWorker` aplikacji jest tworzony automatycznie podczas wykonywania polecenia.
-
-```dotnetcli
-dotnet new worker -o ContosoWorker
-```
+[!INCLUDE[](~/includes/worker-template-instructions.md)]
 
 ---
 

@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak utworzyć internetowy interfejs API za pomocą ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/27/2019
+ms.date: 09/29/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 366323416061bf729c092419f2f6a5912884252b
-ms.sourcegitcommit: 5d25a7f22c50ca6fdd0f8ecd8e525822e1b35b7a
+ms.openlocfilehash: 7bb98fe5befa8eea80885d246da31ad87d5cfc2d
+ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2019
-ms.locfileid: "71551734"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71691217"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Samouczek: Tworzenie internetowego interfejsu API za pomocą ASP.NET Core
 
@@ -273,7 +273,7 @@ Powyższy kod:
 
   * Wybierz pozycję **TodoItem (TodoApi. models)** w **klasie model**.
   * W **klasie kontekstu danych**wybierz pozycję **TodoContext (TodoApi. models)** .
-  * Wybierz pozycję **Dodaj**
+  * Wybierz pozycję **Dodaj**.
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
@@ -283,7 +283,7 @@ Uruchom następujące polecenia:
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet tool install --global dotnet-aspnet-codegenerator
-dotnet aspnet-codegenerator controller -name TodoItemsController -async -api -m TodoItem -dc TodoContext  -outDir Controllers
+dotnet aspnet-codegenerator controller -name TodoItemsController -async -api -m TodoItem -dc TodoContext -outDir Controllers
 ```
 
 Poprzedniego polecenia:
@@ -322,7 +322,7 @@ Ten samouczek używa narzędzia Postman do testowania internetowego interfejsu A
 * Uruchamiają aplikację sieci web.
 * Uruchom narzędzie Postman.
 * Wyłącz **weryfikacji certyfikatu SSL**
-* Z **Plik > Ustawienia** (**ogólne* karty), wyłącz **weryfikacji certyfikatu SSL**.
+* W obszarze **Ustawienia** **pliku** > (karta**Ogólne** ) Wyłącz **weryfikację certyfikatu SSL**.
     > [!WARNING]
     > Ponownie Włącz weryfikację certyfikatu SSL po przetestowaniu kontrolera.
 
@@ -356,7 +356,7 @@ Ten samouczek używa narzędzia Postman do testowania internetowego interfejsu A
   ![Karta nagłówki konsoli narzędzia Postman](first-web-api/_static/3/create.png)
 
 * Ustaw metodę GET.
-* Wklej identyfikator URI (na przykład `https://localhost:5001/api/TodoItems/1`)
+* Wklej URI (na przykład `https://localhost:5001/api/TodoItems/1`).
 * Wybierz pozycję **Wyślij**.
 
 ## <a name="examine-the-get-methods"></a>Badanie metod GET
@@ -404,7 +404,7 @@ Ta aplikacja używa bazy danych w pamięci. Jeśli aplikacja zostanie zatrzymana
 * Zastąp `[controller]` nazwę kontrolera, który zwyczajowo jest nazwa klasy kontrolera minus sufiks "Controller". Dla tego przykładu nazwa klasy kontrolera to **TodoItems**Controller, więc nazwa kontrolera to "TodoItems". Platforma ASP.NET Core [routingu](xref:mvc/controllers/routing) jest uwzględniana wielkość liter.
 * Jeśli atrybut ma szablon trasy (na `[HttpGet("products")]`przykład), Dodaj go do ścieżki. `[HttpGet]` W tym przykładzie nie używa szablonu. Aby uzyskać więcej informacji, zobacz [atrybutu, routing za pomocą atrybutów Http [polecenie]](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes).
 
-W następującym `GetTodoItem` metody `"{id}"` jest zmienną symbolu zastępczego dla Unikatowy identyfikator elementu do wykonania. Gdy `GetTodoItem` zostanie wywołana, wartość `"{id}"` w adresie URL jest przekazane do metody w jego`id` parametru.
+W następującym `GetTodoItem` metody `"{id}"` jest zmienną symbolu zastępczego dla Unikatowy identyfikator elementu do wykonania. Po wywołaniu `GetTodoItem` wartość `"{id}"` w adresie URL jest podawana do metody w parametrze `id`.
 
 [!code-csharp[](first-web-api/samples/3.0/TodoApi/Controllers/TodoItemsController.cs?name=snippet_GetByID&highlight=1-2)]
 
@@ -458,8 +458,8 @@ Na poniższej ilustracji przedstawiono aktualizacji Postman:
 Użyj narzędzia Postman, aby usunąć zadanie do wykonania:
 
 * Ustawia metodę `DELETE`.
-* Ustaw identyfikator URI obiektu, aby usunąć, na przykład `https://localhost:5001/api/TodoItems/1`
-* Wybierz **wysyłania**
+* Ustaw identyfikator URI obiektu do usunięcia (na przykład `https://localhost:5001/api/TodoItems/1`).
+* Wybierz pozycję **Wyślij**.
 
 ## <a name="call-the-web-api-with-javascript"></a>Wywoływanie interfejsu API sieci Web przy użyciu języka JavaScript
 
@@ -741,10 +741,10 @@ Zwracany typ `GetTodoItems` i `GetTodoItem` metody jest [ActionResult\<T > typu]
 
 Ten samouczek używa narzędzia Postman do testowania internetowego interfejsu API.
 
-* Zainstaluj [narzędzia Postman](https://www.getpostman.com/downloads/)
+* Zainstaluj program [Poster](https://www.getpostman.com/downloads/).
 * Uruchamiają aplikację sieci web.
 * Uruchom narzędzie Postman.
-* Wyłącz **weryfikacji certyfikatu SSL**
+* Wyłącz **weryfikację certyfikatu SSL**.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -813,7 +813,7 @@ Powyższy kod jest metodą HTTP POST, wskazane przez [[HttpPost]](/dotnet/api/mi
   ![Karta nagłówki konsoli narzędzia Postman](first-web-api/_static/pmc2.png)
 
 * Ustaw metodę GET.
-* Wklej identyfikator URI (na przykład `https://localhost:5001/api/Todo/2`)
+* Wklej URI (na przykład `https://localhost:5001/api/Todo/2`).
 * Wybierz pozycję **Wyślij**.
 
 ## <a name="add-a-puttodoitem-method"></a>Dodaj metodę PutTodoItem
@@ -857,8 +857,8 @@ Dodaj następujący kod `DeleteTodoItem` metody:
 Użyj narzędzia Postman, aby usunąć zadanie do wykonania:
 
 * Ustawia metodę `DELETE`.
-* Ustaw identyfikator URI obiektu, aby usunąć, na przykład `https://localhost:5001/api/todo/1`
-* Wybierz **wysyłania**
+* Ustaw identyfikator URI obiektu do usunięcia (na przykład `https://localhost:5001/api/todo/1`).
+* Wybierz pozycję **Wyślij**.
 
 Przykładowa aplikacja umożliwia usunięcie wszystkich elementów. Jednak po usunięciu ostatniego elementu jest on tworzony przez konstruktora klasy modelu przy następnym wywołaniu interfejsu API.
 
