@@ -5,12 +5,12 @@ description: Utwórz Razor Pages aplikację sieci Web w systemie Windows przy u�
 ms.author: riande
 ms.date: 08/09/2019
 uid: tutorials/razor-pages/index
-ms.openlocfilehash: 11a5f651aa3da0a01490d28d411a614cb2f355c2
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 03acfc381cf5dca2f8b834da75191cd8053e0da4
+ms.sourcegitcommit: dc96d76f6b231de59586fcbb989a7fb5106d26a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082397"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703779"
 ---
 # <a name="tutorial-create-a-razor-pages-web-app-with-aspnet-core"></a>Samouczek: Tworzenie aplikacji sieci Web Razor Pages za pomocą ASP.NET Core
 
@@ -32,8 +32,3 @@ Ta seria obejmuje następujące samouczki:
 Na końcu będziesz mieć aplikację, która będzie mogła wyświetlać bazę danych filmów i zarządzać nią.
 
 ![Przykładowa strona przykładowej aplikacji](index/_static/sample-page.png)
-
-## <a name="additional-resources"></a>Dodatkowe zasoby
-
-* [Wersja tego samouczka usługi YouTube](https://www.youtube.com/watch?v=F0SP7Ry4flQ&feature=youtu.be)
-* [Wersja usługi YouTube w tym samouczku (turecki)](https://www.youtube.com/watch?v=wqW8ayrA5-E)

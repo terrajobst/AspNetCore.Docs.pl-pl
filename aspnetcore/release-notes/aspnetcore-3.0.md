@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/26/2019
 uid: aspnetcore-3.0
-ms.openlocfilehash: a32307f6de01e03e548cbde2c38c9469db74b506
-ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
+ms.openlocfilehash: ec3de5b35883752b7b3dbefceccec55da3986f39
+ms.sourcegitcommit: dc96d76f6b231de59586fcbb989a7fb5106d26a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71688044"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703681"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>Co nowego w ASP.NET Core 3,0
 
@@ -485,7 +485,7 @@ Błędy uruchamiania podczas hostowania aplikacji ASP.NET Core w usługach IIS t
 
 ## <a name="worker-service-and-worker-sdk"></a>Zestaw SDK usługi i procesu roboczego
 
-W programie .NET Core 3,0 wprowadzono nowy szablon aplikacji usługi Worker. Ten szablon stanowi punkt początkowy do pisania długotrwałych usług w programie .NET Core.
+W programie .NET Core 3,0 wprowadzono nowy szablon aplikacji usługi Worker. Ten szablon zawiera punkt początkowy do pisania długotrwałych usług w programie .NET Core.
 
 Aby uzyskać więcej informacji, zobacz:
 

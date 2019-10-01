@@ -1,41 +1,41 @@
 ---
-title: Tworzenie szkieletu tożsamość w projektach programu ASP.NET Core
+title: Tożsamość szkieletu w projektach ASP.NET Core
 author: rick-anderson
-description: Informacje o sposobie tworzenia szkieletu tożsamości w projektach programu ASP.NET Core.
+description: Dowiedz się, jak zidentyfikować szkielet w projekcie ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: 9e784864ee78bdfb76dab7748f3fb81728b9c289
-ms.sourcegitcommit: 91cc1f07ef178ab709ea42f8b3a10399c970496e
+ms.openlocfilehash: f3ae089d344d95ed84c9720ab4ba2c697400901e
+ms.sourcegitcommit: dc96d76f6b231de59586fcbb989a7fb5106d26a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67622769"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703771"
 ---
-# <a name="scaffold-identity-in-aspnet-core-projects"></a>Tworzenie szkieletu tożsamość w projektach programu ASP.NET Core
+# <a name="scaffold-identity-in-aspnet-core-projects"></a>Tożsamość szkieletu w projektach ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Udostępnia platformy ASP.NET Core 2.1 i nowsze [tożsamości platformy ASP.NET Core](xref:security/authentication/identity) jako [biblioteki klas Razor](xref:razor-pages/ui-class). Aplikacje, które zawierają tożsamości można zastosować Generator szkieletu można selektywnie Dodawanie kodu źródłowego, znajdujących się w bibliotece klas Razor tożsamości (RCL). Przydatne może być wygenerowanie kodu źródłowego, aby można było zmodyfikować kod i zmienić zachowanie. Na przykład można nakazać Generatorowi szkieletu wygenerowanie kodu używanego podczas rejestracji. Wygenerowany kod ma pierwszeństwo przed tym samym kodem w bibliotece RCL tożsamości. Aby uzyskać pełną kontrolę nad interfejsu użytkownika i korzysta z domyślnego RCL, zobacz sekcję [Utwórz pełnej tożsamości interfejsu użytkownika źródło](#full).
+ASP.NET Core 2,1 i nowsze zapewniają [ASP.NET Core tożsamość](xref:security/authentication/identity) jako [Biblioteka klas Razor](xref:razor-pages/ui-class). Aplikacje zawierające tożsamość mogą zastosować szkielet, aby wybiórczo dodać kod źródłowy zawarty w bibliotece klas Razor (RCL). Przydatne może być wygenerowanie kodu źródłowego, aby można było zmodyfikować kod i zmienić zachowanie. Na przykład można nakazać Generatorowi szkieletu wygenerowanie kodu używanego podczas rejestracji. Wygenerowany kod ma pierwszeństwo przed tym samym kodem w bibliotece RCL tożsamości. Aby uzyskać pełną kontrolę nad interfejsem użytkownika i nie używać domyślnego RCL, zobacz sekcję [Tworzenie źródła interfejsu użytkownika pełnej tożsamości](#full).
 
-Aplikacje, które wykonują **nie** obejmują uwierzytelniania można zastosować Generator szkieletu, aby dodać pakiet RCL tożsamości. Masz możliwość wyboru kodu tożsamości do wygenerowania.
+Aplikacje, które **nie** obejmują uwierzytelniania, mogą zastosować szkieleter w celu dodania pakietu tożsamości RCL. Masz możliwość wyboru kodu tożsamości do wygenerowania.
 
-Mimo, że Generator szkieletu generuje większość niezbędny kod, musisz zaktualizować projekt, aby ukończyć proces. W tym dokumencie wyjaśniono kroki niezbędne do ukończenia aktualizacji tworzenia szkieletów tożsamości.
+Chociaż szkielet generuje większość niezbędnego kodu, należy zaktualizować projekt, aby ukończyć proces. W tym dokumencie opisano kroki niezbędne do ukończenia aktualizacji tworzenia szkieletu tożsamości.
 
-Po uruchomieniu Generator szkieletu tożsamości *ScaffoldingReadme.txt* plik jest tworzony w katalogu projektu. *ScaffoldingReadme.txt* plik zawiera ogólne wskazówki, co jest potrzebne do ukończenia aktualizacji tworzenia szkieletów tożsamości. Ten dokument zawiera bardziej szczegółowe instrukcje niż *ScaffoldingReadme.txt* pliku.
+Po uruchomieniu szkieletu tożsamości jest tworzony plik *ScaffoldingReadme. txt* w katalogu projektu. Plik *ScaffoldingReadme. txt* zawiera ogólne instrukcje dotyczące tego, co jest potrzebne do ukończenia aktualizacji tworzenia szkieletu tożsamości. Ten dokument zawiera pełniejsze instrukcje niż plik *ScaffoldingReadme. txt* .
 
-Firma Microsoft zaleca korzystanie z systemu kontroli źródła, przedstawiono różnice w pliku, która umożliwia tworzenie kopii poza zmiany. Sprawdź, czy zmiany po uruchomieniu Generator szkieletu tożsamości.
+Zalecamy używanie systemu kontroli źródła, który pokazuje różnice plików i pozwala na wycofanie zmian. Sprawdź zmiany po uruchomieniu szkieletu tożsamości.
 
 > [!NOTE]
-> Wymagane są usługi, korzystając z [uwierzytelnianie dwuskładnikowe](xref:security/authentication/identity-enable-qrcodes), [konta potwierdzenia i hasła odzyskiwania](xref:security/authentication/accconfirm)i inne funkcje zabezpieczeń przy użyciu tożsamości. Usługi lub wycinków usługi nie są generowane podczas tworzenia szkieletów tożsamości. Usługi w celu włączenia tych funkcji, należy dodać ręcznie. Na przykład zobacz [wymagają E-mail z potwierdzeniem](xref:security/authentication/accconfirm#require-email-confirmation).
+> Usługi są wymagane w przypadku korzystania z [uwierzytelniania dwuskładnikowego](xref:security/authentication/identity-enable-qrcodes), [potwierdzenia konta i odzyskiwania hasła](xref:security/authentication/accconfirm)oraz innych funkcji zabezpieczeń z tożsamością. Podczas tworzenia szkieletów tożsamości usługi lub usługi nie są generowane. Usługi umożliwiające włączenie tych funkcji należy dodać ręcznie. Na przykład zapoznaj się z tematem [Żądaj potwierdzenia wiadomości e-mail](xref:security/authentication/accconfirm#require-email-confirmation).
 
-## <a name="scaffold-identity-into-an-empty-project"></a>Tworzenie szkieletu identity do pustego projektu
+## <a name="scaffold-identity-into-an-empty-project"></a>Tożsamość szkieletowa do pustego projektu
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg.md)]
 
-Dodaj następujący wyróżniony wywołania `Startup` klasy:
+Dodaj następujące wyróżnione wywołania do klasy `Startup`:
 
 [!code-csharp[](scaffold-identity/sample/StartupEmpty.cs?name=snippet1&highlight=5,20-23)]
 
@@ -43,16 +43,19 @@ Dodaj następujący wyróżniony wywołania `Startup` klasy:
 
 [!INCLUDE[](~/includes/scaffold-identity/migrations.md)]
 
-## <a name="scaffold-identity-into-a-razor-project-without-existing-authorization"></a>Tożsamość szkieletu do projektu Razor bez autoryzacji istniejącej
+## <a name="scaffold-identity-into-a-razor-project-without-existing-authorization"></a>Tożsamość szkieletowa w projekcie Razor bez istniejącej autoryzacji
 
-<!--
+<!--  Updated for 3.0
 set projNam=RPnoAuth
 set projType=webapp
-set version=2.1.0
 
 dotnet new %projType% -o %projNam%
 cd %projNam%
-dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design -v %version%
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
+dotnet add package Microsoft.AspNetCore.Identity.UI
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 dotnet restore
 dotnet aspnet-codegenerator identity --useDefaultUI
 dotnet ef migrations add CreateIdentitySchema
@@ -61,7 +64,7 @@ dotnet ef database update
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg.md)]
 
-Tożsamość jest skonfigurowana w *Areas/Identity/IdentityHostingStartup.cs*. Aby uzyskać więcej informacji, zobacz [interfejsu IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).
+Tożsamość jest konfigurowana w *obszarach/Identity/IdentityHostingStartup. cs*. Aby uzyskać więcej informacji, zobacz [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).
 
 <a name="efm"></a>
 
@@ -71,21 +74,21 @@ Tożsamość jest skonfigurowana w *Areas/Identity/IdentityHostingStartup.cs*. A
 
 <a name="useauthentication"></a>
 
-### <a name="enable-authentication"></a>Włączanie uwierzytelniania
+### <a name="enable-authentication"></a>Włącz uwierzytelnianie
 
-W `Configure` metody `Startup` klasy, wywołaj [UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) po `UseStaticFiles`:
+W metodzie `Configure` klasy `Startup` Wywołaj [UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) po `UseStaticFiles`:
 
 [!code-csharp[](scaffold-identity/sample/StartupRPnoAuth.cs?name=snippet1&highlight=29)]
 
 [!INCLUDE[](~/includes/scaffold-identity/hsts.md)]
 
-### <a name="layout-changes"></a>Zmian układu
+### <a name="layout-changes"></a>Zmiany układu
 
-Opcjonalne: Dodaj logowanie częściowe (`_LoginPartial`) do pliku układu:
+Opcjonalnie: Dodaj część logowania częściowej (`_LoginPartial`) do pliku układu:
 
 [!code-html[Main](scaffold-identity/sample/_Layout.cshtml?highlight=37)]
 
-## <a name="scaffold-identity-into-a-razor-project-with-authorization"></a>Tożsamość szkieletu do projektu Razor z autoryzacją
+## <a name="scaffold-identity-into-a-razor-project-with-authorization"></a>Tożsamość szkieletowa w projekcie Razor z autoryzacją
 
 <!--
 Use >=2.1: dotnet new webapp -au Individual -o RPauth
@@ -100,9 +103,9 @@ dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --file
 -->
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]
-Niektóre opcje tożsamości są konfigurowane w *Areas/Identity/IdentityHostingStartup.cs*. Aby uzyskać więcej informacji, zobacz [interfejsu IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).
+Niektóre opcje tożsamości są konfigurowane w *obszarach/Identity/IdentityHostingStartup. cs*. Aby uzyskać więcej informacji, zobacz [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).
 
-## <a name="scaffold-identity-into-an-mvc-project-without-existing-authorization"></a>Tożsamość szkieletu do projektu programu MVC, bez autoryzacji istniejącej
+## <a name="scaffold-identity-into-an-mvc-project-without-existing-authorization"></a>Tożsamość szkieletowa do projektu MVC bez istniejącej autoryzacji
 
 <!--
 set projNam=MvcNoAuth
@@ -120,13 +123,13 @@ dotnet ef database update
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg.md)]
 
-Opcjonalne: Dodaj logowanie częściowe (`_LoginPartial`) do *Views/Shared/_Layout.cshtml* pliku:
+Opcjonalnie: Dodaj częściowe logowanie (`_LoginPartial`) do pliku *views/Shared/_Layout. cshtml* :
 
 [!code-html[](scaffold-identity/sample/_LayoutMvc.cshtml?highlight=37)]
 
-* Przenieś *Pages/Shared/_LoginPartial.cshtml* plik *Views/Shared/_LoginPartial.cshtml*
+* Przenieś plik *Pages/Shared/_LoginPartial. cshtml* do *widoków/Shared/_LoginPartial. cshtml*
 
-Tożsamość jest skonfigurowana w *Areas/Identity/IdentityHostingStartup.cs*. Aby uzyskać więcej informacji zobacz interfejsu IHostingStartup.
+Tożsamość jest konfigurowana w *obszarach/Identity/IdentityHostingStartup. cs*. Aby uzyskać więcej informacji, zobacz IHostingStartup.
 
 [!INCLUDE[](~/includes/scaffold-identity/migrations.md)]
 
@@ -136,7 +139,7 @@ Wywołaj [UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbui
 
 [!INCLUDE[](~/includes/scaffold-identity/hsts.md)]
 
-## <a name="scaffold-identity-into-an-mvc-project-with-authorization"></a>Tożsamość szkieletu do projektu MVC z autoryzacją
+## <a name="scaffold-identity-into-an-mvc-project-with-authorization"></a>Tożsamość szkieletowa do projektu MVC z autoryzacją
 
 <!--
 dotnet new mvc -au Individual -o MvcAuth
@@ -148,27 +151,27 @@ dotnet aspnet-codegenerator identity -dc MvcAuth.Data.ApplicationDbContext --fil
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]
 
-Usuń *stron/Shared* folder i pliki w tym folderze.
+Usuwanie *stron/folderów udostępnionych* i plików w tym folderze.
 
 <a name="full"></a>
 
-## <a name="create-full-identity-ui-source"></a>Tworzenie pełnej tożsamości interfejsu użytkownika źródła
+## <a name="create-full-identity-ui-source"></a>Utwórz źródło interfejsu użytkownika pełnej tożsamości
 
-Aby zachować pełną kontrolę nad tożsamości interfejsu użytkownika, należy uruchomić Generator szkieletu tożsamości i wybrać **Zastąp wszystkie pliki**.
+Aby zachować pełną kontrolę nad interfejsem użytkownika tożsamości, uruchom szkielet tożsamości i wybierz opcję **Zastąp wszystkie pliki**.
 
-Następujący wyróżniony kod pokazuje zmiany do zastąpienia domyślnej tożsamości interfejsu użytkownika przy użyciu tożsamości w aplikacji sieci web platformy ASP.NET Core 2.1. Można to zrobić, aby mieć pełną kontrolę nad tożsamości interfejsu użytkownika.
+Poniższy wyróżniony kod przedstawia zmiany w celu zastąpienia domyślnego interfejsu użytkownika tożsamości tożsamością w aplikacji internetowej ASP.NET Core 2,1. Można to zrobić, aby mieć pełną kontrolę nad interfejsem użytkownika tożsamości.
 
 [!code-csharp[](scaffold-identity/sample/StartupFull.cs?name=snippet1&highlight=13-14,17-999)]
 
-Wartość domyślna tożsamości zostanie zastąpiony w poniższym kodzie:
+Domyślna tożsamość jest zastępowana w następującym kodzie:
 
 [!code-csharp[](scaffold-identity/sample/StartupFull.cs?name=snippet2)]
 
-Poniższy kod ustawia [ścieżki LoginPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.loginpath), [ścieżka LogoutPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.logoutpath), i [AccessDeniedPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.accessdeniedpath):
+Poniższy kod ustawia [LoginPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.loginpath), [LogoutPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.logoutpath)i [AccessDeniedPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.accessdeniedpath):
 
 [!code-csharp[](scaffold-identity/sample/StartupFull.cs?name=snippet3)]
 
-Zarejestruj `IEmailSender` implementacji, na przykład:
+Zarejestruj implementację `IEmailSender`, na przykład:
 
 [!code-csharp[](scaffold-identity/sample/StartupFull.cs?name=snippet4)]
 
@@ -176,4 +179,4 @@ Zarejestruj `IEmailSender` implementacji, na przykład:
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Zmiany kodu uwierzytelniania do platformy ASP.NET Core 2.1 i nowsze](xref:migration/20_21#changes-to-authentication-code)
+* [Zmiany w kodzie uwierzytelniania na ASP.NET Core 2,1 i nowsze](xref:migration/20_21#changes-to-authentication-code)
