@@ -5,14 +5,14 @@ description: Poznaj modele hostingu Blazor webassembly i Blazor Server.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 10/03/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: 766b52df82f75ea1223e20d8471faa5732311f91
-ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
+ms.openlocfilehash: bc3ad9c7c4731b685fc161844d9f55e51722c0ea
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71207231"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71924677"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>ASP.NET Core modele hostingowe Blazor
 
@@ -133,11 +133,14 @@ Aplikacje serwera Blazor powinny być zoptymalizowane w celu zminimalizowania op
 
 Aplikacje serwera Blazor wymagają aktywnego połączenia z serwerem. Jeśli połączenie zostanie utracone, aplikacja spróbuje ponownie nawiązać połączenie z serwerem. O ile stan klienta nadal znajduje się w pamięci, sesja klienta zostaje wznowiona bez utraty stanu.
 
-Gdy klient wykryje, że połączenie zostało utracone, do użytkownika jest wyświetlany domyślny interfejs użytkownika, podczas gdy klient próbuje ponownie nawiązać połączenie. Jeśli ponowne połączenie nie powiedzie się, użytkownik otrzymuje opcję ponowienia próby. Aby dostosować interfejs użytkownika, zdefiniuj element `components-reconnect-modal` jako jego `id` na stronie Razor *_Host. cshtml* . Klient aktualizuje ten element za pomocą jednej z następujących klas CSS w oparciu o stan połączenia:
+Gdy klient wykryje, że połączenie zostało utracone, do użytkownika jest wyświetlany domyślny interfejs użytkownika, podczas gdy klient próbuje ponownie nawiązać połączenie. Jeśli ponowne połączenie nie powiedzie się, użytkownik otrzymuje opcję ponowienia próby. Aby dostosować interfejs użytkownika, zdefiniuj element z `components-reconnect-modal` jako jego `id` na stronie Razor *_Host. cshtml* . Klient aktualizuje ten element za pomocą jednej z następujących klas CSS w oparciu o stan połączenia:
 
-* `components-reconnect-show`&ndash; Pokaż interfejs użytkownika wskazujący, że połączenie zostało utracone, a klient próbuje ponownie nawiązać połączenie.
+* `components-reconnect-show` &ndash; Pokaż interfejs użytkownika w celu wskazania utraconych połączeń, a klient próbuje ponownie nawiązać połączenie.
 * `components-reconnect-hide`&ndash; Klient ma aktywne połączenie, Ukryj interfejs użytkownika.
-* `components-reconnect-failed`&ndash; Ponowne nawiązywanie połączenia nie powiodło się. Aby spróbować ponownie nawiązać połączenie, `window.Blazor.reconnect()`Wywołaj polecenie.
+* `components-reconnect-failed` &ndash; ponowne połączenie nie powiodło się, prawdopodobnie z powodu błędu sieci. Aby spróbować ponownie nawiązać połączenie, wywołaj `window.Blazor.reconnect()`.
+* `components-reconnect-rejected` &ndash; ponowne połączenie zostało odrzucone. Serwer został osiągnięty, ale odmówił połączenia, a stan użytkownika na serwerze został usunięty. Aby ponownie załadować aplikację, wywołaj `location.reload()`. Ten stan połączenia może skutkować tym, że:
+  * Wystąpił awaria w obwodzie (kod po stronie serwera).
+  * Klient jest odłączony wystarczająco długo, aby serwer mógł porzucić stan użytkownika. Wystąpienia składników, z którymi użytkownik pracowali, zostały usunięte.
 
 ### <a name="stateful-reconnection-after-prerendering"></a>Stanowe Ponowne nawiązywanie połączenia po przeprowadzeniu prerenderowania
 

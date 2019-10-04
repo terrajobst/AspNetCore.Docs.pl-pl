@@ -5,14 +5,14 @@ description: Dowiedz się, jak hostować aplikację ASP.NET Core na serwerze us�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/08/2019
+ms.date: 10/03/2019
 uid: tutorials/publish-to-iis
-ms.openlocfilehash: 4ac7b3a2f738e443263dd888f556e0aff7c8099b
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 820527cc15f883c906d2fdf1c073d443a5b3b40e
+ms.sourcegitcommit: d8b12cc1716ee329d7bd2300e201b61e15d506ac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082384"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71942887"
 ---
 # <a name="publish-an-aspnet-core-app-to-iis"></a>Publikowanie aplikacji ASP.NET Core w usługach IIS
 
@@ -43,7 +43,7 @@ Ten samouczek obejmuje następujące zagadnienia:
 
 ## <a name="install-the-net-core-hosting-bundle"></a>Zainstaluj program .NET Core hostingu pakietu
 
-Zainstaluj *pakiet hostingu platformy .NET Core* na serwerze usług IIS. Pakiet instaluje .NET Core środowisko uruchomieniowe, biblioteki platformy .NET Core i [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module). Moduł umożliwia platformy ASP.NET Core w aplikacji do uruchamiania w tle usług IIS. Jeśli system nie ma dostępu do Internetu, należy uzyskać i zainstalować [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) przed zainstalowaniem pakietu hostingu platformy .NET Core.
+Zainstaluj *pakiet hostingu platformy .NET Core* na serwerze usług IIS. Pakiet instaluje .NET Core środowisko uruchomieniowe, biblioteki platformy .NET Core i [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module). Moduł umożliwia platformy ASP.NET Core w aplikacji do uruchamiania w tle usług IIS.
 
 Pobierz Instalatora, korzystając z następującego linku:
 

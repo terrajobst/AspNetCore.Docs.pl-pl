@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 09/03/2019
 uid: grpc/aspnetcore
-ms.openlocfilehash: 18a6dd2ddd4f3c3c4466e3b96dd1748fd0972e39
-ms.sourcegitcommit: fae6f0e253f9d62d8f39de5884d2ba2b4b2a6050
+ms.openlocfilehash: 2507ce6df05403cb19e8bfa2565d410d6140b144
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71250804"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71925065"
 ---
 # <a name="grpc-services-with-aspnet-core"></a>Usługi gRPC na platformie ASP.NET Core
 
@@ -27,7 +27,7 @@ W tym dokumencie przedstawiono sposób rozpoczynania pracy z usługami gRPC Serv
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-3.0.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-3.0.md)]
 
@@ -122,6 +122,8 @@ Interfejs API gRPC zapewnia dostęp do niektórych danych komunikatów HTTP/2, t
 `ServerCallContext`nie zapewnia pełnego dostępu do `HttpContext` wszystkich interfejsów API ASP.NET. Metoda rozszerzająca zapewnia pełny dostęp `HttpContext` do reprezentowania podstawowego komunikatu http/2 w interfejsach API ASP.NET: `GetHttpContext`
 
 [!code-csharp[](~/grpc/aspnetcore/sample/GrcpService/GreeterService2.cs?highlight=6-7&name=snippet)]
+
+[!INCLUDE[](~/includes/gRPCazure.md)]
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

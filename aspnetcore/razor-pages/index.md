@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/19/2019
 uid: razor-pages/index
-ms.openlocfilehash: bccdd7e5c1c90dd76ca1b788dbf09000c5cbe14b
-ms.sourcegitcommit: fae6f0e253f9d62d8f39de5884d2ba2b4b2a6050
+ms.openlocfilehash: 63938b0347dc698a67f2ba8c083097c55c6c9c66
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71256191"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71925277"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do Razor Pages w ASP.NET Core
 
@@ -35,7 +35,7 @@ Ten dokument zawiera wprowadzenie do Razor Pages. Nie jest to samouczek krok po 
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-3.0.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-3.0.md)]
 
@@ -53,7 +53,7 @@ Aby uzyskać szczegółowe instrukcje dotyczące sposobu tworzenia projektu Razo
 
 Uruchom `dotnet new webapp` polecenie w wierszu polecenia.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 Uruchom `dotnet new webapp` polecenie w wierszu polecenia.
 
@@ -185,7 +185,7 @@ W poprzednim kodzie, ogłaszanie formularza:
 
 [!code-cs[](index/3.0sample/RazorPagesContacts/Pages/Customers/Create.cshtml.cs?name=snippet_PageModel&highlight=15-16)]
 
-`[BindProperty]`**nie** powinien być używany dla modeli zawierających właściwości, które nie powinny być zmieniane przez klienta. Aby uzyskać więcej informacji, zobacz temat [przefinalizowanie](xref:data/ef-rp/crud#overposting)
+`[BindProperty]`**nie** powinien być używany dla modeli zawierających właściwości, które nie powinny być zmieniane przez klienta. Aby uzyskać więcej informacji, zobacz temat [przefinalizowanie](xref:data/ef-rp/crud#overposting).
 
 Razor Pages domyślnie Powiąż właściwości tylko z`GET` niezleceniami. Powiązanie z właściwościami eliminuje konieczność pisania kodu w celu przekonwertowania danych HTTP na typ modelu. Powiązanie zmniejsza kod, używając tej samej właściwości do renderowania pól formularza (`<input asp-for="Customer.Name">`) i akceptuję dane wejściowe.
 
@@ -298,7 +298,7 @@ Rozważmy następujący `Movie` model:
 
 Atrybuty walidacji określają zachowanie do wymuszania na właściwościach modelu, do których są stosowane:
 
-* Atrybuty `Required` i`MinimumLength` wskazują, że właściwość musi mieć wartość, ale nic nie zapobiega wprowadzaniu przez użytkownika odstępu w celu zaspokojenia tej walidacji.
+* Atrybuty `Required` i `MinimumLength` wskazują, że właściwość musi mieć wartość, ale nic nie zapobiega wprowadzaniu przez użytkownika białych znaków w celu zaspokojenia tej walidacji.
 * Ten `RegularExpression` atrybut służy do ograniczania, jakie znaki mogą być wprowadzane. W poprzednim kodzie "gatunek":
 
   * Należy używać tylko liter.
@@ -336,13 +336,13 @@ Razor Pages powracać do wywoływania `OnGet` procedury obsługi, `OnHead` Jeśl
 
 ## <a name="xsrfcsrf-and-razor-pages"></a>XSRF/CSRF i Razor Pages
 
-Razor Pages są chronione przez[weryfikację przed fałszerstwem](xref:security/anti-request-forgery). [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) wprowadza do elementów formularza HTML tokeny zabezpieczające przed fałszerstwem.
+Razor Pages są chronione przez [weryfikację przed fałszerstwem](xref:security/anti-request-forgery). [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) wprowadza do elementów formularza HTML tokeny zabezpieczające przed fałszerstwem.
 
 <a name="layout"></a>
 
 ## <a name="using-layouts-partials-templates-and-tag-helpers-with-razor-pages"></a>Używanie układów, częściowych, szablonów i pomocników tagów z Razor Pages
 
-Strony współpracują ze wszystkimi funkcjami aparatu widoku Razor. Układy, części, szablony, pomocników tagów, *_ViewStart. cshtml*, *_ViewImports. cshtml* działają w taki sam sposób, jak w przypadku konwencjonalnych widoków Razor.
+Strony współpracują ze wszystkimi funkcjami aparatu widoku Razor. Układy, częściowe, szablony, pomocniki tagów, *_ViewStart. cshtml*i *_ViewImports. cshtml* działają w taki sam sposób, jak w przypadku konwencjonalnych widoków Razor.
 
 Zanotujmy Tę stronę, korzystając z zalet niektórych z tych funkcji.
 
@@ -356,7 +356,7 @@ Dodaj [stronę układu](xref:mvc/views/layout) do *stron/Shared/_Layout. cshtml*
 * Importuje struktury HTML, takie jak JavaScript i stylesheets.
 * Zawartość strony Razor jest renderowana, gdzie `@RenderBody()` jest wywoływana.
 
-Aby uzyskać więcej informacji, zobacz [stronę układu](xref:mvc/views/layout)...
+Aby uzyskać więcej informacji, zobacz [stronę układu](xref:mvc/views/layout).
 
 Właściwość [układu](xref:mvc/views/layout#specifying-a-layout) jest ustawiana na *stronie/_ViewStart. cshtml*:
 
@@ -384,7 +384,7 @@ Dodaj plik *Pages/_ViewImports. cshtml* :
 
 `@namespace` Dyrektywa ustawia przestrzeń nazw dla strony. `@model` Dyrektywa nie musi zawierać przestrzeni nazw.
 
-Gdy dyrektywa jest zawarta w *_ViewImports. cshtml*, określona przestrzeń nazw udostępnia prefiks dla wygenerowanej przestrzeni nazw na `@namespace` stronie, która importuje dyrektywę. `@namespace` Pozostała część wygenerowanej przestrzeni nazw (część sufiksu) jest ścieżką względną oddzieloną kropką między folderem zawierającym *_ViewImports. cshtml* i folderem zawierającym stronę.
+Gdy dyrektywa `@namespace` jest zawarta w *_ViewImports. cshtml*, określona przestrzeń nazw udostępnia prefiks dla wygenerowanej przestrzeni nazw na stronie, która importuje dyrektywę `@namespace`. Pozostała część wygenerowanej przestrzeni nazw (część sufiksu) jest ścieżką względną oddzieloną kropką między folderem zawierającym *_ViewImports. cshtml* i folderem zawierającym stronę.
 
 Na przykład `PageModel` Klasa Pages */Customers/Edit. cshtml. cs* jawnie ustawia przestrzeń nazw:
 
@@ -474,7 +474,7 @@ Aby uzyskać więcej informacji, zobacz <xref:mvc/controllers/areas> i <xref:raz
 
 ## <a name="viewdata-attribute"></a>ViewData — atrybut
 
-Dane można przekazywać do strony za pomocą <xref:Microsoft.AspNetCore.Mvc.ViewDataAttribute>. Właściwości z atrybutem [ViewData] mają przechowywane i ładowane wartości z <xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary>.
+Dane można przekazywać do strony za pomocą <xref:Microsoft.AspNetCore.Mvc.ViewDataAttribute>. Właściwości z atrybutem `[ViewData]` mają przechowywane i ładowane wartości z <xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary>.
 
 W poniższym przykładzie `AboutModel` `[ViewData]` stosuje atrybut do `Title` właściwości:
 
@@ -527,7 +527,7 @@ Model strony *Pages/Customers/index. cshtml. cs* stosuje `[TempData]` atrybut do
 public string Message { get; set; }
 ```
 
-Aby uzyskać więcej informacji, zobacz [TempData](xref:fundamentals/app-state#tempdata) .
+Aby uzyskać więcej informacji, zobacz [TempData](xref:fundamentals/app-state#tempdata).
 
 <a name="mhpp"></a>
 
@@ -579,7 +579,7 @@ Aby skonfigurować opcje zaawansowane, użyj metody <xref:Microsoft.Extensions.D
 
 Użyj, <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions> aby ustawić katalog główny dla stron lub dodać konwencje modelu aplikacji dla stron. Aby uzyskać więcej informacji na temat Konwencji, zobacz [Razor Pages Konwencji autoryzacji](xref:security/authorization/razor-pages-authorization).
 
-Aby wstępnie skompilować widoki, zobacz [kompilacja widoku Razor](xref:mvc/views/view-compilation) .
+Aby wstępnie skompilować widoki, zobacz [kompilacja widoku Razor](xref:mvc/views/view-compilation).
 
 ### <a name="specify-that-razor-pages-are-at-the-content-root"></a>Określ, że Razor Pages znajdują się w katalogu głównym zawartości
 
@@ -595,8 +595,8 @@ Dodaj <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBuilder
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* Zobacz Rozpoczynanie [pracy z usługą Razor Pages](xref:tutorials/razor-pages/razor-pages-start), która kompiluje się w tym wprowadzeniu.
-* [Pobierz lub Wyświetl przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/index/3.0sample).
+* Zobacz Rozpoczynanie [pracy z usługą Razor Pages](xref:tutorials/razor-pages/razor-pages-start), która kompiluje się w tym wprowadzeniu
+* [Pobieranie lub wyświetlanie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/index/3.0sample)
 * <xref:index>
 * <xref:mvc/views/razor>
 * <xref:mvc/controllers/areas>
@@ -628,7 +628,7 @@ Ten dokument zawiera wprowadzenie do Razor Pages. Nie jest to samouczek krok po 
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-2.2.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-2.2.md)]
 
@@ -642,7 +642,7 @@ Ten dokument zawiera wprowadzenie do Razor Pages. Nie jest to samouczek krok po 
 
 Aby uzyskać szczegółowe instrukcje dotyczące sposobu tworzenia projektu Razor Pages, zobacz Wprowadzenie do [Razor Pages](xref:tutorials/razor-pages/razor-pages-start) .
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 Uruchom `dotnet new webapp` polecenie w wierszu polecenia.
 
@@ -903,7 +903,7 @@ Dodaj plik *Pages/_ViewImports. cshtml* :
 
 Dyrektywa ustawia przestrzeń nazw dla strony. `@model` Dyrektywa nie musi zawierać przestrzeni nazw.
 
-Gdy dyrektywa jest zawarta w *_ViewImports. cshtml*, określona przestrzeń nazw udostępnia prefiks dla wygenerowanej przestrzeni nazw na `@namespace` stronie, która importuje dyrektywę. `@namespace` Pozostała część wygenerowanej przestrzeni nazw (część sufiksu) jest ścieżką względną oddzieloną kropką między folderem zawierającym *_ViewImports. cshtml* i folderem zawierającym stronę.
+Gdy dyrektywa `@namespace` jest zawarta w *_ViewImports. cshtml*, określona przestrzeń nazw udostępnia prefiks dla wygenerowanej przestrzeni nazw na stronie, która importuje dyrektywę `@namespace`. Pozostała część wygenerowanej przestrzeni nazw (część sufiksu) jest ścieżką względną oddzieloną kropką między folderem zawierającym *_ViewImports. cshtml* i folderem zawierającym stronę.
 
 Na przykład `PageModel` Klasa Pages */Customers/Edit. cshtml. cs* jawnie ustawia przestrzeń nazw:
 

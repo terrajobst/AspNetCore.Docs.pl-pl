@@ -6,18 +6,18 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 09/24/2019
 uid: tutorials/signalr
-ms.openlocfilehash: 7a6574bd3c463f0890f5dc076944f1ab0f0c919a
-ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
+ms.openlocfilehash: bec01adc2682f83b0225df66e221bd2e4ea9feb4
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248404"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71925309"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Samouczek: Wprowadzenie do ASP.NET Core sygnalizującego
 
 ::: moniker range=">= aspnetcore-3.0"
 
-W tym samouczku przedstawiono podstawy tworzenia aplikacji w czasie rzeczywistym przy użyciu usługi sygnalizującej. Dowiesz się, jak:
+W tym samouczku przedstawiono podstawy tworzenia aplikacji w czasie rzeczywistym przy użyciu usługi sygnalizującej. Omawiane kwestie:
 
 > [!div class="checklist"]
 > * Utwórz projekt sieci web.
@@ -40,7 +40,7 @@ Na końcu będziesz mieć działającą aplikację czatu:
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-3.0.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-3.0.md)]
 
@@ -73,7 +73,7 @@ Na końcu będziesz mieć działającą aplikację czatu:
    code -r SignalRChat
    ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * Z menu wybierz pozycję **plik > nowe rozwiązanie**.
 
@@ -95,16 +95,15 @@ Biblioteka serwera sygnalizującego jest dołączona do struktury udostępnionej
 
 * W oknie dialogowym **Dodawanie biblioteki po stronie klienta** dla **dostawcy** wybierz pozycję **unpkg**.
 
-* W obszarze **Biblioteka**wprowadź `@aspnet/signalr@next`.
-<!-- when 3.0 is released, change @next to @latest -->
+* W obszarze **Biblioteka**wprowadź `@microsoft/signalr@latest`.
 
 * Wybierz pozycję **Wybierz określone pliki**, rozwiń folder *dist/przeglądarka* , a następnie wybierz pozycję *sygnalizujące. js* i *sygnalizujący. min. js*.
 
-* Ustaw **lokalizację docelową** na plik *wwwroot/lib/sygnalizujący/* , a następnie wybierz pozycję **Zainstaluj**.
+* Ustaw **lokalizację docelową** na plik *wwwroot/js/signaler/* , a następnie wybierz pozycję **Zainstaluj**.
 
-  ![Okno dialogowe Dodawanie biblioteki po stronie klienta — wybór biblioteki](signalr/_static/3.x/libman1.png)
+  ![Okno dialogowe Dodawanie biblioteki po stronie klienta — wybór biblioteki](signalr/_static/3.x/find-signalr-client-libs-select-files.png)
 
-  LibMan tworzy folder *wwwroot/lib/sygnalizujący* i kopiuje do niego wybrane pliki.
+  LibMan tworzy folder *wwwroot/js/sygnalizujący* i kopiuje do niego wybrane pliki.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
@@ -117,23 +116,23 @@ Biblioteka serwera sygnalizującego jest dołączona do struktury udostępnionej
 * Uruchom następujące polecenie, aby uzyskać bibliotekę klienta sygnalizującego za pomocą LibMan. Może być konieczne odczekanie kilku sekund przed wyświetleniem danych wyjściowych.
 
   ```console
-  libman install @aspnet/signalr@next -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
+  libman install @microsoft/signalr@latest -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
   Parametry określają następujące opcje:
   * Użyj dostawcy unpkg.
-  * Kopiuj pliki do lokalizacji *wwwroot/lib/sygnalizującej* .
+  * Kopiuj pliki do lokalizacji *wwwroot/js/sygnalizującer* .
   * Skopiuj tylko określone pliki.
 
   Dane wyjściowe wyglądają podobnie do poniższego przykładu:
 
   ```console
-  wwwroot/lib/signalr/dist/browser/signalr.js written to disk
-  wwwroot/lib/signalr/dist/browser/signalr.min.js written to disk
-  Installed library "@aspnet/signalr@next" to "wwwroot/lib/signalr"
+  wwwroot/js/signalr/dist/browser/signalr.js written to disk
+  wwwroot/js/signalr/dist/browser/signalr.min.js written to disk
+  Installed library "@microsoft/signalr@latest" to "wwwroot/js/signalr"
   ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * W **terminalu**Uruchom następujące polecenie, aby zainstalować LibMan.
 
@@ -146,20 +145,20 @@ Biblioteka serwera sygnalizującego jest dołączona do struktury udostępnionej
 * Uruchom następujące polecenie, aby uzyskać bibliotekę klienta sygnalizującego za pomocą LibMan.
 
   ```console
-  libman install @aspnet/signalr@next -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
+  libman install @microsoft/signalr@latest -p unpkg -d wwwroot/js/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
   Parametry określają następujące opcje:
   * Użyj dostawcy unpkg.
-  * Kopiuj pliki do lokalizacji *wwwroot/lib/sygnalizującej* .
+  * Kopiuj pliki do lokalizacji *wwwroot/js/sygnalizującer* .
   * Skopiuj tylko określone pliki.
 
   Dane wyjściowe wyglądają podobnie do poniższego przykładu:
 
   ```console
-  wwwroot/lib/signalr/dist/browser/signalr.js written to disk
-  wwwroot/lib/signalr/dist/browser/signalr.min.js written to disk
-  Installed library "@aspnet/signalr@next" to "wwwroot/lib/signalr"
+  wwwroot/js/signalr/dist/browser/signalr.js written to disk
+  wwwroot/js/signalr/dist/browser/signalr.min.js written to disk
+  Installed library "@microsoft/signalr@latest" to "wwwroot/js/signalr"
   ```
 
 ---
@@ -224,7 +223,7 @@ Serwer sygnalizujący musi być skonfigurowany tak, aby przekazywać żądania s
   dotnet run -p SignalRChat.csproj
   ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * Z menu wybierz polecenie **uruchom > Uruchom bez debugowania**.
 
@@ -241,7 +240,7 @@ Serwer sygnalizujący musi być skonfigurowany tak, aby przekazywać żądania s
 > [!TIP]
 > * Jeśli aplikacja nie działa, Otwórz narzędzia deweloperskie przeglądarki (F12) i przejdź do konsoli programu. Mogą pojawić się błędy związane z kodem HTML i JavaScript. Załóżmy na przykład, że umieścisz polecenie *signaler. js* w innym folderze niż skierowany. W takim przypadku odwołanie do tego pliku nie będzie działało i zobaczysz błąd 404 w konsoli.
 >   ![błąd podczas znajdowania sygnalizującer. js](signalr/_static/3.x/f12-console.png)
-> * Jeśli wystąpi błąd ERR_SPDY_INADEQUATE_TRANSPORT_SECURITY w przeglądarce Chrome lub NS_ERROR_NET_INADEQUATE_SECURITY w programie Firefox, uruchom następujące polecenia, aby zaktualizować certyfikat deweloperski:
+> * Jeśli zostanie wyświetlony błąd ERR_SPDY_INADEQUATE_TRANSPORT_SECURITY w przeglądarce Chrome, uruchom następujące polecenia, aby zaktualizować certyfikat deweloperski:
 >
 >   ```dotnetcli
 >   dotnet dev-certs https --clean
@@ -259,7 +258,7 @@ Aby dowiedzieć się więcej na temat sygnalizacji, zobacz Wprowadzenie:
 
 ::: moniker range="< aspnetcore-3.0"
 
-W tym samouczku przedstawiono podstawy tworzenia aplikacji w czasie rzeczywistym przy użyciu usługi sygnalizującej. Dowiesz się, jak:
+W tym samouczku przedstawiono podstawy tworzenia aplikacji w czasie rzeczywistym przy użyciu usługi sygnalizującej. Omawiane kwestie:
 
 > [!div class="checklist"]
 > * Utwórz projekt sieci web.
@@ -282,7 +281,7 @@ Na końcu będziesz mieć działającą aplikację czatu:
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-2.2.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-2.2.md)]
 
@@ -315,7 +314,7 @@ Na końcu będziesz mieć działającą aplikację czatu:
    code -r SignalRChat
    ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * Z menu wybierz pozycję **plik > nowe rozwiązanie**.
 
@@ -376,7 +375,7 @@ Biblioteka serwera sygnalizującego jest dołączona do `Microsoft.AspNetCore.Ap
   Installed library "@aspnet/signalr@1.0.3" to "wwwroot/lib/signalr"
   ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * W **terminalu**Uruchom następujące polecenie, aby zainstalować LibMan.
 
@@ -467,7 +466,7 @@ Serwer sygnalizujący musi być skonfigurowany tak, aby przekazywać żądania s
   dotnet run -p SignalRChat.csproj
   ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * Z menu wybierz polecenie **uruchom > Uruchom bez debugowania**.
 

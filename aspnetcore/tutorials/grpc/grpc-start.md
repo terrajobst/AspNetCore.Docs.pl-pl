@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 8/26/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 8c0f57e69d4cdee5b5f5510d7db04991ed6df475
-ms.sourcegitcommit: fae6f0e253f9d62d8f39de5884d2ba2b4b2a6050
+ms.openlocfilehash: 9eeb71ca751005780560f0f2200edc2013541c34
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71250829"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71925225"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Samouczek: Utwórz klienta i serwer gRPC w ASP.NET Core
 
@@ -40,7 +40,7 @@ W tym samouczku przedstawiono następujące instrukcje:
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-3.0.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-3.0.md)]
 
@@ -78,7 +78,7 @@ W tym samouczku przedstawiono następujące instrukcje:
   Zostanie wyświetlone okno dialogowe z **wymaganymi zasobami do kompilowania i debugowania brakuje w "GrpcGreeter". Dodać je?**
 * Wybierz pozycję **tak**.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 W terminalu uruchom następujące polecenia:
 
@@ -107,7 +107,7 @@ W programie Visual Studio wybierz pozycję **plik** > **Otwórz**, a następnie 
 
 * Uruchom gRPC Greeter projektu *GrpcGreeter* z wiersza polecenia przy użyciu `dotnet run`.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * Uruchom gRPC Greeter projektu *GrpcGreeter* z wiersza polecenia przy użyciu `dotnet run`.
 
@@ -158,7 +158,7 @@ info: Microsoft.Hosting.Lifetime[0]
   code -r GrpcGreeterClient
   ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 Postępuj zgodnie z instrukcjami w temacie [Tworzenie kompletnego rozwiązania .NET Core w systemie macOS przy użyciu Visual Studio dla komputerów Mac](/dotnet/core/tutorials/using-on-mac-vs-full-solution) , aby utworzyć aplikację konsolową o nazwie *GrpcGreeterClient*.
 
@@ -206,7 +206,7 @@ dotnet add GrpcGreeterClient.csproj package Google.Protobuf
 dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * Kliknij prawym przyciskiem myszy folder **pakiety** w **okienko rozwiązania** > **Dodaj pakiety**
 * W polu wyszukiwania wprowadź **GRPC .NET. Client** .
@@ -229,7 +229,7 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 
   Wybierz plik *GrpcGreeterClient. csproj* .
 
-  # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+  # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
   Kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Narzędzia** > **Edytuj plik**.
 
@@ -277,7 +277,7 @@ Klient Greeter wywołuje metodę asynchroniczną `SayHello` . Zostanie wyświetl
 * Uruchom klienta programu.
 
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * Uruchom usługę Greeter.
 * Uruchom klienta programu.
@@ -314,6 +314,8 @@ info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
 
 > [!NOTE]
 > Kod w tym artykule wymaga certyfikatu programistycznego HTTPS ASP.NET Core do zabezpieczenia usługi gRPC. Jeśli klient nie powiedzie się z `The remote certificate is invalid according to the validation procedure.`komunikatem, certyfikat deweloperski nie jest zaufany. Aby uzyskać instrukcje dotyczące rozwiązania tego problemu, zobacz temat [ASP.NET Core ufanie certyfikatowi Deweloperskiemu protokołu HTTPS w systemie Windows i macOS](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos).
+
+[!INCLUDE[](~/includes/gRPCazure.md)]
 
 ### <a name="next-steps"></a>Następne kroki
 

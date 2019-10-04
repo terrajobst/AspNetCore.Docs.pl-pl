@@ -7,12 +7,12 @@ ms.author: jamesnk
 ms.custom: mvc
 ms.date: 09/05/2019
 uid: grpc/configuration
-ms.openlocfilehash: 42574b43b4751efc37ff3a827716df4cb8130842
-ms.sourcegitcommit: 0365af91518004c4a44a30dc3a8ac324558a399b
+ms.openlocfilehash: 3ef92f10d914ef9fa3e13a7bdd5c863bab297f57
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71199078"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71925211"
 ---
 # <a name="grpc-for-net-configuration"></a>Konfiguracja programu gRPC for .NET
 
@@ -20,7 +20,7 @@ ms.locfileid: "71199078"
 
 usługi gRPC Services są skonfigurowane `AddGrpc` w *Startup.cs*. W poniższej tabeli opisano opcje konfigurowania usług gRPC:
 
-| Opcja | Wartość domyślna | Opis |
+| Opcja | Default Value | Opis |
 | ------ | ------------- | ----------- |
 | `MaxSendMessageSize` | `null` | Maksymalny rozmiar wiadomości w bajtach, które mogą być wysyłane z serwera. Próba wysłania komunikatu, który przekracza skonfigurowany maksymalny rozmiar komunikatu, spowoduje wyjątek. |
 | `MaxReceiveMessageSize` | 4 MB | Maksymalny rozmiar komunikatu w bajtach, który może zostać odebrany przez serwer. Jeśli serwer odbiera komunikat, który przekracza ten limit, zgłasza wyjątek. Zwiększenie tej wartości umożliwia serwerowi otrzymywanie większych komunikatów, ale może mieć negatywny wpływ na użycie pamięci. |
@@ -41,7 +41,7 @@ Opcje pojedynczej usługi przesłaniają opcje globalne podane w `AddGrpc` i mo�
 
 Konfiguracja klienta gRPC jest ustawiona na `GrpcChannelOptions`. W poniższej tabeli opisano opcje konfigurowania kanałów gRPC:
 
-| Opcja | Wartość domyślna | Opis |
+| Opcja | Default Value | Opis |
 | ------ | ------------- | ----------- |
 | `HttpClient` | Nowe wystąpienie | `HttpClient` Używane do wykonywania wywołań gRPC. Można ustawić klienta, aby skonfigurować niestandardowe `HttpClientHandler`lub dodać dodatkowe programy obsługi do potoku HTTP dla wywołań gRPC. Jeśli nie `HttpClient` zostanie określona, nowe `HttpClient` wystąpienie dla tego kanału zostanie utworzone. Zostanie on automatycznie usunięty. |
 | `DisposeHttpClient` | `false` | Jeśli `true` `HttpClient` `GrpcChannel` jest określony, wystąpieniezostanieusuniętepousunięciuelementu.`HttpClient` |
@@ -57,6 +57,8 @@ Następujący kod:
 * Tworzy klienta.
 
 [!code-csharp[](~/grpc/configuration/sample/Program.cs?name=snippet&highlight=3-8)]
+
+[!INCLUDE[](~/includes/gRPCazure.md)]
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

@@ -2,35 +2,34 @@
 title: Funkcje klienta SignalR
 author: bradygaster
 description: Dowiedz się, które funkcje są obsługiwane przez różnych klientów ASP.NET Core sygnalizujących.
-monikerRange: '>= aspnetcore-3.0'
 ms.author: bradyg
 ms.custom: mvc
 ms.date: 09/18/2019
 uid: signalr/client-features
-ms.openlocfilehash: 2d6759a5484c37aee6db3d22b3127414231605ae
-ms.sourcegitcommit: 14b25156e34c82ed0495b4aff5776ac5b1950b5e
+ms.openlocfilehash: 6718722cdbcfae500026fcd429ca6b9de8f0f103
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71301190"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71925356"
 ---
 # <a name="aspnet-core-signalr-client-features"></a>Funkcje klienta sygnalizującego ASP.NET Core
 
 ## <a name="feature-distribution"></a>Dystrybucja funkcji
 
-W poniższej tabeli przedstawiono funkcje i obsługę klientów, którzy oferują pomoc techniczną w czasie rzeczywistym.
+W poniższej tabeli przedstawiono funkcje i obsługę klientów, którzy oferują pomoc techniczną w czasie rzeczywistym. Dla każdej funkcji jest wyświetlana *minimalna* wersja obsługująca tę funkcję. Jeśli żadna wersja nie jest wymieniona, ta funkcja nie jest obsługiwana.
 
-| Funkcja | .NET | JavaScript | Java |
+| Cecha | .NET | JavaScript | Java |
 | ---- | :-: | :-: | :-: |
-| Obsługa usługi sygnałów platformy Azure |✔|✔|✔|
-| [Przesyłanie strumieniowe między serwerami i klientami](xref:signalr/streaming)          |✔|✔|✔|
-| [Przesyłanie strumieniowe klient-serwer](xref:signalr/streaming)          |✔|✔|✔|
-| Automatyczne ponowne łączenie ([.NET](/aspnet/core/signalr/dotnet-client?view=aspnetcore-3.0&tabs=visual-studio#handle-lost-connection), [JavaScript](/aspnet/core/signalr/javascript-client?view=aspnetcore-3.0#reconnect-clients))          |✔|✔| |
-| Transport gniazd WebSockets |✔|✔|✔|
-| Transport zdarzeń wysłanych przez serwer |✔|✔| |
-| Długotrwały transport sondowania |✔|✔|✔|
-| Protokół centrum JSON |✔|✔|✔|
-| Protokół centrum MessagePack |✔|✔| |
+| Obsługa usługi sygnałów platformy Azure |1.0.0|1.0.0|1.0.0|
+| [Przesyłanie strumieniowe między serwerami i klientami](xref:signalr/streaming)          |1.0.0|1.0.0|1.0.0|
+| [Przesyłanie strumieniowe klient-serwer](xref:signalr/streaming)          |3.0.0|3.0.0|3.0.0|
+| Automatyczne ponowne łączenie ([.NET](/aspnet/core/signalr/dotnet-client?view=aspnetcore-3.0&tabs=visual-studio#handle-lost-connection), [JavaScript](/aspnet/core/signalr/javascript-client?view=aspnetcore-3.0#reconnect-clients))          |3.0.0|3.0.0|❌|
+| Transport gniazd WebSockets |1.0.0|1.0.0|1.0.0|
+| Transport zdarzeń wysłanych przez serwer |1.0.0|1.0.0|❌|
+| Długotrwały transport sondowania |1.0.0|1.0.0|3.0.0|
+| Protokół centrum JSON |1.0.0|1.0.0|1.0.0|
+| Protokół centrum MessagePack |1.0.0|1.0.0|❌|
 
 Obsługa automatycznego ponownego łączenia w kliencie Java jest śledzona w [naszym monitorze problemów](https://github.com/aspnet/AspNetCore/issues/8711).
 

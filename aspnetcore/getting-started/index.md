@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/22/2019
 uid: getting-started
-ms.openlocfilehash: c9cd5e05f52c8bdefa931adc654087dac91e2f05
-ms.sourcegitcommit: e644258c95dd50a82284f107b9bf3becbc43b2b2
+ms.openlocfilehash: 798f1ee87c05d886d8991e3f0230c8ebc6341ba8
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71317765"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71925104"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Samouczek: Wprowadzenie do platformy ASP.NET Core
 
@@ -44,7 +44,7 @@ dotnet new webapp -o aspnetcoreapp
 Poprzednie polecenie:
 
 * Tworzy nową aplikację sieci Web.  
-* Parametr tworzy katalog o nazwie aspnetcoreapp z plikami źródłowymi aplikacji. `-o`
+* Parametr tworzy katalog o nazwie aspnetcoreapp z plikami źródłowymi aplikacji. `-o aspnetcoreapp`
 
 ### <a name="trust-the-development-certificate"></a>Ufanie certyfikatowi Deweloperskiemu
 
@@ -93,7 +93,7 @@ cd aspnetcoreapp
 dotnet watch run
 ```
 
-Po powłoce poleceń wskazuje, że aplikacja została uruchomiona, przejdź do [https://localhost:5001](https://localhost:5001). Kliknij przycisk **Akceptuj**, aby zaakceptować zasady ochrony prywatności i plików cookie. Ta aplikacja nie zachowuje informacji osobistych.
+Po powłoce poleceń wskazuje, że aplikacja została uruchomiona, przejdź do [https://localhost:5001](https://localhost:5001).
 
 ## <a name="edit-a-razor-page"></a>Edytowanie strony Razor
 

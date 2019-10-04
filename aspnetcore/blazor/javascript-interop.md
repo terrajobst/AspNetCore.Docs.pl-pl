@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/23/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: 2b5d1433fce6e09adf3caa58e55e678b00ad98ee
-ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
+ms.openlocfilehash: b30bce6ef3ebf1cd2f4f3fe8d046e1db9b6929d5
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211645"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71924644"
 ---
 # <a name="aspnet-core-blazor-javascript-interop"></a>ASP.NET Core Blazor JavaScript interop
 
@@ -38,7 +38,7 @@ Dla aplikacji serwera Blazor:
 
 Poniższy przykład jest oparty na [dekoderze](https://developer.mozilla.org/docs/Web/API/TextDecoder), eksperymentalnym dekoderem JavaScript. W przykładzie pokazano, jak wywołać funkcję JavaScript z C# metody. Funkcja JavaScript akceptuje tablicę bajtową z C# metody, dekoduje tablicę i zwraca tekst do składnika do wyświetlenia.
 
-W elemencie elementu *wwwroot/index.html* (Blazor webassembly) lub *Pages/_Host. cshtml* (Blazor Server) podaj funkcję, która używa `TextDecoder` do zdekodowania przekazaną tablicę: `<head>`
+Wewnątrz elementu `<head>` *wwwroot/index.html* (Blazor webassembly) lub *Pages/_Host. cshtml* (Blazor Server) podaj funkcję, która używa `TextDecoder` do zdekodowania przekazaną tablicę:
 
 [!code-html[](javascript-interop/samples_snapshot/index-script.html)]
 
@@ -81,13 +81,13 @@ W aplikacji przykładowej po stronie klienta, która jest dołączona do tego te
 
 [!code-javascript[](./common/samples/3.x/BlazorSample/wwwroot/exampleJsInterop.js?highlight=2-7)]
 
-Umieść tag odwołujący się do pliku JavaScript w pliku wwwroot/index.html (Blazor webassembly) lub *Pages/_Host. cshtml* (Blazor Server). `<script>`
+Umieść tag `<script>` odwołujący się do pliku JavaScript w pliku *wwwroot/index.html* (Blazor webassembly) lub *Pages/_Host. cshtml* (Blazor Server).
 
 *wwwroot/index.html* (Blazor webassembly):
 
 [!code-html[](./common/samples/3.x/BlazorSample/wwwroot/index.html?highlight=15)]
 
-*Pages/_Host. cshtml* (Serwer Blazor):
+*Pages/_Host. cshtml* (Blazor Server):
 
 [!code-cshtml[](javascript-interop/samples_snapshot/_Host.cshtml?highlight=29)]
 
@@ -139,7 +139,7 @@ Poniższy przykład pokazuje przechwytywanie odwołania do `username` `<input>` 
 ```
 
 > [!NOTE]
-> **Nie** używaj przechwyconych odwołań do elementów jako sposobu wypełniania lub manipulowania modelem dom, gdy Blazor współdziała z elementami, do których się odwołuje. Wykonanie tej czynności może zakłócać model renderowania deklaratywnego.
+> **Nie** używaj przechwyconych odwołań do elementów jako sposobu wypełniania modelu DOM. Wykonanie tej czynności może zakłócać model renderowania deklaratywnego.
 
 W odniesieniu do kodu `ElementReference` platformy .NET jest to nieprzezroczyste dojście. *Jedyną* czynnością, którą można wykonać `ElementReference` , jest przekazanie jej do kodu JavaScript za pośrednictwem międzyoperacyjności języka JavaScript. Gdy to zrobisz, kod po stronie JavaScript odbiera `HTMLElement` wystąpienie, które może być używane z normalnymi interfejsami API modelu DOM.
 

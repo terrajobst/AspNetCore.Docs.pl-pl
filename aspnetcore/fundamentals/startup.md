@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 8/7/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 47194f786b2d32fb343e8f1078a4400d6db37293
-ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
+ms.openlocfilehash: 0ea3965f73f4b0334810bc9ec2910b0c9364a7ba
+ms.sourcegitcommit: d8b12cc1716ee329d7bd2300e201b61e15d506ac
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248332"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71942869"
 ---
 # <a name="app-startup-in-aspnet-core"></a>Uruchamianie aplikacji w ASP.NET Core
 
@@ -192,7 +192,10 @@ Aby skonfigurować usługi i potok przetwarzania żądań bez użycia `Startup` 
 
 ## <a name="extend-startup-with-startup-filters"></a>Zwiększanie uruchamiania przy użyciu filtrów uruchamiania
 
-Użyj <xref:Microsoft.AspNetCore.Hosting.IStartupFilter> , aby skonfigurować oprogramowanie pośredniczące na początku lub na końcu aplikacji [Skonfiguruj](#the-configure-method) potok oprogramowania pośredniczącego. `IStartupFilter`służy do tworzenia potoku `Configure` metod. [IStartupFilter. configure](xref:Microsoft.AspNetCore.Hosting.IStartupFilter.Configure*) może ustawić oprogramowanie pośredniczące do uruchomienia przed lub po oprogramowaniu pośredniczącym dodanym przez biblioteki.
+Użyj <xref:Microsoft.AspNetCore.Hosting.IStartupFilter>:
+
+* Aby skonfigurować oprogramowanie pośredniczące na początku lub na końcu aplikacji [Skonfiguruj](#the-configure-method) potok oprogramowania pośredniczącego bez jawnego wywołania `Use{Middleware}`. `IStartupFilter` jest używany przez ASP.NET Core do dodawania wartości domyślnych na początku potoku bez konieczności jawnego rejestrowania przez autora aplikacji domyślnego oprogramowania pośredniczącego. `IStartupFilter` umożliwia innym wywołaniem składnika `Use{Middleware}` w imieniu autora aplikacji.
+* Tworzenie potoku metod `Configure`. [IStartupFilter. configure](xref:Microsoft.AspNetCore.Hosting.IStartupFilter.Configure*) może ustawić oprogramowanie pośredniczące do uruchomienia przed lub po oprogramowaniu pośredniczącym dodanym przez biblioteki.
 
 `IStartupFilter`implementuje <xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*>, który odbiera i `Action<IApplicationBuilder>`zwraca. <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder> Definiuje klasę, aby skonfigurować potok żądania aplikacji. Aby uzyskać więcej informacji, zobacz [Tworzenie potoku oprogramowania pośredniczącego za pomocą IApplicationBuilder](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder).
 

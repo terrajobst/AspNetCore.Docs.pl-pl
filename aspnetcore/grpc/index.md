@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 09/20/2019
 uid: grpc/index
-ms.openlocfilehash: 88ceeba329ff2c7d764b7a5eabd5413da6ace765
-ms.sourcegitcommit: 8a36be1bfee02eba3b07b7a86085ec25c38bae6b
+ms.openlocfilehash: 2f32bf6e8df2c5b3574c337682cdc2845991630c
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219122"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71925177"
 ---
 # <a name="introduction-to-grpc-on-net-core"></a>Wprowadzenie do gRPC na platformie .NET Core
 
@@ -20,7 +20,7 @@ Przez [John Luo](https://github.com/juntaoluo) i [Kuba Kowalski-króla](https://
 [gRPC](https://grpc.io/docs/guides/) to język niezależny od i środowisko zdalnego wywołania procedury (RPC) o wysokiej wydajności.
 
 Główne zalety gRPC są następujące:
-* Nowoczesne środowisko uproszczonej usługi RPC o wysokiej wydajności.
+* Nowoczesne, wysoce wydajne i uproszczone środowisko RPC.
 * Tworzenie aplikacji interfejsu API w pierwszej kolejności, domyślnie przy użyciu buforów protokołu, dzięki czemu można wdrażać implementacje języka niezależny od.
 * Narzędzia dostępne dla wielu języków do generowania serwerów i klientów z jednoznacznie określonymi typami.
 * Obsługuje wywołania przesyłania strumieniowego klienta, serwera i dwukierunkowego.
@@ -120,6 +120,8 @@ Console.WriteLine(response.Message);
 Klient gRPC jest tworzony przy użyciu kanału, który reprezentuje długotrwałe połączenie z usługą gRPC. Kanał można utworzyć przy użyciu `GrpcChannel.ForAddress`.
 
 Aby uzyskać więcej informacji na temat tworzenia klientów i wywoływania różnych metod usługi, <xref:grpc/client>Zobacz.
+
+[!INCLUDE[](~/includes/gRPCazure.md)]
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/11/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 2d517a89c6002b5c85e98128605f95585354f8db
-ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
+ms.openlocfilehash: bb38ebca3c7b9bb4c28a52c0dad80be9669e1b40
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248257"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71924876"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Rejestrowanie w programie .NET Core i ASP.NET Core
 
@@ -174,7 +174,7 @@ Aby napisać dzienniki w `Program` klasie, Pobierz wystąpienie z elementu `ILog
 
 Rejestracja powinna być tak szybka, że nie jest to koszt wydajności kodu asynchronicznego. Jeśli magazyn danych rejestrowania jest wolny, nie zapisuj go bezpośrednio. Najpierw Rozważ zapisanie komunikatów dziennika do szybkiego sklepu, a następnie przeniesienie ich do wolnego magazynu później. Na przykład jeśli rejestrujesz się do SQL Server, nie chcesz tego robić bezpośrednio w `Log` metodzie, `Log` ponieważ metody są synchroniczne. Zamiast tego można synchronicznie dodawać komunikaty dziennika do kolejki w pamięci, a proces roboczy w tle ściągał komunikaty z kolejki, aby wykonać asynchroniczne działanie wypychania danych do SQL Server.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Konfiguracja dostawcy rejestrowania jest świadczona przez co najmniej jednego dostawcę konfiguracji:
 
@@ -529,7 +529,7 @@ Kolejność symboli zastępczych, nie ich nazw, określa, które parametry są u
 ```csharp
 string p1 = "parm1";
 string p2 = "parm2";
-_logger.LogInformation("Parameter values: {p1}, {p2}", p1, p2);
+_logger.LogInformation("Parameter values: {p2}, {p1}", p1, p2);
 ```
 
 Ten kod tworzy komunikat dziennika z wartościami parametrów w kolejności:
@@ -619,13 +619,13 @@ Drugi `AddFilter` określa dostawcę debugowania za pomocą nazwy typu. Pierwszy
 
 Dane konfiguracji i `AddFilter` kod przedstawiony w powyższych przykładach tworzą reguły pokazane w poniższej tabeli. Pierwsze sześć pochodzi z przykładu konfiguracji, a ostatnie dwa pochodzą z przykładu kodu.
 
-| Wartość liczbowa | Dostawca      | Kategorie zaczynające się od...          | Minimalny poziom rejestrowania |
+| Number | Dostawca      | Kategorie zaczynające się od...          | Minimalny poziom rejestrowania |
 | :----: | ------------- | --------------------------------------- | ----------------- |
-| 1      | Debugowanie         | Wszystkie kategorie                          | Informacje       |
+| 1      | Debugowanie         | Wszystkie kategorie                          | Information       |
 | 2      | Konsola       | Microsoft.AspNetCore.Mvc.Razor.Internal | Ostrzeżenie           |
 | 3      | Konsola       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debugowanie             |
 | 4      | Konsola       | Microsoft.AspNetCore.Mvc.Razor          | Błąd             |
-| 5      | Konsola       | Wszystkie kategorie                          | Informacje       |
+| 5      | Konsola       | Wszystkie kategorie                          | Information       |
 | 6      | Wszyscy dostawcy | Wszystkie kategorie                          | Debugowanie             |
 | 7      | Wszyscy dostawcy | System                                  | Debugowanie             |
 | 8      | Debugowanie         | Microsoft                               | Szuka             |
@@ -697,7 +697,7 @@ Funkcja filtru jest wywoływana dla wszystkich dostawców i kategorii, które ni
 
 Poniżej przedstawiono niektóre kategorie używane przez ASP.NET Core i Entity Framework Core, z informacjami o dziennikach, od których należy się spodziewać:
 
-| Kategoria                            | Uwagi |
+| Category                            | Uwagi |
 | ----------------------------------- | ----- |
 | Microsoft.AspNetCore                | Ogólna Diagnostyka ASP.NET Core. |
 | Microsoft.AspNetCore.DataProtection | Które klucze zostały wzięte pod uwagę, znaleziono i użyte. |
