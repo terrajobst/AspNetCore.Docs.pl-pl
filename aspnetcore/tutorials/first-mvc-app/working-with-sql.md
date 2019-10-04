@@ -5,12 +5,12 @@ description: Dowiedz się więcej o używaniu SQL Server LocalDB lub oprogramowa
 ms.author: riande
 ms.date: 8/16/2019
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: d2784d9edc32b79e67dbcd193be55b44bc8d2c49
-ms.sourcegitcommit: 7a46973998623aead757ad386fe33602b1658793
+ms.openlocfilehash: cb356bca50540d7c471cf625a26bfe2dd155b627
+ms.sourcegitcommit: 3ffcd8cbff8b49128733842f72270bc58279de70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69487632"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71955919"
 ---
 # <a name="work-with-sql-in-aspnet-core"></a>Współpraca z SQL w ASP.NET Core
 
@@ -18,7 +18,7 @@ ms.locfileid: "69487632"
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Obiekt obsługuje zadanie łączenia się z bazą danych i mapowania `Movie` obiektów do rekordów bazy danych. `MvcMovieContext` Kontekst bazy danych jest zarejestrowany z kontenerem [iniekcji zależności](xref:fundamentals/dependency-injection) w `ConfigureServices` metodzie w pliku *Startup.cs* :
+Obiekt `MvcMovieContext` obsługuje zadanie łączenia się z bazą danych i mapowania obiektów `Movie` do rekordów bazy danych. Kontekst bazy danych jest zarejestrowany z kontenerem [iniekcji zależności](xref:fundamentals/dependency-injection) w metodzie `ConfigureServices` w pliku *Startup.cs* :
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -50,15 +50,15 @@ LocalDB to uproszczona wersja aparatu bazy danych SQL Server Express, która jes
 
   ![Menu Widok](working-with-sql/_static/ssox.png)
 
-* Kliknij prawym przyciskiem `Movie` myszy tabelę **> View Designer**
+* Kliknij prawym przyciskiem myszy tabelę `Movie` **> widok projektanta**
 
   ![Menu kontekstowe jest otwarte w tabeli filmów](working-with-sql/_static/design.png)
 
   ![Tabela filmów otwarta w projektancie](working-with-sql/_static/dv.png)
 
-Zanotuj ikonę klucza obok pozycji `ID`. Domyślnie EF utworzy właściwość o nazwie `ID` klucz podstawowy.
+Zwróć uwagę na ikonę klucza obok `ID`. Domyślnie, EF wprowadzi właściwość o nazwie `ID` klucz podstawowy.
 
-* Kliknij prawym przyciskiem `Movie` myszy tabelę, **> wyświetlić dane**
+* Kliknij prawym przyciskiem myszy tabelę `Movie` **> Wyświetl dane**
 
   ![Menu kontekstowe jest otwarte w tabeli filmów](working-with-sql/_static/ssox2.png)
 
@@ -74,7 +74,7 @@ Zanotuj ikonę klucza obok pozycji `ID`. Domyślnie EF utworzy właściwość o 
 
 ## <a name="seed-the-database"></a>Inicjowanie bazy danych
 
-Utwórz nową klasę o nazwie `SeedData` w folderze *models* . Zastąp wygenerowany kod następującym:
+Utwórz nową klasę o nazwie `SeedData` w folderze *modele* . Zastąp wygenerowany kod następującym:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Models/SeedData.cs?name=snippet_1)]
 
@@ -93,14 +93,14 @@ if (context.Movie.Any())
 
 Zastąp zawartość *program.cs* następującym kodem:
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Program.cs)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Program.cs)]
 
 Testowanie aplikacji
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Usuń wszystkie rekordy z bazy danych. Można to zrobić za pomocą linków usuwania w przeglądarce lub z SSOX.
-* Wymuś inicjalizację aplikacji (wywołaj metody z `Startup` klasy), aby była uruchamiana Metoda inicjatora. Aby wymusić inicjalizację, IIS Express należy zatrzymać i uruchomić ponownie. Można to zrobić przy użyciu następujących metod:
+* Wymuś inicjalizację aplikacji (wywołaj metody z klasy `Startup`), aby Metoda inicjatora była uruchomiona. Aby wymusić inicjalizację, IIS Express należy zatrzymać i uruchomić ponownie. Można to zrobić przy użyciu następujących metod:
 
   * Kliknij prawym przyciskiem myszy ikonę IIS Express pasku zadań w obszarze powiadomień i naciśnij pozycję **Zakończ** lub **Zatrzymaj witrynę**
 
@@ -122,15 +122,15 @@ Aplikacja pokazuje dane z rozrzutu.
 ![Aplikacja filmowa MVC otwarta w przeglądarce Microsoft Edge pokazująca dane filmu](working-with-sql/_static/m55.png)
 
 > [!div class="step-by-step"]
-> [Poprzedni](adding-model.md)Następny
-> [](controller-methods-views.md)
+> [Poprzedni](adding-model.md)
+> [Następny](controller-methods-views.md)
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Obiekt obsługuje zadanie łączenia się z bazą danych i mapowania `Movie` obiektów do rekordów bazy danych. `MvcMovieContext` Kontekst bazy danych jest zarejestrowany z kontenerem [iniekcji zależności](xref:fundamentals/dependency-injection) w `ConfigureServices` metodzie w pliku *Startup.cs* :
+Obiekt `MvcMovieContext` obsługuje zadanie łączenia się z bazą danych i mapowania obiektów `Movie` do rekordów bazy danych. Kontekst bazy danych jest zarejestrowany z kontenerem [iniekcji zależności](xref:fundamentals/dependency-injection) w metodzie `ConfigureServices` w pliku *Startup.cs* :
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -162,15 +162,15 @@ LocalDB to uproszczona wersja aparatu bazy danych SQL Server Express, która jes
 
   ![Menu Widok](working-with-sql/_static/ssox.png)
 
-* Kliknij prawym przyciskiem `Movie` myszy tabelę **> View Designer**
+* Kliknij prawym przyciskiem myszy tabelę `Movie` **> widok projektanta**
 
   ![Menu kontekstowe jest otwarte w tabeli filmów](working-with-sql/_static/design.png)
 
   ![Tabela filmów otwarta w projektancie](working-with-sql/_static/dv.png)
 
-Zanotuj ikonę klucza obok pozycji `ID`. Domyślnie EF utworzy właściwość o nazwie `ID` klucz podstawowy.
+Zwróć uwagę na ikonę klucza obok `ID`. Domyślnie, EF wprowadzi właściwość o nazwie `ID` klucz podstawowy.
 
-* Kliknij prawym przyciskiem `Movie` myszy tabelę, **> wyświetlić dane**
+* Kliknij prawym przyciskiem myszy tabelę `Movie` **> Wyświetl dane**
 
   ![Menu kontekstowe jest otwarte w tabeli filmów](working-with-sql/_static/ssox2.png)
 
@@ -186,7 +186,7 @@ Zanotuj ikonę klucza obok pozycji `ID`. Domyślnie EF utworzy właściwość o 
 
 ## <a name="seed-the-database"></a>Inicjowanie bazy danych
 
-Utwórz nową klasę o nazwie `SeedData` w folderze *models* . Zastąp wygenerowany kod następującym:
+Utwórz nową klasę o nazwie `SeedData` w folderze *modele* . Zastąp wygenerowany kod następującym:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Models/SeedData.cs?name=snippet_1)]
 
@@ -212,7 +212,7 @@ Testowanie aplikacji
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Usuń wszystkie rekordy z bazy danych. Można to zrobić za pomocą linków usuwania w przeglądarce lub z SSOX.
-* Wymuś inicjalizację aplikacji (wywołaj metody z `Startup` klasy), aby była uruchamiana Metoda inicjatora. Aby wymusić inicjalizację, IIS Express należy zatrzymać i uruchomić ponownie. Można to zrobić przy użyciu następujących metod:
+* Wymuś inicjalizację aplikacji (wywołaj metody z klasy `Startup`), aby Metoda inicjatora była uruchomiona. Aby wymusić inicjalizację, IIS Express należy zatrzymać i uruchomić ponownie. Można to zrobić przy użyciu następujących metod:
 
   * Kliknij prawym przyciskiem myszy ikonę IIS Express pasku zadań w obszarze powiadomień i naciśnij pozycję **Zakończ** lub **Zatrzymaj witrynę**
 
@@ -234,7 +234,7 @@ Aplikacja pokazuje dane z rozrzutu.
 ![Aplikacja filmowa MVC otwarta w przeglądarce Microsoft Edge pokazująca dane filmu](working-with-sql/_static/m55.png)
 
 > [!div class="step-by-step"]
-> [Poprzedni](adding-model.md)Następny
-> [](controller-methods-views.md)
+> [Poprzedni](adding-model.md)
+> [Następny](controller-methods-views.md)
 
 ::: moniker-end
