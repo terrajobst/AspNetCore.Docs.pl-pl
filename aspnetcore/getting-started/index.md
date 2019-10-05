@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/22/2019
 uid: getting-started
-ms.openlocfilehash: 798f1ee87c05d886d8991e3f0230c8ebc6341ba8
-ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
+ms.openlocfilehash: 116a22bce80257948bfcc02c03a74a4b5568b8b5
+ms.sourcegitcommit: 4649814d1ae32248419da4e8f8242850fd8679a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71925104"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71975691"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Samouczek: Wprowadzenie do platformy ASP.NET Core
 
@@ -44,7 +44,7 @@ dotnet new webapp -o aspnetcoreapp
 Poprzednie polecenie:
 
 * Tworzy nową aplikację sieci Web.  
-* Parametr tworzy katalog o nazwie aspnetcoreapp z plikami źródłowymi aplikacji. `-o aspnetcoreapp`
+* Parametr `-o aspnetcoreapp` tworzy katalog o nazwie *aspnetcoreapp* z plikami źródłowymi aplikacji.
 
 ### <a name="trust-the-development-certificate"></a>Ufanie certyfikatowi Deweloperskiemu
 
@@ -70,13 +70,11 @@ dotnet dev-certs https --trust
 
 Poprzednie polecenie wyświetla następujący komunikat:
 
-*Zażądano zaufania certyfikatu deweloperskiego HTTPS. Jeśli certyfikat nie jest już zaufany, zostanie uruchomione następujące polecenie:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
+*Trusting zażądano certyfikatu deweloperskiego HTTPS. Jeśli certyfikat nie jest już zaufany, zostanie uruchomione następujące polecenie:*  `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
 
 To polecenie może wyświetlać monit o podanie hasła w celu zainstalowania certyfikatu w łańcuchu kluczy systemu. Wprowadź hasło, jeśli zgadzasz się ufać certyfikatowi programistycznemu.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-W przypadku podsystemu Windows dla systemu Linux Zobacz temat [zaufanie certyfikatu HTTPS z podsystemu Windows dla systemu Linux](xref:security/enforcing-ssl#wsl).
 
 Sprawdź w dokumentacji dla Twojej dystrybucji systemu Linux informacje na temat dodania certyfikatu deweloperskiego do zaufanych certyfikatów protokołu HTTPS.
 
@@ -101,7 +99,7 @@ Otwórz stronę *Pages/index. cshtml* i zmodyfikuj ją i Zapisz przy użyciu nas
 
 [!code-cshtml[](sample/index.cshtml?highlight=9)]
 
-Przejdź do [https://localhost:5001](https://localhost:5001)strony, Odśwież stronę i sprawdź, czy są wyświetlane zmiany.
+Przejdź do [https://localhost:5001](https://localhost:5001), Odśwież stronę i sprawdź, czy są wyświetlane zmiany.
 
 ## <a name="next-steps"></a>Następne kroki
 
