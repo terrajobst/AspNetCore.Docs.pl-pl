@@ -122,13 +122,8 @@
               uid: data/ef-rp/update-related-data
             - name: Obsługa konfliktów współbieżności
               uid: data/ef-rp/concurrency
-        - name: 'Program EF Core ze wzorcem MVC, istniejąca baza danych'
+        - name: Program EF Core z MVC
           displayName: tutorial
-          href: /ef/core/get-started/aspnetcore/existing-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-        - name: 'Program EF Core ze wzorcem MVC, nowa baza danych'
-          displayName: tutorial
-          href: /ef/core/get-started/aspnetcore/new-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-        - name: 'Program EF Core ze wzorcem MVC, 10 samouczków'
           items:
             - name: Omówienie
               uid: data/ef-mvc/index
@@ -231,8 +226,6 @@
           uid: razor-pages/filter
         - name: Konwencje tras i aplikacji
           uid: razor-pages/razor-pages-conventions
-        - name: Przekazywanie plików
-          uid: razor-pages/upload-files
         - name: Zestaw Razor SDK
           uid: razor-pages/sdk
     - name: MVC
@@ -271,8 +264,6 @@
           uid: mvc/controllers/actions
         - name: Routing
           uid: mvc/controllers/routing
-        - name: Operacje przekazywania plików
-          uid: mvc/models/file-uploads
         - name: Wstrzykiwanie zależności — kontrolery
           uid: mvc/controllers/dependency-injection
         - name: Wstrzykiwanie zależności — widoki
@@ -418,6 +409,8 @@
           uid: mvc/controllers/filters
         - name: Obszary
           uid: mvc/controllers/areas
+        - name: Przekazywanie plików
+          uid: mvc/models/file-uploads
         - name: Części aplikacji
           uid: mvc/extensibility/app-parts
         - name: aspnet-codegenerator
@@ -632,11 +625,7 @@
               uid: data/ef-rp/update-related-data
             - name: Obsługa konfliktów współbieżności
               uid: data/ef-rp/concurrency
-        - name: 'Program EF Core ze wzorcem MVC, nowa baza danych'
-          href: /ef/core/get-started/aspnetcore/new-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-        - name: 'Program EF Core ze wzorcem MVC, istniejąca baza danych'
-          href: /ef/core/get-started/aspnetcore/existing-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-        - name: 'Program EF Core ze wzorcem MVC, 10 samouczków'
+        - name: Program EF Core z MVC
           items:
             - name: Omówienie
               uid: data/ef-mvc/index
