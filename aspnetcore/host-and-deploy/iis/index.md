@@ -5,14 +5,14 @@ description: Dowiedz się, jak hostować aplikacje platformy ASP.NET Core na sys
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/31/2019
+ms.date: 10/07/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 4cc25cba95b476f1d14aad87564f9777a0530f86
-ms.sourcegitcommit: 4649814d1ae32248419da4e8f8242850fd8679a5
+ms.openlocfilehash: 8131e9b8e6a3bb3643f41a9be57c5bd2e511476c
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71975665"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007367"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -239,7 +239,7 @@ Zestaw SDK sieci Web z transformacji pliku, wyłączając *processPath* i *argum
 
 ### <a name="webconfig-file-location"></a>Lokalizacja pliku Web.config
 
-Aby skonfigurować [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module) poprawnie, *web.config* plik musi znajdować się w ścieżce głównej zawartości (zwykle ścieżki podstawowej aplikacji) wdrożonej aplikacji. Jest to tej samej lokalizacji co ścieżka fizyczna witryny sieci Web dostarczone do usług IIS. *Web.config* plik jest wymagany w katalogu głównym aplikacji, aby umożliwić publikowanie wielu aplikacji za pomocą narzędzia Web Deploy.
+Aby poprawnie skonfigurować [moduł ASP.NET Core](xref:host-and-deploy/aspnet-core-module) , plik *Web. config* musi znajdować się w ścieżce [katalogu głównego zawartości](xref:fundamentals/index#content-root) (zazwyczaj ścieżka podstawowa aplikacji) wdrożonej aplikacji. Jest to tej samej lokalizacji co ścieżka fizyczna witryny sieci Web dostarczone do usług IIS. *Web.config* plik jest wymagany w katalogu głównym aplikacji, aby umożliwić publikowanie wielu aplikacji za pomocą narzędzia Web Deploy.
 
 Poufne pliki istnieją na ścieżkę fizyczną aplikacji, takich jak *\<zestawu >. runtimeconfig.json*, *\<zestawu > .xml* (komentarze dokumentacji XML), a *\<zestawu >. deps.json*. Gdy plik *Web. config* jest obecny, a lokacja jest uruchamiana normalnie, usługi IIS nie będą obsługiwały tych poufnych plików, jeśli są żądane. Jeśli *web.config* brakuje pliku, niepoprawnie o nazwie lub nie można skonfigurować witrynę podczas normalnego uruchamiania, usług IIS może obsługiwać poufnych plików publicznie.
 

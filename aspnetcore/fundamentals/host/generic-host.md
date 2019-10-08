@@ -5,14 +5,14 @@ description: Dowiedz się więcej o hoście ogólnym programu .NET Core, który 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/05/2019
+ms.date: 10/07/2019
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: bd6e01697900b93d5b98122c726e1f8c8b89c0fc
-ms.sourcegitcommit: 4115bf0e850c13d4e655beb5ab5e8ff431173cb6
+ms.openlocfilehash: 1582955cd18e6739111af05c9a892cd5cb4e270d
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981932"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007239"
 ---
 # <a name="net-generic-host"></a>Host ogólny .NET
 
@@ -78,7 +78,7 @@ Jeśli aplikacja używa Entity Framework Core, nie zmieniaj nazwy ani podpisu me
 
 <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*> Metody:
 
-* Ustawia katalog główny zawartości na ścieżkę zwracaną przez <xref:System.IO.Directory.GetCurrentDirectory*>.
+* Ustawia [katalog główny zawartości](xref:fundamentals/index#content-root) na ścieżkę zwracaną przez <xref:System.IO.Directory.GetCurrentDirectory*>.
 * Ładuje konfigurację hosta z:
   * Zmienne środowiskowe poprzedzone prefiksem "DOTNET_".
   * Argumenty wiersza polecenia.
@@ -199,6 +199,11 @@ Host.CreateDefaultBuilder(args)
     .UseContentRoot("c:\\content-root")
     //...
 ```
+
+Aby uzyskać więcej informacji, zobacz:
+
+* [Fundamentals: Katalog główny zawartości @ no__t-0
+* [WebRoot](#webroot)
 
 ### <a name="environmentname"></a>EnvironmentName
 
@@ -397,7 +402,7 @@ Kestrel ma własny interfejs API konfiguracji punktu końcowego. Aby uzyskać wi
 
 **Klucz**: Webroot  
 **Typ**: *ciąg*  
-**Wartość domyślna**: *(Katalog zawartości)/wwwroot*, jeśli ścieżka istnieje. Jeśli ścieżka nie istnieje, jest używany dostawca plików No-op.  
+**Wartość domyślna**: Wartość domyślna to `wwwroot`. Ścieżka do *elementu {content root}/wwwroot* musi istnieć. Jeśli ścieżka nie istnieje, jest używany dostawca plików No-op.  
 **Zmienna środowiskowa**: `<PREFIX_>WEBROOT`
 
 Aby ustawić tę wartość, użyj zmiennej środowiskowej lub wywołaj `UseWebRoot`:
@@ -405,6 +410,11 @@ Aby ustawić tę wartość, użyj zmiennej środowiskowej lub wywołaj `UseWebRo
 ```csharp
 webBuilder.UseWebRoot("public");
 ```
+
+Aby uzyskać więcej informacji, zobacz:
+
+* [Fundamentals: Katalog główny sieci Web @ no__t-0
+* [ContentRootPath](#contentrootpath)
 
 ## <a name="manage-the-host-lifetime"></a>Zarządzanie okresem istnienia hosta
 
@@ -574,6 +584,8 @@ To ustawienie określa, gdzie host rozpoczyna wyszukiwanie plików zawartości.
 Jeśli ścieżka nie istnieje, uruchomienie hosta nie powiedzie się.
 
 [!code-csharp[](generic-host/samples-snapshot/2.x/GenericHostSample/Program.cs?name=snippet_UseContentRoot)]
+
+Aby uzyskać więcej informacji, zobacz @no__t 0Fundamentals: Katalog główny zawartości @ no__t-0.
 
 ### <a name="environment"></a>Środowisko
 

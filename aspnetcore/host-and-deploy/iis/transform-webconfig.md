@@ -5,14 +5,14 @@ description: Dowiedz się, jak przekształcić plik Web. config podczas publikow
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/07/2019
+ms.date: 10/07/2019
 uid: host-and-deploy/iis/transform-webconfig
-ms.openlocfilehash: 32e66007d527f7f7b7cfd88d3bebc9b808251941
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: d28c362a200ad433e316bc1af710231a169a30a4
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081458"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007318"
 ---
 # <a name="transform-webconfig"></a>Przekształcanie pliku web.config
 
@@ -27,8 +27,8 @@ Przekształcenia do pliku *Web. config* można zastosować automatycznie po opub
 
 Te przekształcenia występują dla jednego z następujących scenariuszy generacji *Web. config* :
 
-* Generowane automatycznie przez `Microsoft.NET.Sdk.Web` zestaw SDK.
-* Udostępnione przez dewelopera w katalogu głównym zawartości aplikacji.
+* Generowane automatycznie przez zestaw SDK `Microsoft.NET.Sdk.Web`.
+* Udostępnione przez dewelopera w [katalogu głównym zawartości](xref:fundamentals/index#content-root) aplikacji.
 
 ## <a name="build-configuration"></a>Konfiguracja kompilacji
 
@@ -62,7 +62,7 @@ Przekształcenie jest stosowane, gdy konfiguracja jest ustawiona na *Release*:
 dotnet publish --configuration Release
 ```
 
-Właściwość programu MSBuild dla konfiguracji ma `$(Configuration)`wartość.
+Właściwość programu MSBuild dla konfiguracji jest `$(Configuration)`.
 
 ## <a name="profile"></a>Profil
 
@@ -96,7 +96,7 @@ Przekształcenie jest stosowane, gdy profil jest *FolderProfile*:
 dotnet publish --configuration Release /p:PublishProfile=FolderProfile
 ```
 
-Właściwość programu MSBuild dla nazwy profilu to `$(PublishProfile)`.
+Właściwość programu MSBuild dla nazwy profilu jest `$(PublishProfile)`.
 
 Jeśli profil nie zostanie przekazywać, domyślną nazwą profilu jest **system plików** i *Sieć Web. Plik FileSystem. config* jest stosowany, jeśli jest obecny w katalogu głównym zawartości aplikacji.
 
@@ -132,11 +132,11 @@ Transformacja jest stosowana, gdy środowisko jest *produkcyjne*:
 dotnet publish --configuration Release /p:EnvironmentName=Production
 ```
 
-Właściwość programu MSBuild dla środowiska to `$(EnvironmentName)`.
+Właściwość programu MSBuild dla środowiska ma `$(EnvironmentName)`.
 
-Przy publikowaniu z programu Visual Studio i przy użyciu profilu publikowania <xref:host-and-deploy/visual-studio-publish-profiles#set-the-environment>, zobacz.
+W przypadku publikowania z programu Visual Studio i używania profilu publikowania zobacz <xref:host-and-deploy/visual-studio-publish-profiles#set-the-environment>.
 
-Zmienna środowiskowa jest automatycznie dodawana do pliku *Web. config* po określeniu nazwy środowiska. `ASPNETCORE_ENVIRONMENT`
+Zmienna środowiskowa `ASPNETCORE_ENVIRONMENT` jest automatycznie dodawana do pliku *Web. config* po określeniu nazwy środowiska.
 
 ## <a name="custom"></a>Celnej
 
@@ -164,17 +164,17 @@ W poniższym przykładzie zmienna środowiskowa transformacji niestandardowej je
 </configuration>
 ```
 
-Transformacja jest stosowana, gdy `CustomTransformFileName` właściwość jest przenoszona do [dotnet Publish](/dotnet/core/tools/dotnet-publish) polecenia:
+Transformacja jest stosowana, gdy właściwość `CustomTransformFileName` jest przenoszona do polecenia [dotnet Publish](/dotnet/core/tools/dotnet-publish) :
 
 ```dotnetcli
 dotnet publish --configuration Release /p:CustomTransformFileName=custom.transform
 ```
 
-Właściwość programu MSBuild dla nazwy profilu to `$(CustomTransformFileName)`.
+Właściwość programu MSBuild dla nazwy profilu jest `$(CustomTransformFileName)`.
 
 ## <a name="prevent-webconfig-transformation"></a>Zablokuj transformację pliku Web. config
 
-Aby zapobiec przekształceń pliku *Web. config* , ustaw właściwość `$(IsWebConfigTransformDisabled)`MSBuild:
+Aby zapobiec przekształceń pliku *Web. config* , ustaw właściwość programu MSBuild `$(IsWebConfigTransformDisabled)`:
 
 ```dotnetcli
 dotnet publish /p:IsWebConfigTransformDisabled=true

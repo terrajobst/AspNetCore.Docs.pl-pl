@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak udostępniać i zabezpieczać pliki statyczne oraz skonfigurować zachowania oprogramowania pośredniczącego do obsługi plików statycznych w aplikacji internetowej ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/8/2019
+ms.date: 10/07/2019
 uid: fundamentals/static-files
-ms.openlocfilehash: 1c665d1206e984fe41e9f57bb5356839c354dde2
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: 2f153551a86860616469200862723528e4a8cc1c
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308195"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007329"
 ---
 # <a name="static-files-in-aspnet-core"></a>Pliki statyczne w ASP.NET Core
 
@@ -23,13 +23,13 @@ Pliki statyczne, takie jak HTML, CSS, images i JavaScript, są zasobami, które 
 
 ## <a name="serve-static-files"></a>Obsługuj pliki statyczne
 
-Pliki statyczne są przechowywane w katalogu głównym sieci Web projektu. Domyślnym katalogiem jest  *\<content_root >/wwwroot*, ale można go zmienić za pomocą metody [UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) . Aby uzyskać więcej informacji, zobacz [katalog główny zawartości](xref:fundamentals/index#content-root) i [katalog główny sieci Web](xref:fundamentals/index#web-root) .
+Pliki statyczne są przechowywane w katalogu [głównym sieci Web](xref:fundamentals/index#web-root) projektu. Domyślnym katalogiem jest *{Content root}/wwwroot*, ale można go zmienić za pomocą metody [UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) . Aby uzyskać więcej informacji, zobacz [katalog główny zawartości](xref:fundamentals/index#content-root) i [katalog główny sieci Web](xref:fundamentals/index#web-root) .
 
 Host sieci Web aplikacji musi być świadomy katalogu głównego zawartości.
 
 ::: moniker range=">= aspnetcore-2.0"
 
-`WebHost.CreateDefaultBuilder` Metoda ustawia katalog główny zawartości dla bieżącego katalogu:
+Metoda `WebHost.CreateDefaultBuilder` ustawia katalog główny zawartości dla bieżącego katalogu:
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main&highlight=9)]
 
@@ -43,14 +43,14 @@ Ustaw katalog główny zawartości w bieżącym katalogu, wywołując [UseConten
 
 ::: moniker-end
 
-Pliki statyczne są dostępne za pośrednictwem ścieżki względnej dla katalogu głównego sieci Web. Na przykład szablon projektu **aplikacji sieci Web** zawiera kilka folderów w folderze *wwwroot* :
+Pliki statyczne są dostępne za pośrednictwem ścieżki względnej dla [katalogu głównego sieci Web](xref:fundamentals/index#web-root). Na przykład szablon projektu **aplikacji sieci Web** zawiera kilka folderów w folderze *wwwroot* :
 
 * **wwwroot**
   * **kaskad**
   * **images**
   * **js**
 
-Format identyfikatora URI służący do uzyskiwania dostępu do  pliku w podfolderze images to *http://\<server_address >\</images/image_file_name >* . Na przykład *http://localhost:9189/images/banner3.svg* .
+Format identyfikatora URI służący do uzyskiwania dostępu do pliku w podfolderze *images* to *http://\<server_address >/images/\<image_file_name >* . Na przykład *http://localhost:9189/images/banner3.svg* .
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -78,15 +78,15 @@ Wywołaj metodę [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.stati
 
 [!code-csharp[](static-files/samples/1x/StartupStaticFiles.cs?name=snippet_ConfigureMethod&highlight=3)]
 
-Przeciążenie `UseStaticFiles` metody bez parametrów oznacza pliki w katalogu głównym sieci Web jako do zablokowania. Następujące znaczniki odwołują się do *wwwroot/images/banner1. SVG*:
+Bezparametrowe przeciążanie metody `UseStaticFiles` oznacza pliki w [katalogu głównym sieci Web](xref:fundamentals/index#web-root) jako z możliwością. Następujące znaczniki odwołują się do *wwwroot/images/banner1. SVG*:
 
 [!code-cshtml[](static-files/samples/1x/Views/Home/Index.cshtml?name=snippet_static_file_wwwroot)]
 
-W poprzednim kodzie znak `~/` tyldy wskazuje na Webroot. Aby uzyskać więcej informacji, zobacz [katalog główny sieci Web](xref:fundamentals/index#web-root).
+W poprzednim kodzie znak tyldy `~/` wskazuje na [katalog główny sieci Web](xref:fundamentals/index#web-root).
 
 ### <a name="serve-files-outside-of-web-root"></a>Obsługiwanie plików poza katalogiem głównym sieci Web
 
-Rozważ hierarchię katalogów, w której pliki statyczne mają być obsługiwane poza katalogiem głównym sieci Web:
+Rozważ hierarchię katalogów, w której pliki statyczne mają być obsługiwane poza [katalogiem głównym sieci Web](xref:fundamentals/index#web-root):
 
 * **wwwroot**
   * **kaskad**
@@ -100,7 +100,7 @@ Rozważ hierarchię katalogów, w której pliki statyczne mają być obsługiwan
 
 [!code-csharp[](static-files/samples/1x/StartupTwoStaticFiles.cs?name=snippet_ConfigureMethod&highlight=5-10)]
 
-W powyższym kodzie hierarchia katalogów *MyStaticFiles* jest udostępniana publicznie za pośrednictwem segmentu identyfikatora URI *StaticFiles* . Żądanie *http://\<server_address >/StaticFiles/images/banner1.SVG* obsługuje plik *banner1. SVG* .
+W powyższym kodzie hierarchia katalogów *MyStaticFiles* jest udostępniana publicznie za pośrednictwem segmentu identyfikatora URI *StaticFiles* . Żądanie do *http://\<server_address >/StaticFiles/images/banner1.SVG* obsługuje plik *banner1. SVG* .
 
 Następujące znaczniki odwołują się do *MyStaticFiles/images/banner1. SVG*:
 
@@ -108,7 +108,7 @@ Następujące znaczniki odwołują się do *MyStaticFiles/images/banner1. SVG*:
 
 ### <a name="set-http-response-headers"></a>Ustawianie nagłówków odpowiedzi HTTP
 
-Obiekt [StaticFileOptions](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions) może służyć do ustawiania nagłówków odpowiedzi HTTP. Oprócz konfigurowania pliku statycznego z poziomu katalogu głównego sieci Web, poniższy kod ustawia `Cache-Control` nagłówek:
+Obiekt [StaticFileOptions](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions) może służyć do ustawiania nagłówków odpowiedzi HTTP. Oprócz konfigurowania pliku statycznego z poziomu [katalogu głównego sieci Web](xref:fundamentals/index#web-root), poniższy kod ustawia nagłówek `Cache-Control`:
 
 [!code-csharp[](static-files/samples/1x/StartupAddHeader.cs?name=snippet_ConfigureMethod)]
 
@@ -129,7 +129,7 @@ Oprogramowanie pośredniczące plików statycznych nie zapewnia kontroli autoryz
 
 ## <a name="enable-directory-browsing"></a>Włącz przeglądanie katalogów
 
-Przeglądanie katalogów umożliwia użytkownikom aplikacji sieci Web Wyświetlanie listy katalogów i plików w określonym katalogu. Przeglądanie katalogów jest domyślnie wyłączone ze względów bezpieczeństwa (zobacz [uwagi](#considerations)). Włącz przeglądanie katalogów, wywołując metodę [UseDirectoryBrowser](/dotnet/api/microsoft.aspnetcore.builder.directorybrowserextensions.usedirectorybrowser#Microsoft_AspNetCore_Builder_DirectoryBrowserExtensions_UseDirectoryBrowser_Microsoft_AspNetCore_Builder_IApplicationBuilder_Microsoft_AspNetCore_Builder_DirectoryBrowserOptions_) w `Startup.Configure`:
+Przeglądanie katalogów umożliwia użytkownikom aplikacji sieci Web Wyświetlanie listy katalogów i plików w określonym katalogu. Przeglądanie katalogów jest domyślnie wyłączone ze względów bezpieczeństwa (zobacz [uwagi](#considerations)). Włącz przeglądanie katalogów przez wywołanie metody [UseDirectoryBrowser](/dotnet/api/microsoft.aspnetcore.builder.directorybrowserextensions.usedirectorybrowser#Microsoft_AspNetCore_Builder_DirectoryBrowserExtensions_UseDirectoryBrowser_Microsoft_AspNetCore_Builder_IApplicationBuilder_Microsoft_AspNetCore_Builder_DirectoryBrowserOptions_) w `Startup.Configure`:
 
 [!code-csharp[](static-files/samples/1x/StartupBrowse.cs?name=snippet_ConfigureMethod&highlight=12-17)]
 
@@ -143,7 +143,7 @@ Poprzedni kod umożliwia przeglądanie katalogów folderu *wwwroot/images* przy 
 
 Zapoznaj się z [uwagami](#considerations) dotyczącymi zagrożeń bezpieczeństwa podczas włączania przeglądania.
 
-Zwróć uwagę na `UseStaticFiles` dwa wywołania w poniższym przykładzie. Pierwsze wywołanie umożliwia obsługę plików statycznych w folderze *wwwroot* . Drugie wywołanie umożliwia przeglądanie katalogów folderu *wwwroot/images* przy użyciu adresu URL *http://\<server_address >/myimages*:
+Zwróć uwagę na dwa wywołania `UseStaticFiles` w poniższym przykładzie. Pierwsze wywołanie umożliwia obsługę plików statycznych w folderze *wwwroot* . Drugie wywołanie umożliwia przeglądanie katalogów folderu *wwwroot/images* przy użyciu adresu URL *http://\<server_address >/myimages*:
 
 [!code-csharp[](static-files/samples/1x/StartupBrowse.cs?name=snippet_ConfigureMethod&highlight=3,5)]
 
@@ -154,9 +154,9 @@ Ustawienie domyślnej strony głównej zapewnia odwiedzającym logiczny punkt wy
 [!code-csharp[](static-files/samples/1x/StartupEmpty.cs?name=snippet_ConfigureMethod&highlight=3)]
 
 > [!IMPORTANT]
-> `UseDefaultFiles`musi być wywoływana przed `UseStaticFiles` zapisaniem pliku domyślnego. `UseDefaultFiles`to adres URL, który faktycznie nie obsługuje pliku. Włącz oprogramowanie pośredniczące plików statycznych `UseStaticFiles` za pośrednictwem programu w celu obsługi pliku.
+> `UseDefaultFiles` musi zostać wywołana przed `UseStaticFiles`, aby można było obmieścić plik domyślny. `UseDefaultFiles` to obiekt zapisujący adresu URL, który faktycznie nie obsługuje pliku. Włącz oprogramowanie pośredniczące plików statycznych za pośrednictwem `UseStaticFiles`, aby obpracować plik.
 
-W `UseDefaultFiles`programie żądania do folderu wyszukują:
+W przypadku `UseDefaultFiles` żądania kierowane do folderu wyszukiwania:
 
 * *default.htm*
 * *default.html*
@@ -171,7 +171,7 @@ Poniższy kod zmienia domyślną nazwę pliku na *default. html*:
 
 ## <a name="usefileserver"></a>UseFileServer
 
-[UseFileServer](/dotnet/api/microsoft.aspnetcore.builder.fileserverextensions.usefileserver#Microsoft_AspNetCore_Builder_FileServerExtensions_UseFileServer_Microsoft_AspNetCore_Builder_IApplicationBuilder_) łączy funkcje `UseStaticFiles`, `UseDefaultFiles`i. `UseDirectoryBrowser`
+[UseFileServer](/dotnet/api/microsoft.aspnetcore.builder.fileserverextensions.usefileserver#Microsoft_AspNetCore_Builder_FileServerExtensions_UseFileServer_Microsoft_AspNetCore_Builder_IApplicationBuilder_) łączy funkcje `UseStaticFiles`, `UseDefaultFiles` i `UseDirectoryBrowser`.
 
 Poniższy kod umożliwia obsługę plików statycznych i pliku domyślnego. Przeglądanie katalogów nie jest włączone.
 
@@ -196,11 +196,11 @@ Weź pod uwagę następującą hierarchię katalogów:
     * *banner1.svg*
   * *default.html*
 
-Poniższy kod umożliwia włączenie plików statycznych, plików domyślnych i przeglądanie `MyStaticFiles`katalogów:
+Poniższy kod umożliwia włączenie plików statycznych, plików domyślnych i przeglądanie katalogów `MyStaticFiles`:
 
 [!code-csharp[](static-files/samples/1x/StartupUseFileServer.cs?name=snippet_ConfigureMethod&highlight=5-11)]
 
-`AddDirectoryBrowser`musi być wywoływana, `EnableDirectoryBrowsing` gdy wartość właściwości to: `true`
+`AddDirectoryBrowser` musi być wywoływana, gdy wartość właściwości `EnableDirectoryBrowsing` jest `true`:
 
 [!code-csharp[](static-files/samples/1x/StartupUseFileServer.cs?name=snippet_ConfigureServicesMethod)]
 
@@ -211,16 +211,16 @@ Przy użyciu hierarchii plików i poprzedniego kodu adresy URL są rozpoznawane 
 | *http://\<server_address>/StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1.svg |
 | *http://\<server_address>/StaticFiles*             |     MyStaticFiles/default.html |
 
-Jeśli w katalogu *MyStaticFiles* nie istnieje plik o nazwie Default, *http://\<server_address >/StaticFiles* zwraca listę katalogów z linkami, które można kliknąć:
+Jeśli w katalogu *MyStaticFiles* nie istnieje plik o nazwie default, *http://\<server_address >/StaticFiles* zwraca listę katalogów z linkami, które można kliknąć:
 
 ![Lista plików statycznych](static-files/_static/db2.png)
 
 > [!NOTE]
-> <xref:Microsoft.AspNetCore.Builder.DefaultFilesExtensions.UseDefaultFiles*>i <xref:Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions.UseDirectoryBrowser*> przekierować po stronie klienta z `http://{SERVER ADDRESS}/StaticFiles` (bez końcowego ukośnika) do `http://{SERVER ADDRESS}/StaticFiles/` (z końcowym ukośnikiem). Względne adresy URL w katalogu *StaticFiles* są nieprawidłowe bez końcowej kreski ułamkowej.
+> <xref:Microsoft.AspNetCore.Builder.DefaultFilesExtensions.UseDefaultFiles*> i <xref:Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions.UseDirectoryBrowser*> przekierować po stronie klienta z `http://{SERVER ADDRESS}/StaticFiles` (bez końcowego ukośnika) do `http://{SERVER ADDRESS}/StaticFiles/` (z końcowym ukośnikiem). Względne adresy URL w katalogu *StaticFiles* są nieprawidłowe bez końcowej kreski ułamkowej.
 
 ## <a name="fileextensioncontenttypeprovider"></a>FileExtensionContentTypeProvider
 
-Klasa [FileExtensionContentTypeProvider](/dotnet/api/microsoft.aspnetcore.staticfiles.fileextensioncontenttypeprovider) zawiera `Mappings` Właściwość służącą jako mapowanie rozszerzeń plików na typy zawartości MIME. W poniższym przykładzie kilka rozszerzeń plików są zarejestrowane na znanych typach MIME. Rozszerzenie *. rtf* jest zastępowane, a plik *MP4* jest usuwany.
+Klasa [FileExtensionContentTypeProvider](/dotnet/api/microsoft.aspnetcore.staticfiles.fileextensioncontenttypeprovider) zawiera właściwość `Mappings` służącą jako mapowanie rozszerzeń plików na typy zawartości MIME. W poniższym przykładzie kilka rozszerzeń plików są zarejestrowane na znanych typach MIME. Rozszerzenie *. rtf* jest zastępowane, a plik *MP4* jest usuwany.
 
 [!code-csharp[](static-files/samples/1x/StartupFileExtensionContentTypeProvider.cs?name=snippet_ConfigureMethod&highlight=3-12,19)]
 
@@ -239,12 +239,12 @@ W powyższym kodzie żądanie dotyczące pliku z nieznanym typem zawartości jes
 > [!WARNING]
 > Włączenie [ServeUnknownFileTypes](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions.serveunknownfiletypes#Microsoft_AspNetCore_Builder_StaticFileOptions_ServeUnknownFileTypes) stanowi zagrożenie bezpieczeństwa. Jest on domyślnie wyłączony i nie jest zalecane jego użycie. [FileExtensionContentTypeProvider](#fileextensioncontenttypeprovider) zapewnia bezpieczniejsze rozwiązanie do obsługi plików z rozszerzeniami niestandardowymi.
 
-### <a name="considerations"></a>Uwagi
+### <a name="considerations"></a>Zagadnienia do rozważenia
 
 > [!WARNING]
-> `UseDirectoryBrowser`i `UseStaticFiles` mogą wyciekać klucze tajne. Wyłączenie przeglądania katalogów w środowisku produkcyjnym jest zdecydowanie zalecane. Uważnie Przejrzyj katalogi, które są włączone `UseStaticFiles` za `UseDirectoryBrowser`pośrednictwem lub. Cały katalog i jego katalogi podrzędne stają się publicznie dostępne. Pliki magazynu odpowiednie do obsłużenia publicznie w dedykowanym katalogu, takie jak  *\<content_root >/wwwroot*. Oddziel te pliki od widoków MVC, Razor Pages (tylko 2. x), plików konfiguracji itp.
+> `UseDirectoryBrowser` i `UseStaticFiles` mogą wyciekać klucze tajne. Wyłączenie przeglądania katalogów w środowisku produkcyjnym jest zdecydowanie zalecane. Uważnie Sprawdź, które katalogi są włączone za pośrednictwem `UseStaticFiles` lub `UseDirectoryBrowser`. Cały katalog i jego katalogi podrzędne stają się publicznie dostępne. Pliki magazynu odpowiednie do obsłużenia publicznie w dedykowanym katalogu, takie jak *\<content_root >/wwwroot*. Oddziel te pliki od widoków MVC, Razor Pages (tylko 2. x), plików konfiguracji itp.
 
-* Adresy URL dla zawartości uwidocznionej `UseDirectoryBrowser` i `UseStaticFiles` podlegają ograniczeniom dotyczącym wielkości liter i znaków w źródłowym systemie plików. Na przykład w systemie Windows nie jest rozróżniana wielkość liter&mdash;macOS i Linux.
+* Adresy URL dla zawartości uwidocznionej za pomocą `UseDirectoryBrowser` i `UseStaticFiles` podlegają uwzględnieniu wielkości liter i ograniczeniach znaków w źródłowym systemie plików. Na przykład w systemie Windows nie jest rozróżniana wielkość liter, no__t-0macOS i Linux.
 
 * ASP.NET Core aplikacje hostowane w usługach IIS używają [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module) do przesyłania dalej wszystkich żądań do aplikacji, w tym żądań plików statycznych. Procedura obsługi pliku statycznego usług IIS nie jest używana. Nie ma możliwości obsługi żądań, zanim są one obsługiwane przez moduł.
 
@@ -256,7 +256,7 @@ W powyższym kodzie żądanie dotyczące pliku z nieznanym typem zawartości jes
 > [!WARNING]
 > Jeśli program obsługi plików statycznych usług IIS jest włączony **i** moduł ASP.NET Core jest niepoprawnie skonfigurowany, obsługiwane są pliki statyczne. Dzieje się tak na przykład wtedy, gdy plik *Web. config* nie jest wdrożony.
 
-* Umieść pliki kodu (w tym *. cs* i *. cshtml*) poza katalogiem głównym sieci Web projektu aplikacji. W związku z tym tworzone jest podział logiczny między zawartością po stronie klienta a kodem opartym na serwerze. Zapobiega to wyciekowi kodu po stronie serwera.
+* Umieść pliki kodu (w tym *. cs* i *. cshtml*) poza [katalogiem głównym sieci Web](xref:fundamentals/index#web-root)projektu aplikacji. W związku z tym tworzone jest podział logiczny między zawartością po stronie klienta a kodem opartym na serwerze. Zapobiega to wyciekowi kodu po stronie serwera.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
