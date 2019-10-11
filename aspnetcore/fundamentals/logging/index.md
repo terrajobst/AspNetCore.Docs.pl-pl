@@ -1,18 +1,18 @@
 ---
 title: Rejestrowanie w programie .NET Core i ASP.NET Core
-author: tdykstra
+author: rick-anderson
 description: Dowiedz się, jak używać struktury rejestrowania dostarczonej przez pakiet NuGet Microsoft. Extensions. Logging.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 10/08/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 9f7b39cc1c557356b75608817db4e8d6f61af794
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: 697e6cf0cd1b51ad6c2942e21bc084d1fe6bfa4e
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007027"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259732"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Rejestrowanie w programie .NET Core i ASP.NET Core
 
@@ -28,7 +28,7 @@ Rejestrowanie kodu dla aplikacji bez hosta ogólnego różni się w sposób, w j
 
 ::: moniker-end
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="add-providers"></a>Dodaj dostawców
 
@@ -48,7 +48,7 @@ W aplikacji konsolowej bez hosta Wywołaj metodę rozszerzenia `Add{provider nam
 
 Domyślne ASP.NET Core szablonów projektu wywołują <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder%2A>, które dodaje następujących dostawców rejestrowania:
 
-* Konsola
+* Console
 * Debugowanie
 * EventSource
 * EventLog (tylko w przypadku uruchamiania w systemie Windows)
@@ -69,7 +69,7 @@ Poprzedzający kod wymaga odwołań do `Microsoft.Extensions.Logging` i `Microso
 
 Domyślny szablon projektu wywołuje <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A>, które dodaje następujących dostawców rejestrowania:
 
-* Konsola
+* Console
 * Debugowanie
 * EventSource (rozpoczęcie w ASP.NET Core 2,2)
 
@@ -394,8 +394,12 @@ ASP.NET Core definiuje następujące poziomy dziennika uporządkowane w tym miej
 
 Poziom dziennika służy do kontrolowania, ile danych wyjściowych dziennika jest zapisywana w określonym nośniku lub oknie wyświetlania. Na przykład:
 
-* W środowisku produkcyjnym Wyślij `Trace` do `Information` poziomu do magazynu danych woluminu. Wyślij `Warning` do `Critical` do magazynu danych wartości.
-* Podczas programowania Wyślij `Warning` do `Critical` do konsoli i Dodaj `Trace` do `Information` podczas rozwiązywania problemów.
+* W środowisku produkcyjnym:
+  * Rejestrowanie na poziomie `Trace` za pomocą poziomów `Information` powoduje utworzenie dużej ilości szczegółowych komunikatów dziennika. Aby kontrolować koszty i nie przekraczać limitów magazynowania danych, należy rejestrować `Trace` przez komunikaty poziomu `Information` do magazynu o wysokim poziomie ilości danych.
+  * Rejestrowanie w `Warning` do `Critical` poziomów zwykle generuje mniejszą liczbę mniejszych komunikatów dzienników. W związku z tym koszty i limity magazynu zazwyczaj nie są problemem, co skutkuje większą elastycznością wyboru magazynu danych.
+* Podczas tworzenia:
+  * Rejestruj `Warning` za pomocą komunikatów `Critical` do konsoli programu.
+  * Dodaj `Trace` do `Information` komunikatów podczas rozwiązywania problemów.
 
 W sekcji [filtrowanie dzienników](#log-filtering) w dalszej części tego artykułu wyjaśniono, jak kontrolować poziomy dzienników obsługiwane przez dostawcę.
 
@@ -619,16 +623,16 @@ Drugi `AddFilter` określa dostawcę debugowania za pomocą nazwy typu. Pierwszy
 
 Dane konfiguracji i kod `AddFilter` pokazane w powyższych przykładach tworzą reguły przedstawione w poniższej tabeli. Pierwsze sześć pochodzi z przykładu konfiguracji, a ostatnie dwa pochodzą z przykładu kodu.
 
-| Number | Dostawca      | Kategorie zaczynające się od...          | Minimalny poziom rejestrowania |
+| Liczba | Dostawca      | Kategorie zaczynające się od...          | Minimalny poziom rejestrowania |
 | :----: | ------------- | --------------------------------------- | ----------------- |
-| 1      | Debugowanie         | Wszystkie kategorie                          | Information       |
-| 2      | Konsola       | Microsoft.AspNetCore.Mvc.Razor.Internal | Ostrzeżenie           |
-| 3      | Konsola       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debugowanie             |
-| 4      | Konsola       | Microsoft.AspNetCore.Mvc.Razor          | Błąd             |
-| 5      | Konsola       | Wszystkie kategorie                          | Information       |
+| 1      | Debugowanie         | Wszystkie kategorie                          | Informacje       |
+| 2      | Console       | Microsoft. AspNetCore. MVC. Razor. Internal | Ostrzeżenie           |
+| 3      | Console       | Microsoft. AspNetCore. MVC. Razor. Razor    | Debugowanie             |
+| 4      | Console       | Microsoft. AspNetCore. MVC. Razor          | Błąd             |
+| 5      | Console       | Wszystkie kategorie                          | Informacje       |
 | 6      | Wszyscy dostawcy | Wszystkie kategorie                          | Debugowanie             |
 | 7      | Wszyscy dostawcy | System                                  | Debugowanie             |
-| 8      | Debugowanie         | Microsoft                               | Szuka             |
+| 8      | Debugowanie         | Microsoft                               | Ślad             |
 
 Po utworzeniu obiektu `ILogger` obiekt `ILoggerFactory` wybiera jedną regułę dla każdego dostawcy do zastosowania do tego rejestratora. Wszystkie komunikaty zapisywane przez wystąpienie `ILogger` są filtrowane na podstawie wybranych reguł. Najbardziej konkretną regułą można wybrać dla każdego dostawcy i pary kategorii z dostępnych reguł.
 
@@ -650,7 +654,7 @@ Wystąpienie `ILogger` wysyła dzienniki poziomu `Trace` i powyżej do dostawcy 
 
 Każdy dostawca definiuje *alias* , który może być używany w konfiguracji zamiast w pełni kwalifikowanej nazwy typu.  W przypadku dostawców wbudowanych Użyj następujących aliasów:
 
-* Konsola
+* Console
 * Debugowanie
 * EventSource
 * Elemencie
@@ -697,17 +701,17 @@ Funkcja filtru jest wywoływana dla wszystkich dostawców i kategorii, które ni
 
 Poniżej przedstawiono niektóre kategorie używane przez ASP.NET Core i Entity Framework Core, z informacjami o dziennikach, od których należy się spodziewać:
 
-| Category                            | Uwagi |
+| Kategoria                            | Uwagi |
 | ----------------------------------- | ----- |
-| Microsoft.AspNetCore                | Ogólna Diagnostyka ASP.NET Core. |
-| Microsoft.AspNetCore.DataProtection | Które klucze zostały wzięte pod uwagę, znaleziono i użyte. |
-| Microsoft.AspNetCore.HostFiltering  | Dozwolone hosty. |
-| Microsoft.AspNetCore.Hosting        | Jak długo trwa wykonywanie żądań HTTP i czas ich uruchomienia. Które hostowanie zestawów uruchamiania zostało załadowane. |
-| Microsoft.AspNetCore.Mvc            | Diagnostyka MVC i Razor. Powiązanie modelu, wykonywanie filtru, kompilacja widoku, wybór akcji. |
-| Microsoft.AspNetCore.Routing        | Informacje o trasie. |
-| Microsoft.AspNetCore.Server         | Reagowanie na uruchamianie, zatrzymywanie i utrzymywanie aktywności. Informacje o certyfikacie HTTPS. |
-| Microsoft.AspNetCore.StaticFiles    | Obsługiwane pliki. |
-| Microsoft.EntityFrameworkCore       | Ogólna Diagnostyka Entity Framework Core. Aktywność i Konfiguracja bazy danych, wykrywanie zmian, migracje. |
+| Microsoft. AspNetCore                | Ogólna Diagnostyka ASP.NET Core. |
+| Microsoft. AspNetCore. dataprotection | Które klucze zostały wzięte pod uwagę, znaleziono i użyte. |
+| Microsoft. AspNetCore. HostFiltering  | Dozwolone hosty. |
+| Microsoft. AspNetCore. hosting        | Jak długo trwa wykonywanie żądań HTTP i czas ich uruchomienia. Które hostowanie zestawów uruchamiania zostało załadowane. |
+| Microsoft. AspNetCore. MVC            | Diagnostyka MVC i Razor. Powiązanie modelu, wykonywanie filtru, kompilacja widoku, wybór akcji. |
+| Microsoft. AspNetCore. Routing        | Informacje o trasie. |
+| Microsoft. AspNetCore. Server         | Reagowanie na uruchamianie, zatrzymywanie i utrzymywanie aktywności. Informacje o certyfikacie HTTPS. |
+| Microsoft. AspNetCore. StaticFiles    | Obsługiwane pliki. |
+| Microsoft. EntityFrameworkCore       | Ogólna Diagnostyka Entity Framework Core. Aktywność i Konfiguracja bazy danych, wykrywanie zmian, migracje. |
 
 ## <a name="log-scopes"></a>Zakresy dziennika
 
@@ -766,7 +770,7 @@ ASP.NET Core dostarcza następujących dostawców:
 * [Console](#console-provider)
 * [Debugowanie](#debug-provider)
 * [EventSource](#eventsource-provider)
-* [EventLog](#windows-eventlog-provider)
+* [Elemencie](#windows-eventlog-provider)
 * [TraceSource](#tracesource-provider)
 * [AzureAppServicesFile](#azure-app-service-provider)
 * [AzureAppServicesBlob](#azure-app-service-provider)
@@ -909,7 +913,7 @@ Dostawca rejestrowania jest dołączony jako zależność [Microsoft. Applicatio
 
 Nie używaj pakietu [Microsoft. ApplicationInsights. Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) Package @ no__t-1that's for ASP.NET 4. x.
 
-Aby uzyskać więcej informacji, zobacz następujące zasoby:
+Więcej informacji zawierają następujące zasoby:
 
 * [Przegląd Application Insights](/azure/application-insights/app-insights-overview)
 * [Application Insights dla ASP.NET Core aplikacji](/azure/azure-monitor/app/asp-net-core) — Zacznij tutaj, jeśli chcesz zaimplementować cały zakres Application Insights telemetrii wraz z rejestrowaniem.
@@ -941,6 +945,6 @@ Korzystanie z struktury innej firmy jest podobne do korzystania z jednego z wbud
 
 Aby uzyskać więcej informacji, zobacz dokumentację każdego dostawcy. Dostawcy rejestrowania innych firm nie są obsługiwani przez firmę Microsoft.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * <xref:fundamentals/logging/loggermessage>

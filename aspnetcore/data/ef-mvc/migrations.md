@@ -1,24 +1,24 @@
 ---
-title: 'Samouczek: Korzystanie z funkcji migracji ASP.NET MVC z EF Core'
+title: 'Samouczek: Używanie funkcji migracji ASP.NET MVC z EF Core'
 description: W tym samouczku rozpocznie się korzystanie z funkcji migracji EF Core na potrzeby zarządzania zmianami modelu danych w aplikacji ASP.NET Core MVC.
-author: tdykstra
+author: rick-anderson
 ms.author: riande
 ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 3ee95d9b648a90c90d06e33a30b568626a1eb0aa
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 4c96815461898ce9273f953f083143d8b50d406e
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080833"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259407"
 ---
-# <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Samouczek: Korzystanie z funkcji migracji ASP.NET MVC z EF Core
+# <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Samouczek: Używanie funkcji migracji ASP.NET MVC z EF Core
 
 W tym samouczku Zacznij korzystać z funkcji migracji EF Core, aby zarządzać zmianami modelu danych. W kolejnych samouczkach dodasz więcej migracji w miarę zmieniania modelu danych.
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Więcej informacji na temat migracji
@@ -86,17 +86,17 @@ Done. To undo this action, use 'ef migrations remove'
 > [!NOTE]
 > Jeśli zostanie wyświetlony komunikat o błędzie *nie znaleziono pliku wykonywalnego zgodnego z poleceniem "dotnet-EF"* , zobacz [ten wpis w blogu](https://thedatafarm.com/data-access/no-executable-found-matching-command-dotnet-ef/) , aby uzyskać pomoc w rozwiązywaniu problemów.
 
-Jeśli zostanie wyświetlony komunikat o błędzie "*nie można uzyskać dostępu do pliku... ContosoUniversity. dll, ponieważ jest używany przez inny proces. "Znajdź ikonę IIS Express na pasku zadań systemu Windows, a następnie kliknij ją prawym przyciskiem myszy, a następnie kliknij pozycję **ContosoUniversity > Zatrzymaj witrynę.***
+Jeśli zostanie wyświetlony komunikat o błędzie "*nie można uzyskać dostępu do pliku... ContosoUniversity. dll, ponieważ jest używany przez inny proces.* ", Znajdź ikonę IIS Express na pasku zadań systemu Windows, a następnie kliknij ją prawym przyciskiem myszy, a następnie kliknij polecenie **ContosoUniversity > Zatrzymaj witrynę**.
 
 ## <a name="examine-up-and-down-methods"></a>Sprawdzanie metod w górę i w dół
 
-Po wykonaniu `migrations add` polecenia EF wygenerowało kod, który spowoduje utworzenie bazy danych od podstaw. Ten kod znajduje się w folderze *migrations* , w pliku o nazwie  *\<timestamp > _InitialCreate. cs*. Metoda klasy tworzy tabele bazy danych, które odpowiadają zestawom `Down` jednostek modelu danych, a metoda usuwa je, jak pokazano w poniższym przykładzie. `InitialCreate` `Up`
+Po wykonaniu polecenia `migrations add` Dr wygenerowała kod, który spowoduje utworzenie bazy danych od podstaw. Ten kod znajduje się w folderze *migrations* w pliku o nazwie *\<timestamp > _InitialCreate. cs*. Metoda `Up` klasy `InitialCreate` tworzy tabele bazy danych odpowiadające zestawom jednostek modelu danych, a metoda `Down` usuwa je, jak pokazano w poniższym przykładzie.
 
 [!code-csharp[](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
 
-Migracja wywołuje `Up` metodę w celu zaimplementowania zmian modelu danych dla migracji. Po wprowadzeniu polecenia w celu wycofania aktualizacji migracja wywołuje `Down` metodę.
+Migracja wywołuje metodę `Up` w celu zaimplementowania zmian modelu danych dla migracji. Po wprowadzeniu polecenia w celu wycofania aktualizacji migracja wywołuje metodę `Down`.
 
-Ten kod jest przeznaczony dla początkowej migracji, która została utworzona po wprowadzeniu `migrations add InitialCreate` polecenia. Parametr name migracji ("InitialCreate" w przykładzie) jest używany jako nazwa pliku i może być dowolnie wybrany. Najlepiej wybrać słowo lub frazę, która podsumowuje zawartość wykonywaną podczas migracji. Można na przykład nazwać migrację do nowszej wersji "adddepartments".
+Ten kod jest przeznaczony dla początkowej migracji, która została utworzona po wprowadzeniu polecenia `migrations add InitialCreate`. Parametr name migracji ("InitialCreate" w przykładzie) jest używany jako nazwa pliku i może być dowolnie wybrany. Najlepiej wybrać słowo lub frazę, która podsumowuje zawartość wykonywaną podczas migracji. Można na przykład nazwać migrację do nowszej wersji "adddepartments".
 
 W przypadku utworzenia początkowej migracji, gdy baza danych już istnieje, kod tworzenia bazy danych jest generowany, ale nie musi działać, ponieważ baza danych jest już zgodna z modelem danych. Po wdrożeniu aplikacji w innym środowisku, w którym baza danych jeszcze nie istnieje, ten kod zostanie uruchomiony w celu utworzenia bazy danych, więc dobrym pomysłem jest przetestowanie go w pierwszej kolejności. Z tego powodu zmieniono nazwę bazy danych w parametrach połączenia wcześniej — tak, aby migracje mogły utworzyć nową od podstaw.
 
@@ -104,7 +104,7 @@ W przypadku utworzenia początkowej migracji, gdy baza danych już istnieje, kod
 
 Migracja tworzy *migawkę* bieżącego schematu bazy danych w *migracji/SchoolContextModelSnapshot. cs*. Po dodaniu migracji, EF określa, co zmieniło się, porównując model danych z plikiem migawki.
 
-Podczas usuwania migracji należy użyć polecenia " [migracje z programu dotnet Dr](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) ". `dotnet ef migrations remove`usuwa migrację i gwarantuje, że migawka zostanie prawidłowo zresetowana.
+Podczas usuwania migracji należy użyć polecenia " [migracje z programu dotnet Dr](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) ". `dotnet ef migrations remove` usuwa migrację i gwarantuje, że migawka zostanie prawidłowo zresetowana.
 
 Aby uzyskać więcej informacji na temat sposobu użycia pliku migawek, zobacz [EF Core migracji w środowiskach zespołu](/ef/core/managing-schemas/migrations/teams) .
 
@@ -147,7 +147,7 @@ info: Microsoft.EntityFrameworkCore.Database.Command[20101]
 Done.
 ```
 
-Użyj **Eksplorator obiektów SQL Server** , aby sprawdzić bazę danych zgodnie z pierwszym samouczkiem.  Zauważysz dodanie \_ \_tabeli EFMigrationsHistory, która śledzi, które migracje zostały zastosowane do bazy danych. Wyświetl dane w tej tabeli i po pierwszej migracji zobaczysz jeden wiersz. (Ostatni dziennik w poprzednim przykładzie danych wyjściowych interfejsu wiersza polecenia przedstawia instrukcję INSERT, która tworzy ten wiersz).
+Użyj **Eksplorator obiektów SQL Server** , aby sprawdzić bazę danych zgodnie z pierwszym samouczkiem.  Zwróć uwagę na dodanie tabeli \_ @ no__t-1EFMigrationsHistory, która śledzi, które migracje zostały zastosowane do bazy danych. Wyświetl dane w tej tabeli i po pierwszej migracji zobaczysz jeden wiersz. (Ostatni dziennik w poprzednim przykładzie danych wyjściowych interfejsu wiersza polecenia przedstawia instrukcję INSERT, która tworzy ten wiersz).
 
 Uruchom aplikację, aby upewnić się, że wszystko nadal działa tak samo jak wcześniej.
 
@@ -159,21 +159,21 @@ Uruchom aplikację, aby upewnić się, że wszystko nadal działa tak samo jak w
 
 Narzędzia EF do zarządzania migracjami są dostępne z poleceń interfejs wiersza polecenia platformy .NET Core lub z poleceń cmdlet programu PowerShell w oknie **konsola Menedżera pakietów** programu Visual Studio (PMC). W tym samouczku pokazano, jak używać interfejsu wiersza polecenia, ale możesz użyć kryterium PMC, jeśli wolisz.
 
-Polecenia EF dla poleceń PMC znajdują się w pakiecie [Microsoft. EntityFrameworkCore. Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools) . Ten pakiet jest zawarty w [pakiecie Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app), dlatego nie trzeba dodawać odwołania do pakietu, jeśli aplikacja zawiera odwołanie do `Microsoft.AspNetCore.App`pakietu.
+Polecenia EF dla poleceń PMC znajdują się w pakiecie [Microsoft. EntityFrameworkCore. Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools) . Ten pakiet jest zawarty w [pakiecie Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app), dlatego nie trzeba dodawać odwołania do pakietu, jeśli aplikacja zawiera odwołanie do pakietu dla `Microsoft.AspNetCore.App`.
 
-**Ważne:** To nie jest ten sam pakiet, który jest instalowany dla interfejsu wiersza polecenia, edytując plik *csproj* . Nazwa tego elementu zostanie zakończona, w `Tools`przeciwieństwie do nazwy pakietu interfejsu wiersza polecenia kończącego `Tools.DotNet`się na.
+**Ważne:** To nie jest ten sam pakiet, który jest instalowany dla interfejsu wiersza polecenia, edytując plik *csproj* . Nazwa tego elementu zostanie zakończona w `Tools`, w przeciwieństwie do nazwy pakietu interfejsu wiersza polecenia, która jest zakończona w `Tools.DotNet`.
 
 Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia, zobacz [interfejs wiersza polecenia platformy .NET Core](/ef/core/miscellaneous/cli/dotnet).
 
 Aby uzyskać więcej informacji na temat poleceń PMC, zobacz [konsola Menedżera pakietów (Visual Studio)](/ef/core/miscellaneous/cli/powershell).
 
-## <a name="get-the-code"></a>Pobierz kod
+## <a name="get-the-code"></a>Uzyskaj kod
 
 [Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-step"></a>Następny krok
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Zapoznaj się z migracjami

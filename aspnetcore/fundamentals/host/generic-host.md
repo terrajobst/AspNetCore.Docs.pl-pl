@@ -1,18 +1,18 @@
 ---
 title: Host ogólny .NET
-author: tdykstra
+author: rick-anderson
 description: Dowiedz się więcej o hoście ogólnym programu .NET Core, który jest odpowiedzialny za uruchamianie aplikacji i zarządzanie okresem istnienia.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/07/2019
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 1582955cd18e6739111af05c9a892cd5cb4e270d
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: 8e29c3a300cc1cdc37458427d3be7ceed84385ef
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007239"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259626"
 ---
 # <a name="net-generic-host"></a>Host ogólny .NET
 
@@ -37,7 +37,7 @@ W wersjach ASP.NET Core wcześniejszych niż 3,0 [host sieci Web](xref:fundament
 
 ## <a name="set-up-a-host"></a>Konfigurowanie hosta
 
-Host jest zazwyczaj konfigurowany, zbudowany i uruchamiany przez kod w klasie `Program`. `Main` Metody:
+Host jest zazwyczaj konfigurowany, zbudowany i uruchamiany przez kod w klasie `Program`. Metoda `Main`:
 
 * Wywołuje metodę `CreateHostBuilder` w celu utworzenia i skonfigurowania obiektu konstruktora.
 * Wywołuje metody `Build` i `Run` w obiekcie konstruktora.
@@ -76,26 +76,26 @@ Jeśli aplikacja używa Entity Framework Core, nie zmieniaj nazwy ani podpisu me
 
 ## <a name="default-builder-settings"></a>Ustawienia domyślnego konstruktora 
 
-<xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*> Metody:
+Metoda <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*>:
 
 * Ustawia [katalog główny zawartości](xref:fundamentals/index#content-root) na ścieżkę zwracaną przez <xref:System.IO.Directory.GetCurrentDirectory*>.
 * Ładuje konfigurację hosta z:
   * Zmienne środowiskowe poprzedzone prefiksem "DOTNET_".
   * Argumenty wiersza polecenia.
 * Ładuje konfigurację aplikacji z:
-  * *appsettings.json*.
+  * *appSettings. JSON*.
   * *appSettings. {Environment}. JSON*.
   * [Secret Manager](xref:security/app-secrets) , gdy aplikacja jest uruchamiana w środowisku `Development`.
   * Zmienne środowiskowe.
   * Argumenty wiersza polecenia.
 * Dodaje następujących dostawców [rejestrowania](xref:fundamentals/logging/index) :
-  * Konsola
+  * Console
   * Debugowanie
   * EventSource
   * EventLog (tylko w przypadku uruchamiania w systemie Windows)
 * Umożliwia [weryfikację zakresu](xref:fundamentals/dependency-injection#scope-validation) i [Sprawdzanie poprawności zależności](xref:Microsoft.Extensions.DependencyInjection.ServiceProviderOptions.ValidateOnBuild) , gdy środowisko jest opracowywane.
 
-`ConfigureWebHostDefaults` Metody:
+Metoda `ConfigureWebHostDefaults`:
 
 * Ładuje konfigurację hosta ze zmiennych środowiskowych poprzedzonych prefiksem "ASPNETCORE_".
 * Ustawia serwer [Kestrel](xref:fundamentals/servers/kestrel) jako serwer sieci Web i konfiguruje go przy użyciu dostawców konfiguracji hostingu aplikacji. Aby poznać domyślne opcje serwera Kestrel, zobacz <xref:fundamentals/servers/kestrel#kestrel-options>.
@@ -189,7 +189,7 @@ Właściwość [IHostEnvironment. ContentRootPath](xref:Microsoft.Extensions.Hos
 
 **Klucz**: contentRoot  
 **Typ**: *ciąg*  
-**Wartość domyślna**: Folder, w którym znajduje się zestaw aplikacji.  
+**Domyślnie**: folder, w którym znajduje się zestaw aplikacji.  
 **Zmienna środowiskowa**: `<PREFIX_>CONTENTROOT`
 
 Aby ustawić tę wartość, użyj zmiennej środowiskowej lub wywołaj `UseContentRoot` w `IHostBuilder`:
@@ -202,7 +202,7 @@ Host.CreateDefaultBuilder(args)
 
 Aby uzyskać więcej informacji, zobacz:
 
-* [Fundamentals: Katalog główny zawartości @ no__t-0
+* [Podstawy: zawartość główna](xref:fundamentals/index#content-root)
 * [WebRoot](#webroot)
 
 ### <a name="environmentname"></a>EnvironmentName
@@ -211,7 +211,7 @@ Dla właściwości [IHostEnvironment. EnvironmentName](xref:Microsoft.Extensions
 
 **Klucz**: środowisko  
 **Typ**: *ciąg*  
-**Wartość domyślna**: Narzędzi  
+**Wartość domyślna**: produkcja  
 **Zmienna środowiskowa**: `<PREFIX_>ENVIRONMENT`
 
 Aby ustawić tę wartość, użyj zmiennej środowiskowej lub wywołaj `UseEnvironment` w `IHostBuilder`:
@@ -233,7 +233,7 @@ Jeśli limit czasu upłynie przed zatrzymaniem wszystkich usług hostowanych, ws
 
 **Klucz**: shutdownTimeoutSeconds  
 **Typ**: *int*  
-**Wartość domyślna**: **zmienna środowiskowa**5 sekund: `<PREFIX_>SHUTDOWNTIMEOUTSECONDS`
+**Domyślnie**: 5 sekund **zmienna środowiskowa**: `<PREFIX_>SHUTDOWNTIMEOUTSECONDS`
 
 Aby ustawić tę wartość, użyj zmiennej środowiskowej lub skonfiguruj `HostOptions`. Poniższy przykład ustawia limit czasu na 20 sekund:
 
@@ -261,7 +261,7 @@ Gdy `false`, błędy podczas uruchamiania, kończenie działania hosta. Gdy `tru
 
 **Klucz**: captureStartupErrors  
 **Typ**: *bool* (`true` lub `1`)  
-**Wartość domyślna**: Wartość domyślna to `false`, chyba że aplikacja jest uruchamiana z Kestrel za pomocą usług IIS, w której domyślnym ustawieniem jest `true`.  
+**Domyślnie**: wartość domyślna to `false`, chyba że aplikacja zostanie uruchomiona z Kestrel za pomocą usług IIS, gdzie wartość domyślna to `true`.  
 **Zmienna środowiskowa**: `<PREFIX_>CAPTURESTARTUPERRORS`
 
 Aby ustawić tę wartość, użyj opcji Configuration lub Call `CaptureStartupErrors`:
@@ -291,7 +291,7 @@ Rozdzielany średnikami ciąg początkowych zestawów startowych do załadowania
 
 **Klucz**: hostingStartupAssemblies  
 **Typ**: *ciąg*  
-**Wartość domyślna**: Pusty ciąg  
+**Wartość domyślna**: pusty ciąg  
 **Zmienna środowiskowa**: `<PREFIX_>_HOSTINGSTARTUPASSEMBLIES`
 
 Aby ustawić tę wartość, użyj opcji Configuration lub Call `UseSetting`:
@@ -306,7 +306,7 @@ Rozdzielany średnikami ciąg początkowych zestawów uruchamiania, który ma zo
 
 **Klucz**: hostingStartupExcludeAssemblies  
 **Typ**: *ciąg*  
-**Wartość domyślna**: Pusty ciąg  
+**Wartość domyślna**: pusty ciąg  
 **Zmienna środowiskowa**: `<PREFIX_>_HOSTINGSTARTUPEXCLUDEASSEMBLIES`
 
 Aby ustawić tę wartość, użyj opcji Configuration lub Call `UseSetting`:
@@ -321,7 +321,7 @@ Port przekierowania protokołu HTTPS. Używany do [wymuszania protokołu HTTPS](
 
 **Klucz**: https_port  
 **Typ**: *ciąg*  
-**Wartość domyślna**: Nie ustawiono wartości domyślnej.  
+Wartość **Domyślna**: nie ustawiono wartości domyślnej.  
 **Zmienna środowiskowa**: `<PREFIX_>HTTPS_PORT`
 
 Aby ustawić tę wartość, użyj opcji Configuration lub Call `UseSetting`:
@@ -366,7 +366,7 @@ Zestaw do wyszukiwania klasy `Startup`.
 
 **Klucz**: startupAssembly  
 **Typ**: *ciąg*  
-**Wartość domyślna**: Zestaw aplikacji  
+**Domyślnie**: zestaw aplikacji  
 **Zmienna środowiskowa**: `<PREFIX_>STARTUPASSEMBLY`
 
 Aby ustawić tę wartość, użyj zmiennej środowiskowej lub wywołaj `UseStartup`. `UseStartup` może przyjmować nazwę zestawu (`string`) lub typ (`TStartup`). W przypadku wywołania wielu metod `UseStartup` ostatni ma pierwszeństwo.
@@ -379,7 +379,7 @@ webBuilder.UseStartup("StartupAssemblyName");
 webBuilder.UseStartup<Startup>();
 ```
 
-### <a name="urls"></a>adresy URL
+### <a name="urls"></a>Adresy
 
 Rozdzielana średnikami lista adresów IP lub adresów hostów z portami i protokołami, na których serwer powinien nasłuchiwać żądań. Na przykład `http://localhost:123`. Użyj opcji "\*", aby wskazać, że serwer powinien nasłuchiwać żądań na dowolnym adresie IP lub nazwie hosta przy użyciu określonego portu i protokołu (na przykład `http://*:5000`). Protokół (`http://` lub `https://`) musi być dołączony do każdego adresu URL. Obsługiwane formaty różnią się między serwerami.
 
@@ -402,7 +402,7 @@ Kestrel ma własny interfejs API konfiguracji punktu końcowego. Aby uzyskać wi
 
 **Klucz**: Webroot  
 **Typ**: *ciąg*  
-**Wartość domyślna**: Wartość domyślna to `wwwroot`. Ścieżka do *elementu {content root}/wwwroot* musi istnieć. Jeśli ścieżka nie istnieje, jest używany dostawca plików No-op.  
+**Wartość domyślna**: wartość domyślna to `wwwroot`. Ścieżka do *elementu {content root}/wwwroot* musi istnieć. Jeśli ścieżka nie istnieje, jest używany dostawca plików No-op.  
 **Zmienna środowiskowa**: `<PREFIX_>WEBROOT`
 
 Aby ustawić tę wartość, użyj zmiennej środowiskowej lub wywołaj `UseWebRoot`:
@@ -413,14 +413,14 @@ webBuilder.UseWebRoot("public");
 
 Aby uzyskać więcej informacji, zobacz:
 
-* [Fundamentals: Katalog główny sieci Web @ no__t-0
+* [Podstawy: katalog główny sieci Web](xref:fundamentals/index#web-root)
 * [ContentRootPath](#contentrootpath)
 
 ## <a name="manage-the-host-lifetime"></a>Zarządzanie okresem istnienia hosta
 
 Wywołaj metody na skompilowanej implementacji <xref:Microsoft.Extensions.Hosting.IHost>, aby uruchomić i zatrzymać aplikację. Te metody mają wpływ na wszystkie implementacje <xref:Microsoft.Extensions.Hosting.IHostedService>, które są zarejestrowane w kontenerze usługi.
 
-### <a name="run"></a>Uruchom polecenie
+### <a name="run"></a>Uruchamianie
 
 <xref:Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run*> uruchamia aplikację i blokuje wątek wywołujący do momentu wyłączenia hosta.
 
@@ -432,7 +432,7 @@ Wywołaj metody na skompilowanej implementacji <xref:Microsoft.Extensions.Hostin
 
 <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.RunConsoleAsync*> włącza obsługę konsoli, kompiluje i uruchamia hosta i czeka na zamknięcie klawiszy CTRL + C/SIGINT lub SIGTERM.
 
-### <a name="start"></a>Start
+### <a name="start"></a>Rozpocznij
 
 <xref:Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Start*> uruchamia Host synchronicznie.
 
@@ -488,7 +488,7 @@ public class Program
 
 ::: moniker range="< aspnetcore-3.0"
 
-ASP.NET Core aplikacje konfigurują i uruchamiają hosta. Host jest odpowiedzialny za zarządzanie uruchamiania i czasu życia aplikacji.
+ASP.NET Core aplikacje konfigurują i uruchamiają hosta. Host jest odpowiedzialny za uruchamianie aplikacji i zarządzanie okresem istnienia.
 
 W tym artykule opisano ASP.NET Core hosta ogólnego (<xref:Microsoft.Extensions.Hosting.HostBuilder>), który jest używany w przypadku aplikacji, które nie przetwarzają żądań HTTP.
 
@@ -496,7 +496,7 @@ Przeznaczeniem hosta ogólnego jest oddzielenie potoku HTTP od interfejsu API ho
 
 Host ogólny jest nowy w ASP.NET Core 2,1 i nie jest odpowiedni dla scenariuszy hostingu w sieci Web. W przypadku scenariuszy hostingu w sieci Web należy użyć [hosta sieci Web](xref:fundamentals/host/web-host). Host ogólny zastąpi hosta sieci Web w przyszłej wersji i będzie pełnić rolę podstawowego interfejsu API hosta zarówno w scenariuszach HTTP, jak i innych niż HTTP.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 Podczas uruchamiania przykładowej aplikacji w [Visual Studio Code](https://code.visualstudio.com/)należy użyć *zewnętrznego lub zintegrowanego terminalu*. Nie uruchamiaj próbki w `internalConsole`.
 
@@ -577,7 +577,7 @@ To ustawienie określa, gdzie host rozpoczyna wyszukiwanie plików zawartości.
 
 **Klucz**: contentRoot  
 **Typ**: *ciąg*  
-**Wartość domyślna**: Domyślnie znajduje się w folderze, w którym znajduje się zestaw aplikacji.  
+**Domyślnie**: Domyślnie folder, w którym znajduje się zestaw aplikacji.  
 **Ustaw przy użyciu**: `UseContentRoot`  
 **Zmienna środowiskowa**: `<PREFIX_>CONTENTROOT` (`<PREFIX_>` jest [opcjonalne i zdefiniowane przez użytkownika](#configurehostconfiguration))
 
@@ -585,7 +585,7 @@ Jeśli ścieżka nie istnieje, uruchomienie hosta nie powiedzie się.
 
 [!code-csharp[](generic-host/samples-snapshot/2.x/GenericHostSample/Program.cs?name=snippet_UseContentRoot)]
 
-Aby uzyskać więcej informacji, zobacz @no__t 0Fundamentals: Katalog główny zawartości @ no__t-0.
+Aby uzyskać więcej informacji, zobacz temat [podstawy: zawartość główna](xref:fundamentals/index#content-root).
 
 ### <a name="environment"></a>Środowisko
 
@@ -593,7 +593,7 @@ Ustawia [środowisko](xref:fundamentals/environments)aplikacji.
 
 **Klucz**: środowisko  
 **Typ**: *ciąg*  
-**Wartość domyślna**: Narzędzi  
+**Wartość domyślna**: produkcja  
 **Ustaw przy użyciu**: `UseEnvironment`  
 **Zmienna środowiskowa**: `<PREFIX_>ENVIRONMENT` (`<PREFIX_>` jest [opcjonalne i zdefiniowane przez użytkownika](#configurehostconfiguration))
 
@@ -622,7 +622,7 @@ Podczas tworzenia w przypadku korzystania z [programu Visual Studio](https://vis
 
 [Konfiguracja wiersza polecenia](xref:fundamentals/configuration/index#command-line-configuration-provider) jest dodawana przez wywołanie <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*>. Konfiguracja wiersza polecenia jest dodawana jako Ostatnia, aby zezwolić na argumenty wiersza polecenia w celu przesłonięcia konfiguracji udostępnionej przez wcześniejszych dostawców konfiguracji.
 
-*hostsettings.json*:
+*HostSettings. JSON*:
 
 [!code-csharp[](generic-host/samples/2.x/GenericHostSample/hostsettings.json)]
 
@@ -642,15 +642,15 @@ Przykładowa konfiguracja aplikacji przy użyciu <xref:Microsoft.Extensions.Host
 
 [!code-csharp[](generic-host/samples-snapshot/2.x/GenericHostSample/Program.cs?name=snippet_ConfigureAppConfiguration)]
 
-*appsettings.json*:
+*appSettings. JSON*:
 
 [!code-csharp[](generic-host/samples/2.x/GenericHostSample/appsettings.json)]
 
-*appsettings.Development.json*:
+*appSettings. Plik Development. JSON*:
 
 [!code-csharp[](generic-host/samples/2.x/GenericHostSample/appsettings.Development.json)]
 
-*appsettings.Production.json*:
+*appSettings. Production. JSON*:
 
 [!code-csharp[](generic-host/samples/2.x/GenericHostSample/appsettings.Production.json)]
 
@@ -740,7 +740,7 @@ public static class Extensions
 
 Implementacja <xref:Microsoft.Extensions.Hosting.IHost> odpowiada za uruchamianie i zatrzymywanie implementacji <xref:Microsoft.Extensions.Hosting.IHostedService>, które są zarejestrowane w kontenerze usługi.
 
-### <a name="run"></a>Uruchom polecenie
+### <a name="run"></a>Uruchamianie
 
 <xref:Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run*> uruchamia aplikację i blokuje wątek wywołujący do momentu wyłączenia hosta:
 
@@ -975,6 +975,6 @@ public class MyClass
 
 ::: moniker-end
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * <xref:fundamentals/host/hosted-services>

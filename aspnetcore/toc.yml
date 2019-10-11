@@ -310,7 +310,7 @@
           uid: blazor/debug
         - name: Wywoływanie interfejsu API sieci Web
           uid: blazor/call-web-api
-        - name: Hosting i wdrażanie
+        - name: Hostowanie i wdrażanie
           items:
             - name: Omówienie
               uid: host-and-deploy/blazor/index
@@ -661,13 +661,13 @@
           href: /azure/visual-studio/vs-storage-aspnet5-getting-started-queues?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
         - name: Table Storage
           href: /azure/visual-studio/vs-storage-aspnet5-getting-started-tables?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-- name: Hosting i wdrażanie
+- name: Hostowanie i wdrażanie
   displayName: publish
   items:
     - name: Omówienie
       displayName: 'azure, deploy, publish'
       uid: host-and-deploy/index
-    - name: Hostowanie w usłudze Azure App Service
+    - name: Azure App Service
       displayName: 'deploy, publish'
       items:
         - name: Omówienie
@@ -717,7 +717,7 @@
         - name: Następne kroki
           displayName: 'azure, deploy, publish'
           uid: azure/devops/next-steps
-    - name: Hostowanie w systemie Windows za pomocą usług IIS
+    - name: IIS
       displayName: 'deploy, publish'
       items:
         - name: Omówienie
@@ -749,16 +749,16 @@
     - name: HTTP.sys
       displayName: 'deploy, publish, server'
       uid: fundamentals/servers/httpsys
-    - name: Hosting w usłudze systemu Windows
+    - name: Usługa systemu Windows
       displayName: 'deploy, publish'
       uid: host-and-deploy/windows-service
-    - name: Hosting w systemie Linux z serwerem Nginx
+    - name: System Linux z serwerem Nginx
       displayName: 'deploy, publish'
       uid: host-and-deploy/linux-nginx
-    - name: Hosting w systemie Linux z serwerem Apache
+    - name: System Linux z serwerem Apache
       displayName: 'deploy, publish'
       uid: host-and-deploy/linux-apache
-    - name: Hostowanie na platformie Docker
+    - name: Docker
       displayName: 'deploy, publish'
       items:
         - name: Omówienie
@@ -779,7 +779,7 @@
     - name: Konfiguracja serwera proxy i modułu równoważenia obciążenia
       displayName: 'deploy, publish'
       uid: host-and-deploy/proxy-load-balancer
-    - name: Hosting w farmie internetowej
+    - name: Farma internetowa
       displayName: 'deploy, publish'
       uid: host-and-deploy/web-farm
     - name: Profile publikowania w programie Visual Studio

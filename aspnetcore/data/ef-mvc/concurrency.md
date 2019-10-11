@@ -1,22 +1,22 @@
 ---
-title: 'Samouczek: Obsługa współbieżności ASP.NET MVC z EF Core'
-description: W tym samouczku przedstawiono sposób obsługi konfliktów, gdy wielu użytkowników aktualizacji tej samej jednostki w tym samym czasie.
-author: tdykstra
+title: 'Samouczek: obsługa współbieżności ASP.NET MVC z EF Core'
+description: W tym samouczku pokazano, jak obsłużyć konflikty, gdy wielu użytkowników jednocześnie zaktualizuje tę samą jednostkę.
+author: rick-anderson
 ms.author: riande
 ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: e8c88ed2811ad221d94c963c6e14fea9bc1607ea
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 227128607460f9b5821bd0697fde3f393cf6daa9
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080455"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259443"
 ---
-# <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>Samouczek: Obsługa współbieżności ASP.NET MVC z EF Core
+# <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>Samouczek: obsługa współbieżności ASP.NET MVC z EF Core
 
-W poprzednich samouczkach przedstawiono sposób aktualizowania danych. W tym samouczku przedstawiono sposób obsługi konfliktów, gdy wielu użytkowników aktualizacji tej samej jednostki w tym samym czasie.
+W poprzednich samouczkach przedstawiono sposób aktualizowania danych. W tym samouczku pokazano, jak obsłużyć konflikty, gdy wielu użytkowników jednocześnie zaktualizuje tę samą jednostkę.
 
 Utworzysz strony sieci Web, które współpracują z jednostką działu i obsługują błędy współbieżności. Na poniższych ilustracjach przedstawiono strony edycji i usuwania, w tym niektóre komunikaty, które są wyświetlane w przypadku wystąpienia konfliktu współbieżności.
 
@@ -24,7 +24,7 @@ Utworzysz strony sieci Web, które współpracują z jednostką działu i obsłu
 
 ![Strona usuwania działu](concurrency/_static/delete-error.png)
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Informacje o konfliktach współbieżności
@@ -34,14 +34,14 @@ W tym samouczku przedstawiono następujące instrukcje:
 > * Aktualizowanie metod edycji
 > * Aktualizuj widok edycji
 > * Testuj konflikty współbieżności
-> * Aktualizuj stronę Delete
+> * Aktualizowanie strony usuwania
 > * Aktualizowanie szczegółów i Tworzenie widoków
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Aktualizowanie powiązanych danych](update-related-data.md)
 
-## <a name="concurrency-conflicts"></a>Konfliktów współbieżności
+## <a name="concurrency-conflicts"></a>Konflikty współbieżności
 
 Konflikt współbieżności występuje, gdy jeden użytkownik wyświetla dane jednostki w celu ich edycji, a następnie inny użytkownik aktualizuje dane tej samej jednostki przed zapisaniem w bazie danych pierwszego użytkownika. Jeśli nie włączysz wykrywania takich konfliktów, osoba, która aktualizuje bazę danych, ostatnio zastępuje zmiany wprowadzone przez innych użytkowników. W wielu aplikacjach to ryzyko jest akceptowalne: w przypadku kilku użytkowników lub kilku aktualizacji lub jeśli nie jest to naprawdę krytyczne, jeśli niektóre zmiany zostaną nadpisywane, koszt programowania współbieżności może wznieść korzyści. W takim przypadku nie trzeba konfigurować aplikacji do obsługi konfliktów współbieżności.
 
@@ -55,17 +55,17 @@ Zarządzanie blokadami ma wady. Może być skomplikowany dla programu. Wymaga to
 
 Alternatywą dla pesymistycznej współbieżności jest Optymistyczna współbieżność. Współbieżność optymistyczna pozwala na wykonywanie konfliktów współbieżności, a następnie podejmowanie odpowiednich działań. Na przykład Joanna odwiedzi stronę Edycja działu i zmieni kwotę budżetu dla działu angielskiego z $350 000,00 na $0,00.
 
-![Zmiana budżetu na 0](concurrency/_static/change-budget.png)
+![Zmiana wartości budżetu na 0](concurrency/_static/change-budget.png)
 
-Zanim kliknie Magdalena **Zapisz**, Jan odwiedzi tę samą stronę i zmiany pola Data rozpoczęcia z 2007-9-1 do 9/1/2013.
+Przed Janem kliknie przycisk **Zapisz**, Jan odwiedzi tę samą stronę i zmieni pole Data rozpoczęcia z 9/1/2007 na 9/1/2013.
 
-![Zmiana daty rozpoczęcia do 2013](concurrency/_static/change-date.png)
+![Zmiana daty rozpoczęcia na 2013](concurrency/_static/change-date.png)
 
 Jan klika pozycję **Zapisz** jako pierwszy i widzi zmiany, gdy przeglądarka powraca do strony indeks.
 
-![Budżet na zero](concurrency/_static/budget-zero.png)
+![Budżet zmieniony na zero](concurrency/_static/budget-zero.png)
 
-Następnie Jan klika pozycję **Zapisz** na stronie edytowania, która nadal zawiera budżet $350 000,00. Co dzieje się potem określają sposób obsługi konfliktów współbieżności.
+Następnie Jan klika pozycję **Zapisz** na stronie edytowania, która nadal zawiera budżet $350 000,00. Co się stanie dalej, zależy od sposobu obsługi konfliktów współbieżności.
 
 Dostępne są następujące opcje:
 
@@ -73,39 +73,39 @@ Dostępne są następujące opcje:
 
      W przykładowym scenariuszu żadne dane nie zostaną utracone, ponieważ różne właściwości zostały zaktualizowane przez dwóch użytkowników. Następnym razem, gdy ktoś przegląda ten dział w języku angielskim, zobaczy zmiany w kategorii Janina i Jan — datę początkową 9/1/2013 i budżet zerowych dolarów. Ta metoda aktualizacji może zmniejszyć liczbę konfliktów, które mogłyby spowodować utratę danych, ale nie może uniknąć utraty danych, jeśli wprowadzono konkurencyjne zmiany w tej samej właściwości jednostki. Czy Entity Framework działa w ten sposób, zależy od sposobu implementacji kodu aktualizacji. Często nie jest to praktyczne w aplikacji sieci Web, ponieważ może wymagać utrzymania dużej ilości danych w celu śledzenia wszystkich oryginalnych wartości właściwości dla jednostki, a także nowych wartości. Obsługa dużych ilości Stanów może wpłynąć na wydajność aplikacji, ponieważ wymaga zasobów serwera lub musi być uwzględniona na stronie sieci Web (na przykład w ukrytych polach) lub w pliku cookie.
 
-* Można pozwolić, aby zmiana John's zastąpienie Joanny zmian.
+* Możesz pozwolić, aby zmiana została zastąpiona przez Jan.
 
-     Następnym razem, gdy ktoś przegląda dział w języku angielskim, zobaczy 9/1/2013 i przywrócona wartość $350 000,00. Jest to tzw. *klient WINS* lub *ostatni w scenariuszu usługi WINS* . (Wszystkie wartości z klienta pierwszeństwo co znajduje się w magazynie danych.) Jak zostało to opisane we wprowadzeniu do tej sekcji, jeśli nie wykonasz kodowania na potrzeby obsługi współbieżności, zostanie to wykonane automatycznie.
+     Następnym razem, gdy ktoś przegląda dział w języku angielskim, zobaczy 9/1/2013 i przywrócona wartość $350 000,00. Jest to tzw. *klient WINS* lub *ostatni w scenariuszu usługi WINS* . (Wszystkie wartości z klienta mają pierwszeństwo przed tym, co znajduje się w magazynie danych). Jak zostało to opisane we wprowadzeniu do tej sekcji, jeśli nie wykonasz kodowania na potrzeby obsługi współbieżności, zostanie to wykonane automatycznie.
 
 * Można zapobiec aktualizacji firmy Jan ze zmian w bazie danych.
 
-     Zwykle zostanie wyświetlony komunikat o błędzie, wyświetlenie go w bieżącym stanie danych i umożliwienie mu ponownego zastosowania zmian w przypadku, gdy nadal chce je wprowadzić. Jest to nazywane *Store Wins* scenariusza. (Wartości magazynu danych pierwszeństwo wartości przesłany przez klienta.) W tym samouczku zostanie wdrożony scenariusz sklepu WINS. Ta metoda zapewnia, że żadne zmiany nie są zastępowane bez alertu użytkownika o tym, co się dzieje.
+     Zwykle zostanie wyświetlony komunikat o błędzie, wyświetlenie go w bieżącym stanie danych i umożliwienie mu ponownego zastosowania zmian w przypadku, gdy nadal chce je wprowadzić. Jest to tzw. scenariusz *magazynu usługi WINS* . (Wartości ze sklepu danych mają pierwszeństwo przed wartościami przesyłanymi przez klienta). W tym samouczku zostanie wdrożony scenariusz sklepu WINS. Ta metoda zapewnia, że żadne zmiany nie są zastępowane bez alertu użytkownika o tym, co się dzieje.
 
 ### <a name="detecting-concurrency-conflicts"></a>Wykrywanie konfliktów współbieżności
 
-Konflikty można rozwiązać przez obsługę `DbConcurrencyException` wyjątków zgłaszanych przez Entity Framework. Aby dowiedzieć się, kiedy należy zgłosić te wyjątki, Entity Framework musi mieć możliwość wykrywania konfliktów. W związku z tym należy odpowiednio skonfigurować bazę danych i model danych. Dostępne są następujące opcje włączania wykrywania konfliktów:
+Konflikty można rozwiązać przez obsługę wyjątków `DbConcurrencyException` zgłaszanych przez Entity Framework. Aby dowiedzieć się, kiedy należy zgłosić te wyjątki, Entity Framework musi mieć możliwość wykrywania konfliktów. W związku z tym należy odpowiednio skonfigurować bazę danych i model danych. Dostępne są następujące opcje włączania wykrywania konfliktów:
 
 * W tabeli bazy danych Dołącz kolumnę śledzenia, której można użyć do określenia, kiedy wiersz został zmieniony. Następnie można skonfigurować Entity Framework, aby uwzględnić tę kolumnę w klauzuli WHERE polecenia SQL Update lub DELETE.
 
-     Typ danych kolumny śledzenia jest zwykle `rowversion`. `rowversion` Wartość jest kolejnym numerem, który jest zwiększany za każdym razem, gdy wiersz zostanie zaktualizowany. W przypadku polecenia Update lub DELETE klauzula WHERE zawiera oryginalną wartość kolumny śledzenia (oryginalną wersję wiersza). Jeśli aktualizowany wiersz został zmieniony przez innego użytkownika, wartość w `rowversion` kolumnie jest inna niż oryginalna wartość, więc instrukcja UPDATE lub DELETE nie może znaleźć wiersza do zaktualizowania z powodu klauzuli WHERE. Gdy Entity Framework stwierdzi, że żadne wiersze nie zostały zaktualizowane przez polecenie Update lub Delete (oznacza to, że gdy liczba odnośnych wierszy wynosi zero), interpretuje to jako konflikt współbieżności.
+     Typ danych kolumny śledzenia jest zwykle `rowversion`. Wartość `rowversion` jest kolejnym numerem, który jest zwiększany za każdym razem, gdy wiersz zostanie zaktualizowany. W przypadku polecenia Update lub DELETE klauzula WHERE zawiera oryginalną wartość kolumny śledzenia (oryginalną wersję wiersza). Jeśli aktualizowany wiersz został zmieniony przez innego użytkownika, wartość w kolumnie `rowversion` różni się od oryginalnej wartości, dlatego instrukcja UPDATE lub DELETE nie może znaleźć wiersza do zaktualizowania z powodu klauzuli WHERE. Gdy Entity Framework stwierdzi, że żadne wiersze nie zostały zaktualizowane przez polecenie Update lub Delete (oznacza to, że gdy liczba odnośnych wierszy wynosi zero), interpretuje to jako konflikt współbieżności.
 
 * Skonfiguruj Entity Framework, aby uwzględnić oryginalne wartości każdej kolumny w tabeli w klauzuli WHERE poleceń Update i DELETE.
 
      Jak w pierwszej opcji, jeśli coś w wierszu uległo zmianie od momentu pierwszego odczytu wiersza, klauzula WHERE nie zwraca wiersza do zaktualizowania, który Entity Framework interpretuje jako konflikt współbieżności. W przypadku tabel bazy danych z wieloma kolumnami takie podejście może skutkować bardzo dużymi klauzulami WHERE i może wymagać utrzymania dużej ilości danych. Jak wspomniano wcześniej, utrzymanie dużej ilości stanu może wpłynąć na wydajność aplikacji. W związku z tym takie podejście zwykle nie jest zalecane i nie jest to metoda używana w tym samouczku.
 
-     Jeśli chcesz zaimplementować to podejście do współbieżności, musisz oznaczyć wszystkie właściwości klucza niepodstawowego w jednostce, dla której chcesz śledzić współbieżność, dodając `ConcurrencyCheck` do nich atrybut. Ta zmiana umożliwia Entity Framework uwzględnienie wszystkich kolumn w klauzuli SQL WHERE instrukcji UPDATE i DELETE.
+     Jeśli chcesz zaimplementować to podejście do współbieżności, musisz oznaczyć wszystkie właściwości klucza niepodstawowego w jednostce, dla której chcesz śledzić współbieżność, dodając do nich atrybut `ConcurrencyCheck`. Ta zmiana umożliwia Entity Framework uwzględnienie wszystkich kolumn w klauzuli SQL WHERE instrukcji UPDATE i DELETE.
 
-W pozostałej części tego samouczka dodasz `rowversion` Właściwość śledzenia do jednostki działu, utworzysz kontroler i widoki i testujesz, aby sprawdzić, czy wszystko działa prawidłowo.
+W pozostałej części tego samouczka dodasz Właściwość śledzenia `rowversion` do jednostki działu, utworzysz kontroler i widoki i testujesz, aby sprawdzić, czy wszystko działa prawidłowo.
 
 ## <a name="add-a-tracking-property"></a>Dodaj właściwość śledzenia
 
-W *Models/Department.cs*, dodawanie właściwości śledzenia o nazwie RowVersion:
+W obszarze *modele/dział. cs*Dodaj właściwość śledzenia o nazwie rowversion:
 
 [!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
 
-Ten `Timestamp` atrybut określa, że ta kolumna zostanie uwzględniona w klauzuli WHERE poleceń Update i DELETE wysyłanych do bazy danych. Ten atrybut jest wywoływany `Timestamp` , ponieważ poprzednie wersje SQL Server używały typu danych SQL `timestamp` przed zastąpieniem go przez program SQL Server `rowversion` . Typ .NET dla `rowversion` jest tablicą bajtów.
+Atrybut `Timestamp` Określa, że ta kolumna zostanie uwzględniona w klauzuli WHERE poleceń Update i DELETE wysyłanych do bazy danych. Ten atrybut jest wywoływany `Timestamp`, ponieważ poprzednie wersje SQL Server używały typu danych SQL `timestamp` przed zastąpieniem go przez program SQL `rowversion`. Typ .NET dla `rowversion` jest tablicą bajtów.
 
-Jeśli wolisz używać interfejsu API Fluent, możesz użyć `IsConcurrencyToken` metody (w *danych/SchoolContext. cs*), aby określić właściwość śledzenia, jak pokazano w następującym przykładzie:
+Jeśli wolisz używać interfejsu API Fluent, możesz użyć metody `IsConcurrencyToken` (w *danych/SchoolContext. cs*), aby określić właściwość śledzenia, jak pokazano w następującym przykładzie:
 
 ```csharp
 modelBuilder.Entity<Department>()
@@ -146,29 +146,29 @@ Spowoduje to zmianę nagłówka na "działy", usunięcie kolumny RowVersion i wy
 
 ## <a name="update-edit-methods"></a>Aktualizowanie metod edycji
 
-W metodzie narzędzia HttpGet `Edit` `Details` i metodzie Dodaj `AsNoTracking`. W metodzie `Edit` narzędzia HttpGet Dodaj eager ładowania dla administratora.
+W metodzie narzędzia HttpGet `Edit` i `Details` Dodaj `AsNoTracking`. W metodzie narzędzia HttpGet `Edit` Dodaj eager ładowania dla administratora.
 
 [!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading)]
 
-Zastąp istniejący kod metody HTTPPOST `Edit` następującym kodem:
+Zastąp istniejący kod metody HttpPost `Edit` następującym kodem:
 
 [!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
 
-Kod rozpoczyna się od próby odczytu działu do zaktualizowania. `FirstOrDefaultAsync` Jeśli metoda zwraca wartość null, dział został usunięty przez innego użytkownika. W takim przypadku kod używa opublikowanych wartości formularza do utworzenia jednostki działu, aby można było ponownie wyświetlić stronę edytowania z komunikatem o błędzie. Alternatywnie nie trzeba ponownie tworzyć jednostki działu, jeśli zostanie wyświetlony komunikat o błędzie bez ponownego wyświetlania pól działu.
+Kod rozpoczyna się od próby odczytu działu do zaktualizowania. Jeśli metoda `FirstOrDefaultAsync` zwróci wartość null, dział został usunięty przez innego użytkownika. W takim przypadku kod używa opublikowanych wartości formularza do utworzenia jednostki działu, aby można było ponownie wyświetlić stronę edytowania z komunikatem o błędzie. Alternatywnie nie trzeba ponownie tworzyć jednostki działu, jeśli zostanie wyświetlony komunikat o błędzie bez ponownego wyświetlania pól działu.
 
-Widok przechowuje oryginalną `RowVersion` wartość w ukrytym polu, a ta metoda otrzymuje tę wartość `rowVersion` w parametrze. Przed wywołaniem `SaveChanges`należy umieścić tę oryginalną `RowVersion` wartość właściwości w `OriginalValues` kolekcji dla jednostki.
+Widok przechowuje oryginalną wartość `RowVersion` w ukrytym polu, a ta metoda otrzymuje tę wartość w parametrze `rowVersion`. Przed wywołaniem `SaveChanges` należy umieścić oryginalną wartość właściwości `RowVersion` w kolekcji `OriginalValues` dla jednostki.
 
 ```csharp
 _context.Entry(departmentToUpdate).Property("RowVersion").OriginalValue = rowVersion;
 ```
 
-Następnie, gdy Entity Framework tworzy polecenie SQL Update, to polecenie będzie zawierać klauzulę WHERE, która szuka wiersza, który ma oryginalną `RowVersion` wartość. Jeśli nie ma żadnych wierszy, których dotyczy polecenie aktualizacji (żadne wiersze nie mają `RowVersion` oryginalnej wartości), Entity Framework `DbUpdateConcurrencyException` zgłasza wyjątek.
+Gdy Entity Framework tworzy polecenie SQL UPDATE, to polecenie będzie zawierać klauzulę WHERE, która szuka wiersza, który ma oryginalną wartość `RowVersion`. Jeśli nie ma żadnych wierszy, których dotyczy polecenie aktualizacji (żadne wiersze nie mają oryginalnej wartości `RowVersion`), Entity Framework zgłasza wyjątek `DbUpdateConcurrencyException`.
 
-Kod w bloku catch dla tego wyjątku pobiera jednostkę działu, której dotyczy usterka, która ma zaktualizowane wartości z `Entries` właściwości obiektu wyjątku.
+Kod w bloku catch dla tego wyjątku pobiera jednostkę zależnego działu, która ma zaktualizowane wartości z właściwości `Entries` obiektu Exception.
 
 [!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=164)]
 
-Kolekcja będzie zawierać tylko jeden `EntityEntry` obiekt. `Entries`  Można użyć tego obiektu, aby pobrać nowe wartości wprowadzone przez użytkownika i bieżące wartości bazy danych.
+Kolekcja `Entries` będzie zawierać tylko jeden obiekt `EntityEntry`.  Można użyć tego obiektu, aby pobrać nowe wartości wprowadzone przez użytkownika i bieżące wartości bazy danych.
 
 [!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=165-166)]
 
@@ -176,17 +176,17 @@ Kod dodaje niestandardowy komunikat o błędzie dla każdej kolumny, która ma w
 
 [!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=174-178)]
 
-Na koniec kod ustawia `RowVersion` wartość `departmentToUpdate` do nowej wartości pobranej z bazy danych. Ta nowa `RowVersion` wartość zostanie zapisana w ukrytym polu po ponownym wyświetleniu strony edycji, a przy następnym kliknięciu przycisku **Zapisz**zostaną przechwycone tylko błędy współbieżności, które zachodzą od momentu wyświetlenia ekranu edycji.
+Na koniec kod ustawia wartość `RowVersion` `departmentToUpdate` na nową wartość pobraną z bazy danych. Ta nowa wartość `RowVersion` będzie przechowywana w ukrytym polu po ponownym wyświetleniu strony edycji, a następnie gdy użytkownik kliknie przycisk **Zapisz**, zostaną przechwycone tylko błędy współbieżności, które zachodzą od ponownego wyświetlenia strony edycji.
 
 [!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=199-200)]
 
-`ModelState.Remove` Instrukcji jest wymagana, ponieważ `ModelState` ma stary `RowVersion` wartość. W widoku `ModelState` wartość pola ma pierwszeństwo przed wartościami właściwości modelu, gdy są obecne oba typy.
+Instrukcja `ModelState.Remove` jest wymagana, ponieważ `ModelState` ma starą wartość `RowVersion`. W widoku wartość `ModelState` pola ma pierwszeństwo przed wartościami właściwości modelu, gdy są obecne oba typy.
 
 ## <a name="update-edit-view"></a>Aktualizuj widok edycji
 
 W obszarze *widoki/działy/Edit. cshtml*wprowadź następujące zmiany:
 
-* Dodaj ukryte pole, aby zapisać `RowVersion` wartość właściwości, bezpośrednio po ukrytym polu `DepartmentID` właściwości.
+* Dodaj ukryte pole, aby zapisać wartość właściwości `RowVersion`, bezpośrednio po polu ukrytym dla właściwości `DepartmentID`.
 
 * Dodaj opcję "Wybierz administratora" do listy rozwijanej.
 
@@ -198,23 +198,23 @@ Uruchom aplikację i przejdź do strony indeks działów. Kliknij prawym przycis
 
 Zmień pole na pierwszej karcie przeglądarki, a następnie kliknij przycisk **Zapisz**.
 
-![Edytuj działu po zmianie — strona 1](concurrency/_static/edit-after-change-1.png)
+![Edycja działu Strona 1 po zmianie](concurrency/_static/edit-after-change-1.png)
 
 W przeglądarce zostanie wyświetlona strona indeks o zmienionej wartości.
 
 Zmień pole na drugiej karcie przeglądarki.
 
-![Edytuj działu po zmianie — strona 2](concurrency/_static/edit-after-change-2.png)
+![Edycja działu Strona 2 po zmianie](concurrency/_static/edit-after-change-2.png)
 
-Kliknij polecenie **Zapisz**. Zostanie wyświetlony komunikat o błędzie:
+Kliknij przycisk **Save** (Zapisz). Zostanie wyświetlony komunikat o błędzie:
 
-![Komunikat o błędzie działu edycji strony](concurrency/_static/edit-error.png)
+![Komunikat o błędzie strony edytowania działu](concurrency/_static/edit-error.png)
 
-Kliknij przycisk **Zapisz** ponownie. Wartość, która została wprowadzona w drugiej karcie przeglądarki jest zapisywany. Zapisane wartości są wyświetlane, gdy zostanie wyświetlona strona indeks.
+Kliknij przycisk **Zapisz** ponownie. Wartość wprowadzona na drugiej karcie przeglądarki jest zapisywana. Zapisane wartości są wyświetlane, gdy zostanie wyświetlona strona indeks.
 
-## <a name="update-the-delete-page"></a>Aktualizuj stronę Delete
+## <a name="update-the-delete-page"></a>Aktualizowanie strony usuwania
 
-Na stronie Usuwanie Entity Framework wykrywa konflikty współbieżności spowodowane przez inną osobę edytującą dział w podobny sposób. Gdy metoda narzędzia HttpGet `Delete` wyświetla widok potwierdzenia, widok zawiera oryginalną `RowVersion` wartość w ukrytym polu. Ta wartość jest następnie dostępna dla metody HTTPPOST `Delete` , która jest wywoływana, gdy użytkownik potwierdzi usunięcie. Gdy Entity Framework tworzy polecenie SQL Delete, zawiera klauzulę WHERE z oryginalną `RowVersion` wartością. Jeśli w poleceniu wyniki są równe zero (oznacza to, że wiersz został zmieniony po wyświetleniu strony potwierdzenia usunięcia), zgłaszany jest wyjątek współbieżności, a `Delete` Metoda narzędzia HttpGet jest wywoływana z flagą błędu ustawioną na wartość true, aby ponownie wyświetlić Strona potwierdzenia z komunikatem o błędzie. Istnieje również możliwość, że zero wierszy miało wpływ, ponieważ wiersz został usunięty przez innego użytkownika, więc w takim przypadku nie jest wyświetlany komunikat o błędzie.
+Na stronie Usuwanie Entity Framework wykrywa konflikty współbieżności spowodowane przez inną osobę edytującą dział w podobny sposób. Gdy metoda narzędzia HttpGet `Delete` wyświetla widok potwierdzenia, widok zawiera oryginalną wartość `RowVersion` w ukrytym polu. Ta wartość jest następnie dostępna dla metody HttpPost `Delete`, która jest wywoływana, gdy użytkownik potwierdzi usunięcie. Gdy Entity Framework tworzy polecenie SQL DELETE, zawiera klauzulę WHERE z oryginalną wartością `RowVersion`. Jeśli w poleceniu wyniki są równe zero (oznacza to, że wiersz został zmieniony po wyświetleniu strony potwierdzenia usunięcia), zgłaszany jest wyjątek współbieżności, a metoda narzędzia HttpGet `Delete` jest wywoływana z flagą błędu ustawioną na wartość true, aby ponownie wyświetlić Strona potwierdzenia z komunikatem o błędzie. Istnieje również możliwość, że zero wierszy miało wpływ, ponieważ wiersz został usunięty przez innego użytkownika, więc w takim przypadku nie jest wyświetlany komunikat o błędzie.
 
 ### <a name="update-the-delete-methods-in-the-departments-controller"></a>Aktualizowanie metod DELETE w kontrolerze działu
 
@@ -224,7 +224,7 @@ W *DepartmentsController.cs*Zastąp metodę narzędzia HttpGet `Delete` następu
 
 Metoda przyjmuje opcjonalny parametr, który wskazuje, czy strona jest ponownie wyświetlana po wystąpieniu błędu współbieżności. Jeśli flaga ma wartość true, a określony dział już nie istnieje, został usunięty przez innego użytkownika. W takim przypadku kod przekieruje się do strony indeksu.  Jeśli ta flaga ma wartość true, a dział istnieje, został zmieniony przez innego użytkownika. W takim przypadku kod wysyła komunikat o błędzie do widoku przy użyciu `ViewData`.
 
-Zastąp kod w metodzie `Delete` HTTPPOST (o `DeleteConfirmed`nazwie) następującym kodem:
+Zastąp kod w metodzie HttpPost `Delete` (o nazwie `DeleteConfirmed`) następującym kodem:
 
 [!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeletePost&highlight=1,3,5-8,11-18)]
 
@@ -240,9 +240,9 @@ Ten parametr został zmieniony do wystąpienia jednostki działu utworzonego prz
 public async Task<IActionResult> Delete(Department department)
 ```
 
-Zmieniono także nazwę metody akcji z `DeleteConfirmed` na. `Delete` Kod szkieletu użył nazwy `DeleteConfirmed` , aby nadać metodzie HTTPPOST unikatową sygnaturę. (Środowisko CLR wymaga przeciążonych metod, aby mieć inne parametry metody). Teraz, gdy podpisy są unikatowe, można naklejić do Konwencji MVC i używać tej samej nazwy dla metod Delete HttpPost i narzędzia HttpGet.
+Zmieniono także nazwę metody akcji z `DeleteConfirmed` na `Delete`. Kod szkieletu użył nazwy `DeleteConfirmed`, aby nadać metodzie HttpPost unikatową sygnaturę. (Środowisko CLR wymaga przeciążonych metod, aby mieć inne parametry metody). Teraz, gdy podpisy są unikatowe, można naklejić do Konwencji MVC i używać tej samej nazwy dla metod Delete HttpPost i narzędzia HttpGet.
 
-Jeśli dział został już usunięty, `AnyAsync` Metoda zwraca wartość false, a aplikacja po prostu wraca do metody index.
+Jeśli dział został już usunięty, Metoda `AnyAsync` zwraca wartość false, a aplikacja po prostu wraca do metody index.
 
 W przypadku przechwyconego błędu współbieżności kod ponownie wyświetla stronę potwierdzenia usuwania i zawiera flagę wskazującą, że powinien zostać wyświetlony komunikat o błędzie współbieżności.
 
@@ -254,13 +254,13 @@ W obszarze *widoki/działy/Delete. cshtml*Zamień kod szkieletowy na następują
 
 Powoduje to wprowadzenie następujących zmian:
 
-* Dodaje komunikat o błędzie między `h2` nagłówki i. `h3`
+* Dodaje komunikat o błędzie między nagłówkami `h2` i `h3`.
 
-* Zamienia FirstMidName imię i nazwisko w **administratora** pola.
+* Zastępuje FirstMidName z FullName w polu **administrator** .
 
 * Usuwa pole RowVersion.
 
-* Dodaje ukryte pole dla `RowVersion` właściwości.
+* Dodaje ukryte pole dla właściwości `RowVersion`.
 
 Uruchom aplikację i przejdź do strony indeks działów. Kliknij prawym przyciskiem myszy hiperłącze **Usuń** dla działu angielskiego i wybierz polecenie **Otwórz na nowej karcie**, a następnie na pierwszej karcie kliknij hiperłącze **Edytuj** dla działu angielskiego.
 
@@ -286,17 +286,17 @@ Zastąp kod w *widokach/działach/Create. cshtml* , aby dodać opcję Select do 
 
 [!code-html[](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
 
-## <a name="get-the-code"></a>Pobierz kod
+## <a name="get-the-code"></a>Uzyskaj kod
 
 [Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
  Aby uzyskać więcej informacji o sposobie obsługi współbieżności w EF Core, zobacz [konflikty współbieżności](/ef/core/saving/concurrency).
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Informacje o konfliktach współbieżności
@@ -312,4 +312,4 @@ W tym samouczku przedstawiono następujące instrukcje:
 Przejdź do następnego samouczka, aby dowiedzieć się, jak zaimplementować dziedziczenie na poziomie tabeli dla instruktorów i jednostek ucznia.
 
 > [!div class="nextstepaction"]
-> [Ponown Implementowanie dziedziczenia w hierarchii na poziomie tabeli](inheritance.md)
+> [Dalej: Implementuj dziedziczenie w hierarchii na poziomie tabeli](inheritance.md)

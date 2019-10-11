@@ -1,24 +1,24 @@
 ---
 title: Implementacje serwera sieci Web w ASP.NET Core
-author: tdykstra
+author: rick-anderson
 description: Odkryj serwery sieci Web Kestrel i HTTP. sys dla ASP.NET Core. Dowiedz się, jak wybrać serwer i kiedy używać serwera zwrotnego serwera proxy.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 08/10/2019
 uid: fundamentals/servers/index
-ms.openlocfilehash: cfea559725a644f167aa3afdf88c78bace4b5950
-ms.sourcegitcommit: dc5b293e08336dc236de66ed1834f7ef78359531
+ms.openlocfilehash: 3bdc2bf776946b8fae8886a37ecd3ed5e3f860fe
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71011155"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259819"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementacje serwera sieci Web w ASP.NET Core
 
 Autorzy [Dykstra](https://github.com/tdykstra), [Steve Kowalski](https://ardalis.com/), [Stephen](https://twitter.com/halter73), i [Krzysztof Ross](https://github.com/Tratcher)
 
-Aplikacja ASP.NET Core jest uruchamiana z użyciem implementacji serwera HTTP w procesie. Implementacja serwera nasłuchuje żądań HTTP i umieszcza je w aplikacji jako zestaw [funkcji żądania](xref:fundamentals/request-features) złożonych w <xref:Microsoft.AspNetCore.Http.HttpContext>.
+Aplikacja ASP.NET Core jest uruchamiana z użyciem implementacji serwera HTTP w procesie. Implementacja serwera nasłuchuje żądań HTTP i umieszcza je w aplikacji jako zestaw [funkcji żądania](xref:fundamentals/request-features) składających się na <xref:Microsoft.AspNetCore.Http.HttpContext>.
 
 ## <a name="kestrel"></a>Kestrel
 
@@ -34,9 +34,9 @@ Użyj Kestrel:
 
   ![Kestrel komunikuje się pośrednio z Internetem za pomocą odwrotnego serwera proxy, takiego jak IIS, Nginx lub Apache](kestrel/_static/kestrel-to-internet.png)
 
-Obsługiwana jest konfiguracja&mdash;hostingu z serwerem&mdash;zwrotnego serwera proxy lub bez niego.
+Obsługiwana jest konfiguracja hosta @ no__t-0with lub bez serwera proxy zwrotnego @ no__t-1Is.
 
-Aby uzyskać wskazówki dotyczące konfiguracji Kestrel i informacje o tym, kiedy używać Kestrel w konfiguracji zwrotnego <xref:fundamentals/servers/kestrel>serwera proxy, zobacz.
+Aby uzyskać wskazówki dotyczące konfiguracji Kestrel i informacje o tym, kiedy używać Kestrel w konfiguracji zwrotnego serwera proxy, zobacz <xref:fundamentals/servers/kestrel>.
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -97,9 +97,9 @@ Na poniższym diagramie przedstawiono relację między usługami IIS, modułem A
 
 Żądania docierają do sieci Web do sterownika HTTP. sys trybu jądra. Sterownik kieruje żądania do usług IIS na skonfigurowanym porcie witryny sieci Web, zwykle 80 (HTTP) lub 443 (HTTPS). Moduł przekazuje żądania do Kestrel na losowo wybranym porcie dla aplikacji, która nie jest portem 80 lub 443.
 
-Moduł określa port za pośrednictwem zmiennej środowiskowej podczas uruchamiania, a [oprogramowanie pośredniczące integracji usług IIS](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) konfiguruje serwer do nasłuchiwania `http://localhost:{port}`. Dodatkowe sprawdzenia są wykonywane, a żądania, które nie pochodzą z modułu, są odrzucane. Moduł nie obsługuje przekazywania HTTPS, dlatego żądania są przekazywane przez protokół HTTP nawet wtedy, gdy są odbierane przez usługę IIS przez protokół HTTPS.
+Moduł określa port za pośrednictwem zmiennej środowiskowej podczas uruchamiania, a [oprogramowanie pośredniczące integracji usług IIS](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) konfiguruje serwer do nasłuchiwania na `http://localhost:{port}`. Dodatkowe sprawdzenia są wykonywane, a żądania, które nie pochodzą z modułu, są odrzucane. Moduł nie obsługuje przekazywania HTTPS, dlatego żądania są przekazywane przez protokół HTTP nawet wtedy, gdy są odbierane przez usługę IIS przez protokół HTTPS.
 
-Po podaniu przez Kestrel żądania z modułu żądanie jest wypychane do potoku ASP.NET Core pośredniczącego. Potok oprogramowania pośredniczącego obsługuje żądanie i przekazuje go jako `HttpContext` wystąpienie do logiki aplikacji. Oprogramowanie pośredniczące dodane przez integrację usług IIS aktualizuje schemat, zdalny adres IP i pathbase, aby można było przesłać żądanie do Kestrel. Odpowiedź aplikacji jest przesyłana z powrotem do usług IIS, która wypycha ją z powrotem do klienta HTTP, który zainicjował żądanie.
+Po podaniu przez Kestrel żądania z modułu żądanie jest wypychane do potoku ASP.NET Core pośredniczącego. Potok oprogramowania pośredniczącego obsługuje żądanie i przekazuje go jako wystąpienie `HttpContext` do logiki aplikacji. Oprogramowanie pośredniczące dodane przez integrację usług IIS aktualizuje schemat, zdalny adres IP i pathbase, aby można było przesłać żądanie do Kestrel. Odpowiedź aplikacji jest przesyłana z powrotem do usług IIS, która wypycha ją z powrotem do klienta HTTP, który zainicjował żądanie.
 
 Aby uzyskać wskazówki dotyczące konfiguracji modułu usług IIS i ASP.NET Core, zobacz następujące tematy:
 
@@ -120,13 +120,13 @@ ASP.NET Core jest dostarczany z [serwerem Kestrel](xref:fundamentals/servers/kes
 
 ### <a name="nginx-with-kestrel"></a>Nginx z Kestrel
 
-Aby uzyskać informacje na temat używania Nginx w systemie Linux jako serwera zwrotnego proxy dla Kestrel, <xref:host-and-deploy/linux-nginx>Zobacz.
+Aby uzyskać informacje na temat korzystania z usługi Nginx w systemie Linux jako serwera zwrotnego proxy dla Kestrel, zobacz <xref:host-and-deploy/linux-nginx>.
 
 ### <a name="apache-with-kestrel"></a>Apache z Kestrel
 
-Aby uzyskać informacje na temat korzystania z usługi Apache w systemie Linux jako serwera zwrotnego proxy dla <xref:host-and-deploy/linux-apache>usługi Kestrel, zobacz.
+Aby uzyskać informacje na temat korzystania z usługi Apache w systemie Linux jako serwera zwrotnego proxy dla usługi Kestrel, zobacz <xref:host-and-deploy/linux-apache>.
 
-## <a name="httpsys"></a>HTTP.sys
+## <a name="httpsys"></a>HTTP. sys
 
 Jeśli ASP.NET Core aplikacje są uruchamiane w systemie Windows, HTTP. sys jest alternatywą dla Kestrel. Kestrel jest zwykle zalecana w celu uzyskania najlepszej wydajności. Protokołu HTTP. sys można używać w scenariuszach, w których aplikacja jest narażona na dostęp do Internetu, a wymagane możliwości są obsługiwane przez protokół HTTP. sys, ale nie Kestrel. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/servers/httpsys>.
 
@@ -136,27 +136,27 @@ Protokołu HTTP. sys można także używać w przypadku aplikacji, które są ud
 
 ![Protokół HTTP. sys komunikuje się bezpośrednio z siecią wewnętrzną](httpsys/_static/httpsys-to-internal.png)
 
-Aby uzyskać wskazówki dotyczące konfiguracji protokołu HTTP. <xref:fundamentals/servers/httpsys>sys, zobacz.
+Aby uzyskać wskazówki dotyczące konfiguracji protokołu HTTP. sys, zobacz <xref:fundamentals/servers/httpsys>.
 
 ## <a name="aspnet-core-server-infrastructure"></a>Infrastruktura serwera ASP.NET Core
 
-Dostępne w metodzie uwidacznia <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ServerFeatures> właściwość typu <xref:Microsoft.AspNetCore.Http.Features.IFeatureCollection>. `Startup.Configure` <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder> Kestrel i http. sys uwidaczniają tylko jedną funkcję, <xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>ale różne implementacje serwera mogą uwidaczniać dodatkowe funkcje.
+@No__t-0 dostępne w metodzie `Startup.Configure` uwidacznia Właściwość <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ServerFeatures> typu <xref:Microsoft.AspNetCore.Http.Features.IFeatureCollection>. Kestrel i HTTP. sys uwidaczniają tylko jedną funkcję, <xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>, ale różne implementacje serwera mogą uwidaczniać dodatkowe funkcje.
 
-`IServerAddressesFeature`można go użyć, aby dowiedzieć się, który port implementacji serwera w czasie wykonywania.
+`IServerAddressesFeature` można użyć, aby dowiedzieć się, który port implementacji serwera w czasie wykonywania.
 
 ## <a name="custom-servers"></a>Serwery niestandardowe
 
-Jeśli wbudowane serwery nie spełniają wymagań aplikacji, można utworzyć niestandardową implementację serwera. W [przewodniku otwierania interfejsu sieci Web dla platformy .NET (Owin)](xref:fundamentals/owin) przedstawiono sposób [](https://github.com/Bobris/Nowin)pisania implementacji opartej <xref:Microsoft.AspNetCore.Hosting.Server.IServer> na nowin. Tylko interfejsy funkcji używane przez aplikację wymagają implementacji, ale muszą być obsługiwane w <xref:Microsoft.AspNetCore.Http.Features.IHttpRequestFeature> minimalnym <xref:Microsoft.AspNetCore.Http.Features.IHttpResponseFeature> i wymaganym czasie.
+Jeśli wbudowane serwery nie spełniają wymagań aplikacji, można utworzyć niestandardową implementację serwera. W [przewodniku Otwórz interfejs sieci Web dla platformy .NET (Owin)](xref:fundamentals/owin) przedstawiono sposób pisania implementacji <xref:Microsoft.AspNetCore.Hosting.Server.IServer> opartych na [nowin](https://github.com/Bobris/Nowin). Tylko interfejsy funkcji używane przez aplikację wymagają implementacji, ale minimalna <xref:Microsoft.AspNetCore.Http.Features.IHttpRequestFeature> i <xref:Microsoft.AspNetCore.Http.Features.IHttpResponseFeature> muszą być obsługiwane.
 
 ## <a name="server-startup"></a>Uruchamianie serwera
 
 Serwer jest uruchamiany po uruchomieniu aplikacji zintegrowanego środowiska programistycznego (IDE) lub edytora:
 
-* [Program Visual Studio](https://visualstudio.microsoft.com) Profile uruchamiania mogą służyć do uruchamiania aplikacji i serwera za pomocą [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview)/ASP.NET Core Module lub konsoli programu.[](xref:host-and-deploy/aspnet-core-module) &ndash;
-* [Visual Studio Code](https://code.visualstudio.com/) Aplikacja i serwer są uruchamiane przez omnisharp, która aktywuje debuger CoreCLR. [](https://github.com/OmniSharp/omnisharp-vscode) &ndash;
-* [Visual Studio dla komputerów Mac](https://visualstudio.microsoft.com/vs/mac/) Aplikacja i serwer są uruchamiane przez [debuger trybu miękkiego mono.](https://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/) &ndash;
+* Profile uruchamiania [programu Visual Studio](https://visualstudio.microsoft.com) &ndash; mogą służyć do uruchamiania aplikacji i serwera przy użyciu [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview)/[ASP.NET Core modułu](xref:host-and-deploy/aspnet-core-module) lub konsoli programu.
+* [Visual Studio Code](https://code.visualstudio.com/) &ndash; aplikacja i serwer są uruchamiane przez [omnisharp](https://github.com/OmniSharp/omnisharp-vscode), która aktywuje debuger CoreCLR.
+* [Visual Studio dla komputerów Mac](https://visualstudio.microsoft.com/vs/mac/) &ndash; aplikacja i serwer są uruchamiane przez [debuger trybu miękkiego mono](https://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/).
 
-Podczas uruchamiania aplikacji z poziomu wiersza polecenia w folderze projektu, [uruchomienie dotnet](/dotnet/core/tools/dotnet-run) uruchamia aplikację i serwer (tylko KESTREL i http. sys). Konfiguracja jest określana przez `-c|--configuration` opcję, która jest ustawiona na wartość `Debug` (domyślnie) lub `Release`. Jeśli w pliku *profilu launchsettings. JSON* istnieją profile uruchamiania, użyj `--launch-profile <NAME>` opcji, aby ustawić profil uruchamiania `Development` (na przykład lub `Production`). Aby uzyskać więcej informacji, [](/dotnet/core/tools/dotnet-run) zobacz [pakietem rozkładu dotnet i .NET Core](/dotnet/core/build/distribution-packaging).
+Podczas uruchamiania aplikacji z poziomu wiersza polecenia w folderze projektu, [uruchomienie dotnet](/dotnet/core/tools/dotnet-run) uruchamia aplikację i serwer (tylko KESTREL i http. sys). Konfiguracja jest określona przez opcję `-c|--configuration`, która jest ustawiona na `Debug` (wartość domyślna) lub `Release`. Jeśli w pliku *profilu launchsettings. JSON* istnieją profile uruchamiania, użyj opcji `--launch-profile <NAME>`, aby ustawić profil uruchamiania (na przykład `Development` lub `Production`). Aby uzyskać więcej informacji, [](/dotnet/core/tools/dotnet-run) zobacz [pakietem rozkładu dotnet i .NET Core](/dotnet/core/build/distribution-packaging).
 
 ## <a name="http2-support"></a>Obsługa protokołu HTTP/2
 
@@ -166,20 +166,20 @@ Podczas uruchamiania aplikacji z poziomu wiersza polecenia w folderze projektu, 
 
 * [Kestrel](xref:fundamentals/servers/kestrel#http2-support)
   * System operacyjny
-    * Windows Server 2016/Windows 10 lub nowszy&dagger;
+    * Windows Server 2016/Windows 10 lub nowszy @ no__t-0
     * Linux z OpenSSL 1.0.2 lub nowszym (na przykład Ubuntu 16,04 lub nowszy)
     * Protokół HTTP/2 będzie obsługiwany w przypadku macOS w przyszłej wersji.
   * Platforma docelowa: .NET Core 2,2 lub nowszy
-* [HTTP.sys](xref:fundamentals/servers/httpsys#http2-support)
+* [HTTP. sys](xref:fundamentals/servers/httpsys#http2-support)
   * Windows Server 2016/Windows 10 lub nowszy
-  * Struktura docelowa: Nie dotyczy wdrożeń HTTP. sys.
+  * Struktura docelowa: nie dotyczy wdrożeń HTTP. sys.
 * [Usługi IIS (w procesie)](xref:host-and-deploy/iis/index#http2-support)
-  * Windows Server 2016 i Windows 10 lub nowszym; Usługi IIS 10 lub nowszym
+  * Windows Server 2016/Windows 10 lub nowszy; Program IIS 10 lub nowszy
   * Platforma docelowa: .NET Core 2,2 lub nowszy
 * [Usługi IIS (pozaprocesowe)](xref:host-and-deploy/iis/index#http2-support)
-  * Windows Server 2016 i Windows 10 lub nowszym; Usługi IIS 10 lub nowszym
+  * Windows Server 2016/Windows 10 lub nowszy; Program IIS 10 lub nowszy
   * Połączenia z serwerem granicznym dostępnym publicznie korzystają z protokołu HTTP/2, ale połączenie zwrotne serwera proxy z Kestrel korzysta z protokołu HTTP/1.1.
-  * Struktura docelowa: Nie dotyczy wdrożeń pozaprocesowych usług IIS.
+  * Struktura docelowa: nie dotyczy wdrożeń pozaprocesowych usług IIS.
 
 &dagger;Kestrel ma ograniczoną obsługę protokołu HTTP/2 w systemie Windows Server 2012 R2 i Windows 8.1. Obsługa jest ograniczona, ponieważ lista obsługiwanych mechanizmów szyfrowania TLS dostępnych w tych systemach operacyjnych jest ograniczona. Do zabezpieczenia połączeń TLS może być wymagany certyfikat wygenerowany przy użyciu algorytmu podpisu cyfrowego (ECDSA) krzywej eliptycznej.
 
@@ -187,19 +187,19 @@ Podczas uruchamiania aplikacji z poziomu wiersza polecenia w folderze projektu, 
 
 ::: moniker range="< aspnetcore-2.2"
 
-* [HTTP.sys](xref:fundamentals/servers/httpsys#http2-support)
+* [HTTP. sys](xref:fundamentals/servers/httpsys#http2-support)
   * Windows Server 2016/Windows 10 lub nowszy
-  * Struktura docelowa: Nie dotyczy wdrożeń HTTP. sys.
+  * Struktura docelowa: nie dotyczy wdrożeń HTTP. sys.
 * [Usługi IIS (pozaprocesowe)](xref:host-and-deploy/iis/index#http2-support)
-  * Windows Server 2016 i Windows 10 lub nowszym; Usługi IIS 10 lub nowszym
+  * Windows Server 2016/Windows 10 lub nowszy; Program IIS 10 lub nowszy
   * Połączenia z serwerem granicznym dostępnym publicznie korzystają z protokołu HTTP/2, ale połączenie zwrotne serwera proxy z Kestrel korzysta z protokołu HTTP/1.1.
-  * Struktura docelowa: Nie dotyczy wdrożeń pozaprocesowych usług IIS.
+  * Struktura docelowa: nie dotyczy wdrożeń pozaprocesowych usług IIS.
 
 ::: moniker-end
 
 Połączenie HTTP/2 musi korzystać z [negocjacji protokołu warstwy aplikacji (ClientHello alpn)](https://tools.ietf.org/html/rfc7301#section-3) i TLS 1,2 lub nowszej. Aby uzyskać więcej informacji, zapoznaj się z tematami dotyczącymi scenariuszy wdrażania serwera.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * <xref:fundamentals/servers/kestrel>
 * <xref:host-and-deploy/aspnet-core-module>

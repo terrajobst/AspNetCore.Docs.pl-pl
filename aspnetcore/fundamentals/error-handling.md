@@ -5,14 +5,14 @@ description: Odkryj, jak obsługiwać błędy w aplikacjach ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/10/2019
+ms.date: 10/08/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: 652a97a6b7fbe4c8cc678b86a92eea59937e809c
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: a5bdbc3ce75f5897c9cd67fe18897281bf2fb57b
+ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975586"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037571"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Obsługa błędów w ASP.NET Core
 
@@ -20,18 +20,18 @@ Autorzy [Dykstra](https://github.com/tdykstra/), [Luke Latham](https://github.co
 
 W tym artykule opisano typowe podejścia do obsługi błędów w aplikacjach ASP.NET Core.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples). ([Jak pobrać](xref:index#how-to-download-a-sample)) Artykuł zawiera instrukcje dotyczące sposobu ustawiania dyrektyw preprocesora (`#if`, `#endif`, `#define`) w przykładowej aplikacji w celu włączenia różnych scenariuszy.
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples). ([Jak pobrać](xref:index#how-to-download-a-sample)) Artykuł zawiera instrukcje dotyczące sposobu ustawiania dyrektyw preprocesora (`#if`, `#endif`, `#define`) w przykładowej aplikacji, aby umożliwić korzystanie z różnych scenariuszy.
 
 ## <a name="developer-exception-page"></a>Strona wyjątków dla deweloperów
 
-Na *stronie wyjątku dla deweloperów* są wyświetlane szczegółowe informacje o wyjątkach żądania. Strona jest udostępniana przez pakiet [Microsoft. AspNetCore. Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) , który znajduje się w [pakiecie Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app). Dodaj kod do metody `Startup.Configure` , aby włączyć stronę, gdy aplikacja jest uruchomiona w [środowisku](xref:fundamentals/environments)deweloperskim:
+Na *stronie wyjątku dla deweloperów* są wyświetlane szczegółowe informacje o wyjątkach żądania. Strona jest udostępniana przez pakiet [Microsoft. AspNetCore. Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) , który znajduje się w [pakiecie Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app). Dodaj kod do metody `Startup.Configure`, aby włączyć stronę, gdy aplikacja jest uruchomiona w [środowisku](xref:fundamentals/environments)deweloperskim:
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevPageAndHandlerPage&highlight=1-4)]
 
-Umieść wywołanie <xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*> przed dowolnym oprogramowanie pośredniczące, które ma przechwytywać wyjątki.
+Należy umieścić wywołanie <xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*> przed dowolnym oprogramowanie pośredniczące, które ma przechwytywać wyjątki.
 
 > [!WARNING]
-> Stronę wyjątku dla deweloperów należy włączyć tylko wtedy, **gdy aplikacja jest uruchomiona w środowisku deweloperskim**. Nie chcesz udostępniać szczegółowych informacji o wyjątku publicznie, gdy aplikacja jest uruchamiana w środowisku produkcyjnym. Aby uzyskać więcej informacji na temat konfigurowania środowisk <xref:fundamentals/environments>, zobacz.
+> Stronę wyjątku dla deweloperów należy włączyć tylko wtedy, **gdy aplikacja jest uruchomiona w środowisku deweloperskim**. Nie chcesz udostępniać szczegółowych informacji o wyjątku publicznie, gdy aplikacja jest uruchamiana w środowisku produkcyjnym. Aby uzyskać więcej informacji na temat konfigurowania środowisk, zobacz <xref:fundamentals/environments>.
 
 Na stronie znajdują się następujące informacje o wyjątku i żądaniu:
 
@@ -40,7 +40,7 @@ Na stronie znajdują się następujące informacje o wyjątku i żądaniu:
 * Pliki cookie (jeśli istnieją)
 * Nagłówka
 
-Aby wyświetlić stronę wyjątku dla deweloperów w [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), użyj `DevEnvironment` dyrektywy preprocesora i wybierz opcję **Wyzwól wyjątek** na stronie głównej.
+Aby wyświetlić stronę wyjątku dla deweloperów w [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), użyj dyrektywy preprocesora `DevEnvironment` i wybierz pozycję **Wyzwól wyjątek** na stronie głównej.
 
 ## <a name="exception-handler-page"></a>Strona obsługi wyjątków
 
@@ -53,7 +53,7 @@ W poniższym przykładzie <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExt
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevPageAndHandlerPage&highlight=5-9)]
 
-Szablon aplikacji Razor Pages zawiera stronę błędów ( *. cshtml*) i <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> klasę (`ErrorModel`) w folderze *Pages* . W przypadku aplikacji MVC szablon projektu zawiera metodę akcji błędu i widok błędu. Oto Metoda działania:
+Szablon aplikacji Razor Pages zawiera stronę błędów ( *. cshtml*) i <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> klasy (`ErrorModel`) w folderze *Pages* . W przypadku aplikacji MVC szablon projektu zawiera metodę akcji błędu i widok błędu. Oto Metoda działania:
 
 ```csharp
 [AllowAnonymous]
@@ -68,27 +68,27 @@ Nie dekorować metody akcji procedury obsługi błędów z atrybutami metody HTT
 
 ### <a name="access-the-exception"></a>Uzyskaj dostęp do wyjątku
 
-Użyj <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> , aby uzyskać dostęp do wyjątku i oryginalnej ścieżki żądania w kontrolerze lub stronie procedury obsługi błędów:
+Użyj <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature>, aby uzyskać dostęp do wyjątku i oryginalnej ścieżki żądania w kontrolerze lub stronie procedury obsługi błędów:
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Pages/Error.cshtml.cs?name=snippet_ExceptionHandlerPathFeature&3,7)]
 
 > [!WARNING]
 > **Nie** należy podawać poufnych informacji o błędach do klientów. Obsługa błędów stanowi zagrożenie bezpieczeństwa.
 
-Aby wyświetlić stronę obsługa wyjątków w przykładowej [aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), użyj `ProdEnvironment` dyrektyw i `ErrorHandlerPage` preprocesora, a następnie wybierz opcję **Wyzwól wyjątek** na stronie głównej.
+Aby wyświetlić stronę obsługa wyjątków w [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), użyj dyrektyw preprocesora `ProdEnvironment` i `ErrorHandlerPage`, a następnie wybierz pozycję **Wyzwól wyjątek** na stronie głównej.
 
 ## <a name="exception-handler-lambda"></a>Procedura obsługi wyjątków lambda
 
-Alternatywą dla [niestandardowej strony obsługi wyjątków](#exception-handler-page) jest dostarczanie wyrażenia lambda do <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>. Użycie wyrażenia lambda umożliwia dostęp do błędu przed zwróceniem odpowiedzi.
+Alternatywą dla [niestandardowej strony obsługi wyjątków](#exception-handler-page) jest udostępnienie wyrażenia lambda do <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>. Użycie wyrażenia lambda umożliwia dostęp do błędu przed zwróceniem odpowiedzi.
 
 Oto przykład użycia wyrażenia lambda dla obsługi wyjątków:
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_HandlerPageLambda)]
 
 > [!WARNING]
-> **Nie** należy podawać poufnych informacji o błędach <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> od <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> klientów ani do. Obsługa błędów stanowi zagrożenie bezpieczeństwa.
+> **Nie** należy podawać poufnych informacji o błędach z <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> lub <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> do klientów. Obsługa błędów stanowi zagrożenie bezpieczeństwa.
 
-Aby zobaczyć wynik obsługi wyjątku lambda w [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), użyj `ProdEnvironment` dyrektyw i `ErrorHandlerLambda` preprocesora, a następnie wybierz **Wyzwól wyjątek** na stronie głównej.
+Aby zobaczyć wynik obsługi wyjątku lambda w [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), użyj dyrektyw preprocesora `ProdEnvironment` i `ErrorHandlerLambda`, a następnie wybierz pozycję **Wyzwól wyjątek** na stronie głównej.
 
 ## <a name="usestatuscodepages"></a>UseStatusCodePages
 
@@ -96,11 +96,11 @@ Domyślnie aplikacja ASP.NET Core nie udostępnia strony kodowej stanu dla kodó
 
 Oprogramowanie pośredniczące jest udostępniane przez pakiet [Microsoft. AspNetCore. Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) , który znajduje się w [pakiecie Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app).
 
-Aby włączyć obsługę tylko tekstu dla typowych kodów stanu błędu, wywołaj <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> `Startup.Configure` metodę:
+Aby włączyć obsługę tylko tekstu dla typowych kodów stanu błędu, wywołaj <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> w metodzie `Startup.Configure`:
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePages)]
 
-Wywołaj `UseStatusCodePages` przed zażądaniem obsługi oprogramowania pośredniczącego (na przykład statycznych plików oprogramowania pośredniczącego i oprogramowania MVC).
+Wywołaj `UseStatusCodePages` przed zażądaniem obsługi oprogramowania pośredniczącego (na przykład statycznego oprogramowania pośredniczącego i oprogramowania MVC).
 
 Oto przykład tekstu wyświetlanego przez domyślne programy obsługi:
 
@@ -108,30 +108,30 @@ Oto przykład tekstu wyświetlanego przez domyślne programy obsługi:
 Status Code: 404; Not Found
 ```
 
-Aby wyświetlić jeden z różnych formatów stron kodu stanu w przykładowej [aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), należy użyć jednej z dyrektyw preprocesora, która zaczyna `StatusCodePages`się od, i na stronie głównej wybierz pozycję **Wyzwól a 404** .
+Aby wyświetlić jeden z różnych formatów stron kodu stanu w [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), należy użyć jednej z dyrektyw preprocesora, które zaczynają się od `StatusCodePages` i na stronie głównej wybierz opcję **Wyzwól a 404** .
 
 ## <a name="usestatuscodepages-with-format-string"></a>UseStatusCodePages z ciągiem formatu
 
-Aby dostosować typ zawartości odpowiedzi i tekst, Użyj przeciążenia <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> , które pobiera typ zawartości i ciąg formatu:
+Aby dostosować typ zawartości odpowiedzi i tekst, Użyj przeciążenia <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*>, które pobiera typ zawartości i ciąg formatu:
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesFormatString)]
 
 ## <a name="usestatuscodepages-with-lambda"></a>UseStatusCodePages z wyrażeniem lambda
 
-Aby określić niestandardową obsługę błędów i kod do pisania w odpowiedzi, należy użyć <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> przeciążenia, które przyjmuje wyrażenie lambda:
+Aby określić niestandardową obsługę błędów i kod do pisania, Użyj przeciążenia <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*>, które przyjmuje wyrażenie lambda:
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesLambda)]
 
 ## <a name="usestatuscodepageswithredirect"></a>UseStatusCodePagesWithRedirect
 
-Metoda <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithRedirects*> rozszerzenia:
+Metoda rozszerzenia <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithRedirects*>:
 
 * Wysyła do klienta kod stanu *znaleziony przez 302* .
 * Przekierowuje klienta do lokalizacji podanej w szablonie adresu URL.
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
-Szablon adresu URL może zawierać `{0}` symbol zastępczy kodu stanu, jak pokazano w przykładzie. Jeśli szablon adresu URL zaczyna się od tyldy (~), tylda jest zastępowana przez aplikację `PathBase`. Jeśli wskażesz punkt końcowy w aplikacji, Utwórz widok MVC lub stronę Razor dla punktu końcowego. Aby uzyskać Razor Pages przykład, zobacz *Pages/StatusCode. cshtml* w [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).
+Szablon adresu URL może zawierać symbol zastępczy `{0}` dla kodu stanu, jak pokazano w przykładzie. Jeśli szablon adresu URL zaczyna się od tyldy (~), tylda jest zastępowana `PathBase` aplikacji. Jeśli wskażesz punkt końcowy w aplikacji, Utwórz widok MVC lub stronę Razor dla punktu końcowego. Aby uzyskać Razor Pages przykład, zobacz *Pages/StatusCode. cshtml* w [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).
 
 Ta metoda jest często używana w przypadku aplikacji:
 
@@ -140,7 +140,7 @@ Ta metoda jest często używana w przypadku aplikacji:
 
 ## <a name="usestatuscodepageswithreexecute"></a>UseStatusCodePagesWithReExecute
 
-Metoda <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithReExecute*> rozszerzenia:
+Metoda rozszerzenia <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithReExecute*>:
 
 * Zwraca oryginalny kod stanu dla klienta.
 * Generuje treść odpowiedzi przez ponowne wykonanie potoku żądania przy użyciu ścieżki alternatywnej.
@@ -154,7 +154,7 @@ Ta metoda jest często używana, gdy aplikacja powinna:
 * Przetwórz żądanie bez przekierowania do innego punktu końcowego. W przypadku usługi Web Apps pasek adresu przeglądarki klienta odzwierciedla pierwotnie żądany punkt końcowy.
 * Zachowywanie i zwracanie oryginalnego kodu stanu z odpowiedzią.
 
-Szablony adresu URL i ciągu zapytania mogą zawierać symbol zastępczy`{0}`() dla kodu stanu. Szablon adresu URL musi rozpoczynać się od ukośnika (`/`). W przypadku używania symbolu zastępczego w ścieżce upewnij się, że punkt końcowy (strona lub kontroler) może przetworzyć segment ścieżki. Na przykład strona Razor dla błędów powinna akceptować opcjonalną wartość segmentu ścieżki przy użyciu `@page` dyrektywy:
+Szablony adresu URL i ciągu zapytania mogą zawierać symbol zastępczy (`{0}`) dla kodu stanu. Szablon adresu URL musi rozpoczynać się od ukośnika (`/`). W przypadku używania symbolu zastępczego w ścieżce upewnij się, że punkt końcowy (strona lub kontroler) może przetworzyć segment ścieżki. Na przykład strona Razor dla błędów powinna akceptować opcjonalną wartość segmentu ścieżki z dyrektywą `@page`:
 
 ```cshtml
 @page "{code?}"
@@ -208,7 +208,7 @@ W przypadku uruchamiania [programu w usługach IIS](/iis) (lub Azure App Service
 
 ## <a name="database-error-page"></a>Strona błędu bazy danych
 
-[Strona błędu bazy danych](<xref:Microsoft.AspNetCore.Builder.DatabaseErrorPageExtensions.UseDatabaseErrorPage*>) oprogramowanie pośredniczące przechwytuje wyjątki związane z bazą danych, które można rozwiązać za pomocą migracji Entity Framework. Kiedy te wyjątki wystąpią, zostanie wygenerowana odpowiedź HTML z szczegółowymi działaniami umożliwiającymi rozwiązanie problemu. Ta strona powinna być włączona tylko w środowisku deweloperskim. Włącz stronę, dodając kod do `Startup.Configure`:
+Strona błędu bazy danych oprogramowanie pośredniczące przechwytuje wyjątki związane z bazą danych, które można rozwiązać za pomocą migracji Entity Framework. Kiedy te wyjątki wystąpią, zostanie wygenerowana odpowiedź HTML z szczegółowymi działaniami umożliwiającymi rozwiązanie problemu. Ta strona powinna być włączona tylko w środowisku deweloperskim. Włącz stronę, dodając kod do `Startup.Configure`:
 
 ```csharp
 if (env.IsDevelopment())
@@ -216,6 +216,8 @@ if (env.IsDevelopment())
     app.UseDatabaseErrorPage();
 }
 ```
+
+<!-- FUTURE UPDATE: On the next topic overhaul/release update, add API crosslink to this section for xref:Microsoft.AspNetCore.Builder.DatabaseErrorPageExtensions.UseDatabaseErrorPage* when available via the API docs. -->
 
 ## <a name="exception-filters"></a>Filtry wyjątków
 

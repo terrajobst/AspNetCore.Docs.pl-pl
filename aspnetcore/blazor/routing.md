@@ -5,18 +5,18 @@ description: Dowiedz się, jak kierować żądania w aplikacjach i informacje o 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 10/09/2019
 uid: blazor/routing
-ms.openlocfilehash: 76266aedd4655161f1f50a8beb0936660d452912
-ms.sourcegitcommit: 6d26ab647ede4f8e57465e29b03be5cb130fc872
+ms.openlocfilehash: 8f48112237e6dd3fed88404c53b8d7d9137ef6ff
+ms.sourcegitcommit: 0b8a7571bf7acf85bf16118acb2435001cbe4b5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71999814"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72236528"
 ---
 # <a name="aspnet-core-blazor-routing"></a>ASP.NET Core Routing Blazor
 
-Przez [Luke Latham](https://github.com/guardrex)
+Autor [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
@@ -85,7 +85,13 @@ Zawartość tagów `<NotFound>` może zawierać dowolne elementy, takie jak inne
 
 Użyj parametru `AdditionalAssemblies`, aby określić dodatkowe zestawy dla składnika `Router`, które mają być brane pod uwagę podczas wyszukiwania składników routingu. Określone zestawy są uznawane za uzupełnieniem @no__t określonego zestawu -0. W poniższym przykładzie `Component1` to składnik rutowany zdefiniowany w bibliotece klas, do której się odwołuje. Poniższy `AdditionalAssemblies` przykład powoduje obsługę routingu dla `Component1`:
 
-< router AppAssembly = "typeof (program). Zestaw "AdditionalAssemblies =" New [] {typeof (Component1). Zestaw} >... </Router>
+```cshtml
+<Router
+    AppAssembly="typeof(Program).Assembly"
+    AdditionalAssemblies="new[] { typeof(Component1).Assembly }>
+    ...
+</Router>
+```
 
 ## <a name="route-parameters"></a>Parametry trasy
 
@@ -108,7 +114,7 @@ W poniższym przykładzie trasy do składnika `Users` dopasowuje się tylko wted
 
 Dostępne są ograniczenia trasy podane w poniższej tabeli. W przypadku ograniczeń trasy, które pasują do niezmiennej kultury, zobacz ostrzeżenie poniżej tabeli, aby uzyskać więcej informacji.
 
-| Typu | Przykład           | Przykładowe dopasowania                                                                  | Niezmiennej<br>culture<br>parowanie |
+| Typu | Przykład           | Przykładowe dopasowania                                                                  | Niezmiennej<br>dziedzinie<br>dopasowania |
 | ---------- | ----------------- | -------------------------------------------------------------------------------- | :------------------------------: |
 | `bool`     | `{active:bool}`   | `true`, `FALSE`                                                                  | Nie                               |
 | `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Tak                              |
@@ -168,7 +174,7 @@ Renderuje następujący znacznik HTML:
 
 Użyj `Microsoft.AspNetCore.Components.NavigationManager` do pracy z identyfikatorami URI i C# nawigacją w kodzie. `NavigationManager` zawiera zdarzenie i metody przedstawione w poniższej tabeli.
 
-| Element członkowski | Opis |
+| Członek | Opis |
 | ------ | ----------- |
 | `Uri` | Pobiera bieżący bezwzględny identyfikator URI. |
 | `BaseUri` | Pobiera podstawowy identyfikator URI (z końcowym ukośnikiem), który można dołączać do względnych ścieżek URI w celu utworzenia bezwzględnego identyfikatora URI. Zazwyczaj `BaseUri` odpowiada atrybutowi `href` w elemencie `<base>` dokumentu w *wwwroot/index.html* (Blazor webassembly) lub *Pages/_Host. cshtml* (Blazor Server). |

@@ -1,17 +1,17 @@
 ---
 title: Razor Pages z EF Core w ASP.NET Core odczytu danych powiązanych — 6 z 8
-author: tdykstra
+author: rick-anderson
 description: W tym samouczku odczytasz i wyświetlasz powiązane dane, czyli dane, które Entity Framework ładowane do właściwości nawigacji.
 ms.author: riande
 ms.custom: mvc
 ms.date: 09/28/2019
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 02b52dee0b661ad26cd6fa9fea08fcea3d7dd9bd
-ms.sourcegitcommit: f62014bb558ff6f8fdaef2e96cb05986e216aacd
+ms.openlocfilehash: 5feed175999bf021cadc7e18f14e00066b50db5b
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2019
-ms.locfileid: "71592297"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259681"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor Pages z EF Core w ASP.NET Core odczytu danych powiązanych — 6 z 8
 
@@ -33,7 +33,7 @@ Na poniższych ilustracjach przedstawiono ukończone strony dla tego samouczka:
 
 Istnieje kilka sposobów, EF Core mogą ładować powiązane dane do właściwości nawigacji jednostki:
 
-* [Ładowanie eager](/ef/core/querying/related-data#eager-loading). Ładowanie eager jest, gdy zapytanie dla jednego typu jednostki również ładuje powiązane jednostki. Po odczytaniu jednostki pobierane są powiązane z nią dane. Zwykle powoduje to pojedyncze zapytanie sprzężenia, które pobiera wszystkie dane, które są zbędne. EF Core będzie wystawiał wiele zapytań dla niektórych typów ładowania eager. Wygenerowanie wielu zapytań może być bardziej wydajne niż bardzo duże pojedyncze zapytanie. Ładowanie eager jest określone przy użyciu `Include` metod `ThenInclude` i.
+* [Ładowanie eager](/ef/core/querying/related-data#eager-loading). Ładowanie eager jest, gdy zapytanie dla jednego typu jednostki również ładuje powiązane jednostki. Po odczytaniu jednostki pobierane są powiązane z nią dane. Zwykle powoduje to pojedyncze zapytanie sprzężenia, które pobiera wszystkie dane, które są zbędne. EF Core będzie wystawiał wiele zapytań dla niektórych typów ładowania eager. Wygenerowanie wielu zapytań może być bardziej wydajne niż bardzo duże pojedyncze zapytanie. Eager ładowania jest określony z metodami `Include` i `ThenInclude`.
 
   ![Przykład ładowania eager](read-related-data/_static/eager-loading.png)
  
@@ -42,13 +42,13 @@ Istnieje kilka sposobów, EF Core mogą ładować powiązane dane do właściwo�
   * Jedno zapytanie dotyczące głównej kwerendy 
   * Jedno zapytanie dla każdej kolekcji "Edge" w drzewie ładowania.
 
-* Oddziel zapytania `Load`z: Dane można pobrać w oddzielnych zapytaniach, a EF Core "naprawia" właściwości nawigacji. "Rozwiązuje" oznacza, że EF Core automatycznie wypełnia właściwości nawigacji. Osobne zapytania `Load` i są bardziej podobne do jawnego ładowania niż ładowanie eager.
+* Oddziel zapytania z `Load`: dane można pobrać w oddzielnych zapytaniach, a EF Core "naprawia" właściwości nawigacji. "Rozwiązuje" oznacza, że EF Core automatycznie wypełnia właściwości nawigacji. Oddzielne zapytania z `Load` są bardziej podobne do jawnego ładowania niż ładowanie eager.
 
   ![Przykład oddzielnych zapytań](read-related-data/_static/separate-queries.png)
 
   Uwaga: EF Core automatycznie naprawia właściwości nawigacji do wszystkich innych jednostek, które zostały wcześniej załadowane do wystąpienia kontekstu. Nawet jeśli dane dla właściwości nawigacji *nie* są jawnie uwzględniane, właściwość można nadal wypełnić, jeśli niektóre lub wszystkie powiązane jednostki zostały wcześniej załadowane.
 
-* [Jawne ładowanie](/ef/core/querying/related-data#explicit-loading). Gdy obiekt jest najpierw odczytywany, powiązane dane nie są pobierane. Kod musi być zapisany, aby można było pobrać powiązane dane, gdy jest to konieczne. Jawne ładowanie z oddzielnymi zapytania powoduje wysłanie wielu zapytań do bazy danych. W przypadku jawnego ładowania kod określa właściwości nawigacji do załadowania. Użyj metody `Load` , aby przeprowadzić jawne ładowanie. Na przykład:
+* [Jawne ładowanie](/ef/core/querying/related-data#explicit-loading). Gdy obiekt jest najpierw odczytywany, powiązane dane nie są pobierane. Kod musi być zapisany, aby można było pobrać powiązane dane, gdy jest to konieczne. Jawne ładowanie z oddzielnymi zapytania powoduje wysłanie wielu zapytań do bazy danych. W przypadku jawnego ładowania kod określa właściwości nawigacji do załadowania. Użyj metody `Load`, aby przeprowadzić jawne ładowanie. Na przykład:
 
   ![Przykład jawnego ładowania](read-related-data/_static/explicit-loading.png)
 
@@ -56,14 +56,14 @@ Istnieje kilka sposobów, EF Core mogą ładować powiązane dane do właściwo�
 
 ## <a name="create-course-pages"></a>Tworzenie stron kursu
 
-Jednostka zawiera właściwość nawigacji, która zawiera powiązaną `Department` jednostkę. `Course`
+Jednostka `Course` zawiera właściwość nawigacji, która zawiera powiązaną jednostkę `Department`.
 
 ![Kurs. Dział](read-related-data/_static/dep-crs.png)
 
 Aby wyświetlić nazwę przypisanego działu dla kursu:
 
-* Załaduj powiązaną `Department` jednostkę `Course.Department` do właściwości nawigacji.
-* Pobierz nazwę z `Department` `Name` właściwości jednostki.
+* Załaduj powiązaną jednostkę `Department` do właściwości nawigacji `Course.Department`.
+* Pobierz nazwę z właściwości `Name` jednostki @no__t.
 
 <a name="scaffold"></a>
 
@@ -74,7 +74,7 @@ Aby wyświetlić nazwę przypisanego działu dla kursu:
 * Postępuj zgodnie z instrukcjami na [stronach uczniów tworzenia szkieletów](xref:data/ef-rp/intro#scaffold-student-pages) z następującymi wyjątkami:
 
   * Utwórz folder *strony/kursy* .
-  * Użyj `Course` dla klasy model.
+  * Użyj `Course` dla klasy modelu.
   * Użyj istniejącej klasy kontekstu zamiast tworzenia nowej.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
@@ -83,7 +83,7 @@ Aby wyświetlić nazwę przypisanego działu dla kursu:
 
 * Uruchom następujące polecenie, aby połączyć strony kursu.
 
-  **Na Windows:**
+  **W systemie Windows:**
 
   ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
@@ -97,9 +97,9 @@ Aby wyświetlić nazwę przypisanego działu dla kursu:
 
 ---
 
-* Otwórz *stronę/kursy/index. cshtml. cs* i Przeanalizuj `OnGetAsync` metodę. Aparat tworzenia szkieletów określił eager ładowania dla `Department` właściwości nawigacji. `Include` Metoda określa eager ładowania.
+* Otwórz *stronę/kursy/index. cshtml. cs* i Przeanalizuj metodę `OnGetAsync`. Aparat szkieletu określony eager ładowania dla właściwości nawigacji `Department`. Metoda `Include` określa ładowanie eager.
 
-* Uruchom aplikację i wybierz łącze **kursy** . W kolumnie dział zostanie wyświetlona wartość `DepartmentID`, która nie jest przydatna.
+* Uruchom aplikację i wybierz łącze **kursy** . W kolumnie dział jest wyświetlana wartość `DepartmentID`, która nie jest przydatna.
 
 ### <a name="display-the-department-name"></a>Wyświetl nazwę działu
 
@@ -107,7 +107,7 @@ Zaktualizuj strony/kursy/index. cshtml. cs przy użyciu następującego kodu:
 
 [!code-csharp[](intro/samples/cu30/Pages/Courses/Index.cshtml.cs?highlight=18,22,24)]
 
-Poprzedni kod zmienia `Course` właściwość na `Courses` i dodaje `AsNoTracking`. `AsNoTracking`zwiększa wydajność, ponieważ zwrócone jednostki nie są śledzone. Nie trzeba śledzić jednostek, ponieważ nie są one aktualizowane w bieżącym kontekście.
+Poprzedni kod zmienia właściwość `Course` na `Courses` i dodaje `AsNoTracking`. `AsNoTracking` poprawia wydajność, ponieważ zwrócone jednostki nie są śledzone. Nie trzeba śledzić jednostek, ponieważ nie są one aktualizowane w bieżącym kontekście.
 
 Zaktualizuj *strony/kursy/index. cshtml* przy użyciu następującego kodu.
 
@@ -115,9 +115,9 @@ Zaktualizuj *strony/kursy/index. cshtml* przy użyciu następującego kodu.
 
 W kodzie szkieletowym wprowadzono następujące zmiany:
 
-* `Courses`Zmieniono nazwę `Course` właściwości na.
-* Dodano kolumnę **liczbową** , która wyświetla `CourseID` wartość właściwości. Domyślnie klucze podstawowe nie są szkieletowe, ponieważ zwykle nie są oznaczane przez użytkowników końcowych. Jednak w tym przypadku klucz podstawowy ma znaczenie.
-* Zmieniono kolumnę **działu** , aby wyświetlić nazwę działu. Kod wyświetla `Name` Właściwość `Department` jednostki `Department` , która jest ładowana do właściwości nawigacji:
+* Zmieniono nazwę właściwości `Course` na `Courses`.
+* Dodano kolumnę **liczbową** , która wyświetla wartość właściwości `CourseID`. Domyślnie klucze podstawowe nie są szkieletowe, ponieważ zwykle nie są oznaczane przez użytkowników końcowych. Jednak w tym przypadku klucz podstawowy ma znaczenie.
+* Zmieniono kolumnę **działu** , aby wyświetlić nazwę działu. Kod wyświetla Właściwość `Name` jednostki `Department`, która jest ładowana do właściwości nawigacji `Department`:
 
   ```html
   @Html.DisplayFor(modelItem => item.Department.Name)
@@ -131,13 +131,13 @@ Uruchom aplikację i wybierz kartę **kursy** , aby wyświetlić listę z nazwam
 
 ### <a name="loading-related-data-with-select"></a>Ładowanie powiązanych danych przy użyciu opcji Select
 
-Metoda ładuje powiązane dane `Include` przy użyciu metody. `OnGetAsync` `Select` Metoda jest alternatywą, która ładuje tylko powiązane dane. Dla pojedynczych elementów, podobnie jak `Department.Name` w przypadku użycia sprzężenia wewnętrznego SQL. W przypadku kolekcji program używa innego dostępu do bazy danych, ale w `Include` związku z tym wykonuje operator dla kolekcji.
+Metoda `OnGetAsync` ładuje powiązane dane przy użyciu metody `Include`. Metoda `Select` jest alternatywą, która ładuje tylko powiązane dane. Dla pojedynczych elementów, takich jak `Department.Name`, używa SPRZĘŻENIa wewnętrznego SQL. W przypadku kolekcji jest on wykorzystywany przez inny dostęp do bazy danych, ale w związku z tym wykonuje operator `Include` w kolekcjach.
 
-Poniższy kod ładuje powiązane dane przy użyciu `Select` metody:
+Poniższy kod ładuje powiązane dane przy użyciu metody `Select`:
 
 [!code-csharp[](intro/samples/cu30snapshots/6-related/Pages/Courses/IndexSelect.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=6)]
 
-`CourseViewModel`:
+@No__t-0:
 
 [!code-csharp[](intro/samples/cu30snapshots/6-related/Models/SchoolViewModels/CourseViewModel.cs?name=snippet)]
 
@@ -148,13 +148,13 @@ Zobacz [IndexSelect. cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/mast
 Ta sekcja szkieletuje strony instruktorów i dodaje powiązane kursy i rejestracje do strony indeksu instruktorów.
 
 <a name="IP"></a>
-![Strona indeksu instruktorów](read-related-data/_static/instructors-index30.png)
+ @ no__t-2Instructors indeks strony @ no__t-3
 
 Ta strona odczytuje i wyświetla powiązane dane w następujący sposób:
 
-* Lista instruktorów wyświetla powiązane dane z `OfficeAssignment` jednostki (Office na powyższym obrazie). Jednostki `Instructor` i`OfficeAssignment` znajdują się w relacji jeden-do-zero-lub-jednego. Eager ładowania jest używany dla `OfficeAssignment` jednostek. Ładowanie eager jest zwykle wydajniejsze, gdy wymagane jest wyświetlenie powiązanych danych. W takim przypadku wyświetlane są przypisania pakietu Office dla instruktorów.
-* Gdy użytkownik wybierze instruktora, wyświetlane są `Course` powiązane jednostki. Jednostki `Instructor` i`Course` znajdują się w relacji wiele-do-wielu. Ładowanie eager jest używane dla `Course` jednostek i ich powiązanych `Department` jednostek. W takim przypadku oddzielne zapytania mogą być bardziej wydajne, ponieważ potrzebują tylko kursów dla wybranego instruktora. Ten przykład pokazuje, jak używać eager ładowania dla właściwości nawigacji w jednostkach, które są we właściwościach nawigacji.
-* Gdy użytkownik wybierze kurs, zostaną wyświetlone powiązane dane z `Enrollments` jednostki. Na powyższym obrazie wyświetlana jest nazwa ucznia i jej klasy. Jednostki `Course` i`Enrollment` znajdują się w relacji jeden do wielu.
+* Lista instruktorów wyświetla powiązane dane z jednostki `OfficeAssignment` (Office na powyższym obrazie). Jednostki `Instructor` i `OfficeAssignment` znajdują się w relacji jeden-do-zero-lub-jednego. Ładowanie eager jest używane dla jednostek `OfficeAssignment`. Ładowanie eager jest zwykle wydajniejsze, gdy wymagane jest wyświetlenie powiązanych danych. W takim przypadku wyświetlane są przypisania pakietu Office dla instruktorów.
+* Gdy użytkownik wybierze instruktora, zostaną wyświetlone powiązane jednostki `Course`. Jednostki `Instructor` i `Course` znajdują się w relacji wiele-do-wielu. Ładowanie eager jest używane dla jednostek `Course` i pokrewnych jednostek `Department`. W takim przypadku oddzielne zapytania mogą być bardziej wydajne, ponieważ potrzebują tylko kursów dla wybranego instruktora. Ten przykład pokazuje, jak używać eager ładowania dla właściwości nawigacji w jednostkach, które są we właściwościach nawigacji.
+* Gdy użytkownik wybierze kurs, zostanie wyświetlona powiązana dane z jednostki `Enrollments`. Na powyższym obrazie wyświetlana jest nazwa ucznia i jej klasy. Jednostki `Course` i `Enrollment` znajdują się w relacji jeden-do-wielu.
 
 ### <a name="create-a-view-model"></a>Tworzenie modelu widoku
 
@@ -171,7 +171,7 @@ Utwórz *SchoolViewModels/InstructorIndexData. cs* przy użyciu następującego 
 * Postępuj zgodnie z instrukcjami w temacie Tworzenie [szkieletu stron uczniów](xref:data/ef-rp/intro#scaffold-student-pages) z następującymi wyjątkami:
 
   * Utwórz folder *stron/instruktorów* .
-  * Użyj `Instructor` dla klasy model.
+  * Użyj `Instructor` dla klasy modelu.
   * Użyj istniejącej klasy kontekstu zamiast tworzenia nowej.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
@@ -180,7 +180,7 @@ Utwórz *SchoolViewModels/InstructorIndexData. cs* przy użyciu następującego 
 
 * Uruchom następujące polecenie, aby połączyć strony instruktora.
 
-  **Na Windows:**
+  **W systemie Windows:**
 
   ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
@@ -200,7 +200,7 @@ Aktualizowanie *stron/instruktorów/index. cshtml. cs* przy użyciu następując
 
 [!code-csharp[](intro/samples/cu30snapshots/6-related/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,19-53)]
 
-`OnGetAsync` Metoda akceptuje opcjonalne dane trasy dla identyfikatora wybranego instruktora.
+Metoda `OnGetAsync` akceptuje opcjonalne dane trasy dla identyfikatora wybranego instruktora.
 
 Zbadaj zapytanie w pliku */instruktors/index. cshtml. cs* :
 
@@ -215,21 +215,21 @@ Kod określa eager ładowania dla następujących właściwości nawigacji:
     * `Course.Enrollments`
       * `Enrollment.Student`
 
-Zwróć `Include` uwagę na powtarzanie i `ThenInclude` metody dla `CourseAssignments` i `Course`. To powtórzenie jest niezbędne do określenia ładowania eager dla dwóch właściwości `Course` nawigacji jednostki.
+Zwróć uwagę na powtórzenia `Include` i `ThenInclude` metody `CourseAssignments` i `Course`. To powtórzenie jest niezbędne do określenia eager ładowania dla dwóch właściwości nawigacji jednostki `Course`.
 
 Poniższy kod jest wykonywany po wybraniu instruktora (`id != null`).
 
 [!code-csharp[](intro/samples/cu30snapshots/6-related/Pages/Instructors/Index1.cshtml.cs?name=snippet_SelectInstructor)]
 
-Wybrany instruktor jest pobierany z listy instruktorów w modelu widoku. `Courses` Właściwość widoku modelu jest ładowana `Course` z jednostkami `CourseAssignments` z tej właściwości nawigacji instruktora.
+Wybrany instruktor jest pobierany z listy instruktorów w modelu widoku. Właściwość `Courses` modelu widoku jest załadowana z jednostkami `Course` z właściwości nawigacji `CourseAssignments` tego instruktora.
 
-`Where` Metoda zwraca kolekcję. Ale w tym przypadku filtr wybierze pojedynczą jednostkę. Dlatego metoda jest wywoływana w celu przekonwertowania kolekcji na jedną `Instructor` jednostkę. `Single` Jednostka zapewnia dostęp `CourseAssignments` do właściwości. `Instructor` `CourseAssignments`zapewnia dostęp do powiązanych `Course` jednostek.
+Metoda `Where` zwraca kolekcję. Ale w tym przypadku filtr wybierze pojedynczą jednostkę. Dlatego metoda `Single` jest wywoływana w celu przekonwertowania kolekcji na jedną jednostkę `Instructor`. Jednostka `Instructor` zapewnia dostęp do właściwości `CourseAssignments`. `CourseAssignments` zapewnia dostęp do powiązanych jednostek `Course`.
 
 ![M:M instruktora do kursu](complex-data-model/_static/courseassignment.png)
 
-`Single` Metoda jest używana w kolekcji, gdy kolekcja zawiera tylko jeden element. `Single` Metoda zgłasza wyjątek, jeśli kolekcja jest pusta lub jeśli istnieje więcej niż jeden element. Alternatywą jest `SingleOrDefault`, która zwraca wartość domyślną (null w tym przypadku), jeśli kolekcja jest pusta.
+Metoda `Single` jest używana w kolekcji, gdy kolekcja zawiera tylko jeden element. Metoda `Single` zgłasza wyjątek, jeśli kolekcja jest pusta lub jeśli istnieje więcej niż jeden element. Alternatywą jest `SingleOrDefault`, która zwraca wartość domyślną (null w tym przypadku), jeśli kolekcja jest pusta.
 
-Poniższy kod wypełnia `Enrollments` właściwość modelu widoku w przypadku wybrania kursu:
+Poniższy kod wypełnia Właściwość `Enrollments` modelu widoku w przypadku wybrania kursu:
 
 [!code-csharp[](intro/samples/cu30snapshots/6-related/Pages/Instructors/Index1.cshtml.cs?name=snippet_SelectCourse)]
 
@@ -241,15 +241,15 @@ Aktualizowanie *stron/instruktorów/index. cshtml* przy użyciu następującego 
 
 Poprzedni kod wprowadza następujące zmiany:
 
-* Aktualizacje `page` dyrektywy z `@page` do `@page "{id:int?}"`. `"{id:int?}"`jest szablonem trasy. Szablon trasy zmienia ciągi zapytań liczb całkowitych w adresie URL, aby przesyłać dane. Na przykład kliknięcie linku **Wybierz** dla instruktora z tylko `@page` dyrektywą spowoduje utworzenie adresu URL w następujący sposób:
+* Aktualizuje dyrektywę `page` z `@page` do `@page "{id:int?}"`. `"{id:int?}"` to szablon trasy. Szablon trasy zmienia ciągi zapytań liczb całkowitych w adresie URL, aby przesyłać dane. Na przykład kliknięcie linku **Wybierz** dla instruktora z tylko dyrektywą `@page` powoduje, że adres URL wygląda następująco:
 
   `https://localhost:5001/Instructors?id=2`
 
-  Gdy dyrektywa Page ma `@page "{id:int?}"`wartość, adres URL to:
+  Gdy dyrektywa Page ma `@page "{id:int?}"`, adres URL to:
 
   `https://localhost:5001/Instructors/2`
 
-* Dodaje kolumnę **pakietu Office** , która `item.OfficeAssignment.Location` jest wyświetlana `item.OfficeAssignment` tylko wtedy, gdy nie ma wartości null. Ponieważ jest to relacja "jeden do zera" lub "jeden", nie może być powiązana jednostka OfficeAssignment.
+* Dodaje kolumnę **pakietu Office** , która wyświetla `item.OfficeAssignment.Location` tylko wtedy, gdy `item.OfficeAssignment` nie ma wartości null. Ponieważ jest to relacja "jeden do zera" lub "jeden", nie może być powiązana jednostka OfficeAssignment.
 
   ```html
   @if (item.OfficeAssignment != null)
@@ -260,7 +260,7 @@ Poprzedni kod wprowadza następujące zmiany:
 
 * Dodaje kolumnę **kursów** , która wyświetla nauczanie kursów przez każdego instruktora. Aby uzyskać więcej informacji na temat tej składni Razor, zobacz [jawne przejście liniowe](xref:mvc/views/razor#explicit-line-transition) .
 
-* Dodaje kod, który dynamicznie `class="success"` dodaje `tr` do elementu wybranego instruktora i kursu. Ustawia kolor tła dla wybranego wiersza przy użyciu klasy Bootstrap.
+* Dodaje kod, który dynamicznie dodaje `class="success"` do elementu `tr` wybranego instruktora i kursu. Ustawia kolor tła dla wybranego wiersza przy użyciu klasy Bootstrap.
 
   ```html
   string selectedRow = "";
@@ -271,7 +271,7 @@ Poprzedni kod wprowadza następujące zmiany:
   <tr class="@selectedRow">
   ```
 
-* Dodaje nowe hiperłącze z etykietą **SELECT**. Ten link powoduje wysłanie wybranego identyfikatora instruktora do `Index` metody i ustawienie koloru tła.
+* Dodaje nowe hiperłącze z etykietą **SELECT**. Ten link powoduje wysłanie wybranego identyfikatora instruktora do metody `Index` i ustawienie koloru tła.
 
   ```html
   <a asp-action="Index" asp-route-id="@item.ID">Select</a> |
@@ -281,7 +281,7 @@ Poprzedni kod wprowadza następujące zmiany:
 
 * Dodaje tabelę rejestracji uczniów dla wybranego kursu.
 
-Uruchom aplikację i wybierz kartę **Instruktorzy** . Na stronie zostanie wyświetlona `Location` strona (Biuro) z jednostki powiązanej. `OfficeAssignment` Jeśli `OfficeAssignment` ma wartość null, zostanie wyświetlona pusta komórka tabeli.
+Uruchom aplikację i wybierz kartę **Instruktorzy** . Na stronie zostanie wyświetlona `Location` (Office) z jednostki powiązanej `OfficeAssignment`. Jeśli `OfficeAssignment` ma wartość null, zostanie wyświetlona pusta komórka tabeli.
 
 Kliknij link **Wybierz** dla instruktora. Zostaną wyświetlone zmiany w stylu wiersza i kursy przypisane do tego instruktora.
 
@@ -291,19 +291,19 @@ Wybierz kurs, aby zobaczyć listę zarejestrowanych studentów i ich klasy.
 
 ## <a name="using-single"></a>Korzystanie z jednego
 
-Metoda może `Where` przekazać`Where` warunek zamiast wywołania metody osobno: `Single`
+Metoda `Single` może przekazać warunek `Where` zamiast wywołania metody `Where` oddzielnie:
 
 [!code-csharp[](intro/samples/cu30snapshots/6-related/Pages/Instructors/IndexSingle.cshtml.cs?name=snippet_single&highlight=21-22,30-31)]
 
-`Single` Użycie z warunkiem WHERE jest kwestią preferencji osobistych. Nie zapewnia żadnych korzyści z używania `Where` metody.
+Użycie `Single` z warunkiem WHERE jest kwestią preferencji osobistych. Nie oferuje żadnych korzyści w porównaniu z użyciem metody `Where`.
 
-## <a name="explicit-loading"></a>jawne ładowanie
+## <a name="explicit-loading"></a>Jawne ładowanie
 
-Bieżący kod określa eager ładowania dla `Enrollments` i: `Students`
+Bieżący kod określa eager ładowania dla `Enrollments` i `Students`:
 
 [!code-csharp[](intro/samples/cu30snapshots/6-related/Pages/Instructors/Index1.cshtml.cs?name=snippet_EagerLoading&highlight=6-9)]
 
-Załóżmy, że użytkownicy rzadko chcą widzieć rejestracje w kursie. W takim przypadku Optymalizacja będzie ładować dane rejestracji tylko wtedy, gdy jest to wymagane. W tej sekcji `OnGetAsync` zostanie zaktualizowany w celu użycia jawnego `Enrollments` ładowania i `Students`.
+Załóżmy, że użytkownicy rzadko chcą widzieć rejestracje w kursie. W takim przypadku Optymalizacja będzie ładować dane rejestracji tylko wtedy, gdy jest to wymagane. W tej sekcji `OnGetAsync` zostanie zaktualizowany w celu użycia jawnego ładowania `Enrollments` i `Students`.
 
 Aktualizowanie *stron/instruktorów/index. cshtml. cs* przy użyciu następującego kodu.
 
@@ -311,20 +311,19 @@ Aktualizowanie *stron/instruktorów/index. cshtml. cs* przy użyciu następując
 
 Poprzedni kod odrzuca metody *ThenInclude* w celu uzyskania danych dotyczących rejestracji i uczniów. W przypadku wybrania kursu jawny kod ładowania pobiera:
 
-* `Enrollment` Jednostki wybranego kursu.
-* Jednostki `Student` dla każdej z `Enrollment`nich.
+* Jednostki `Enrollment` dla wybranego kursu.
+* Jednostki `Student` dla każdej `Enrollment`.
 
-Zwróć uwagę, że poprzedzający kod `.AsNoTracking()`komentarz ma wartość. Właściwości nawigacji można jawnie załadować tylko dla śledzonych jednostek.
+Zwróć uwagę, że poprzedni kod komentarz ma `.AsNoTracking()`. Właściwości nawigacji można jawnie załadować tylko dla śledzonych jednostek.
 
-Przetestuj aplikację. Z perspektywy użytkownika aplikacja zachowuje się identycznie z poprzednią wersją.
+Testowanie aplikacji. Z perspektywy użytkownika aplikacja zachowuje się identycznie z poprzednią wersją.
 
 ## <a name="next-steps"></a>Następne kroki
 
 W następnym samouczku pokazano, jak zaktualizować powiązane dane.
 
 >[!div class="step-by-step"]
->[Poprzedni](xref:data/ef-rp/complex-data-model)
->samouczek w[następnym](xref:data/ef-rp/update-related-data) samouczku
+>[Poprzedni samouczek](xref:data/ef-rp/complex-data-model)@no__t — 1[następny samouczek](xref:data/ef-rp/update-related-data)
 
 ::: moniker-end
 
@@ -332,7 +331,7 @@ W następnym samouczku pokazano, jak zaktualizować powiązane dane.
 
 W tym samouczku dane pokrewne są odczytywane i wyświetlane. Powiązane dane to dane, które EF Core ładowane do właściwości nawigacji.
 
-Jeśli napotkasz problemy, nie można rozwiązać, [pobrania lub wyświetlenia ukończonej aplikacji.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Instrukcje pobierania](xref:index#how-to-download-a-sample).
+Jeśli występują problemy, których nie można rozwiązać, [Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Instrukcje pobierania](xref:index#how-to-download-a-sample).
 
 Na poniższych ilustracjach przedstawiono ukończone strony dla tego samouczka:
 
@@ -344,7 +343,7 @@ Na poniższych ilustracjach przedstawiono ukończone strony dla tego samouczka:
 
 Istnieje kilka sposobów, EF Core mogą ładować powiązane dane do właściwości nawigacji jednostki:
 
-* [Ładowanie eager](/ef/core/querying/related-data#eager-loading). Ładowanie eager jest, gdy zapytanie dla jednego typu jednostki również ładuje powiązane jednostki. Po odczytaniu jednostki są pobierane powiązane dane. Zwykle powoduje to pojedyncze zapytanie sprzężenia, które pobiera wszystkie dane, które są zbędne. EF Core będzie wystawiał wiele zapytań dla niektórych typów ładowania eager. Wygenerowanie wielu zapytań może być bardziej wydajne niż w przypadku niektórych zapytań w EF6, w których wystąpiło pojedyncze zapytanie. Ładowanie eager jest określone przy użyciu `Include` metod `ThenInclude` i.
+* [Ładowanie eager](/ef/core/querying/related-data#eager-loading). Ładowanie eager jest, gdy zapytanie dla jednego typu jednostki również ładuje powiązane jednostki. Po odczytaniu jednostki są pobierane powiązane dane. Zwykle powoduje to pojedyncze zapytanie sprzężenia, które pobiera wszystkie dane, które są zbędne. EF Core będzie wystawiał wiele zapytań dla niektórych typów ładowania eager. Wygenerowanie wielu zapytań może być bardziej wydajne niż w przypadku niektórych zapytań w EF6, w których wystąpiło pojedyncze zapytanie. Eager ładowania jest określony z metodami `Include` i `ThenInclude`.
 
   ![Przykład ładowania eager](read-related-data/_static/eager-loading.png)
  
@@ -353,28 +352,28 @@ Istnieje kilka sposobów, EF Core mogą ładować powiązane dane do właściwo�
   * Jedno zapytanie dotyczące głównej kwerendy 
   * Jedno zapytanie dla każdej kolekcji "Edge" w drzewie ładowania.
 
-* Oddziel zapytania `Load`z: Dane można pobrać w oddzielnych zapytaniach, a EF Core "naprawia" właściwości nawigacji. "rozwiązuje" oznacza, że EF Core automatycznie wypełnia właściwości nawigacji. Osobne zapytania `Load` i są bardziej podobne do jawnego ładowania niż ładowanie eager.
+* Oddziel zapytania z `Load`: dane można pobrać w oddzielnych zapytaniach, a EF Core "naprawia" właściwości nawigacji. "rozwiązuje" oznacza, że EF Core automatycznie wypełnia właściwości nawigacji. Oddzielne zapytania z `Load` są bardziej podobne do jawnego ładowania niż ładowanie eager.
 
   ![Przykład oddzielnych zapytań](read-related-data/_static/separate-queries.png)
 
   Uwaga: EF Core automatycznie naprawia właściwości nawigacji do wszystkich innych jednostek, które zostały wcześniej załadowane do wystąpienia kontekstu. Nawet jeśli dane dla właściwości nawigacji *nie* są jawnie uwzględniane, właściwość można nadal wypełnić, jeśli niektóre lub wszystkie powiązane jednostki zostały wcześniej załadowane.
 
-* [Jawne ładowanie](/ef/core/querying/related-data#explicit-loading). Gdy obiekt jest najpierw odczytywany, powiązane dane nie są pobierane. Kod musi być zapisany, aby można było pobrać powiązane dane, gdy jest to konieczne. Jawne ładowanie z oddzielnymi zapytaniami powoduje wysłanie wielu zapytań do bazy danych. W przypadku jawnego ładowania kod określa właściwości nawigacji do załadowania. Użyj metody `Load` , aby przeprowadzić jawne ładowanie. Na przykład:
+* [Jawne ładowanie](/ef/core/querying/related-data#explicit-loading). Gdy obiekt jest najpierw odczytywany, powiązane dane nie są pobierane. Kod musi być zapisany, aby można było pobrać powiązane dane, gdy jest to konieczne. Jawne ładowanie z oddzielnymi zapytaniami powoduje wysłanie wielu zapytań do bazy danych. W przypadku jawnego ładowania kod określa właściwości nawigacji do załadowania. Użyj metody `Load`, aby przeprowadzić jawne ładowanie. Na przykład:
 
   ![Przykład jawnego ładowania](read-related-data/_static/explicit-loading.png)
 
 * [Ładowanie z opóźnieniem](/ef/core/querying/related-data#lazy-loading). [Ładowanie z opóźnieniem zostało dodane do EF Core w wersji 2,1](/ef/core/querying/related-data#lazy-loading). Gdy obiekt jest najpierw odczytywany, powiązane dane nie są pobierane. Podczas pierwszego uzyskiwania dostępu do właściwości nawigacji dane wymagane dla tej właściwości nawigacji są pobierane automatycznie. Zapytanie jest wysyłane do bazy danych przy każdym dostępie do właściwości nawigacji po raz pierwszy.
 
-* `Select` Operator ładuje tylko powiązane dane.
+* Operator `Select` ładuje tylko powiązane dane.
 
 ## <a name="create-a-course-page-that-displays-department-name"></a>Tworzenie strony kursu, która wyświetla nazwę działu
 
-Jednostka kursu zawiera właściwość nawigacji, która zawiera `Department` jednostkę. `Department` Jednostka zawiera dział, do którego jest przypisany kurs.
+Jednostka kursu zawiera właściwość nawigacji, która zawiera jednostkę `Department`. Jednostka `Department` zawiera dział, do którego jest przypisany kurs.
 
 Aby wyświetlić nazwę przypisanego działu na liście kursów:
 
-* `Name` Pobierz Właściwość`Department` z jednostki.
-* `Department` Jednostka pochodzi `Course.Department` z właściwości nawigacji.
+* Pobierz Właściwość `Name` z jednostki `Department`.
+* Jednostka `Department` pochodzi z właściwości nawigacji `Course.Department`.
 
 ![Kurs. Dział](read-related-data/_static/dep-crs.png)
 
@@ -384,7 +383,7 @@ Aby wyświetlić nazwę przypisanego działu na liście kursów:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-Postępuj zgodnie z instrukcjami w [tworzenia szkieletu modelu uczniów](xref:data/ef-rp/intro#scaffold-the-student-model) i użyj `Course` dla klasy modelu.
+Postępuj zgodnie z instrukcjami w obszarze [szkieletu model studenta](xref:data/ef-rp/intro#scaffold-the-student-model) i użyj `Course` dla klasy modelu.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -396,17 +395,17 @@ Postępuj zgodnie z instrukcjami w [tworzenia szkieletu modelu uczniów](xref:da
 
 ---
 
-Poprzedni szkielety mechanizmów polecenia `Course` modelu. Otwórz projekt w programie Visual Studio.
+Poprzednie polecenie szkieletuje model `Course`. Otwórz projekt w programie Visual Studio.
 
-Otwórz *stronę/kursy/index. cshtml. cs* i Przeanalizuj `OnGetAsync` metodę. Aparat tworzenia szkieletów określił eager ładowania dla `Department` właściwości nawigacji. `Include` Metoda określa eager ładowania.
+Otwórz *stronę/kursy/index. cshtml. cs* i Przeanalizuj metodę `OnGetAsync`. Aparat szkieletu określony eager ładowania dla właściwości nawigacji `Department`. Metoda `Include` określa ładowanie eager.
 
-Uruchom aplikację i wybierz łącze **kursy** . W kolumnie dział zostanie wyświetlona wartość `DepartmentID`, która nie jest przydatna.
+Uruchom aplikację i wybierz łącze **kursy** . W kolumnie dział jest wyświetlana wartość `DepartmentID`, która nie jest przydatna.
 
-`OnGetAsync` Zaktualizuj metodę przy użyciu następującego kodu:
+Zaktualizuj metodę `OnGetAsync` przy użyciu następującego kodu:
 
 [!code-csharp[](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod)]
 
-Poprzedni kod dodaje `AsNoTracking`. `AsNoTracking`zwiększa wydajność, ponieważ zwrócone jednostki nie są śledzone. Jednostki nie są śledzone, ponieważ nie są aktualizowane w bieżącym kontekście.
+Poprzedni kod dodaje `AsNoTracking`. `AsNoTracking` poprawia wydajność, ponieważ zwrócone jednostki nie są śledzone. Jednostki nie są śledzone, ponieważ nie są aktualizowane w bieżącym kontekście.
 
 Aktualizuj *strony/kursy/index. cshtml* z następującymi wyróżnionymi znacznikami:
 
@@ -415,8 +414,8 @@ Aktualizuj *strony/kursy/index. cshtml* z następującymi wyróżnionymi znaczni
 W kodzie szkieletowym wprowadzono następujące zmiany:
 
 * Zmieniono nagłówek z indeksu na kursy.
-* Dodano kolumnę **liczbową** , która wyświetla `CourseID` wartość właściwości. Domyślnie klucze podstawowe nie są szkieletowe, ponieważ zwykle nie są oznaczane przez użytkowników końcowych. Jednak w tym przypadku klucz podstawowy ma znaczenie.
-* Zmieniono kolumnę **działu** , aby wyświetlić nazwę działu. Kod wyświetla `Name` Właściwość `Department` jednostki `Department` , która jest ładowana do właściwości nawigacji:
+* Dodano kolumnę **liczbową** , która wyświetla wartość właściwości `CourseID`. Domyślnie klucze podstawowe nie są szkieletowe, ponieważ zwykle nie są oznaczane przez użytkowników końcowych. Jednak w tym przypadku klucz podstawowy ma znaczenie.
+* Zmieniono kolumnę **działu** , aby wyświetlić nazwę działu. Kod wyświetla Właściwość `Name` jednostki `Department`, która jest ładowana do właściwości nawigacji `Department`:
 
   ```html
   @Html.DisplayFor(modelItem => item.Department.Name)
@@ -430,17 +429,17 @@ Uruchom aplikację i wybierz kartę **kursy** , aby wyświetlić listę z nazwam
 
 ### <a name="loading-related-data-with-select"></a>Ładowanie powiązanych danych przy użyciu opcji Select
 
-Metoda ładuje powiązane dane `Include` przy użyciu metody: `OnGetAsync`
+Metoda `OnGetAsync` ładuje powiązane dane przy użyciu metody `Include`:
 
 [!code-csharp[](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
 
-`Select` Operator ładuje tylko powiązane dane. Dla pojedynczych elementów, podobnie jak `Department.Name` w przypadku użycia sprzężenia wewnętrznego SQL. W przypadku kolekcji program używa innego dostępu do bazy danych, ale w `Include` związku z tym wykonuje operator dla kolekcji.
+Operator `Select` ładuje tylko powiązane dane. Dla pojedynczych elementów, takich jak `Department.Name`, używa SPRZĘŻENIa wewnętrznego SQL. W przypadku kolekcji jest on wykorzystywany przez inny dostęp do bazy danych, ale w związku z tym wykonuje operator `Include` w kolekcjach.
 
-Poniższy kod ładuje powiązane dane przy użyciu `Select` metody:
+Poniższy kod ładuje powiązane dane przy użyciu metody `Select`:
 
 [!code-csharp[](intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
 
-`CourseViewModel`:
+@No__t-0:
 
 [!code-csharp[](intro/samples/cu/Models/SchoolViewModels/CourseViewModel.cs?name=snippet)]
 
@@ -451,13 +450,13 @@ Zobacz [IndexSelect. cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/mast
 W tej sekcji zostanie utworzona strona instruktorzy.
 
 <a name="IP"></a>
-![Strona indeksu instruktorów](read-related-data/_static/instructors-index.png)
+ @ no__t-2Instructors indeks strony @ no__t-3
 
 Ta strona odczytuje i wyświetla powiązane dane w następujący sposób:
 
-* Lista instruktorów wyświetla powiązane dane z `OfficeAssignment` jednostki (Office na powyższym obrazie). Jednostki `Instructor` i`OfficeAssignment` znajdują się w relacji jeden-do-zero-lub-jednego. Eager ładowania jest używany dla `OfficeAssignment` jednostek. Ładowanie eager jest zwykle wydajniejsze, gdy wymagane jest wyświetlenie powiązanych danych. W takim przypadku wyświetlane są przypisania pakietu Office dla instruktorów.
-* Gdy użytkownik wybierze instruktora (Harui na poprzednim obrazie), zostaną wyświetlone `Course` powiązane jednostki. Jednostki `Instructor` i`Course` znajdują się w relacji wiele-do-wielu. Ładowanie eager jest używane dla `Course` jednostek i ich powiązanych `Department` jednostek. W takim przypadku oddzielne zapytania mogą być bardziej wydajne, ponieważ potrzebują tylko kursów dla wybranego instruktora. Ten przykład pokazuje, jak używać eager ładowania dla właściwości nawigacji w jednostkach, które są we właściwościach nawigacji.
-* Gdy użytkownik wybierze kurs (chemia na powyższym obrazie), zostaną wyświetlone `Enrollments` powiązane dane z jednostki. Na powyższym obrazie wyświetlana jest nazwa ucznia i jej klasy. Jednostki `Course` i`Enrollment` znajdują się w relacji jeden do wielu.
+* Lista instruktorów wyświetla powiązane dane z jednostki `OfficeAssignment` (Office na powyższym obrazie). Jednostki `Instructor` i `OfficeAssignment` znajdują się w relacji jeden-do-zero-lub-jednego. Ładowanie eager jest używane dla jednostek `OfficeAssignment`. Ładowanie eager jest zwykle wydajniejsze, gdy wymagane jest wyświetlenie powiązanych danych. W takim przypadku wyświetlane są przypisania pakietu Office dla instruktorów.
+* Gdy użytkownik wybierze instruktora (Harui na powyższym obrazie), zostaną wyświetlone powiązane jednostki `Course`. Jednostki `Instructor` i `Course` znajdują się w relacji wiele-do-wielu. Ładowanie eager jest używane dla jednostek `Course` i pokrewnych jednostek `Department`. W takim przypadku oddzielne zapytania mogą być bardziej wydajne, ponieważ potrzebują tylko kursów dla wybranego instruktora. Ten przykład pokazuje, jak używać eager ładowania dla właściwości nawigacji w jednostkach, które są we właściwościach nawigacji.
+* Gdy użytkownik wybierze kurs (chemia na poprzednim obrazie), zostaną wyświetlone powiązane dane z jednostki `Enrollments`. Na powyższym obrazie wyświetlana jest nazwa ucznia i jej klasy. Jednostki `Course` i `Enrollment` znajdują się w relacji jeden-do-wielu.
 
 ### <a name="create-a-view-model-for-the-instructor-index-view"></a>Utwórz model widoku dla widoku indeksu instruktora
 
@@ -471,7 +470,7 @@ W folderze *SchoolViewModels* Utwórz *InstructorIndexData.cs* przy użyciu nast
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-Postępuj zgodnie z instrukcjami w [tworzenia szkieletu modelu uczniów](xref:data/ef-rp/intro#scaffold-the-student-model) i użyj `Instructor` dla klasy modelu.
+Postępuj zgodnie z instrukcjami w obszarze [szkieletu model studenta](xref:data/ef-rp/intro#scaffold-the-student-model) i użyj `Instructor` dla klasy modelu.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -483,14 +482,14 @@ Postępuj zgodnie z instrukcjami w [tworzenia szkieletu modelu uczniów](xref:da
 
 ---
 
-Poprzedni szkielety mechanizmów polecenia `Instructor` modelu. 
+Poprzednie polecenie szkieletuje model `Instructor`. 
 Uruchom aplikację i przejdź do strony instruktorzy.
 
 Zamień *strony/instruktorów/index. cshtml. cs* na następujący kod:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,18-99)]
 
-`OnGetAsync` Metoda akceptuje opcjonalne dane trasy dla identyfikatora wybranego instruktora.
+Metoda `OnGetAsync` akceptuje opcjonalne dane trasy dla identyfikatora wybranego instruktora.
 
 Zbadaj zapytanie w pliku */instruktors/index. cshtml. cs* :
 
@@ -498,8 +497,8 @@ Zbadaj zapytanie w pliku */instruktors/index. cshtml. cs* :
 
 Zapytanie zawiera dwa:
 
-* `OfficeAssignment`: Wyświetlane w [widoku instruktorów](#IP).
-* `CourseAssignments`: Które przynosi kursy.
+* `OfficeAssignment`: wyświetlane w [widoku instruktorów](#IP).
+* `CourseAssignments`: co to jest kształcenie kursów.
 
 ### <a name="update-the-instructors-index-page"></a>Aktualizowanie strony indeksu instruktorów
 
@@ -507,18 +506,18 @@ Aktualizowanie *stron/instruktorów/index. cshtml* przy użyciu następującego 
 
 [!code-html[](intro/samples/cu/Pages/Instructors/IndexRRD.cshtml?range=1-65&highlight=1,5,8,16-21,25-32,43-57)]
 
-Poprzedni kod znaczników wprowadza następujące zmiany:
+Poprzedzające znaczniki wprowadzają następujące zmiany:
 
-* Aktualizacje `page` dyrektywy z `@page` do `@page "{id:int?}"`. `"{id:int?}"`jest szablonem trasy. Szablon trasy zmienia ciągi zapytań liczb całkowitych w adresie URL, aby przesyłać dane. Na przykład kliknięcie linku **Wybierz** dla instruktora z tylko `@page` dyrektywą spowoduje utworzenie adresu URL w następujący sposób:
+* Aktualizuje dyrektywę `page` z `@page` do `@page "{id:int?}"`. `"{id:int?}"` to szablon trasy. Szablon trasy zmienia ciągi zapytań liczb całkowitych w adresie URL, aby przesyłać dane. Na przykład kliknięcie linku **Wybierz** dla instruktora z tylko dyrektywą `@page` powoduje, że adres URL wygląda następująco:
 
   `http://localhost:1234/Instructors?id=2`
 
-  Gdy dyrektywa Page ma `@page "{id:int?}"`wartość, poprzedni adres URL to:
+  Gdy dyrektywa Page ma `@page "{id:int?}"`, poprzedni adres URL to:
 
   `http://localhost:1234/Instructors/2`
 
 * Tytuł strony to **Instruktorzy**.
-* Dodano kolumnę **pakietu Office** , która `item.OfficeAssignment.Location` jest wyświetlana `item.OfficeAssignment` tylko wtedy, gdy nie ma wartości null. Ponieważ jest to relacja "jeden do zera" lub "jeden", nie może być powiązana jednostka OfficeAssignment.
+* Dodano kolumnę **pakietu Office** , która wyświetla `item.OfficeAssignment.Location` tylko wtedy, gdy `item.OfficeAssignment` nie ma wartości null. Ponieważ jest to relacja "jeden do zera" lub "jeden", nie może być powiązana jednostka OfficeAssignment.
 
   ```html
   @if (item.OfficeAssignment != null)
@@ -529,7 +528,7 @@ Poprzedni kod znaczników wprowadza następujące zmiany:
 
 * Dodano kolumnę **kursów** , która wyświetla nauczanie kursów przez każdego instruktora. Aby uzyskać więcej informacji na temat tej składni Razor, zobacz [jawne przejście liniowe](xref:mvc/views/razor#explicit-line-transition) .
 
-* Dodano kod, który dynamicznie `class="success"` dodaje `tr` do elementu wybranego instruktora. Ustawia kolor tła dla wybranego wiersza przy użyciu klasy Bootstrap.
+* Dodano kod, który dynamicznie dodaje `class="success"` do elementu `tr` wybranego instruktora. Ustawia kolor tła dla wybranego wiersza przy użyciu klasy Bootstrap.
 
   ```html
   string selectedRow = "";
@@ -540,23 +539,23 @@ Poprzedni kod znaczników wprowadza następujące zmiany:
   <tr class="@selectedRow">
   ```
 
-* Dodano nowe hiperłącze z etykietą **SELECT**. Ten link powoduje wysłanie wybranego identyfikatora instruktora do `Index` metody i ustawienie koloru tła.
+* Dodano nowe hiperłącze z etykietą **SELECT**. Ten link powoduje wysłanie wybranego identyfikatora instruktora do metody `Index` i ustawienie koloru tła.
 
   ```html
   <a asp-action="Index" asp-route-id="@item.ID">Select</a> |
   ```
 
-Uruchom aplikację i wybierz kartę **Instruktorzy** . Na stronie zostanie wyświetlona `Location` strona (Biuro) z jednostki powiązanej. `OfficeAssignment` Jeśli OfficeAssignment ' ma wartość null, zostanie wyświetlona pusta komórka tabeli.
+Uruchom aplikację i wybierz kartę **Instruktorzy** . Na stronie zostanie wyświetlona `Location` (Office) z jednostki powiązanej `OfficeAssignment`. Jeśli OfficeAssignment ' ma wartość null, zostanie wyświetlona pusta komórka tabeli.
 
 Kliknij link **Wybierz** . Styl wiersza zmienia się.
 
 ### <a name="add-courses-taught-by-selected-instructor"></a>Dodaj nauczanie kursów według wybranych instruktorów
 
-Zaktualizuj metodę na *stronach/instruktorów/index. cshtml. cs* przy użyciu następującego kodu: `OnGetAsync`
+Zaktualizuj metodę `OnGetAsync` na *stronach/instruktorów/index. cshtml. cs* przy użyciu następującego kodu:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_OnGetAsync&highlight=1,8,16-999)]
 
-Add `public int CourseID { get; set; }`
+Dodaj `public int CourseID { get; set; }`
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_1&highlight=12)]
 
@@ -564,22 +563,22 @@ Zbadaj zaktualizowane zapytanie:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ThenInclude)]
 
-Poprzednie zapytanie dodaje `Department` jednostki.
+Poprzednie zapytanie dodaje jednostki `Department`.
 
-Poniższy kod jest wykonywany po wybraniu instruktora (`id != null`). Wybrany instruktor jest pobierany z listy instruktorów w modelu widoku. `Courses` Właściwość widoku modelu jest ładowana `Course` z jednostkami `CourseAssignments` z tej właściwości nawigacji instruktora.
+Poniższy kod jest wykonywany po wybraniu instruktora (`id != null`). Wybrany instruktor jest pobierany z listy instruktorów w modelu widoku. Właściwość `Courses` modelu widoku jest załadowana z jednostkami `Course` z właściwości nawigacji `CourseAssignments` tego instruktora.
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ID)]
 
-`Where` Metoda zwraca kolekcję. W poprzedniej `Where` metodzie zwracana jest tylko pojedyncza `Instructor` jednostka. Metoda konwertuje kolekcję na jedną `Instructor` jednostkę. `Single` Jednostka zapewnia dostęp `CourseAssignments` do właściwości. `Instructor` `CourseAssignments`zapewnia dostęp do powiązanych `Course` jednostek.
+Metoda `Where` zwraca kolekcję. W poprzedniej metodzie `Where` zwracana jest tylko jedna jednostka `Instructor`. Metoda `Single` konwertuje kolekcję na jedną jednostkę `Instructor`. Jednostka `Instructor` zapewnia dostęp do właściwości `CourseAssignments`. `CourseAssignments` zapewnia dostęp do powiązanych jednostek `Course`.
 
 ![M:M instruktora do kursu](complex-data-model/_static/courseassignment.png)
 
-`Single` Metoda jest używana w kolekcji, gdy kolekcja zawiera tylko jeden element. `Single` Metoda zgłasza wyjątek, jeśli kolekcja jest pusta lub jeśli istnieje więcej niż jeden element. Alternatywą jest `SingleOrDefault`, która zwraca wartość domyślną (null w tym przypadku), jeśli kolekcja jest pusta. Używanie `SingleOrDefault` w pustej kolekcji:
+Metoda `Single` jest używana w kolekcji, gdy kolekcja zawiera tylko jeden element. Metoda `Single` zgłasza wyjątek, jeśli kolekcja jest pusta lub jeśli istnieje więcej niż jeden element. Alternatywą jest `SingleOrDefault`, która zwraca wartość domyślną (null w tym przypadku), jeśli kolekcja jest pusta. Używanie `SingleOrDefault` w pustej kolekcji:
 
-* Wynikiem jest wyjątek (od próby znalezienia `Courses` właściwości w odwołaniu o wartości null).
+* Wynikiem jest wyjątek (od próby znalezienia właściwości `Courses` w odwołaniu o wartości null).
 * Komunikat o wyjątku będzie mniej jasno wskazywał przyczynę problemu.
 
-Poniższy kod wypełnia `Enrollments` właściwość modelu widoku w przypadku wybrania kursu:
+Poniższy kod wypełnia Właściwość `Enrollments` modelu widoku w przypadku wybrania kursu:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_courseID)]
 
@@ -589,13 +588,13 @@ Dodaj następujący znacznik na końcu strony */instruktorów/index. cshtml* Raz
 
 Powyższy znacznik wyświetla listę kursów związanych z instruktorem w przypadku wybrania instruktora.
 
-Przetestuj aplikację. Kliknij link **Wybierz** na stronie instruktorów.
+Testowanie aplikacji. Kliknij link **Wybierz** na stronie instruktorów.
 
 ### <a name="show-student-data"></a>Pokaż dane ucznia
 
 W tej sekcji aplikacja zostanie zaktualizowana, aby wyświetlić dane uczniów dla wybranego kursu.
 
-Zaktualizuj zapytanie w `OnGetAsync` metodzie na *stronach/instruktorów/index. cshtml. cs* przy użyciu następującego kodu:
+Zaktualizuj zapytanie w metodzie `OnGetAsync` na *stronach/instruktorów/index. cshtml. cs* przy użyciu następującego kodu:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
 
@@ -611,42 +610,42 @@ Odśwież stronę i wybierz instruktora. Wybierz kurs, aby zobaczyć listę zare
 
 ## <a name="using-single"></a>Korzystanie z jednego
 
-Metoda może `Where` przekazać`Where` warunek zamiast wywołania metody osobno: `Single`
+Metoda `Single` może przekazać warunek `Where` zamiast wywołania metody `Where` oddzielnie:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/IndexSingle.cshtml.cs?name=snippet_single&highlight=21-22,30-31)]
 
-Poprzednie `Single` podejście nie zapewnia żadnych korzyści w porównaniu `Where`z korzystaniem z programu. Niektórzy deweloperzy preferują `Single` styl podejścia.
+Powyższe podejście `Single` nie zapewnia żadnych korzyści z używania `Where`. Niektórzy deweloperzy preferują styl podejścia `Single`.
 
-## <a name="explicit-loading"></a>jawne ładowanie
+## <a name="explicit-loading"></a>Jawne ładowanie
 
-Bieżący kod określa eager ładowania dla `Enrollments` i: `Students`
+Bieżący kod określa eager ładowania dla `Enrollments` i `Students`:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
 
-Załóżmy, że użytkownicy rzadko chcą widzieć rejestracje w kursie. W takim przypadku Optymalizacja będzie ładować dane rejestracji tylko wtedy, gdy jest to wymagane. W tej sekcji `OnGetAsync` zostanie zaktualizowany w celu użycia jawnego `Enrollments` ładowania i `Students`.
+Załóżmy, że użytkownicy rzadko chcą widzieć rejestracje w kursie. W takim przypadku Optymalizacja będzie ładować dane rejestracji tylko wtedy, gdy jest to wymagane. W tej sekcji `OnGetAsync` zostanie zaktualizowany w celu użycia jawnego ładowania `Enrollments` i `Students`.
 
-`OnGetAsync` Zaktualizuj program przy użyciu następującego kodu:
+Zaktualizuj `OnGetAsync` przy użyciu następującego kodu:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/IndexXp.cshtml.cs?name=snippet_OnGetAsync&highlight=9-13,29-35)]
 
 Poprzedni kod odrzuca metody *ThenInclude* w celu uzyskania danych dotyczących rejestracji i uczniów. W przypadku wybrania kursu wyróżniony kod pobiera:
 
-* `Enrollment` Jednostki wybranego kursu.
-* Jednostki `Student` dla każdej z `Enrollment`nich.
+* Jednostki `Enrollment` dla wybranego kursu.
+* Jednostki `Student` dla każdej `Enrollment`.
 
-Zwróć uwagę na powyższe Komentarze `.AsNoTracking()`w kodzie. Właściwości nawigacji można jawnie załadować tylko dla śledzonych jednostek.
+Zwróć uwagę na powyższe komentarze kodu `.AsNoTracking()`. Właściwości nawigacji można jawnie załadować tylko dla śledzonych jednostek.
 
-Przetestuj aplikację. Z perspektywy użytkowników aplikacja zachowuje się identycznie z poprzednią wersją.
+Testowanie aplikacji. Z perspektywy użytkowników aplikacja zachowuje się identycznie z poprzednią wersją.
 
 W następnym samouczku pokazano, jak zaktualizować powiązane dane.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Wersja tego samouczka usługi YouTube (part1)](https://www.youtube.com/watch?v=PzKimUDmrvE)
 * [Wersja tego samouczka usługi YouTube (part2)](https://www.youtube.com/watch?v=xvDDrIHv5ko)
 
 >[!div class="step-by-step"]
 >[Poprzedni](xref:data/ef-rp/complex-data-model)
->[Następny](xref:data/ef-rp/update-related-data)
+>[dalej](xref:data/ef-rp/update-related-data)
 
 ::: moniker-end

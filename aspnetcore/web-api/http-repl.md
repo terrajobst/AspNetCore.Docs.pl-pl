@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 10/07/2019
 uid: web-api/http-repl
-ms.openlocfilehash: c845c28210d6defcb70a520f176b64986ae3d4a6
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: bb3757f51487a307ebfb97452b80995f84e95e4b
+ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007446"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037711"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Testowanie interfejsów API sieci Web przy użyciu protokołu HTTP REPL
 
@@ -790,25 +790,25 @@ Parametr trasy, jeśli istnieje, oczekiwany przez skojarzoną metodę akcji kont
 
 Aby ustawić nagłówek żądania HTTP, należy użyć jednej z następujących metod:
 
-1. Ustaw wartość inline z żądaniem HTTP. Na przykład:
+* Ustaw wartość inline z żądaniem HTTP. Na przykład:
 
-  ```console
-  https://localhost:5001/people~ post -h Content-Type=application/json
-  ```
+    ```console
+    https://localhost:5001/people~ post -h Content-Type=application/json
+    ```
+    
+    W przypadku wcześniejszego podejścia każdy unikatowy nagłówek żądania HTTP wymaga własnej opcji `-h`.
 
-  W przypadku wcześniejszego podejścia każdy unikatowy nagłówek żądania HTTP wymaga własnej opcji `-h`.
+* Ustaw przed wysłaniem żądania HTTP. Na przykład:
 
-1. Ustaw przed wysłaniem żądania HTTP. Na przykład:
-
-  ```console
-  https://localhost:5001/people~ set header Content-Type application/json
-  ```
-
-  Podczas ustawiania nagłówka przed wysłaniem żądania nagłówek pozostaje ustawiony na czas trwania sesji powłoki poleceń. Aby wyczyścić nagłówek, podaj wartość pustą. Na przykład:
-
-  ```console
-  https://localhost:5001/people~ set header Content-Type
-  ```
+    ```console
+    https://localhost:5001/people~ set header Content-Type application/json
+    ```
+    
+    Podczas ustawiania nagłówka przed wysłaniem żądania nagłówek pozostaje ustawiony na czas trwania sesji powłoki poleceń. Aby wyczyścić nagłówek, podaj wartość pustą. Na przykład:
+    
+    ```console
+    https://localhost:5001/people~ set header Content-Type
+    ```
 
 ## <a name="test-secured-endpoints"></a>Testuj zabezpieczone punkty końcowe
 

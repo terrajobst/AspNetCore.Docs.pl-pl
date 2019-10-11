@@ -1,19 +1,19 @@
 ---
-title: 'Samouczek: Odczytaj powiązane dane — ASP.NET MVC z EF Core'
+title: 'Samouczek: odczytywanie powiązanych danych — ASP.NET MVC z EF Core'
 description: W tym samouczku zostaną odczytane i wyświetlone powiązane dane, czyli dane, które Entity Framework ładowane do właściwości nawigacji.
-author: tdykstra
+author: rick-anderson
 ms.author: riande
 ms.date: 09/28/2019
 ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: cb691dce757a72a01bfd29717710d1be590c4150
-ms.sourcegitcommit: f62014bb558ff6f8fdaef2e96cb05986e216aacd
+ms.openlocfilehash: 1a16f905669d0192d713cbba9bfc6e3e75008b5d
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2019
-ms.locfileid: "71592290"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259421"
 ---
-# <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Samouczek: Odczytaj powiązane dane — ASP.NET MVC z EF Core
+# <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Samouczek: odczytywanie powiązanych danych — ASP.NET MVC z EF Core
 
 W poprzednim samouczku został ukończony model danych szkoły. W tym samouczku zostaną odczytane i wyświetlone powiązane dane, czyli dane, które Entity Framework ładowane do właściwości nawigacji.
 
@@ -23,7 +23,7 @@ Na poniższych ilustracjach przedstawiono strony, z którymi będziesz korzysta�
 
 ![Strona indeksu instruktorów](read-related-data/_static/instructors-index.png)
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Dowiedz się, jak ładować powiązane dane
@@ -53,7 +53,7 @@ Istnieje kilka sposobów, które oprogramowanie mapowanie relacyjne (ORM), takie
 
 * Ładowanie z opóźnieniem. Gdy obiekt jest najpierw odczytywany, powiązane dane nie są pobierane. Jednak przy pierwszej próbie uzyskania dostępu do właściwości nawigacji dane wymagane dla tej właściwości nawigacji są pobierane automatycznie. Zapytanie jest wysyłane do bazy danych przy każdej próbie pobrania danych z właściwości nawigacji po raz pierwszy. Entity Framework Core 1,0 nie obsługuje ładowania z opóźnieniem.
 
-### <a name="performance-considerations"></a>Zagadnienia dotyczące wydajności
+### <a name="performance-considerations"></a>Zagadnienia związane z wydajnością
 
 Jeśli wiesz, że potrzebujesz pokrewnych danych dla każdej pobranej jednostki, ładowanie eager często oferuje najlepszą wydajność, ponieważ pojedyncze zapytanie wysyłane do bazy danych jest zwykle bardziej wydajne niż osobne zapytania dla każdej pobranej jednostki. Załóżmy na przykład, że każdy dział ma dziesięć powiązanych kursów. Eager ładowanie wszystkich powiązanych danych spowoduje tylko pojedyncze zapytanie (join) i pojedynczą rundę do bazy danych. Oddzielne zapytanie dotyczące kursów dla każdego działu spowoduje jedenaście rund do bazy danych. Dodatkowe podróże do bazy danych są szczególnie niekorzystne w przypadku opóźnień.
 
@@ -81,7 +81,7 @@ Do kodu szkieletowego wprowadzono następujące zmiany:
 
 * Zmieniono nagłówek z indeksu na kursy.
 
-* Dodano kolumnę **liczbową** , która wyświetla `CourseID` wartość właściwości. Domyślnie klucze podstawowe nie są szkieletowe, ponieważ zwykle nie są oznaczane przez użytkowników końcowych. Jednak w tym przypadku klucz podstawowy ma znaczenie i chcesz go wyświetlić.
+* Dodano kolumnę **liczbową** , która wyświetla wartość właściwości `CourseID`. Domyślnie klucze podstawowe nie są szkieletowe, ponieważ zwykle nie są oznaczane przez użytkowników końcowych. Jednak w tym przypadku klucz podstawowy ma znaczenie i chcesz go wyświetlić.
 
 * Zmieniono kolumnę **działu** , aby wyświetlić nazwę działu. Kod wyświetla Właściwość `Name` jednostki działu, która jest ładowana do właściwości nawigacji `Department`:
 
@@ -179,7 +179,7 @@ Wprowadzono następujące zmiany w istniejącym kodzie:
 
 * Zmieniono tytuł strony z **indeksu** na **Instruktorzy**.
 
-* Dodano kolumnę **pakietu Office** , która `item.OfficeAssignment.Location` jest wyświetlana `item.OfficeAssignment` tylko wtedy, gdy nie ma wartości null. (Ponieważ jest to relacja "jeden do zera" lub jeden-do-jednego, nie może być powiązana jednostka OfficeAssignment).
+* Dodano kolumnę **pakietu Office** , która wyświetla `item.OfficeAssignment.Location` tylko wtedy, gdy `item.OfficeAssignment` nie ma wartości null. (Ponieważ jest to relacja "jeden do zera" lub jeden-do-jednego, nie może być powiązana jednostka OfficeAssignment).
 
   ```html
   @if (item.OfficeAssignment != null)
@@ -190,7 +190,7 @@ Wprowadzono następujące zmiany w istniejącym kodzie:
 
 * Dodano kolumnę **kursów** , która wyświetla nauczanie kursów przez każdego instruktora. Aby uzyskać więcej informacji, zobacz sekcję [jawne przejście liniowe](xref:mvc/views/razor#explicit-line-transition) w artykule Składnia Razor.
 
-* Dodano kod, który dynamicznie `class="success"` dodaje `tr` do elementu wybranego instruktora. Ustawia kolor tła dla wybranego wiersza przy użyciu klasy Bootstrap.
+* Dodano kod, który dynamicznie dodaje `class="success"` do elementu `tr` wybranego instruktora. Ustawia kolor tła dla wybranego wiersza przy użyciu klasy Bootstrap.
 
   ```html
   string selectedRow = "";
@@ -243,13 +243,13 @@ Nowy kod odrzuca metodę *ThenInclude* wywołań danych rejestracji z kodu, któ
 
 Uruchom aplikację, przejdź do strony indeks instruktorów, aby zobaczyć, co jest wyświetlane na stronie, chociaż zmieniono sposób pobierania danych.
 
-## <a name="get-the-code"></a>Pobierz kod
+## <a name="get-the-code"></a>Uzyskaj kod
 
 [Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Dowiesz się, jak ładować powiązane dane

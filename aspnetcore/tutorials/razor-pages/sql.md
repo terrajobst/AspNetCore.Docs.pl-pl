@@ -5,22 +5,22 @@ description: Wyjaśnia, jak pracować z bazą danych i ASP.NET Core.
 ms.author: riande
 ms.date: 7/22/2019
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 197697f28e9faa45c1ac2b7f993bde15994957e5
-ms.sourcegitcommit: 051f068c78931432e030b60094c38376d64d013e
+ms.openlocfilehash: 87d27b60940826e21b060f2e07d344b30ff75b27
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68440394"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259783"
 ---
 # <a name="work-with-a-database-and-aspnet-core"></a>Pracuj z bazą danych i ASP.NET Core
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Audette Jan](https://twitter.com/joeaudette)
+Autorzy [Rick Anderson](https://twitter.com/RickAndMSFT) i Jan [Audette](https://twitter.com/joeaudette)
 
 ::: moniker range=">= aspnetcore-3.0"
 
 [!INCLUDE[](~/includes/rp/download.md)]
 
-Obiekt obsługuje zadanie łączenia się z bazą danych i mapowania `Movie` obiektów do rekordów bazy danych. `RazorPagesMovieContext` Kontekst bazy danych jest zarejestrowany z kontenerem [iniekcji zależności](xref:fundamentals/dependency-injection) w `ConfigureServices` metodzie w *Startup.cs*:
+Obiekt `RazorPagesMovieContext` obsługuje zadanie łączenia się z bazą danych i mapowania obiektów `Movie` do rekordów bazy danych. Kontekst bazy danych jest zarejestrowany z kontenerem [iniekcji zależności](xref:fundamentals/dependency-injection) w metodzie `ConfigureServices` w *Startup.cs*:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -52,22 +52,22 @@ Gdy aplikacja jest wdrażana na serwerze testowym lub produkcyjnym, zmienna śro
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-LocalDB to uproszczona wersja aparatu bazy danych SQL Server Express, która jest przeznaczona do tworzenia programów. LocalDB rozpoczyna się na żądanie i działa w trybie użytkownika, więc nie ma żadnych złożonej konfiguracji. Domyślnie baza danych LocalDB tworzy `*.mdf` pliki `C:/Users/<user/>` w katalogu.
+LocalDB to uproszczona wersja aparatu bazy danych SQL Server Express, która jest przeznaczona do tworzenia programów. LocalDB uruchamia się na żądanie i działa w trybie użytkownika, więc nie istnieje złożona konfiguracja. Domyślnie baza danych LocalDB tworzy pliki `*.mdf` w katalogu `C:/Users/<user/>`.
 
 <a name="ssox"></a>
 * Z menu **Widok** Otwórz **Eksplorator obiektów SQL Server** (SSOX).
 
   ![Menu Widok](sql/_static/ssox.png)
 
-* Kliknij prawym przyciskiem `Movie` myszy tabelę i wybierz polecenie **Projektant widoków**:
+* Kliknij prawym przyciskiem myszy tabelę `Movie` i wybierz polecenie **Projektant widoków**:
 
   ![Menu kontekstowe są otwierane w tabeli filmów](sql/_static/design.png)
 
   ![Tabele filmów otwierane w projektancie](sql/_static/dv.png)
 
-Zanotuj ikonę klucza obok pozycji `ID`. Domyślnie EF tworzy właściwość o nazwie `ID` dla klucza podstawowego.
+Zwróć uwagę na ikonę klucza obok `ID`. Domyślnie EF tworzy właściwość o nazwie `ID` dla klucza podstawowego.
 
-* Kliknij prawym przyciskiem `Movie` myszy tabelę i wybierz polecenie **Wyświetl dane**:
+* Kliknij prawym przyciskiem myszy tabelę `Movie` i wybierz pozycję **Wyświetl dane**:
 
   ![Otwórz tabelę filmów pokazującą dane tabeli](sql/_static/vd22.png)
 
@@ -78,9 +78,9 @@ Zanotuj ikonę klucza obok pozycji `ID`. Domyślnie EF tworzy właściwość o n
 
 ---
 
-## <a name="seed-the-database"></a>Inicjowanie bazy danych
+## <a name="seed-the-database"></a>Wypełnianie bazy danych
 
-Utwórz nową klasę o nazwie `SeedData` w folderze *models* o następującym kodzie:
+Utwórz nową klasę o nazwie `SeedData` w folderze *modele* o następującym kodzie:
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Models/SeedData.cs?name=snippet_1)]
 
@@ -97,27 +97,27 @@ if (context.Movie.Any())
 
 ### <a name="add-the-seed-initializer"></a>Dodawanie inicjatora inicjatora
 
-W *Program.cs*, zmodyfikuj `Main` metodę, aby wykonać następujące czynności:
+W *program.cs*zmień metodę `Main`, aby wykonać następujące czynności:
 
-* Pobierz wystąpienia kontekstu bazy danych z kontenera iniekcji zależności.
+* Pobierz wystąpienie kontekstu bazy danych z kontenera iniekcji zależności.
 * Wywołaj metodę inicjatora, przekazując ją do kontekstu.
 * Usuń kontekst, gdy metoda inicjatora zostanie zakończona.
 
-Poniższy kod przedstawia zaktualizowanego *Program.cs* pliku.
+Poniższy kod przedstawia zaktualizowany plik *program.cs* .
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Program.cs)]
 
-Aplikacja produkcyjna nie będzie wywoływana `Database.Migrate`. Jest on dodawany do poprzedniego kodu, aby zapobiec następującemu wyjątku, `Update-Database` gdy nie został uruchomiony:
+Następujący wyjątek występuje, gdy nie uruchomiono `Update-Database`:
 
-SqlException: Nie można otworzyć bazy danych "RazorPagesMovieContext-21" żądanej przez nazwę logowania. Logowanie nie powiodło się.
-Logowanie użytkownika "Nazwa użytkownika" nie powiodło się.
+`SqlException: Cannot open database "RazorPagesMovieContext-" requested by the login. The login failed.`
+`Login failed for user 'user name'.`
 
 ### <a name="test-the-app"></a>Testowanie aplikacji
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Usuń wszystkie rekordy z bazy danych. Można to zrobić za pomocą linków usuwania w przeglądarce lub z [SSOX](xref:tutorials/razor-pages/new-field#ssox)
-* Wymuś inicjalizację aplikacji (wywołaj metody z `Startup` klasy), aby była uruchamiana Metoda inicjatora. Aby wymusić inicjalizację, IIS Express należy zatrzymać i uruchomić ponownie. Można to zrobić przy użyciu następujących metod:
+* Wymuś inicjalizację aplikacji (wywołaj metody z klasy `Startup`), aby Metoda inicjatora była uruchomiona. Aby wymusić inicjalizację, IIS Express należy zatrzymać i uruchomić ponownie. Można to zrobić przy użyciu następujących metod:
 
   * Kliknij prawym przyciskiem myszy ikonę IIS Express pasku zadań w obszarze powiadomień i naciśnij pozycję **Zakończ** lub **Zatrzymaj witrynę**:
 
@@ -138,11 +138,11 @@ Aplikacja pokazuje dane z rozrzutu.
 
 Następny samouczek poprawi prezentację danych.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 > [!div class="step-by-step"]
-> [Ubiegł Razor Pages](xref:tutorials/razor-pages/page)zszkieletem[:
->  Aktualizowanie stron](xref:tutorials/razor-pages/da1)
+> [Poprzedni: Razor Pages szkieletowej](xref:tutorials/razor-pages/page)
+> [Dalej: aktualizowanie stron](xref:tutorials/razor-pages/da1)
 
 ::: moniker-end
 
@@ -150,7 +150,7 @@ Następny samouczek poprawi prezentację danych.
 
 [!INCLUDE[](~/includes/rp/download.md)]
 
-Obiekt obsługuje zadanie łączenia się z bazą danych i mapowania `Movie` obiektów do rekordów bazy danych. `RazorPagesMovieContext` Kontekst bazy danych jest zarejestrowany z kontenerem [iniekcji zależności](xref:fundamentals/dependency-injection) w `ConfigureServices` metodzie w *Startup.cs*:
+Obiekt `RazorPagesMovieContext` obsługuje zadanie łączenia się z bazą danych i mapowania obiektów `Movie` do rekordów bazy danych. Kontekst bazy danych jest zarejestrowany z kontenerem [iniekcji zależności](xref:fundamentals/dependency-injection) w metodzie `ConfigureServices` w *Startup.cs*:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -162,7 +162,7 @@ Obiekt obsługuje zadanie łączenia się z bazą danych i mapowania `Movie` obi
 
 ---
 
-Aby uzyskać więcej informacji na temat metod używanych `ConfigureServices`w programie, zobacz:
+Aby uzyskać więcej informacji na temat metod używanych w `ConfigureServices`, zobacz:
 
 * [Obsługa ogólne rozporządzenie o ochronie danych UE (Rodo) w ASP.NET Core](xref:security/gdpr) dla `CookiePolicyOptions`.
 * [SetCompatibilityVersion](xref:mvc/compatibility-version)
@@ -179,7 +179,7 @@ Wartość nazwy dla bazy danych (`Database={Database name}`) będzie różna dla
 
 [!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings_SQLite.json?highlight=8-10)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[program Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 [!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings_SQLite.json?highlight=8-10)]
 
@@ -191,22 +191,22 @@ Gdy aplikacja jest wdrażana na serwerze testowym lub produkcyjnym, zmienna śro
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-LocalDB to uproszczona wersja aparatu bazy danych SQL Server Express, która jest przeznaczona do tworzenia programów. LocalDB rozpoczyna się na żądanie i działa w trybie użytkownika, więc nie ma żadnych złożonej konfiguracji. Domyślnie baza danych LocalDB tworzy `*.mdf` pliki `C:/Users/<user/>` w katalogu.
+LocalDB to uproszczona wersja aparatu bazy danych SQL Server Express, która jest przeznaczona do tworzenia programów. LocalDB uruchamia się na żądanie i działa w trybie użytkownika, więc nie istnieje złożona konfiguracja. Domyślnie baza danych LocalDB tworzy pliki `*.mdf` w katalogu `C:/Users/<user/>`.
 
 <a name="ssox"></a>
 * Z menu **Widok** Otwórz **Eksplorator obiektów SQL Server** (SSOX).
 
   ![Menu Widok](sql/_static/ssox.png)
 
-* Kliknij prawym przyciskiem `Movie` myszy tabelę i wybierz polecenie **Projektant widoków**:
+* Kliknij prawym przyciskiem myszy tabelę `Movie` i wybierz polecenie **Projektant widoków**:
 
   ![Menu kontekstowe jest otwarte w tabeli filmów](sql/_static/design.png)
 
   ![Tabela filmów otwarta w projektancie](sql/_static/dv.png)
 
-Zanotuj ikonę klucza obok pozycji `ID`. Domyślnie EF tworzy właściwość o nazwie `ID` dla klucza podstawowego.
+Zwróć uwagę na ikonę klucza obok `ID`. Domyślnie EF tworzy właściwość o nazwie `ID` dla klucza podstawowego.
 
-* Kliknij prawym przyciskiem `Movie` myszy tabelę i wybierz polecenie **Wyświetl dane**:
+* Kliknij prawym przyciskiem myszy tabelę `Movie` i wybierz pozycję **Wyświetl dane**:
 
   ![Otwórz tabelę filmów pokazującą dane tabeli](sql/_static/vd22.png)
 
@@ -215,16 +215,16 @@ Zanotuj ikonę klucza obok pozycji `ID`. Domyślnie EF tworzy właściwość o n
 [!INCLUDE[](~/includes/rp/sqlite.md)]
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[program Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/rp/sqlite.md)]
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
 ---
 
-## <a name="seed-the-database"></a>Inicjowanie bazy danych
+## <a name="seed-the-database"></a>Wypełnianie bazy danych
 
-Utwórz nową klasę o nazwie `SeedData` w folderze *models* o następującym kodzie:
+Utwórz nową klasę o nazwie `SeedData` w folderze *modele* o następującym kodzie:
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/SeedData.cs?name=snippet_1)]
 
@@ -241,19 +241,19 @@ if (context.Movie.Any())
 
 ### <a name="add-the-seed-initializer"></a>Dodawanie inicjatora inicjatora
 
-W *Program.cs*, zmodyfikuj `Main` metodę, aby wykonać następujące czynności:
+W *program.cs*zmień metodę `Main`, aby wykonać następujące czynności:
 
-* Pobierz wystąpienia kontekstu bazy danych z kontenera iniekcji zależności.
+* Pobierz wystąpienie kontekstu bazy danych z kontenera iniekcji zależności.
 * Wywołaj metodę inicjatora, przekazując ją do kontekstu.
 * Usuń kontekst, gdy metoda inicjatora zostanie zakończona.
 
-Poniższy kod przedstawia zaktualizowanego *Program.cs* pliku.
+Poniższy kod przedstawia zaktualizowany plik *program.cs* .
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Program.cs)]
 
-Aplikacja produkcyjna nie będzie wywoływana `Database.Migrate`. Jest on dodawany do poprzedniego kodu, aby zapobiec następującemu wyjątku, `Update-Database` gdy nie został uruchomiony:
+Aplikacja produkcyjna nie wywoła `Database.Migrate`. Jest on dodawany do powyższego kodu, aby zapobiec następującym wyjątkom, gdy nie uruchomiono `Update-Database`:
 
-SqlException: Nie można otworzyć bazy danych "RazorPagesMovieContext-21" żądanej przez nazwę logowania. Logowanie nie powiodło się.
+SqlException: nie można otworzyć bazy danych "RazorPagesMovieContext-21" żądanej przez nazwę logowania. Logowanie nie powiodło się.
 Logowanie użytkownika "Nazwa użytkownika" nie powiodło się.
 
 ### <a name="test-the-app"></a>Testowanie aplikacji
@@ -261,7 +261,7 @@ Logowanie użytkownika "Nazwa użytkownika" nie powiodło się.
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Usuń wszystkie rekordy z bazy danych. Można to zrobić za pomocą linków usuwania w przeglądarce lub z [SSOX](xref:tutorials/razor-pages/new-field#ssox)
-* Wymuś inicjalizację aplikacji (wywołaj metody z `Startup` klasy), aby była uruchamiana Metoda inicjatora. Aby wymusić inicjalizację, IIS Express należy zatrzymać i uruchomić ponownie. Można to zrobić przy użyciu następujących metod:
+* Wymuś inicjalizację aplikacji (wywołaj metody z klasy `Startup`), aby Metoda inicjatora była uruchomiona. Aby wymusić inicjalizację, IIS Express należy zatrzymać i uruchomić ponownie. Można to zrobić przy użyciu następujących metod:
 
   * Kliknij prawym przyciskiem myszy ikonę IIS Express pasku zadań w obszarze powiadomień i naciśnij pozycję **Zakończ** lub **Zatrzymaj witrynę**:
 
@@ -278,7 +278,7 @@ Usuń wszystkie rekordy z bazy danych (w związku z czym zostanie uruchomiona Me
 
 Aplikacja pokazuje dane z rozrzutu.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[program Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 Usuń wszystkie rekordy z bazy danych (w związku z czym zostanie uruchomiona Metoda inicjatora). Zatrzymaj i uruchom aplikację, aby wypełniać bazę danych.
 
@@ -292,12 +292,12 @@ Aplikacja pokazuje dane z rozrzutu:
 
 Następny samouczek czyści prezentację danych.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Wersja tego samouczka usługi YouTube](https://youtu.be/A_5ff11sDHY)
 
 > [!div class="step-by-step"]
-> [Ubiegł Razor Pages](xref:tutorials/razor-pages/page)zszkieletem[:
->  Aktualizowanie stron](xref:tutorials/razor-pages/da1)
+> [Poprzedni: Razor Pages szkieletowej](xref:tutorials/razor-pages/page)
+> [Dalej: aktualizowanie stron](xref:tutorials/razor-pages/da1)
 
 ::: moniker-end
