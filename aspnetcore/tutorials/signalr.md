@@ -7,19 +7,19 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 10/03/2019
 uid: tutorials/signalr
-ms.openlocfilehash: 843416cf00c9241f8c05b1aba041ebbe7a05cf80
-ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
-ms.translationtype: HT
+ms.openlocfilehash: 312bde7a5fee5d3af7abc38727024605f916c0d4
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037678"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259644"
 ---
-# <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Samouczek: Wprowadzenie do ASP.NET Core sygnalizującego
+# <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Samouczek: Rozpoczynanie pracy z usługą ASP.NET Core sygnalizujący
 
 W tym samouczku przedstawiono podstawy tworzenia aplikacji w czasie rzeczywistym przy użyciu usługi sygnalizującej. Omawiane kwestie:
 
 > [!div class="checklist"]
-> * Utwórz projekt sieci web.
+> * Utwórz projekt sieci Web.
 > * Dodaj bibliotekę klienta sygnalizującego.
 > * Utwórz centrum sygnałów.
 > * Skonfiguruj projekt do używania sygnalizującego.
@@ -39,7 +39,7 @@ Na końcu będziesz mieć działającą aplikację czatu:
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-3.0.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[program Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-3.0.md)]
 
@@ -72,7 +72,7 @@ Na końcu będziesz mieć działającą aplikację czatu:
    code -r SignalRChat
    ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[program Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 * Z menu wybierz pozycję **plik > nowe rozwiązanie**.
 
@@ -115,7 +115,7 @@ Biblioteka serwera sygnalizującego jest dołączona do struktury udostępnionej
 * Uruchom następujące polecenie, aby uzyskać bibliotekę klienta sygnalizującego za pomocą LibMan. Może być konieczne odczekanie kilku sekund przed wyświetleniem danych wyjściowych.
 
   ```console
-  libman install @microsoft/signalr@latest -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
+  libman install @microsoft/signalr@latest -p unpkg -d wwwroot/js/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
   Parametry określają następujące opcje:
@@ -131,7 +131,7 @@ Biblioteka serwera sygnalizującego jest dołączona do struktury udostępnionej
   Installed library "@microsoft/signalr@latest" to "wwwroot/js/signalr"
   ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[program Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 * W **terminalu**Uruchom następujące polecenie, aby zainstalować LibMan.
 
@@ -192,7 +192,7 @@ Serwer sygnalizujący musi być skonfigurowany tak, aby przekazywać żądania s
 
   [!code-cshtml[Index](signalr/sample-snapshot/3.x/Index.cshtml)]
 
-  Powyższy kod:
+  Poprzedni kod:
 
   * Tworzy pola tekstowe dla nazwy i tekstu komunikatu oraz przycisk Prześlij.
   * Tworzy listę z `id="messagesList"` do wyświetlania komunikatów odebranych z centrum sygnałów.
@@ -202,7 +202,7 @@ Serwer sygnalizujący musi być skonfigurowany tak, aby przekazywać żądania s
 
   [!code-javascript[chat](signalr/sample-snapshot/3.x/chat.js)]
 
-  Powyższy kod:
+  Poprzedni kod:
 
   * Tworzy i uruchamia połączenie.
   * Dodaje do przycisku Prześlij procedurę obsługi, która wysyła komunikaty do centrum.
@@ -222,7 +222,7 @@ Serwer sygnalizujący musi być skonfigurowany tak, aby przekazywać żądania s
   dotnet watch run -p SignalRChat.csproj
   ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[program Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 * Z menu wybierz polecenie **uruchom > Uruchom bez debugowania**.
 

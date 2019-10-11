@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/05/2019
 uid: blazor/components
-ms.openlocfilehash: 438b3802087e2ac3df4cbe69a700b878c1cbbf63
-ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
-ms.translationtype: HT
+ms.openlocfilehash: 3e0966bf978c99fc00db7682bea3292306cbb03c
+ms.sourcegitcommit: d81912782a8b0bd164f30a516ad80f8defb5d020
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037422"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72179037"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
 Autorzy [Luke Latham](https://github.com/guardrex) i [Daniel Roth](https://github.com/danroth27)
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 Aplikacje Blazor są kompilowane przy użyciu *składników*programu. Składnik jest niezależnym fragmentem interfejsu użytkownika (UI), takim jak strona, okno dialogowe lub formularz. Składnik zawiera znaczniki HTML i logikę przetwarzania wymagane do iniekcji danych lub reagowania na zdarzenia interfejsu użytkownika. Składniki są elastyczne i lekkie. Mogą być zagnieżdżane, ponownie używane i udostępniane między projektami.
 
@@ -194,30 +194,42 @@ Właściwość `CaptureUnmatchedValues` w `[Parameter]` umożliwia parametrowi d
 
 ## <a name="data-binding"></a>Powiązanie danych
 
-Powiązanie danych zarówno ze składnikami, jak i elementami modelu DOM jest realizowane przy użyciu atrybutu [@bind](xref:mvc/views/razor#bind) . Poniższy przykład tworzy powiązanie pola `_italicsCheck` z zaznaczonym stanem pola wyboru:
+Powiązanie danych zarówno ze składnikami, jak i elementami modelu DOM jest realizowane przy użyciu atrybutu [@bind](xref:mvc/views/razor#bind) . Poniższy przykład wiąże Właściwość `CurrentValue` z wartością pola tekstowego:
 
 ```cshtml
-<input type="checkbox" class="form-check-input" id="italicsCheck" 
-    @bind="_italicsCheck" />
+<input @bind="CurrentValue" />
+
+@code {
+    private string CurrentValue { get; set; }
+}
 ```
 
-Gdy to pole wyboru jest zaznaczone i wyczyszczone, wartość właściwości jest aktualizowana odpowiednio do `true` i `false`.
+Gdy pole tekstowe utraci fokus, wartość właściwości jest aktualizowana.
 
-To pole wyboru jest aktualizowane w interfejsie użytkownika tylko wtedy, gdy składnik jest renderowany, a nie w odpowiedzi na zmianę wartości właściwości. Ze względu na to, że składniki są renderowane po wykonaniu kodu procedury obsługi zdarzeń, aktualizacje właściwości są zwykle odzwierciedlane natychmiast w interfejsie użytkownika.
+Pole tekstowe jest aktualizowane w interfejsie użytkownika tylko wtedy, gdy składnik jest renderowany, a nie w odpowiedzi na zmianę wartości właściwości. Ponieważ składniki renderują się po wykonaniu kodu procedury obsługi zdarzeń, aktualizacje właściwości są *zwykle* odzwierciedlane w interfejsie użytkownika natychmiast po wyzwoleniu programu obsługi zdarzeń.
 
 Używanie `@bind` z właściwością `CurrentValue` (`<input @bind="CurrentValue" />`) jest zasadniczo równoważne z następującymi:
 
 ```cshtml
 <input value="@CurrentValue"
-    @onchange="@((ChangeEventArgs __e) => CurrentValue = __e.Value)" />
+    @onchange="@((ChangeEventArgs __e) => CurrentValue = 
+        __e.Value.ToString())" />
+        
+@code {
+    private string CurrentValue { get; set; }
+}
 ```
 
-Gdy składnik jest renderowany, `value` elementu wejściowego pochodzi z właściwości `CurrentValue`. Gdy użytkownik wpisze w polu tekstowym, zdarzenie `onchange` jest wyzwalane, a właściwość `CurrentValue` jest ustawiona na wartość zmieniona. W rzeczywistości generowanie kodu jest nieco bardziej skomplikowane, ponieważ `@bind` obsługuje kilka przypadków, w których są wykonywane konwersje typów. W zasadzie, `@bind` kojarzy bieżącą wartość wyrażenia z atrybutem `value` i obsługuje zmiany przy użyciu zarejestrowanej procedury obsługi.
+Gdy składnik jest renderowany, `value` elementu wejściowego pochodzi z właściwości `CurrentValue`. Gdy użytkownik wpisze w polu tekstowym i zmieni fokus elementu, zdarzenie `onchange` jest wyzwalane, a właściwość `CurrentValue` jest ustawiona na wartość zmieniona. W rzeczywistości generowanie kodu jest bardziej skomplikowane, ponieważ `@bind` obsługuje przypadki, w których są wykonywane konwersje typów. W zasadzie, `@bind` kojarzy bieżącą wartość wyrażenia z atrybutem `value` i obsługuje zmiany przy użyciu zarejestrowanej procedury obsługi.
 
 Oprócz obsługi zdarzeń `onchange` z składnią `@bind`, właściwość lub pole można powiązać przy użyciu innych zdarzeń, określając atrybut [@bind-value](xref:mvc/views/razor#bind) z `event` parametr ([@bind-value:event](xref:mvc/views/razor#bind)). Poniższy przykład wiąże Właściwość `CurrentValue` dla zdarzenia `oninput`:
 
 ```cshtml
 <input @bind-value="CurrentValue" @bind-value:event="oninput" />
+
+@code {
+    private string CurrentValue { get; set; }
+}
 ```
 
 W przeciwieństwie do `onchange`, która jest wyzwalana, gdy element utraci fokus, `oninput` wyzwalane, gdy wartość pola tekstowego ulegnie zmianie.
@@ -442,14 +454,14 @@ W przypadku niektórych zdarzeń dozwolone są typy argumentów zdarzeń. Jeśli
 
 W poniższej tabeli przedstawiono obsługiwane `EventArgs`.
 
-| Wydarzenie | Klasa |
+| Zdarzenie | Class |
 | ----- | ----- |
 | Schowek        | `ClipboardEventArgs` |
-| Przeciągnij             | `DragEventArgs` &ndash; `DataTransfer` i `DataTransferItem` trzymaj przeciągane dane elementu. |
+| Przeciągnąć             | `DragEventArgs` &ndash; `DataTransfer` i `DataTransferItem` trzymaj przeciągane dane elementu. |
 | Błąd            | `ErrorEventArgs` |
 | Fokus            | `FocusEventArgs` &ndash; nie obejmuje obsługi `relatedTarget`. |
 | Zmiana `<input>` | `ChangeEventArgs` |
-| Klawiatury         | `KeyboardEventArgs` |
+| Klawiatura         | `KeyboardEventArgs` |
 | Wskaźnik            | `MouseEventArgs` |
 | Wskaźnik myszy    | `PointerEventArgs` |
 | Kółko myszy      | `WheelEventArgs` |
@@ -1417,14 +1429,14 @@ builder.AddContent(1, "Second");
 
 Gdy kod jest wykonywany po raz pierwszy, jeśli `someFlag` jest `true`, Konstruktor odbiera:
 
-| Sekwencja | Type      | Data   |
+| Sequence | Typ      | Dane   |
 | :------: | --------- | :----: |
 | 0        | Węzeł tekstu | Pierwszego  |
 | 1        | Węzeł tekstu | Sekunda |
 
 Załóżmy, że `someFlag` zmieni się `false`, a znaczniki są renderowane ponownie. Tym razem Konstruktor odbiera:
 
-| Sekwencja | Type       | Data   |
+| Sequence | Typ       | Dane   |
 | :------: | ---------- | :----: |
 | 1        | Węzeł tekstu  | Sekunda |
 
@@ -1449,14 +1461,14 @@ builder.AddContent(seq++, "Second");
 
 Teraz pierwsze dane wyjściowe to:
 
-| Sekwencja | Type      | Data   |
+| Sequence | Typ      | Dane   |
 | :------: | --------- | :----: |
 | 0        | Węzeł tekstu | Pierwszego  |
 | 1        | Węzeł tekstu | Sekunda |
 
 Ten wynik jest identyczny z poprzednim przypadkiem, dlatego nie istnieją żadne negatywne problemy. `someFlag` jest `false` podczas drugiego renderowania, a dane wyjściowe:
 
-| Sekwencja | Type      | Data   |
+| Sequence | Typ      | Dane   |
 | :------: | --------- | ------ |
 | 0        | Węzeł tekstu | Sekunda |
 
