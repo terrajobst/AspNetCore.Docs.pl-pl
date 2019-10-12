@@ -1,29 +1,29 @@
 ---
-title: Rozwiązywanie problemów z lokalizacji platformy ASP.NET Core
+title: Rozwiązywanie problemów z lokalizacją ASP.NET Core
 author: hishamco
-description: Dowiedz się, jak diagnozować problemy z lokalizacją w aplikacji platformy ASP.NET Core.
+description: Dowiedz się, jak zdiagnozować problemy z lokalizacją w aplikacjach ASP.NET Core.
 ms.author: riande
 ms.date: 01/24/2019
 uid: fundamentals/troubleshoot-aspnet-core-localization
-ms.openlocfilehash: c76732c1a0389818f8f9efae8fe384ca0f9ca308
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 98e06a92af0b6c045095ac803196bf4b1f25e5c5
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087377"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72289010"
 ---
-# <a name="troubleshoot-aspnet-core-localization"></a>Rozwiązywanie problemów z lokalizacji platformy ASP.NET Core
+# <a name="troubleshoot-aspnet-core-localization"></a>Rozwiązywanie problemów z lokalizacją ASP.NET Core
 
-Przez [Ateya Hisham pojemnika](https://github.com/hishamco)
+Według [Hisham bin Ateya](https://github.com/hishamco)
 
-Ten artykuł zawiera instrukcje na temat diagnozowania problemów z lokalizacji aplikacji platformy ASP.NET Core.
+Ten artykuł zawiera instrukcje dotyczące sposobu diagnozowania ASP.NET Core problemów z lokalizacją aplikacji.
 
-## <a name="localization-configuration-issues"></a>Problemy z konfiguracją lokalizacja
+## <a name="localization-configuration-issues"></a>Problemy z konfiguracją lokalizacji
 
 **Kolejność oprogramowania pośredniczącego lokalizacji**  
-Aplikacja nie mogą lokalizować, ponieważ oprogramowanie pośredniczące lokalizacji nie jest określona, zgodnie z oczekiwaniami.
+Aplikacja może nie być zlokalizowana, ponieważ oprogramowanie pośredniczące nie jest uporządkowane zgodnie z oczekiwaniami.
 
-Aby rozwiązać ten problem, upewnij się, że oprogramowanie pośredniczące tej lokalizacji jest zarejestrowana przed MVC oprogramowania pośredniczącego. W przeciwnym razie oprogramowania pośredniczącego lokalizacji nie jest stosowane.
+Aby rozwiązać ten problem, upewnij się, że oprogramowanie pośredniczące do lokalizowania jest zarejestrowane przed oprogramowaniem pośredniczącym MVC. W przeciwnym razie nie zostanie zastosowane oprogramowanie pośredniczące lokalizacji.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -34,47 +34,48 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-**Nie można odnaleźć ścieżki zasobów w lokalizacji**
+**Nie znaleziono ścieżki zasobów lokalizacji**
 
-**Obsługiwanych kultur w RequestCultureProvider nie jest zgodny z zarejestrowani**  
+**Obsługiwane kultury w RequestCultureProvider nie pasują do zarejestrowanego wystąpienia**  
 
-## <a name="resource-file-naming-issues"></a>Zagadnienia dotyczące nazewnictwa plików zasobów
+## <a name="resource-file-naming-issues"></a>Problemy z nazewnictwem plików zasobów
 
-Platforma ASP.NET Core ma wstępnie zdefiniowane zasady i wytyczne dotyczące lokalizacji nazywania plików zasobów, które zostały szczegółowo opisane w [tutaj](xref:fundamentals/localization?view=aspnetcore-2.2#resource-file-naming).
+ASP.NET Core ma wstępnie zdefiniowane reguły i wskazówki dotyczące nazewnictwa plików zasobów lokalizacyjnych, które opisano szczegółowo w [tym miejscu](xref:fundamentals/localization?view=aspnetcore-2.2#resource-file-naming).
 
-## <a name="missing-resources"></a>Brak zasobów
+## <a name="missing-resources"></a>Brakujące zasoby
 
-Typowe przyczyny nie odnaleziono zasobów:
+Typowe przyczyny nieznalezienia zasobów obejmują:
 
-- Nazwy zasobów jest błędnie wpisana w jednym `resx` plik lub żądanie lokalizatorowi.
-- Brakuje zasobu `resx` w przypadku niektórych języków, ale istnieje w innym.
-- Jeśli nadal występują problemy, sprawdź komunikaty dziennika lokalizacji (które znajdują się na `Debug` poziom dziennika) Aby uzyskać więcej informacji o brakujących zasobów.
+- Nazwy zasobów są błędne w pliku `resx` lub w żądaniu lokalizatora.
+- Brak zasobu w `resx` dla niektórych języków, ale istnieje w innych.
+- Jeśli nadal występują problemy, sprawdź komunikaty dziennika lokalizacji (które znajdują się na poziomie dziennika `Debug`), aby uzyskać więcej informacji na temat brakujących zasobów.
 
-_**Wskazówka:** Korzystając z `CookieRequestCultureProvider`, sprawdź apostrofy nie są używane przy użyciu kultur wewnątrz lokalizacji wartość pliku cookie. Na przykład `c='en-UK'|uic='en-US'` jest nieprawidłowa wartość pliku cookie, podczas gdy `c=en-UK|uic=en-US` jest prawidłowy._
+_**Wskazówka:** W przypadku korzystania z `CookieRequestCultureProvider` Sprawdź, czy pojedyncze cudzysłowy nie są używane z kulturami wewnątrz wartości pliku cookie lokalizacji. Na przykład `c='en-UK'|uic='en-US'` jest nieprawidłową wartością cookie, podczas gdy `c=en-UK|uic=en-US` jest prawidłowy._
 
-## <a name="resources--class-libraries-issues"></a>Problemy z zasobami i bibliotek klas
+## <a name="resources--class-libraries-issues"></a>Zasoby & problemy z bibliotekami klas
 
-Platforma ASP.NET Core domyślnie zapewnia sposób umożliwić bibliotek klas znaleźć ich pliki zasobów za pomocą [ResourceLocationAttribute](/dotnet/api/microsoft.extensions.localization.resourcelocationattribute?view=aspnetcore-2.1).
+ASP.NET Core domyślnie oferuje sposób zezwalania bibliotekom klas na Znajdowanie plików zasobów za pośrednictwem [ResourceLocationAttribute](/dotnet/api/microsoft.extensions.localization.resourcelocationattribute?view=aspnetcore-2.1).
 
-Typowe problemy z biblioteki klas obejmują:
-- Brak `ResourceLocationAttribute` w klasie uniemożliwi biblioteki `ResourceManagerStringLocalizerFactory` od odnajdowania zasobów.
-- Nazywanie pliku zasobów. Aby uzyskać więcej informacji, zobacz [nazewnictwa problemy pliku zasobów](#resource-file-naming-issues) sekcji.
-- Zmiana główna przestrzeń nazw biblioteki klas. Aby uzyskać więcej informacji, zobacz [wystawia głównego Namespace](#root-namespace-issues) sekcji.
+Typowe problemy związane z bibliotekami klas obejmują:
+- Brak `ResourceLocationAttribute` w bibliotece klas uniemożliwi odnajdywanie zasobów przez `ResourceManagerStringLocalizerFactory`.
+- Nazewnictwo plików zasobów. Aby uzyskać więcej informacji, zobacz sekcję [problemy związane z nazewnictwem plików zasobów](#resource-file-naming-issues) .
+- Zmiana głównej przestrzeni nazw biblioteki klas. Aby uzyskać więcej informacji, zobacz sekcję [problemy dotyczące głównej przestrzeni nazw](#root-namespace-issues) .
 
 ## <a name="customrequestcultureprovider-doesnt-work-as-expected"></a>CustomRequestCultureProvider nie działa zgodnie z oczekiwaniami
 
-`RequestLocalizationOptions` Klasa ma trzy domyślnych dostawców:
+Klasa `RequestLocalizationOptions` ma trzech dostawców domyślnych:
 
 1. `QueryStringRequestCultureProvider`
 2. `CookieRequestCultureProvider`
 3. `AcceptLanguageHeaderRequestCultureProvider`
 
-[CustomRequestCultureProvider](/dotnet/api/microsoft.aspnetcore.localization.customrequestcultureprovider?view=aspnetcore-2.1) pozwala dostosować sposób kulturę lokalizacji znajduje się w aplikacji. `CustomRequestCultureProvider` Jest używany podczas domyślnych dostawców nie spełniają Twoich wymagań.
+[CustomRequestCultureProvider](/dotnet/api/microsoft.aspnetcore.localization.customrequestcultureprovider?view=aspnetcore-2.1) umożliwia dostosowanie sposobu, w jaki kultura lokalizacji jest udostępniana w aplikacji. @No__t-0 jest używany, gdy domyślny dostawca nie spełnia wymagań.
 
-- Typową przyczyną niestandardowego dostawcy nie działają prawidłowo jest, że nie jest pierwszym dostawcą usług w `RequestCultureProviders` listy. Aby rozwiązać ten problem:
+- Typowy powód niestandardowego dostawcy nie działa prawidłowo, ponieważ nie jest to pierwszy dostawca na liście `RequestCultureProviders`. Aby rozwiązać ten problem:
 
-- Wstawianie niestandardowego dostawcy na pozycji 0 w `RequestCultureProviders` listy zgodnie z poniższymi:
+- Wstaw dostawcę niestandardowego na pozycji 0 na liście `RequestCultureProviders` w następujący sposób:
 
+::: moniker range="< aspnetcore-3.0"
 ```csharp
 options.RequestCultureProviders.Insert(0, new CustomRequestCultureProvider(async context =>
     {
@@ -82,13 +83,24 @@ options.RequestCultureProviders.Insert(0, new CustomRequestCultureProvider(async
         return new ProviderCultureResult("en");
     }));
 ```
+::: moniker-end
 
-- Użyj `AddInitialRequestCultureProvider` metodę rozszerzenia, aby ustawić niestandardowego dostawcy jako początkowej dostawcy.
+::: moniker range=">= aspnetcore-3.0"
+```csharp
+options.AddInitialRequestCultureProvider(new CustomRequestCultureProvider(async context =>
+    {
+        // My custom request culture logic
+        return new ProviderCultureResult("en");
+    }));
+```
+::: moniker-end
 
-## <a name="root-namespace-issues"></a>Namespace głównych problemów
+- Użyj metody rozszerzenia `AddInitialRequestCultureProvider`, aby ustawić dostawcę niestandardowego jako dostawcę początkowego.
 
-Gdy główna przestrzeń nazw zestawu jest inna niż nazwa zestawu, lokalizacja nie działa domyślnie. Aby uniknąć tego problemu użyj [RootNamespace](/dotnet/api/microsoft.extensions.localization.rootnamespaceattribute?view=aspnetcore-2.1), który został szczegółowo opisany w [tutaj](xref:fundamentals/localization?view=aspnetcore-2.2#resource-file-naming)
+## <a name="root-namespace-issues"></a>Problemy z główną przestrzenią nazw
+
+Gdy główna przestrzeń nazw zestawu różni się od nazwy zestawu, lokalizacja nie działa domyślnie. Aby uniknąć tego problemu, użyj [RootNamespace](/dotnet/api/microsoft.extensions.localization.rootnamespaceattribute?view=aspnetcore-2.1), który jest szczegółowo opisany [tutaj](xref:fundamentals/localization?view=aspnetcore-2.2#resource-file-naming)
 
 ## <a name="resources--build-action"></a>Akcja kompilacji & zasobów
 
-Jeśli używasz plików zasobów do lokalizacji, ważne jest, do których mają odpowiednie działania. Powinny one być **zasób osadzony**, w przeciwnym razie `ResourceStringLocalizer` nie będzie mógł odnaleźć te zasoby.
+W przypadku używania plików zasobów do lokalizacji należy pamiętać, że mają one odpowiednią akcję kompilacji. Powinny to być **zasoby osadzone**, w przeciwnym razie `ResourceStringLocalizer` nie jest w stanie znaleźć tych zasobów.

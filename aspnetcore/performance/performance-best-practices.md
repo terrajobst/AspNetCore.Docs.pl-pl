@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/26/2019
 uid: performance/performance-best-practices
-ms.openlocfilehash: a2952f5234cdef7f749a1af8dd4adcb887290629
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 3484a0233a0d56811235192c4b64aa9296e72b58
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259776"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72289071"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core najlepszych rozwiązań dotyczących wydajności
 
@@ -179,10 +179,7 @@ Powyższy kod asynchronicznie odczytuje całą treść żądania HTTP do pamięc
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/MyFirstController.cs?name=snippet3)]
 
-Powyższy kod asynchronicznie odczytuje całą treść żądania HTTP do pamięci.
-
-> [!WARNING]
-> Jeśli żądanie jest duże, odczytywanie całej treści żądania HTTP do pamięci może prowadzić do niewystarczającej ilości pamięci (OOM). OOM może spowodować odmowę usługi.  Aby uzyskać więcej informacji, zobacz [unikanie odczytywania dużych treści żądań lub treści odpowiedzi do pamięci](#arlb) w tym dokumencie.
+Poprzedni kod asynchronicznie deserializacji treści żądania do C# obiektu.
 
 ## <a name="prefer-readformasync-over-requestform"></a>Preferuj ReadFormAsync przez żądanie. formularz
 
@@ -267,7 +264,7 @@ Poprzedni kod często przechwytuje wartość null lub nieprawidłowy `HttpContex
 
 wartość `HttpContext` jest prawidłowa tylko pod warunkiem, że w potoku ASP.NET Core istnieje aktywne żądanie HTTP. Cały potok ASP.NET Core jest asynchronicznym łańcuchem delegatów, które wykonują każde żądanie. Po zakończeniu `Task` z tego łańcucha `HttpContext` jest odtwarzany ponownie.
 
-**Nie wykonuj tej czynności:** W poniższym przykładzie zastosowano `async void`:
+**Nie wykonuj tej czynności:** Poniższy przykład używa `async void`, co sprawia, że żądanie HTTP kończy się po osiągnięciu pierwszego `await`:
 
 * Jest to **zawsze** złe rozwiązanie w aplikacjach ASP.NET Core.
 * Uzyskuje dostęp do `HttpResponse` po zakończeniu żądania HTTP.

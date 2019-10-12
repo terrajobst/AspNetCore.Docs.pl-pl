@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/25/2019
 uid: blazor/get-started
-ms.openlocfilehash: 5aec91eff7de0732a47fec1aafa5e094c89c37a4
-ms.sourcegitcommit: 14b25156e34c82ed0495b4aff5776ac5b1950b5e
+ms.openlocfilehash: ef9113dbfdbbd5920c4358cdac0c77c60f40b7c8
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71295434"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72288801"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>Wprowadzenie do ASP.NET Core Blazor
 
@@ -34,15 +34,15 @@ Rozpocznij pracę z usługą Blazor:
 
    # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-   1\. Zainstaluj najnowszą wersję [programu Visual Studio](https://visualstudio.com/vs/) , korzystając z obciążeń **ASP.NET i Web Development** .
+   1 \. Zainstaluj najnowszą wersję [programu Visual Studio](https://visualstudio.com/vs/) , korzystając z obciążeń **ASP.NET i Web Development** .
 
-   2\. Utwórz nowy projekt.
+   2 \. Tworzenie nowego projektu.
 
    3 \. Wybierz pozycję **aplikacja Blazor**. Wybierz opcję **Dalej**.
 
-   4\. Podaj nazwę projektu w polu **Nazwa projektu** lub zaakceptuj nazwę domyślną projektu. Potwierdź, że wpis **lokalizacji** jest poprawny lub podaj lokalizację dla projektu. Wybierz pozycję **Utwórz**.
+   4 \. Podaj nazwę projektu w polu **Nazwa projektu** lub zaakceptuj nazwę domyślną projektu. Potwierdź, że wpis **lokalizacji** jest poprawny lub podaj lokalizację dla projektu. Wybierz pozycję **Utwórz**.
 
-   5 \. Aby zapoznać się z Blazor webassembly, wybierz szablon **aplikacji Blazor webassembly** . Dla środowiska serwera Blazor wybierz szablon **aplikacji Blazor Server** . Wybierz pozycję **Utwórz**. Aby uzyskać informacje na temat dwóch modeli hostingu Blazor, *Blazor Server* i *Blazor webassembly*, <xref:blazor/hosting-models>Zobacz.
+   5 \. Aby zapoznać się z Blazor webassembly, wybierz szablon **aplikacji Blazor webassembly** . Dla środowiska serwera Blazor wybierz szablon **aplikacji Blazor Server** . Wybierz pozycję **Utwórz**. Aby uzyskać informacje na temat dwóch modeli hostingu Blazor, *Blazor Server* i *Blazor webassembly*, zobacz <xref:blazor/hosting-models>.
 
    6 \. Naciśnij klawisz **F5** , aby uruchomić aplikację.
 
@@ -51,9 +51,9 @@ Rozpocznij pracę z usługą Blazor:
 
    # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-   1\. Zainstaluj [Visual Studio Code](https://code.visualstudio.com/).
+   1 \. Zainstaluj narzędzie [Visual Studio Code](https://code.visualstudio.com/).
 
-   2\. Zainstaluj najnowsze [ C# rozszerzenie programu Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+   2 \. Zainstaluj najnowsze [ C# rozszerzenie programu Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
    3 \. W przypadku środowiska webassembly Blazor wykonaj następujące polecenie w powłoce poleceń:
 
@@ -67,9 +67,9 @@ Rozpocznij pracę z usługą Blazor:
       dotnet new blazorserver -o WebApplication1
       ```
 
-      Aby uzyskać informacje na temat dwóch modeli hostingu Blazor, *Blazor Server* i *Blazor webassembly*, <xref:blazor/hosting-models>Zobacz.
+      Aby uzyskać informacje na temat dwóch modeli hostingu Blazor, *Blazor Server* i *Blazor webassembly*, zobacz <xref:blazor/hosting-models>.
 
-   4\. Otwórz folder *WebApplication1* w Visual Studio Code.
+   4 \. Otwórz folder *WebApplication1* w Visual Studio Code.
 
    5 \. W przypadku projektu serwera Blazor, IDE żąda dodania zasobów do kompilowania i debugowania projektu. Wybierz pozycję **tak**.
 
@@ -97,7 +97,7 @@ Rozpocznij pracę z usługą Blazor:
 
    -->
 
-   # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
+   # <a name="net-core-clitabnetcore-cli"></a>[interfejs wiersza polecenia platformy .NET Core](#tab/netcore-cli/)
 
    W przypadku środowiska webassembly Blazor wykonaj następujące polecenia w powłoce poleceń:
 
@@ -115,7 +115,7 @@ Rozpocznij pracę z usługą Blazor:
    dotnet run
    ```
 
-   Aby uzyskać informacje na temat dwóch modeli hostingu Blazor, *Blazor Server* i *Blazor webassembly*, <xref:blazor/hosting-models>Zobacz.
+   Aby uzyskać informacje na temat dwóch modeli hostingu Blazor, *Blazor Server* i *Blazor webassembly*, zobacz <xref:blazor/hosting-models>.
 
    W przeglądarce przejdź do `https://localhost:5001`.
 
@@ -123,56 +123,56 @@ Rozpocznij pracę z usługą Blazor:
 
 Na pasku bocznym są dostępne wiele stron:
 
-* Home
-* Licznik
+* Strona główna
+* Przeciw
 * Pobieranie danych
 
-Na stronie licznik wybierz przycisk **kliknij** , aby zwiększyć licznik bez odświeżania strony. Zwiększenie licznika na stronie sieci Web zwykle wymaga pisania kodu JavaScript, ale składniki Razor zapewniają lepsze podejście przy użyciu C#.
+Na stronie licznik wybierz przycisk **kliknij** , aby zwiększyć licznik bez odświeżania strony. Zwiększenie licznika na stronie sieci Web zwykle wymaga pisania kodu JavaScript, ale z Blazor można użyć C#.
 
 *Pages/Counter. Razor*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Counter1.razor?highlight=7,12-15)]
 
-Żądanie `/counter` w przeglądarce, zgodnie z definicją `@page` w dyrektywie u góry, powoduje, że `Counter` składnik renderuje jego zawartość. Składniki są renderowane w postaci reprezentacji drzewa renderowania, która może być następnie używana do aktualizowania interfejsu użytkownika w elastyczny i wydajny sposób.
+Żądanie `/counter` w przeglądarce, zgodnie z definicją w dyrektywie `@page` u góry, powoduje, że składnik `Counter` będzie renderować jego zawartość. Składniki są renderowane w postaci reprezentacji drzewa renderowania, która może być następnie używana do aktualizowania interfejsu użytkownika w elastyczny i wydajny sposób.
 
 Za każdym razem, gdy zostanie wybrany przycisk **kliknij mnie** :
 
-* `onclick` Zdarzenie jest wyzwalane.
-* `IncrementCount` Metoda jest wywoływana.
-* Wartość `currentCount` jest zwiększana.
+* Zdarzenie `onclick` jest wyzwalane.
+* Metoda `IncrementCount` jest wywoływana.
+* @No__t-0 jest zwiększana.
 * Składnik jest ponownie renderowany.
 
 Środowisko uruchomieniowe porównuje nową zawartość z poprzednią zawartością i stosuje tylko zmienioną zawartość do Document Object Model (DOM).
 
-Dodaj składnik do innego składnika przy użyciu składni języka HTML. Na przykład Dodaj `Counter` składnik do strony głównej aplikacji przez `<Counter />` dodanie elementu do `Index` składnika.
+Dodaj składnik do innego składnika przy użyciu składni języka HTML. Na przykład Dodaj składnik `Counter` do strony głównej aplikacji, dodając element `<Counter />` do składnika `Index`.
 
 *Pages/index. Razor*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Index1.razor?highlight=7)]
 
-Uruchom aplikację. Strona główna ma swój własny licznik dostarczony przez `Counter` składnik.
+Uruchom aplikację. Strona główna ma swój własny licznik dostarczony przez składnik `Counter`.
 
-Parametry składnika są określone przy użyciu atrybutów lub [zawartości podrzędnej](xref:blazor/components#child-content), które umożliwiają ustawianie właściwości składnika podrzędnego. Aby dodać parametr do `Counter` składnika, zaktualizuj `@code` blok składnika:
+Parametry składnika są określone przy użyciu atrybutów lub [zawartości podrzędnej](xref:blazor/components#child-content), które umożliwiają ustawianie właściwości składnika podrzędnego. Aby dodać parametr do składnika `Counter`, zaktualizuj blok `@code` składnika:
 
-* Dodaj właściwość publiczną dla `IncrementAmount` `[Parameter]` atrybutu.
-* Zmień metodę, aby `IncrementAmount` użyć `currentCount`podczas zwiększania wartości. `IncrementCount`
+* Dodaj publiczną właściwość dla `IncrementAmount` z atrybutem `[Parameter]`.
+* Zmień metodę `IncrementCount`, aby użyć `IncrementAmount` podczas zwiększania wartości `currentCount`.
 
 *Pages/Counter. Razor*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Counter2.razor?highlight=12-13,17)]
 
-`<Counter>` Określ element `IncrementAmount` w elemencie `Index` składnika przy użyciu atrybutu.
+Określ `IncrementAmount` w elemencie `<Counter>` składnika `Index` przy użyciu atrybutu.
 
 *Pages/index. Razor*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Index2.razor?highlight=7)]
 
-Uruchom aplikację. Składnik ma swój własny licznik, który zwiększa się o dziesięć za każdym razem, gdy jest zaznaczony przycisk **kliknij mnie.** `Index` Składnik (*Counter. Razor*) w `/counter` dalszym ciągu zwiększa się o jeden. `Counter`
+Uruchom aplikację. Składnik `Index` ma swój własny licznik, który zwiększa się o dziesięć za każdym razem, gdy jest zaznaczony przycisk **kliknij mnie** . Składnik `Counter` (*Counter. Razor*) w `/counter` kontynuuje zwiększanie o jeden.
 
 ## <a name="next-steps"></a>Następne kroki
 
 <xref:tutorials/first-blazor-app>
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * <xref:signalr/introduction>

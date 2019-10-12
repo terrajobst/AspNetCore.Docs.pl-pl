@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/08/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: a5bdbc3ce75f5897c9cd67fe18897281bf2fb57b
-ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
+ms.openlocfilehash: a610c42d75864259b609e11b8bf0776c5ab8e507
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037571"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72288851"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Obsługa błędów w ASP.NET Core
 
@@ -20,7 +20,7 @@ Autorzy [Dykstra](https://github.com/tdykstra/), [Luke Latham](https://github.co
 
 W tym artykule opisano typowe podejścia do obsługi błędów w aplikacjach ASP.NET Core.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples). ([Jak pobrać](xref:index#how-to-download-a-sample)) Artykuł zawiera instrukcje dotyczące sposobu ustawiania dyrektyw preprocesora (`#if`, `#endif`, `#define`) w przykładowej aplikacji, aby umożliwić korzystanie z różnych scenariuszy.
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples). ([Jak pobrać](xref:index#how-to-download-a-sample)) Artykuł zawiera instrukcje dotyczące sposobu ustawiania dyrektyw preprocesora (`#if`, `#endif`, `#define`) w przykładowej aplikacji, aby umożliwić korzystanie z różnych scenariuszy.
 
 ## <a name="developer-exception-page"></a>Strona wyjątków dla deweloperów
 
@@ -38,7 +38,7 @@ Na stronie znajdują się następujące informacje o wyjątku i żądaniu:
 * Ślad stosu
 * Parametry ciągu zapytania (jeśli istnieją)
 * Pliki cookie (jeśli istnieją)
-* Nagłówka
+* Nagłówki
 
 Aby wyświetlić stronę wyjątku dla deweloperów w [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), użyj dyrektywy preprocesora `DevEnvironment` i wybierz pozycję **Wyzwól wyjątek** na stronie głównej.
 
@@ -122,7 +122,7 @@ Aby określić niestandardową obsługę błędów i kod do pisania, Użyj przec
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesLambda)]
 
-## <a name="usestatuscodepageswithredirect"></a>UseStatusCodePagesWithRedirect
+## <a name="usestatuscodepageswithredirects"></a>UseStatusCodePagesWithRedirects
 
 Metoda rozszerzenia <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithRedirects*>:
 
@@ -230,7 +230,7 @@ W aplikacjach MVC filtry wyjątków można konfigurować globalnie lub na podsta
 
 Aby uzyskać informacje o sposobie obsługi błędów stanu modelu, zobacz [powiązanie modelu](xref:mvc/models/model-binding) i [Walidacja modelu](xref:mvc/models/validation).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * <xref:test/troubleshoot-azure-iis>
 * <xref:host-and-deploy/azure-iis-errors-reference>

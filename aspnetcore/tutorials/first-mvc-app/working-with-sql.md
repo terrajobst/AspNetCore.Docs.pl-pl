@@ -5,24 +5,24 @@ description: Dowiedz się więcej o używaniu SQL Server LocalDB lub oprogramowa
 ms.author: riande
 ms.date: 8/16/2019
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: cb356bca50540d7c471cf625a26bfe2dd155b627
-ms.sourcegitcommit: 3ffcd8cbff8b49128733842f72270bc58279de70
+ms.openlocfilehash: de392f4220cf0182d02a20f387164d2f4b184b58
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955919"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72289077"
 ---
 # <a name="work-with-sql-in-aspnet-core"></a>Współpraca z SQL w ASP.NET Core
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Obiekt `MvcMovieContext` obsługuje zadanie łączenia się z bazą danych i mapowania obiektów `Movie` do rekordów bazy danych. Kontekst bazy danych jest zarejestrowany z kontenerem [iniekcji zależności](xref:fundamentals/dependency-injection) w metodzie `ConfigureServices` w pliku *Startup.cs* :
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_ConfigureServices&highlight=6-7)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_ConfigureServices&highlight=5-6)]
 
 System [konfiguracji](xref:fundamentals/configuration/index) ASP.NET Core odczytuje `ConnectionString`. W przypadku lokalnego projektowania pobiera parametry połączenia z pliku *appSettings. JSON* :
 
@@ -30,7 +30,7 @@ System [konfiguracji](xref:fundamentals/configuration/index) ASP.NET Core odczyt
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_UseSqlite&highlight=6-7)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_UseSqlite&highlight=5-6)]
 
 System [konfiguracji](xref:fundamentals/configuration/index) ASP.NET Core odczytuje `ConnectionString`. W przypadku lokalnego projektowania pobiera parametry połączenia z pliku *appSettings. JSON* :
 
@@ -44,7 +44,7 @@ Gdy aplikacja jest wdrażana na serwerze testowym lub produkcyjnym, zmienna śro
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-LocalDB to uproszczona wersja aparatu bazy danych SQL Server Express, która jest przeznaczona do tworzenia programów. LocalDB rozpoczyna się na żądanie i działa w trybie użytkownika, więc nie ma żadnych złożonej konfiguracji. Domyślnie baza danych LocalDB tworzy pliki *MDF* w katalogu *C:/Users/{User}* .
+LocalDB to uproszczona wersja aparatu bazy danych SQL Server Express, która jest przeznaczona do tworzenia programów. LocalDB uruchamia się na żądanie i działa w trybie użytkownika, więc nie istnieje złożona konfiguracja. Domyślnie baza danych LocalDB tworzy pliki *MDF* w katalogu *C:/Users/{User}* .
 
 * Z menu **Widok** Otwórz **Eksplorator obiektów SQL Server** (SSOX).
 
@@ -72,11 +72,11 @@ Zwróć uwagę na ikonę klucza obok `ID`. Domyślnie, EF wprowadzi właściwoś
 ---
 <!-- End of VS tabs -->
 
-## <a name="seed-the-database"></a>Inicjowanie bazy danych
+## <a name="seed-the-database"></a>Wypełnianie bazy danych
 
 Utwórz nową klasę o nazwie `SeedData` w folderze *modele* . Zastąp wygenerowany kod następującym:
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Models/SeedData.cs?name=snippet_1)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Models/SeedData.cs?name=snippet_1)]
 
 Jeśli w bazie danych znajdują się jakiekolwiek filmy, inicjatora inicjatora zwraca i nie dodano żadnych filmów.
 
@@ -123,12 +123,12 @@ Aplikacja pokazuje dane z rozrzutu.
 
 > [!div class="step-by-step"]
 > [Poprzedni](adding-model.md)
-> [Następny](controller-methods-views.md)
+> [dalej](controller-methods-views.md)
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Obiekt `MvcMovieContext` obsługuje zadanie łączenia się z bazą danych i mapowania obiektów `Movie` do rekordów bazy danych. Kontekst bazy danych jest zarejestrowany z kontenerem [iniekcji zależności](xref:fundamentals/dependency-injection) w metodzie `ConfigureServices` w pliku *Startup.cs* :
 
@@ -156,7 +156,7 @@ Podczas wdrażania aplikacji na serwerze testowym lub produkcyjnym można użyć
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-LocalDB to uproszczona wersja aparatu bazy danych SQL Server Express, która jest przeznaczona do tworzenia programów. LocalDB rozpoczyna się na żądanie i działa w trybie użytkownika, więc nie ma żadnych złożonej konfiguracji. Domyślnie baza danych LocalDB tworzy pliki *MDF* w katalogu *C:/Users/{User}* .
+LocalDB to uproszczona wersja aparatu bazy danych SQL Server Express, która jest przeznaczona do tworzenia programów. LocalDB uruchamia się na żądanie i działa w trybie użytkownika, więc nie istnieje złożona konfiguracja. Domyślnie baza danych LocalDB tworzy pliki *MDF* w katalogu *C:/Users/{User}* .
 
 * Z menu **Widok** Otwórz **Eksplorator obiektów SQL Server** (SSOX).
 
@@ -184,7 +184,7 @@ Zwróć uwagę na ikonę klucza obok `ID`. Domyślnie, EF wprowadzi właściwoś
 ---
 <!-- End of VS tabs -->
 
-## <a name="seed-the-database"></a>Inicjowanie bazy danych
+## <a name="seed-the-database"></a>Wypełnianie bazy danych
 
 Utwórz nową klasę o nazwie `SeedData` w folderze *modele* . Zastąp wygenerowany kod następującym:
 
@@ -235,6 +235,6 @@ Aplikacja pokazuje dane z rozrzutu.
 
 > [!div class="step-by-step"]
 > [Poprzedni](adding-model.md)
-> [Następny](controller-methods-views.md)
+> [dalej](controller-methods-views.md)
 
 ::: moniker-end

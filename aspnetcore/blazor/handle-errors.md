@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/23/2019
 uid: blazor/handle-errors
-ms.openlocfilehash: de0a2f74df84f41581ac93dbeec7a5c5e90c6fa2
-ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
+ms.openlocfilehash: fb4c7cacfe8be2417d6009cfc722595d0d91d530
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71207191"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72288836"
 ---
 # <a name="handle-errors-in-aspnet-core-blazor-apps"></a>Obsługa błędów w aplikacjach ASP.NET Core Blazor
 
@@ -29,7 +29,7 @@ Serwer Blazor jest strukturą stanową. Gdy użytkownicy współpracują z aplik
 
 Jeśli użytkownik otworzy aplikację na wielu kartach przeglądarki, mają one wiele niezależnych obwodów.
 
-Blazor traktuje większość nieobsłużonych wyjątków jako krytyczne do obwodu, w którym występują. Jeśli obwód zostanie przerwany z powodu nieobsługiwanego wyjątku, użytkownik może nadal korzystać z aplikacji tylko przez ponowne załadowanie strony w celu utworzenia nowego obwodu. Nie ma to wpływu na obwody, które zostały przerwane, które są obwody dla innych użytkowników lub kart przeglądarki. Ten scenariusz jest podobny do aplikacji klasycznej,&mdash;w której awaria aplikacji musi zostać uruchomiona ponownie, ale nie ma to wpływu na inne aplikacje.
+Blazor traktuje większość nieobsłużonych wyjątków jako krytyczne do obwodu, w którym występują. Jeśli obwód zostanie przerwany z powodu nieobsługiwanego wyjątku, użytkownik może nadal korzystać z aplikacji tylko przez ponowne załadowanie strony w celu utworzenia nowego obwodu. Nie ma to wpływu na obwody, które zostały przerwane, które są obwody dla innych użytkowników lub kart przeglądarki. Ten scenariusz jest podobny do aplikacji klasycznej, która uległa awarii @ no__t-0the, należy ponownie uruchomić aplikację, ale nie ma to wpływu na inne aplikacje.
 
 Obwód jest zakończony, gdy wystąpił nieobsługiwany wyjątek z następujących powodów:
 
@@ -48,11 +48,11 @@ W środowisku produkcyjnym nie Renderuj komunikatów wyjątków struktury ani ś
 
 ## <a name="log-errors-with-a-persistent-provider"></a>Rejestrowanie błędów przez dostawcę trwałego
 
-Jeśli wystąpi nieobsługiwany wyjątek, wyjątek jest rejestrowany <xref:Microsoft.Extensions.Logging.ILogger> w wystąpieniach skonfigurowanych w kontenerze usługi. Domyślnie aplikacje Blazor logują się do danych wyjściowych konsoli za pomocą dostawcy rejestrowania konsoli. Należy rozważyć logowanie do bardziej trwałej lokalizacji z dostawcą, który zarządza rozmiarem dziennika i rotacją dzienników. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/logging/index>.
+Jeśli wystąpi nieobsługiwany wyjątek, wyjątek jest rejestrowany w przypadku wystąpień <xref:Microsoft.Extensions.Logging.ILogger> skonfigurowanych w kontenerze usługi. Domyślnie aplikacje Blazor logują się do danych wyjściowych konsoli za pomocą dostawcy rejestrowania konsoli. Należy rozważyć logowanie do bardziej trwałej lokalizacji z dostawcą, który zarządza rozmiarem dziennika i rotacją dzienników. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/logging/index>.
 
 Podczas opracowywania Blazor zazwyczaj wszystkie szczegóły wyjątków do konsoli przeglądarki, aby pomóc w debugowaniu. W środowisku produkcyjnym szczegółowe błędy w konsoli przeglądarki są domyślnie wyłączone, co oznacza, że błędy nie są wysyłane do klientów, ale wszystkie szczegóły wyjątku nadal są rejestrowane po stronie serwera. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/error-handling>.
 
-Należy zdecydować, które zdarzenia mają być rejestrowane, oraz poziom ważności zarejestrowanych zdarzeń. Nieszkodliwi użytkownicy mogą być w stanie wyzwolić błędy w sposób celowy. Na przykład nie należy rejestrować zdarzenia z błędu, gdy `ProductId` w adresie URL składnika, który zawiera szczegółowe informacje o produkcie. Nie wszystkie błędy powinny być traktowane jako zdarzenia o wysokiej ważności do rejestrowania.
+Należy zdecydować, które zdarzenia mają być rejestrowane, oraz poziom ważności zarejestrowanych zdarzeń. Nieszkodliwi użytkownicy mogą być w stanie wyzwolić błędy w sposób celowy. Na przykład nie należy rejestrować zdarzenia z błędu, gdzie w adresie URL składnika, który wyświetla szczegóły produktu, jest podano nieznanego `ProductId`. Nie wszystkie błędy powinny być traktowane jako zdarzenia o wysokiej ważności do rejestrowania.
 
 ## <a name="places-where-errors-may-occur"></a>Miejsca, w których mogą wystąpić błędy
 
@@ -75,9 +75,9 @@ Poprzednie Nieobsłużone wyjątki zostały opisane w poniższych sekcjach tego 
 Gdy Blazor tworzy wystąpienie składnika:
 
 * Konstruktor składnika jest wywoływany.
-* Są wywoływane konstruktory wszelkich niepojedynczych usług di dostarczonych do konstruktora składnika za pośrednictwem [@inject](xref:blazor/dependency-injection#request-a-service-in-a-component) dyrektywy lub atrybutu [[wstrzyknięcie]](xref:blazor/dependency-injection#request-a-service-in-a-component) . 
+* Konstruktory wszelkich niepojedynczych usług DI dostarczonych do konstruktora składnika za pośrednictwem dyrektywy [@inject](xref:blazor/dependency-injection#request-a-service-in-a-component) lub atrybutu [[wstrzyknięcie]](xref:blazor/dependency-injection#request-a-service-in-a-component) są wywoływane. 
 
-Obwód kończy się niepowodzeniem, gdy dowolny wykonany Konstruktor lub setter `[Inject]` dla każdej właściwości zgłasza nieobsługiwany wyjątek. Wyjątek jest krytyczny, ponieważ struktura nie może utworzyć wystąpienia składnika. Jeśli logika konstruktora może generować wyjątki, aplikacja powinna zalewkować wyjątki przy użyciu instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem.
+Obwód kończy się niepowodzeniem, gdy dowolny wykonany Konstruktor lub setter dla dowolnej właściwości `[Inject]` zgłasza nieobsługiwany wyjątek. Wyjątek jest krytyczny, ponieważ struktura nie może utworzyć wystąpienia składnika. Jeśli logika konstruktora może generować wyjątki, aplikacja powinna zalewkować wyjątki przy użyciu instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem.
 
 ### <a name="lifecycle-methods"></a>Metody cyklu życia
 
@@ -92,32 +92,32 @@ Jeśli jakakolwiek metoda cyklu życia zgłasza wyjątek, synchronicznie lub asy
 
 W poniższym przykładzie, gdzie `OnParametersSetAsync` wywołuje metodę w celu uzyskania produktu:
 
-* Wyjątek zgłoszony w `ProductRepository.GetProductByIdAsync` metodzie jest obsługiwany `try-catch` przez instrukcję.
-* `catch` Gdy blok jest wykonywany:
-  * `loadFailed`jest ustawiona na `true`, która jest używana do wyświetlania komunikatu o błędzie dla użytkownika.
+* Wyjątek zgłoszony w metodzie `ProductRepository.GetProductByIdAsync` jest obsługiwany przez instrukcję `try-catch`.
+* Gdy jest wykonywany blok `catch`:
+  * `loadFailed` jest ustawiona na `true`, który jest używany do wyświetlania komunikatu o błędzie dla użytkownika.
   * Błąd jest rejestrowany.
 
 [!code-cshtml[](handle-errors/samples_snapshot/3.x/product-details.razor?highlight=11,27-39)]
 
 ### <a name="rendering-logic"></a>Logika renderowania
 
-Znaczniki deklaratywne w `.razor` pliku składnika są kompilowane do C# metody o nazwie `BuildRenderTree`. Gdy składnik renderuje, `BuildRenderTree` wykonuje i tworzy strukturę danych opisującą elementy, tekst i składniki podrzędne renderowanego składnika.
+Znaczniki deklaratywne w pliku składnika `.razor` są kompilowane do C# metody o nazwie `BuildRenderTree`. Gdy składnik jest renderowany, `BuildRenderTree` wykonuje i tworzy strukturę danych opisującą elementy, tekst i składniki podrzędne renderowanego składnika.
 
-Logika renderowania może zgłosić wyjątek. Przykład tego scenariusza występuje, gdy `@someObject.PropertyName` jest oceniane, ale `@someObject` jest. `null` Nieobsługiwany wyjątek zgłoszony przez logikę renderowania jest krytyczny dla obwodu.
+Logika renderowania może zgłosić wyjątek. Przykład tego scenariusza występuje, gdy `@someObject.PropertyName` jest oceniane, ale `@someObject` jest `null`. Nieobsługiwany wyjątek zgłoszony przez logikę renderowania jest krytyczny dla obwodu.
 
-Aby zapobiec wystąpieniu wyjątku odwołania o wartości null w logice renderowania, `null` przed uzyskaniem dostępu do elementów członkowskich Sprawdź, czy jest on obiektem. W poniższym przykładzie właściwości nie `person.Address` są dostępne, `null`Jeśli `person.Address` :
+Aby zapobiec wystąpieniu wyjątku odwołania o wartości null w logice renderowania, przed uzyskaniem dostępu do elementów członkowskich Sprawdź, czy jest to obiekt `null`. W poniższym przykładzie właściwości `person.Address` nie są dostępne, jeśli `person.Address` jest `null`:
 
 [!code-cshtml[](handle-errors/samples_snapshot/3.x/person-example.razor?highlight=1)]
 
-Poprzedni kod założono, `person` że `null`nie jest. Często Struktura kodu gwarantuje, że obiekt istnieje w momencie renderowania składnika. W takich przypadkach nie jest konieczne sprawdzanie `null` logiki renderowania. W poprzednim przykładzie można zagwarantować `person` , że istnieje, ponieważ `person` jest tworzony podczas tworzenia wystąpienia składnika.
+Poprzedni kod założono, że `person` nie `null`. Często Struktura kodu gwarantuje, że obiekt istnieje w momencie renderowania składnika. W takich przypadkach nie trzeba sprawdzać `null` w logice renderowania. W poprzednim przykładzie można zagwarantować, że istnieje `person`, ponieważ podczas tworzenia wystąpienia składnika jest tworzony `person`.
 
-### <a name="event-handlers"></a>Programy obsługi zdarzeń
+### <a name="event-handlers"></a>Procedury obsługi zdarzeń
 
 Kod po stronie klienta wyzwala wywołania kodu, C# gdy programy obsługi zdarzeń są tworzone przy użyciu:
 
 * `@onclick`
 * `@onchange`
-* Inne `@on...` atrybuty
+* Inne atrybuty `@on...`
 * `@bind`
 
 Kod procedury obsługi zdarzeń może zgłosić nieobsługiwany wyjątek w tych scenariuszach.
@@ -128,26 +128,26 @@ Jeśli kod użytkownika nie jest pułapk i nie obsługuje wyjątku, struktura re
 
 ### <a name="component-disposal"></a>Usuwanie składników
 
-Składnik może zostać usunięty z interfejsu użytkownika, na przykład, ponieważ użytkownik przeszedł do innej strony. Gdy składnik implementujący <xref:System.IDisposable?displayProperty=fullName> jest usuwany z interfejsu użytkownika, struktura wywołuje <xref:System.IDisposable.Dispose*> metodę składnika. 
+Składnik może zostać usunięty z interfejsu użytkownika, na przykład, ponieważ użytkownik przeszedł do innej strony. Gdy składnik implementujący <xref:System.IDisposable?displayProperty=fullName> jest usuwany z interfejsu użytkownika, struktura wywołuje metodę <xref:System.IDisposable.Dispose*> składnika. 
 
-Jeśli `Dispose` Metoda składnika zgłasza nieobsługiwany wyjątek, wyjątek jest krytyczny dla obwodu. Jeśli logika usuwania może generować wyjątki, aplikacja powinna zalewkować wyjątki przy użyciu instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem.
+Jeśli metoda `Dispose` składnika zgłasza nieobsługiwany wyjątek, wyjątek jest krytyczny dla obwodu. Jeśli logika usuwania może generować wyjątki, aplikacja powinna zalewkować wyjątki przy użyciu instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem.
 
-Aby uzyskać więcej informacji na temat usuwania składników <xref:blazor/components#component-disposal-with-idisposable>, zobacz.
+Aby uzyskać więcej informacji na temat usuwania składników, zobacz <xref:blazor/components#component-disposal-with-idisposable>.
 
-### <a name="javascript-interop"></a>Międzyoperacyjność w języku JavaScript
+### <a name="javascript-interop"></a>Międzyoperacyjność JavaScript
 
-`IJSRuntime.InvokeAsync<T>`umożliwia programowi .NET Code wykonywanie wywołań asynchronicznych do środowiska uruchomieniowego JavaScript w przeglądarce użytkownika.
+`IJSRuntime.InvokeAsync<T>` umożliwia kodowi .NET wykonywanie wywołań asynchronicznych do środowiska uruchomieniowego JavaScript w przeglądarce użytkownika.
 
-Poniższe warunki dotyczą obsługi błędów w programie `InvokeAsync<T>`:
+Poniższe warunki dotyczą obsługi błędów z `InvokeAsync<T>`:
 
-* Jeśli wywołanie `InvokeAsync<T>` synchronicznie zakończy się niepowodzeniem, wystąpi wyjątek programu .NET. Wywołanie `InvokeAsync<T>` my nie powiodło się, na przykład dlatego, że nie można serializować dostarczonych argumentów. Kod dewelopera musi przechwycić wyjątek. Jeśli kod aplikacji w obsłudze zdarzeń lub metoda cyklu życia składnika nie obsługuje wyjątku, wynikający z nich wyjątek jest krytyczny dla obwodu.
-* Jeśli wywołanie `InvokeAsync<T>` powiedzie się asynchronicznie, .NET <xref:System.Threading.Tasks.Task> kończy się niepowodzeniem. Wywołanie `InvokeAsync<T>` może zakończyć się niepowodzeniem, na przykład ponieważ kod po stronie JavaScript zgłasza wyjątek lub `Promise` zwraca, który został ukończony jako `rejected`. Kod dewelopera musi przechwycić wyjątek. W przypadku użycia operatora [await](/dotnet/csharp/language-reference/keywords/await) Rozważ zapakowanie wywołania metody w instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem. W przeciwnym razie niepowodzenie kodu spowoduje nieobsłużony wyjątek, który jest krytyczny dla obwodu.
-* Domyślnie wywołania programu muszą zakończyć `InvokeAsync<T>` się w określonym przedziale czasu lub w przeciwnym razie upłynął limit czasu połączenia. Domyślny limit czasu wynosi jedną minutę. Limit czasu chroni kod przed utratą połączenia sieciowego lub kodem JavaScript, który nigdy nie odsyła komunikat uzupełniający. Jeśli wystąpiło przełączenie, `Task` wynikiem kończy się <xref:System.OperationCanceledException>niepowodzeniem a. Zalewka i przetwórz wyjątek z rejestrowaniem.
+* Jeśli wywołanie `InvokeAsync<T>` kończy się synchronicznie, wystąpi wyjątek programu .NET. Wywołanie `InvokeAsync<T>` może zakończyć się niepowodzeniem, na przykład dlatego, że nie można serializować dostarczonych argumentów. Kod dewelopera musi przechwycić wyjątek. Jeśli kod aplikacji w obsłudze zdarzeń lub metoda cyklu życia składnika nie obsługuje wyjątku, wynikający z nich wyjątek jest krytyczny dla obwodu.
+* Jeśli wywołanie `InvokeAsync<T>` zakończy się asynchronicznie, program .NET <xref:System.Threading.Tasks.Task> kończy się niepowodzeniem. Wywołanie `InvokeAsync<T>` może zakończyć się niepowodzeniem, na przykład ponieważ kod po stronie JavaScript zgłasza wyjątek lub zwraca `Promise`, który został ukończony jako `rejected`. Kod dewelopera musi przechwycić wyjątek. W przypadku użycia operatora [await](/dotnet/csharp/language-reference/keywords/await) Rozważ zapakowanie wywołania metody w instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem. W przeciwnym razie niepowodzenie kodu spowoduje nieobsłużony wyjątek, który jest krytyczny dla obwodu.
+* Domyślnie wywołania `InvokeAsync<T>` muszą zostać ukończone w określonym przedziale czasu lub w przeciwnym razie upłynął limit czasu połączenia. Domyślny limit czasu wynosi jedną minutę. Limit czasu chroni kod przed utratą połączenia sieciowego lub kodem JavaScript, który nigdy nie odsyła komunikat uzupełniający. Jeśli wystąpiło przełączenie, wyniki `Task` zakończą się niepowodzeniem z <xref:System.OperationCanceledException>. Zalewka i przetwórz wyjątek z rejestrowaniem.
 
 Podobnie kod JavaScript może inicjować wywołania metod .NET wskazywanych przez [atrybut [JSInvokable]](xref:blazor/javascript-interop#invoke-net-methods-from-javascript-functions). Jeśli te metody .NET zgłaszają nieobsługiwany wyjątek:
 
 * Wyjątek nie jest traktowany jako krytyczny dla obwodu.
-* Po stronie `Promise` JavaScript jest odrzucany.
+* @No__t po stronie skryptu JavaScript jest odrzucany.
 
 Istnieje możliwość użycia kodu obsługi błędów po stronie .NET lub stronie JavaScript wywołania metody.
 
@@ -162,36 +162,36 @@ Blazor umożliwia kodowi Definiowanie *procedury obsługi obwodu*, która odbier
 * `disconnected`
 * `disposed`
 
-Powiadomienia są zarządzane przez zarejestrowanie usługi di, która dziedziczy z `CircuitHandler` abstrakcyjnej klasy podstawowej.
+Powiadomienia są zarządzane przez zarejestrowanie usługi DI, która dziedziczy z abstrakcyjnej klasy bazowej `CircuitHandler`.
 
 Jeśli metody obsługi niestandardowego obwodu zgłaszają nieobsługiwany wyjątek, wyjątek jest krytyczny dla obwodu. Aby tolerować wyjątki w kodzie programu obsługi lub metodach wywoływanych, zawiń kod w co najmniej jednej instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem.
 
 ### <a name="circuit-disposal"></a>Usuwanie obwodu
 
-Gdy obwód kończy się, ponieważ użytkownik odłączył się i struktura czyści stan obwodu, struktura usuwa zakres DI obwodu. Oddysponowanie zakresu polega na usunięciu wszelkich usług DI-Scope w <xref:System.IDisposable?displayProperty=fullName>zakresie, które implementują. Jeśli jakakolwiek usługa nie zgłasza nieobsłużonego wyjątku podczas usuwania, struktura rejestruje wyjątek.
+Gdy obwód kończy się, ponieważ użytkownik odłączył się i struktura czyści stan obwodu, struktura usuwa zakres DI obwodu. Oddysponowanie zakresu polega na usunięciu wszelkich usług typu DI w zakresie obwodów, które implementują <xref:System.IDisposable?displayProperty=fullName>. Jeśli jakakolwiek usługa nie zgłasza nieobsłużonego wyjątku podczas usuwania, struktura rejestruje wyjątek.
 
 ### <a name="prerendering"></a>Renderowanie prerenderingu
 
-Składniki Blazor mogą być wstępnie renderowane przy użyciu `Html.RenderComponentAsync` , aby renderowane znaczniki HTML były zwracane jako część początkowego żądania HTTP użytkownika. Działa to w następujący sposób:
+Składniki Blazor mogą być wstępnie renderowane przy użyciu `Html.RenderComponentAsync`, aby ich renderowane znaczniki HTML były zwracane jako część początkowego żądania HTTP użytkownika. Działa to w następujący sposób:
 
 * Tworzenie nowego obwodu zawierającego wszystkie wstępnie renderowane składniki, które są częścią tej samej strony.
 * Generowanie początkowego kodu HTML.
-* Przetraktowanie obwodu `disconnected` do momentu, aż przeglądarka użytkownika ustanowi połączenie sygnalizujące z powrotem do tego samego serwera w celu wznowienia interakcji z obwodem.
+* Podtraktowanie obwodu jako `disconnected` do momentu, aż przeglądarka użytkownika ustanowi połączenie sygnalizujące z powrotem do tego samego serwera w celu wznowienia interakcji z obwodem.
 
 Jeśli jakikolwiek składnik zgłasza nieobsłużony wyjątek podczas renderowania pre, na przykład podczas wykonywania metody cyklu życia lub logiki renderowania:
 
 * Wyjątek jest krytyczny dla obwodu.
-* Wyjątek jest generowany w stosie wywołań z `Html.RenderComponentAsync` wywołania. W związku z tym całe żądanie HTTP kończy się niepowodzeniem, chyba że wyjątek jest jawnie przechwycony przez kod dewelopera.
+* Wyjątek jest generowany w stosie wywołań z wywołania `Html.RenderComponentAsync`. W związku z tym całe żądanie HTTP kończy się niepowodzeniem, chyba że wyjątek jest jawnie przechwycony przez kod dewelopera.
 
 W normalnych warunkach w przypadku niepowodzenia wstępnego renderowania kontynuowanie kompilowania i renderowania składnika nie ma sensu, ponieważ nie można renderować składnika roboczego.
 
-Aby tolerować błędy, które mogą wystąpić podczas renderowania prerenderingu, logika obsługi błędów musi być umieszczona wewnątrz składnika, który może zgłaszać wyjątki. Używaj instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem. Zamiast zawijać wywołanie do `RenderComponentAsync` `try-catch` w instrukcji, umieść logikę obsługi błędów w składniku renderowanym przez `RenderComponentAsync`.
+Aby tolerować błędy, które mogą wystąpić podczas renderowania prerenderingu, logika obsługi błędów musi być umieszczona wewnątrz składnika, który może zgłaszać wyjątki. Używaj instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem. Zamiast zawijać wywołanie do `RenderComponentAsync` w instrukcji `try-catch`, umieść logikę obsługi błędów w składniku renderowanym przez `RenderComponentAsync`.
 
 ## <a name="advanced-scenarios"></a>Scenariusze zaawansowane
 
 ### <a name="recursive-rendering"></a>Renderowanie cykliczne
 
-Składniki można cyklicznie zagnieżdżać. Jest to przydatne do reprezentowania struktur danych rekursywnych. Na przykład `TreeNode` składnik może renderować więcej `TreeNode` składników dla każdego węzła podrzędnego.
+Składniki można cyklicznie zagnieżdżać. Jest to przydatne do reprezentowania struktur danych rekursywnych. Na przykład składnik `TreeNode` może renderować więcej składników `TreeNode` dla każdego elementu podrzędnego węzła.
 
 W przypadku renderowania cyklicznego należy unikać tworzenia wzorców, które powodują nieskończoną rekursję:
 
@@ -213,14 +213,14 @@ Aby uniknąć nieskończonych wzorców rekursji, należy się upewnić, że kod 
 
 ### <a name="custom-render-tree-logic"></a>Logika drzewa renderowania niestandardowego
 
-Większość składników Blazor jest implementowana jako pliki *Razor* i są kompilowane w celu utworzenia logiki, która działa `RenderTreeBuilder` w celu renderowania danych wyjściowych. Deweloper może ręcznie zaimplementować `RenderTreeBuilder` logikę przy użyciu kodu proceduralnego. C# Aby uzyskać więcej informacji, zobacz <xref:blazor/components#manual-rendertreebuilder-logic>.
+Większość składników Blazor jest implementowana jako pliki *Razor* i są kompilowane do tworzenia logiki, która działa na `RenderTreeBuilder` w celu renderowania danych wyjściowych. Deweloper może ręcznie zaimplementować logikę `RenderTreeBuilder` przy użyciu C# kodu procedury. Aby uzyskać więcej informacji, zobacz <xref:blazor/components#manual-rendertreebuilder-logic>.
 
 > [!WARNING]
 > Korzystanie z logiki konstruktora drzewa renderowania ręcznego jest uznawane za zaawansowane i niebezpieczne scenariusze, które nie są zalecane do ogólnego tworzenia składników.
 
-Jeśli `RenderTreeBuilder` kod zostanie zapisany, Deweloper musi zagwarantować poprawność kodu. Na przykład Deweloper musi upewnić się, że:
+Jeśli zostanie zapisany kod `RenderTreeBuilder`, Deweloper musi zagwarantować poprawność kodu. Na przykład Deweloper musi upewnić się, że:
 
-* `OpenElement` Wywołania i `CloseElement` są prawidłowo zrównoważone.
+* Wywołania `OpenElement` i `CloseElement` są prawidłowo zrównoważone.
 * Atrybuty są dodawane tylko w prawidłowych miejscach.
 
 Nieprawidłowa ręczna logika konstruktora drzewa renderowania może spowodować dowolne niezdefiniowane zachowanie, w tym awarie, zawieszenie serwera i luki w zabezpieczeniach.
