@@ -569,6 +569,8 @@
       uid: grpc/diagnostics
     - name: Zagadnienia dotyczące bezpieczeństwa
       uid: grpc/security
+    - name: Zarządzanie odwołaniami narzędzia Protobuf za pomocą narzędzia dotnet-GRPC
+      uid: grpc/dotnet-grpc
     - name: Migracja usług gRPC ze środowiska C-core
       uid: grpc/migration
     - name: Porównanie usług gRPC za pomocą interfejsów API protokołu HTTP
