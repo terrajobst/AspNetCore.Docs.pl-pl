@@ -168,7 +168,7 @@ Większość narzędzi dla deweloperów przeglądarki ma kartę "Sieć", która 
 
 ### <a name="microsoft-edge-and-internet-explorer"></a>Przeglądarka Microsoft Edge i przeglądarki Internet Explorer
 
-(Instrukcje są takie same dla przeglądarki Edge i Internet Explorer)
+(Instrukcje są takie same dla przeglądarek Microsoft Edge i Internet Explorer)
 
 1. Naciśnij klawisz F12, aby otworzyć narzędzia programistyczne
 2. Kliknij kartę Sieć
