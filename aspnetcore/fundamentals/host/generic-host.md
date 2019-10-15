@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/07/2019
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 8e29c3a300cc1cdc37458427d3be7ceed84385ef
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 57c09d52e058f0355849793b16d430bda0deb3a6
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259626"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333601"
 ---
 # <a name="net-generic-host"></a>Host ogólny .NET
 
@@ -26,7 +26,7 @@ W tym artykule przedstawiono hosta ogólnego platformy .NET Core (<xref:Microsof
 
 * Iniekcja zależności (DI)
 * Rejestrowanie
-* Konfigurowanie
+* Konfiguracja
 * implementacje `IHostedService`
 
 Po uruchomieniu hosta wywołuje `IHostedService.StartAsync` dla każdej implementacji <xref:Microsoft.Extensions.Hosting.IHostedService>, która znajduje się w kontenerze DI. W aplikacji sieci Web jedna z implementacji `IHostedService` to usługa sieci Web, która uruchamia [implementację serwera http](xref:fundamentals/index#servers).
@@ -74,7 +74,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 Jeśli aplikacja używa Entity Framework Core, nie zmieniaj nazwy ani podpisu metody `CreateHostBuilder`. [Narzędzia Entity Framework Core](/ef/core/miscellaneous/cli/) oczekują na znalezienie metody `CreateHostBuilder`, która konfiguruje hosta bez uruchamiania aplikacji. Aby uzyskać więcej informacji, zobacz [Tworzenie DbContext w czasie projektowania](/ef/core/miscellaneous/cli/dbcontext-creation).
 
-## <a name="default-builder-settings"></a>Ustawienia domyślnego konstruktora 
+## <a name="default-builder-settings"></a>Ustawienia domyślnego konstruktora
 
 Metoda <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*>:
 
@@ -89,7 +89,7 @@ Metoda <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*>:
   * Zmienne środowiskowe.
   * Argumenty wiersza polecenia.
 * Dodaje następujących dostawców [rejestrowania](xref:fundamentals/logging/index) :
-  * Console
+  * Konsola
   * Debugowanie
   * EventSource
   * EventLog (tylko w przypadku uruchamiania w systemie Windows)
@@ -379,7 +379,7 @@ webBuilder.UseStartup("StartupAssemblyName");
 webBuilder.UseStartup<Startup>();
 ```
 
-### <a name="urls"></a>Adresy
+### <a name="urls"></a>adresy URL
 
 Rozdzielana średnikami lista adresów IP lub adresów hostów z portami i protokołami, na których serwer powinien nasłuchiwać żądań. Na przykład `http://localhost:123`. Użyj opcji "\*", aby wskazać, że serwer powinien nasłuchiwać żądań na dowolnym adresie IP lub nazwie hosta przy użyciu określonego portu i protokołu (na przykład `http://*:5000`). Protokół (`http://` lub `https://`) musi być dołączony do każdego adresu URL. Obsługiwane formaty różnią się między serwerami.
 
@@ -420,7 +420,7 @@ Aby uzyskać więcej informacji, zobacz:
 
 Wywołaj metody na skompilowanej implementacji <xref:Microsoft.Extensions.Hosting.IHost>, aby uruchomić i zatrzymać aplikację. Te metody mają wpływ na wszystkie implementacje <xref:Microsoft.Extensions.Hosting.IHostedService>, które są zarejestrowane w kontenerze usługi.
 
-### <a name="run"></a>Uruchamianie
+### <a name="run"></a>Uruchom
 
 <xref:Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run*> uruchamia aplikację i blokuje wątek wywołujący do momentu wyłączenia hosta.
 
@@ -432,7 +432,7 @@ Wywołaj metody na skompilowanej implementacji <xref:Microsoft.Extensions.Hostin
 
 <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.RunConsoleAsync*> włącza obsługę konsoli, kompiluje i uruchamia hosta i czeka na zamknięcie klawiszy CTRL + C/SIGINT lub SIGTERM.
 
-### <a name="start"></a>Rozpocznij
+### <a name="start"></a>Uruchamianie
 
 <xref:Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Start*> uruchamia Host synchronicznie.
 
@@ -740,7 +740,7 @@ public static class Extensions
 
 Implementacja <xref:Microsoft.Extensions.Hosting.IHost> odpowiada za uruchamianie i zatrzymywanie implementacji <xref:Microsoft.Extensions.Hosting.IHostedService>, które są zarejestrowane w kontenerze usługi.
 
-### <a name="run"></a>Uruchamianie
+### <a name="run"></a>Uruchom
 
 <xref:Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run*> uruchamia aplikację i blokuje wątek wywołujący do momentu wyłączenia hosta:
 
@@ -975,6 +975,6 @@ public class MyClass
 
 ::: moniker-end
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * <xref:fundamentals/host/hosted-services>

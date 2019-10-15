@@ -1,0 +1,2 @@
+> [!NOTE]
+> Przed ASP.NET Core aplikacje sieci Web 3,0 zapisują jeden dziennik typu `LogLevel.Warning` na żądanie, jeśli żądana kultura nie jest obsługiwana. Rejestrowanie jednego `LogLevel.Warning` na żądanie może spowodować duże pliki dziennika z nadmiarowymi informacjami. To zachowanie zostało zmienione w ASP.NET 3,0. @No__t-0 zapisuje dziennik typu `LogLevel.Debug`, co zmniejsza rozmiar dzienników produkcyjnych.

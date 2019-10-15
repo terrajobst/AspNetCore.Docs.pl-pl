@@ -5,14 +5,14 @@ description: Informacje dotyczące konfigurowania aplikacji przy użyciu par naz
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 10/14/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: cc3894df4df169d941f54ef3dfad5d3e6f798aad
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: c8e76068dbcf2a59a15fa75a1fc5aa0032e6acc5
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007403"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72334200"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault dostawcę konfiguracji w programie ASP.NET Core
 
@@ -25,7 +25,7 @@ W tym dokumencie wyjaśniono, jak za pomocą dostawcy konfiguracji [Key Vault Mi
 
 Ten scenariusz jest dostępny dla aplikacji, które są przeznaczone dla ASP.NET Core 2,1 lub nowszych.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/sample) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="packages"></a>Pakiety
 
@@ -76,7 +76,7 @@ Jeśli te wpisy tajne są przechowywane w Azure Key Vault w [magazynie kluczy ta
 
 ## <a name="secret-storage-in-the-production-environment-with-azure-key-vault"></a>Magazyn tajny w środowisku produkcyjnym z Azure Key Vault
 
-Instrukcje podane przez @no__t 0Quickstart: Ustawianie i pobieranie klucza tajnego z Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure @ no__t-0 w tym artykule opisano sposób tworzenia Azure Key Vault i przechowywania wpisów tajnych używanych przez przykładową aplikację. Więcej informacji można znaleźć w temacie.
+Instrukcje dostępne w [przewodniku szybki start: Ustawianie i pobieranie wpisu tajnego z Azure Key Vault za pomocą interfejsu wiersza polecenia platformy Azure](/azure/key-vault/quick-create-cli) są zestawione w tym miejscu na potrzeby tworzenia Azure Key Vault i przechowywania wpisów tajnych używanych przez przykładową aplikację. Więcej informacji można znaleźć w temacie.
 
 1. Otwórz usługę Azure Cloud Shell przy użyciu jednej z następujących metod w [Azure Portal](https://portal.azure.com/):
 
@@ -135,14 +135,14 @@ Przykładowa aplikacja używa identyfikatora aplikacji i certyfikatu X. 509, gdy
 1. Wybierz pozycję **Dodaj nowy**.
 1. Wybierz pozycję **Wybierz podmiot zabezpieczeń** i wybierz zarejestrowaną aplikację według nazwy. Wybierz przycisk **Wybierz** .
 1. Otwórz **uprawnienia do wpisów tajnych** i Udostępnij aplikację z uprawnieniami **pobierania** i **wyświetlania listy** .
-1. Kliknij przycisk **OK**.
+1. Wybierz **przycisk OK**.
 1. Wybierz pozycję **Zapisz**.
 1. Wdróż aplikację.
 
 Przykładowa aplikacja `Certificate` uzyskuje wartości konfiguracji z `IConfigurationRoot` o takiej samej nazwie jak nazwa wpisu tajnego:
 
-* Wartości niehierarchiczne: Wartość `SecretName` jest uzyskiwana z `config["SecretName"]`.
-* Wartości hierarchiczne (sekcje): Użyj `:` (dwukropek) lub metody rozszerzenia `GetSection`. Użyj jednego z tych metod, aby uzyskać wartość konfiguracji:
+* Wartości niehierarchiczne: wartość `SecretName` jest uzyskiwana z `config["SecretName"]`.
+* Wartości hierarchiczne (sekcje): Użyj notacji `:` (dwukropek) lub metody rozszerzenia `GetSection`. Użyj jednego z tych metod, aby uzyskać wartość konfiguracji:
   * `config["Section:SecretName"]`
   * `config.GetSection("Section")["SecretName"]`
 
@@ -156,7 +156,7 @@ Przykładowe wartości:
 * Identyfikator aplikacji: `627e911e-43cc-61d4-992e-12db9c81b413`
 * Odcisk palca certyfikatu: `fe14593dd66b2406c5269d742d04b6e1ab03adb1`
 
-*appsettings.json*:
+*appSettings. JSON*:
 
 [!code-json[](key-vault-configuration/sample/appsettings.json)]
 
@@ -189,6 +189,16 @@ Przykładowa aplikacja:
 * Wystąpienie `KeyVaultClient` jest używane z domyślną implementacją `IKeyVaultSecretManager`, która ładuje wszystkie wartości tajne i zastępuje podwójne myślniki (`--`) średnikami (`:`) w nazwach kluczy.
 
 [!code-csharp[](key-vault-configuration/sample/Program.cs?name=snippet2&highlight=13-21)]
+
+Przykładowa wartość nazwy magazynu kluczy: `contosovault`
+    
+*appSettings. JSON*:
+
+```json
+{
+  "KeyVaultName": "Key Vault Name"
+}
+```
 
 Po uruchomieniu aplikacji na stronie sieci Web są wyświetlane załadowane wartości klucza tajnego. W środowisku programistycznym wartości klucza tajnego mają sufiks `_dev`, ponieważ są one dostarczane przez klucze tajne użytkownika. W środowisku produkcyjnym wartości są ładowane z sufiksem `_prod`, ponieważ są one dostarczane przez Azure Key Vault.
 
@@ -258,7 +268,7 @@ Gdy takie podejście jest zaimplementowane:
 
 Dostawca może odczytać wartości konfiguracyjne w tablicy w celu powiązania z tablicą POCO.
 
-Podczas odczytywania ze źródła konfiguracji, które pozwala na używanie kluczy zawierających dwukropek (`:`) separatory, do rozróżnienia kluczy tworzących tablicę (`:0:`, `:1:`, jest używany segment klucza numerycznego)... `:{n}:`). Aby uzyskać więcej informacji, zobacz @no__t 0Configuration: Powiąż tablicę z klasą @ no__t-0.
+Podczas odczytywania ze źródła konfiguracji, które pozwala na używanie kluczy zawierających dwukropek (`:`) separatory, do rozróżnienia kluczy tworzących tablicę (`:0:`, `:1:`, jest używany segment klucza numerycznego)... `:{n}:`). Aby uzyskać więcej informacji, zobacz [Konfiguracja: Powiąż tablicę z klasą](xref:fundamentals/configuration/index#bind-an-array-to-a-class).
 
 Klucze Azure Key Vault nie mogą używać dwukropka jako separatora. Metoda opisana w tym temacie używa podwójnych kresek (`--`) jako separatora wartości hierarchicznych (sekcji). Klucze tablic są przechowywane w Azure Key Vault przy użyciu podwójnych kresek i segmentów kluczy liczbowych (`--0--`, `--1--`, &hellip; `--{n}--`).
 
@@ -287,7 +297,7 @@ Zapoznaj się z następującą konfiguracją dostawcy rejestrowania [Serilog](ht
 
 Konfiguracja pokazana w poprzednim pliku JSON jest przechowywana w Azure Key Vault przy użyciu notacji podwójnej kreski (`--`) i segmentów liczbowych:
 
-| Klucz | Value |
+| Key | Wartość |
 | --- | ----- |
 | `Serilog--WriteTo--0--Name` | `AzureTableStorage` |
 | `Serilog--WriteTo--0--Args--storageTableName` | `logs` |
@@ -323,9 +333,9 @@ Gdy aplikacja nie może załadować konfiguracji przy użyciu dostawcy, komunika
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * <xref:fundamentals/configuration/index>
-* @no__t — 0Microsoft Azure: Key Vault @ no__t-0
-* @no__t — 0Microsoft Azure: Dokumentacja Key Vault @ no__t-0
+* [Microsoft Azure: Key Vault](https://azure.microsoft.com/services/key-vault/)
+* [Microsoft Azure: dokumentacja Key Vault](/azure/key-vault/)
 * [Jak generować i przesyłać klucze chronione przez moduł HSM dla Azure Key Vault](/azure/key-vault/key-vault-hsm-protected-keys)
 * [Klasa KeyVaultClient](/dotnet/api/microsoft.azure.keyvault.keyvaultclient)
-* [Szybki start: Ustawianie i pobieranie wpisu tajnego z Azure Key Vault przy użyciu aplikacji sieci Web platformy .NET @ no__t-0
-* [Samouczek: Jak używać Azure Key Vault z maszyną wirtualną platformy Azure z systemem Windows w systemie. NET @ no__t-0
+* [Szybki Start: Ustawianie i pobieranie klucza tajnego z Azure Key Vault przy użyciu aplikacji sieci Web platformy .NET](/azure/key-vault/quick-create-net)
+* [Samouczek: jak używać Azure Key Vault z maszyną wirtualną platformy Azure z systemem Windows w środowisku .NET](/azure/key-vault/tutorial-net-windows-virtual-machine)

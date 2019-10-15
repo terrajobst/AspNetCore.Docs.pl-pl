@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/28/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: ed48c2074360768b8d8c5af7057b353b00592394
-ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
+ms.openlocfilehash: 0c3597f24e02af40517e12a86127b140ed4fb550
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037695"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333931"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtry w ASP.NET Core
 
@@ -58,7 +58,7 @@ Na poniższym diagramie przedstawiono sposób, w jaki typy filtrów współdzia�
 
 ![Żądanie jest przetwarzane przez filtry autoryzacji, filtry zasobów, powiązania modelu, filtry akcji, wykonywanie akcji i konwersję wyników akcji, filtry wyjątków, filtry wynikowe i wykonywanie wyniku. W ten sposób żądanie jest przetwarzane tylko przez filtry wyników i filtry zasobów przed wysłaniem odpowiedzi do klienta.](filters/_static/filter-pipeline-2.png)
 
-## <a name="implementation"></a>Wdrażanie
+## <a name="implementation"></a>Implementacja
 
 Filtry obsługują implementacje synchroniczne i asynchroniczne za pomocą różnych definicji interfejsu.
 
@@ -130,14 +130,14 @@ W wyniku zagnieżdżania filtrów, *po* kodzie filtrów działa w odwrotnej kole
   
 Poniższy przykład ilustruje kolejność, w której metody filtrowania są wywoływane dla synchronicznych filtrów akcji.
 
-| Sekwencja | Zakres filtru | Filter — Metoda |
+| Sequence | Zakres filtru | Filter — Metoda |
 |:--------:|:------------:|:-------------:|
-| 1 | Globalny | `OnActionExecuting` |
+| 1 | Globalne | `OnActionExecuting` |
 | 2 | Kontroler | `OnActionExecuting` |
 | 3 | Metoda | `OnActionExecuting` |
 | 4 | Metoda | `OnActionExecuted` |
 | 5 | Kontroler | `OnActionExecuted` |
-| 6 | Globalny | `OnActionExecuted` |
+| 6 | Globalne | `OnActionExecuted` |
 
 Ta sekwencja pokazuje:
 
@@ -158,7 +158,7 @@ Na przykład w przykładzie pobierania `MySampleActionFilter` jest zastosowany g
 
 @No__t-0:
 
-* Stosuje `SampleActionFilterAttribute` (`[SampleActionFilter]`) do akcji `FilterTest2`:
+* Stosuje `SampleActionFilterAttribute` (`[SampleActionFilter]`) do akcji `FilterTest2`.
 * Zastępuje `OnActionExecuting` i `OnActionExecuted`.
 
 [!code-csharp[](./filters/sample/FiltersSample/Controllers/TestController.cs?name=snippet)]
@@ -190,12 +190,12 @@ Właściwość `Order` można ustawić przy użyciu parametru konstruktora:
 
 Należy wziąć pod uwagę te same 3 filtry akcji, które przedstawiono w powyższym przykładzie. Jeśli właściwość `Order` kontrolera i filtry globalne mają odpowiednio wartość 1 i 2, kolejność wykonywania zostanie odwrócona.
 
-| Sekwencja | Zakres filtru | Właściwość `Order` | Filter — Metoda |
+| Sequence | Zakres filtru | Właściwość `Order` | Filter — Metoda |
 |:--------:|:------------:|:-----------------:|:-------------:|
 | 1 | Metoda | 0 | `OnActionExecuting` |
 | 2 | Kontroler | 1  | `OnActionExecuting` |
-| 3 | Globalny | 2  | `OnActionExecuting` |
-| 4 | Globalny | 2  | `OnActionExecuted` |
+| 3 | Globalne | 2  | `OnActionExecuting` |
+| 4 | Globalne | 2  | `OnActionExecuted` |
 | 5 | Kontroler | 1  | `OnActionExecuted` |
 | 6 | Metoda | 0  | `OnActionExecuted` |
 
@@ -243,7 +243,7 @@ Rejestratory są dostępne z programu DI. Należy jednak unikać tworzenia i uż
 * Należy skoncentrować się na problemach z domeną biznesową lub działaniu specyficznym dla filtra.
 * **Nie** należy rejestrować akcji ani innych zdarzeń struktury. Wbudowane filtry akcje dziennika i zdarzenia struktury.
 
-### <a name="servicefilterattribute"></a>ServiceFilterAttribute
+### <a name="servicefilterattribute"></a>Servicefilterattribute
 
 Typy implementacji filtru usługi są zarejestrowane w `ConfigureServices`. @No__t-0 Pobiera wystąpienie filtru z DI.
 
@@ -449,18 +449,7 @@ Metoda <xref:Microsoft.AspNetCore.Mvc.Filters.IResultFilter.OnResultExecuting*?d
 * Zapobiegaj wykonaniu wyniku akcji i kolejnych filtrów.
 * Być traktowany jako niepowodzenie, a nie wynikowy pomyślnie.
 
-Po uruchomieniu metody <xref:Microsoft.AspNetCore.Mvc.Filters.IResultFilter.OnResultExecuted*?displayProperty=fullName>:
-
-* Odpowiedź została już wysłana do klienta i nie można jej zmienić.
-* Jeśli wystąpił wyjątek, treść odpowiedzi nie jest wysyłana.
-
-<!-- Review preceding "If an exception was thrown: Original 
-When the OnResultExecuted method runs, the response has likely been sent to the client and cannot be changed further (unless an exception was thrown).
-
-SHould that be , 
-If an exception was thrown **IN THE RESULT FILTER**, the response body is not sent.
-
- -->
+Po uruchomieniu metody <xref:Microsoft.AspNetCore.Mvc.Filters.IResultFilter.OnResultExecuted*?displayProperty=fullName> odpowiedź została już wysłana do klienta. Jeśli odpowiedź została już wysłana do klienta, nie można jej zmienić.
 
 `ResultExecutedContext.Canceled` jest ustawiona na `true`, jeśli wykonywanie wyniku akcji było krótkie przez inny filtr.
 
@@ -494,7 +483,7 @@ Na przykład następujący filtr zawsze jest uruchamiany i ustawia wynik akcji (
 Poprzedni kod może być testowany przez uruchomienie [przykładu pobierania](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample):
 
 * Wywołaj narzędzia deweloperskie F12.
-* Przejdź do `https://localhost:5001/Sample/HeaderWithFactory`
+* Przejdź do `https://localhost:5001/Sample/HeaderWithFactory`.
 
 Narzędzia programistyczne F12 wyświetlają następujące nagłówki odpowiedzi dodane przez przykładowy kod:
 
@@ -532,7 +521,7 @@ Filtry zasobów działają podobnie jak [oprogramowanie pośredniczące](xref:fu
 
 Aby użyć oprogramowania pośredniczącego jako filtru, należy utworzyć typ z metodą `Configure`, która określa oprogramowanie pośredniczące, które ma zostać dodane do potoku filtru. W poniższym przykładzie jest wykorzystywane oprogramowanie pośredniczące lokalizacyjne do ustalenia bieżącej kultury dla żądania:
 
-[!code-csharp[](./filters/sample/FiltersSample/Filters/LocalizationPipeline.cs?name=snippet_MiddlewareFilter&highlight=3,21)]
+[!code-csharp[](./filters/sample/FiltersSample/Filters/LocalizationPipeline.cs?name=snippet_MiddlewareFilter&highlight=3,22)]
 
 Użyj <xref:Microsoft.AspNetCore.Mvc.MiddlewareFilterAttribute>, aby uruchomić oprogramowanie pośredniczące:
 
@@ -542,5 +531,5 @@ Filtry oprogramowania pośredniczącego są uruchamiane na tym samym etapie poto
 
 ## <a name="next-actions"></a>Następne akcje
 
-* Zobacz [metody filtrowania dla Razor Pages](xref:razor-pages/filter)
+* Zobacz [metody filtrowania dla Razor Pages](xref:razor-pages/filter).
 * Aby eksperymentować z filtrami, należy [pobrać, przetestować i zmodyfikować przykład usługi GitHub](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).

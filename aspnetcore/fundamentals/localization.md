@@ -5,18 +5,16 @@ description: Dowiedz się, jak ASP.NET Core udostępnia usługi i oprogramowanie
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 6dfbeae201a3586dfea6620917083130c4985b22
-ms.sourcegitcommit: dc96d76f6b231de59586fcbb989a7fb5106d26a8
-ms.translationtype: HT
+ms.openlocfilehash: 9ed133c93a9ec95c63869b710d120eca9fda1b6e
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703808"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333692"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizacja i lokalizacja w ASP.NET Core
 
 [Rick Anderson](https://twitter.com/RickAndMSFT), [Damien Bowden](https://twitter.com/damien_bod), [Bart Calixto](https://twitter.com/bartmax), [Nadeem Afana](https://afana.me/)i [Hisham bin Ateya](https://twitter.com/hishambinateya)
-
-Dopóki ten dokument nie zostanie zaktualizowany dla ASP.NET Core 3,0, zobacz blog Hisham [co nowego w lokalizacji w ASP.NET Core 3,0](http://hishambinateya.com/what-is-new-in-localization-in-asp.net-core-3.0).
 
 Utworzenie wielojęzycznej witryny sieci Web z ASP.NET Core umożliwi witrynie dostęp do szerszego grona użytkowników. ASP.NET Core udostępnia usługi i oprogramowanie pośredniczące do lokalizowania w różnych językach i kulturach.
 
@@ -32,7 +30,7 @@ Lokalizacja aplikacji obejmuje następujące elementy:
 
 3. Zaimplementuj strategię, aby wybrać język/kulturę dla każdego żądania
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="make-the-apps-content-localizable"></a>Ustaw lokalizowalność zawartości aplikacji
 
@@ -76,7 +74,7 @@ Domyślna implementacja `IViewLocalizer` znajduje plik zasobów na podstawie naz
 
 Plik zasobów francuski może zawierać następujące elementy:
 
-| Klucz | Value |
+| Key | Wartość |
 | ----- | ------ |
 | `<i>Hello</i> <b>{0}!</b>` | `<i>Bonjour</i> <b>{0} !</b>` |
 
@@ -92,8 +90,8 @@ Aby użyć udostępnionego pliku zasobów w widoku, wsuń `IHtmlLocalizer<T>`:
 
 Komunikaty o błędach DataAnnotations są zlokalizowane przy użyciu `IStringLocalizer<T>`. Przy użyciu opcji `ResourcesPath = "Resources"` komunikaty o błędach w `RegisterViewModel` mogą być przechowywane w jednej z następujących ścieżek:
 
-* *Resources/ViewModels.Account.RegisterViewModel.fr.resx*
-* *Resources/ViewModels/Account/RegisterViewModel.fr.resx*
+* *Zasoby/modele widoków. Account. RegisterViewModel. fr. resx*
+* *Zasoby/modele widoków/Account/RegisterViewModel. fr. resx*
 
 [!code-csharp[](localization/sample/Localization/ViewModels/Account/RegisterViewModel.cs?start=9&end=26)]
 
@@ -130,7 +128,7 @@ Plik zasobów jest użytecznym mechanizmem oddzielania lokalizowalnych ciągów 
 
 1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder, który będzie zawierać plik zasobu > **Dodaj** > **nowy element**.
 
-    ![Zagnieżdżone menu kontekstowe: W Eksplorator rozwiązań menu kontekstowe jest otwarte dla zasobów. Drugie menu kontekstowe jest otwarte dla dodawania pokazującego wyróżnione polecenie Nowy element.](localization/_static/newi.png)
+    ![Zagnieżdżone menu kontekstowe: w Eksplorator rozwiązań menu kontekstowe jest otwarte dla zasobów. Drugie menu kontekstowe jest otwarte dla dodawania pokazującego wyróżnione polecenie Nowy element.](localization/_static/newi.png)
 
 2. W polu **wyszukiwania zainstalowanych szablonów** wprowadź "Resource" i Nazwij plik.
 
@@ -152,15 +150,15 @@ W przykładowym projekcie Metoda `ConfigureServices` ustawia `ResourcesPath` do 
 
 | Nazwa zasobu | Nazwa kropka lub ścieżki |
 | ------------   | ------------- |
-| Resources/Controllers.HomeController.fr.resx | Kropka  |
-| Resources/Controllers/HomeController.fr.resx  | Path |
+| Zasoby/kontrolery. HomeController. fr. resx | Kropka  |
+| Zasoby/kontrolery/HomeController. fr. resx  | Ścieżka |
 |    |     |
 
 Pliki zasobów używające `@inject IViewLocalizer` w widokach Razor podążają za podobnym wzorcem. Plik zasobów dla widoku może być nazwany przy użyciu nazw kropek lub nazw ścieżek. Pliki zasobów widoku Razor naśladować ścieżkę skojarzonego pliku widoku. Przy założeniu, że ustawimy wartość `ResourcesPath` na "zasoby", plik zasobów francuski skojarzony z widokiem */Home/about. cshtml* może mieć jedną z następujących wartości:
 
-* Resources/Views/Home/About.fr.resx
+* Zasoby/widoki/Strona główna/informacje. fr. resx
 
-* Resources/Views.Home.About.fr.resx
+* Zasoby/widoki. Strona główna. informacje. fr. resx
 
 Jeśli nie używasz opcji `ResourcesPath`, plik *resx* dla widoku będzie znajdować się w tym samym folderze co widok.
 
@@ -187,12 +185,12 @@ Poprzedni kod umożliwia pomyślne rozpoznanie plików resx.
 
 ## <a name="culture-fallback-behavior"></a>Zachowanie rezerwowe kultury
 
-Podczas wyszukiwania zasobu lokalizacja prowadzi do "rezerwy kulturowej". Jeśli nie zostanie znaleziona, rozpoczyna się od żądanej kultury, przywraca kulturę nadrzędną tej kultury. Poza tym Właściwość [CultureInfo. Parent](/dotnet/api/system.globalization.cultureinfo.parent) reprezentuje kulturę nadrzędną. Zwykle (ale nie zawsze) oznacza usunięcie z ISO. Na przykład wariant języka hiszpańskiego używany w Meksyku to „es-MX”. Ma ona nadrzędne &mdash;Spanish niespecyficzne dla każdego kraju.
+Podczas wyszukiwania zasobu lokalizacja prowadzi do "rezerwy kulturowej". Jeśli nie zostanie znaleziona, rozpoczyna się od żądanej kultury, przywraca kulturę nadrzędną tej kultury. Poza tym Właściwość [CultureInfo. Parent](/dotnet/api/system.globalization.cultureinfo.parent) reprezentuje kulturę nadrzędną. Zwykle (ale nie zawsze) oznacza usunięcie z ISO. Na przykład dialekt języka hiszpańskiego wymawianego w Meksyku to "es-MX". Ma ona nadrzędne &mdash;Spanish niespecyficzne dla każdego kraju.
 
 Wyobraź sobie, że witryna otrzymuje żądanie dotyczące zasobu "Welcome" przy użyciu kultury "fr-CA". System lokalizacji wyszukuje następujące zasoby w kolejności i wybiera pierwsze dopasowanie:
 
-* *Welcome.fr-CA.resx*
-* *Welcome.fr.resx*
+* *Welcome.fr — CA. resx*
+* *Witamy. fr. resx*
 * *Welcome. resx* (jeśli `NeutralResourcesLanguage` to "fr-CA")
 
 Na przykład, jeśli usuniesz oznaczenie kultury ". fr" i masz kulturę ustawioną na francuski, domyślny plik zasobów jest odczytywany, a ciągi są zlokalizowane. Menedżer zasobów określa domyślny lub rezerwowy zasób, gdy nic nie spełnia wymaganej kultury. Jeśli chcesz po prostu zwrócić klucz, gdy brakuje zasobu dla wymaganej kultury, nie musisz mieć domyślnego pliku zasobów.
@@ -275,10 +273,36 @@ Jeśli określisz tylko jedną z informacji o kulturze i kulturze interfejsu uż
 
 6. Naciśnij pozycję język, a następnie naciśnij pozycję **Przenieś w górę**.
 
+::: moniker range=">= aspnetcore-3.0"
+### <a name="the-content-language-http-header"></a>Nagłówek HTTP w języku zawartości
+
+Nagłówek jednostki [zawartości w języku](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Language) :
+
+ - Służy do opisywania języków przeznaczonych dla odbiorców.
+ - Umożliwia użytkownikowi odróżnienie zgodnie z preferowanym językiem użytkownika.
+
+Nagłówki jednostek są używane w żądaniach i odpowiedziach HTTP.
+
+W ASP.NET Core 3,0 nagłówek `Content-Language` można dodać, ustawiając właściwość `ApplyCurrentCultureToResponseHeaders`.
+
+Dodawanie nagłówka `Content-Language`:
+
+ - Zezwala RequestLocalizationMiddleware na ustawienie `Content-Language` nagłówka z `CurrentUICulture`.
+ - Eliminuje konieczność ustawienia nagłówka odpowiedzi `Content-Language` jawnie.
+
+```csharp
+app.UseRequestLocalization(new RequestLocalizationOptions
+{
+    ApplyCurrentCultureToResponseHeaders = true
+});
+```
+::: moniker-end
+
 ### <a name="use-a-custom-provider"></a>Używanie dostawcy niestandardowego
 
 Załóżmy, że chcesz zezwolić klientom na przechowywanie w swoich bazach danych językowych i kulturowych. Można napisać dostawcę, aby wyszukać te wartości dla użytkownika. Poniższy kod pokazuje, jak dodać niestandardowego dostawcę:
 
+::: moniker range="< aspnetcore-3.0"
 ```csharp
 private const string enUSCulture = "en-US";
 
@@ -301,6 +325,32 @@ services.Configure<RequestLocalizationOptions>(options =>
     }));
 });
 ```
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+```csharp
+private const string enUSCulture = "en-US";
+
+services.Configure<RequestLocalizationOptions>(options =>
+{
+    var supportedCultures = new[]
+    {
+        new CultureInfo(enUSCulture),
+        new CultureInfo("fr")
+    };
+
+    options.DefaultRequestCulture = new RequestCulture(culture: enUSCulture, uiCulture: enUSCulture);
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+
+    options.AddInitialRequestCultureProvider(new CustomRequestCultureProvider(async context =>
+    {
+        // My custom request culture logic
+        return new ProviderCultureResult("en");
+    }));
+});
+```
+::: moniker-end
 
 Aby dodać lub usunąć dostawców lokalizacji, użyj `RequestLocalizationOptions`.
 
@@ -332,16 +382,20 @@ Międzynarodowe jest często skracane do "I18N". Skrót przyjmuje pierwszą i os
 
 Odsetk
 
-* Globalizacja (G11N): Proces tworzenia aplikacji w różnych językach i regionach.
-* Lokalizacja (L10N): Proces dostosowywania aplikacji dla danego języka i regionu.
-* Międzynarodowe (I18N): Opisuje zarówno globalizację, jak i lokalizację.
-* Dziedzinie Jest to język i, opcjonalnie, region.
-* Kultura neutralna: Kultura z określonym językiem, ale nie regionem. (na przykład "en", "es")
-* Określona kultura: Kultura, która ma określony język i region. (na przykład "en-US", "pl-GB", "es-CL")
-* Kultura nadrzędna: Neutralna kultura, która zawiera określoną kulturę. (na przykład "en" jest kulturą nadrzędną wartości "pl-US" i "pl-GB")
-* Ustawienie Ustawienia regionalne są takie same jak kultura.
+* Globalizacja (G11N): proces tworzenia aplikacji w różnych językach i regionach.
+* Lokalizacja (L10N): proces dostosowywania aplikacji dla danego języka i regionu.
+* Międzynarodowe (I18N): opisuje zarówno globalizację, jak i lokalizację.
+* Kultura: jest to język i, opcjonalnie, region.
+* Kultura neutralna: kultura, która ma określony język, ale nie region. (na przykład "en", "es")
+* Określona kultura: kultura, która ma określony język i region. (na przykład "en-US", "pl-GB", "es-CL")
+* Kultura nadrzędna: neutralna kultura, która zawiera określoną kulturę. (na przykład "en" jest kulturą nadrzędną wartości "pl-US" i "pl-GB")
+* Ustawienia regionalne: ustawienie regionalne jest takie samo jak kultura.
 
-[!INCLUDE[](~/includes/currency.md)]
+[!INCLUDE[](~/includes/localization/currency.md)]
+
+::: moniker range=">= aspnetcore-3.0"
+[!INCLUDE[](~/includes/localization/unsupported-culture-log-level.md)]
+::: moniker-end
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
@@ -351,3 +405,4 @@ Odsetk
 * [Zasoby w plikach resx](/dotnet/framework/resources/working-with-resx-files-programmatically)
 * [Zestaw Microsoft Multilingual App Toolkit](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308)
 * [Lokalizacje & typy ogólne](https://github.com/hishamco/hishambinateya.com/blob/master/Posts/localization-and-generics.md)
+* [Co nowego w lokalizacji w ASP.NET Core 3,0](http://hishambinateya.com/what-is-new-in-localization-in-asp.net-core-3.0)
