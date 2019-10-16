@@ -5,14 +5,14 @@ description: Poznaj ASP.NET Core Blazor, aby utworzyć interaktywny interfejs u�
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc, seoapril2019
-ms.date: 10/03/2019
+ms.date: 10/15/2019
 uid: blazor/index
-ms.openlocfilehash: d7dae028fd9a0505c9a2fa49a284f64fce59287f
-ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
+ms.openlocfilehash: abf631b5e1cf762eaef4bd85a6b85802c9899291
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71924659"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391156"
 ---
 # <a name="introduction-to-aspnet-core-blazor"></a>Wprowadzenie do ASP.NET Core Blazor
 
@@ -73,11 +73,11 @@ Poniższy znacznik Razor ilustruje składnik (*dialog. Razor*), który może by�
 }
 ```
 
-Zawartość (`ChildContent`) i tytuł (`Title`) okna dialogowego są udostępniane przez składnik, który używa tego składnika w interfejsie użytkownika. `OnYes`jest C# metodą wyzwalaną przez `onclick` zdarzenie przycisku.
+Zawartość okna dialogowego (`ChildContent`) i tytuł (`Title`) są dostarczane przez składnik, który używa tego składnika w interfejsie użytkownika. `OnYes` to C# Metoda wyzwalana przez zdarzenie `onclick` przycisku.
 
 Blazor używa naturalnych tagów HTML dla kompozycji interfejsu użytkownika. Elementy HTML określają składniki, a atrybuty znacznika przechodzą wartości do właściwości składnika.
 
-W poniższym przykładzie `Index` składnik `Dialog` używa składnika. `ChildContent`i `Title` są ustawiane przez atrybuty i zawartość `<Dialog>` elementu.
+W poniższym przykładzie składnik `Index` używa składnika `Dialog`. `ChildContent` i `Title` są ustawiane przez atrybuty i zawartość elementu `<Dialog>`.
 
 *Index. Razor*:
 
@@ -109,7 +109,7 @@ Blazor webassembly to jednostronicowa platforma aplikacji służąca do tworzeni
 
 Uruchamianie kodu platformy .NET wewnątrz przeglądarek sieci Web jest możliwe przez [zestaw webassembly](https://webassembly.org) (skrócony *wasm*). Webassembly to kompaktowy format kodu bajtowego zoptymalizowany pod kątem szybkiego pobierania i maksymalnej szybkości wykonywania. Webassembly to otwarty standard sieci Web, który jest obsługiwany w przeglądarkach sieci Web bez wtyczek.
 
-Kod webassembly może uzyskać dostęp do pełnej funkcjonalności przeglądarki za pośrednictwem języka JavaScript, nazywanego współdziałaniem *JavaScript* (lub międzyoperacyjną *JavaScript*). Kod .NET wykonywany za pośrednictwem webassembly w przeglądarce jest uruchamiany w piaskownicy języka JavaScript przeglądarki z ochroną, którą piaskownica zapewnia przed złośliwymi działaniami na komputerze klienckim.
+Kod webassembly może uzyskać dostęp do pełnej funkcjonalności przeglądarki za pośrednictwem języka JavaScript, nazywanego *współdziałaniem JavaScript* (lub *międzyoperacyjną JavaScript*). Kod .NET wykonywany za pośrednictwem webassembly w przeglądarce jest uruchamiany w piaskownicy języka JavaScript przeglądarki z ochroną, którą piaskownica zapewnia przed złośliwymi działaniami na komputerze klienckim.
 
 ![Blazor webassembly uruchamia kod platformy .NET w przeglądarce z zestawem webassembly.](index/_static/blazor-webassembly.png)
 
@@ -127,7 +127,7 @@ Rozmiar opublikowanej aplikacji, jej *rozmiaru ładunku*, jest krytycznym czynni
 
 ## <a name="blazor-server"></a>Serwer Blazor
 
-Blazor oddziela logikę renderowania składników od sposobu stosowania aktualizacji interfejsu użytkownika. Serwer Blazor zapewnia obsługę hostingu składników Razor na serwerze w aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika są obsługiwane przez [](xref:signalr/introduction) połączenie sygnalizujące.
+Blazor oddziela logikę renderowania składników od sposobu stosowania aktualizacji interfejsu użytkownika. Serwer Blazor zapewnia obsługę hostingu składników Razor na serwerze w aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika są obsługiwane przez połączenie [sygnalizujące](xref:signalr/introduction) .
 
 Środowisko uruchomieniowe obsługuje wysyłanie zdarzeń interfejsu użytkownika z przeglądarki do serwera i zastosowanie aktualizacji interfejsu użytkownika wysyłanych przez serwer z powrotem do przeglądarki po uruchomieniu składników programu.
 
@@ -143,7 +143,7 @@ W przypadku aplikacji, które wymagają bibliotek JavaScript innych firm i dost�
 
 Blazor implementuje [.NET Standard 2,0](/dotnet/standard/net-standard). .NET Standard jest formalną specyfikacją interfejsów API platformy .NET, które są wspólne dla implementacji platformy .NET. Biblioteki klas .NET Standard mogą być współużytkowane przez różne platformy .NET, takie jak Blazor, .NET Framework, .NET Core, Xamarin, mono i Unity.
 
-Interfejsy API, które nie są stosowane w przeglądarce sieci Web (na przykład dostęp do systemu plików, otwieranie gniazda i wątkowość) throw <xref:System.PlatformNotSupportedException>.
+Interfejsy API, które nie mają zastosowania w przeglądarce sieci Web (na przykład dostęp do systemu plików, otwieranie gniazda i wątkowość) zgłaszają <xref:System.PlatformNotSupportedException>.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
@@ -151,4 +151,4 @@ Interfejsy API, które nie są stosowane w przeglądarce sieci Web (na przykład
 * <xref:blazor/hosting-models>
 * [Przewodnik dla języka C#](/dotnet/csharp/)
 * <xref:mvc/views/razor>
-* [HTML](https://www.w3.org/html/)
+* [TEKST](https://www.w3.org/html/)

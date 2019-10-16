@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 8/22/2019
 uid: web-api/advanced/formatting
-ms.openlocfilehash: 0dd8b3b5ec58a199db086c4c0b0f057d26afd589
-ms.sourcegitcommit: 7a2c820692f04bfba04398641b70f27fa15391f5
+ms.openlocfilehash: 78fe620ea8fdd681a276253f77939bcb2a56ebb9
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72290633"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391289"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>Formatowanie danych odpowiedzi w ASP.NET Core Web API
 
@@ -155,7 +155,7 @@ Przed ASP.NET Core 3,0, domyślne używane elementy formatujące JSON zaimplemen
 
 Niektóre funkcje mogą nie współpracować z @no__tami programu formatującego opartymi na -0 i wymagają odwołania do programu formatującego @no__t opartego na -1. Kontynuuj korzystanie z @no__t programu formatującego opartych na -0, jeśli aplikacja:
 
-* Używa atrybutów `Newtonsoft.Json`. Na przykład: `[JsonProperty]` lub `[JsonIgnore]`.
+* Używa atrybutów `Newtonsoft.Json`. Na przykład `[JsonProperty]` lub `[JsonIgnore]`.
 * Dostosowuje ustawienia serializacji.
 * Opiera się na funkcjach, które są dostępne `Newtonsoft.Json`.
 * Konfiguruje `Microsoft.AspNetCore.Mvc.JsonResult.SerializerSettings`. Przed ASP.NET Core 3,0 `JsonResult.SerializerSettings` akceptuje wystąpienie `JsonSerializerSettings`, które jest specyficzne dla `Newtonsoft.Json`.
@@ -219,16 +219,16 @@ Aby uzyskać więcej informacji, zobacz [filtry](xref:mvc/controllers/filters).
 
 ### <a name="special-case-formatters"></a>Specjalne elementy formatujące Case
 
-Niektóre specjalne przypadki są implementowane przy użyciu wbudowanych elementów formatujących. Domyślnie typy zwracane `string` są formatowane jako *tekst/zwykły* (*tekst/HTML* , jeśli żąda się za pośrednictwem nagłówka `Accept`). To zachowanie można usunąć, usuwając <xref:Microsoft.AspNetCore.Mvc.Formatters.TextOutputFormatter>. Elementy formatujące są usuwane w metodzie `Configure`. Akcje z typem zwracanym obiektu modelu zwracają `204 No Content` podczas zwracania `null`. To zachowanie można usunąć, usuwając <xref:Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter>. Poniższy kod usuwa `TextOutputFormatter` i `HttpNoContentOutputFormatter`.
+Niektóre specjalne przypadki są implementowane przy użyciu wbudowanych elementów formatujących. Domyślnie typy zwracane `string` są formatowane jako *tekst/zwykły* (*tekst/HTML* , jeśli żąda się za pośrednictwem nagłówka `Accept`). To zachowanie można usunąć, usuwając <xref:Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter>. Elementy formatujące są usuwane w metodzie `ConfigureServices`. Akcje z typem zwracanym obiektu modelu zwracają `204 No Content` podczas zwracania `null`. To zachowanie można usunąć, usuwając <xref:Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter>. Poniższy kod usuwa `StringOutputFormatter` i `HttpNoContentOutputFormatter`.
 
 ::: moniker range=">= aspnetcore-3.0"
-[!code-csharp[](./formatting/3.0sample/StartupTextOutputFormatter.cs?name=snippet)]
+[!code-csharp[](./formatting/3.0sample/StartupStringOutputFormatter.cs?name=snippet)]
 ::: moniker-end
 ::: moniker range="< aspnetcore-3.0"
-[!code-csharp[](./formatting/sample/StartupTextOutputFormatter.cs?name=snippet)]
+[!code-csharp[](./formatting/sample/StartupStringOutputFormatter.cs?name=snippet)]
 ::: moniker-end
 
-Bez `TextOutputFormatter` typy zwracane `string` zwracają `406 Not Acceptable`. Jeśli element formatujący XML istnieje, formatuje `string` zwracanych typów, jeśli `TextOutputFormatter` zostanie usunięty.
+Bez `StringOutputFormatter` wbudowane typy programu formatującego JSON `string` zwracanych typów. Jeśli wbudowany program formatujący JSON jest usuwany, a element formatujący XML jest dostępny, format XML programu formatującego jest formatowany `string` typów zwracanych. W przeciwnym razie zwracane typy `string` zwracają `406 Not Acceptable`.
 
 Bez `HttpNoContentOutputFormatter` obiekty o wartości null są formatowane przy użyciu skonfigurowanego programu formatującego. Na przykład:
 
@@ -248,7 +248,7 @@ Mapowanie ze ścieżki żądania należy określić w marszrucie używanej przez
 
 Poprzednia trasa pozwala określić żądany format jako opcjonalne rozszerzenie pliku. Atrybut [`[FormatFilter]`](xref:Microsoft.AspNetCore.Mvc.FormatFilterAttribute) sprawdza obecność wartości format w `RouteData` i mapuje format odpowiedzi do odpowiedniego programu formatującego podczas tworzenia odpowiedzi.
 
-|           Trasa        |             EQ              |
+|           Szlak        |             EQ              |
 |------------------------|------------------------------------|
 |   `/api/products/5`    |    Domyślny program formatujący dane wyjściowe    |
 | `/api/products/5.json` | Program formatujący JSON (jeśli jest skonfigurowany) |

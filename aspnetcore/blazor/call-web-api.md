@@ -5,14 +5,14 @@ description: Dowiedz się, jak wywoływać interfejs API sieci Web z aplikacji B
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/05/2019
+ms.date: 10/15/2019
 uid: blazor/call-web-api
-ms.openlocfilehash: 3d70af2226eb29870458a5fd3c2bbbc3ee5c14ce
-ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
+ms.openlocfilehash: b08fdf5c2f9a523314b1744a33087eb64fa4c14a
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037437"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390831"
 ---
 # <a name="call-a-web-api-from-aspnet-core-blazor"></a>Wywoływanie interfejsu API sieci Web z ASP.NET Core Blazor
 
@@ -24,7 +24,7 @@ Blazor aplikacje webassembly wywołują interfejsy API sieci Web przy użyciu ws
 
 Aplikacje serwera Blazor wywołują interfejsy API sieci Web przy użyciu wystąpień <xref:System.Net.Http.HttpClient> utworzonych zazwyczaj przy użyciu <xref:System.Net.Http.IHttpClientFactory>. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/http-requests>.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 Przykłady Blazor webassembly można znaleźć w następujących składnikach w przykładowej aplikacji:
 
@@ -200,7 +200,7 @@ Opcje żądania dostarczenia do źródłowego [interfejsu API pobierania](https:
 }
 ```
 
-Aby uzyskać więcej informacji na temat opcji interfejsu API pobierania, zobacz @no__t 0MDN Web docs: WindowOrWorkerGlobalScope.fetch():Parameters](https://developer.mozilla.org/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters).
+Aby uzyskać więcej informacji na temat opcji interfejsu API pobierania, zobacz [powiadomienia MDN Web docs: WindowOrWorkerGlobalScope. Fetch ():P arameters](https://developer.mozilla.org/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters).
 
 Podczas wysyłania poświadczeń (plików cookie/nagłówki autoryzacji) w żądaniach CORS nagłówek `Authorization` musi być dozwolony przez zasady CORS.
 

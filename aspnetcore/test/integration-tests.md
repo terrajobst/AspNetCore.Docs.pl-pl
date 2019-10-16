@@ -5,14 +5,14 @@ description: Dowiedz się, jak testy integracji zapewniają, że składniki apli
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 10/14/2019
 uid: test/integration-tests
-ms.openlocfilehash: 2825073962d135608c52e7bde42106e7786de521
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: 863b95230d376d050c34a9ed585b7696e649cb05
+ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007454"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72378719"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Testy integracji w ASP.NET Core
 
@@ -24,7 +24,7 @@ Testy integracji zapewniają, że składniki aplikacji działają prawidłowo na
 
 W tym temacie założono podstawową wiedzę na temat testów jednostkowych. Jeśli nie znasz pojęć testowych, zobacz [testy jednostkowe w programie .NET Core i w .NET Standard](/dotnet/core/testing/) tematu oraz jego połączonej zawartości.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 Przykładowa aplikacja jest aplikacją Razor Pages i przyjmuje podstawową wiedzę na temat Razor Pages. Jeśli nie znasz Razor Pages, zobacz następujące tematy:
 
@@ -41,7 +41,7 @@ Testy integracji ocenią składniki aplikacji na szerszym poziomie niż [testy j
 
 Te szersze testy są używane do testowania infrastruktury aplikacji i całego środowiska, często łącznie z następującymi składnikami:
 
-* Database (Baza danych)
+* Baza danych
 * System plików
 * Urządzenia sieciowe
 * Potok żądania-odpowiedź
@@ -76,9 +76,9 @@ Testy integracji są zgodne z sekwencją zdarzeń, które obejmują typowe kroki
 
 1. SUT hosta sieci Web.
 1. Klient serwera testowego jest tworzony w celu przesyłania żądań do aplikacji.
-1. Krok *Rozmieść* test jest wykonywany: Aplikacja testowa przygotowuje żądanie.
-1. Krok testu *Act* jest wykonywany: Klient przesyła żądanie i otrzymuje odpowiedź.
-1. Krok testu *potwierdzenia* jest wykonywany: *Rzeczywista* odpowiedź jest sprawdzana jako *przebieg* lub *Niepowodzenie* w zależności od *oczekiwanej* odpowiedzi.
+1. Krok *rozmieszczania* testu jest wykonywany: aplikacja testowa przygotowuje żądanie.
+1. Krok testu *Act* jest wykonywany: klient przesyła żądanie i odbiera odpowiedź.
+1. Krok testu *potwierdzenia* jest wykonywany: *rzeczywista* odpowiedź jest sprawdzana jako *przebieg* lub *Niepowodzenie* w zależności od *oczekiwanej* odpowiedzi.
 1. Proces jest kontynuowany, dopóki wszystkie testy nie zostaną wykonane.
 1. Wyniki testu są zgłaszane.
 
@@ -117,7 +117,7 @@ Entity Framework Core jest również używany w testach. Odwołania do aplikacji
 * [Microsoft. AspNetCore. Diagnostics. EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore)
 * [Microsoft. AspNetCore. Identity. EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.AspNetCore.Identity.EntityFrameworkCore)
 * [Microsoft. EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore)
-* [Microsoft.EntityFrameworkCore.InMemory](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.InMemory)
+* [Microsoft. EntityFrameworkCore. inMemory](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.InMemory)
 * [Microsoft. EntityFrameworkCore. Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools)
 
 ## <a name="sut-environment"></a>Środowisko SUT
@@ -167,7 +167,24 @@ Konfigurację hosta sieci Web można utworzyć niezależnie od klas testów prze
 
    [!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/CustomWebApplicationFactory.cs?name=snippet1)]
 
-   Umieszczanie bazy danych w [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) jest wykonywane przez metodę `InitializeDbForTests`. Metoda jest opisana w przykładzie [Integration Tests: Testowa sekcja organizacja aplikacji @ no__t-0.
+   Umieszczanie bazy danych w [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) jest wykonywane przez metodę `InitializeDbForTests`. Metoda jest opisana w [przykładowej testów integracji: sekcja testowa aplikacja w organizacji](#test-app-organization) .
+
+   Kontekst bazy danych SUT jest zarejestrowany w metodzie `Startup.ConfigureServices`. Wywołanie zwrotne `builder.ConfigureServices` aplikacji testowej jest wykonywane *po* wykonaniu kodu `Startup.ConfigureServices` aplikacji. Aby użyć innej bazy danych dla testów niż baza danych aplikacji, należy zamienić kontekst bazy danych aplikacji na `builder.ConfigureServices`.
+
+   Przykładowa aplikacja znajduje deskryptor usługi dla kontekstu bazy danych i używa deskryptora do usunięcia rejestracji usługi. Następnie fabryka dodaje nową `ApplicationDbContext`, która korzysta z bazy danych w pamięci dla testów.
+
+   Aby nawiązać połączenie z inną bazą danych niż baza danych w pamięci, Zmień wywołanie `UseInMemoryDatabase` w celu połączenia kontekstu z inną bazą danych. Aby użyć SQL Server testowej bazy danych:
+
+   * Odwołuje się do pakietu NuGet [Microsoft. EntityFrameworkCore. SqlServer] https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/) w pliku projektu.
+   * Wywołaj `UseSqlServer` z parametrami połączenia do bazy danych.
+
+   ```csharp
+   services.AddDbContext<ApplicationDbContext>((options, context) => 
+   {
+       context.UseSqlServer(
+           Configuration.GetConnectionString("TestingDbConnectionString"));
+   });
+   ```
 
 2. Użyj niestandardowej `CustomWebApplicationFactory` w klasach testowych. Poniższy przykład używa fabryki w klasie `IndexPageTests`:
 
@@ -236,7 +253,7 @@ Usługi można przesłaniać w teście, używając wywołania [ConfigureTestServ
 
 Przykład SUT obejmuje usługę objętą zakresem zwracającą ofertę. Po zażądaniu strony indeksu oferta zostanie osadzona w ukrytym polu na stronie indeksu.
 
-*Services/IQuoteService.cs*:
+*Usługi/IQuoteService. cs*:
 
 [!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/src/RazorPagesProject/Services/IQuoteService.cs?name=snippet1)]
 
@@ -304,10 +321,10 @@ Po wykonaniu testów dla implementacji `IClassFixture` [TestServer](/dotnet/api/
 
 [Przykładowa aplikacja](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) składa się z dwóch aplikacji:
 
-| Aplikacja | Katalog projektu | Opis |
+| Aplikacje | Katalog projektu | Opis |
 | --- | ----------------- | ----------- |
-| Aplikacja wiadomości (SUT) | *src/RazorPagesProject* | Zezwala użytkownikowi na dodawanie, usuwanie, usuwanie wszystkich i analizowanie komunikatów. |
-| Aplikacja testowa | *tests/RazorPagesProject.Tests* | Służy do integracji testu SUT. |
+| Aplikacja wiadomości (SUT) | *SRC/RazorPagesProject* | Zezwala użytkownikowi na dodawanie, usuwanie, usuwanie wszystkich i analizowanie komunikatów. |
+| Aplikacja testowa | *testy/RazorPagesProject. Tests* | Służy do integracji testu SUT. |
 
 Testy można uruchamiać przy użyciu wbudowanych funkcji testowych środowiska IDE, takich jak [Visual Studio](https://visualstudio.microsoft.com). W przypadku używania [Visual Studio Code](https://code.visualstudio.com/) lub wiersza polecenia wykonaj następujące polecenie w wierszu polecenia w katalogu *Tests/RazorPagesProject. Tests* :
 
@@ -350,6 +367,8 @@ Przykładowa aplikacja odziarnauje bazę danych z trzema komunikatami w *Utiliti
 
 [!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/Helpers/Utilities.cs?name=snippet1)]
 
+Kontekst bazy danych SUT jest zarejestrowany w metodzie `Startup.ConfigureServices`. Wywołanie zwrotne `builder.ConfigureServices` aplikacji testowej jest wykonywane *po* wykonaniu kodu `Startup.ConfigureServices` aplikacji. Aby użyć innej bazy danych dla testów, kontekst bazy danych aplikacji musi zostać zastąpiony w `builder.ConfigureServices`. Aby uzyskać więcej informacji, zobacz sekcję [Dostosowywanie WebApplicationFactory](#customize-webapplicationfactory) .
+
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
@@ -358,7 +377,7 @@ Testy integracji zapewniają, że składniki aplikacji działają prawidłowo na
 
 W tym temacie założono podstawową wiedzę na temat testów jednostkowych. Jeśli nie znasz pojęć testowych, zobacz [testy jednostkowe w programie .NET Core i w .NET Standard](/dotnet/core/testing/) tematu oraz jego połączonej zawartości.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 Przykładowa aplikacja jest aplikacją Razor Pages i przyjmuje podstawową wiedzę na temat Razor Pages. Jeśli nie znasz Razor Pages, zobacz następujące tematy:
 
@@ -375,7 +394,7 @@ Testy integracji ocenią składniki aplikacji na szerszym poziomie niż [testy j
 
 Te szersze testy są używane do testowania infrastruktury aplikacji i całego środowiska, często łącznie z następującymi składnikami:
 
-* Database (Baza danych)
+* Baza danych
 * System plików
 * Urządzenia sieciowe
 * Potok żądania-odpowiedź
@@ -410,9 +429,9 @@ Testy integracji są zgodne z sekwencją zdarzeń, które obejmują typowe kroki
 
 1. SUT hosta sieci Web.
 1. Klient serwera testowego jest tworzony w celu przesyłania żądań do aplikacji.
-1. Krok *Rozmieść* test jest wykonywany: Aplikacja testowa przygotowuje żądanie.
-1. Krok testu *Act* jest wykonywany: Klient przesyła żądanie i otrzymuje odpowiedź.
-1. Krok testu *potwierdzenia* jest wykonywany: *Rzeczywista* odpowiedź jest sprawdzana jako *przebieg* lub *Niepowodzenie* w zależności od *oczekiwanej* odpowiedzi.
+1. Krok *rozmieszczania* testu jest wykonywany: aplikacja testowa przygotowuje żądanie.
+1. Krok testu *Act* jest wykonywany: klient przesyła żądanie i odbiera odpowiedź.
+1. Krok testu *potwierdzenia* jest wykonywany: *rzeczywista* odpowiedź jest sprawdzana jako *przebieg* lub *Niepowodzenie* w zależności od *oczekiwanej* odpowiedzi.
 1. Proces jest kontynuowany, dopóki wszystkie testy nie zostaną wykonane.
 1. Wyniki testu są zgłaszane.
 
@@ -438,8 +457,8 @@ Nie istnieje praktycznie żadna różnica między konfiguracją testów aplikacj
 Projekt testowy musi:
 
 * Odwołuje się do następujących pakietów:
-  * [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)
-  * [Microsoft.AspNetCore.Mvc.Testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing/)
+  * [Microsoft. AspNetCore. App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)
+  * [Microsoft. AspNetCore. MVC. test](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing/)
 * Określ zestaw SDK sieci Web w pliku projektu (`<Project Sdk="Microsoft.NET.Sdk.Web">`). Zestaw SDK sieci Web jest wymagany w przypadku odwoływania się do [pakietu Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app).
 
 Te wymagania wstępne można zobaczyć w [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/). Sprawdź plik *Tests/RazorPagesProject. Tests/RazorPagesProject. tests. csproj* . Przykładowa aplikacja używa środowiska testowego [xUnit](https://xunit.github.io/) i biblioteki analizatora [AngleSharp](https://anglesharp.github.io/) , dzięki czemu Przykładowa aplikacja również odwołuje się do:
@@ -495,7 +514,7 @@ Konfigurację hosta sieci Web można utworzyć niezależnie od klas testów prze
 
    [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/CustomWebApplicationFactory.cs?name=snippet1)]
 
-   Umieszczanie bazy danych w [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) jest wykonywane przez metodę `InitializeDbForTests`. Metoda jest opisana w przykładzie [Integration Tests: Testowa sekcja organizacja aplikacji @ no__t-0.
+   Umieszczanie bazy danych w [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) jest wykonywane przez metodę `InitializeDbForTests`. Metoda jest opisana w [przykładowej testów integracji: sekcja testowa aplikacja w organizacji](#test-app-organization) .
 
 2. Użyj niestandardowej `CustomWebApplicationFactory` w klasach testowych. Poniższy przykład używa fabryki w klasie `IndexPageTests`:
 
@@ -564,7 +583,7 @@ Usługi można przesłaniać w teście, używając wywołania [ConfigureTestServ
 
 Przykład SUT obejmuje usługę objętą zakresem zwracającą ofertę. Po zażądaniu strony indeksu oferta zostanie osadzona w ukrytym polu na stronie indeksu.
 
-*Services/IQuoteService.cs*:
+*Usługi/IQuoteService. cs*:
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Services/IQuoteService.cs?name=snippet1)]
 
@@ -642,10 +661,10 @@ Po wykonaniu testów dla implementacji `IClassFixture` [TestServer](/dotnet/api/
 
 [Przykładowa aplikacja](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) składa się z dwóch aplikacji:
 
-| Aplikacja | Katalog projektu | Opis |
+| Aplikacje | Katalog projektu | Opis |
 | --- | ----------------- | ----------- |
-| Aplikacja wiadomości (SUT) | *src/RazorPagesProject* | Zezwala użytkownikowi na dodawanie, usuwanie, usuwanie wszystkich i analizowanie komunikatów. |
-| Aplikacja testowa | *tests/RazorPagesProject.Tests* | Służy do integracji testu SUT. |
+| Aplikacja wiadomości (SUT) | *SRC/RazorPagesProject* | Zezwala użytkownikowi na dodawanie, usuwanie, usuwanie wszystkich i analizowanie komunikatów. |
+| Aplikacja testowa | *testy/RazorPagesProject. Tests* | Służy do integracji testu SUT. |
 
 Testy można uruchamiać przy użyciu wbudowanych funkcji testowych środowiska IDE, takich jak [Visual Studio](https://visualstudio.microsoft.com). W przypadku używania [Visual Studio Code](https://code.visualstudio.com/) lub wiersza polecenia wykonaj następujące polecenie w wierszu polecenia w katalogu *Tests/RazorPagesProject. Tests* :
 

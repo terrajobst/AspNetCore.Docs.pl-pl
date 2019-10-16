@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/05/2019
 uid: blazor/components
-ms.openlocfilehash: 3e0966bf978c99fc00db7682bea3292306cbb03c
-ms.sourcegitcommit: d81912782a8b0bd164f30a516ad80f8defb5d020
+ms.openlocfilehash: a71bbf3921417cbd23aeb14d0d78ad8354d6e93a
+ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72179037"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72378691"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
@@ -692,7 +692,7 @@ Odwołania do składników zapewniają sposób odwoływania się do wystąpienia
 Gdy składnik jest renderowany, pole `loginDialog` jest wypełniane wystąpieniem składnika podrzędnego `MyLoginDialog`. Następnie można wywołać metody .NET w wystąpieniu składnika.
 
 > [!IMPORTANT]
-> Zmienna `loginDialog` jest wypełniana tylko po wyrenderowaniu składnika, a jego wyjście zawiera element `MyLoginDialog`. Do tego momentu nie ma niczego do odwołania. Aby manipulować odwołaniami do składników po zakończeniu renderowania składnika, użyj metod `OnAfterRenderAsync` lub `OnAfterRender`.
+> Zmienna `loginDialog` jest wypełniana tylko po wyrenderowaniu składnika, a jego wyjście zawiera element `MyLoginDialog`. Do tego momentu nie ma niczego do odwołania. Aby manipulować odwołaniami do składników po zakończeniu renderowania składnika, należy użyć [metody OnAfterRenderAsync lub OnAfterRender](#lifecycle-methods).
 
 Podczas przechwytywania odwołań do składników użycie podobnej składni do [przechwytywania odwołań do elementów](xref:blazor/javascript-interop#capture-references-to-elements)nie jest funkcją [międzyoperacyjności języka JavaScript](xref:blazor/javascript-interop) . Odwołania do składników nie są przesyłane do kodu JavaScript @ no__t-0they're używane tylko w kodzie platformy .NET.
 
@@ -841,6 +841,9 @@ protected override async Task OnInitializedAsync()
 }
 ```
 
+> [!NOTE]
+> Asynchroniczne działanie podczas inicjowania składnika musi wystąpić podczas zdarzenia cyklu życia `OnInitializedAsync`.
+
 W przypadku operacji synchronicznych należy używać `OnInitialized`:
 
 ```csharp
@@ -858,6 +861,9 @@ protected override async Task OnParametersSetAsync()
     await ...
 }
 ```
+
+> [!NOTE]
+> Działanie asynchroniczne, gdy stosowane są parametry i wartości właściwości, muszą wystąpić podczas zdarzenia cyklu życia `OnParametersSetAsync`.
 
 ```csharp
 protected override void OnParametersSet()
@@ -884,6 +890,9 @@ protected override async Task OnAfterRenderAsync(bool firstRender)
     }
 }
 ```
+
+> [!NOTE]
+> Asynchroniczne działanie natychmiast po wyrenderowaniu musi wystąpić w trakcie zdarzenia cyklu życia `OnAfterRenderAsync`.
 
 ```csharp
 protected override void OnAfterRender(bool firstRender)

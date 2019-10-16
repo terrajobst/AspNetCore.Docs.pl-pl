@@ -5,14 +5,14 @@ description: Dowiedz się, jak hostować i wdrażać aplikację Blazor przy uży
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 10/15/2019
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: a0a11f3aed9035000e79844fbec7cdd17b73fdaa
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: 8ff3f7b089b7aec6b1a6be2c85f24cfb9674b684
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007339"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391322"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor-webassembly"></a>Hostowanie i wdrażanie ASP.NET Core Blazor webassembly
 
@@ -44,7 +44,7 @@ Gdy zażądano dokumentu domyślnego aplikacji przy użyciu paska adresu przegl�
 1. *index. html* Bootstrap aplikację.
 1. Ładowanie routera Blazor oraz renderowanie składnika Razor `Main`.
 
-Na stronie głównej wybranie linku do składnika `About` działa na kliencie, ponieważ router Blazor uniemożliwia przeglądarce żądanie w Internecie do `www.contoso.com` dla `About` i obsługuje wyrenderowany składnik `About`. Wszystkie żądania dotyczące wewnętrznych punktów końcowych *w aplikacji Blazor webassembly* działają w taki sam sposób: Żądania nie wyzwalają żądań przeglądarki do zasobów hostowanych przez serwer w Internecie. Router obsługuje wewnętrznie żądania.
+Na stronie głównej wybranie linku do składnika `About` działa na kliencie, ponieważ router Blazor uniemożliwia przeglądarce żądanie w Internecie do `www.contoso.com` dla `About` i obsługuje wyrenderowany składnik `About`. Wszystkie żądania dotyczące wewnętrznych punktów końcowych *w aplikacji Blazor webassembly* działają w taki sam sposób: żądania nie wyzwalają żądań przeglądarki do zasobów hostowanych przez serwer w Internecie. Router obsługuje wewnętrznie żądania.
 
 Jeśli żądanie zostanie wykonane przy użyciu paska adresu przeglądarki dla `www.contoso.com/About`, żądanie kończy się niepowodzeniem. Ten zasób nie istnieje na hoście internetowym aplikacji, więc zwracana jest odpowiedź *404 — nie znaleziono* .
 
@@ -74,14 +74,14 @@ Usługi IIS to obsługujący statyczny serwer plików dla aplikacji Blazor. Aby 
 
 Opublikowane zasoby są tworzone w folderze */bin/Release/{Target Framework}/Publish* . Hostowanie zawartości folderu *publikowania* na serwerze sieci Web lub w usłudze hostingu.
 
-#### <a name="webconfig"></a>web.config
+#### <a name="webconfig"></a>plik Web. config
 
 Po opublikowaniu projektu Blazor zostanie utworzony plik *Web. config* z następującą konfiguracją usług IIS:
 
 * Typy MIME są ustawiane dla następujących rozszerzeń plików:
-  * *.dll* &ndash; `application/octet-stream`
-  * *.json* &ndash; `application/json`
-  * *.wasm* &ndash; `application/wasm`
+  * *. dll* &ndash; `application/octet-stream`
+  * *. json* &ndash; `application/json`
+  * *wasm* &ndash; `application/wasm`
   * *woff* &ndash; `application/font-woff`
   * *woff2* &ndash; `application/font-woff`
 * Kompresja HTTP jest włączona dla następujących typów MIME:

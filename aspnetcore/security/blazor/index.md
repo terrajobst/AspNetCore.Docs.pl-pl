@@ -5,14 +5,14 @@ description: Dowiedz się więcej na temat scenariuszy uwierzytelniania Blazor i
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/05/2019
+ms.date: 10/15/2019
 uid: security/blazor/index
-ms.openlocfilehash: 1fcd54e954d09e66b8bb1c9a51ef56193f3acf93
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: 85a6a32ea068e6cd00ebb71bdf7fe0bd06b77618
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007435"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391314"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>ASP.NET Core uwierzytelnianie i autoryzacja Blazor
 
@@ -29,7 +29,7 @@ Scenariusze zabezpieczeń różnią się w zależności od aplikacji Blazor Serv
 
 Blazor aplikacje webassembly są uruchamiane na kliencie. Autoryzacja jest używana *tylko* do określenia opcji interfejsu użytkownika, które mają być wyświetlane. Ponieważ sprawdzenia po stronie klienta mogą być modyfikowane lub pomijane przez użytkownika, aplikacja Blazor webassembly nie może wymusić reguł dostępu autoryzacji.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 
 Blazor używa istniejących mechanizmów uwierzytelniania ASP.NET Core do ustanowienia tożsamości użytkownika. Dokładny mechanizm zależy od tego, w jaki sposób aplikacja Blazor jest hostowana, Blazor Server lub Blazor webassembly.
 
@@ -251,7 +251,7 @@ Skonfiguruj parametr kaskadowy `Task<AuthenticationState>` przy użyciu składni
 </Router>
 ```
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>Autoryzacja
 
 Po uwierzytelnieniu użytkownika są stosowane reguły *autoryzacji* umożliwiające kontrolę działania użytkownika.
 
@@ -493,7 +493,7 @@ W aplikacjach webassembly Blazor można ominąć sprawdzanie autoryzacji, poniew
 
 Typowe błędy:
 
-* **Authorization wymaga parametru kaskadowego typu Task @ no__t-1AuthenticationState >. Rozważ użycie CascadingAuthenticationState do dostarczenia tego.**
+* **Autoryzacja wymaga parametru kaskadowego typu Task @ no__t-1AuthenticationState >. Rozważ użycie CascadingAuthenticationState, aby to zrobić.**
 
 * **Odebrano wartość `null` dla `authenticationStateTask`**
 

@@ -5,14 +5,14 @@ description: Poznaj modele hostingu Blazor webassembly i Blazor Server.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/03/2019
+ms.date: 10/15/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: bc3ad9c7c4731b685fc161844d9f55e51722c0ea
-ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
+ms.openlocfilehash: 072f9bbdcf7171ede63383b085f9f0f030bf1076
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71924677"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391173"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>ASP.NET Core modele hostingowe Blazor
 
@@ -28,7 +28,7 @@ Aby utworzyć projekt dla modeli hostingu opisanych w tym artykule, zobacz <xref
 
 Główny model hostingu dla Blazor jest uruchomiony po stronie klienta w przeglądarce w programie webassembly. Aplikacja Blazor, jej zależności i środowisko uruchomieniowe platformy .NET są pobierane do przeglądarki. Aplikacja jest wykonywana bezpośrednio w wątku interfejsu użytkownika przeglądarki. Aktualizacje interfejsu użytkownika i obsługa zdarzeń są wykonywane w ramach tego samego procesu. Zasoby aplikacji są wdrażane jako pliki statyczne na serwerze sieci Web lub usłudze obsługującej zawartość statyczną dla klientów.
 
-![Blazor webassembly: Aplikacja Blazor jest uruchamiana w wątku interfejsu użytkownika w przeglądarce.](hosting-models/_static/blazor-webassembly.png)
+![Blazor webassembly: aplikacja Blazor jest uruchamiana w wątku interfejsu użytkownika w przeglądarce.](hosting-models/_static/blazor-webassembly.png)
 
 Aby utworzyć aplikację Blazor przy użyciu modelu hostingu po stronie klienta, użyj szablonu **aplikacji Blazor webassembly** ([dotnet New blazorwasm](/dotnet/core/tools/dotnet-new)).
 
@@ -55,18 +55,18 @@ Istnieją Downsides do hostingu Blazor webassembly:
 
 ## <a name="blazor-server"></a>Serwer Blazor
 
-W modelu hostingu serwera Blazor aplikacja jest wykonywana na serwerze z poziomu aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika, obsługa zdarzeń i wywołania języka JavaScript są obsługiwane przez [](xref:signalr/introduction) połączenie sygnalizujące.
+W modelu hostingu serwera Blazor aplikacja jest wykonywana na serwerze z poziomu aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika, obsługa zdarzeń i wywołania języka JavaScript są obsługiwane przez połączenie [sygnalizujące](xref:signalr/introduction) .
 
 ![Przeglądarka współdziała z aplikacją (hostowaną wewnątrz aplikacji ASP.NET Core) na serwerze za pośrednictwem połączenia sygnalizującego.](hosting-models/_static/blazor-server.png)
 
 Aby utworzyć aplikację Blazor przy użyciu modelu hostingu serwera Blazor, użyj szablonu aplikacji ASP.NET Core **Blazor Server** ([dotnet New blazorserver](/dotnet/core/tools/dotnet-new)). Aplikacja ASP.NET Core hostuje aplikację serwera Blazor i tworzy punkt końcowy sygnalizujący, do którego klienci nawiązują połączenie.
 
-Aplikacja ASP.NET Core odwołuje się do `Startup` klasy aplikacji do dodania:
+Aplikacja ASP.NET Core odwołuje się do klasy `Startup` aplikacji do dodania:
 
 * Usługi po stronie serwera.
 * Aplikacja do potoku obsługi żądania.
 
-Skrypt&dagger; *blazor. Server. js* nawiązuje połączenie z klientem. Jest on odpowiedzialny za utrzymanie i przywrócenie stanu aplikacji zgodnie z wymaganiami (na przykład w przypadku utraconego połączenia sieciowego).
+Skrypt *blazor. Server. js* @ no__t-1 nawiązuje połączenie z klientem. Jest on odpowiedzialny za utrzymanie i przywrócenie stanu aplikacji zgodnie z wymaganiami (na przykład w przypadku utraconego połączenia sieciowego).
 
 Model hostingu serwera Blazor oferuje kilka korzyści:
 
@@ -83,7 +83,7 @@ Istnieją Downsides do hostingu serwera Blazor:
 * Skalowalność jest wyzwaniem dla aplikacji z wieloma użytkownikami. Serwer musi zarządzać wieloma połączeniami klientów i obsługiwać stan klienta.
 * Do obsłużynia aplikacji wymagany jest serwer ASP.NET Core. Scenariusze wdrażania bez użycia serwera nie są możliwe (na przykład w celu obsługi aplikacji z sieci CDN).
 
-&dagger;Skrypt *blazor. Server. js* jest obsługiwany z zasobów osadzonych w ASP.NET Core udostępnionej platformie.
+skrypt @no__t 0The *blazor. Server. js* jest obsługiwany z zasobów osadzonych w ASP.NET Core udostępnionej platformie.
 
 ### <a name="comparison-to-server-rendered-ui"></a>Porównanie z renderowanym przez serwer interfejsem użytkownika
 
@@ -124,7 +124,7 @@ W przypadku aplikacji biznesowych, która jest ograniczona do prywatnej sieci fi
 
 Użycie pamięci może również przyczynić się do opóźnienia aplikacji. Zwiększone użycie pamięci powoduje częste zbieranie elementów bezużytecznych lub stronicowanie pamięci na dysku, co zmniejsza wydajność aplikacji i w związku z tym zwiększa opóźnienia interfejsu użytkownika. Aby uzyskać więcej informacji, zobacz <xref:security/blazor/server>.
 
-Aplikacje serwera Blazor powinny być zoptymalizowane w celu zminimalizowania opóźnień interfejsu użytkownika przez zmniejszenie opóźnienia sieci i użycie pamięci. Aby uzyskać podejście do mierzenia opóźnień sieci, <xref:host-and-deploy/blazor/server#measure-network-latency>Zobacz. Aby uzyskać więcej informacji na temat sygnałów i Blazor, zobacz:
+Aplikacje serwera Blazor powinny być zoptymalizowane w celu zminimalizowania opóźnień interfejsu użytkownika przez zmniejszenie opóźnienia sieci i użycie pamięci. Aby uzyskać podejście do mierzenia opóźnień sieci, zobacz <xref:host-and-deploy/blazor/server#measure-network-latency>. Aby uzyskać więcej informacji na temat sygnałów i Blazor, zobacz:
 
 * <xref:host-and-deploy/blazor/server>
 * <xref:security/blazor/server>
@@ -136,7 +136,7 @@ Aplikacje serwera Blazor wymagają aktywnego połączenia z serwerem. Jeśli po�
 Gdy klient wykryje, że połączenie zostało utracone, do użytkownika jest wyświetlany domyślny interfejs użytkownika, podczas gdy klient próbuje ponownie nawiązać połączenie. Jeśli ponowne połączenie nie powiedzie się, użytkownik otrzymuje opcję ponowienia próby. Aby dostosować interfejs użytkownika, zdefiniuj element z `components-reconnect-modal` jako jego `id` na stronie Razor *_Host. cshtml* . Klient aktualizuje ten element za pomocą jednej z następujących klas CSS w oparciu o stan połączenia:
 
 * `components-reconnect-show` &ndash; Pokaż interfejs użytkownika w celu wskazania utraconych połączeń, a klient próbuje ponownie nawiązać połączenie.
-* `components-reconnect-hide`&ndash; Klient ma aktywne połączenie, Ukryj interfejs użytkownika.
+* `components-reconnect-hide` &ndash; klient ma aktywne połączenie, Ukryj interfejs użytkownika.
 * `components-reconnect-failed` &ndash; ponowne połączenie nie powiodło się, prawdopodobnie z powodu błędu sieci. Aby spróbować ponownie nawiązać połączenie, wywołaj `window.Blazor.reconnect()`.
 * `components-reconnect-rejected` &ndash; ponowne połączenie zostało odrzucone. Serwer został osiągnięty, ale odmówił połączenia, a stan użytkownika na serwerze został usunięty. Aby ponownie załadować aplikację, wywołaj `location.reload()`. Ten stan połączenia może skutkować tym, że:
   * Wystąpił awaria w obwodzie (kod po stronie serwera).
@@ -154,7 +154,7 @@ Aplikacje serwera Blazor są domyślnie skonfigurowane, aby skonfigurować inter
 </body>
 ```
 
-`RenderMode`Określa, czy składnik:
+`RenderMode` Określa, czy składnik:
 
 * Jest wstępnie renderowany na stronie.
 * Jest renderowany jako statyczny kod HTML na stronie lub zawiera informacje niezbędne do uruchomienia aplikacji Blazor z poziomu agenta użytkownika.
@@ -179,7 +179,7 @@ Gdy renderuje stronę lub widok:
 * Początkowy stan składnika używany na potrzeby renderowania wstępnego został utracony.
 * Nowy stan składnika jest tworzony po nawiązaniu połączenia z sygnałem.
 
-Następująca strona Razor renderuje `Counter` składnik:
+Następująca strona Razor renderuje składnik `Counter`:
 
 ```cshtml
 <h1>My Razor Page</h1>
@@ -189,7 +189,7 @@ Następująca strona Razor renderuje `Counter` składnik:
 
 ### <a name="render-noninteractive-components-from-razor-pages-and-views"></a>Renderuj nieinteraktywne składniki ze stron Razor i widoków
 
-Na poniższej stronie `MyComponent` Razor składnik jest statycznie renderowany z wartością początkową określoną przy użyciu formularza:
+Na poniższej stronie Razor składnik `MyComponent` jest renderowany statycznie z wartością początkową określoną przy użyciu formularza:
 
 ```cshtml
 <h1>My Razor Page</h1>
@@ -220,8 +220,8 @@ Czasami trzeba skonfigurować klienta sygnalizującego używany przez aplikacje 
 
 Aby skonfigurować klienta sygnalizującego w pliku *Pages/_Host. cshtml* :
 
-* Dodaj atrybut do znacznika dla skryptu *blazor. Server. js.* `<script>` `autostart="false"`
-* Wywoływanie `Blazor.start` i przekazywanie obiektu konfiguracji, który określa konstruktora sygnalizującego.
+* Dodaj atrybut `autostart="false"` do tagu `<script>` dla skryptu *blazor. Server. js* .
+* Wywołaj `Blazor.start` i przekaż obiekt konfiguracji, który określa konstruktora sygnalizującego.
 
 ```html
 <script src="_framework/blazor.server.js" autostart="false"></script>

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/13/2019
 uid: security/cors
-ms.openlocfilehash: 13f22b59a8d066981133508cceccd941e2ec4505
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: 3a51d365626c858ad48298a1108e37eba9050fe7
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72334194"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391294"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>Włącz żądania między źródłami (CORS) w ASP.NET Core
 
@@ -73,6 +73,10 @@ Metoda <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> może �
 Uwaga: adres URL **nie** może zawierać końcowego ukośnika (`/`). Jeśli adres URL kończy się na `/`, porównanie zwróci `false`, a nagłówek nie jest zwracany.
 
 ::: moniker range=">= aspnetcore-3.0"
+
+<a name="acpall"></a>
+
+### <a name="apply-cors-policies-to-all-endpoints"></a>Zastosuj zasady CORS do wszystkich punktów końcowych
 
 Poniższy kod dotyczy zasad CORS dla wszystkich punktów końcowych aplikacji za pośrednictwem oprogramowania do obsługi mechanizmu CORS:
 ```csharp
