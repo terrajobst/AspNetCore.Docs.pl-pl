@@ -5,12 +5,12 @@ description: Dowiedz się, jak dodać klasy do zarządzania filmami w bazie dany
 ms.author: riande
 ms.date: 9/22/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: c101fe4aee9a1fbf28d66a8527e3c199194d73fe
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: 4f8b80cb51bd10eb3b136a780dc123c41d61c0a5
+ms.sourcegitcommit: e71b6a85b0e94a600af607107e298f932924c849
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72334182"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519076"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Dodawanie modelu do aplikacji Razor Pages w programie ASP.NET Core
 
@@ -196,9 +196,9 @@ Powyższe polecenia generują następujące ostrzeżenie: "nie określono typu d
 
 Możesz zignorować to ostrzeżenie. zostanie on rozwiązany w kolejnym samouczku.
 
-Polecenie `ef migrations add InitialCreate` generuje kod, aby utworzyć początkowy schemat bazy danych. Schemat jest oparty na modelu określonym w `DbContext` (w pliku *RazorPagesMovieContext.cs* ). Argument `InitialCreate` jest używany do nazwy migracji. Można użyć dowolnej nazwy, ale według Konwencji została wybrana nazwa opisująca migrację.
+Polecenie migrations generuje kod, aby utworzyć początkowy schemat bazy danych. Schemat jest oparty na modelu określonym w `DbContext`. Argument `InitialCreate` jest używany do nazwy migracji. Można użyć dowolnej nazwy, ale według Konwencji została wybrana nazwa opisująca migrację.
 
-Polecenie `ef database update` uruchamia metodę `Up` w pliku *migrations/\<time-sygnatura > _InitialCreate. cs* . Metoda `Up` tworzy bazę danych.
+Polecenie `update` uruchamia metodę `Up` w migracjach, które nie zostały zastosowane. W takim przypadku `update` uruchamia metodę `Up` w *migracji/\<time-sygnaturze > _InitialCreate. cs* , który tworzy bazę danych.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -229,10 +229,6 @@ Przeanalizuj metodę `Up`.
 Przeanalizuj metodę `Up`.
 
 ---
-
-Polecenie `Add-Migration` generuje kod, aby utworzyć początkowy schemat bazy danych. Schemat jest oparty na modelu określonym w `RazorPagesMovieContext` (w pliku *Data/RazorPagesMovieContext. cs* ). Argument `Initial` jest używany do nazwy migracji. Można użyć dowolnej nazwy, ale według Konwencji Nazwa opisująca migrację jest używana. Aby uzyskać więcej informacji, zobacz <xref:data/ef-mvc/migrations>.
-
-Polecenie `Update-Database` uruchamia metodę `Up` w pliku *migrations/{Time-sygnatura} _InitialCreate. cs* , który tworzy bazę danych.
 
 <a name="test"></a>
 
@@ -427,6 +423,10 @@ Add-Migration Initial
 Update-Database
 ```
 
+Polecenie `Add-Migration` generuje kod, aby utworzyć początkowy schemat bazy danych. Schemat jest oparty na modelu określonym w `DbContext` (w pliku *RazorPagesMovieContext.cs* ). Do nazwy migracji użyto argumentu `InitialCreate`. Można użyć dowolnej nazwy, ale według Konwencji Nazwa opisująca migrację jest używana. Aby uzyskać więcej informacji, zobacz <xref:data/ef-mvc/migrations>.
+
+Polecenie `Update-Database` uruchamia metodę `Up` w pliku *migrations/\<time-sygnatura > _InitialCreate. cs* . Metoda `Up` tworzy bazę danych.
+
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
@@ -436,14 +436,8 @@ Update-Database
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
 
 ---
-
-Powyższe polecenia generują następujące ostrzeżenie: "nie określono typu dla kolumny dziesiętnej" price "w typie jednostki" Movie ". Spowoduje to, że wartości powinny być obcinane w trybie dyskretnym, jeśli nie mieszczą się w domyślnej precyzji i skali. Jawnie określ typ kolumny programu SQL Server, który może pomieścić wszystkie wartości przy użyciu "HasColumnType ()".
-
-Możesz zignorować to ostrzeżenie. zostanie on rozwiązany w kolejnym samouczku.
-
-Polecenie `ef migrations add InitialCreate` generuje kod, aby utworzyć początkowy schemat bazy danych. Schemat jest oparty na modelu określonym w `DbContext` (w pliku *RazorPagesMovieContext.cs* ). Argument `InitialCreate` jest używany do nazwy migracji. Można użyć dowolnej nazwy, ale według Konwencji została wybrana nazwa opisująca migrację.
-
-Polecenie `ef database update` uruchamia metodę `Up` w pliku *migrations/\<time-sygnatura > _InitialCreate. cs* . Metoda `Up` tworzy bazę danych.
+> [!NOTE]
+> Powyższe polecenia generują następujące ostrzeżenie: "*nie określono typu dla kolumny dziesiętnej" price "w typie jednostki" Movie ". Spowoduje to, że wartości powinny być obcinane w trybie dyskretnym, jeśli nie mieszczą się w domyślnej precyzji i skali. Jawnie określ typ kolumny programu SQL Server, który może pomieścić wszystkie wartości przy użyciu "HasColumnType ()".* Możesz zignorować to ostrzeżenie. zostanie on rozwiązany w kolejnym samouczku.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -474,10 +468,6 @@ Przeanalizuj metodę `Up`.
 Przeanalizuj metodę `Up`.
 
 ---
-
-Polecenie `Add-Migration` generuje kod, aby utworzyć początkowy schemat bazy danych. Schemat jest oparty na modelu określonym w `RazorPagesMovieContext` (w pliku *Data/RazorPagesMovieContext. cs* ). Argument `Initial` jest używany do nazwy migracji. Można użyć dowolnej nazwy, ale według Konwencji Nazwa opisująca migrację jest używana. Aby uzyskać więcej informacji, zobacz <xref:data/ef-mvc/migrations>.
-
-Polecenie `Update-Database` uruchamia metodę `Up` w pliku *migrations/{Time-sygnatura} _InitialCreate. cs* , który tworzy bazę danych.
 
 <a name="test"></a>
 

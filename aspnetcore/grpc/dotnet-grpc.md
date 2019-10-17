@@ -1,23 +1,23 @@
 ---
-title: Zarządzanie odwołaniami protobuf za pomocą programu dotnet-GRPC
+title: Zarządzanie odwołaniami narzędzia Protobuf za pomocą narzędzia dotnet-GRPC
 author: juntaoluo
 description: Dowiedz się więcej na temat dodawania, aktualizowania, usuwania i wyświetlania protobuf odwołań za pomocą narzędzia dotnet-GRPC Global.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 09/24/2019
+ms.date: 10/17/2019
 uid: grpc/dotnet-grpc
-ms.openlocfilehash: ebd57419be24f7f4ed9765e36cf14189be8438b1
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: 994597c854a95bb33de1686ab025cb3744cf6845
+ms.sourcegitcommit: e71b6a85b0e94a600af607107e298f932924c849
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72290062"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519034"
 ---
-# <a name="manage-protobuf-references-with-dotnet-grpc"></a>Zarządzanie odwołaniami protobuf za pomocą programu dotnet-GRPC
+# <a name="manage-protobuf-references-with-dotnet-grpc"></a>Zarządzanie odwołaniami narzędzia Protobuf za pomocą narzędzia dotnet-GRPC
 
 Przez [Jan Luo](https://github.com/juntaoluo)
 
-`dotnet-grpc` to globalne narzędzie platformy .NET Core do zarządzania odwołaniami protobuf w ramach projektu .NET gRPC. Narzędzie może służyć do dodawania, odświeżania, usuwania i wyświetlania listy odwołań protobuf.
+`dotnet-grpc` to globalne Narzędzie programu .NET Core do zarządzania odwołaniami [protobuf ( *. proto*)](xref:grpc/basics#proto-file) w ramach projektu .NET gRPC. Narzędzie może służyć do dodawania, odświeżania, usuwania i wyświetlania listy odwołań protobuf.
 
 ## <a name="installation"></a>Instalacja
 
@@ -32,10 +32,10 @@ dotnet tool install -g dotnet-grpc
 `dotnet-grpc` może służyć do dodawania odwołań protobuf jako elementów `<Protobuf />` do pliku *. csproj* :
 
 ```xml
-<Protobuf Include="..\Proto\count.proto" GrpcServices="Server" Link="Protos\count.proto" />
+<Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
 ```
 
-Odwołania do protobuf są używane do generowania zasobów C# klienta i/lub serwera. @No__t-0tool może:
+Odwołania do protobuf są używane do generowania zasobów C# klienta i/lub serwera. Narzędzie `dotnet-grpc` może:
 
 * Utwórz odwołanie protobuf z plików lokalnych na dysku.
 * Utwórz odwołanie protobuf z pliku zdalnego określonego przez adres URL.
@@ -62,7 +62,7 @@ dotnet grpc add-file [options] <files>...
 
 | Argument | Opis |
 |-|-|
-| plikach | Odwołuje się do pliku protobuf. Mogą to być ścieżki do globalizowania dla lokalnych plików protobuf. |
+| — pliki | Odwołuje się do pliku protobuf. Mogą to być ścieżki do globalizowania dla lokalnych plików protobuf. |
 
 #### <a name="options"></a>Opcje
 
@@ -87,13 +87,13 @@ dotnet-grpc add-url [options] <url>
 
 | Argument | Opis |
 |-|-|
-| url | Adres URL pliku protobuf zdalnego. |
+| adres URL | Adres URL pliku protobuf zdalnego. |
 
 #### <a name="options"></a>Opcje
 
 | Opcja krótka | Opcja Long | Opis |
 |-|-|-|
-| -o | --output | Określa ścieżkę pobierania pliku protobuf zdalnego. Jest to wymagana opcja.
+| -o | --Output | Określa ścieżkę pobierania pliku protobuf zdalnego. Ta opcja jest wymagana.
 | -p | --projekt | Ścieżka do pliku projektu, na którym mają być wykonywane działania. Jeśli plik nie zostanie określony, polecenie przeszukuje bieżący katalog.
 | -s | --usługi | Typ usług gRPC, które mają zostać wygenerowane. Jeśli określono `Default`, `Both` jest używany dla projektów sieci Web i `Client` jest używany dla projektów innych niż sieci Web. Akceptowane wartości to `Both`, `Client`, `Default`, `None`, `Server`.
 | -i | --dodatkowe-import-katalogów | Dodatkowe katalogi, które mają być używane podczas rozpoznawania importu dla plików protobuf. Jest to rozdzielana średnikami lista ścieżek.
@@ -116,7 +116,7 @@ dotnet-grpc remove [options] <references>...
 
 | Argument | Opis |
 |-|-|
-| wołują | Adresy URL lub ścieżki plików odwołań protobuf do usunięcia. |
+| odwołania | Adresy URL lub ścieżki plików odwołań protobuf do usunięcia. |
 
 ### <a name="options"></a>Opcje
 
@@ -143,7 +143,7 @@ dotnet-grpc refresh [options] [<references>...]
 
 | Argument | Opis |
 |-|-|
-| wołują | Adresy URL lub ścieżki plików do zdalnych odwołań protobuf, które powinny zostać zaktualizowane. Pozostaw ten argument pusty, aby odświeżyć wszystkie odwołania zdalne. |
+| odwołania | Adresy URL lub ścieżki plików do zdalnych odwołań protobuf, które powinny zostać zaktualizowane. Pozostaw ten argument pusty, aby odświeżyć wszystkie odwołania zdalne. |
 
 ### <a name="options"></a>Opcje
 
@@ -168,7 +168,7 @@ dotnet-grpc list [options]
 |-|-|-|
 | -p | --projekt | Ścieżka do pliku projektu, na którym mają być wykonywane działania. Jeśli plik nie zostanie określony, polecenie przeszukuje bieżący katalog.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * <xref:grpc/index>
 * <xref:grpc/basics>
