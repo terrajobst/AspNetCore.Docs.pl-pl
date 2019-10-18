@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
 uid: blazor/routing
-ms.openlocfilehash: a71709d6b87d8182e90f827d952090aa1e38d701
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: d9f81c8aa2cf07f8bfaede65efcb7328088f55b9
+ms.sourcegitcommit: ce2bfb01f2cc7dd83f8a97da0689d232c71bcdc4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391199"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72531140"
 ---
 # <a name="aspnet-core-blazor-routing"></a>ASP.NET Core Routing Blazor
 
@@ -56,7 +56,7 @@ Opcjonalnie można określić parametr `DefaultLayout` z klasą układu, która 
 
 Do składnika można zastosować wiele szablonów tras. Poniższy składnik odpowiada na żądania `/BlazorRoute` i `/DifferentBlazorRoute`:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
 > [!IMPORTANT]
 > Aby adresy URL zostały poprawnie rozpoznane, aplikacja musi zawierać tag `<base>` w pliku *wwwroot/index.html* (Blazor webassembly) lub *Pages/_Host. cshtml* (Blazor Server) z ścieżką bazową aplikacji określoną w atrybucie `href` (`<base href="/">`). Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/blazor/index#app-base-path>.
@@ -97,7 +97,7 @@ Użyj parametru `AdditionalAssemblies`, aby określić dodatkowe zestawy dla sk�
 
 Router używa parametrów trasy do wypełniania odpowiednich parametrów składnika o tej samej nazwie (bez uwzględniania wielkości liter):
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/RouteParameter.razor?name=snippet_RouteParameter&highlight=2,7-8)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/RouteParameter.razor?name=snippet_RouteParameter&highlight=2,7-8)]
 
 Parametry opcjonalne nie są obsługiwane w przypadku aplikacji Blazor w ASP.NET Core 3,0. W poprzednim przykładzie zastosowano dwie dyrektywy `@page`. Pierwszy zezwala na nawigowanie do składnika bez parametru. Druga dyrektywa `@page` przyjmuje parametr trasy `{text}` i przypisuje wartość do właściwości `Text`.
 
@@ -177,7 +177,7 @@ Użyj `Microsoft.AspNetCore.Components.NavigationManager` do pracy z identyfikat
 | Element członkowski | Opis |
 | ------ | ----------- |
 | `Uri` | Pobiera bieżący bezwzględny identyfikator URI. |
-| `BaseUri` | Pobiera podstawowy identyfikator URI (z końcowym ukośnikiem), który można dołączać do względnych ścieżek URI w celu utworzenia bezwzględnego identyfikatora URI. Zazwyczaj `BaseUri` odpowiada atrybutowi `href` w elemencie `<base>` dokumentu w *wwwroot/index.html* (Blazor webassembly) lub *Pages/_Host. cshtml* (Blazor Server). |
+| `BaseUri` | Pobiera podstawowy identyfikator URI (z końcowym ukośnikiem), który można dołączać do względnych ścieżek URI w celu utworzenia bezwzględnego identyfikatora URI. Zwykle `BaseUri` odpowiada atrybutowi `href` w elemencie `<base>` dokumentu w *wwwroot/index.html* (Blazor webassembly) lub *Pages/_Host. cshtml* (Blazor Server). |
 | `NavigateTo` | Przechodzi do określonego identyfikatora URI. Jeśli `forceLoad` jest `true`:<ul><li>Routing po stronie klienta jest pomijany.</li><li>W przeglądarce wymuszone jest załadowanie nowej strony z serwera, niezależnie od tego, czy identyfikator URI jest zwykle obsługiwany przez router po stronie klienta.</li></ul> |
 | `LocationChanged` | Zdarzenie, które jest wyzwalane po zmianie lokalizacji nawigacji. |
 | `ToAbsoluteUri` | Konwertuje względny identyfikator URI na bezwzględny identyfikator URI. |

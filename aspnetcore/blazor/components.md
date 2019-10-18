@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/05/2019
 uid: blazor/components
-ms.openlocfilehash: a71bbf3921417cbd23aeb14d0d78ad8354d6e93a
-ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
+ms.openlocfilehash: cd48111e8d601fc67e8a938fcdd686759a9ddeca
+ms.sourcegitcommit: ce2bfb01f2cc7dd83f8a97da0689d232c71bcdc4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72378691"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72531117"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
@@ -37,7 +37,7 @@ Elementy członkowskie klasy składnika są zdefiniowane w bloku `@code`. W blok
 
 Składowe składnika mogą być używane jako część logiki renderowania składnika przy użyciu C# wyrażeń, które zaczynają się od `@`. Na przykład C# pole jest renderowane przez utworzenie prefiksu `@` do nazwy pola. Poniższy przykład szacuje i renderuje:
 
-* `_headingFontStyle` do wartości właściwości CSS dla `font-style`.
+* `_headingFontStyle` wartość właściwości CSS dla `font-style`.
 * `_headingText` do zawartości elementu `<h1>`.
 
 ```cshtml
@@ -81,27 +81,27 @@ W powiązaniu atrybutu rozróżniana jest wielkość liter. Na przykład `@bind`
 
 Poniższy znacznik w *indeksie. Razor* renderuje wystąpienie `HeadingComponent`:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/Index.razor?name=snippet_HeadingComponent)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/Index.razor?name=snippet_HeadingComponent)]
 
 *Składniki/HeadingComponent. Razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/HeadingComponent.razor)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/HeadingComponent.razor)]
 
 Jeśli składnik zawiera element HTML z wielką literą, która nie jest zgodna z nazwą składnika, jest emitowane ostrzeżenie wskazujące, że element ma nieoczekiwaną nazwę. Dodanie instrukcji `@using` dla przestrzeni nazw składnika sprawia, że składnik jest dostępny, co spowoduje usunięcie tego ostrzeżenia.
 
 ## <a name="component-parameters"></a>Parametry składnika
 
-Składniki mogą zawierać *Parametry składnika*, które są zdefiniowane przy użyciu właściwości publicznych w klasie składnika z atrybutem `[Parameter]`. Użyj atrybutów, aby określić argumenty dla składnika w znaczniku.
+Składniki mogą mieć *Parametry składnika*, które są zdefiniowane przy użyciu właściwości publicznych w klasie składnika z atrybutem `[Parameter]`. Użyj atrybutów, aby określić argumenty dla składnika w znaczniku.
 
 *Składniki/ChildComponent. Razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/ChildComponent.razor?highlight=11-12)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/ChildComponent.razor?highlight=11-12)]
 
 W poniższym przykładzie `ParentComponent` ustawia wartość właściwości `Title` `ChildComponent`.
 
 *Strony/ParentComponent. Razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=5-6)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=5-6)]
 
 ## <a name="child-content"></a>Zawartość podrzędna
 
@@ -111,7 +111,7 @@ W poniższym przykładzie `ChildComponent` ma właściwość `ChildContent`, kt�
 
 *Składniki/ChildComponent. Razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/ChildComponent.razor?highlight=3,14-15)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/ChildComponent.razor?highlight=3,14-15)]
 
 > [!NOTE]
 > Właściwość otrzymująca zawartość `RenderFragment` musi mieć nazwę `ChildContent` według Konwencji.
@@ -120,7 +120,7 @@ Następujące `ParentComponent` może zapewnić zawartość do renderowania `Chi
 
 *Strony/ParentComponent. Razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=7-8)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=7-8)]
 
 ## <a name="attribute-splatting-and-arbitrary-parameters"></a>Korzystając atrybutów i dowolne parametry
 
@@ -190,7 +190,7 @@ Aby zaakceptować dowolne atrybuty, zdefiniuj parametr składnika przy użyciu a
 }
 ```
 
-Właściwość `CaptureUnmatchedValues` w `[Parameter]` umożliwia parametrowi dopasowanie wszystkich atrybutów, które nie pasują do żadnego innego parametru. Składnik może definiować tylko jeden parametr z `CaptureUnmatchedValues`. Typ właściwości używany z `CaptureUnmatchedValues` musi być możliwy do przypisania z `Dictionary<string, object>` z kluczami ciągu. w tym scenariuszu są również opcje `IEnumerable<KeyValuePair<string, object>>` lub `IReadOnlyDictionary<string, object>`.
+Właściwość `CaptureUnmatchedValues` na `[Parameter]` umożliwia dopasowanie parametru do wszystkich atrybutów, które nie są zgodne z żadnym innym parametrem. Składnik może definiować tylko jeden parametr z `CaptureUnmatchedValues`. Typ właściwości używany z `CaptureUnmatchedValues` musi być możliwy do przypisania z `Dictionary<string, object>` z kluczami ciągu. w tym scenariuszu są również opcje `IEnumerable<KeyValuePair<string, object>>` lub `IReadOnlyDictionary<string, object>`.
 
 ## <a name="data-binding"></a>Powiązanie danych
 
@@ -513,11 +513,11 @@ Typowym scenariuszem ze składnikami zagnieżdżonymi jest potrzeba uruchomienia
 
 @No__t-0 w przykładowej aplikacji pokazuje, jak program obsługi `onclick` jest skonfigurowany tak, aby otrzymać delegata `EventCallback` z `ParentComponent` próbki. W `EventCallback` jest wpisana wartość `MouseEventArgs`, która jest odpowiednia dla zdarzenia `onclick` z urządzenia peryferyjnego:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/ChildComponent.razor?highlight=5-7,17-18)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/ChildComponent.razor?highlight=5-7,17-18)]
 
 @No__t-0 ustawia @no__t elementu podrzędnego-1 do jego metody `ShowMessage`:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=6,16-19)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=6,16-19)]
 
 Gdy przycisk zostanie wybrany w `ChildComponent`:
 
@@ -968,7 +968,7 @@ Gdy plik Razor z dyrektywą `@page` jest kompilowany, wygenerowana Klasa otrzymu
 
 Do składnika można zastosować wiele szablonów tras. Poniższy składnik odpowiada na żądania `/BlazorRoute` i `/DifferentBlazorRoute`:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
 ## <a name="route-parameters"></a>Parametry trasy
 
@@ -976,7 +976,7 @@ Składniki mogą odbierać parametry trasy z szablonu trasy dostarczonego w dyre
 
 *Składnik parametru trasy*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/RouteParameter.razor?name=snippet_RouteParameter)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/RouteParameter.razor?name=snippet_RouteParameter)]
 
 Parametry opcjonalne nie są obsługiwane, więc dwie dyrektywy `@page` są stosowane w powyższym przykładzie. Pierwszy zezwala na nawigowanie do składnika bez parametru. Druga dyrektywa `@page` przyjmuje parametr trasy `{text}` i przypisuje wartość do właściwości `Text`.
 
@@ -988,11 +988,11 @@ Pliki składników mieszają znaczniki HTML C# i przetwarzają kod w tym samym p
 
 *Strony/BlazorRocks. Razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRocks.razor?name=snippet_BlazorRocks)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/BlazorRocks.razor?name=snippet_BlazorRocks)]
 
 *BlazorRocksBase.cs*:
 
-[!code-csharp[](common/samples/3.x/BlazorSample/Pages/BlazorRocksBase.cs)]
+[!code-csharp[](common/samples/3.x/BlazorWebAssemblySample/Pages/BlazorRocksBase.cs)]
 
 Klasa bazowa powinna pochodzić od `ComponentBase`.
 
@@ -1096,7 +1096,7 @@ Składnik szablonu jest definiowany przez określenie co najmniej jednego parame
 
 składnik `TableTemplate`:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/TableTemplate.razor)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/TableTemplate.razor)]
 
 W przypadku korzystania z składnika z szablonem parametry szablonu można określić za pomocą elementów podrzędnych, które pasują do nazw parametrów (`TableHeader` i `RowTemplate` w poniższym przykładzie):
 
@@ -1149,7 +1149,7 @@ Alternatywnie można określić atrybut `Context` dla elementu składnika. Okre�
 
 Składniki z szablonami są często wpisywane ogólnie. Na przykład ogólny składnik `ListViewTemplate` może służyć do renderowania wartości `IEnumerable<T>`. Aby zdefiniować składnik ogólny, użyj dyrektywy [@typeparam](xref:mvc/views/razor#typeparam) , aby określić parametry typu:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/ListViewTemplate.razor)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/ListViewTemplate.razor)]
 
 W przypadku używania składników o typie ogólnym parametr typu jest wnioskowany, jeśli jest to możliwe:
 
@@ -1218,7 +1218,7 @@ składnik `CascadingValuesParametersLayout`:
 }
 ```
 
-Aby używać wartości kaskadowych, składniki deklarują kaskadowe parametry przy użyciu atrybutu `[CascadingParameter]`. Wartości kaskadowe są powiązane z parametrami kaskadowymi według typu.
+Aby korzystać z wartości kaskadowych, składniki deklarują kaskadowe parametry przy użyciu atrybutu `[CascadingParameter]`. Wartości kaskadowe są powiązane z parametrami kaskadowymi według typu.
 
 W przykładowej aplikacji składnik `CascadingValuesParametersTheme` wiąże wartość kaskadową `ThemeInfo` z parametrem kaskadowym. Parametr służy do ustawiania klasy CSS dla jednego z przycisków wyświetlanych przez składnik.
 
@@ -1297,23 +1297,23 @@ Parametry kaskadowe umożliwiają również współdziałanie składników w hie
 
 Przykładowa aplikacja ma interfejs `ITab` z kartami implementującymi:
 
-[!code-csharp[](common/samples/3.x/BlazorSample/UIInterfaces/ITab.cs)]
+[!code-csharp[](common/samples/3.x/BlazorWebAssemblySample/UIInterfaces/ITab.cs)]
 
 Składnik `CascadingValuesParametersTabSet` używa składnika `TabSet`, który zawiera kilka składników `Tab`:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/CascadingValuesParametersTabSet.razor?name=snippet_TabSet)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/CascadingValuesParametersTabSet.razor?name=snippet_TabSet)]
 
 Podrzędne składniki `Tab` nie są jawnie przenoszone jako parametry do `TabSet`. Zamiast tego składniki podrzędne `Tab` są częścią zawartości podrzędnej `TabSet`. Jednak `TabSet` nadal musi wiedzieć o każdym składniku `Tab`, aby można było renderować nagłówki i aktywną kartę. Aby umożliwić tę koordynację bez konieczności stosowania dodatkowego kodu, składnik `TabSet` *może stanowić wartość kaskadową* , która następnie jest wybierana przez składniki potomne `Tab`.
 
 składnik `TabSet`:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/TabSet.razor)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/TabSet.razor)]
 
 Składniki potomne `Tab` przechwytują zawierający `TabSet` jako parametr kaskadowy, więc składniki `Tab` dodają siebie do `TabSet` i koordynują, na której karcie jest aktywna.
 
 składnik `Tab`:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/Tab.razor)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/Tab.razor)]
 
 ## <a name="razor-templates"></a>Szablony Razor
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: b4776a20c6da6c722d2c057d19863c570f530a21
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: a8c3a0951761faab1c11507834aeef2507388d71
+ms.sourcegitcommit: ce2bfb01f2cc7dd83f8a97da0689d232c71bcdc4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391066"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72531126"
 ---
 # <a name="aspnet-core-blazor-javascript-interop"></a>ASP.NET Core Blazor międzyoperacyjności JavaScript
 
@@ -65,7 +65,7 @@ Aby użyć abstrakcji `IJSRuntime`, należy zastosować jedną z następujących
 
   [!code-csharp[](javascript-interop/samples_snapshot/inject-abstraction-class.cs?highlight=5)]
 
-* W przypadku generowania zawartości dynamicznej przy użyciu [BuildRenderTree](xref:blazor/components#manual-rendertreebuilder-logic)należy użyć atrybutu `[Inject]`:
+* Aby można było wygenerować zawartość dynamiczną przy użyciu [BuildRenderTree](xref:blazor/components#manual-rendertreebuilder-logic), użyj atrybutu `[Inject]`:
 
   ```csharp
   [Inject]
@@ -79,17 +79,17 @@ W aplikacji przykładowej po stronie klienta, która jest dołączona do tego te
 
 *wwwroot/exampleJsInterop. js*:
 
-[!code-javascript[](./common/samples/3.x/BlazorSample/wwwroot/exampleJsInterop.js?highlight=2-7)]
+[!code-javascript[](./common/samples/3.x/BlazorWebAssemblySample/wwwroot/exampleJsInterop.js?highlight=2-7)]
 
-Umieść tag `<script>` odwołujący się do pliku JavaScript w pliku *wwwroot/index.html* (Blazor webassembly) lub *Pages/_Host. cshtml* (Blazor Server).
+Umieść tag `<script>`, który odwołuje się do pliku JavaScript w pliku *wwwroot/index.html* (Blazor webassembly) lub *Pages/_Host. cshtml* (Blazor Server).
 
 *wwwroot/index.html* (Blazor webassembly):
 
-[!code-html[](./common/samples/3.x/BlazorSample/wwwroot/index.html?highlight=15)]
+[!code-html[](./common/samples/3.x/BlazorWebAssemblySample/wwwroot/index.html?highlight=15)]
 
 *Pages/_Host. cshtml* (Blazor Server):
 
-[!code-cshtml[](javascript-interop/samples_snapshot/_Host.cshtml?highlight=29)]
+[!code-cshtml[](./common/samples/3.x/BlazorServerSample/Pages/_Host.cshtml?highlight=21)]
 
 Nie umieszczaj znacznika `<script>` w pliku składnika, ponieważ nie można dynamicznie zaktualizować tagu `<script>`.
 
@@ -105,7 +105,7 @@ Przykładowa aplikacja zawiera składnik demonstrujący międzyoperacyjność Ja
 
 *Strony/JSInterop. Razor*:
 
-[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.razor?name=snippet_JSInterop1&highlight=3,19-21,23-25)]
+[!code-cshtml[](./common/samples/3.x/BlazorWebAssemblySample/Pages/JsInterop.razor?name=snippet_JSInterop1&highlight=3,19-21,23-25)]
 
 1. Gdy `TriggerJsPrompt` jest wykonywane przez wybranie przycisku **wyzwalacza skryptu JavaScript** składnika, funkcja JavaScript `showPrompt` dostępna w pliku *wwwroot/exampleJsInterop. js* jest wywoływana.
 1. Funkcja `showPrompt` akceptuje dane wejściowe użytkownika (nazwę użytkownika), które są kodowane w formacie HTML i zwracane do składnika. Składnik przechowuje nazwę użytkownika w zmiennej lokalnej, `name`.
@@ -186,13 +186,13 @@ Przykładowa aplikacja zawiera C# metodę zwracającą tablicę `int`S. Atrybut 
 
 *Strony/JsInterop. Razor*:
 
-[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.razor?name=snippet_JSInterop2&highlight=7-11)]
+[!code-cshtml[](./common/samples/3.x/BlazorWebAssemblySample/Pages/JsInterop.razor?name=snippet_JSInterop2&highlight=7-11)]
 
 Kod JavaScript obsługiwany przez klienta wywołuje metodę C# .NET.
 
 *wwwroot/exampleJsInterop. js*:
 
-[!code-javascript[](./common/samples/3.x/BlazorSample/wwwroot/exampleJsInterop.js?highlight=8-14)]
+[!code-javascript[](./common/samples/3.x/BlazorWebAssemblySample/wwwroot/exampleJsInterop.js?highlight=8-14)]
 
 Gdy zostanie wybrany przycisk **ReturnArrayAsync Wyzwalaj metodę statyczną .NET** , sprawdź dane wyjściowe konsoli w narzędziach deweloperskich sieci Web w przeglądarce.
 
@@ -218,23 +218,23 @@ Po wybraniu przycisku **wyzwalanie metody wystąpienia platformy .NET HelloHelpe
 
 *Strony/JsInterop. Razor*:
 
-[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.razor?name=snippet_JSInterop3&highlight=8-9)]
+[!code-cshtml[](./common/samples/3.x/BlazorWebAssemblySample/Pages/JsInterop.razor?name=snippet_JSInterop3&highlight=8-9)]
 
 `CallHelloHelperSayHello` wywołuje funkcję JavaScript `sayHello` z nowym wystąpieniem `HelloHelper`.
 
 *JsInteropClasses/ExampleJsInterop. cs*:
 
-[!code-csharp[](./common/samples/3.x/BlazorSample/JsInteropClasses/ExampleJsInterop.cs?name=snippet1&highlight=10-16)]
+[!code-csharp[](./common/samples/3.x/BlazorWebAssemblySample/JsInteropClasses/ExampleJsInterop.cs?name=snippet1&highlight=10-16)]
 
 *wwwroot/exampleJsInterop. js*:
 
-[!code-javascript[](./common/samples/3.x/BlazorSample/wwwroot/exampleJsInterop.js?highlight=15-18)]
+[!code-javascript[](./common/samples/3.x/BlazorWebAssemblySample/wwwroot/exampleJsInterop.js?highlight=15-18)]
 
 Nazwa jest przenoszona do konstruktora `HelloHelper`, który ustawia właściwość `HelloHelper.Name`. Gdy funkcja JavaScript `sayHello` jest wykonywana, `HelloHelper.SayHello` zwróci komunikat `Hello, {Name}!`, który jest zapisywana w konsoli przez funkcję JavaScript.
 
 *JsInteropClasses/HelloHelper. cs*:
 
-[!code-csharp[](./common/samples/3.x/BlazorSample/JsInteropClasses/HelloHelper.cs?name=snippet1&highlight=5,10-11)]
+[!code-csharp[](./common/samples/3.x/BlazorWebAssemblySample/JsInteropClasses/HelloHelper.cs?name=snippet1&highlight=5,10-11)]
 
 Dane wyjściowe konsoli w narzędziach deweloperskich sieci Web w przeglądarce:
 
