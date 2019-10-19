@@ -1,34 +1,36 @@
 ---
-title: ASP.NET Core Routing Blazor
+title: Routing Blazor ASP.NET Core
 author: guardrex
 description: Dowiedz się, jak kierować żądania w aplikacjach i informacje o składniku NavLink.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
+no-loc:
+- Blazor
 uid: blazor/routing
-ms.openlocfilehash: d9f81c8aa2cf07f8bfaede65efcb7328088f55b9
-ms.sourcegitcommit: ce2bfb01f2cc7dd83f8a97da0689d232c71bcdc4
+ms.openlocfilehash: d4b76c00f79f333884fa7e30b27eadc6e36de287
+ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72531140"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72589941"
 ---
-# <a name="aspnet-core-blazor-routing"></a>ASP.NET Core Routing Blazor
+# <a name="aspnet-core-opno-locblazor-routing"></a>Routing Blazor ASP.NET Core
 
 Autor [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Dowiedz się, jak kierować żądania oraz jak używać składnika `NavLink` do tworzenia linków nawigacji w aplikacjach Blazor.
+Dowiedz się, jak kierować żądania i jak używać składnika `NavLink` do tworzenia linków nawigacji w aplikacjach Blazor.
 
 ## <a name="aspnet-core-endpoint-routing-integration"></a>ASP.NET Core integracja z routingiem punktu końcowego
 
-Serwer Blazor jest zintegrowany z [routingiem punktu końcowego ASP.NET Core](xref:fundamentals/routing). Aplikacja ASP.NET Core jest skonfigurowana do akceptowania połączeń przychodzących dla składników interaktywnych z `MapBlazorHub` w `Startup.Configure`:
+Serwer Blazor jest zintegrowany z [ASP.NET Core routingiem punktu końcowego](xref:fundamentals/routing). Aplikacja ASP.NET Core jest skonfigurowana do akceptowania połączeń przychodzących dla składników interaktywnych z `MapBlazorHub` w `Startup.Configure`:
 
 [!code-csharp[](routing/samples_snapshot/3.x/Startup.cs?highlight=5)]
 
-Najbardziej typową konfiguracją jest kierowanie wszystkich żądań do strony Razor, która działa jako host dla części serwerowej aplikacji Blazor Server. Zgodnie z Konwencją strona *hosta* ma zwykle nazwę *_Host. cshtml*. Trasa określona w pliku hosta jest nazywana *trasą rezerwową* , ponieważ działa z niskim priorytetem w dopasowaniu tras. Trasa rezerwowa jest brana pod uwagę, gdy inne trasy nie są zgodne. Dzięki temu aplikacja może korzystać z innych kontrolerów i stron bez zakłócania działania aplikacji serwera Blazor.
+Najbardziej typową konfiguracją jest kierowanie wszystkich żądań do strony Razor, która działa jako host dla części serwera Blazor aplikacji. Zgodnie z Konwencją strona *hosta* ma zwykle nazwę *_Host. cshtml*. Trasa określona w pliku hosta jest nazywana *trasą rezerwową* , ponieważ działa z niskim priorytetem w dopasowaniu tras. Trasa rezerwowa jest brana pod uwagę, gdy inne trasy nie są zgodne. Dzięki temu aplikacja może korzystać z innych kontrolerów i stron bez zakłócania działania aplikacji serwera Blazor.
 
 ## <a name="route-templates"></a>Szablony tras
 
@@ -59,7 +61,7 @@ Do składnika można zastosować wiele szablonów tras. Poniższy składnik odpo
 [!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
 > [!IMPORTANT]
-> Aby adresy URL zostały poprawnie rozpoznane, aplikacja musi zawierać tag `<base>` w pliku *wwwroot/index.html* (Blazor webassembly) lub *Pages/_Host. cshtml* (Blazor Server) z ścieżką bazową aplikacji określoną w atrybucie `href` (`<base href="/">`). Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/blazor/index#app-base-path>.
+> Aby adresy URL zostały poprawnie rozpoznane, aplikacja musi zawierać tag `<base>` w pliku *wwwroot/index.html* (Blazor webassembly) lub *Pages/_Host. cshtml* (serwer Blazor) z ścieżką bazową aplikacji określoną w atrybucie `href` (`<base href="/">`). Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/blazor/index#app-base-path>.
 
 ## <a name="provide-custom-content-when-content-isnt-found"></a>Podaj zawartość niestandardową, jeśli nie można odnaleźć zawartości
 
@@ -83,7 +85,7 @@ Zawartość tagów `<NotFound>` może zawierać dowolne elementy, takie jak inne
 
 ## <a name="route-to-components-from-multiple-assemblies"></a>Kierowanie do składników z wielu zestawów
 
-Użyj parametru `AdditionalAssemblies`, aby określić dodatkowe zestawy dla składnika `Router`, które mają być brane pod uwagę podczas wyszukiwania składników routingu. Określone zestawy są uznawane za uzupełnieniem @no__t określonego zestawu -0. W poniższym przykładzie `Component1` to składnik rutowany zdefiniowany w bibliotece klas, do której się odwołuje. Poniższy `AdditionalAssemblies` przykład powoduje obsługę routingu dla `Component1`:
+Użyj parametru `AdditionalAssemblies`, aby określić dodatkowe zestawy dla składnika `Router`, które mają być brane pod uwagę podczas wyszukiwania składników routingu. Określone zestawy są traktowane jako uzupełnienie zestawu określonego `AppAssembly`. W poniższym przykładzie `Component1` to składnik rutowany zdefiniowany w bibliotece klas, do której się odwołuje. Poniższy `AdditionalAssemblies` przykład powoduje obsługę routingu dla `Component1`:
 
 ```cshtml
 <Router
@@ -130,7 +132,7 @@ Dostępne są ograniczenia trasy podane w poniższej tabeli. W przypadku ogranic
 
 ### <a name="routing-with-urls-that-contain-dots"></a>Routing z adresami URL zawierającymi kropki
 
-W aplikacjach serwera Blazor domyślną trasą w *_Host. cshtml* jest `/` (`@page "/"`). Adres URL żądania, który zawiera kropkę (`.`) nie pasuje do trasy domyślnej, ponieważ adres URL wygląda na żądanie pliku. Aplikacja Blazor zwraca *404 — nie odnaleziono* odpowiedzi dla pliku statycznego, który nie istnieje. Aby użyć tras zawierających kropkę, skonfiguruj *_Host. cshtml* przy użyciu następującego szablonu trasy:
+W aplikacjach Blazor Server domyślna trasa w *_Host. cshtml* jest `/` (`@page "/"`). Adres URL żądania, który zawiera kropkę (`.`) nie pasuje do trasy domyślnej, ponieważ adres URL wygląda na żądanie pliku. Aplikacja Blazor zwraca *404 — nie odnaleziono* odpowiedzi dla pliku statycznego, który nie istnieje. Aby użyć tras zawierających kropkę, skonfiguruj *_Host. cshtml* przy użyciu następującego szablonu trasy:
 
 ```cshtml
 @page "/{**path}"
@@ -156,7 +158,7 @@ Dostępne są dwie opcje `NavLinkMatch`, które można przypisać do atrybutu `M
 * `NavLinkMatch.All` &ndash; `NavLink` jest aktywny, gdy jest zgodny z całym bieżącym adresem URL.
 * `NavLinkMatch.Prefix` (*wartość domyślna*) &ndash; `NavLink` jest aktywny, gdy dopasowuje dowolny prefiks bieżącego adresu URL.
 
-W poprzednim przykładzie @no__t Home-0 `href=""` dopasowuje adres URL strony głównej i odbiera tylko klasę CSS `active` przy domyślnym adresie URL ścieżki podstawowej aplikacji (na przykład `https://localhost:5001/`). Sekunda `NavLink` otrzymuje klasę `active`, gdy użytkownik odwiedzi dowolny adres URL z prefiksem `MyComponent` (na przykład `https://localhost:5001/MyComponent` i `https://localhost:5001/MyComponent/AnotherSegment`).
+W powyższym przykładzie `NavLink` Home `href=""` dopasowuje główny adres URL i odbiera `active`j klasy CSS tylko w domyślnym adresie URL ścieżki podstawowej aplikacji (na przykład `https://localhost:5001/`). Sekunda `NavLink` otrzymuje klasę `active`, gdy użytkownik odwiedzi dowolny adres URL z prefiksem `MyComponent` (na przykład `https://localhost:5001/MyComponent` i `https://localhost:5001/MyComponent/AnotherSegment`).
 
 Dodatkowe atrybuty składnika `NavLink` są przenoszone do renderowanego tagu zakotwiczenia. W poniższym przykładzie składnik `NavLink` zawiera atrybut `target`:
 

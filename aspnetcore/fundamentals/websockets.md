@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/10/2019
 uid: fundamentals/websockets
-ms.openlocfilehash: 5d4d9b02bd45e6650aa56448a3663cad06b3b45e
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: 098e6826d6f7114baceb9578dc6d9883eb83f0aa
+ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975455"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72589706"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Obsługa obiektów WebSockets w ASP.NET Core
 
 Autorzy [Dykstra](https://github.com/tdykstra) i [Andrew Stanton-pielęgniarki](https://github.com/anurse)
 
-W tym artykule wyjaśniono, jak rozpocząć pracę z usługą WebSockets w ASP.NET Core. Protokół [WebSocket](https://wikipedia.org/wiki/WebSocket) ([RFC 6455](https://tools.ietf.org/html/rfc6455)) to protokół, który umożliwia komunikację dwukierunkową trwałych kanałów komunikacji za pośrednictwem połączeń TCP. Jest on używany w aplikacjach, które korzystają z szybkiej komunikacji w czasie rzeczywistym, takiej jak czat, pulpit nawigacyjny i aplikacje do gier.
+W tym artykule wyjaśniono, jak rozpocząć pracę z usługą WebSockets w ASP.NET Core. [WebSocket](https://wikipedia.org/wiki/WebSocket) ([RFC 6455](https://tools.ietf.org/html/rfc6455)) to protokół, który umożliwia komunikację dwukierunkową trwałych kanałów komunikacji za pośrednictwem połączeń TCP. Jest on używany w aplikacjach, które korzystają z szybkiej komunikacji w czasie rzeczywistym, takiej jak czat, pulpit nawigacyjny i aplikacje do gier.
 
 [Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/websockets/samples) ([jak pobrać](xref:index#how-to-download-a-sample)). [Jak uruchomić](#sample-app).
 
@@ -40,27 +40,27 @@ W przypadku większości aplikacji zaleca się sygnalizowanie za pośrednictwem 
 * Jeśli aplikacja działa w systemie Windows z usługami IIS:
 
   * Windows 8/Windows Server 2012 lub nowszy
-  * IIS 8 / IIS 8 Express
+  * IIS 8/IIS 8 Express
   * Należy włączyć obiekty WebSockets (zobacz sekcję [Obsługa usług IIS/IIS Express](#iisiis-express-support) .).
   
 * Jeśli aplikacja jest uruchamiana na serwerze [http. sys](xref:fundamentals/servers/httpsys):
 
   * Windows 8/Windows Server 2012 lub nowszy
 
-* Obsługiwane przeglądarki można znaleźć w https://caniuse.com/#feat=websockets temacie.
+* W przypadku obsługiwanych przeglądarek Zobacz https://caniuse.com/#feat=websockets.
 
 ::: moniker range="< aspnetcore-2.1"
 
 ## <a name="nuget-package"></a>Pakiet NuGet
 
-Zainstaluj pakiet [Microsoft. AspNetCore.](https://www.nuget.org/packages/Microsoft.AspNetCore.WebSockets/) WebSockets.
+Zainstaluj pakiet [Microsoft. AspNetCore. WebSockets](https://www.nuget.org/packages/Microsoft.AspNetCore.WebSockets/) .
 
 ::: moniker-end
 
 ## <a name="configure-the-middleware"></a>Konfigurowanie oprogramowania pośredniczącego
 
 
-Dodaj oprogramowanie pośredniczące `Configure` obiektów WebSockets do metody `Startup` klasy:
+Dodaj oprogramowanie pośredniczące WebSockets w metodzie `Configure` klasy `Startup`:
 
 [!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=UseWebSockets)]
 
@@ -68,8 +68,8 @@ Dodaj oprogramowanie pośredniczące `Configure` obiektów WebSockets do metody 
 
 Można skonfigurować następujące ustawienia:
 
-* `KeepAliveInterval`-Jak często wysyłać ramki "ping" do klienta, aby upewnić się, że serwer proxy utrzymuje otwarte połączenie. Wartość domyślna to dwie minuty.
-* `ReceiveBufferSize`— Rozmiar buforu używany do odbierania danych. Użytkownicy zaawansowani mogą wymagać zmiany wydajności na podstawie rozmiaru danych. Wartość domyślna to 4 KB.
+* `KeepAliveInterval` — jak często wysyłać ramki "ping" do klienta, aby upewnić się, że serwer proxy utrzymuje otwarte połączenie. Wartość domyślna to dwie minuty.
+* `ReceiveBufferSize` — rozmiar buforu używany do odbierania danych. Użytkownicy zaawansowani mogą wymagać zmiany wydajności na podstawie rozmiaru danych. Wartość domyślna to 4 KB.
 
 ::: moniker-end
 
@@ -77,9 +77,9 @@ Można skonfigurować następujące ustawienia:
 
 Można skonfigurować następujące ustawienia:
 
-* `KeepAliveInterval`-Jak często wysyłać ramki "ping" do klienta, aby upewnić się, że serwer proxy utrzymuje otwarte połączenie. Wartość domyślna to dwie minuty.
-* `ReceiveBufferSize`— Rozmiar buforu używany do odbierania danych. Użytkownicy zaawansowani mogą wymagać zmiany wydajności na podstawie rozmiaru danych. Wartość domyślna to 4 KB.
-* `AllowedOrigins`-Lista dozwolonych wartości nagłówka pierwotnego dla żądań protokołu WebSocket. Domyślnie wszystkie źródła są dozwolone. Aby uzyskać szczegółowe informacje, zobacz sekcję "ograniczenie pochodzenia protokołu WebSocket" poniżej.
+* `KeepAliveInterval` — jak często wysyłać ramki "ping" do klienta, aby upewnić się, że serwer proxy utrzymuje otwarte połączenie. Wartość domyślna to dwie minuty.
+* <xref:Microsoft.AspNetCore.Builder.WebSocketOptions.ReceiveBufferSize> — rozmiar buforu używany do odbierania danych. Użytkownicy zaawansowani mogą wymagać zmiany wydajności na podstawie rozmiaru danych. Wartość domyślna to 4 KB.
+* `AllowedOrigins` — lista dozwolonych wartości nagłówka pierwotnego dla żądań protokołu WebSocket. Domyślnie wszystkie źródła są dozwolone. Aby uzyskać szczegółowe informacje, zobacz sekcję "ograniczenie pochodzenia protokołu WebSocket" poniżej.
 
 ::: moniker-end
 
@@ -87,13 +87,13 @@ Można skonfigurować następujące ustawienia:
 
 ## <a name="accept-websocket-requests"></a>Akceptuj żądania protokołu WebSocket
 
-W przyszłości w cyklu życia żądania ( `Configure` na przykład w metodzie lub w metodzie działania) Sprawdź, czy jest to żądanie protokołu WebSocket i zaakceptuj żądanie protokołu WebSocket.
+Na przykład w dalszej części cyklu życia żądania (w dalszej części metody `Configure` lub w metodzie działania) Sprawdź, czy jest to żądanie protokołu WebSocket i zaakceptuj żądanie protokołu WebSocket.
 
-Poniższy przykład znajduje się w dalszej części `Configure` metody:
+Poniższy przykład znajduje się w dalszej części metody `Configure`:
 
 [!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=AcceptWebSocket&highlight=7)]
 
-Żądanie WebSocket może znajdować się na dowolnym adresie URL, ale ten przykładowy kod akceptuje tylko `/ws`żądania dla.
+Żądanie WebSocket może znajdować się na dowolnym adresie URL, ale ten przykładowy kod akceptuje tylko żądania dla `/ws`.
 
 W przypadku korzystania z protokołu WebSocket **należy** zachować potok pośredniczący uruchomiony przez czas trwania połączenia. Jeśli spróbujesz wysłać lub odebrać komunikat protokołu WebSocket po zakończeniu potoku programu pośredniczącego, może wystąpić wyjątek podobny do następującego:
 
@@ -102,7 +102,7 @@ System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed t
 Object name: 'HttpResponseStream'.
 ```
 
-Jeśli używasz usługi w tle do zapisywania danych do protokołu WebSocket, upewnij się, że działa potok pośredniczący. W tym celu należy użyć <xref:System.Threading.Tasks.TaskCompletionSource%601>. Przekaż do usługi w tle i Wywołaj <xref:System.Threading.Tasks.TaskCompletionSource%601.TrySetResult%2A> ją po zakończeniu z użyciem protokołu WebSocket. `TaskCompletionSource` Następnie `await`Właściwośćwtrakcie żądania,jakpokazanownastępującymprzykładzie:<xref:System.Threading.Tasks.TaskCompletionSource%601.Task>
+Jeśli używasz usługi w tle do zapisywania danych do protokołu WebSocket, upewnij się, że działa potok pośredniczący. W tym celu należy użyć <xref:System.Threading.Tasks.TaskCompletionSource%601>. Przekaż `TaskCompletionSource` do usługi w tle i Wywołaj <xref:System.Threading.Tasks.TaskCompletionSource%601.TrySetResult%2A> po zakończeniu pracy z obiektem WebSocket. Następnie `await` Właściwość <xref:System.Threading.Tasks.TaskCompletionSource%601.Task> w trakcie żądania, jak pokazano w następującym przykładzie:
 
 ```csharp
 app.Use(async (context, next) => {
@@ -116,13 +116,13 @@ app.Use(async (context, next) => {
 ```
 Zamknięty wyjątek protokołu WebSocket może również wystąpić, Jeśli powrócisz zbyt szybko z metody akcji. Jeśli zaakceptujesz gniazdo w metodzie Action, poczekaj na wykonanie kodu, który używa gniazda przed powrotem z metody akcji.
 
-Nigdy nie `Task.Wait()`używaj `Task.Result`, lub podobnych wywołań blokowania, aby oczekiwać na zakończenie pracy gniazda, co może powodować poważne problemy z wątkami. Zawsze używaj `await`.
+Nigdy nie używaj `Task.Wait()`, `Task.Result` lub podobnych wywołań blokowania, aby poczekać na zakończenie pracy gniazda, co może spowodować poważne problemy z wątkami. Zawsze używaj `await`.
 
 ## <a name="send-and-receive-messages"></a>Wysyłanie i odbieranie wiadomości
 
-Metoda uaktualnia połączenie TCP do połączenia WebSocket i udostępnia obiekt [WebSocket.](/dotnet/core/api/system.net.websockets.websocket) `AcceptWebSocketAsync` `WebSocket` Użyj obiektu do wysyłania i odbierania wiadomości.
+Metoda `AcceptWebSocketAsync` uaktualnia połączenie TCP do połączenia WebSocket i udostępnia obiekt [WebSocket](/dotnet/core/api/system.net.websockets.websocket) . Użyj obiektu `WebSocket`, aby wysyłać i odbierać wiadomości.
 
-Kod wyświetlany wcześniej, który akceptuje żądanie protokołu WebSocket, przekazuje `WebSocket` obiekt `Echo` do metody. Kod odbiera komunikat i natychmiast wysyła komunikat z powrotem. Komunikaty są wysyłane i odbierane w pętli, dopóki klient nie zamknie połączenia:
+Kod pokazywany wcześniej, który akceptuje żądanie protokołu WebSocket, przekazuje obiekt `WebSocket` do metody `Echo`. Kod odbiera komunikat i natychmiast wysyła komunikat z powrotem. Komunikaty są wysyłane i odbierane w pętli, dopóki klient nie zamknie połączenia:
 
 [!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=Echo)]
 
@@ -134,7 +134,7 @@ Po zaakceptowaniu połączenia z użyciem protokołu WebSocket przed rozpoczęci
 
 Serwer nie zostanie automatycznie poinformowany, gdy klient odłączy się ze względu na utratę łączności. Serwer odbiera komunikat rozłączenia tylko wtedy, gdy klient wysyła go, którego nie można zrobić w przypadku utraty połączenia z Internetem. Jeśli chcesz wykonać pewne działania, należy ustawić limit czasu po odebraniu niczego z klienta w określonym przedziale czasu.
 
-Jeśli klient nie zawsze wysyła komunikaty i nie chcesz przekroczyć limitu czasu, ponieważ połączenie przechodzi w stan bezczynności, klient wysyła komunikat ping co X s przy użyciu czasomierza. Na serwerze, jeśli wiadomość nie dotarła w ciągu 2\*X sekund od poprzedniej, Zakończ połączenie i Zgłoś, że klient został odłączony. Poczekaj dwa razy oczekiwany przedział czasu na pozostawienie dodatkowego czasu na opóźnienia sieci, które mogą przytrzymać komunikat ping.
+Jeśli klient nie zawsze wysyła komunikaty i nie chcesz przekroczyć limitu czasu, ponieważ połączenie przechodzi w stan bezczynności, klient wysyła komunikat ping co X s przy użyciu czasomierza. Na serwerze, jeśli wiadomość nie dotarła w ciągu 2 \*X sekund od poprzedniej, Zakończ połączenie i Zgłoś, że klient został odłączony. Poczekaj dwa razy oczekiwany przedział czasu na pozostawienie dodatkowego czasu na opóźnienia sieci, które mogą przytrzymać komunikat ping.
 
 ## <a name="websocket-origin-restriction"></a>Ograniczenie pochodzenia obiektu WebSocket
 
@@ -143,14 +143,14 @@ Ochrona zapewniana przez mechanizm CORS nie ma zastosowania do obiektów WebSock
 * Wykonaj żądania funkcji CORS przed inspekcją.
 * Przestrzeganie ograniczeń określonych w `Access-Control` nagłówkach podczas wykonywania żądań WebSocket.
 
-Jednak przeglądarki wysyłają `Origin` nagłówek podczas wystawiania żądań protokołu WebSocket. Aplikacje powinny być skonfigurowane do sprawdzania poprawności tych nagłówków, aby upewnić się, że dozwolone są tylko usługi WebSockets pochodzące z oczekiwanych źródeł.
+Jednak przeglądarki wysyłają nagłówek `Origin` podczas wystawiania żądań protokołu WebSocket. Aplikacje powinny być skonfigurowane do sprawdzania poprawności tych nagłówków, aby upewnić się, że dozwolone są tylko usługi WebSockets pochodzące z oczekiwanych źródeł.
 
-Jeśli serwer https://server.com jest hostem "" i hostuje klienta na "https://client.com", `AllowedOrigins` Dodaj "https://client.com" do listy dla obiektów WebSockets do zweryfikowania.
+Jeśli serwer jest hostem "https://server.com" i hostuje klienta na "https://client.com", Dodaj "https://client.com" do listy `AllowedOrigins` dla obiektów WebSockets do zweryfikowania.
 
 [!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=UseWebSocketsOptionsAO&highlight=6-7)]
 
 > [!NOTE]
-> Nagłówek jest kontrolowany przez klienta i, `Referer` podobnie jak nagłówek, może być sfałszowany. `Origin` Tych nagłówków **nie** należy używać jako mechanizmu uwierzytelniania.
+> Nagłówek `Origin` jest kontrolowany przez klienta, podobnie jak nagłówek `Referer`, może zostać sfałszowany. Tych nagłówków **nie** należy używać jako mechanizmu uwierzytelniania.
 
 ::: moniker-end
 
@@ -168,11 +168,11 @@ Aby włączyć obsługę protokołu WebSocket w systemie Windows Server 2012 lub
 > [!NOTE]
 > Te kroki nie są wymagane w przypadku korzystania z IIS Express
 
-1. Użyj **Dodaj role i funkcje** kreatora z **Zarządzaj** menu lub linku w **Menedżera serwera**.
-1. Wybierz opcję **Instalacja oparta na rolach lub oparta na funkcjach**. Wybierz opcję **Dalej**.
-1. Wybierz odpowiedni serwer (serwer lokalny jest domyślnie wybrany). Wybierz opcję **Dalej**.
+1. Użyj kreatora **dodawania ról i funkcji** z menu **Zarządzaj** lub łącza w **Menedżer serwera**.
+1. Wybierz opcję **Instalacja oparta na rolach lub oparta na funkcjach**. Wybierz pozycję **dalej**.
+1. Wybierz odpowiedni serwer (serwer lokalny jest domyślnie wybrany). Wybierz pozycję **dalej**.
 1. Rozwiń węzeł **serwer sieci Web (IIS)** w drzewie **role** , rozwiń węzeł **serwer sieci Web**, a następnie rozwiń węzeł **Programowanie aplikacji**.
-1. Wybierz pozycję **Protokół WebSocket**. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Protokół WebSocket**. Wybierz pozycję **dalej**.
 1. Jeśli nie są potrzebne dodatkowe funkcje, wybierz pozycję **dalej**.
 1. Wybierz pozycję **Zainstaluj**.
 1. Po zakończeniu instalacji wybierz pozycję **Zamknij** , aby zakończyć pracę kreatora.
@@ -182,13 +182,13 @@ Aby włączyć obsługę protokołu WebSocket w systemie Windows 8 lub nowszym:
 > [!NOTE]
 > Te kroki nie są wymagane w przypadku korzystania z IIS Express
 
-1. Przejdź do **Panelu sterowania** > **programy** > **programy i funkcje** > **Windows Włącz funkcje w lub wyłącz** (po lewej stronie ekranu).
-1. Otwórz następujące węzły: **Internet Information Services** > **funkcje projektowania aplikacji** **World Wide Web Services** > .
-1. Wybierz **protokołu WebSocket** funkcji. Kliknij przycisk **OK**.
+1. Przejdź do **Panelu sterowania** > **programy** > **programy i funkcje** > **włączać lub wyłączać funkcje systemu Windows** (po lewej stronie ekranu).
+1. Otwórz następujące węzły: **Internet Information Services**  > **World Wide Web Services**  > **funkcje projektowania aplikacji**.
+1. Wybierz funkcję **protokołu WebSocket** . Wybierz **przycisk OK**.
 
 ### <a name="disable-websocket-when-using-socketio-on-nodejs"></a>Wyłączenie protokołu WebSocket w przypadku używania socket.io w programie Node. js
 
-W przypadku korzystania z obsługi protokołu WebSocket w programie [Socket.IO](https://socket.io/) w [węźle Node. js](https://nodejs.org/)należy wyłączyć domyślny `webSocket` moduł WebSocket usług IIS przy użyciu elementu w *pliku Web. config* lub *ApplicationHost. config*. Jeśli ten krok nie zostanie wykonany, moduł WebSocket usług IIS podejmie próbę obsługi komunikacji z użyciem protokołu WebSocket zamiast środowiska Node. js i aplikacji.
+W przypadku korzystania z obsługi protokołu WebSocket w programie [Socket.IO](https://socket.io/) w [węźle Node. js](https://nodejs.org/)należy wyłączyć domyślny moduł WebSocket usług IIS przy użyciu elementu `webSocket` w *pliku Web. config* lub *ApplicationHost. config*. Jeśli ten krok nie zostanie wykonany, moduł WebSocket usług IIS podejmie próbę obsługi komunikacji z użyciem protokołu WebSocket zamiast środowiska Node. js i aplikacji.
 
 ```xml
 <system.webServer>

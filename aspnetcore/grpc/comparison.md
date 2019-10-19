@@ -1,19 +1,19 @@
 ---
-title: Porównanie usług gRPC z interfejsami API protokołu HTTP
+title: Porównanie usług gRPC za pomocą interfejsów API protokołu HTTP
 author: jamesnk
 description: Dowiedz się, jak gRPC porównuje z interfejsami API protokołu HTTP i jakie są zalecane scenariusze.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 09/25/2019
 uid: grpc/comparison
-ms.openlocfilehash: 5c3ea7a78401e6483425fa0774b3051b3d20f516
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: 52b057876481bd9be4f83d93b1f05081ed19660f
+ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72289036"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72589973"
 ---
-# <a name="compare-grpc-services-with-http-apis"></a>Porównanie usług gRPC z interfejsami API protokołu HTTP
+# <a name="compare-grpc-services-with-http-apis"></a>Porównanie usług gRPC za pomocą interfejsów API protokołu HTTP
 
 Przez [Kuba Kowalski-króla](https://twitter.com/jamesnk)
 
@@ -26,13 +26,13 @@ Poniższa tabela zawiera porównanie funkcji między gRPC i interfejsami API pro
 | Funkcja          | gRPC                                               | Interfejsy API protokołu HTTP z JSON           |
 | ---------------- | -------------------------------------------------- | ----------------------------- |
 | Kontrakt         | Wymagane ( *. proto*)                                | Opcjonalnie (OpenAPI)            |
-| Transport        | HTTP/2                                             | HTTP                          |
+| Protokół         | PROTOKÓŁ HTTP/2                                             | HTTP                          |
 | Ładunku          | [Protobuf (mały, binarny)](#performance)           | JSON (duże, czytelne dla ludzi)  |
-| Prescriptiveness | [Specyfikacja Strict](#strict-specification)      | Sypki. Wszystkie protokoły HTTP są prawidłowe.      |
+| Prescriptiveness | [Specyfikacja Strict](#strict-specification)      | Sypki. Wszystkie protokoły HTTP są prawidłowe.     |
 | Przesyłanie strumieniowe        | [Klient, serwer, dwukierunkowa](#streaming)       | Klient, serwer                |
 | Obsługa przeglądarki  | [Nie (wymaga GRPC-Web)](#limited-browser-support) | Tak                           |
-| Zabezpieczenia         | Transport (HTTPS)                                  | Transport (HTTPS)             |
-| Generowanie kodu klienta | [Tak](#code-generation)                      | Narzędzia OpenAPI + inne firmy |
+| Zabezpieczenia         | Transport (TLS)                                    | Transport (TLS)               |
+| Generowanie kodu klienta | [Opcję](#code-generation)                      | Narzędzia OpenAPI + inne firmy |
 
 ## <a name="grpc-strengths"></a>mocne gRPC
 
@@ -109,7 +109,7 @@ Inne struktury są zalecane w porównaniu z gRPC w następujących scenariuszach
 * **Emitowanie komunikacji** w czasie rzeczywistym &ndash; gRPC obsługuje komunikację w czasie rzeczywistym za pośrednictwem przesyłania strumieniowego, ale pojęcie rozgłaszania komunikatów do zarejestrowanych połączeń nie istnieje. Na przykład w scenariuszu pokoju rozmów, w którym nowe wiadomości czatu powinny być wysyłane do wszystkich klientów w pokoju rozmowy, każde wywołanie gRPC jest wymagane do narzucania strumieniowego przesyłania nowych komunikatów rozmowy do klienta. [Sygnalizujący](xref:signalr/introduction) jest przydatną strukturą dla tego scenariusza. Sygnalizujący ma koncepcję trwałych połączeń i wbudowaną obsługę rozgłaszania komunikatów.
 * **Komunikacja między procesami** &ndash; proces musi obsługiwać serwer HTTP/2, aby akceptować przychodzące wywołania gRPC. W przypadku systemu Windows [potoki](/dotnet/standard/io/pipe-operations) komunikacji między procesami to szybka i lekka Metoda komunikacji.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * <xref:tutorials/grpc/grpc-start>
 * <xref:grpc/index>

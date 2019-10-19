@@ -5,22 +5,22 @@ description: Dowiedz się, jak skonfigurować aplikację ASP.NET Core przy użyc
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/12/2019
+ms.date: 10/18/2019
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 357a3d89648086f0329cd16bc9d72863df9bdcd6
-ms.sourcegitcommit: 8a36be1bfee02eba3b07b7a86085ec25c38bae6b
+ms.openlocfilehash: 0a9b1a1a08617ef4ca8a36295cec8910ec111acd
+ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71217789"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72589908"
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguracja w ASP.NET Core
 
-Przez [Luke Latham](https://github.com/guardrex)
+Autor [Luke Latham](https://github.com/guardrex)
 
 Konfiguracja aplikacji w ASP.NET Core jest oparta na parach klucz-wartość określonych przez *dostawców konfiguracji*. Dostawcy konfiguracji odczytują dane konfiguracji do par klucz-wartość z różnych źródeł konfiguracji:
 
-* W usłudze Azure Key Vault
+* Azure Key Vault
 * Konfiguracja aplikacji platformy Azure
 * Argumenty wiersza polecenia
 * Dostawcy niestandardowi (instalowani lub utworzony)
@@ -41,7 +41,7 @@ Pakiety konfiguracyjne dla typowych scenariuszy dostawcy konfiguracji ([Microsof
 
 ::: moniker-end
 
-Przykłady kodu, które obserwują i w przykładowej aplikacji <xref:Microsoft.Extensions.Configuration> używają przestrzeni nazw:
+Przykłady kodu, które obserwują i w przykładowej aplikacji używają przestrzeni nazw <xref:Microsoft.Extensions.Configuration>:
 
 ```csharp
 using Microsoft.Extensions.Configuration;
@@ -49,32 +49,32 @@ using Microsoft.Extensions.Configuration;
 
 *Wzorzec opcji* jest rozszerzeniem pojęć konfiguracyjnych opisanych w tym temacie. Opcje używają klas do reprezentowania grup powiązanych ustawień. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/options>.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="host-versus-app-configuration"></a>Host a konfiguracja aplikacji
 
-Przed skonfigurowaniem i uruchomieniem aplikacji *host* zostanie skonfigurowany i uruchomiony. Host jest odpowiedzialny za zarządzanie uruchamiania i czasu życia aplikacji. Zarówno aplikacja, jak i Host są konfigurowane przy użyciu dostawców konfiguracji opisanych w tym temacie. Klucz konfiguracji hosta — pary wartości są również uwzględnione w konfiguracji aplikacji. Aby uzyskać więcej informacji na temat tego, jak dostawcy konfiguracji są używani podczas kompilowania hosta i jak źródła konfiguracji wpływają na <xref:fundamentals/index#host>konfigurację hosta, zobacz.
+Przed skonfigurowaniem i uruchomieniem aplikacji *host* zostanie skonfigurowany i uruchomiony. Host jest odpowiedzialny za uruchamianie aplikacji i zarządzanie okresem istnienia. Zarówno aplikacja, jak i Host są konfigurowane przy użyciu dostawców konfiguracji opisanych w tym temacie. Klucz konfiguracji hosta — pary wartości są również uwzględnione w konfiguracji aplikacji. Aby uzyskać więcej informacji na temat tego, jak dostawcy konfiguracji są używani podczas kompilowania hosta i jak źródła konfiguracji wpływają na konfigurację hosta, zobacz <xref:fundamentals/index#host>.
 
 ## <a name="default-configuration"></a>Konfiguracja domyślna
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Aplikacje sieci Web oparte na ASP.NET Coreniu [nowych](/dotnet/core/tools/dotnet-new) szablonów dotnet <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*> są wywoływane podczas kompilowania hosta. `CreateDefaultBuilder`zapewnia domyślną konfigurację dla aplikacji w następującej kolejności:
+Aplikacje sieci Web oparte na ASP.NET Core [nowym szablonów dotnet](/dotnet/core/tools/dotnet-new) <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*> podczas kompilowania hosta. `CreateDefaultBuilder` zapewnia domyślną konfigurację dla aplikacji w następującej kolejności:
 
 Poniższe zasady dotyczą aplikacji korzystających z [hosta ogólnego](xref:fundamentals/host/generic-host). Aby uzyskać szczegółowe informacje na temat konfiguracji domyślnej podczas korzystania z [hosta sieci Web](xref:fundamentals/host/web-host), zobacz [wersję ASP.NET Core 2,2 tego tematu](/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.2).
 
 * Konfiguracja hosta jest poświadczona z:
-  * Zmienne środowiskowe poprzedzone `DOTNET_` znakiem (na `DOTNET_ENVIRONMENT`przykład) przy użyciu [dostawcy konfiguracji zmiennych środowiskowych](#environment-variables-configuration-provider). Prefiks (`DOTNET_`) jest usuwany, gdy są ładowane pary klucz-wartość konfiguracji.
+  * Zmienne środowiskowe poprzedzone prefiksem `DOTNET_` (na przykład `DOTNET_ENVIRONMENT`) przy użyciu [dostawcy konfiguracji zmiennych środowiskowych](#environment-variables-configuration-provider). Prefiks (`DOTNET_`) jest usuwany podczas ładowania par klucz-wartość konfiguracji.
   * Argumenty wiersza polecenia przy użyciu [dostawcy konfiguracji wiersza polecenia](#command-line-configuration-provider).
 * Konfiguracja domyślna hosta sieci Web (`ConfigureWebHostDefaults`):
   * Kestrel jest używany jako serwer sieci Web i konfigurowany przy użyciu dostawców konfiguracji aplikacji.
   * Dodaj oprogramowanie pośredniczące do filtrowania hosta.
-  * Dodaj przekierowane nagłówki — oprogramowanie pośredniczące, `ASPNETCORE_FORWARDEDHEADERS_ENABLED` Jeśli zmienna środowiskowa jest ustawiona na. `true`
+  * Dodaj przekierowane nagłówki — oprogramowanie pośredniczące, jeśli zmienna środowiskowa `ASPNETCORE_FORWARDEDHEADERS_ENABLED` jest ustawiona na `true`.
   * Włącz integrację usług IIS.
 * Podano konfigurację aplikacji z:
   * *appSettings. JSON* przy użyciu [dostawcy konfiguracji plików](#file-configuration-provider).
   * *appSettings. {Environment}. JSON* przy użyciu [dostawcy konfiguracji pliku](#file-configuration-provider).
-  * [Secret Manager](xref:security/app-secrets) , gdy aplikacja jest uruchamiana `Development` w środowisku przy użyciu zestawu wpisów.
+  * [Secret Manager](xref:security/app-secrets) , gdy aplikacja jest uruchamiana w środowisku `Development` przy użyciu zestawu wpisów.
   * Zmienne środowiskowe używające [dostawcy konfiguracji zmiennych środowiskowych](#environment-variables-configuration-provider).
   * Argumenty wiersza polecenia przy użyciu [dostawcy konfiguracji wiersza polecenia](#command-line-configuration-provider).
 
@@ -82,17 +82,17 @@ Poniższe zasady dotyczą aplikacji korzystających z [hosta ogólnego](xref:fun
 
 ::: moniker range="< aspnetcore-3.0"
 
-Aplikacje sieci Web oparte na ASP.NET Coreniu [nowych](/dotnet/core/tools/dotnet-new) szablonów dotnet <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> są wywoływane podczas kompilowania hosta. `CreateDefaultBuilder`zapewnia domyślną konfigurację dla aplikacji w następującej kolejności:
+Aplikacje sieci Web oparte na ASP.NET Core [nowym szablonów dotnet](/dotnet/core/tools/dotnet-new) <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> podczas kompilowania hosta. `CreateDefaultBuilder` zapewnia domyślną konfigurację dla aplikacji w następującej kolejności:
 
 Poniższe zasady dotyczą aplikacji korzystających z [hosta sieci Web](xref:fundamentals/host/web-host). Aby uzyskać szczegółowe informacje na temat konfiguracji domyślnej w przypadku korzystania z [hosta ogólnego](xref:fundamentals/host/generic-host), zobacz [najnowszą wersję tego tematu](xref:fundamentals/configuration/index).
 
 * Konfiguracja hosta jest poświadczona z:
-  * Zmienne środowiskowe poprzedzone `ASPNETCORE_` znakiem (na `ASPNETCORE_ENVIRONMENT`przykład) przy użyciu [dostawcy konfiguracji zmiennych środowiskowych](#environment-variables-configuration-provider). Prefiks (`ASPNETCORE_`) jest usuwany, gdy są ładowane pary klucz-wartość konfiguracji.
+  * Zmienne środowiskowe poprzedzone prefiksem `ASPNETCORE_` (na przykład `ASPNETCORE_ENVIRONMENT`) przy użyciu [dostawcy konfiguracji zmiennych środowiskowych](#environment-variables-configuration-provider). Prefiks (`ASPNETCORE_`) jest usuwany podczas ładowania par klucz-wartość konfiguracji.
   * Argumenty wiersza polecenia przy użyciu [dostawcy konfiguracji wiersza polecenia](#command-line-configuration-provider).
 * Podano konfigurację aplikacji z:
   * *appSettings. JSON* przy użyciu [dostawcy konfiguracji plików](#file-configuration-provider).
   * *appSettings. {Environment}. JSON* przy użyciu [dostawcy konfiguracji pliku](#file-configuration-provider).
-  * [Secret Manager](xref:security/app-secrets) , gdy aplikacja jest uruchamiana `Development` w środowisku przy użyciu zestawu wpisów.
+  * [Secret Manager](xref:security/app-secrets) , gdy aplikacja jest uruchamiana w środowisku `Development` przy użyciu zestawu wpisów.
   * Zmienne środowiskowe używające [dostawcy konfiguracji zmiennych środowiskowych](#environment-variables-configuration-provider).
   * Argumenty wiersza polecenia przy użyciu [dostawcy konfiguracji wiersza polecenia](#command-line-configuration-provider).
 
@@ -109,7 +109,7 @@ Aby zabezpieczyć poufne dane konfiguracji, należy zastosować następujące ro
 Więcej informacji znajduje się w następujących tematach:
 
 * <xref:fundamentals/environments>
-* <xref:security/app-secrets>&ndash; Zawiera porady dotyczące używania zmiennych środowiskowych do przechowywania poufnych danych. Menedżer wpisów tajnych używa dostawcy konfiguracji plików do przechowywania wpisów tajnych użytkownika w pliku JSON w systemie lokalnym. Dostawca konfiguracji plików został opisany w dalszej części tego tematu.
+* <xref:security/app-secrets> &ndash; zawiera porady dotyczące używania zmiennych środowiskowych do przechowywania poufnych danych. Menedżer wpisów tajnych używa dostawcy konfiguracji plików do przechowywania wpisów tajnych użytkownika w pliku JSON w systemie lokalnym. Dostawca konfiguracji plików został opisany w dalszej części tego tematu.
 
 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) bezpieczne przechowywanie wpisów tajnych aplikacji dla ASP.NET Core aplikacji. Aby uzyskać więcej informacji, zobacz <xref:security/key-vault-configuration>.
 
@@ -139,7 +139,7 @@ Gdy plik jest odczytywany do konfiguracji, są tworzone unikatowe klucze, aby za
 * section1:key0
 * Section1: Klucz1
 
-<xref:Microsoft.Extensions.Configuration.ConfigurationSection.GetSection*>metody <xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*> i są dostępne do izolowania sekcji i elementów podrzędnych sekcji w danych konfiguracyjnych. Te metody są opisane w dalszej [części GetSection, GetChildren i EXISTS](#getsection-getchildren-and-exists).
+Metody <xref:Microsoft.Extensions.Configuration.ConfigurationSection.GetSection*> i <xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*> są dostępne do izolowania sekcji i elementów podrzędnych sekcji w danych konfiguracyjnych. Te metody są opisane w dalszej [części GetSection, GetChildren i EXISTS](#getsection-getchildren-and-exists).
 
 ## <a name="conventions"></a>Konwencje
 
@@ -149,7 +149,7 @@ Podczas uruchamiania aplikacji źródła konfiguracji są odczytywane w kolejno�
 
 Dostawcy konfiguracji implementujący funkcję wykrywania zmian mają możliwość ponownego załadowania konfiguracji, gdy ustawienie podstawowe zostanie zmienione. Na przykład dostawca konfiguracji plików (opisany w dalszej części tego tematu) i [dostawca konfiguracji Azure Key Vault](xref:security/key-vault-configuration) implementują wykrywanie zmian.
 
-<xref:Microsoft.Extensions.Configuration.IConfiguration>jest dostępny w kontenerze [iniekcji zależności](xref:fundamentals/dependency-injection) aplikacji. <xref:Microsoft.Extensions.Configuration.IConfiguration>można wstrzyknąć do Razor Pages <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> , aby uzyskać konfigurację dla klasy:
+<xref:Microsoft.Extensions.Configuration.IConfiguration> jest dostępny w kontenerze [iniekcji zależności](xref:fundamentals/dependency-injection) aplikacji. <xref:Microsoft.Extensions.Configuration.IConfiguration> można wstrzyknąć do Razor Pages <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> w celu uzyskania konfiguracji dla klasy:
 
 ```csharp
 public class IndexModel : PageModel
@@ -172,13 +172,13 @@ Dostawcy konfiguracji nie mogą używać DI, ponieważ są niedostępne, gdy są
 
 Klucze konfiguracji przyjmują następujące konwencje:
 
-* W kluczach nie jest rozróżniana wielkość liter. Na przykład `ConnectionString` i `connectionstring` są traktowane jako równoważne klucze.
+* W kluczach nie jest rozróżniana wielkość liter. Na przykład `ConnectionString` i `connectionstring` są traktowane jako klucze równoważne.
 * Jeśli wartość tego samego klucza jest ustawiana przez tych samych lub różnych dostawców konfiguracji, Ostatnia wartość ustawiona w tym kluczu jest używana.
 * Klucze hierarchiczne
-  * W interfejsie API konfiguracji, separator dwukropek`:`() działa na wszystkich platformach.
+  * W interfejsie API konfiguracji, separator dwukropek (`:`) działa na wszystkich platformach.
   * W zmiennych środowiskowych separator dwukropek może nie zadziałał na wszystkich platformach. Podwójne podkreślenie (`__`) jest obsługiwane przez wszystkie platformy i automatycznie konwertowane na dwukropek.
   * W Azure Key Vault klucze hierarchiczne używają `--` (dwóch kresek) jako separatora. Należy podać kod, aby zastąpić łączniki dwukropkiem, gdy wpisy tajne są ładowane do konfiguracji aplikacji.
-* <xref:Microsoft.Extensions.Configuration.ConfigurationBinder> Obsługuje tablice powiązań z obiektami przy użyciu indeksów tablicowych w kluczach konfiguracji. Powiązanie tablicowe zostało opisane w sekcji [Powiązywanie tablicy z klasą](#bind-an-array-to-a-class) .
+* @No__t_0 obsługuje powiązania tablic z obiektami przy użyciu indeksów tablicowych w kluczach konfiguracji. Powiązanie tablicowe zostało opisane w sekcji [Powiązywanie tablicy z klasą](#bind-an-array-to-a-class) .
 
 ### <a name="values"></a>Wartości
 
@@ -191,37 +191,37 @@ Wartości konfiguracyjne przyjmują następujące konwencje:
 
 W poniższej tabeli przedstawiono dostawców konfiguracji dostępnych do ASP.NET Core aplikacji.
 
-| Dostawca | Zapewnia konfigurację z&hellip; |
+| Dostawcy | Zapewnia konfigurację z &hellip; |
 | -------- | ----------------------------------- |
-| [Dostawca konfiguracji Azure Key Vault](xref:security/key-vault-configuration) (Tematy dotyczące*zabezpieczeń* ) | W usłudze Azure Key Vault |
-| [Dostawca konfiguracji aplikacji platformy Azure](/azure/azure-app-configuration/quickstart-aspnet-core-app) (Dokumentacja platformy Azure) | Konfiguracja aplikacji platformy Azure |
+| [Dostawca konfiguracji Azure Key Vault](xref:security/key-vault-configuration) (tematy dotyczące*zabezpieczeń* ) | Azure Key Vault |
+| [Dostawca konfiguracji aplikacji platformy Azure](/azure/azure-app-configuration/quickstart-aspnet-core-app) (dokumentacja platformy Azure) | Konfiguracja aplikacji platformy Azure |
 | [Dostawca konfiguracji wiersza polecenia](#command-line-configuration-provider) | Parametry wiersza polecenia |
 | [Niestandardowy dostawca konfiguracji](#custom-configuration-provider) | Źródło niestandardowe |
 | [Dostawca konfiguracji zmiennych środowiskowych](#environment-variables-configuration-provider) | Zmienne środowiskowe |
 | [Dostawca konfiguracji plików](#file-configuration-provider) | Pliki (INI, JSON, XML) |
 | [Dostawca konfiguracji klucza dla plików](#key-per-file-configuration-provider) | Pliki katalogu |
 | [Dostawca konfiguracji pamięci](#memory-configuration-provider) | Kolekcje w pamięci |
-| Wpisy [tajne użytkownika (Secret Manager)](xref:security/app-secrets) (Tematy dotyczące*zabezpieczeń* ) | Plik w katalogu profilu użytkownika |
+| Wpisy [tajne użytkownika (Secret Manager)](xref:security/app-secrets) (tematy dotyczące*zabezpieczeń* ) | Plik w katalogu profilu użytkownika |
 
 Źródła konfiguracji są odczytywane w kolejności, w jakiej dostawcy konfiguracji są określeni podczas uruchamiania. Dostawcy konfiguracji opisane w tym temacie są opisywane w kolejności alfabetycznej, a nie w kolejności, w jakiej kod może je rozmieścić. Zamów dostawcy konfiguracji w kodzie, aby odpowiadały Twoim priorytetom dla źródłowych źródeł konfiguracji.
 
 Typową sekwencją dostawców konfiguracji jest:
 
-1. Pliki (*appSettings. JSON*, *appSettings. { Environment}. JSON*, gdzie `{Environment}` to bieżące środowisko hostingu aplikacji)
+1. Pliki (*appSettings. JSON*, *appSettings. { Environment}. JSON*, gdzie `{Environment}` jest bieżącym środowiskiem hostingu aplikacji)
 1. [Azure Key Vault](xref:security/key-vault-configuration)
-1. Wpisy [tajne użytkownika (Secret Manager)](xref:security/app-secrets) (Tylko środowisko programistyczne)
+1. Wpisy [tajne użytkownika (Secret Manager)](xref:security/app-secrets) (tylko środowisko programistyczne)
 1. Zmienne środowiskowe
 1. Argumenty wiersza polecenia
 
 Typowym celem jest umieszczenie dostawcy konfiguracji wiersza polecenia jako ostatni w serii dostawców, aby zezwolić na argumenty wiersza polecenia, aby przesłonić konfigurację ustawioną przez innych dostawców.
 
-Poprzednia sekwencja dostawców jest używana po zainicjowaniu nowego konstruktora hostów za `CreateDefaultBuilder`pomocą programu. Aby uzyskać więcej informacji, zobacz sekcję [Konfiguracja domyślna](#default-configuration) .
+Poprzednia sekwencja dostawców jest używana po zainicjowaniu nowego konstruktora hostów przy użyciu `CreateDefaultBuilder`. Aby uzyskać więcej informacji, zobacz sekcję [Konfiguracja domyślna](#default-configuration) .
 
 ::: moniker range=">= aspnetcore-3.0"
 
 ## <a name="configure-the-host-builder-with-configurehostconfiguration"></a>Konfigurowanie konstruktora hostów za pomocą ConfigureHostConfiguration
 
-Aby skonfigurować konstruktora hostów, wywołaj <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureHostConfiguration*> i podaj konfigurację. `ConfigureHostConfiguration`służy do inicjowania <xref:Microsoft.Extensions.Hosting.IHostEnvironment> usługi do użycia w dalszej części procesu kompilacji. `ConfigureHostConfiguration`może być wywoływana wiele razy z wynikami.
+Aby skonfigurować konstruktora hostów, wywołaj <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureHostConfiguration*> i podaj konfigurację. `ConfigureHostConfiguration` służy do inicjowania <xref:Microsoft.Extensions.Hosting.IHostEnvironment> do późniejszego użycia w procesie kompilacji. `ConfigureHostConfiguration` może być wywoływana wiele razy z wynikami.
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -248,7 +248,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 ## <a name="configure-the-host-builder-with-useconfiguration"></a>Konfigurowanie konstruktora hostów za pomocą UseConfiguration
 
-Aby skonfigurować konstruktora hosta, należy wywołać <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> konstruktora hosta z konfiguracją.
+Aby skonfigurować konstruktora hostów, wywołaj <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> w konstruktorze hosta z konfiguracją.
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args)
@@ -289,7 +289,7 @@ Wywołaj `ConfigureAppConfiguration` podczas kompilowania hosta, aby określić 
 
 ### <a name="override-previous-configuration-with-command-line-arguments"></a>Zastąp poprzednią konfigurację argumentami wiersza polecenia
 
-Aby podać konfigurację aplikacji, którą można zastąpić za pomocą argumentów wiersza polecenia, wywołaj `AddCommandLine` ostatni:
+Aby podać konfigurację aplikacji, którą można zastąpić za pomocą argumentów wiersza polecenia, wywołaj `AddCommandLine` Last:
 
 ```csharp
 .ConfigureAppConfiguration((hostingContext, config) =>
@@ -301,27 +301,27 @@ Aby podać konfigurację aplikacji, którą można zastąpić za pomocą argumen
 
 ### <a name="consume-configuration-during-app-startup"></a>Użyj konfiguracji podczas uruchamiania aplikacji
 
-Konfiguracja dostarczona do aplikacji w `ConfigureAppConfiguration` programie jest dostępna podczas uruchamiania aplikacji, w tym `Startup.ConfigureServices`. Aby uzyskać więcej informacji, zobacz sekcję [Konfiguracja dostępu podczas uruchamiania](#access-configuration-during-startup) .
+Konfiguracja dostarczona do aplikacji w `ConfigureAppConfiguration` jest dostępna podczas uruchamiania aplikacji, w tym `Startup.ConfigureServices`. Aby uzyskać więcej informacji, zobacz sekcję [Konfiguracja dostępu podczas uruchamiania](#access-configuration-during-startup) .
 
 ## <a name="command-line-configuration-provider"></a>Dostawca konfiguracji wiersza polecenia
 
-<xref:Microsoft.Extensions.Configuration.CommandLine.CommandLineConfigurationProvider> Ładowanie konfiguracji z par klucz-wartość argumentu wiersza polecenia w czasie wykonywania.
+@No__t_0 ładuje konfigurację z par klucz-wartość argumentu wiersza polecenia w czasie wykonywania.
 
-Aby uaktywnić konfigurację wiersza polecenia, <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> Metoda rozszerzenia jest wywoływana w <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>wystąpieniu.
+Aby uaktywnić konfigurację wiersza polecenia, Metoda rozszerzenia <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> jest wywoływana w wystąpieniu <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.
 
-`AddCommandLine`jest wywoływana automatycznie, `CreateDefaultBuilder(string [])` gdy jest wywoływana. Aby uzyskać więcej informacji, zobacz sekcję [Konfiguracja domyślna](#default-configuration) .
+`AddCommandLine` jest wywoływana automatycznie, gdy zostanie wywołana `CreateDefaultBuilder(string [])`. Aby uzyskać więcej informacji, zobacz sekcję [Konfiguracja domyślna](#default-configuration) .
 
-`CreateDefaultBuilder`ładuje również:
+`CreateDefaultBuilder` również ładowania:
 
 * Opcjonalna konfiguracja z pliku *appSettings. JSON* i *appSettings. { Environment}. JSON* — pliki.
 * Wpisy [tajne użytkownika (Secret Manager)](xref:security/app-secrets) w środowisku deweloperskim.
 * Zmienne środowiskowe.
 
-`CreateDefaultBuilder`dodaje dostawcę konfiguracji wiersza polecenia Last. Argumenty wiersza polecenia przekazane w czasie wykonywania zastępują konfigurację ustawioną przez innych dostawców.
+`CreateDefaultBuilder` dodaje dostawcę konfiguracji wiersza polecenia Last. Argumenty wiersza polecenia przekazane w czasie wykonywania zastępują konfigurację ustawioną przez innych dostawców.
 
-`CreateDefaultBuilder`działa, gdy host jest skonstruowany. W związku z tym konfiguracja wiersza polecenia aktywowana przez `CreateDefaultBuilder` program może mieć wpływ na sposób konfigurowania hosta.
+`CreateDefaultBuilder` działa, gdy host jest skonstruowany. W związku z tym konfiguracja wiersza polecenia aktywowana przez `CreateDefaultBuilder` może mieć wpływ na sposób konfigurowania hosta.
 
-W przypadku aplikacji opartych na ASP.NET Core szablonach program `AddCommandLine` został już wywołany przez. `CreateDefaultBuilder` Aby dodać kolejnych dostawców konfiguracji i zachować możliwość przesłonięcia konfiguracji od tych dostawców za pomocą argumentów wiersza polecenia, wywołaj dodatkowych dostawców aplikacji w `ConfigureAppConfiguration` i Wywołaj `AddCommandLine` jako ostatni.
+W przypadku aplikacji opartych na ASP.NET Core szablonach `AddCommandLine` została już wywołana przez `CreateDefaultBuilder`. Aby dodać kolejnych dostawców konfiguracji i zachować możliwość przesłonięcia konfiguracji od tych dostawców za pomocą argumentów wiersza polecenia, wywołaj dodatkowych dostawców aplikacji w `ConfigureAppConfiguration` i Wywołaj `AddCommandLine` Last.
 
 ```csharp
 .ConfigureAppConfiguration((hostingContext, config) =>
@@ -333,11 +333,11 @@ W przypadku aplikacji opartych na ASP.NET Core szablonach program `AddCommandLin
 
 **Przykład**
 
-Przykładowa aplikacja korzysta z statycznej wygodnej metody `CreateDefaultBuilder` tworzenia hosta, który obejmuje <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*>wywołanie.
+Przykładowa aplikacja korzysta z statycznej metody wygodnej `CreateDefaultBuilder` do kompilowania hosta, który obejmuje wywołanie <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*>.
 
 1. Otwórz wiersz polecenia w katalogu projektu.
-1. Podaj do `dotnet run` polecenia argument wiersza polecenia, `dotnet run CommandLineKey=CommandLineValue`.
-1. Po uruchomieniu aplikacji otwórz w przeglądarce aplikację w lokalizacji `http://localhost:5000`.
+1. Podaj argument wiersza polecenia do polecenia `dotnet run`, `dotnet run CommandLineKey=CommandLineValue`.
+1. Po uruchomieniu aplikacji otwórz w przeglądarce aplikację w `http://localhost:5000`.
 1. Zwróć uwagę, że dane wyjściowe zawierają parę klucz-wartość dla argumentu wiersza polecenia konfiguracji dostarczonego do `dotnet run`.
 
 ### <a name="arguments"></a>Argumenty
@@ -362,13 +362,13 @@ dotnet run CommandLineKey1= CommandLineKey2=value2
 
 ### <a name="switch-mappings"></a>Mapowanie przełączników
 
-Mapowania przełączników Zezwalaj na logikę zamiany nazwy klucza. W przypadku ręcznego kompilowania konfiguracji za <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>pomocą programu można udostępnić <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> do metody słownik przemieszczeń przełączeń.
+Mapowania przełączników Zezwalaj na logikę zamiany nazwy klucza. Podczas ręcznego kompilowania konfiguracji za pomocą <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> można dostarczyć słownik przemieszczeń przełączeń do metody <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*>.
 
-Gdy jest używany słownik mapowania przełączników, słownik jest sprawdzany dla klucza, który pasuje do klucza dostarczonego przez argument wiersza polecenia. Jeśli klucz wiersza polecenia zostanie znaleziony w słowniku, wartość słownika (wymiana klucza) zostanie przeniesiona z powrotem, aby ustawić parę klucz-wartość w konfiguracji aplikacji. Mapowanie przełącznika jest wymagane dla każdego klucza wiersza polecenia poprzedzonego pojedynczą kreską (`-`).
+Gdy jest używany słownik mapowania przełączników, słownik jest sprawdzany dla klucza, który pasuje do klucza dostarczonego przez argument wiersza polecenia. Jeśli klucz wiersza polecenia zostanie znaleziony w słowniku, wartość słownika (wymiana klucza) zostanie przeniesiona z powrotem, aby ustawić parę klucz-wartość w konfiguracji aplikacji. Mapowanie przełącznika jest wymagane dla każdego klucza wiersza polecenia poprzedzonego jedną kreską (`-`).
 
 Przełącz reguły klucza słownika mapowania:
 
-* Przełączniki muszą zaczynać się kreską`-`() lub podwójną kreską (`--`).
+* Przełączniki muszą zaczynać się kreską (`-`) lub podwójną kreską (`--`).
 * Słownik mapowania przełącznika nie może zawierać zduplikowanych kluczy.
 
 Utwórz słownik mapowań mapowania. W poniższym przykładzie są tworzone dwa mapowania przełączników:
@@ -391,7 +391,7 @@ Po skompilowaniu hosta Wywołaj `AddCommandLine` przy użyciu słownika mapowani
 })
 ```
 
-W przypadku aplikacji korzystających z mapowań przełączników wywołanie `CreateDefaultBuilder` nie powinno przekazywać argumentów. Wywołanie metody nie obejmuje zamapowanych przełączników i nie ma sposobu przekazywania słownika mapowania przełącznika do `CreateDefaultBuilder`. `CreateDefaultBuilder` `AddCommandLine` Rozwiązanie nie przekazuje argumentów do `CreateDefaultBuilder` , ale zamiast tego `ConfigurationBuilder` zezwala metodzie metody `AddCommandLine` na przetwarzanie zarówno argumentów, jak i słownika mapowania przełącznika.
+W przypadku aplikacji korzystających z mapowań przełączników wywołanie `CreateDefaultBuilder` nie powinno przekazywać argumentów. Wywołanie `AddCommandLine` metody `CreateDefaultBuilder` nie obejmuje zamapowanych przełączników i nie ma sposobu przekazywania słownika mapowania przełącznika do `CreateDefaultBuilder`. Rozwiązanie nie przekazuje argumentów do `CreateDefaultBuilder`, ale zamiast zezwalać `AddCommandLine` metody `ConfigurationBuilder` do przetwarzania zarówno argumentów, jak i słownika mapowania przełącznika.
 
 Po utworzeniu słownika mapowań przełączników zawiera dane przedstawione w poniższej tabeli.
 
@@ -415,29 +415,29 @@ Po uruchomieniu poprzedniego polecenia Konfiguracja zawiera wartości pokazane w
 
 ## <a name="environment-variables-configuration-provider"></a>Dostawca konfiguracji zmiennych środowiskowych
 
-<xref:Microsoft.Extensions.Configuration.EnvironmentVariables.EnvironmentVariablesConfigurationProvider> Ładowanie konfiguracji ze zmiennej środowiskowej par klucz-wartość w czasie wykonywania.
+@No__t_0 ładuje konfigurację ze par klucz-wartość zmiennej środowiskowej w czasie wykonywania.
 
-Aby uaktywnić konfigurację zmiennych środowiskowych, <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> Wywołaj metodę rozszerzenia w <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>wystąpieniu.
+Aby uaktywnić konfigurację zmiennych środowiskowych, wywołaj metodę rozszerzenia <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> w wystąpieniu <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.
 
 [!INCLUDE[](~/includes/environmentVarableColon.md)]
 
-[Azure App Service](https://azure.microsoft.com/services/app-service/) pozwala ustawić zmienne środowiskowe w witrynie Azure Portal, które mogą przesłonić konfigurację aplikacji przy użyciu dostawcy konfiguracji zmiennych środowiskowych. Aby uzyskać więcej informacji, [Zobacz Azure Apps: Przesłoń konfigurację aplikacji przy użyciu witryny](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal)Azure Portal.
+[Azure App Service](https://azure.microsoft.com/services/app-service/) pozwala ustawić zmienne środowiskowe w witrynie Azure Portal, które mogą przesłonić konfigurację aplikacji przy użyciu dostawcy konfiguracji zmiennych środowiskowych. Aby uzyskać więcej informacji, zobacz artykuł [Azure Apps: zastępowanie konfiguracji aplikacji przy użyciu witryny Azure Portal](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
 
 ::: moniker range=">= aspnetcore-3.0"
 
-`AddEnvironmentVariables`służy do ładowania zmiennych środowiskowych, które są `DOTNET_` poprzedzone [konfiguracją hosta](#host-versus-app-configuration) , gdy nowy Konstruktor hosta zostanie zainicjowany z [hostem ogólnym](xref:fundamentals/host/generic-host) i `CreateDefaultBuilder` jest wywoływany. Aby uzyskać więcej informacji, zobacz sekcję [Konfiguracja domyślna](#default-configuration) .
+`AddEnvironmentVariables` jest używany do ładowania zmiennych środowiskowych, które są poprzedzone `DOTNET_` na potrzeby [konfiguracji hosta](#host-versus-app-configuration) , gdy nowy Konstruktor hosta zostanie zainicjowany z [hostem ogólnym](xref:fundamentals/host/generic-host) i zostanie wywołane `CreateDefaultBuilder`. Aby uzyskać więcej informacji, zobacz sekcję [Konfiguracja domyślna](#default-configuration) .
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-`AddEnvironmentVariables`służy do ładowania zmiennych środowiskowych, które są `ASPNETCORE_` poprzedzone [konfiguracją hosta](#host-versus-app-configuration) , gdy nowy Konstruktor hosta zostanie zainicjowany przy użyciu [hosta sieci Web](xref:fundamentals/host/web-host) i `CreateDefaultBuilder` jest wywoływany. Aby uzyskać więcej informacji, zobacz sekcję [Konfiguracja domyślna](#default-configuration) .
+`AddEnvironmentVariables` jest używany do ładowania zmiennych środowiskowych, które są poprzedzone `ASPNETCORE_` na potrzeby [konfiguracji hosta](#host-versus-app-configuration) , gdy nowy Konstruktor hosta zostanie zainicjowany przy użyciu [hosta sieci Web](xref:fundamentals/host/web-host) i zostanie wywołane `CreateDefaultBuilder`. Aby uzyskać więcej informacji, zobacz sekcję [Konfiguracja domyślna](#default-configuration) .
 
 ::: moniker-end
 
-`CreateDefaultBuilder`ładuje również:
+`CreateDefaultBuilder` również ładowania:
 
-* Konfiguracja aplikacji z nieoznaczonych zmiennych środowiskowych przez `AddEnvironmentVariables` wywołanie bez prefiksu.
+* Konfiguracja aplikacji z nieoznaczonych zmiennych środowiskowych przez wywołanie `AddEnvironmentVariables` bez prefiksu.
 * Opcjonalna konfiguracja z pliku *appSettings. JSON* i *appSettings. { Environment}. JSON* — pliki.
 * Wpisy [tajne użytkownika (Secret Manager)](xref:security/app-secrets) w środowisku deweloperskim.
 * Argumenty wiersza polecenia.
@@ -460,14 +460,14 @@ Jeśli musisz podać konfigurację aplikacji na podstawie dodatkowych zmiennych 
 
 **Przykład**
 
-Przykładowa aplikacja korzysta z statycznej wygodnej metody `CreateDefaultBuilder` tworzenia hosta, który obejmuje `AddEnvironmentVariables`wywołanie.
+Przykładowa aplikacja korzysta z statycznej metody wygodnej `CreateDefaultBuilder` do kompilowania hosta, który obejmuje wywołanie `AddEnvironmentVariables`.
 
-1. Uruchom przykładową aplikację. Otwórz w przeglądarce aplikację pod adresem `http://localhost:5000`.
-1. Zwróć uwagę, że dane wyjściowe zawierają parę klucz-wartość dla zmiennej `ENVIRONMENT`środowiskowej. Wartość odzwierciedla środowisko, w którym jest uruchomiona aplikacja, zazwyczaj `Development` w przypadku uruchamiania lokalnego.
+1. Uruchom przykładową aplikację. Otwórz w przeglądarce aplikację w `http://localhost:5000`.
+1. Zwróć uwagę, że dane wyjściowe zawierają parę klucz-wartość dla zmiennej środowiskowej `ENVIRONMENT`. Wartość odzwierciedla środowisko, w którym jest uruchomiona aplikacja, zwykle `Development` podczas uruchamiania lokalnego.
 
 Aby zachować listę zmiennych środowiskowych renderowanych przez aplikację, aplikacja filtruje zmienne środowiskowe. Zapoznaj się z plikiem przykładowej *strony aplikacji/index. cshtml. cs* .
 
-Jeśli chcesz uwidocznić wszystkie zmienne środowiskowe dostępne dla aplikacji, Zmień wartość `FilteredConfiguration` na *stronie/index. cshtml. cs* w następujący sposób:
+Jeśli chcesz uwidocznić wszystkie zmienne środowiskowe dostępne dla aplikacji, Zmień `FilteredConfiguration` na *stronie/index. cshtml. cs* w następujący sposób:
 
 ```csharp
 FilteredConfiguration = _config.AsEnumerable();
@@ -475,7 +475,7 @@ FilteredConfiguration = _config.AsEnumerable();
 
 ### <a name="prefixes"></a>Prefiksy
 
-Zmienne środowiskowe ładowane do konfiguracji aplikacji są filtrowane w przypadku podania prefiksu do `AddEnvironmentVariables` metody. Na przykład aby filtrować zmienne środowiskowe na prefiksie `CUSTOM_`, podaj prefiks dla dostawcy konfiguracji:
+Zmienne środowiskowe ładowane do konfiguracji aplikacji są filtrowane w przypadku podania prefiksu do metody `AddEnvironmentVariables`. Na przykład aby filtrować zmienne środowiskowe na prefiksie `CUSTOM_`, podaj prefiks dla dostawcy konfiguracji:
 
 ```csharp
 var config = new ConfigurationBuilder()
@@ -489,9 +489,9 @@ Podczas tworzenia konstruktora hostów Konfiguracja hosta jest zapewniana przez 
 
 **Prefiksy parametrów połączenia**
 
-Interfejs API konfiguracji ma specjalne reguły przetwarzania dla czterech zmiennych środowiskowych parametrów połączenia związanych z konfigurowaniem parametrów połączenia platformy Azure dla środowiska aplikacji. Zmienne środowiskowe z prefiksami podanymi w tabeli są ładowane do aplikacji, jeśli nie podano `AddEnvironmentVariables`prefiksu.
+Interfejs API konfiguracji ma specjalne reguły przetwarzania dla czterech zmiennych środowiskowych parametrów połączenia związanych z konfigurowaniem parametrów połączenia platformy Azure dla środowiska aplikacji. Zmienne środowiskowe z prefiksami podanymi w tabeli są ładowane do aplikacji, jeśli nie podano prefiksu do `AddEnvironmentVariables`.
 
-| Prefiks parametrów połączenia | Dostawca |
+| Prefiks parametrów połączenia | Dostawcy |
 | ------------------------ | -------- |
 | `CUSTOMCONNSTR_` | Dostawca niestandardowy |
 | `MYSQLCONNSTR_` | [MySQL](https://www.mysql.com/) |
@@ -501,18 +501,18 @@ Interfejs API konfiguracji ma specjalne reguły przetwarzania dla czterech zmien
 Gdy zmienna środowiskowa zostanie odnaleziona i załadowana do konfiguracji z dowolnymi z czterech prefiksów pokazanych w tabeli:
 
 * Klucz konfiguracji jest tworzony przez usunięcie prefiksu zmiennej środowiskowej i dodanie sekcji klucza konfiguracji (`ConnectionStrings`).
-* Zostanie utworzona nowa para klucz-wartość konfiguracji, która reprezentuje dostawcę połączenia bazy danych (z wyjątkiem `CUSTOMCONNSTR_`tego, który nie ma określonego dostawcy).
+* Zostanie utworzona nowa para klucz-wartość konfiguracji, która reprezentuje dostawcę połączenia bazy danych (z wyjątkiem `CUSTOMCONNSTR_`, które nie ma określonego dostawcy).
 
 | Klucz zmiennej środowiskowej | Przekonwertowany klucz konfiguracji | Wpis konfiguracji dostawcy                                                    |
 | ------------------------ | --------------------------- | ------------------------------------------------------------------------------- |
 | `CUSTOMCONNSTR_<KEY>`    | `ConnectionStrings:<KEY>`   | Wpis konfiguracji nie został utworzony.                                                |
-| `MYSQLCONNSTR_<KEY>`     | `ConnectionStrings:<KEY>`   | Klucz: `ConnectionStrings:<KEY>_ProviderName`:<br>Wartość:`MySql.Data.MySqlClient` |
-| `SQLAZURECONNSTR_<KEY>`  | `ConnectionStrings:<KEY>`   | Klucz: `ConnectionStrings:<KEY>_ProviderName`:<br>Wartość:`System.Data.SqlClient`  |
-| `SQLCONNSTR_<KEY>`       | `ConnectionStrings:<KEY>`   | Klucz: `ConnectionStrings:<KEY>_ProviderName`:<br>Wartość:`System.Data.SqlClient`  |
+| `MYSQLCONNSTR_<KEY>`     | `ConnectionStrings:<KEY>`   | Klucz: `ConnectionStrings:<KEY>_ProviderName`:<br>Wartość: `MySql.Data.MySqlClient` |
+| `SQLAZURECONNSTR_<KEY>`  | `ConnectionStrings:<KEY>`   | Klucz: `ConnectionStrings:<KEY>_ProviderName`:<br>Wartość: `System.Data.SqlClient`  |
+| `SQLCONNSTR_<KEY>`       | `ConnectionStrings:<KEY>`   | Klucz: `ConnectionStrings:<KEY>_ProviderName`:<br>Wartość: `System.Data.SqlClient`  |
 
 ## <a name="file-configuration-provider"></a>Dostawca konfiguracji plików
 
-<xref:Microsoft.Extensions.Configuration.FileConfigurationProvider>jest klasą bazową do ładowania konfiguracji z systemu plików. Następujący dostawcy konfiguracji są przydzielone do określonych typów plików:
+<xref:Microsoft.Extensions.Configuration.FileConfigurationProvider> jest klasą bazową do ładowania konfiguracji z systemu plików. Następujący dostawcy konfiguracji są przydzielone do określonych typów plików:
 
 * [Dostawca konfiguracji pliku INI](#ini-configuration-provider)
 * [Dostawca konfiguracji JSON](#json-configuration-provider)
@@ -520,9 +520,9 @@ Gdy zmienna środowiskowa zostanie odnaleziona i załadowana do konfiguracji z d
 
 ### <a name="ini-configuration-provider"></a>Dostawca konfiguracji pliku INI
 
-<xref:Microsoft.Extensions.Configuration.Ini.IniConfigurationProvider> Ładowanie konfiguracji z par klucz-wartość pliku ini w czasie wykonywania.
+@No__t_0 ładuje konfigurację z par klucz-wartość pliku INI w czasie wykonywania.
 
-Aby uaktywnić konfigurację pliku ini, wywołaj <xref:Microsoft.Extensions.Configuration.IniConfigurationExtensions.AddIniFile*> metodę rozszerzenia w <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>wystąpieniu.
+Aby uaktywnić konfigurację pliku INI, wywołaj metodę rozszerzenia <xref:Microsoft.Extensions.Configuration.IniConfigurationExtensions.AddIniFile*> w wystąpieniu <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.
 
 Dwukropek może służyć jako ogranicznik sekcji w konfiguracji pliku INI.
 
@@ -530,7 +530,7 @@ Przeciążania Zezwalaj na określanie:
 
 * Czy plik jest opcjonalny.
 * Czy konfiguracja zostanie ponownie załadowana w przypadku zmiany pliku.
-* <xref:Microsoft.Extensions.FileProviders.IFileProvider> Używane do uzyskiwania dostępu do pliku.
+* @No__t_0 używany do uzyskiwania dostępu do pliku.
 
 Wywołaj `ConfigureAppConfiguration` podczas kompilowania hosta, aby określić konfigurację aplikacji:
 
@@ -543,7 +543,7 @@ Wywołaj `ConfigureAppConfiguration` podczas kompilowania hosta, aby określić 
 })
 ```
 
-Ścieżka bazowa jest ustawiana za <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>pomocą.
+Ścieżka bazowa jest ustawiana za pomocą <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.
 
 Ogólny przykład pliku konfiguracji INI:
 
@@ -572,24 +572,24 @@ Poprzedni plik konfiguracji ładuje następujące klucze z `value`:
 
 ### <a name="json-configuration-provider"></a>Dostawca konfiguracji JSON
 
-<xref:Microsoft.Extensions.Configuration.Json.JsonConfigurationProvider> Ładowanie konfiguracji z par klucz-wartość pliku JSON podczas środowiska uruchomieniowego.
+@No__t_0 ładuje konfigurację z par klucz-wartość pliku JSON podczas środowiska uruchomieniowego.
 
-Aby uaktywnić konfigurację pliku JSON, wywołaj <xref:Microsoft.Extensions.Configuration.JsonConfigurationExtensions.AddJsonFile*> metodę rozszerzenia w <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>wystąpieniu.
+Aby uaktywnić konfigurację pliku JSON, wywołaj metodę rozszerzenia <xref:Microsoft.Extensions.Configuration.JsonConfigurationExtensions.AddJsonFile*> w wystąpieniu <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.
 
 Przeciążania Zezwalaj na określanie:
 
 * Czy plik jest opcjonalny.
 * Czy konfiguracja zostanie ponownie załadowana w przypadku zmiany pliku.
-* <xref:Microsoft.Extensions.FileProviders.IFileProvider> Używane do uzyskiwania dostępu do pliku.
+* @No__t_0 używany do uzyskiwania dostępu do pliku.
 
-`AddJsonFile`jest automatycznie wywoływana dwukrotnie po zainicjowaniu nowego konstruktora hostów za `CreateDefaultBuilder`pomocą programu. Metoda jest wywoływana w celu załadowania konfiguracji z:
+`AddJsonFile` jest automatycznie wywoływana dwukrotnie po zainicjowaniu nowego konstruktora hostów z `CreateDefaultBuilder`. Metoda jest wywoływana w celu załadowania konfiguracji z:
 
-* *appSettings. JSON* &ndash; ten plik jest odczytywany jako pierwszy. Wersja środowiska pliku może przesłonić wartości dostarczone przez plik *appSettings. JSON* .
+* *appSettings. json* &ndash; ten plik jest najpierw odczytywany. Wersja środowiska pliku może przesłonić wartości dostarczone przez plik *appSettings. JSON* .
 * *appSettings. {Environment}. JSON* &ndash; wersja środowiska pliku jest ładowana na podstawie [IHostingEnvironment. EnvironmentName](xref:Microsoft.Extensions.Hosting.IHostingEnvironment.EnvironmentName*).
 
 Aby uzyskać więcej informacji, zobacz sekcję [Konfiguracja domyślna](#default-configuration) .
 
-`CreateDefaultBuilder`ładuje również:
+`CreateDefaultBuilder` również ładowania:
 
 * Zmienne środowiskowe.
 * Wpisy [tajne użytkownika (Secret Manager)](xref:security/app-secrets) w środowisku deweloperskim.
@@ -608,14 +608,14 @@ Wywołaj `ConfigureAppConfiguration` podczas kompilowania hosta, aby określić 
 })
 ```
 
-Ścieżka bazowa jest ustawiana za <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>pomocą.
+Ścieżka bazowa jest ustawiana za pomocą <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.
 
 **Przykład**
 
-Przykładowa aplikacja korzysta z statycznej wygodnej metody `CreateDefaultBuilder` tworzenia hosta, który obejmuje dwa wywołania programu. `AddJsonFile` Konfiguracja jest ładowana z pliku *appSettings. JSON* i *appSettings. { Environment}. JSON*.
+Przykładowa aplikacja korzysta z statycznej metody wygodnej `CreateDefaultBuilder` do kompilowania hosta, który obejmuje dwa wywołania `AddJsonFile`. Konfiguracja jest ładowana z pliku *appSettings. JSON* i *appSettings. { Environment}. JSON*.
 
-1. Uruchom przykładową aplikację. Otwórz w przeglądarce aplikację pod adresem `http://localhost:5000`.
-1. Zwróć uwagę, że dane wyjściowe zawierają pary klucz-wartość dla konfiguracji pokazanej w tabeli w zależności od środowiska. Klucze konfiguracji rejestrowania używają dwukropka`:`() jako separatora hierarchicznego.
+1. Uruchom przykładową aplikację. Otwórz w przeglądarce aplikację w `http://localhost:5000`.
+1. Zwróć uwagę, że dane wyjściowe zawierają pary klucz-wartość dla konfiguracji pokazanej w tabeli w zależności od środowiska. Klucze konfiguracji rejestrowania używają dwukropka (`:`) jako separatora hierarchicznego.
 
 | Key                        | Wartość programistyczna | Wartość produkcyjna |
 | -------------------------- | :---------------: | :--------------: |
@@ -626,15 +626,15 @@ Przykładowa aplikacja korzysta z statycznej wygodnej metody `CreateDefaultBuild
 
 ### <a name="xml-configuration-provider"></a>Dostawca konfiguracji XML
 
-<xref:Microsoft.Extensions.Configuration.Xml.XmlConfigurationProvider> Ładowanie konfiguracji z par klucz-wartość pliku XML w czasie wykonywania.
+@No__t_0 ładuje konfigurację z par klucz-wartość pliku XML w czasie wykonywania.
 
-Aby uaktywnić konfigurację pliku XML, wywołaj <xref:Microsoft.Extensions.Configuration.XmlConfigurationExtensions.AddXmlFile*> metodę rozszerzenia w <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>wystąpieniu.
+Aby uaktywnić konfigurację pliku XML, wywołaj metodę rozszerzenia <xref:Microsoft.Extensions.Configuration.XmlConfigurationExtensions.AddXmlFile*> w wystąpieniu <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.
 
 Przeciążania Zezwalaj na określanie:
 
 * Czy plik jest opcjonalny.
 * Czy konfiguracja zostanie ponownie załadowana w przypadku zmiany pliku.
-* <xref:Microsoft.Extensions.FileProviders.IFileProvider> Używane do uzyskiwania dostępu do pliku.
+* @No__t_0 używany do uzyskiwania dostępu do pliku.
 
 Węzeł główny pliku konfiguracji jest ignorowany, gdy są tworzone pary klucz-wartość konfiguracji. Nie określaj definicji typu dokumentu (DTD) ani przestrzeni nazw w pliku.
 
@@ -649,7 +649,7 @@ Wywołaj `ConfigureAppConfiguration` podczas kompilowania hosta, aby określić 
 })
 ```
 
-Ścieżka bazowa jest ustawiana za <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>pomocą.
+Ścieżka bazowa jest ustawiana za pomocą <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.
 
 Pliki konfiguracji XML mogą używać odrębnych nazw elementów dla powtarzających się sekcji:
 
@@ -674,7 +674,7 @@ Poprzedni plik konfiguracji ładuje następujące klucze z `value`:
 * section1:key0
 * Section1: Klucz1
 
-Powtarzające się elementy, które używają tej samej nazwy elementu `name` , działają, jeśli atrybut jest używany do odróżnienia elementów:
+Powtarzalne elementy, które używają tej samej nazwy elementu, działają, jeśli atrybut `name` jest używany do odróżnienia elementów:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -716,16 +716,16 @@ Poprzedni plik konfiguracji ładuje następujące klucze z `value`:
 
 ## <a name="key-per-file-configuration-provider"></a>Dostawca konfiguracji klucza dla plików
 
-<xref:Microsoft.Extensions.Configuration.KeyPerFile.KeyPerFileConfigurationProvider> Używa plików katalogu jako par klucz konfiguracji i wartość. Kluczem jest nazwa pliku. Wartość zawiera zawartość pliku. Dostawca konfiguracji klucza dla plików jest używany w scenariuszach hostingu platformy Docker.
+@No__t_0 używa plików katalogu jako par klucz konfiguracji i wartość. Kluczem jest nazwa pliku. Wartość zawiera zawartość pliku. Dostawca konfiguracji klucza dla plików jest używany w scenariuszach hostingu platformy Docker.
 
-Aby uaktywnić konfigurację klucza dla plików, wywołaj <xref:Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions.AddKeyPerFile*> metodę rozszerzenia w <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>wystąpieniu. `directoryPath` Do plików musi być ścieżką bezwzględną.
+Aby uaktywnić konfigurację klucza dla plików, wywołaj metodę rozszerzenia <xref:Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions.AddKeyPerFile*> w wystąpieniu <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>. @No__t_0 plików musi być ścieżką bezwzględną.
 
 Przeciążania Zezwalaj na określanie:
 
-* `Action<KeyPerFileConfigurationSource>` Delegat, który konfiguruje źródło.
+* Delegat `Action<KeyPerFileConfigurationSource>`, który konfiguruje źródło.
 * Określa, czy katalog jest opcjonalny, i ścieżkę do katalogu.
 
-Podwójny znak podkreślenia (`__`) jest używany jako ogranicznik klucza konfiguracji w nazwach plików. Na przykład nazwa `Logging__LogLevel__System` pliku generuje klucz `Logging:LogLevel:System`konfiguracji.
+Podwójny znak podkreślenia (`__`) jest używany jako ogranicznik klucza konfiguracji w nazwach plików. Na przykład nazwa pliku `Logging__LogLevel__System` generuje klucz konfiguracji `Logging:LogLevel:System`.
 
 Wywołaj `ConfigureAppConfiguration` podczas kompilowania hosta, aby określić konfigurację aplikacji:
 
@@ -739,13 +739,13 @@ Wywołaj `ConfigureAppConfiguration` podczas kompilowania hosta, aby określić 
 })
 ```
 
-Ścieżka bazowa jest ustawiana za <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>pomocą.
+Ścieżka bazowa jest ustawiana za pomocą <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.
 
 ## <a name="memory-configuration-provider"></a>Dostawca konfiguracji pamięci
 
-<xref:Microsoft.Extensions.Configuration.Memory.MemoryConfigurationProvider> Używa kolekcji w pamięci jako par klucz konfiguracji-wartość.
+@No__t_0 używa kolekcji w pamięci jako par klucz-wartość konfiguracji.
 
-Aby uaktywnić konfigurację kolekcji w pamięci, wywołaj <xref:Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions.AddInMemoryCollection*> metodę rozszerzenia w <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>wystąpieniu.
+Aby uaktywnić konfigurację kolekcji w pamięci, wywołaj metodę rozszerzenia <xref:Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions.AddInMemoryCollection*> w wystąpieniu <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.
 
 Dostawcę konfiguracji można zainicjować przy użyciu `IEnumerable<KeyValuePair<String,String>>`.
 
@@ -762,7 +762,7 @@ public static readonly Dictionary<string, string> _dict =
     };
 ```
 
-Słownik jest używany z wywołaniem `AddInMemoryCollection` do zapewnienia konfiguracji:
+Słownik jest używany z wywołaniem `AddInMemoryCollection`, aby zapewnić konfigurację:
 
 ```csharp
 .ConfigureAppConfiguration((hostingContext, config) =>
@@ -773,13 +773,13 @@ Słownik jest używany z wywołaniem `AddInMemoryCollection` do zapewnienia konf
 
 ## <a name="getvalue"></a>GetValue
 
-[ConfigurationBinder. GetValue\<T >](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) wyodrębnia wartość z konfiguracji z określonym kluczem i konwertuje ją na określony typ. Przeciążenie zezwala na podanie wartości domyślnej, jeśli nie znaleziono klucza.
+[ConfigurationBinder. GetValue \<T >](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) wyodrębnia jedną wartość z konfiguracji z określonym kluczem i konwertuje ją na określony typ niekolekcje. Przeciążenie akceptuje wartość domyślną.
 
 Poniższy przykład:
 
-* Wyodrębnia wartość ciągu z konfiguracji przy użyciu klucza `NumberKey`. Jeśli `NumberKey` nie znaleziono w kluczach konfiguracji, `99` zostanie użyta wartość domyślna.
-* Typ wartości `int`.
-* Przechowuje wartość we `NumberConfig` właściwości do użycia na stronie.
+* Wyodrębnia wartość ciągu z konfiguracji z kluczem `NumberKey`. Jeśli nie można odnaleźć `NumberKey` w kluczach konfiguracji, zostanie użyta wartość domyślna `99`.
+* Typ wartości jako `int`.
+* Przechowuje wartość we właściwości `NumberConfig` do użycia na stronie.
 
 ```csharp
 public class IndexModel : PageModel
@@ -840,27 +840,27 @@ Gdy plik jest odczytywany do konfiguracji, następujące unikatowe klucze hierar
 
 [IConfiguration. GetSection](xref:Microsoft.Extensions.Configuration.IConfiguration.GetSection*) wyodrębnia podsekcję konfiguracji z określonym kluczem podsekcji.
 
-Aby zwrócić element <xref:Microsoft.Extensions.Configuration.IConfigurationSection> zawierający tylko pary klucz-wartość w `section1`, wywołaniu `GetSection` i podać nazwę sekcji:
+Aby zwrócić <xref:Microsoft.Extensions.Configuration.IConfigurationSection> zawierający tylko pary klucz-wartość w `section1`, wywołaj `GetSection` i podaj nazwę sekcji:
 
 ```csharp
 var configSection = _config.GetSection("section1");
 ```
 
-`configSection` Nie ma wartości, tylko klucza i ścieżki.
+@No__t_0 nie ma wartości, tylko klucza i ścieżki.
 
-Podobnie Aby uzyskać wartości kluczy w `section2:subsection0`, wywołaj `GetSection` i podaj ścieżkę do sekcji:
+Podobnie, aby uzyskać wartości kluczy w `section2:subsection0`, wywołaj `GetSection` i podaj ścieżkę sekcji:
 
 ```csharp
 var configSection = _config.GetSection("section2:subsection0");
 ```
 
-`GetSection`nigdy nie `null`zwraca. Jeśli nie znaleziono pasującej sekcji, zwracany jest `IConfigurationSection` pusty.
+`GetSection` nigdy nie zwraca `null`. Jeśli nie znaleziono pasującej sekcji, zwracany jest pusty `IConfigurationSection`.
 
-Gdy `GetSection` zwraca pasującą sekcję, <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Value> nie jest wypełnione. A i są zwracane, <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Path> gdy istnieje sekcja. <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Key>
+Gdy `GetSection` zwraca pasującą sekcję, <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Value> nie jest wypełnione. @No__t_0 i <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Path> są zwracane, gdy istnieje sekcja.
 
-### <a name="getchildren"></a>GetChildren
+### <a name="getchildren"></a>GetChildren —
 
-Wywołanie [iConfiguration. GetChildren](xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*) w `section2` programie uzyskuje element `IEnumerable<IConfigurationSection>` obejmujący:
+Wywołanie [iConfiguration. GetChildren](xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*) w `section2` uzyskuje `IEnumerable<IConfigurationSection>` obejmujący:
 
 * `subsection0`
 * `subsection1`
@@ -871,7 +871,7 @@ var configSection = _config.GetSection("section2");
 var children = configSection.GetChildren();
 ```
 
-### <a name="exists"></a>Exists
+### <a name="exists"></a>Istniejący
 
 Użyj [ConfigurationExtensions. istnieje](xref:Microsoft.Extensions.Configuration.ConfigurationExtensions.Exists*) , aby określić, czy istnieje sekcja konfiguracji:
 
@@ -879,7 +879,7 @@ Użyj [ConfigurationExtensions. istnieje](xref:Microsoft.Extensions.Configuratio
 var sectionExists = _config.GetSection("section2:subsection2").Exists();
 ```
 
-Dane przykładowe są `false` spowodowane tym `sectionExists` , że w danych konfiguracji `section2:subsection2` nie ma sekcji.
+Dane przykładowe `sectionExists` jest `false`, ponieważ w danych konfiguracyjnych nie ma `section2:subsection2` sekcji.
 
 ## <a name="bind-to-a-class"></a>Powiąż z klasą
 
@@ -887,7 +887,7 @@ Konfigurację można powiązać z klasami, które reprezentują grupy powiązany
 
 Wartości konfiguracji są zwracane jako ciągi, ale wywołanie <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> umożliwia konstruowanie obiektów [poco](https://wikipedia.org/wiki/Plain_Old_CLR_Object) .
 
-Przykładowa aplikacja zawiera `Starship` model (*modele/Starship. cs*):
+Przykładowa aplikacja zawiera model `Starship` (*modele/Starship. cs*):
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -901,7 +901,7 @@ Przykładowa aplikacja zawiera `Starship` model (*modele/Starship. cs*):
 
 ::: moniker-end
 
-Sekcja pliku *Starship. JSON* tworzy konfigurację, gdy aplikacja Przykładowa używa dostawcy konfiguracji JSON do załadowania konfiguracji: `starship`
+Sekcja `starship` pliku *Starship. JSON* tworzy konfigurację, gdy aplikacja Przykładowa używa dostawcy konfiguracji JSON do załadowania konfiguracji:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -924,9 +924,9 @@ Tworzone są następujące pary klucz-wartość konfiguracji:
 | Starship: Klasa        | Skład                                      |
 | Starship: Długość       | 304,8                                             |
 | Starship: prowizja | False                                             |
-| handlowych             | Najważniejsze obrazy Corp. https://www.paramount.com |
+| handlowych             | Najważniejsze obrazy Corp.  https://www.paramount.com |
 
-Przykładowa aplikacja wywołuje `GetSection` `starship` klucz. Pary `starship` klucz-wartość są odizolowane. Metoda jest wywoływana w podsekcji przekazującej w wystąpieniu `Starship` klasy. `Bind` Po powiązaniu wartości wystąpień wystąpienie jest przypisywane do właściwości w celu renderowania:
+Przykładowa aplikacja wywołuje `GetSection` z kluczem `starship`. Pary klucz-wartość `starship` są odizolowane. Metoda `Bind` jest wywoływana w podsekcji przekazującej w wystąpieniu klasy `Starship`. Po powiązaniu wartości wystąpień wystąpienie jest przypisywane do właściwości w celu renderowania:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -942,9 +942,9 @@ Przykładowa aplikacja wywołuje `GetSection` `starship` klucz. Pary `starship` 
 
 ## <a name="bind-to-an-object-graph"></a>Powiąż z grafem obiektów
 
-<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*>jest w stanie powiązać cały Graf obiektów POCO.
+<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> jest w stanie powiązać cały Graf obiektów POCO.
 
-Przykład zawiera `TvShow` model, którego obiekt zawiera `Metadata` obiekty i `Actors` klasy (*modele/TvShow. cs*):
+Przykład zawiera model `TvShow`, którego wykres obiektu zawiera klasy `Metadata` i `Actors` (*modele/TvShow. cs*):
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -972,7 +972,7 @@ Przykładowa aplikacja zawiera plik *tvshow. XML* zawierający dane konfiguracji
 
 ::: moniker-end
 
-Konfiguracja jest powiązana z wykresem całego `TvShow` obiektu `Bind` za pomocą metody. Powiązane wystąpienie jest przypisane do właściwości w celu renderowania:
+Konfiguracja jest powiązana z całym grafem obiektu `TvShow` za pomocą metody `Bind`. Powiązane wystąpienie jest przypisane do właściwości w celu renderowania:
 
 ```csharp
 var tvShow = new TvShow();
@@ -980,7 +980,7 @@ _config.GetSection("tvshow").Bind(tvShow);
 TvShow = tvShow;
 ```
 
-[ConfigurationBinder. get\<T >](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) tworzy powiązania i zwraca określony typ. `Get<T>`jest wygodniejszy niż używanie `Bind`. Poniższy kod pokazuje, jak używać `Get<T>` w poprzednim przykładzie, co umożliwia bezpośrednie przypisanie wystąpienia powiązanego do właściwości używanej do renderowania:
+[ConfigurationBinder. Get \<T >](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) tworzy powiązania i zwraca określony typ. `Get<T>` jest wygodniejszy niż korzystanie z `Bind`. Poniższy kod pokazuje, jak używać `Get<T>` w poprzednim przykładzie, co umożliwia bezpośrednie przypisanie wystąpienia powiązanego do właściwości używanej do renderowania:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -998,7 +998,7 @@ TvShow = tvShow;
 
 *Przykładowa aplikacja pokazuje Koncepcje opisane w tej sekcji.*
 
-<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> Obsługuje tablice powiązań z obiektami przy użyciu indeksów tablicowych w kluczach konfiguracji. Każdy format tablicy, który ujawnia segment klucza numerycznego`:0:`( `:1:`, &hellip; , `:{n}:`) jest zdolny do powiązania tablicy z tablicą klas poco.
+@No__t_0 obsługuje powiązania tablic z obiektami przy użyciu indeksów tablicowych w kluczach konfiguracji. Każdy format tablicy, który ujawnia segment klucza numerycznego (`:0:`, `:1:`, &hellip; `:{n}:`), jest w stanie powiązać powiązanie tablicową z tablicą klas POCO.
 
 > [!NOTE]
 > Powiązanie jest dostarczane według Konwencji. Niestandardowi dostawcy konfiguracji nie muszą implementować powiązania tablicy.
@@ -1029,7 +1029,7 @@ Te klucze i wartości są ładowane w przykładowej aplikacji przy użyciu dosta
 
 ::: moniker-end
 
-Tablica pomija wartość dla indeksu &num;3. Segregator konfiguracji nie może powiązać wartości null ani tworzyć wpisów o wartości null w obiektach powiązanych, co oznacza, że w chwili pojawi się wynik powiązania tej tablicy z obiektem.
+Tablica pomija wartość indeksu &num;3. Segregator konfiguracji nie może powiązać wartości null ani tworzyć wpisów o wartości null w obiektach powiązanych, co oznacza, że w chwili pojawi się wynik powiązania tej tablicy z obiektem.
 
 W przykładowej aplikacji jest dostępna Klasa POCO, która przechowuje powiązane dane konfiguracji:
 
@@ -1052,7 +1052,7 @@ var arrayExample = new ArrayExample();
 _config.GetSection("array").Bind(arrayExample);
 ```
 
-[ConfigurationBinder. get\<T >](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) można również użyć składni, która daje w wyniku bardziej zwarty kod:
+[ConfigurationBinder. Get \<T](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) można również użyć składni >, co powoduje zwiększenie kodu kompaktowego:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -1066,9 +1066,9 @@ _config.GetSection("array").Bind(arrayExample);
 
 ::: moniker-end
 
-Obiekt powiązany, wystąpienie elementu `ArrayExample`, otrzymuje dane tablicy z konfiguracji.
+Obiekt powiązany, wystąpienie `ArrayExample`, otrzymuje dane tablicy z konfiguracji.
 
-| `ArrayExample.Entries`Indeks | `ArrayExample.Entries`Wartościami |
+| Indeks `ArrayExample.Entries` | Wartość `ArrayExample.Entries` |
 | :--------------------------: | :--------------------------: |
 | 0                            | value0                       |
 | 1                            | sekwencj                       |
@@ -1076,11 +1076,11 @@ Obiekt powiązany, wystąpienie elementu `ArrayExample`, otrzymuje dane tablicy 
 | 3                            | value4                       |
 | 4                            | value5                       |
 
-Indeks &num;3 w obiekcie powiązanym przechowuje dane konfiguracji `array:4` dla `value4`klucza konfiguracji i jego wartość. Gdy dane konfiguracji zawierające tablicę są powiązane, indeksy tablic w kluczach konfiguracji są używane tylko do iteracji danych konfiguracji podczas tworzenia obiektu. Wartości null nie można zachować w danych konfiguracyjnych, a wpis o wartości null nie jest tworzony w obiekcie powiązanym, gdy tablica w kluczach konfiguracji pomija jeden lub więcej indeksów.
+Indeks &num;3 w obiekcie powiązanym zawiera dane konfiguracyjne `array:4` klucza konfiguracji i jego wartość `value4`. Gdy dane konfiguracji zawierające tablicę są powiązane, indeksy tablic w kluczach konfiguracji są używane tylko do iteracji danych konfiguracji podczas tworzenia obiektu. Wartości null nie można zachować w danych konfiguracyjnych, a wpis o wartości null nie jest tworzony w obiekcie powiązanym, gdy tablica w kluczach konfiguracji pomija jeden lub więcej indeksów.
 
-Brakujący element konfiguracji dla indeksu &num;3 można podać przed powiązaniem `ArrayExample` z wystąpieniem przez dowolnego dostawcę konfiguracji, który generuje poprawną parę klucz-wartość w konfiguracji. Jeśli przykład zawiera dodatkowego dostawcę konfiguracji JSON z brakującą parą klucz-wartość, `ArrayExample.Entries` dopasowuje pełną tablicę konfiguracyjną:
+Brakujący element konfiguracji dla indeksu &num;3 można dostarczyć przed powiązaniem do wystąpienia `ArrayExample` przez dowolnego dostawcę konfiguracji, który generuje poprawną parę klucz-wartość w konfiguracji. Jeśli przykład zawiera dodatkowego dostawcę konfiguracji JSON z brakującą parą klucz-wartość, `ArrayExample.Entries` pasuje do kompletnej tablicy konfiguracji:
 
-*missing_value.json*:
+*missing_value. JSON*:
 
 ```json
 {
@@ -1088,7 +1088,7 @@ Brakujący element konfiguracji dla indeksu &num;3 można podać przed powiązan
 }
 ```
 
-W `ConfigureAppConfiguration`programie:
+W `ConfigureAppConfiguration`:
 
 ```csharp
 config.AddJsonFile(
@@ -1101,9 +1101,9 @@ Para klucz-wartość pokazana w tabeli jest ładowana do konfiguracji.
 | :-------------: | :----: |
 | Tablica: wpisy: 3 | Wartość3 |
 
-Jeśli wystąpienie &num; `ArrayExample.Entries` klasy jest powiązane, gdy dostawca konfiguracji JSON zawiera wpis dla indeksu 3, tablica zawiera wartość. `ArrayExample`
+Jeśli wystąpienie klasy `ArrayExample` jest powiązane, gdy dostawca konfiguracji JSON zawiera wpis dla &num;3 indeksu, tablica `ArrayExample.Entries` zawiera wartość.
 
-| `ArrayExample.Entries`Indeks | `ArrayExample.Entries`Wartościami |
+| Indeks `ArrayExample.Entries` | Wartość `ArrayExample.Entries` |
 | :--------------------------: | :--------------------------: |
 | 0                            | value0                       |
 | 1                            | sekwencj                       |
@@ -1114,7 +1114,7 @@ Jeśli wystąpienie &num; `ArrayExample.Entries` klasy jest powiązane, gdy dost
 
 **Przetwarzanie tablicy JSON**
 
-Jeśli plik JSON zawiera tablicę, klucze konfiguracji są tworzone dla elementów tablicy z indeksem sekcji o wartości zero. W poniższym pliku `subsection` konfiguracji jest tablicą:
+Jeśli plik JSON zawiera tablicę, klucze konfiguracji są tworzone dla elementów tablicy z indeksem sekcji o wartości zero. W poniższym pliku konfiguracyjnym `subsection` jest tablicą:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -1133,9 +1133,9 @@ Dostawca konfiguracji JSON odczytuje dane konfiguracji do następujących par kl
 | Key                     | Wartość  |
 | ----------------------- | :----: |
 | json_array: klucz          | wartośća |
-| json_array:subsection:0 | Wartośćb |
-| json_array:subsection:1 | valueC |
-| json_array:subsection:2 | Znajdując |
+| json_array: podsekcja: 0 | Wartośćb |
+| json_array: podsekcja: 1 | valueC |
+| json_array: podsekcja: 2 | Znajdując |
 
 W przykładowej aplikacji jest dostępna następująca Klasa POCO z powiązaniem par klucz-wartość konfiguracji:
 
@@ -1151,9 +1151,9 @@ W przykładowej aplikacji jest dostępna następująca Klasa POCO z powiązaniem
 
 ::: moniker-end
 
-Po powiązaniu `JsonArrayExample.Key` utrzymuje wartość `valueA`. Wartości podsekcji są przechowywane we właściwości `Subsection`tablicy poco.
+Po powiązaniu `JsonArrayExample.Key` utrzymuje `valueA` wartości. Wartości podsekcji są przechowywane we właściwości tablicy POCO `Subsection`.
 
-| `JsonArrayExample.Subsection`Indeks | `JsonArrayExample.Subsection`Wartościami |
+| Indeks `JsonArrayExample.Subsection` | Wartość `JsonArrayExample.Subsection` |
 | :---------------------------------: | :---------------------------------: |
 | 0                                   | Wartośćb                              |
 | 1                                   | valueC                              |
@@ -1165,11 +1165,11 @@ Przykładowa aplikacja pokazuje, jak utworzyć podstawowego dostawcę konfigurac
 
 Dostawca ma następującą charakterystykę:
 
-* Baza danych EF w pamięci jest używana w celach demonstracyjnych. Aby użyć bazy danych, która wymaga parametrów połączenia, zaimplementuj dodatkową `ConfigurationBuilder` wartość w celu dostarczenia parametrów połączenia od innego dostawcy konfiguracji.
+* Baza danych EF w pamięci jest używana w celach demonstracyjnych. Aby użyć bazy danych, która wymaga parametrów połączenia, zaimplementuj pomocniczą `ConfigurationBuilder`, aby podać parametry połączenia od innego dostawcy konfiguracji.
 * Dostawca odczytuje tabelę bazy danych w konfiguracji podczas uruchamiania. Dostawca nie wykonuje zapytania do bazy danych w oparciu o klucz.
 * Ponowne załadowanie nie zostało zaimplementowane, więc aktualizacja bazy danych po uruchomieniu aplikacji nie ma wpływu na konfigurację aplikacji.
 
-`EFConfigurationValue` Zdefiniuj jednostkę do przechowywania wartości konfiguracji w bazie danych.
+Zdefiniuj jednostkę `EFConfigurationValue` do przechowywania wartości konfiguracji w bazie danych.
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -1177,25 +1177,25 @@ Dostawca ma następującą charakterystykę:
 
 [!code-csharp[](index/samples/3.x/ConfigurationSample/Models/EFConfigurationValue.cs?name=snippet1)]
 
-`EFConfigurationContext` Dodaj do magazynu i uzyskaj dostęp do skonfigurowanych wartości.
+Dodaj `EFConfigurationContext` do przechowywania skonfigurowanych wartości i uzyskiwania do nich dostępu.
 
 *EFConfigurationProvider/EFConfigurationContext. cs*:
 
 [!code-csharp[](index/samples/3.x/ConfigurationSample/EFConfigurationProvider/EFConfigurationContext.cs?name=snippet1)]
 
-Utwórz klasę implementującą <xref:Microsoft.Extensions.Configuration.IConfigurationSource>.
+Utwórz klasę, która implementuje <xref:Microsoft.Extensions.Configuration.IConfigurationSource>.
 
 *EFConfigurationProvider/EFConfigurationSource. cs*:
 
 [!code-csharp[](index/samples/3.x/ConfigurationSample/EFConfigurationProvider/EFConfigurationSource.cs?name=snippet1)]
 
-Utwórz niestandardowego dostawcę konfiguracji, dziedziczących od <xref:Microsoft.Extensions.Configuration.ConfigurationProvider>. Dostawca konfiguracji inicjuje bazę danych, gdy jest pusta.
+Tworzenie niestandardowego dostawcy konfiguracji przez dziedziczenie z <xref:Microsoft.Extensions.Configuration.ConfigurationProvider>. Dostawca konfiguracji inicjuje bazę danych, gdy jest pusta.
 
 *EFConfigurationProvider/EFConfigurationProvider. cs*:
 
 [!code-csharp[](index/samples/3.x/ConfigurationSample/EFConfigurationProvider/EFConfigurationProvider.cs?name=snippet1)]
 
-Metoda rozszerzająca zezwala na Dodawanie źródła konfiguracji `ConfigurationBuilder`do. `AddEFConfiguration`
+Metoda rozszerzenia `AddEFConfiguration` zezwala na Dodawanie źródła konfiguracji do `ConfigurationBuilder`.
 
 *Rozszerzenia/EntityFrameworkExtensions. cs*:
 
@@ -1213,25 +1213,25 @@ Poniższy kod pokazuje, jak używać niestandardowych `EFConfigurationProvider` 
 
 [!code-csharp[](index/samples/2.x/ConfigurationSample/Models/EFConfigurationValue.cs?name=snippet1)]
 
-`EFConfigurationContext` Dodaj do magazynu i uzyskaj dostęp do skonfigurowanych wartości.
+Dodaj `EFConfigurationContext` do przechowywania skonfigurowanych wartości i uzyskiwania do nich dostępu.
 
 *EFConfigurationProvider/EFConfigurationContext. cs*:
 
 [!code-csharp[](index/samples/2.x/ConfigurationSample/EFConfigurationProvider/EFConfigurationContext.cs?name=snippet1)]
 
-Utwórz klasę implementującą <xref:Microsoft.Extensions.Configuration.IConfigurationSource>.
+Utwórz klasę, która implementuje <xref:Microsoft.Extensions.Configuration.IConfigurationSource>.
 
 *EFConfigurationProvider/EFConfigurationSource. cs*:
 
 [!code-csharp[](index/samples/2.x/ConfigurationSample/EFConfigurationProvider/EFConfigurationSource.cs?name=snippet1)]
 
-Utwórz niestandardowego dostawcę konfiguracji, dziedziczących od <xref:Microsoft.Extensions.Configuration.ConfigurationProvider>. Dostawca konfiguracji inicjuje bazę danych, gdy jest pusta.
+Tworzenie niestandardowego dostawcy konfiguracji przez dziedziczenie z <xref:Microsoft.Extensions.Configuration.ConfigurationProvider>. Dostawca konfiguracji inicjuje bazę danych, gdy jest pusta.
 
 *EFConfigurationProvider/EFConfigurationProvider. cs*:
 
 [!code-csharp[](index/samples/2.x/ConfigurationSample/EFConfigurationProvider/EFConfigurationProvider.cs?name=snippet1)]
 
-Metoda rozszerzająca zezwala na Dodawanie źródła konfiguracji `ConfigurationBuilder`do. `AddEFConfiguration`
+Metoda rozszerzenia `AddEFConfiguration` zezwala na Dodawanie źródła konfiguracji do `ConfigurationBuilder`.
 
 *Rozszerzenia/EntityFrameworkExtensions. cs*:
 
@@ -1245,7 +1245,7 @@ Poniższy kod pokazuje, jak używać niestandardowych `EFConfigurationProvider` 
 
 ## <a name="access-configuration-during-startup"></a>Konfiguracja dostępu podczas uruchamiania
 
-Wsuń `IConfiguration` do konstruktora `Startup` , aby uzyskać dostęp do wartości `Startup.ConfigureServices`konfiguracyjnych w. Aby uzyskać dostęp do `Startup.Configure`konfiguracji w programie `IConfiguration` , należy wstrzyknąć bezpośrednio do metody lub użyć wystąpienia z konstruktora:
+Wsuń `IConfiguration` do konstruktora `Startup`, aby uzyskać dostęp do wartości konfiguracyjnych w `Startup.ConfigureServices`. Aby uzyskać dostęp do konfiguracji w `Startup.Configure`, należy wstrzyknąć `IConfiguration` bezpośrednio do metody lub użyć wystąpienia z konstruktora:
 
 ```csharp
 public class Startup
@@ -1269,11 +1269,11 @@ public class Startup
 }
 ```
 
-Aby zapoznać się z przykładem uzyskiwania dostępu do konfiguracji przy użyciu [metod uruchamiania, zobacz Uruchamianie aplikacji: Wygodne metody](xref:fundamentals/startup#convenience-methods).
+Aby zapoznać się z przykładem uzyskiwania dostępu do konfiguracji przy użyciu metod uruchamiania, zobacz [Uruchamianie aplikacji: wygodne metody](xref:fundamentals/startup#convenience-methods).
 
 ## <a name="access-configuration-in-a-razor-pages-page-or-mvc-view"></a>Konfiguracja dostępu na stronie Razor Pages lub widoku MVC
 
-Aby uzyskać dostęp do ustawień konfiguracji na stronie Razor Pages lub widoku MVC, Dodaj [dyrektywę using](xref:mvc/views/razor#using) ([ C# odwołanie: Using](/dotnet/csharp/language-reference/keywords/using-directive)) dla [przestrzeni nazw Microsoft. Extensions. Configuration](xref:Microsoft.Extensions.Configuration) i wsuń <xref:Microsoft.Extensions.Configuration.IConfiguration> ją na stronę lub widokiem.
+Aby uzyskać dostęp do ustawień konfiguracji na stronie Razor Pages lub widoku MVC, Dodaj [dyrektywę using](xref:mvc/views/razor#using) ([ C# odwołanie: Using](/dotnet/csharp/language-reference/keywords/using-directive)) dla [przestrzeni nazw Microsoft. Extensions. Configuration](xref:Microsoft.Extensions.Configuration) i wsuń <xref:Microsoft.Extensions.Configuration.IConfiguration> do strony lub widoku.
 
 Na stronie Razor Pages:
 
@@ -1315,7 +1315,7 @@ W widoku MVC:
 
 ## <a name="add-configuration-from-an-external-assembly"></a>Dodawanie konfiguracji z zestawu zewnętrznego
 
-Implementacja umożliwia dodawanie ulepszeń do aplikacji podczas uruchamiania z zewnętrznego zestawu poza `Startup` klasą aplikacji. <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/platform-specific-configuration>.
+Implementacja <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> umożliwia dodawanie ulepszeń do aplikacji podczas uruchamiania z zestawu zewnętrznego poza klasą `Startup` aplikacji. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/platform-specific-configuration>.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
