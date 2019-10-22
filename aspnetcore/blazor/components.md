@@ -5,14 +5,14 @@ description: Dowiedz się, jak tworzyć i używać składników Razor, w tym jak
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/05/2019
+ms.date: 10/20/2019
 uid: blazor/components
-ms.openlocfilehash: cd48111e8d601fc67e8a938fcdd686759a9ddeca
-ms.sourcegitcommit: ce2bfb01f2cc7dd83f8a97da0689d232c71bcdc4
+ms.openlocfilehash: 065a3a078c56f813ed38f85d7414f22061217dff
+ms.sourcegitcommit: eb4fcdeb2f9e8413117624de42841a4997d1d82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72531117"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72697962"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
@@ -254,7 +254,7 @@ Rozważmy następujący scenariusz:
 
 W poprzednim scenariuszu wartość elementu jest przywracana do `123`. Gdy wartość `123.45` jest odrzucana na korzyść oryginalnej wartości `123`, użytkownik rozumie, że ich wartość nie została zaakceptowana.
 
-Domyślnie powiązanie dotyczy zdarzenia `onchange` elementu (`@bind="{PROPERTY OR FIELD}"`). Użyj `@bind-value="{PROPERTY OR FIELD}" @bind-value:event={EVENT}`, aby ustawić inne zdarzenie. W przypadku zdarzenia `oninput` (`@bind-value:event="oninput"`) rewersja następuje po naciśnięciu klawisza, które wprowadza niemożliwy do przeanalizowania wartość. W przypadku kierowania zdarzenia `oninput` z typem powiązanym @no__t -1 użytkownik nie będzie wpisywać znaku `.`. Znak `.` jest natychmiast usuwany, więc użytkownik otrzymuje natychmiastową opinię, że dozwolone są tylko liczby całkowite. Istnieją scenariusze, w których przywrócenie wartości na `oninput` zdarzenia nie jest idealne, na przykład wtedy, gdy użytkownik powinien mieć możliwość wyczyszczenia niemożliwej do przeanalizowania wartości `<input>`. Alternatywy obejmują:
+Domyślnie powiązanie dotyczy zdarzenia `onchange` elementu (`@bind="{PROPERTY OR FIELD}"`). Użyj `@bind-value="{PROPERTY OR FIELD}" @bind-value:event={EVENT}`, aby ustawić inne zdarzenie. W przypadku zdarzenia `oninput` (`@bind-value:event="oninput"`) rewersja następuje po naciśnięciu klawisza, które wprowadza niemożliwy do przeanalizowania wartość. Podczas określania wartości docelowej zdarzenia `oninput` przy użyciu typu powiązanego z `int` użytkownik nie będzie wpisywać znaku `.`. Znak `.` jest natychmiast usuwany, więc użytkownik otrzymuje natychmiastową opinię, że dozwolone są tylko liczby całkowite. Istnieją scenariusze, w których przywrócenie wartości na `oninput` zdarzenia nie jest idealne, na przykład wtedy, gdy użytkownik powinien mieć możliwość wyczyszczenia niemożliwej do przeanalizowania wartości `<input>`. Alternatywy obejmują:
 
 * Nie używaj zdarzenia `oninput`. Użyj domyślnego zdarzenia `onchange` (`@bind="{PROPERTY OR FIELD}"`), gdzie nieprawidłowa wartość nie jest przywracana, dopóki element nie utraci fokusu.
 * Powiąż z typem dopuszczającym wartość null, na przykład `int?` lub `string`, i podaj logikę niestandardową do obsługi nieprawidłowych wpisów.
@@ -509,13 +509,13 @@ Często wygodnie jest blisko dodatkowych wartości, na przykład podczas iteracj
 
 ### <a name="eventcallback"></a>EventCallback
 
-Typowym scenariuszem ze składnikami zagnieżdżonymi jest potrzeba uruchomienia metody składnika nadrzędnego, gdy występuje zdarzenie składnika podrzędnego @ no__t-0for przykład, gdy w elemencie podrzędnym występuje zdarzenie `onclick`. Aby uwidocznić zdarzenia między składnikami, użyj `EventCallback`. Składnik nadrzędny może przypisać metodę wywołania zwrotnego do `EventCallback` składnika podrzędnego.
+Typowym scenariuszem ze składnikami zagnieżdżonymi jest zamiar uruchamiania metody składnika nadrzędnego, gdy występuje zdarzenie składnika podrzędnego &mdash;for przykład, gdy zdarzenie `onclick` wystąpi w elemencie podrzędnym. Aby uwidocznić zdarzenia między składnikami, użyj `EventCallback`. Składnik nadrzędny może przypisać metodę wywołania zwrotnego do `EventCallback` składnika podrzędnego.
 
-@No__t-0 w przykładowej aplikacji pokazuje, jak program obsługi `onclick` jest skonfigurowany tak, aby otrzymać delegata `EventCallback` z `ParentComponent` próbki. W `EventCallback` jest wpisana wartość `MouseEventArgs`, która jest odpowiednia dla zdarzenia `onclick` z urządzenia peryferyjnego:
+@No__t_0 w przykładowej aplikacji pokazuje, jak program obsługi `onclick` przycisku został skonfigurowany tak, aby otrzymać delegata `EventCallback` z `ParentComponent` próbki. W `EventCallback` jest wpisana wartość `MouseEventArgs`, która jest odpowiednia dla zdarzenia `onclick` z urządzenia peryferyjnego:
 
 [!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/ChildComponent.razor?highlight=5-7,17-18)]
 
-@No__t-0 ustawia @no__t elementu podrzędnego-1 do jego metody `ShowMessage`:
+@No__t_0 ustawia `EventCallback<T>` elementu podrzędnego na `ShowMessage` metody:
 
 [!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=6,16-19)]
 
@@ -694,7 +694,7 @@ Gdy składnik jest renderowany, pole `loginDialog` jest wypełniane wystąpienie
 > [!IMPORTANT]
 > Zmienna `loginDialog` jest wypełniana tylko po wyrenderowaniu składnika, a jego wyjście zawiera element `MyLoginDialog`. Do tego momentu nie ma niczego do odwołania. Aby manipulować odwołaniami do składników po zakończeniu renderowania składnika, należy użyć [metody OnAfterRenderAsync lub OnAfterRender](#lifecycle-methods).
 
-Podczas przechwytywania odwołań do składników użycie podobnej składni do [przechwytywania odwołań do elementów](xref:blazor/javascript-interop#capture-references-to-elements)nie jest funkcją [międzyoperacyjności języka JavaScript](xref:blazor/javascript-interop) . Odwołania do składników nie są przesyłane do kodu JavaScript @ no__t-0they're używane tylko w kodzie platformy .NET.
+Podczas przechwytywania odwołań do składników użycie podobnej składni do [przechwytywania odwołań do elementów](xref:blazor/javascript-interop#capture-references-to-elements)nie jest funkcją [międzyoperacyjności języka JavaScript](xref:blazor/javascript-interop) . Odwołania do składników nie są przesyłane do kodu JavaScript, &mdash;they są używane tylko w kodzie platformy .NET.
 
 > [!NOTE]
 > **Nie** należy używać odwołań do składników do mutacji stanu składników podrzędnych. Zamiast tego należy używać zwykłych parametrów deklaratywnych do przekazywania danych do składników podrzędnych. Użycie normalnych parametrów deklaratywnych powoduje, że składniki podrzędne, które automatycznie uruchamiają się w prawidłowym czasie.
@@ -960,6 +960,9 @@ Jeśli składnik implementuje <xref:System.IDisposable>, [Metoda Dispose](/dotne
 }
 ```
 
+> [!NOTE]
+> Wywoływanie `StateHasChanged` w `Dispose` nie jest obsługiwane. `StateHasChanged` mogą być wywoływane w ramach rozłączania modułu renderowania. Żądanie aktualizacji interfejsu użytkownika nie jest obsługiwane.
+
 ## <a name="routing"></a>Routing
 
 Routing w Blazor jest realizowany przez dostarczenie szablonu trasy do każdego dostępnego składnika w aplikacji.
@@ -980,28 +983,113 @@ Składniki mogą odbierać parametry trasy z szablonu trasy dostarczonego w dyre
 
 Parametry opcjonalne nie są obsługiwane, więc dwie dyrektywy `@page` są stosowane w powyższym przykładzie. Pierwszy zezwala na nawigowanie do składnika bez parametru. Druga dyrektywa `@page` przyjmuje parametr trasy `{text}` i przypisuje wartość do właściwości `Text`.
 
-## <a name="base-class-inheritance-for-a-code-behind-experience"></a>Dziedziczenie klasy podstawowej dla środowiska "powiązanego z kodem"
+::: moniker range=">= aspnetcore-3.1"
 
-Pliki składników mieszają znaczniki HTML C# i przetwarzają kod w tym samym pliku. Dyrektywa `@inherits` może służyć do udostępniania aplikacji Blazor za pomocą środowiska "powiązanego z kodem", które oddziela adiustację składników od przetwarzania kodu.
+## <a name="partial-class-support"></a>Obsługa klasy częściowej
+
+Składniki Razor są generowane jako klasy częściowe. Składniki Razor są tworzone przy użyciu jednej z następujących metod:
+
+* C#kod jest zdefiniowany w bloku [@code](xref:mvc/views/razor#code) przy użyciu znaczników HTML i kodu Razor w pojedynczym pliku. Szablony Blazor definiują ich składniki Razor przy użyciu tego podejścia.
+* C#kod jest umieszczany w pliku związanym z kodem zdefiniowanym jako Klasa częściowa.
+
+Poniższy przykład pokazuje domyślny składnik `Counter` z blokiem `@code` w aplikacji wygenerowanej na podstawie szablonu Blazor. Znaczniki HTML, kod Razor i C# kod są w tym samym pliku:
+
+*Counter. Razor*:
+
+```cshtml
+@page "/counter"
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    int currentCount = 0;
+
+    void IncrementCount()
+    {
+        currentCount++;
+    }
+}
+```
+
+Składnik `Counter` można również utworzyć przy użyciu pliku związanego z kodem z klasą częściową:
+
+*Counter. Razor*:
+
+```cshtml
+@page "/counter"
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+```
+
+*Counter.Razor.cs*:
+
+```csharp
+namespace BlazorApp.Pages
+{
+    public partial class Counter
+    {
+        int currentCount = 0;
+
+        void IncrementCount()
+        {
+            currentCount++;
+        }
+    }
+}
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.1"
+
+## <a name="specify-a-component-base-class"></a>Określ klasę bazową składnika
+
+Dyrektywa `@inherits` może służyć do określania klasy bazowej dla składnika.
 
 [Przykładowa aplikacja](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) pokazuje, jak składnik może dziedziczyć klasę bazową `BlazorRocksBase`, aby zapewnić właściwości i metody składnika.
 
 *Strony/BlazorRocks. Razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/BlazorRocks.razor?name=snippet_BlazorRocks)]
+```cshtml
+@page "/BlazorRocks"
+@inherits BlazorRocksBase
+
+<h1>@BlazorRocksText</h1>
+```
 
 *BlazorRocksBase.cs*:
 
-[!code-csharp[](common/samples/3.x/BlazorWebAssemblySample/Pages/BlazorRocksBase.cs)]
+```csharp
+using Microsoft.AspNetCore.Components;
+
+namespace BlazorSample
+{
+    public class BlazorRocksBase : ComponentBase
+    {
+        public string BlazorRocksText { get; set; } = 
+            "Blazor rocks the browser!";
+    }
+}
+```
 
 Klasa bazowa powinna pochodzić od `ComponentBase`.
+
+::: moniker-end
 
 ## <a name="import-components"></a>Importuj składniki
 
 Przestrzeń nazw składnika utworzone przy użyciu Razor jest oparta na (w kolejności priorytetu):
 
 * oznaczenie [@namespace](xref:mvc/views/razor#namespace) w znaczniku pliku Razor (*razor*) (`@namespace BlazorSample.MyNamespace`).
-* @No__t projektu-0 w pliku projektu (`<RootNamespace>BlazorSample</RootNamespace>`).
+* @No__t_0 projektu w pliku projektu (`<RootNamespace>BlazorSample</RootNamespace>`).
 * Nazwa projektu, pobrana z nazwy pliku projektu ( *. csproj*) i ścieżka z katalogu głównego projektu do składnika. Na przykład struktura rozpoznaje *{Project root}/Pages/index.Razor* (*BlazorSample. csproj*) do przestrzeni nazw `BlazorSample.Pages`. Składniki przestrzegają C# reguł powiązań nazw. W tym przykładzie składnik `Index` obejmuje wszystkie składniki:
   * W tym samym folderze *strony*.
   * Składniki w katalogu głównym projektu, które nie określają jawnie innej przestrzeni nazw.
@@ -1494,7 +1582,7 @@ Jest to prosty przykład. W bardziej realistycznych przypadkach ze złożonymi i
 
 * Wydajność aplikacji ma wpływ na to, że numery sekwencji są generowane dynamicznie.
 * Struktura nie może automatycznie tworzyć własnych numerów sekwencji w czasie wykonywania, ponieważ niezbędne informacje nie istnieją, chyba że są przechwytywane w czasie kompilacji.
-* Nie zapisuj długich bloków ręcznie zaimplementowane logiki `RenderTreeBuilder`. Preferuj `.razor` plików i Zezwalaj kompilatorowi na zaradzenie sobie z kolejnymi numerami. Jeśli nie możesz uniknąć ręcznej `RenderTreeBuilder` logiki, Podziel długie bloki kodu na mniejsze fragmenty opakowane w `OpenRegion` @ no__t-2 @ no__t-3 wywołań. Każdy region ma własne oddzielne miejsce numerów sekwencyjnych, więc można uruchomić ponownie od zera (lub dowolnego innego numeru) w każdym regionie.
+* Nie zapisuj długich bloków ręcznie zaimplementowane logiki `RenderTreeBuilder`. Preferuj `.razor` plików i Zezwalaj kompilatorowi na zaradzenie sobie z kolejnymi numerami. Jeśli nie możesz uniknąć ręcznej logiki `RenderTreeBuilder`, Podziel długie bloki kodu na mniejsze fragmenty opakowane w `OpenRegion` / `CloseRegion` wywołania. Każdy region ma własne oddzielne miejsce numerów sekwencyjnych, więc można uruchomić ponownie od zera (lub dowolnego innego numeru) w każdym regionie.
 * Jeśli numery sekwencji są stałee, algorytm diff wymaga tylko zwiększenia wartości sekwencji. Początkowa wartość i przerwy są nieistotne. Jedną z wiarygodnych opcji jest użycie numeru wiersza kodu jako numeru sekwencyjnego lub rozpoczęcie od zera i zwiększenie według wartości lub setek (lub dowolnego preferowanego interwału). 
 * Blazor używa numerów sekwencji, podczas gdy inne struktury interfejsu użytkownika porównujące drzewa nie są używane. Różnica jest znacznie szybsza, gdy są używane numery sekwencji, a Blazor ma zalety kroku kompilacji, który zajmuje się automatycznie numerami sekwencyjnymi dla deweloperów tworzących pliki `.razor`.
 
@@ -1545,7 +1633,7 @@ Lokalizacja jest obsługiwana w aplikacji:
 
 ## <a name="provide-ui-to-choose-the-culture"></a>Podaj interfejs użytkownika, aby wybrać kulturę
 
-Aby zapewnić interfejs użytkownika, aby umożliwić użytkownikowi wybranie kultury, zalecane jest *podejście oparte na przekierowaniu* . Ten proces jest podobny do tego, co się dzieje w aplikacji sieci Web, gdy użytkownik próbuje uzyskać dostęp do bezpiecznego zasobu @ no__t-0the użytkownik zostanie przekierowany do strony logowania, a następnie przekierowany z powrotem do oryginalnego zasobu. 
+Aby zapewnić interfejs użytkownika, aby umożliwić użytkownikowi wybranie kultury, zalecane jest *podejście oparte na przekierowaniu* . Ten proces jest podobny do tego, co się dzieje w aplikacji sieci Web, gdy użytkownik próbuje uzyskać dostęp do bezpiecznego zasobu &mdash;the użytkownik zostanie przekierowany do strony logowania, a następnie przekierowany z powrotem do oryginalnego zasobu. 
 
 Aplikacja utrzymuje wybraną kulturę użytkownika za pośrednictwem przekierowania do kontrolera. Kontroler ustawia wybraną kulturę użytkownika na plik cookie i przekierowuje użytkownika z powrotem do oryginalnego identyfikatora URI.
 

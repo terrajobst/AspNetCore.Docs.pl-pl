@@ -5,14 +5,14 @@ description: Dowiedz się, jak wywoływać funkcje języka JavaScript z technolo
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 10/16/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: a8c3a0951761faab1c11507834aeef2507388d71
-ms.sourcegitcommit: ce2bfb01f2cc7dd83f8a97da0689d232c71bcdc4
+ms.openlocfilehash: b157e16918975cd522318a02f21824d9a0198b11
+ms.sourcegitcommit: eb4fcdeb2f9e8413117624de42841a4997d1d82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72531126"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72697922"
 ---
 # <a name="aspnet-core-blazor-javascript-interop"></a>ASP.NET Core Blazor międzyoperacyjności JavaScript
 
@@ -38,9 +38,9 @@ Dla aplikacji serwera Blazor:
 
 Poniższy przykład jest oparty na [dekoderze](https://developer.mozilla.org/docs/Web/API/TextDecoder), eksperymentalnym dekoderem JavaScript. W przykładzie pokazano, jak wywołać funkcję JavaScript z C# metody. Funkcja JavaScript akceptuje tablicę bajtową z C# metody, dekoduje tablicę i zwraca tekst do składnika do wyświetlenia.
 
-Wewnątrz elementu `<head>` *wwwroot/index.html* (Blazor webassembly) lub *Pages/_Host. cshtml* (Blazor Server) podaj funkcję, która używa `TextDecoder` do zdekodowania przekazaną tablicę:
+Wewnątrz elementu `<head>` *wwwroot/index.html* (Blazor webassembly) lub *Pages/_Host. cshtml* (Blazor Server), podaj funkcję języka JavaScript, która używa `TextDecoder` do dekodowania przekazaną tablicę i zwracają zdekodowaną wartość:
 
-[!code-html[](javascript-interop/samples_snapshot/index-script.html)]
+[!code-html[](javascript-interop/samples_snapshot/index-script-convertarray.html)]
 
 Kod JavaScript, taki jak kod przedstawiony w powyższym przykładzie, można również załadować z pliku JavaScript ( *. js*) z odwołaniem do pliku skryptu:
 
@@ -50,10 +50,12 @@ Kod JavaScript, taki jak kod przedstawiony w powyższym przykładzie, można ró
 
 Następujący składnik:
 
-* Wywołuje funkcję JavaScript `ConvertArray` przy użyciu `JsRuntime`, gdy zostanie wybrany przycisk składnika (**Tablica konwersji**).
+* Wywołuje funkcję `convertArray` JavaScript przy użyciu `JSRuntime`, gdy zostanie wybrany przycisk składnika (**Konwertuj tablicę**).
 * Po wywołaniu funkcji języka JavaScript przenoszona tablica jest konwertowana na ciąg. Ciąg jest zwracany do składnika do wyświetlenia.
 
 [!code-cshtml[](javascript-interop/samples_snapshot/call-js-example.razor?highlight=2,34-35)]
+
+##  <a name="use-of-ijsruntime"></a>Korzystanie z IJSRuntime
 
 Aby użyć abstrakcji `IJSRuntime`, należy zastosować jedną z następujących metod:
 
@@ -61,9 +63,17 @@ Aby użyć abstrakcji `IJSRuntime`, należy zastosować jedną z następujących
 
   [!code-cshtml[](javascript-interop/samples_snapshot/inject-abstraction.razor?highlight=1)]
 
+  Wewnątrz elementu `<head>` *wwwroot/index.html* (Blazor webassembly) lub *Pages/_Host. cshtml* (Blazor Server) podaj `handleTickerChanged` funkcję JavaScript. Funkcja jest wywoływana z `IJSRuntime.InvokeVoidAsync` i nie zwraca wartości:
+
+  [!code-html[](javascript-interop/samples_snapshot/index-script-handleTickerChanged1.html)]
+
 * Wstrzyknąć abstrakcję `IJSRuntime` do klasy ( *. cs*):
 
   [!code-csharp[](javascript-interop/samples_snapshot/inject-abstraction-class.cs?highlight=5)]
+
+  Wewnątrz elementu `<head>` *wwwroot/index.html* (Blazor webassembly) lub *Pages/_Host. cshtml* (Blazor Server) podaj `handleTickerChanged` funkcję JavaScript. Funkcja jest wywoływana z `JSRuntime.InvokeAsync` i zwraca wartość:
+
+  [!code-html[](javascript-interop/samples_snapshot/index-script-handleTickerChanged2.html)]
 
 * Aby można było wygenerować zawartość dynamiczną przy użyciu [BuildRenderTree](xref:blazor/components#manual-rendertreebuilder-logic), użyj atrybutu `[Inject]`:
 
