@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 09/25/2019
 uid: grpc/migration
-ms.openlocfilehash: 8f0d9dd980fa3281f30dc29d329d10ccd352ae72
-ms.sourcegitcommit: 994da92edb0abf856b1655c18880028b15a28897
+ms.openlocfilehash: 596eca0f510387a18472eb353672980e0a8e0d24
+ms.sourcegitcommit: eb4fcdeb2f9e8413117624de42841a4997d1d82d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71278700"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72697997"
 ---
 # <a name="migrating-grpc-services-from-c-core-to-aspnet-core"></a>Migrowanie usług gRPC z dysku C-Core do ASP.NET Core
 
@@ -23,7 +23,7 @@ Ze względu na implementację bazowego stosu nie wszystkie funkcje działają w 
 
 W stosie ASP.NET Core usługi gRPC są domyślnie tworzone z [okresem istnienia w zakresie](xref:fundamentals/dependency-injection#service-lifetimes). Z kolei gRPC C-Core domyślnie wiąże się z usługą z [pojedynczym okresem istnienia](xref:fundamentals/dependency-injection#service-lifetimes).
 
-Okres istnienia w zakresie pozwala implementacji usługi rozwiązywać inne usługi z okresami istnienia w zakresie. Na przykład okres istnienia objęty zakresem można `DbContext` również rozwiązać z kontenera di przez iniekcję konstruktora. Korzystanie z okresu istnienia w zakresie:
+Okres istnienia w zakresie pozwala implementacji usługi rozwiązywać inne usługi z okresami istnienia w zakresie. Na przykład okres istnienia w zakresie może również rozwiązać `DbContext` z kontenera DI przez iniekcję konstruktora. Korzystanie z okresu istnienia w zakresie:
 
 * Nowe wystąpienie implementacji usługi jest konstruowane dla każdego żądania.
 * Nie jest możliwe udostępnianie stanu między żądaniami za pośrednictwem elementów członkowskich wystąpienia w typie implementacji.
@@ -47,25 +47,25 @@ Jednak implementacja usługi z pojedynczym okresem istnienia nie jest już w sta
 
 ## <a name="configure-grpc-services-options"></a>Skonfiguruj opcje usług gRPC Services
 
-W przypadku aplikacji opartych na rdzeniu C ustawienia takie `grpc.max_receive_message_length` jak `grpc.max_send_message_length` i są konfigurowane `ChannelOption` przy użyciu programu podczas [konstruowania wystąpienia serwera](https://grpc.io/grpc/csharp/api/Grpc.Core.Server.html#Grpc_Core_Server__ctor_System_Collections_Generic_IEnumerable_Grpc_Core_ChannelOption__).
+W przypadku aplikacji opartych na rdzeniu C ustawienia, takie jak `grpc.max_receive_message_length` i `grpc.max_send_message_length`, są konfigurowane przy użyciu `ChannelOption` podczas [konstruowania wystąpienia serwera](https://grpc.io/grpc/csharp/api/Grpc.Core.Server.html#Grpc_Core_Server__ctor_System_Collections_Generic_IEnumerable_Grpc_Core_ChannelOption__).
 
-W ASP.NET Core gRPC zapewnia konfigurację przy użyciu `GrpcServiceOptions` typu. Na przykład maksymalny rozmiar komunikatu przychodzącego można skonfigurować przy użyciu `AddGrpc`usługi gRPC. Poniższy przykład zmienia domyślną wartość `ReceiveMaxMessageSize` z 4 MB na 16 MB:
+W ASP.NET Core gRPC zapewnia konfigurację za pomocą typu `GrpcServiceOptions`. Na przykład maksymalny rozmiar komunikatu przychodzącego usługi gRPC można skonfigurować za pośrednictwem `AddGrpc`. Poniższy przykład zmienia domyślne `MaxReceiveMessageSize` z 4 MB na 16 MB:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddGrpc(options =>
     {
-        options.ReceiveMaxMessageSize = 16 * 1024 * 1024; // 16 MB
+        options.MaxReceiveMessageSize = 16 * 1024 * 1024; // 16 MB
     });
 }
 ```
 
-Aby uzyskać więcej informacji na temat konfiguracji <xref:grpc/configuration>, zobacz.
+Aby uzyskać więcej informacji na temat konfiguracji, zobacz <xref:grpc/configuration>.
 
 ## <a name="logging"></a>Rejestrowanie
 
-Aplikacje oparte na rdzeniu C są zależne `GrpcEnvironment` od programu w celu [skonfigurowania rejestratora](https://grpc.io/grpc/csharp/api/Grpc.Core.GrpcEnvironment.html?q=size#Grpc_Core_GrpcEnvironment_SetLogger_Grpc_Core_Logging_ILogger_) do celów debugowania. Stos ASP.NET Core udostępnia tę funkcję za pomocą [interfejsu API rejestrowania](xref:fundamentals/logging/index). Na przykład można dodać Rejestrator do usługi gRPC za pośrednictwem iniekcji konstruktora:
+Aplikacje oparte na rdzeniu C są zależne od `GrpcEnvironment` [konfigurowania rejestratora](https://grpc.io/grpc/csharp/api/Grpc.Core.GrpcEnvironment.html?q=size#Grpc_Core_GrpcEnvironment_SetLogger_Grpc_Core_Logging_ILogger_) do celów debugowania. Stos ASP.NET Core udostępnia tę funkcję za pomocą [interfejsu API rejestrowania](xref:fundamentals/logging/index). Na przykład można dodać Rejestrator do usługi gRPC za pośrednictwem iniekcji konstruktora:
 
 ```csharp
 public class GreeterService : Greeter.GreeterBase
