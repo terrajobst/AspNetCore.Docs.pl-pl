@@ -5,14 +5,14 @@ description: Rozpocznij pracę z usługą Blazor, tworząc aplikację Blazor prz
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 10/21/2019
 uid: blazor/get-started
-ms.openlocfilehash: fc368be5eb2e5d8f7c80071dc86a02ae986a685f
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: 80ff7b42a44e722dd27bc4fde53a066863448e10
+ms.sourcegitcommit: 810d5831169770ee240d03207d6671dabea2486e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391053"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72779126"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>Wprowadzenie do ASP.NET Core Blazor
 
@@ -46,7 +46,7 @@ Rozpocznij pracę z usługą Blazor:
 
    5 \. Aby zapoznać się z Blazor webassembly, wybierz szablon **aplikacji Blazor webassembly** . Dla środowiska serwera Blazor wybierz szablon **aplikacji Blazor Server** . Wybierz pozycję **Utwórz**. Aby uzyskać informacje na temat dwóch modeli hostingu Blazor, *Blazor Server* i *Blazor webassembly*, zobacz <xref:blazor/hosting-models>.
 
-   6 \. Naciśnij klawisz **F5** , aby uruchomić aplikację.
+   6 \. Naciśnij klawisz **Ctrl** , +**F5** , aby uruchomić aplikację.
 
    > [!NOTE]
    > Jeśli zainstalowano rozszerzenie Blazor programu Visual Studio dla starszej wersji zapoznawczej programu ASP.NET Core Blazor (wersja zapoznawcza 6 lub wcześniejsza), można odinstalować rozszerzenie. Instalowanie szablonów Blazor w powłoce poleceń jest teraz wystarczające do poszycia szablonów w programie Visual Studio.
@@ -248,7 +248,7 @@ Za każdym razem, gdy zostanie wybrany przycisk **kliknij mnie** :
 
 * Zdarzenie `onclick` jest wyzwalane.
 * Metoda `IncrementCount` jest wywoływana.
-* @No__t-0 jest zwiększana.
+* @No__t_0 jest zwiększana.
 * Składnik jest ponownie renderowany.
 
 Środowisko uruchomieniowe porównuje nową zawartość z poprzednią zawartością i stosuje tylko zmienioną zawartość do Document Object Model (DOM).
@@ -263,7 +263,7 @@ Uruchom aplikację. Strona główna ma swój własny licznik dostarczony przez s
 
 Parametry składnika są określone przy użyciu atrybutów lub [zawartości podrzędnej](xref:blazor/components#child-content), które umożliwiają ustawianie właściwości składnika podrzędnego. Aby dodać parametr do składnika `Counter`, zaktualizuj blok `@code` składnika:
 
-* Dodaj publiczną właściwość dla `IncrementAmount` z atrybutem `[Parameter]`.
+* Dodaj właściwość publiczną dla `IncrementAmount` z atrybutem `[Parameter]`.
 * Zmień metodę `IncrementCount`, aby użyć `IncrementAmount` podczas zwiększania wartości `currentCount`.
 
 *Pages/Counter. Razor*:
