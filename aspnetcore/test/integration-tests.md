@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/14/2019
 uid: test/integration-tests
-ms.openlocfilehash: 863b95230d376d050c34a9ed585b7696e649cb05
-ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
+ms.openlocfilehash: c0fede8f9f46d1b10502055d8e1fe7caa48cf351
+ms.sourcegitcommit: 810d5831169770ee240d03207d6671dabea2486e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72378719"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72779229"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Testy integracji w ASP.NET Core
 
@@ -126,13 +126,13 @@ Jeśli [środowisko](xref:fundamentals/environments) SUT nie jest ustawione, śr
 
 ## <a name="basic-tests-with-the-default-webapplicationfactory"></a>Podstawowe testy z domyślną WebApplicationFactory
 
-[WebApplicationFactory @ no__t-1TEntryPoint >](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) służy do tworzenia [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver) dla testów integracji. `TEntryPoint` jest klasą punktów wejścia SUT, zazwyczaj klasy `Startup`.
+[WebApplicationFactory\<TEntryPoint >](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) służy do tworzenia [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver) dla testów integracji. `TEntryPoint` jest klasą punktów wejścia SUT, zazwyczaj klasy `Startup`.
 
 Klasy testowe implementują interfejs *armatury klasy* ([IClassFixture](https://xunit.github.io/docs/shared-context#class-fixture)) w celu wskazania, że Klasa zawiera testy i udostępnia wystąpienia obiektów udostępnionych w ramach testów w klasie.
 
 ### <a name="basic-test-of-app-endpoints"></a>Podstawowy test punktów końcowych aplikacji
 
-Następująca Klasa testowa, `BasicTests`, używa `WebApplicationFactory` do ładowania SUT i zapewnienia [HttpClient](/dotnet/api/system.net.http.httpclient) do metody testowej `Get_EndpointsReturnSuccessAndCorrectContentType`. Metoda sprawdza, czy kod stanu odpowiedzi powiedzie się (kody stanu z zakresu 200-299), a nagłówek `Content-Type` jest `text/html; charset=utf-8` dla kilku stron aplikacji.
+Następująca Klasa testowa, `BasicTests`, używa `WebApplicationFactory` do ładowania SUT i zapewnienia [HttpClient](/dotnet/api/system.net.http.httpclient) do metody testowej, `Get_EndpointsReturnSuccessAndCorrectContentType`. Metoda sprawdza, czy kod stanu odpowiedzi powiedzie się (kody stanu z zakresu 200-299), a nagłówek `Content-Type` jest `text/html; charset=utf-8` dla kilku stron aplikacji.
 
 [Klient](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.createclient) tworzy wystąpienie `HttpClient`, które automatycznie następuje przekierowanie i obsługę plików cookie.
 
@@ -148,7 +148,7 @@ W SUT Strona `/SecurePage` używa konwencji [AuthorizePage](/dotnet/api/microsof
 
 [!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs?name=snippet1)]
 
-W teście `Get_SecurePageRequiresAnAuthenticatedUser` [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) jest ustawiony tak, aby nie zezwalać na przekierowania przez ustawienie [AllowAutoRedirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) do `false`:
+W teście `Get_SecurePageRequiresAnAuthenticatedUser` [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) jest ustawiony tak, aby nie zezwalać na przekierowania przez ustawienie [AllowAutoRedirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) na `false`:
 
 [!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/BasicTests.cs?name=snippet2)]
 
@@ -175,7 +175,7 @@ Konfigurację hosta sieci Web można utworzyć niezależnie od klas testów prze
 
    Aby nawiązać połączenie z inną bazą danych niż baza danych w pamięci, Zmień wywołanie `UseInMemoryDatabase` w celu połączenia kontekstu z inną bazą danych. Aby użyć SQL Server testowej bazy danych:
 
-   * Odwołuje się do pakietu NuGet [Microsoft. EntityFrameworkCore. SqlServer] https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/) w pliku projektu.
+   * Odwołuje się do pakietu NuGet [Microsoft. EntityFrameworkCore. SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/) w pliku projektu.
    * Wywołaj `UseSqlServer` z parametrami połączenia do bazy danych.
 
    ```csharp
@@ -217,7 +217,7 @@ Metody rozszerzenia pomocnika `SendAsync` (*pomocnicys/HttpClientExtensions. cs*
 
 Gdy w metodzie testowej jest wymagana dodatkowa konfiguracja, [WithWebHostBuilder](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.withwebhostbuilder) tworzy nowy `WebApplicationFactory` z [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) , który jest bardziej dostosowany przez konfigurację.
 
-Metoda testowa `Post_DeleteMessageHandler_ReturnsRedirectToRoot` [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) ilustruje użycie `WithWebHostBuilder`. Ten test służy do usuwania rekordów w bazie danych przez wyzwolenie przesłania formularza w SUT.
+Metoda testowania `Post_DeleteMessageHandler_ReturnsRedirectToRoot` [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) ilustruje użycie `WithWebHostBuilder`. Ten test służy do usuwania rekordów w bazie danych przez wyzwolenie przesłania formularza w SUT.
 
 Ponieważ inny test w klasie `IndexPageTests` wykonuje operację, która usuwa wszystkie rekordy z bazy danych i może być uruchomiona przed metodą `Post_DeleteMessageHandler_ReturnsRedirectToRoot`, baza danych zostanie oddzielna w tej metodzie testowej, aby upewnić się, że rekord jest obecny dla SUT do usunięcia. Wybranie pierwszego przycisku Usuń formularza `messages` w SUT jest symulowane w żądaniu do SUT:
 
@@ -473,13 +473,13 @@ Jeśli [środowisko](xref:fundamentals/environments) SUT nie jest ustawione, śr
 
 ## <a name="basic-tests-with-the-default-webapplicationfactory"></a>Podstawowe testy z domyślną WebApplicationFactory
 
-[WebApplicationFactory @ no__t-1TEntryPoint >](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) służy do tworzenia [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver) dla testów integracji. `TEntryPoint` jest klasą punktów wejścia SUT, zazwyczaj klasy `Startup`.
+[WebApplicationFactory\<TEntryPoint >](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) służy do tworzenia [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver) dla testów integracji. `TEntryPoint` jest klasą punktów wejścia SUT, zazwyczaj klasy `Startup`.
 
 Klasy testowe implementują interfejs *armatury klasy* ([IClassFixture](https://xunit.github.io/docs/shared-context#class-fixture)) w celu wskazania, że Klasa zawiera testy i udostępnia wystąpienia obiektów udostępnionych w ramach testów w klasie.
 
 ### <a name="basic-test-of-app-endpoints"></a>Podstawowy test punktów końcowych aplikacji
 
-Następująca Klasa testowa, `BasicTests`, używa `WebApplicationFactory` do ładowania SUT i zapewnienia [HttpClient](/dotnet/api/system.net.http.httpclient) do metody testowej `Get_EndpointsReturnSuccessAndCorrectContentType`. Metoda sprawdza, czy kod stanu odpowiedzi powiedzie się (kody stanu z zakresu 200-299), a nagłówek `Content-Type` jest `text/html; charset=utf-8` dla kilku stron aplikacji.
+Następująca Klasa testowa, `BasicTests`, używa `WebApplicationFactory` do ładowania SUT i zapewnienia [HttpClient](/dotnet/api/system.net.http.httpclient) do metody testowej, `Get_EndpointsReturnSuccessAndCorrectContentType`. Metoda sprawdza, czy kod stanu odpowiedzi powiedzie się (kody stanu z zakresu 200-299), a nagłówek `Content-Type` jest `text/html; charset=utf-8` dla kilku stron aplikacji.
 
 [Klient](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.createclient) tworzy wystąpienie `HttpClient`, które automatycznie następuje przekierowanie i obsługę plików cookie.
 
@@ -495,7 +495,7 @@ W SUT Strona `/SecurePage` używa konwencji [AuthorizePage](/dotnet/api/microsof
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs?name=snippet1)]
 
-W teście `Get_SecurePageRequiresAnAuthenticatedUser` [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) jest ustawiony tak, aby nie zezwalać na przekierowania przez ustawienie [AllowAutoRedirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) do `false`:
+W teście `Get_SecurePageRequiresAnAuthenticatedUser` [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) jest ustawiony tak, aby nie zezwalać na przekierowania przez ustawienie [AllowAutoRedirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) na `false`:
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/BasicTests.cs?name=snippet2)]
 
@@ -547,7 +547,7 @@ Metody rozszerzenia pomocnika `SendAsync` (*pomocnicys/HttpClientExtensions. cs*
 
 Gdy w metodzie testowej jest wymagana dodatkowa konfiguracja, [WithWebHostBuilder](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.withwebhostbuilder) tworzy nowy `WebApplicationFactory` z [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) , który jest bardziej dostosowany przez konfigurację.
 
-Metoda testowa `Post_DeleteMessageHandler_ReturnsRedirectToRoot` [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) ilustruje użycie `WithWebHostBuilder`. Ten test służy do usuwania rekordów w bazie danych przez wyzwolenie przesłania formularza w SUT.
+Metoda testowania `Post_DeleteMessageHandler_ReturnsRedirectToRoot` [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) ilustruje użycie `WithWebHostBuilder`. Ten test służy do usuwania rekordów w bazie danych przez wyzwolenie przesłania formularza w SUT.
 
 Ponieważ inny test w klasie `IndexPageTests` wykonuje operację, która usuwa wszystkie rekordy z bazy danych i może być uruchomiona przed metodą `Post_DeleteMessageHandler_ReturnsRedirectToRoot`, baza danych zostanie oddzielna w tej metodzie testowej, aby upewnić się, że rekord jest obecny dla SUT do usunięcia. Wybranie pierwszego przycisku Usuń formularza `messages` w SUT jest symulowane w żądaniu do SUT:
 

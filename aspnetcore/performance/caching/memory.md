@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 8/22/2019
 uid: performance/caching/memory
-ms.openlocfilehash: aa39503f034cf46fa4317a1f3cbb8d130afd1b8c
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: d6b2aa363c552fdbda7f6e9ec5d476768c17d8a5
+ms.sourcegitcommit: 810d5831169770ee240d03207d6671dabea2486e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333752"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72779192"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Buforowanie w pamięci w ASP.NET Core
 
@@ -33,15 +33,15 @@ Pamięć podręczna w pamięci może przechowywać dowolny obiekt. Interfejs roz
 
 ## <a name="systemruntimecachingmemorycache"></a>System. Runtime. buforowanie/elemencie MemoryCache
 
-<xref:System.Runtime.Caching> @ no__t-1 @ no__t-2 ([pakiet NuGet](https://www.nuget.org/packages/System.Runtime.Caching/)) może być używany z:
+<xref:System.Runtime.Caching>/<xref:System.Runtime.Caching.MemoryCache> ([pakiet NuGet](https://www.nuget.org/packages/System.Runtime.Caching/)) może być używany z:
 
 * .NET Standard 2,0 lub nowszy.
 * Dowolna [implementacja platformy .NET](/dotnet/standard/net-standard#net-implementation-support) , która jest przeznaczona dla .NET Standard 2,0 lub nowszych. Na przykład ASP.NET Core 2,0 lub nowszy.
 * .NET Framework 4,5 lub nowszy.
 
-[Microsoft. Extensions. buforowanie. Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/)/ @ no__t-2 (opisany w tym artykule) jest zalecane w porównaniu do `System.Runtime.Caching` @ no__t-4 @ no__t-5, ponieważ jest lepiej zintegrowana z ASP.NET Core. Na przykład `IMemoryCache` działa natywnie z [iniekcją ASP.NET Core zależności](xref:fundamentals/dependency-injection).
+[Firma Microsoft. Extensions. buforowanie. Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/)/`IMemoryCache` (opisany w tym artykule) jest zalecana w porównaniu `System.Runtime.Caching`/`MemoryCache`, ponieważ jest lepiej zintegrowana z ASP.NET Core. Na przykład `IMemoryCache` działa natywnie z [iniekcją ASP.NET Core zależności](xref:fundamentals/dependency-injection).
 
-Użyj `System.Runtime.Caching` @ no__t-1 @ no__t-2 jako mostka zgodności podczas przenoszenia kodu z ASP.NET 4. x do ASP.NET Core.
+Użyj `System.Runtime.Caching`/`MemoryCache` jako mostka zgodności podczas przenoszenia kodu z ASP.NET 4. x do ASP.NET Core.
 
 ## <a name="cache-guidelines"></a>Wskazówki dotyczące pamięci podręcznej
 
@@ -56,6 +56,7 @@ Użyj `System.Runtime.Caching` @ no__t-1 @ no__t-2 jako mostka zgodności podcza
 > [!WARNING]
 > Użycie pamięci podręcznej pamięci *współużytkowanej* przed [iniekcją zależności](xref:fundamentals/dependency-injection) i wywołaniem `SetSize`, `Size` lub `SizeLimit` w celu ograniczenia rozmiaru pamięci podręcznej może spowodować niepowodzenie aplikacji. Po ustawieniu limitu rozmiaru w pamięci podręcznej, wszystkie wpisy muszą określać rozmiar podczas dodawania. Może to prowadzić do problemów, ponieważ deweloperzy mogą nie mieć pełnej kontroli nad używaniem udostępnionej pamięci podręcznej. Na przykład Entity Framework Core używa udostępnionej pamięci podręcznej i nie określa rozmiaru. Jeśli aplikacja ustawi limit rozmiaru pamięci podręcznej i używa EF Core, aplikacja zgłasza `InvalidOperationException`.
 > W przypadku używania `SetSize`, `Size` lub `SizeLimit` do ograniczania pamięci podręcznej należy utworzyć pojedynczą pamięć podręczną dla buforowania. Aby uzyskać więcej informacji i zapoznać się z przykładem, zobacz [Używanie SetSize, size i SizeLimit w celu ograniczenia rozmiaru pamięci podręcznej](#use-setsize-size-and-sizelimit-to-limit-cache-size).
+> Udostępniona pamięć podręczna jest współdzielona przez inne struktury lub biblioteki. Na przykład EF Core używa udostępnionej pamięci podręcznej i nie określa rozmiaru. 
 
 Buforowanie w pamięci to *Usługa* , do której odwołuje się aplikacja przy użyciu [iniekcji zależności](xref:fundamentals/dependency-injection). Zażądaj wystąpienia `IMemoryCache` w konstruktorze:
 
@@ -157,7 +158,7 @@ Aby uzyskać więcej informacji, zobacz artykuł [Compact Source w witrynie GitH
 
 ## <a name="cache-dependencies"></a>Zależności pamięci podręcznej
 
-Poniższy przykład pokazuje, jak wygasa wpis pamięci podręcznej, Jeśli wpis zależny wygaśnie. @No__t-0 zostanie dodany do elementu w pamięci podręcznej. Gdy `Cancel` jest wywoływana dla `CancellationTokenSource`, oba wpisy pamięci podręcznej są wykluczone.
+Poniższy przykład pokazuje, jak wygasa wpis pamięci podręcznej, Jeśli wpis zależny wygaśnie. `CancellationChangeToken` zostanie dodany do elementu w pamięci podręcznej. Gdy `Cancel` jest wywoływana dla `CancellationTokenSource`, oba wpisy pamięci podręcznej są wykluczone.
 
 [!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet_ed)]
 
@@ -206,15 +207,15 @@ Pamięć podręczna w pamięci może przechowywać dowolny obiekt. Interfejs roz
 
 ## <a name="systemruntimecachingmemorycache"></a>System. Runtime. buforowanie/elemencie MemoryCache
 
-<xref:System.Runtime.Caching> @ no__t-1 @ no__t-2 ([pakiet NuGet](https://www.nuget.org/packages/System.Runtime.Caching/)) może być używany z:
+<xref:System.Runtime.Caching>/<xref:System.Runtime.Caching.MemoryCache> ([pakiet NuGet](https://www.nuget.org/packages/System.Runtime.Caching/)) może być używany z:
 
 * .NET Standard 2,0 lub nowszy.
 * Dowolna [implementacja platformy .NET](/dotnet/standard/net-standard#net-implementation-support) , która jest przeznaczona dla .NET Standard 2,0 lub nowszych. Na przykład ASP.NET Core 2,0 lub nowszy.
 * .NET Framework 4,5 lub nowszy.
 
-[Microsoft. Extensions. buforowanie. Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/)/ @ no__t-2 (opisany w tym artykule) jest zalecane w porównaniu do `System.Runtime.Caching` @ no__t-4 @ no__t-5, ponieważ jest lepiej zintegrowana z ASP.NET Core. Na przykład `IMemoryCache` działa natywnie z [iniekcją ASP.NET Core zależności](xref:fundamentals/dependency-injection).
+[Firma Microsoft. Extensions. buforowanie. Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/)/`IMemoryCache` (opisany w tym artykule) jest zalecana w porównaniu `System.Runtime.Caching`/`MemoryCache`, ponieważ jest lepiej zintegrowana z ASP.NET Core. Na przykład `IMemoryCache` działa natywnie z [iniekcją ASP.NET Core zależności](xref:fundamentals/dependency-injection).
 
-Użyj `System.Runtime.Caching` @ no__t-1 @ no__t-2 jako mostka zgodności podczas przenoszenia kodu z ASP.NET 4. x do ASP.NET Core.
+Użyj `System.Runtime.Caching`/`MemoryCache` jako mostka zgodności podczas przenoszenia kodu z ASP.NET 4. x do ASP.NET Core.
 
 ## <a name="cache-guidelines"></a>Wskazówki dotyczące pamięci podręcznej
 
@@ -326,7 +327,7 @@ Aby uzyskać więcej informacji, zobacz artykuł [Compact Source w witrynie GitH
 
 ## <a name="cache-dependencies"></a>Zależności pamięci podręcznej
 
-Poniższy przykład pokazuje, jak wygasa wpis pamięci podręcznej, Jeśli wpis zależny wygaśnie. @No__t-0 zostanie dodany do elementu w pamięci podręcznej. Gdy `Cancel` jest wywoływana dla `CancellationTokenSource`, oba wpisy pamięci podręcznej są wykluczone.
+Poniższy przykład pokazuje, jak wygasa wpis pamięci podręcznej, Jeśli wpis zależny wygaśnie. `CancellationChangeToken` zostanie dodany do elementu w pamięci podręcznej. Gdy `Cancel` jest wywoływana dla `CancellationTokenSource`, oba wpisy pamięci podręcznej są wykluczone.
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ed)]
 
