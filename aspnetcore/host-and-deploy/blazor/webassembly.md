@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: 8ff3f7b089b7aec6b1a6be2c85f24cfb9674b684
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: 943dbb772d9a7bcb337012c126828d1ab4eb545c
+ms.sourcegitcommit: 383017d7060a6d58f6a79cf4d7335d5b4b6c5659
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391322"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72816062"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor-webassembly"></a>Hostowanie i wdrażanie ASP.NET Core Blazor webassembly
 
@@ -185,6 +185,54 @@ FROM nginx:alpine
 COPY ./bin/Release/netstandard2.0/publish /usr/share/nginx/html/
 COPY nginx.conf /etc/nginx/nginx.conf
 ```
+
+### <a name="apache"></a>Apache
+
+Aby wdrożyć aplikację webassembly Blazor w programie CentOS 7 lub nowszym:
+
+1. Utwórz plik konfiguracji Apache. Poniższy przykład to uproszczony plik konfiguracji (*blazorapp. config*):
+
+   ```
+   <VirtualHost *:80>
+       ServerName www.example.com
+       ServerAlias *.example.com
+
+       DocumentRoot "/var/www/blazorapp"
+       ErrorDocument 404 /index.html
+
+       AddType aplication/wasm .wasm
+       AddType application/octet-stream .dll
+   
+       <Directory "/var/www/blazorapp">
+           Options -Indexes
+           AllowOverride None
+       </Directory>
+
+       <IfModule mod_deflate.c>
+           AddOutputFilterByType DEFLATE text/css
+           AddOutputFilterByType DEFLATE application/javascript
+           AddOutputFilterByType DEFLATE text/html
+           AddOutputFilterByType DEFLATE application/octet-stream
+           AddOutputFilterByType DEFLATE application/wasm
+           <IfModule mod_setenvif.c>
+           BrowserMatch ^Mozilla/4 gzip-only-text/html
+           BrowserMatch ^Mozilla/4.0[678] no-gzip
+           BrowserMatch bMSIE !no-gzip !gzip-only-text/html
+       </IfModule>
+       </IfModule>
+
+       ErrorLog /var/log/httpd/blazorapp-error.log
+       CustomLog /var/log/httpd/blazorapp-access.log common
+   </VirtualHost>
+   ```
+
+1. Umieść plik konfiguracji Apache w katalogu `/etc/httpd/conf.d/`, który jest domyślnym katalogiem konfiguracji Apache w CentOS 7.
+
+1. Umieść pliki aplikacji w katalogu `/var/www/blazorapp` (lokalizacja określona do `DocumentRoot` w pliku konfiguracyjnym).
+
+1. Uruchom ponownie usługę Apache.
+
+Aby uzyskać więcej informacji, zobacz [mod_mime](https://httpd.apache.org/docs/2.4/mod/mod_mime.html) i [mod_deflate](https://httpd.apache.org/docs/current/mod/mod_deflate.html).
 
 ### <a name="github-pages"></a>Strony serwisu GitHub
 
