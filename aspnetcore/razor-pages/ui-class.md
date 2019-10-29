@@ -2,21 +2,20 @@
 title: Interfejs użytkownika Razor wielokrotnego użytku w bibliotekach klas z ASP.NET Core
 author: Rick-Anderson
 description: Wyjaśnia, jak utworzyć interfejs użytkownika Razor wielokrotnego użytku przy użyciu częściowych widoków w bibliotece klas w ASP.NET Core.
-monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 10/08/2019
+ms.date: 10/26/2019
 ms.custom: mvc, seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: dcd24f7dafd198f88cdf84d1ab67c84f45428a95
-ms.sourcegitcommit: d81912782a8b0bd164f30a516ad80f8defb5d020
+ms.openlocfilehash: ff12eea5406c4f5392a466728741000e3dd16fc1
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72179333"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034232"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Utwórz interfejs użytkownika wielokrotnego użytku przy użyciu projektu biblioteki klas Razor w ASP.NET Core
 
-Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -28,15 +27,14 @@ Widoki Razor, strony, kontrolery, modele stron, [składniki Razor](xref:blazor/c
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Z menu **plik** programu Visual Studio wybierz pozycję **Nowy** **projekt**>.
-* Wybierz **ASP.NET Core aplikacji sieci Web**.
-* Nazwij bibliotekę (na przykład "RazorClassLib") > **OK**. Aby uniknąć kolizji nazw plików z wygenerowanej biblioteki widoków, upewnij się, że nazwa biblioteki nie kończy się `.Views`.
-* Sprawdź, czy wybrano **ASP.NET Core 3,0** lub nowszą.
-* Wybierz **bibliotekę klas Razor** > **OK**.
+* W programie Visual Studio wybierz pozycję **Utwórz nowy projekt**.
+* Wybierz pozycję **Biblioteka klas Razor** > **dalej**.
+* Nazwij bibliotekę (na przykład "RazorClassLib"), > **Utwórz**. Aby uniknąć kolizji nazw plików z wygenerowanej biblioteki widoków, upewnij się, że nazwa biblioteki nie kończy się `.Views`.
+* Wybierz **strony i widoki pomocy technicznej** , jeśli chcesz obsługiwać widoki. Domyślnie obsługiwane są tylko Razor Pages. Wybierz pozycję **Utwórz**.
 
-Szablon biblioteki klas Razor (RCL) domyślnie jest domyślnym programowaniem składników Razor. Opcja szablonu w programie Visual Studio zapewnia obsługę szablonów dla stron i widoków.
+Szablon biblioteki klas Razor (RCL) domyślnie jest domyślnym programowaniem składników Razor. Opcja **strony i widoki pomocy technicznej** obsługuje strony i widoki.
 
-# <a name="net-core-clitabnetcore-cli"></a>[interfejs wiersza polecenia platformy .NET Core](#tab/netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 W wierszu polecenia Uruchom `dotnet new razorclasslib`. Na przykład:
 
@@ -121,10 +119,10 @@ Aby dołączyć pliki TypeScript do RCL:
 1. Dołącz obiekt docelowy TypeScript jako zależność elementu docelowego `ResolveCurrentProjectStaticWebAssets`, dodając następujący element docelowy wewnątrz `PropertyGroup` w pliku projektu:
 
    ```xml
-  <ResolveCurrentProjectStaticWebAssetsInputsDependsOn>
-    CompileTypeScript;
-    $(ResolveCurrentProjectStaticWebAssetsInputs)
-  </ResolveCurrentProjectStaticWebAssetsInputsDependsOn>
+   <ResolveCurrentProjectStaticWebAssetsInputsDependsOn>
+     CompileTypeScript;
+     $(ResolveCurrentProjectStaticWebAssetsInputs)
+   </ResolveCurrentProjectStaticWebAssetsInputsDependsOn>
    ```
 
 ### <a name="consume-content-from-a-referenced-rcl"></a>Korzystanie z zawartości z RCL, do którego istnieje odwołanie
@@ -178,7 +176,7 @@ Po uruchomieniu aplikacji zużywanej przez aplikację:
 
 Po skompilowaniu RCL jest tworzony manifest, który opisuje lokalizacje statycznego elementu zawartości sieci Web. Aplikacja, która korzysta z aplikacji, odczytuje manifest w czasie wykonywania, aby wykorzystać zasoby z przywoływanych projektów i pakietów. Po dodaniu nowego elementu zawartości do RCL należy ponownie skompilować RCL, aby zaktualizować jego manifest, zanim aplikacja zużywa dostęp do nowego elementu zawartości.
 
-### <a name="publish"></a>Publikuj
+### <a name="publish"></a>Wycofywan
 
 Po opublikowaniu aplikacji składniki towarzyszące ze wszystkich przywoływanych projektów i pakietów są kopiowane do folderu *wwwroot* opublikowanej aplikacji w obszarze `_content/{LIBRARY NAME}/`.
 
@@ -204,7 +202,7 @@ RCL ma następujący plik projektu:
 
 [!code-xml[](ui-class/samples/cli/RazorUIClassLib/RazorUIClassLib.csproj)]
 
-# <a name="net-core-clitabnetcore-cli"></a>[interfejs wiersza polecenia platformy .NET Core](#tab/netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 W wierszu polecenia Uruchom `dotnet new razorclasslib`. Na przykład:
 
@@ -239,7 +237,7 @@ Jeśli nie pobrano ukończonej aplikacji i wolisz utworzyć projekt przewodnika,
 
 Otwórz plik *sln* w programie Visual Studio. Uruchom aplikację.
 
-# <a name="net-core-clitabnetcore-cli"></a>[interfejs wiersza polecenia platformy .NET Core](#tab/netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Z wiersza polecenia w katalogu *CLI* Utwórz aplikację RCL i sieć Web.
 
@@ -272,7 +270,7 @@ Utwórz projekt RCL:
 * Wybierz **bibliotekę klas Razor** > **OK**.
 * Dodaj plik widoku częściowego Razor o nazwie *RazorUIClassLib/Areas/webfeature/Pages/Shared/_Message. cshtml*.
 
-# <a name="net-core-clitabnetcore-cli"></a>[interfejs wiersza polecenia platformy .NET Core](#tab/netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 W wierszu polecenia Uruchom następujące polecenie:
 
@@ -302,7 +300,7 @@ Plik *_ViewStart. cshtml* jest wymagany do korzystania z układu projektu Razor 
 
   [!code-cshtml[](ui-class/samples/cli/RazorUIClassLib/Areas/MyFeature/Pages/Page1.cshtml)]
 
-  `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers` jest wymagany do korzystania z widoku częściowego (`<partial name="_Message" />`). Zamiast uwzględniać dyrektywę `@addTagHelper`, można dodać plik *_ViewImports. cshtml* . Na przykład:
+  do korzystania z widoku częściowego (`<partial name="_Message" />`) jest wymagane `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`. Zamiast dyrektywy `@addTagHelper` można dodać plik *_ViewImports. cshtml* . Na przykład:
 
   ```dotnetcli
   dotnet new viewimports -o RazorUIClassLib/Areas/MyFeature/Pages
@@ -338,7 +336,7 @@ Utwórz aplikację sieci Web Razor Pages:
 
 Uruchom aplikację.
 
-# <a name="net-core-clitabnetcore-cli"></a>[interfejs wiersza polecenia platformy .NET Core](#tab/netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Utwórz Razor Pages aplikację sieci Web i plik rozwiązania zawierający aplikację Razor Pages i RCL:
 

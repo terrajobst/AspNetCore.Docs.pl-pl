@@ -5,14 +5,14 @@ description: Odkryj obsługę debugowania aplikacji ASP.NET Core podczas urucham
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/10/2019
+ms.date: 10/26/2019
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: e5da4f7202bf31e65c366d6f7de54212f5b0fed7
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 2d2c8d8e4b39d18a3a727e2a2bdef3be566897c1
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259799"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034141"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Obsługa usług IIS w czasie projektowania w programie Visual Studio dla ASP.NET Core
 
@@ -30,7 +30,7 @@ W tym artykule opisano obsługę [programu Visual Studio](https://visualstudio.m
 ## <a name="enable-iis"></a>Włącz usługi IIS
 
 1. W systemie Windows przejdź do pozycji **Panel sterowania** > **programy** > **programy i funkcje** > **włączać lub wyłączać funkcje systemu Windows** (po lewej stronie ekranu).
-1. Zaznacz pole wyboru **Internet Information Services** . Kliknij przycisk **OK**.
+1. Zaznacz pole wyboru **Internet Information Services** . Wybierz **przycisk OK**.
 
 Instalacja usług IIS może wymagać ponownego uruchomienia systemu.
 
@@ -135,7 +135,7 @@ Gdy nie korzystasz z programu Visual Studio, ręcznie Dodaj profil uruchamiania 
 
 Upewnij się, że punkty końcowe `applicationUrl` i `launchUrl` są zgodne i używają tego samego protokołu, co Konfiguracja powiązania usług IIS, HTTP lub HTTPS.
 
-## <a name="run-the-project"></a>Uruchamianie projektu
+## <a name="run-the-project"></a>Uruchom projekt
 
 Uruchom program Visual Studio jako administrator:
 
@@ -149,10 +149,9 @@ Jeśli jest używany niezaufany certyfikat programistyczny, w przeglądarce moż
 > [!NOTE]
 > Debugowanie konfiguracji kompilacji wydania z optymalizacjami [tylko mój kod](/visualstudio/debugger/just-my-code) i kompilatora skutkuje obniżeniem wydajności. Na przykład punkty przerwania nie trafią.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Wprowadzenie z menedżerem usług IIS w usługach IIS](/iis/get-started/getting-started-with-iis/getting-started-with-the-iis-manager-in-iis-7-and-iis-8)
-* [ASP.NET Core hosta w systemie Windows z usługami IIS](xref:host-and-deploy/iis/index)
-* [Wprowadzenie do modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
-* [Informacje o konfiguracji modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
-* [Wymuszanie protokołu HTTPS](xref:security/enforcing-ssl)
+* <xref:host-and-deploy/iis/index>
+* <xref:host-and-deploy/aspnet-core-module>
+* <xref:security/enforcing-ssl>

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: security/ip-safelist
-ms.openlocfilehash: 02e44135ab1742d44691cfda8c4167f21d6efa4e
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: ca5b0f8088773027f7403120247cbeca8900bcf5
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975646"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034341"
 ---
 # <a name="client-ip-safelist-for-aspnet-core"></a>Safelist IP klienta dla ASP.NET Core
 
@@ -25,7 +25,7 @@ W tym artykule przedstawiono trzy sposoby implementacji Safelist IP (znanego ró
 
 W każdym przypadku ciąg zawierający zatwierdzone adresy IP klienta jest przechowywany w ustawieniu aplikacji. Oprogramowanie pośredniczące lub Filtr analizuje ciąg w postaci listy i sprawdza, czy zdalny adres IP znajduje się na liście. W przeciwnym razie zwracany jest kod stanu zabroniony protokołu HTTP 403.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/ip-safelist/samples/2.x/ClientIpAspNetCore) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/ip-safelist/samples/2.x/ClientIpAspNetCore) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="the-safelist"></a>Safelist
 
@@ -35,7 +35,7 @@ Lista jest konfigurowana w pliku *appSettings. JSON* . Jest to rozdzielana śred
 
 ## <a name="middleware"></a>Oprogramowanie pośredniczące
 
-`Configure` Metoda dodaje oprogramowanie pośredniczące i przekazuje do niego ciąg Safelist w parametrze konstruktora.
+Metoda `Configure` dodaje oprogramowanie pośredniczące i przekazuje do niego ciąg Safelist w parametrze konstruktora.
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Startup.cs?name=snippet_Configure&highlight=10)]
 
@@ -47,7 +47,7 @@ Oprogramowanie pośredniczące analizuje ciąg w tablicę i wyszukuje zdalny adr
 
 Jeśli chcesz, aby Safelist tylko dla określonych kontrolerów lub metod akcji, Użyj filtru akcji. Oto przykład: 
 
-[!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Filters/ClientIdCheckFilter.cs)]
+[!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Filters/ClientIpCheckFilter.cs)]
 
 Filtr akcji zostanie dodany do kontenera usługi.
 
@@ -57,13 +57,13 @@ Filtr może być następnie używany na kontrolerze lub metodzie akcji.
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Controllers/ValuesController.cs?name=snippet_Filter&highlight=1)]
 
-W przykładowej aplikacji filtr jest stosowany do `Get` metody. Dlatego podczas testowania aplikacji przez wysłanie `Get` żądania interfejsu API ten atrybut sprawdza poprawność adresu IP klienta. Podczas testowania przez wywołanie interfejsu API z dowolną inną metodą HTTP, oprogramowanie pośredniczące sprawdza poprawność adresu IP klienta.
+W przykładowej aplikacji filtr jest stosowany do metody `Get`. Dlatego podczas testowania aplikacji przez wysłanie żądania interfejsu API `Get` ten atrybut sprawdza poprawność adresu IP klienta. Podczas testowania przez wywołanie interfejsu API z dowolną inną metodą HTTP, oprogramowanie pośredniczące sprawdza poprawność adresu IP klienta.
 
 ## <a name="razor-pages-filter"></a>Filtr Razor Pages 
 
 Jeśli chcesz Safelist dla aplikacji Razor Pages, Użyj filtru Razor Pages. Oto przykład: 
 
-[!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Filters/ClientIdCheckPageFilter.cs)]
+[!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Filters/ClientIpCheckPageFilter.cs)]
 
 Ten filtr jest włączony przez dodanie go do kolekcji filtrów MVC.
 

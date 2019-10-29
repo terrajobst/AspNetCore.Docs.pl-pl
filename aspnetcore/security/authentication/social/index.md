@@ -1,31 +1,30 @@
 ---
 title: Uwierzytelnianie w serwisach Facebook, Google i dostawcy zewnętrznym w ASP.NET Core
 author: rick-anderson
-description: W tym samouczku przedstawiono sposób tworzenia aplikacji ASP.NET Core 2. x przy użyciu protokołu OAuth 2,0 z zewnętrznymi dostawcami uwierzytelniania.
+description: W tym samouczku przedstawiono sposób tworzenia aplikacji ASP.NET Core przy użyciu protokołu OAuth 2,0 z zewnętrznymi dostawcami uwierzytelniania.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/10/2019
+ms.date: 10/21/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: edaf9eeaf02879b2f7816bab0eb373a7de640c05
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 627ca483d60514d85e38c0e346ff5aef64ad9fee
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082505"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034304"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Uwierzytelnianie w serwisach Facebook, Google i dostawcy zewnętrznym w ASP.NET Core
 
-Przez [Valeriy Novytskyy](https://github.com/01binary) i [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autorzy [Valeriy Novytskyy](https://github.com/01binary) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-W tym samouczku przedstawiono sposób tworzenia aplikacji ASP.NET Core 2,2, która umożliwia użytkownikom logowanie się przy użyciu uwierzytelniania OAuth 2,0 z poświadczeniami od zewnętrznych dostawców uwierzytelniania.
+W tym samouczku przedstawiono sposób tworzenia aplikacji ASP.NET Core 3,0, która umożliwia użytkownikom logowanie się przy użyciu uwierzytelniania OAuth 2,0 z poświadczeniami od zewnętrznych dostawców uwierzytelniania.
 
-Dostawcy [serwisu Facebook](xref:security/authentication/facebook-logins), [Twitter](xref:security/authentication/twitter-logins), [Google](xref:security/authentication/google-logins)i [Microsoft](xref:security/authentication/microsoft-logins) są pokryte w poniższych sekcjach. Inni dostawcy są dostępni w pakietach innych firm, takich jak [ASPNET. Security. OAuth. Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers) i [ASPNET. Security. OpenID Connect. Providers](https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers).
-
-![Ikony mediów społecznościowych dla usług Facebook, Twitter, Google Plus i Windows](index/_static/social.png)
+Dostawcy [serwisu Facebook](xref:security/authentication/facebook-logins), [Twitter](xref:security/authentication/twitter-logins), [Google](xref:security/authentication/google-logins)i [Microsoft](xref:security/authentication/microsoft-logins) są objęci następującymi sekcjami i używają początkowego projektu utworzonego w tym artykule. Inni dostawcy są dostępni w pakietach innych firm, takich jak [ASPNET. Security. OAuth. Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers) i [ASPNET. Security. OpenID Connect. Providers](https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers).
 
 Umożliwienie użytkownikom logowania się przy użyciu istniejących poświadczeń:
+
 * Jest wygodna dla użytkowników.
-* Przenosi wiele kompleksów związanych z zarządzaniem procesem logowania na stronie trzeciej. 
+* Przenosi wiele kompleksów związanych z zarządzaniem procesem logowania na stronie trzeciej.
 
 Aby zapoznać się z przykładami sposobu, w jaki nazwy logowania społecznościowe mogą na przykład przeanalizować [ruch i konwersje](https://dev.twitter.com/resources/case-studies)klientów, zobacz temat analizy przypadków według [serwisu Facebook](https://www.facebook.com/unsupportedbrowser)
 
@@ -36,36 +35,32 @@ Aby zapoznać się z przykładami sposobu, w jaki nazwy logowania społeczności
 * Utwórz nowy projekt.
 * Wybierz pozycję **ASP.NET Core aplikacja sieci Web** i przycisk **dalej**.
 * Podaj **nazwę projektu** i Potwierdź lub Zmień **lokalizację**. Wybierz pozycję **Utwórz**.
-* Na liście rozwijanej wybierz pozycję **ASP.NET Core 2,2** . Wybierz pozycję **aplikacja sieci Web** na liście szablon.
-* W obszarze **uwierzytelnianie**wybierz opcję **Zmień** i ustaw uwierzytelnianie na **konta poszczególnych użytkowników**. Kliknij przycisk **OK**.
+* Na liście rozwijanej wybierz pozycję **ASP.NET Core 3,0** , a następnie wybierz pozycję **aplikacja sieci Web**.
+* W obszarze **uwierzytelnianie**wybierz opcję **Zmień** i ustaw uwierzytelnianie na **konta poszczególnych użytkowników**. Wybierz **przycisk OK**.
 * W oknie **Tworzenie nowej ASP.NET Core aplikacji sieci Web** wybierz pozycję **Utwórz**.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
-* Otwórz [zintegrowany terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).
+* Otwórz Terminal.  Aby uzyskać Visual Studio Code można otworzyć [zintegrowany terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
-* Zmień katalogi (`cd`) na folder, który będzie zawierać projekt.
+* Zmień katalog (`cd`) do folderu, który będzie zawierać projekt.
 
-* Uruchom następujące polecenia:
+* W przypadku systemu Windows uruchom następujące polecenie:
 
   ```dotnetcli
   dotnet new webapp -o WebApp1 -au Individual -uld
-  code -r WebApp1
   ```
 
-  * Polecenie tworzy nowy projekt Razor Pages w folderze WebApp1. `dotnet new`
-  * `-uld`używa LocalDB zamiast oprogramowania SQLite. Pomiń `-uld` korzystanie z oprogramowania SQLite.
-  * `-au Individual`Tworzy kod dla indywidualnego uwierzytelniania.
-  * Polecenie otwiera folder WebApp1 w nowym wystąpieniu Visual Studio Code. `code`
+  W przypadku systemów macOS i Linux Uruchom następujące polecenie:
 
-* Zostanie wyświetlone okno dialogowe z **wymaganymi zasobami do kompilowania i debugowania brakuje w "WebApp1". Dodać je?** Wybierz pozycję **tak**.
+  ```dotnetcli
+  dotnet new webapp -o WebApp1 -au Individual
+  ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
-
-* Wybierz **pliku** > **nowe rozwiązanie**.
-* Na pasku bocznym wybierz pozycję**aplikacja** **.NET Core** > . Wybierz szablon **aplikacji sieci Web** . Wybierz opcję **Dalej**.
-* Ustaw listę rozwijaną **platformy docelowej** na **platformę .NET Core 2,2**. Wybierz opcję **Dalej**.
-* Podaj **nazwę projektu**. Potwierdź lub Zmień **lokalizację**. Wybierz pozycję **Utwórz**.
+  * `dotnet new` polecenie tworzy nowy projekt Razor Pages w folderze *WebApp1*
+  * `-au Individual` tworzy kod dla indywidualnego uwierzytelniania.
+  * `-uld` używa LocalDB, uproszczonej wersji SQL Server Express dla systemu Windows. Pomiń `-uld`, aby użyć oprogramowania SQLite.
+  * `code` polecenie otwiera folder *WebApp1* w nowym wystąpieniu Visual Studio Code.
 
 ---
 
@@ -104,7 +99,7 @@ Gdy zarejestrujesz się przy użyciu zewnętrznego dostawcy logowania, nie masz 
 
 Aby utworzyć hasło i zalogować się przy użyciu poczty e-mail, która została ustawiona w procesie logowania z zewnętrznymi dostawcami:
 
-* Wybierz link **Hello &lt;email alias&gt;**  w prawym górnym rogu, aby przejść do widoku **zarządzania** .
+* Wybierz **alias adresu e-mail Powitania &lt;&gt;** link w prawym górnym rogu, aby przejść do widoku **zarządzania** .
 
 ![Widok zarządzania aplikacjami sieci Web](index/_static/pass1a.png)
 

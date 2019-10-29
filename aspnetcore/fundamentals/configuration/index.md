@@ -5,14 +5,14 @@ description: Dowiedz się, jak skonfigurować aplikację ASP.NET Core przy użyc
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/18/2019
+ms.date: 10/24/2019
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 0a9b1a1a08617ef4ca8a36295cec8910ec111acd
-ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.openlocfilehash: 263f9f7c4c800a74b745fd636196e1e135afc91b
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72589908"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73033914"
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguracja w ASP.NET Core
 
@@ -178,7 +178,7 @@ Klucze konfiguracji przyjmują następujące konwencje:
   * W interfejsie API konfiguracji, separator dwukropek (`:`) działa na wszystkich platformach.
   * W zmiennych środowiskowych separator dwukropek może nie zadziałał na wszystkich platformach. Podwójne podkreślenie (`__`) jest obsługiwane przez wszystkie platformy i automatycznie konwertowane na dwukropek.
   * W Azure Key Vault klucze hierarchiczne używają `--` (dwóch kresek) jako separatora. Należy podać kod, aby zastąpić łączniki dwukropkiem, gdy wpisy tajne są ładowane do konfiguracji aplikacji.
-* @No__t_0 obsługuje powiązania tablic z obiektami przy użyciu indeksów tablicowych w kluczach konfiguracji. Powiązanie tablicowe zostało opisane w sekcji [Powiązywanie tablicy z klasą](#bind-an-array-to-a-class) .
+* <xref:Microsoft.Extensions.Configuration.ConfigurationBinder> obsługuje powiązania tablic z obiektami przy użyciu indeksów tablicowych w kluczach konfiguracji. Powiązanie tablicowe zostało opisane w sekcji [Powiązywanie tablicy z klasą](#bind-an-array-to-a-class) .
 
 ### <a name="values"></a>Wartości
 
@@ -305,7 +305,7 @@ Konfiguracja dostarczona do aplikacji w `ConfigureAppConfiguration` jest dostęp
 
 ## <a name="command-line-configuration-provider"></a>Dostawca konfiguracji wiersza polecenia
 
-@No__t_0 ładuje konfigurację z par klucz-wartość argumentu wiersza polecenia w czasie wykonywania.
+<xref:Microsoft.Extensions.Configuration.CommandLine.CommandLineConfigurationProvider> ładuje konfigurację z par klucz-wartość argumentu wiersza polecenia w czasie wykonywania.
 
 Aby uaktywnić konfigurację wiersza polecenia, Metoda rozszerzenia <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> jest wywoływana w wystąpieniu <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.
 
@@ -415,7 +415,7 @@ Po uruchomieniu poprzedniego polecenia Konfiguracja zawiera wartości pokazane w
 
 ## <a name="environment-variables-configuration-provider"></a>Dostawca konfiguracji zmiennych środowiskowych
 
-@No__t_0 ładuje konfigurację ze par klucz-wartość zmiennej środowiskowej w czasie wykonywania.
+<xref:Microsoft.Extensions.Configuration.EnvironmentVariables.EnvironmentVariablesConfigurationProvider> ładuje konfigurację ze par klucz-wartość zmiennej środowiskowej w czasie wykonywania.
 
 Aby uaktywnić konfigurację zmiennych środowiskowych, wywołaj metodę rozszerzenia <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> w wystąpieniu <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.
 
@@ -520,7 +520,7 @@ Gdy zmienna środowiskowa zostanie odnaleziona i załadowana do konfiguracji z d
 
 ### <a name="ini-configuration-provider"></a>Dostawca konfiguracji pliku INI
 
-@No__t_0 ładuje konfigurację z par klucz-wartość pliku INI w czasie wykonywania.
+<xref:Microsoft.Extensions.Configuration.Ini.IniConfigurationProvider> ładuje konfigurację z par klucz-wartość pliku INI w czasie wykonywania.
 
 Aby uaktywnić konfigurację pliku INI, wywołaj metodę rozszerzenia <xref:Microsoft.Extensions.Configuration.IniConfigurationExtensions.AddIniFile*> w wystąpieniu <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.
 
@@ -530,20 +530,17 @@ Przeciążania Zezwalaj na określanie:
 
 * Czy plik jest opcjonalny.
 * Czy konfiguracja zostanie ponownie załadowana w przypadku zmiany pliku.
-* @No__t_0 używany do uzyskiwania dostępu do pliku.
+* <xref:Microsoft.Extensions.FileProviders.IFileProvider> używany do uzyskiwania dostępu do pliku.
 
 Wywołaj `ConfigureAppConfiguration` podczas kompilowania hosta, aby określić konfigurację aplikacji:
 
 ```csharp
 .ConfigureAppConfiguration((hostingContext, config) =>
 {
-    config.SetBasePath(Directory.GetCurrentDirectory());
     config.AddIniFile(
         "config.ini", optional: true, reloadOnChange: true);
 })
 ```
-
-Ścieżka bazowa jest ustawiana za pomocą <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.
 
 Ogólny przykład pliku konfiguracji INI:
 
@@ -572,7 +569,7 @@ Poprzedni plik konfiguracji ładuje następujące klucze z `value`:
 
 ### <a name="json-configuration-provider"></a>Dostawca konfiguracji JSON
 
-@No__t_0 ładuje konfigurację z par klucz-wartość pliku JSON podczas środowiska uruchomieniowego.
+<xref:Microsoft.Extensions.Configuration.Json.JsonConfigurationProvider> ładuje konfigurację z par klucz-wartość pliku JSON podczas środowiska uruchomieniowego.
 
 Aby uaktywnić konfigurację pliku JSON, wywołaj metodę rozszerzenia <xref:Microsoft.Extensions.Configuration.JsonConfigurationExtensions.AddJsonFile*> w wystąpieniu <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.
 
@@ -580,7 +577,7 @@ Przeciążania Zezwalaj na określanie:
 
 * Czy plik jest opcjonalny.
 * Czy konfiguracja zostanie ponownie załadowana w przypadku zmiany pliku.
-* @No__t_0 używany do uzyskiwania dostępu do pliku.
+* <xref:Microsoft.Extensions.FileProviders.IFileProvider> używany do uzyskiwania dostępu do pliku.
 
 `AddJsonFile` jest automatycznie wywoływana dwukrotnie po zainicjowaniu nowego konstruktora hostów z `CreateDefaultBuilder`. Metoda jest wywoływana w celu załadowania konfiguracji z:
 
@@ -602,13 +599,10 @@ Wywołaj `ConfigureAppConfiguration` podczas kompilowania hosta, aby określić 
 ```csharp
 .ConfigureAppConfiguration((hostingContext, config) =>
 {
-    config.SetBasePath(Directory.GetCurrentDirectory());
     config.AddJsonFile(
         "config.json", optional: true, reloadOnChange: true);
 })
 ```
-
-Ścieżka bazowa jest ustawiana za pomocą <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.
 
 **Przykład**
 
@@ -626,7 +620,7 @@ Przykładowa aplikacja korzysta z statycznej metody wygodnej `CreateDefaultBuild
 
 ### <a name="xml-configuration-provider"></a>Dostawca konfiguracji XML
 
-@No__t_0 ładuje konfigurację z par klucz-wartość pliku XML w czasie wykonywania.
+<xref:Microsoft.Extensions.Configuration.Xml.XmlConfigurationProvider> ładuje konfigurację z par klucz-wartość pliku XML w czasie wykonywania.
 
 Aby uaktywnić konfigurację pliku XML, wywołaj metodę rozszerzenia <xref:Microsoft.Extensions.Configuration.XmlConfigurationExtensions.AddXmlFile*> w wystąpieniu <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.
 
@@ -634,7 +628,7 @@ Przeciążania Zezwalaj na określanie:
 
 * Czy plik jest opcjonalny.
 * Czy konfiguracja zostanie ponownie załadowana w przypadku zmiany pliku.
-* @No__t_0 używany do uzyskiwania dostępu do pliku.
+* <xref:Microsoft.Extensions.FileProviders.IFileProvider> używany do uzyskiwania dostępu do pliku.
 
 Węzeł główny pliku konfiguracji jest ignorowany, gdy są tworzone pary klucz-wartość konfiguracji. Nie określaj definicji typu dokumentu (DTD) ani przestrzeni nazw w pliku.
 
@@ -643,13 +637,10 @@ Wywołaj `ConfigureAppConfiguration` podczas kompilowania hosta, aby określić 
 ```csharp
 .ConfigureAppConfiguration((hostingContext, config) =>
 {
-    config.SetBasePath(Directory.GetCurrentDirectory());
     config.AddXmlFile(
         "config.xml", optional: true, reloadOnChange: true);
 })
 ```
-
-Ścieżka bazowa jest ustawiana za pomocą <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.
 
 Pliki konfiguracji XML mogą używać odrębnych nazw elementów dla powtarzających się sekcji:
 
@@ -716,9 +707,9 @@ Poprzedni plik konfiguracji ładuje następujące klucze z `value`:
 
 ## <a name="key-per-file-configuration-provider"></a>Dostawca konfiguracji klucza dla plików
 
-@No__t_0 używa plików katalogu jako par klucz konfiguracji i wartość. Kluczem jest nazwa pliku. Wartość zawiera zawartość pliku. Dostawca konfiguracji klucza dla plików jest używany w scenariuszach hostingu platformy Docker.
+<xref:Microsoft.Extensions.Configuration.KeyPerFile.KeyPerFileConfigurationProvider> używa plików katalogu jako par klucz konfiguracji i wartość. Kluczem jest nazwa pliku. Wartość zawiera zawartość pliku. Dostawca konfiguracji klucza dla plików jest używany w scenariuszach hostingu platformy Docker.
 
-Aby uaktywnić konfigurację klucza dla plików, wywołaj metodę rozszerzenia <xref:Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions.AddKeyPerFile*> w wystąpieniu <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>. @No__t_0 plików musi być ścieżką bezwzględną.
+Aby uaktywnić konfigurację klucza dla plików, wywołaj metodę rozszerzenia <xref:Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions.AddKeyPerFile*> w wystąpieniu <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>. `directoryPath` plików musi być ścieżką bezwzględną.
 
 Przeciążania Zezwalaj na określanie:
 
@@ -732,18 +723,15 @@ Wywołaj `ConfigureAppConfiguration` podczas kompilowania hosta, aby określić 
 ```csharp
 .ConfigureAppConfiguration((hostingContext, config) =>
 {
-    config.SetBasePath(Directory.GetCurrentDirectory());
     var path = Path.Combine(
         Directory.GetCurrentDirectory(), "path/to/files");
     config.AddKeyPerFile(directoryPath: path, optional: true);
 })
 ```
 
-Ścieżka bazowa jest ustawiana za pomocą <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.
-
 ## <a name="memory-configuration-provider"></a>Dostawca konfiguracji pamięci
 
-@No__t_0 używa kolekcji w pamięci jako par klucz-wartość konfiguracji.
+<xref:Microsoft.Extensions.Configuration.Memory.MemoryConfigurationProvider> używa kolekcji w pamięci jako par klucz-wartość konfiguracji.
 
 Aby uaktywnić konfigurację kolekcji w pamięci, wywołaj metodę rozszerzenia <xref:Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions.AddInMemoryCollection*> w wystąpieniu <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.
 
@@ -846,7 +834,7 @@ Aby zwrócić <xref:Microsoft.Extensions.Configuration.IConfigurationSection> za
 var configSection = _config.GetSection("section1");
 ```
 
-@No__t_0 nie ma wartości, tylko klucza i ścieżki.
+`configSection` nie ma wartości, tylko klucza i ścieżki.
 
 Podobnie, aby uzyskać wartości kluczy w `section2:subsection0`, wywołaj `GetSection` i podaj ścieżkę sekcji:
 
@@ -856,7 +844,7 @@ var configSection = _config.GetSection("section2:subsection0");
 
 `GetSection` nigdy nie zwraca `null`. Jeśli nie znaleziono pasującej sekcji, zwracany jest pusty `IConfigurationSection`.
 
-Gdy `GetSection` zwraca pasującą sekcję, <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Value> nie jest wypełnione. @No__t_0 i <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Path> są zwracane, gdy istnieje sekcja.
+Gdy `GetSection` zwraca pasującą sekcję, <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Value> nie jest wypełnione. <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Key> i <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Path> są zwracane, gdy istnieje sekcja.
 
 ### <a name="getchildren"></a>GetChildren —
 
@@ -998,7 +986,7 @@ TvShow = tvShow;
 
 *Przykładowa aplikacja pokazuje Koncepcje opisane w tej sekcji.*
 
-@No__t_0 obsługuje powiązania tablic z obiektami przy użyciu indeksów tablicowych w kluczach konfiguracji. Każdy format tablicy, który ujawnia segment klucza numerycznego (`:0:`, `:1:`, &hellip; `:{n}:`), jest w stanie powiązać powiązanie tablicową z tablicą klas POCO.
+<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> obsługuje powiązania tablic z obiektami przy użyciu indeksów tablicowych w kluczach konfiguracji. Każdy format tablicy, który ujawnia segment klucza numerycznego (`:0:`, `:1:`, &hellip; `:{n}:`), jest w stanie powiązać powiązanie tablicową z tablicą klas POCO.
 
 > [!NOTE]
 > Powiązanie jest dostarczane według Konwencji. Niestandardowi dostawcy konfiguracji nie muszą implementować powiązania tablicy.
@@ -1019,13 +1007,13 @@ Te klucze i wartości są ładowane w przykładowej aplikacji przy użyciu dosta
 
 ::: moniker range=">= aspnetcore-3.0"
 
-[!code-csharp[](index/samples/3.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=5-12,23)]
+[!code-csharp[](index/samples/3.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=5-12,22)]
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-[!code-csharp[](index/samples/2.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=5-12,23)]
+[!code-csharp[](index/samples/2.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=5-12,22)]
 
 ::: moniker-end
 
@@ -1203,7 +1191,7 @@ Metoda rozszerzenia `AddEFConfiguration` zezwala na Dodawanie źródła konfigur
 
 Poniższy kod pokazuje, jak używać niestandardowych `EFConfigurationProvider` w *program.cs*:
 
-[!code-csharp[](index/samples/3.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=30-31)]
+[!code-csharp[](index/samples/3.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=29-30)]
 
 ::: moniker-end
 
@@ -1239,7 +1227,7 @@ Metoda rozszerzenia `AddEFConfiguration` zezwala na Dodawanie źródła konfigur
 
 Poniższy kod pokazuje, jak używać niestandardowych `EFConfigurationProvider` w *program.cs*:
 
-[!code-csharp[](index/samples/2.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=30-31)]
+[!code-csharp[](index/samples/2.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=29-30)]
 
 ::: moniker-end
 

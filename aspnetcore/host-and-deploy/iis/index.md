@@ -5,14 +5,14 @@ description: Dowiedz się, jak hostować ASP.NET Core aplikacje w systemie Windo
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/13/2019
+ms.date: 10/26/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: bf535134277a08103ba8ce55eeed540a9fce8260
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: 179ab4c97426c9d3cb8ed069d2059d767d755533
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333884"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034266"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>ASP.NET Core hosta w systemie Windows z usługami IIS
 
@@ -129,8 +129,6 @@ Moduł ASP.NET Core generuje port dynamiczny do przypisania do procesu zaplecza.
 
 Wywołania interfejsu API `UseUrls` lub Kestrel `Listen` nie są wymagane w przypadku korzystania z modułu. Jeśli jest wywoływana `UseUrls` lub `Listen`, Kestrel nasłuchuje na porcie określonym tylko podczas uruchamiania aplikacji bez usług IIS.
 
-Aby uzyskać więcej informacji na temat modeli hostingu przetwarzanych w procesie i poza procesami, zobacz [moduł ASP.NET Core](xref:host-and-deploy/aspnet-core-module) i [ASP.NET Core informacje o konfiguracji modułu](xref:host-and-deploy/aspnet-core-module).
-
 ::: moniker-end
 
 Aby uzyskać wskazówki dotyczące konfiguracji modułu ASP.NET Core, zobacz <xref:host-and-deploy/aspnet-core-module>.
@@ -221,7 +219,7 @@ Plik *Web. config* konfiguruje [moduł ASP.NET Core](xref:host-and-deploy/aspnet
 <Project Sdk="Microsoft.NET.Sdk.Web">
 ```
 
-Jeśli plik *Web. config* nie jest obecny w projekcie, plik zostanie utworzony przy użyciu poprawnych *processPath* i *argumentów* w celu skonfigurowania [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module) i przesunięcia do [publikowanych danych wyjściowych](xref:host-and-deploy/directory-structure).
+Jeśli plik *Web. config* nie jest obecny w projekcie, plik zostanie utworzony przy użyciu poprawnych *processPath* i *argumentów* w celu skonfigurowania modułu ASP.NET Core i przesunięcia do [publikowanych danych wyjściowych](xref:host-and-deploy/directory-structure).
 
 Jeśli plik *Web. config* znajduje się w projekcie, plik jest przekształcany przy użyciu poprawnych *processPath* i *argumentów* w celu skonfigurowania modułu ASP.NET Core i przesunięcia do publikowanych danych wyjściowych. Transformacja nie modyfikuje ustawień konfiguracji usług IIS w pliku.
 
@@ -235,7 +233,7 @@ Aby zapobiec transformacje pliku *Web. config* przez zestaw SDK sieci Web, użyj
 </PropertyGroup>
 ```
 
-Podczas wyłączania pliku zestawu SDK sieci Web, *processPath* i *argumenty* powinny być ustawiane ręcznie przez dewelopera. Aby uzyskać więcej informacji, zobacz [Informacje o konfiguracji modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module).
+Podczas wyłączania pliku zestawu SDK sieci Web, *processPath* i *argumenty* powinny być ustawiane ręcznie przez dewelopera. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/aspnet-core-module>.
 
 ### <a name="webconfig-file-location"></a>Lokalizacja pliku Web. config
 
@@ -326,12 +324,16 @@ Aby uzyskać wcześniejszą wersję Instalatora:
 
 1. Uruchom Instalatora na serwerze. Następujące parametry są dostępne podczas uruchamiania Instalatora z powłoki poleceń administratora:
 
-   * `OPT_NO_ANCM=1` &ndash; pominąć instalację modułu ASP.NET Core.
+   * `OPT_NO_ANCM=1` &ndash; pominąć Instalowanie modułu ASP.NET Core.
    * `OPT_NO_RUNTIME=1` &ndash; pominąć Instalowanie środowiska uruchomieniowego platformy .NET Core.
    * `OPT_NO_SHAREDFX=1` &ndash; pominąć instalację ASP.NET Shared Framework (ASP.NET Runtime).
    * `OPT_NO_X86=1` &ndash; pominąć Instalowanie środowiska uruchomieniowego x86. Użyj tego parametru, Jeśli wiesz, że nie będziesz hostować aplikacji 32-bitowych. Jeśli w przyszłości będziesz hostować zarówno aplikacje 32-bitowe, jak i 64-bitowe, nie używaj tego parametru i zainstaluj oba środowiska uruchomieniowe.
-   * `OPT_NO_SHARED_CONFIG_CHECK=1` &ndash; Wyłącz sprawdzanie przy użyciu konfiguracji udostępnionej usług IIS, gdy konfiguracja udostępniona (*ApplicationHost. config*) znajduje się na tym samym komputerze, na którym zainstalowano program IIS. *Dostępne tylko w przypadku ASP.NET Core 2,2 lub nowszych instalatorów pakietu do obsługi.* Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration>.
+   * `OPT_NO_SHARED_CONFIG_CHECK=1` &ndash; wyłączyć sprawdzanie przy użyciu konfiguracji udostępnionej usług IIS, gdy konfiguracja udostępniona (*ApplicationHost. config*) znajduje się na tym samym komputerze, na którym zainstalowano program IIS. *Dostępne tylko w przypadku ASP.NET Core 2,2 lub nowszych instalatorów pakietu do obsługi.* Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration>.
 1. Uruchom ponownie system lub **Zatrzymaj polecenie net stop was**, a następnie polecenie **net start W3SVC** z powłoki poleceń. Ponowne uruchomienie usług IIS powoduje zmianę ścieżki systemowej, która jest zmienną środowiskową, wykonaną przez Instalatora.
+
+Nie jest konieczne ręczne zatrzymanie poszczególnych lokacji w usługach IIS podczas instalowania pakietu hostingu. Aplikacje hostowane (lokacje IIS) są ponownie uruchamiane po ponownym uruchomieniu usług IIS. Aplikacje są uruchamiane ponownie po otrzymaniu pierwszego żądania, w tym od [modułu inicjalizacji aplikacji](#application-initialization-module-and-idle-timeout).
+
+ASP.NET Core przyjmuje zachowanie funkcji przekazywania do przodu dla wydań poprawek udostępnionych pakietów platformy. Po ponownym uruchomieniu aplikacji hostowanych przez usługi IIS przy użyciu usług IIS aplikacje są ładowane z najnowszymi wersjami poprawki pakietów, do których się odwołują, gdy otrzymają swoje pierwsze żądanie. Jeśli usługi IIS nie zostaną ponownie uruchomione, aplikacje ponownie uruchamiają się i wykazują zachowanie przekazujące, gdy procesy robocze są odtwarzane i otrzymują swoje pierwsze żądanie.
 
 > [!NOTE]
 > Aby uzyskać informacje na temat konfiguracji udostępnionej usług IIS, zobacz [ASP.NET Core Module z udostępnioną konfiguracją usług IIS](xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration).
@@ -512,7 +514,7 @@ W przypadku hostowania aplikacji podrzędnej non-ASP.NET Core w aplikacji ASP.NE
 
 ::: moniker-end
 
-Linki do zasobów statycznych w aplikacji podrzędnej powinny używać notacji z ukośnikiem (`~/`). Notacja "ukośnik" wyzwala [pomocnika tagów](xref:mvc/views/tag-helpers/intro) , aby dołączyć pathbase podaplikacji do renderowanego linku względnego. W przypadku aplikacji podrzędnej w `/subapp_path` obraz połączony z `src="~/image.png"` jest renderowany jako `src="/subapp_path/image.png"`. Oprogramowanie pośredniczące aplikacji głównej nie przetwarza żądania pliku statycznego. Żądanie jest przetwarzane przez oprogramowanie pośredniczące plików statycznych aplikacji podrzędnej.
+Linki do zasobów statycznych w aplikacji podrzędnej powinny używać notacji z ukośnikiem (`~/`). Notacja "ukośnik" wyzwala [pomocnika tagów](xref:mvc/views/tag-helpers/intro) , aby dołączyć pathbase podaplikacji do renderowanego linku względnego. W przypadku aplikacji podrzędnej w `/subapp_path`obraz połączony z `src="~/image.png"` jest renderowany jako `src="/subapp_path/image.png"`. Oprogramowanie pośredniczące aplikacji głównej nie przetwarza żądania pliku statycznego. Żądanie jest przetwarzane przez oprogramowanie pośredniczące plików statycznych aplikacji podrzędnej.
 
 Jeśli statyczny atrybut zasobu `src` jest ustawiony na ścieżkę bezwzględną (na przykład `src="/image.png"`), link jest renderowany bez pathbase podaplikacji. Oprogramowanie pośredniczące pliku statycznego aplikacji głównej próbuje obsłużyć zasób z poziomu [głównego katalogu sieci Web](xref:fundamentals/index#web-root)aplikacji głównej, co spowoduje, że odpowiedź na *404 nie zostanie znaleziona* , chyba że statyczny zasób jest dostępny z poziomu aplikacji głównej.
 
@@ -528,13 +530,19 @@ Aby hostować aplikację ASP.NET Core jako aplikację podrzędną w innej aplika
 
 Przypisanie oddzielnej puli aplikacji do aplikacji podrzędnej jest wymagane w przypadku korzystania z modelu hostingu w procesie.
 
-Aby uzyskać więcej informacji na temat modelu hostingu w procesie i konfigurowania modułu ASP.NET Core, zobacz <xref:host-and-deploy/aspnet-core-module> i <xref:host-and-deploy/aspnet-core-module>.
+Aby uzyskać więcej informacji na temat modelu hostingu w procesie i konfigurowania modułu ASP.NET Core, zobacz <xref:host-and-deploy/aspnet-core-module>.
 
 ## <a name="configuration-of-iis-with-webconfig"></a>Konfiguracja usług IIS z pliku Web. config
 
 Na konfigurację usług IIS wpływa sekcja `<system.webServer>` *pliku Web. config* dla scenariuszy usług IIS, które są funkcjonalne dla ASP.NET Core aplikacji z modułem ASP.NET Core. Na przykład konfiguracja usług IIS jest funkcjonalna dla kompresji dynamicznej. Jeśli usługi IIS są skonfigurowane na poziomie serwera do korzystania z kompresji dynamicznej, element `<urlCompression>` w pliku *Web. config* aplikacji może go wyłączyć dla aplikacji ASP.NET Core.
 
-Aby uzyskać więcej informacji, zobacz [informacje dotyczące konfiguracji \<System. WebServer >](/iis/configuration/system.webServer/), [Informacje o konfiguracji modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module)i [moduły usług IIS z ASP.NET Core](xref:host-and-deploy/iis/modules). Aby ustawić zmienne środowiskowe dla poszczególnych aplikacji działających w pulach izolowanych aplikacji (obsługiwane dla usług IIS 10,0 lub nowszych), zobacz sekcję *polecenie Appcmd. exe* w artykule [zmienne środowiskowe \<environmentVariables >](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) temat w dokumentacji usług IIS. łączoną.
+Więcej informacji znajduje się w następujących tematach:
+
+* [Dokumentacja konfiguracyjna \<system. WebServer >](/iis/configuration/system.webServer/)
+* <xref:host-and-deploy/aspnet-core-module>
+* <xref:host-and-deploy/iis/modules>
+
+Aby ustawić zmienne środowiskowe dla poszczególnych aplikacji działających w pulach izolowanych aplikacji (obsługiwane dla usług IIS 10,0 lub nowszych), zobacz sekcję *polecenie Appcmd. exe* w artykule [zmienne środowiskowe \<environmentVariables >](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) temat w dokumentacji usług IIS. łączoną.
 
 ## <a name="configuration-sections-of-webconfig"></a>Sekcje konfiguracji pliku Web. config
 
@@ -584,9 +592,9 @@ Jeśli proces roboczy usług IIS wymaga podwyższonego poziomu dostępu do aplik
 
 1. Wybierz przycisk **lokalizacje** i upewnij się, że wybrano system.
 
-1. Wprowadź wartość **IIS puli aplikacji @ no__t-1 < app_pool_name >** w polu **Wprowadź nazwy obiektów do wybrania** . Wybierz przycisk **Sprawdź nazwy** . W obszarze *Domyślna pula aplikacji* Sprawdź nazwy za pomocą **usług IIS AppPool\DefaultAppPool**. Po wybraniu przycisku **Sprawdź nazwy** w obszarze nazwy obiektów zostanie wykazana wartość **Domyślna pula aplikacji** . Nie można wprowadzić nazwy puli aplikacji bezpośrednio w obszarze nazw obiektów. Przy sprawdzaniu nazwy obiektu należy użyć **puli aplikacji @ no__t-1 < app_pool_name >** .
+1. Wprowadź **\\IIS puli aplikacji < app_pool_name >** w polu **Wprowadź nazwy obiektów do wybrania** . Wybierz przycisk **Sprawdź nazwy** . W obszarze *Domyślna pula aplikacji* Sprawdź nazwy za pomocą **usług IIS AppPool\DefaultAppPool**. Po wybraniu przycisku **Sprawdź nazwy** w obszarze nazwy obiektów zostanie wykazana wartość **Domyślna pula aplikacji** . Nie można wprowadzić nazwy puli aplikacji bezpośrednio w obszarze nazw obiektów. Podczas sprawdzania nazwy obiektu Użyj **\\IIS puli aplikacji < app_pool_name >** .
 
-   ![Okno dialogowe Wybieranie użytkowników lub grup dla folderu aplikacji: Nazwa puli aplikacji "domyślna pula" jest dołączana do "IIS puli aplikacji @ no__t-0 w obszarze nazw obiektów przed wybraniem pozycji" Sprawdź nazwy ".](index/_static/select-users-or-groups-1.png)
+   ![Okno dialogowe Wybieranie użytkowników lub grup dla folderu aplikacji: Nazwa puli aplikacji "domyślna pula" jest dołączana do "\" puli aplikacji IIS w obszarze nazw obiektów przed wybraniem pozycji" Sprawdź nazwy ".](index/_static/select-users-or-groups-1.png)
 
 1. Wybierz **przycisk OK**.
 
@@ -663,7 +671,7 @@ Upewnij się, że funkcja inicjowania roli inicjalizacji aplikacji IIS jest wł�
 Na komputerach z systemem Windows 7 lub nowszym w przypadku lokalnego korzystania z usług IIS:
 
 1. Przejdź do **Panelu sterowania** > **programy** > **programy i funkcje** > **włączać lub wyłączać funkcje systemu Windows** (po lewej stronie ekranu).
-1. Otwórz **Internet Information Services** > **World Wide Web usługi** @no__t **-3.**
+1. Otwórz **Internet Information Services** > **World Wide Web Services** > **funkcje projektowania aplikacji**.
 1. Zaznacz pole wyboru dla **inicjowania aplikacji**.
 
 W systemie Windows Server 2008 R2 lub nowszym:
@@ -728,11 +736,8 @@ Więcej informacji na temat usług IIS znajduje się w dokumentacji usług IIS.
 Dowiedz się więcej na temat modeli wdrażania aplikacji .NET Core.  
 [Wdrażanie aplikacji .NET Core](/dotnet/core/deploying/)
 
-Dowiedz się, jak moduł ASP.NET Core umożliwia serwerowi sieci Web Kestrel korzystanie z usług IIS lub IIS Express jako zwrotny serwer proxy.  
-[Moduł ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
-
-Dowiedz się, jak skonfigurować moduł ASP.NET Core na potrzeby hostowania aplikacji ASP.NET Core.  
-[Odwołania do konfiguracji modułu platformy ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
+Dowiedz się więcej o module ASP.NET Core, w tym wskazówki dotyczące konfiguracji.  
+<xref:host-and-deploy/aspnet-core-module>
 
 Dowiedz się więcej o strukturze katalogów opublikowanych ASP.NET Core aplikacji.  
 [Struktura katalogów](xref:host-and-deploy/directory-structure)

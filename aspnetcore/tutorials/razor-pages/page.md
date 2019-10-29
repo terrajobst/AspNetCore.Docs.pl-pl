@@ -5,12 +5,12 @@ description: Wyjaśnia Razor Pages wygenerowane przez szkielety.
 ms.author: riande
 ms.date: 08/17/2019
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 939ed5c3cdf33d8d99712e3166d8d07d3bac719f
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: 594fd6186cc73aa054fc9a1478850fa01e481ef2
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72334080"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034200"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Razor Pages szkieletowe w ASP.NET Core
 
@@ -28,11 +28,11 @@ Zapoznaj się z modelem stron */filmów/index. cshtml. cs* :
 
 [!code-csharp[](razor-pages-start/snapshot_sample3/RazorPagesMovie30/Pages/Movies/Index.cshtml.cs)]
 
-Razor Pages pochodzą od `PageModel`. Zgodnie z Konwencją Klasa pochodna @no__t -0 jest nazywana `<PageName>Model`. Konstruktor używa [iniekcji zależności](xref:fundamentals/dependency-injection) , aby dodać `RazorPagesMovieContext` do strony. Wszystkie strony szkieletowe są zgodne z tym wzorcem. Zobacz [kod asynchroniczny](xref:data/ef-rp/intro#asynchronous-code) , aby uzyskać więcej informacji na temat programowania asynchronicznego przy użyciu Entity Framework.
+Razor Pages pochodzą od `PageModel`. Według Konwencji Klasa pochodna `PageModel`jest nazywana `<PageName>Model`. Konstruktor używa [iniekcji zależności](xref:fundamentals/dependency-injection) , aby dodać `RazorPagesMovieContext` do strony. Wszystkie strony szkieletowe są zgodne z tym wzorcem. Zobacz [kod asynchroniczny](xref:data/ef-rp/intro#asynchronous-code) , aby uzyskać więcej informacji na temat programowania asynchronicznego przy użyciu Entity Framework.
 
 Gdy żądanie jest wykonywane dla strony, Metoda `OnGetAsync` zwraca listę filmów do strony Razor. `OnGetAsync` lub `OnGet` jest wywoływana w celu zainicjowania stanu strony. W takim przypadku `OnGetAsync` pobiera listę filmów i wyświetla je.
 
-Gdy `OnGet` zwraca `void` lub `OnGetAsync` zwraca wartość @ no__t-3, nie jest używana instrukcja return. Gdy typem zwracanym jest `IActionResult` lub `Task<IActionResult>`, należy podać instrukcję return. Na przykład: *Pages/Films/Create. cshtml. cs* `OnPostAsync`.
+Gdy `OnGet` zwraca `void` lub `OnGetAsync` zwraca`Task`, żadna instrukcja return nie jest używana. Gdy typem zwracanym jest `IActionResult` lub `Task<IActionResult>`, należy podać instrukcję return. Na przykład: *Pages/Films/Create. cshtml. cs* `OnPostAsync`.
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Create.cshtml.cs?name=snippet)]
 
@@ -49,10 +49,10 @@ Dyrektywa Razor `@page` powoduje, że plik jest akcją MVC, co oznacza, że moż
 Bada wyrażenie lambda użyte w następującym Pomocniku HTML:
 
 ```cshtml
-@Html.DisplayNameFor(model => model.Movie[0].Title))
+@Html.DisplayNameFor(model => model.Movie[0].Title)
 ```
 
-Pomocnik HTML `DisplayNameFor` sprawdza Właściwość `Title`, do której odwołuje się wyrażenie lambda w celu określenia nazwy wyświetlanej. Wyrażenie lambda jest sprawdzane, a nie oceniane. Oznacza to, że nie ma żadnych naruszeń dostępu, gdy `model`, `model.Movie` lub `model.Movie[0]` jest `null` lub puste. Gdy wyrażenie lambda jest oceniane (na przykład z `@Html.DisplayFor(modelItem => item.Title)`), wartości właściwości modelu są oceniane.
+Pomocnik HTML `DisplayNameFor` sprawdza Właściwość `Title`, do której odwołuje się wyrażenie lambda w celu określenia nazwy wyświetlanej. Wyrażenie lambda jest sprawdzane, a nie oceniane. Oznacza to, że nie ma żadnych naruszeń dostępu, gdy `model`, `model.Movie`lub `model.Movie[0]` jest `null` lub puste. Gdy wyrażenie lambda jest oceniane (na przykład z `@Html.DisplayFor(modelItem => item.Title)`), wartości właściwości modelu są oceniane.
 
 <a name="md"></a>
 
@@ -60,7 +60,7 @@ Pomocnik HTML `DisplayNameFor` sprawdza Właściwość `Title`, do której odwo�
 
 [!code-cshtml[](razor-pages-start/snapshot_sample3/RazorPagesMovie30/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
 
-Dyrektywa `@model` określa typ modelu przekazaną do strony Razor. W poprzednim przykładzie wiersz `@model` powoduje, że @no__t Klasa pochodna -1 jest dostępna dla strony Razor. Model jest używany w [pomocnikach HTML](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) `@Html.DisplayNameFor` i `@Html.DisplayFor` na stronie.
+Dyrektywa `@model` określa typ modelu przekazaną do strony Razor. W powyższym przykładzie wiersz `@model` powoduje, że Klasa pochodna `PageModel`a jest dostępna dla strony Razor. Model jest używany w [pomocnikach HTML](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) `@Html.DisplayNameFor` i `@Html.DisplayFor` na stronie.
 
 ### <a name="the-layout-page"></a>Strona układu
 
@@ -121,7 +121,7 @@ Przetestuj inne linki (**Narzędzia główne**, **RpMovie**, **Utwórz**, **Edyt
 > [!NOTE]
 > W polu `Price` nie można wprowadzać przecinków dziesiętnych. Aby zapewnić obsługę [walidacji jQuery](https://jqueryvalidation.org/) dla ustawień regionalnych innych niż angielskie, które używają przecinka (",") dla przecinka dziesiętnego i formatów dat innych niż angielski, należy wykonać kroki w celu globalizacji aplikacji. Aby uzyskać instrukcje dotyczące dodawania przecinków dziesiętnych, zobacz ten problem w usłudze [GitHub 4076](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420) .
 
-Właściwość `Layout` jest ustawiona w pliku *Pages/_ViewStart. cshtml* :
+Właściwość `Layout` jest ustawiana w pliku *Pages/_ViewStart. cshtml* :
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie30/Pages/_ViewStart.cshtml)]
 
@@ -221,11 +221,11 @@ Zapoznaj się z modelem stron */filmów/index. cshtml. cs* :
 
 [!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]
 
-Razor Pages pochodzą od `PageModel`. Zgodnie z Konwencją Klasa pochodna @no__t -0 jest nazywana `<PageName>Model`. Konstruktor używa [iniekcji zależności](xref:fundamentals/dependency-injection) , aby dodać `RazorPagesMovieContext` do strony. Wszystkie strony szkieletowe są zgodne z tym wzorcem. Zobacz [kod asynchroniczny](xref:data/ef-rp/intro#asynchronous-code) , aby uzyskać więcej informacji na temat programowania asynchronicznego przy użyciu Entity Framework.
+Razor Pages pochodzą od `PageModel`. Według Konwencji Klasa pochodna `PageModel`jest nazywana `<PageName>Model`. Konstruktor używa [iniekcji zależności](xref:fundamentals/dependency-injection) , aby dodać `RazorPagesMovieContext` do strony. Wszystkie strony szkieletowe są zgodne z tym wzorcem. Zobacz [kod asynchroniczny](xref:data/ef-rp/intro#asynchronous-code) , aby uzyskać więcej informacji na temat programowania asynchronicznego przy użyciu Entity Framework.
 
 Gdy żądanie jest wykonywane dla strony, Metoda `OnGetAsync` zwraca listę filmów do strony Razor. `OnGetAsync` lub `OnGet` jest wywoływana na stronie Razor, aby zainicjować stan dla strony. W takim przypadku `OnGetAsync` pobiera listę filmów i wyświetla je.
 
-Gdy `OnGet` zwraca `void` lub `OnGetAsync` zwraca wartość @ no__t-3, nie jest używana żadna metoda Return. Gdy typem zwracanym jest `IActionResult` lub `Task<IActionResult>`, należy podać instrukcję return. Na przykład: *Pages/Films/Create. cshtml. cs* `OnPostAsync`.
+Gdy `OnGet` zwraca `void` lub `OnGetAsync` zwraca`Task`, żadna metoda return nie jest używana. Gdy typem zwracanym jest `IActionResult` lub `Task<IActionResult>`, należy podać instrukcję return. Na przykład: *Pages/Films/Create. cshtml. cs* `OnPostAsync`.
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Create.cshtml.cs?name=snippet)]
 
@@ -240,10 +240,10 @@ Dyrektywa Razor `@page` tworzy plik w akcji MVC, co oznacza, że może obsługiw
 Bada wyrażenie lambda użyte w następującym Pomocniku HTML:
 
 ```cshtml
-@Html.DisplayNameFor(model => model.Movie[0].Title))
+@Html.DisplayNameFor(model => model.Movie[0].Title)
 ```
 
-Pomocnik HTML `DisplayNameFor` sprawdza Właściwość `Title`, do której odwołuje się wyrażenie lambda w celu określenia nazwy wyświetlanej. Wyrażenie lambda jest sprawdzane, a nie oceniane. Oznacza to, że nie ma żadnych naruszeń dostępu, gdy `model`, `model.Movie` lub `model.Movie[0]` są `null` lub puste. Gdy wyrażenie lambda jest oceniane (na przykład z `@Html.DisplayFor(modelItem => item.Title)`), wartości właściwości modelu są oceniane.
+Pomocnik HTML `DisplayNameFor` sprawdza Właściwość `Title`, do której odwołuje się wyrażenie lambda w celu określenia nazwy wyświetlanej. Wyrażenie lambda jest sprawdzane, a nie oceniane. Oznacza to, że nie ma żadnych naruszeń dostępu, gdy `model`, `model.Movie`lub `model.Movie[0]` są `null` lub puste. Gdy wyrażenie lambda jest oceniane (na przykład z `@Html.DisplayFor(modelItem => item.Title)`), wartości właściwości modelu są oceniane.
 
 <a name="md"></a>
 
@@ -251,7 +251,7 @@ Pomocnik HTML `DisplayNameFor` sprawdza Właściwość `Title`, do której odwo�
 
 [!code-cshtml[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
 
-Dyrektywa `@model` określa typ modelu przekazaną do strony Razor. W poprzednim przykładzie wiersz `@model` powoduje, że @no__t Klasa pochodna -1 jest dostępna dla strony Razor. Model jest używany w [pomocnikach HTML](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) `@Html.DisplayNameFor` i `@Html.DisplayFor` na stronie.
+Dyrektywa `@model` określa typ modelu przekazaną do strony Razor. W powyższym przykładzie wiersz `@model` powoduje, że Klasa pochodna `PageModel`a jest dostępna dla strony Razor. Model jest używany w [pomocnikach HTML](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) `@Html.DisplayNameFor` i `@Html.DisplayFor` na stronie.
 
 ### <a name="the-layout-page"></a>Strona układu
 
@@ -307,7 +307,7 @@ Przetestuj inne linki (**Narzędzia główne**, **RpMovie**, **Utwórz**, **Edyt
 > [!NOTE]
 > W polu `Price` nie można wprowadzać przecinków dziesiętnych. Aby zapewnić obsługę [walidacji jQuery](https://jqueryvalidation.org/) dla ustawień regionalnych innych niż angielskie, które używają przecinka (",") dla przecinka dziesiętnego i formatów dat innych niż angielski, należy wykonać kroki w celu globalizacji aplikacji. Ten [problem w usłudze GitHub 4076](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420) zawiera instrukcje dotyczące dodawania przecinków dziesiętnych.
 
-Właściwość `Layout` jest ustawiona w pliku *Pages/_ViewStart. cshtml* :
+Właściwość `Layout` jest ustawiana w pliku *Pages/_ViewStart. cshtml* :
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie22/Pages/_ViewStart.cshtml)]
 

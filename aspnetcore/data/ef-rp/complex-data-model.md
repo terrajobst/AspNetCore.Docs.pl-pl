@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 2461bc398cd237dac04f4eb8832c70290663ff56
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 1244b2e23a842538ff2fca01a513317a690afe7c
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259483"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034031"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor Pages EF Core w ASP.NET Core — model danych-5 z 8
 
@@ -81,7 +81,7 @@ Atrybut `DisplayFormat` może być używany przez siebie. Zwykle dobrym pomysłe
 * Przeglądarka może włączyć funkcje HTML5. Na przykład Pokaż kontrolkę kalendarz, odpowiedni dla ustawień regionalnych symbol waluty, linki poczty e-mail i sprawdzanie poprawności danych po stronie klienta.
 * Domyślnie przeglądarka renderuje dane przy użyciu poprawnego formatu na podstawie ustawień regionalnych.
 
-Aby uzyskać więcej informacji, zobacz [dokumentację pomocnika tagów @no__t 1input >](xref:mvc/views/working-with-forms#the-input-tag-helper).
+Aby uzyskać więcej informacji, zobacz [dokumentację pomocnika tagów\<input >](xref:mvc/views/working-with-forms#the-input-tag-helper).
 
 ### <a name="the-stringlength-attribute"></a>Atrybut StringLength
 
@@ -124,7 +124,7 @@ Atrybuty mogą kontrolować sposób mapowania klas i właściwości do bazy dany
 
 Po utworzeniu bazy danych nazwy właściwości w modelu są używane dla nazw kolumn (z wyjątkiem sytuacji, gdy jest używany atrybut `Column`). Model `Student` używa `FirstMidName` dla pola pierwszej nazwy, ponieważ pole może zawierać również nazwę środkową.
 
-Z atrybutem `[Column]` `Student.FirstMidName` w modelu danych są mapowane do kolumny `FirstName` tabeli `Student`. Dodanie atrybutu `Column` zmienia model do `SchoolContext`. Model wykonujący kopię zapasową `SchoolContext` nie jest już zgodny z bazą danych. Niezgodność zostanie rozwiązany przez dodanie migracji w dalszej części tego samouczka.
+`[Column]` atrybutu `Student.FirstMidName` w modelu danych mapuje do kolumny `FirstName` tabeli `Student`. Dodanie atrybutu `Column` zmienia model do `SchoolContext`. Model wykonujący kopię zapasową `SchoolContext` nie jest już zgodny z bazą danych. Niezgodność zostanie rozwiązany przez dodanie migracji w dalszej części tego samouczka.
 
 ### <a name="the-required-attribute"></a>Wymagany atrybut
 
@@ -155,7 +155,7 @@ Atrybut `Display` Określa, że podpis pól tekstowych powinien mieć wartość 
 
 ### <a name="create-a-migration"></a>Tworzenie migracji
 
-Uruchom aplikację i przejdź do strony uczniów. Zgłaszany jest wyjątek. Atrybut `[Column]` powoduje, że Dr powinien znaleźć kolumnę o nazwie `FirstName`, ale nazwa kolumny w bazie danych jest nadal `FirstMidName`.
+Uruchom aplikację i przejdź do strony uczniów. Zgłaszany jest wyjątek. `[Column]` atrybutu powoduje, że Dr powinien znaleźć kolumnę o nazwie `FirstName`, ale nazwa kolumny w bazie danych jest nadal `FirstMidName`.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -270,9 +270,9 @@ Utwórz *modele/OfficeAssignment. cs* przy użyciu następującego kodu:
 
 ### <a name="the-key-attribute"></a>Atrybut klucza
 
-Atrybut `[Key]` służy do identyfikowania właściwości jako klucza podstawowego (PK), gdy nazwa właściwości ma wartość inną niż classnameID lub ID.
+Atrybut `[Key]` jest używany do identyfikowania właściwości jako klucza podstawowego (PK), gdy nazwa właściwości jest inna niż classnameID lub ID.
 
-Istnieje relacja jeden do zera między jednostkami `Instructor` i `OfficeAssignment`. Przypisanie pakietu Office istnieje tylko w odniesieniu do instruktora, do którego jest przypisane. @No__t-0 PK jest również kluczem obcym (obcy) do jednostki `Instructor`.
+Istnieje relacja jeden do zera między jednostkami `Instructor` i `OfficeAssignment`. Przypisanie pakietu Office istnieje tylko w odniesieniu do instruktora, do którego jest przypisane. `OfficeAssignment` klucz podstawowy jest również jego kluczem obcym (FK) do jednostki `Instructor`.
 
 EF Core nie może automatycznie rozpoznać `InstructorID` jako klucza PK `OfficeAssignment`, ponieważ `InstructorID` nie jest zgodna z konwencją nazewnictwa ID lub classnameID. W związku z tym atrybut `Key` służy do identyfikowania `InstructorID` jako klucz podstawowy:
 
@@ -310,7 +310,7 @@ Gdy właściwość FK `DepartmentID` jest uwzględniona w modelu danych, nie ma 
 
 ### <a name="the-databasegenerated-attribute"></a>Atrybut DatabaseGenerated
 
-Atrybut `[DatabaseGenerated(DatabaseGeneratedOption.None)]` Określa, że klucz PK jest dostarczany przez aplikację, a nie generowany przez bazę danych.
+Atrybut `[DatabaseGenerated(DatabaseGeneratedOption.None)]` określa, że klucz podstawowy jest dostarczany przez aplikację, a nie generowany przez bazę danych.
 
 ```csharp
 [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -625,7 +625,7 @@ Aby wymusić EF Core tworzenia nowej bazy danych, Porzuć i zaktualizuj bazę da
 
 ---
 
-Uruchom aplikację. Uruchomienie aplikacji uruchamia metodę `DbInitializer.Initialize`. @No__t-0 wypełnia nową bazę danych.
+Uruchom aplikację. Uruchomienie aplikacji uruchamia metodę `DbInitializer.Initialize`. `DbInitializer.Initialize` wypełnia nową bazę danych.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -682,7 +682,7 @@ W klasie migracji `ComplexDataModel` zaktualizuj metodę `Up`:
 
 Dodaj następujący wyróżniony kod. Nowy kod przechodzi po bloku `.CreateTable( name: "Department"`:
 
-[! code-CSharp [] (wprowadzenie/przykłady/cu30snapshots/5 — złożone/migracje/ComplexDataModel. cs? Name = snippet_CreateDefaultValue & Podświetl = 23-31)]
+[!code-csharp[](intro/samples/cu30snapshots/5-complex/Migrations/ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=23-31)]
 
 Po powyższym zmianach istniejące wiersze `Course` będą powiązane z działem "Temp" po uruchomieniu metody `ComplexDataModel.Up`.
 
@@ -711,14 +711,15 @@ Ponieważ metoda `DbInitializer.Initialize` jest zaprojektowana tak, aby działa
 
 ---
 
-Uruchom aplikację. Uruchomienie aplikacji uruchamia metodę `DbInitializer.Initialize`. @No__t-0 wypełnia nową bazę danych.
+Uruchom aplikację. Uruchomienie aplikacji uruchamia metodę `DbInitializer.Initialize`. `DbInitializer.Initialize` wypełnia nową bazę danych.
 
 ## <a name="next-steps"></a>Następne kroki
 
 W następnych dwóch samouczkach pokazano, jak odczytywać i aktualizować powiązane dane.
 
 > [!div class="step-by-step"]
-> [Poprzedni samouczek](xref:data/ef-rp/migrations)@no__t — 1[następny samouczek](xref:data/ef-rp/read-related-data)
+> [Poprzedni samouczek](xref:data/ef-rp/migrations)
+> [następnego samouczka](xref:data/ef-rp/read-related-data)
 
 ::: moniker-end
 
@@ -770,7 +771,7 @@ Atrybut `DisplayFormat` może być używany przez siebie. Zwykle dobrym pomysłe
 * Przeglądarka może włączyć funkcje HTML5. Na przykład Pokaż kontrolkę kalendarz, odpowiedni dla ustawień regionalnych symbol waluty, linki poczty e-mail, sprawdzanie poprawności danych po stronie klienta itd.
 * Domyślnie przeglądarka renderuje dane przy użyciu poprawnego formatu na podstawie ustawień regionalnych.
 
-Aby uzyskać więcej informacji, zobacz [dokumentację pomocnika tagów @no__t 1input >](xref:mvc/views/working-with-forms#the-input-tag-helper).
+Aby uzyskać więcej informacji, zobacz [dokumentację pomocnika tagów\<input >](xref:mvc/views/working-with-forms#the-input-tag-helper).
 
 Uruchom aplikację. Przejdź do strony indeksu uczniów. Czasy nie są już wyświetlane. Każdy widok korzystający z modelu `Student` Wyświetla datę bez czasu.
 
@@ -854,7 +855,7 @@ Please review the migration for accuracy.
 
 Ostrzeżenie jest generowane, ponieważ pola nazw są teraz ograniczone do 50 znaków. Jeśli nazwa w bazie danych ma więcej niż 50 znaków, zostanie utracony od 51 do ostatniego znaku.
 
-* Testowanie aplikacji.
+* Przetestuj aplikację.
 
 Otwórz tabelę uczniów w SSOX:
 
@@ -947,9 +948,9 @@ Utwórz *modele/OfficeAssignment. cs* przy użyciu następującego kodu:
 
 ### <a name="the-key-attribute"></a>Atrybut klucza
 
-Atrybut `[Key]` służy do identyfikowania właściwości jako klucza podstawowego (PK), gdy nazwa właściwości ma wartość inną niż classnameID lub ID.
+Atrybut `[Key]` jest używany do identyfikowania właściwości jako klucza podstawowego (PK), gdy nazwa właściwości jest inna niż classnameID lub ID.
 
-Istnieje relacja jeden do zera między jednostkami `Instructor` i `OfficeAssignment`. Przypisanie pakietu Office istnieje tylko w odniesieniu do instruktora, do którego jest przypisane. @No__t-0 PK jest również kluczem obcym (obcy) do jednostki `Instructor`. EF Core nie może automatycznie rozpoznać `InstructorID` jako klucz podstawowy `OfficeAssignment`, ponieważ:
+Istnieje relacja jeden do zera między jednostkami `Instructor` i `OfficeAssignment`. Przypisanie pakietu Office istnieje tylko w odniesieniu do instruktora, do którego jest przypisane. `OfficeAssignment` klucz podstawowy jest również jego kluczem obcym (FK) do jednostki `Instructor`. EF Core nie może automatycznie rozpoznać `InstructorID` jako klucz podstawowy `OfficeAssignment`, ponieważ:
 
 * `InstructorID` nie jest zgodna z konwencją nazewnictwa ID lub classnameID.
 
@@ -1006,7 +1007,7 @@ Gdy właściwość FK `DepartmentID` jest uwzględniona w modelu danych, nie ma 
 
 ### <a name="the-databasegenerated-attribute"></a>Atrybut DatabaseGenerated
 
-Atrybut `[DatabaseGenerated(DatabaseGeneratedOption.None)]` Określa, że klucz PK jest dostarczany przez aplikację, a nie generowany przez bazę danych.
+Atrybut `[DatabaseGenerated(DatabaseGeneratedOption.None)]` określa, że klucz podstawowy jest dostarczany przez aplikację, a nie generowany przez bazę danych.
 
 ```csharp
 [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -1309,7 +1310,7 @@ dotnet ef database update
 
 ---
 
-Uruchom aplikację. Uruchomienie aplikacji uruchamia metodę `DbInitializer.Initialize`. @No__t-0 wypełnia nową bazę danych.
+Uruchom aplikację. Uruchomienie aplikacji uruchamia metodę `DbInitializer.Initialize`. `DbInitializer.Initialize` wypełnia nową bazę danych.
 
 Otwórz bazę danych w programie SSOX:
 
@@ -1366,13 +1367,13 @@ Aplikacja produkcyjna:
 
 Następny samouczek obejmuje powiązane dane.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Wersja usługi YouTube w tym samouczku (część 1)](https://www.youtube.com/watch?v=0n2f0ObgCoA)
 * [Wersja usługi YouTube w tym samouczku (część 2)](https://www.youtube.com/watch?v=Je0Z5K1TNmY)
 
 > [!div class="step-by-step"]
 > [Poprzedni](xref:data/ef-rp/migrations)
-> [dalej](xref:data/ef-rp/read-related-data)
+> [Następny](xref:data/ef-rp/read-related-data)
 
 ::: moniker-end

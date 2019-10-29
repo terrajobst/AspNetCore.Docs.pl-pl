@@ -5,14 +5,14 @@ description: Informacje dotyczące konfigurowania aplikacji przy użyciu par naz
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/14/2019
+ms.date: 10/27/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: c8e76068dbcf2a59a15fa75a1fc5aa0032e6acc5
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: acc3a77cdeb3ba73d8467d465128106e461efa7c
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72334200"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034329"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault dostawcę konfiguracji w programie ASP.NET Core
 
@@ -104,7 +104,7 @@ Instrukcje dostępne w [przewodniku szybki start: Ustawianie i pobieranie wpisu 
 
    Nazwy tajne Azure Key Vault są ograniczone do znaków alfanumerycznych i kresek. Wartości hierarchiczne (sekcje konfiguracji) używają `--` (dwie kreski) jako separatora. Dwukropek, które zwykle są używane do ograniczania sekcji z podklucza w [konfiguracji ASP.NET Core](xref:fundamentals/configuration/index), nie są dozwolone w nazwach tajnych magazynu kluczy. W związku z tym dwie kreski są używane i zamieniane na dwukropek, gdy wpisy tajne są ładowane do konfiguracji aplikacji.
 
-   Następujące wpisy tajne są przeznaczone do użycia z przykładową aplikacją. Wartości obejmują sufiks `_prod`, aby odróżnić je od wartości sufiksów `_dev` załadowanych w środowisku programistycznym z kluczy tajnych użytkownika. Zastąp `{KEY VAULT NAME}` nazwą magazynu kluczy utworzonego w poprzednim kroku:
+   Następujące wpisy tajne są przeznaczone do użycia z przykładową aplikacją. Wartości zawierają sufiks `_prod`, aby odróżnić je od wartości sufiksów `_dev` ładowanych w środowisku programistycznym ze swoich kluczy tajnych użytkownika. Zastąp `{KEY VAULT NAME}` nazwą magazynu kluczy utworzonego w poprzednim kroku:
 
    ```azure-cli
    az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "SecretName" --value "secret_value_1_prod"
@@ -200,9 +200,11 @@ Przykładowa wartość nazwy magazynu kluczy: `contosovault`
 }
 ```
 
-Po uruchomieniu aplikacji na stronie sieci Web są wyświetlane załadowane wartości klucza tajnego. W środowisku programistycznym wartości klucza tajnego mają sufiks `_dev`, ponieważ są one dostarczane przez klucze tajne użytkownika. W środowisku produkcyjnym wartości są ładowane z sufiksem `_prod`, ponieważ są one dostarczane przez Azure Key Vault.
+Po uruchomieniu aplikacji na stronie sieci Web są wyświetlane załadowane wartości klucza tajnego. W środowisku programistycznym wartości klucza tajnego mają sufiks `_dev`, ponieważ są one dostarczane przez wpisy tajne użytkownika. W środowisku produkcyjnym wartości są ładowane z sufiksem `_prod`, ponieważ są one dostarczane przez Azure Key Vault.
 
 Jeśli wystąpi błąd `Access denied`, potwierdź, że aplikacja jest zarejestrowana w usłudze Azure AD i zapewniony dostęp do magazynu kluczy. Upewnij się, że usługa została uruchomiona ponownie na platformie Azure.
+
+Aby uzyskać informacje na temat używania dostawcy z zarządzaną tożsamością i potoku usługi Azure DevOps, zobacz [Tworzenie połączenia usługi Azure Resource Manager z maszyną wirtualną przy użyciu tożsamości usługi zarządzanej](/azure/devops/pipelines/library/connect-to-azure#create-an-azure-resource-manager-service-connection-to-a-vm-with-a-managed-service-identity).
 
 ## <a name="use-a-key-name-prefix"></a>Użyj prefiksu nazwy klucza
 
@@ -259,7 +261,7 @@ Gdy takie podejście jest zaimplementowane:
 
 1. Wersja, `5000` (z kreską), jest usuwana z nazwy klucza. W całej aplikacji odczytywanie konfiguracji za pomocą klucza `AppSecret` ładuje wartość klucza tajnego.
 
-1. Jeśli wersja aplikacji została zmieniona w pliku projektu na `5.1.0.0`, a aplikacja zostanie uruchomiona ponownie, zwrócona wartość wpisu tajnego to `5.1.0.0_secret_value_dev` w środowisku deweloperskim i `5.1.0.0_secret_value_prod` w produkcji.
+1. Jeśli wersja aplikacji została zmieniona w pliku projektu na `5.1.0.0`, a aplikacja zostanie uruchomiona ponownie, zwracana wartość wpisu tajnego jest `5.1.0.0_secret_value_dev` w środowisku deweloperskim i `5.1.0.0_secret_value_prod` w produkcji.
 
 > [!NOTE]
 > Możesz również udostępnić własną implementację `KeyVaultClient` do `AddAzureKeyVault`. Niestandardowy klient umożliwia udostępnianie pojedynczego wystąpienia klienta w aplikacji.
