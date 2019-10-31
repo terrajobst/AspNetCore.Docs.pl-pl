@@ -5,14 +5,14 @@ description: Dowiedz się więcej na temat Kestrel, międzyplatformowego serwera
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 10/29/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 5565011f6531ef5e95eb02f310e7107f9ed547b2
-ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
+ms.openlocfilehash: beaf6ac49359adfdc2dc24221eab04cc853646a9
+ms.sourcegitcommit: de0fc77487a4d342bcc30965ec5c142d10d22c03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72378866"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73143444"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci Web Kestrel w ASP.NET Core
 
@@ -27,7 +27,7 @@ Kestrel obsługuje następujące scenariusze:
 * HTTPS
 * Nieprzezroczyste uaktualnienie używane do włączania obsługi obiektów [WebSockets](https://github.com/aspnet/websockets)
 * Gniazda systemu UNIX w celu zapewnienia wysokiej wydajności w tle Nginx
-* HTTP/2 (z wyjątkiem macOS @ no__t-0)
+* HTTP/2 (z wyjątkiem macOS&dagger;)
 
 &dagger;HTTP/2 będzie obsługiwana w przypadku macOS w przyszłej wersji.
 
@@ -39,8 +39,8 @@ Kestrel jest obsługiwana na wszystkich platformach i wersjach obsługiwanych pr
 
 [Protokół HTTP/2](https://httpwg.org/specs/rfc7540.html) jest dostępny dla aplikacji ASP.NET Core, jeśli spełnione są następujące wymagania podstawowe:
 
-* System operacyjny @ no__t-0
-  * Windows Server 2016/Windows 10 lub nowszy @ no__t-0
+* &dagger; systemu operacyjnego
+  * Windows Server 2016/Windows 10 lub nowszy&Dagger;
   * Linux z OpenSSL 1.0.2 lub nowszym (na przykład Ubuntu 16,04 lub nowszy)
 * Platforma docelowa: .NET Core 2,2 lub nowszy
 * Połączenie [negocjowania protokołu warstwy aplikacji (ClientHello alpn)](https://tools.ietf.org/html/rfc7301#section-3)
@@ -258,7 +258,7 @@ Przesłoń minimalne limity szybkości dla żądania w oprogramowaniu pośrednic
 
 [!code-csharp[](kestrel/samples/3.x/KestrelSample/Startup.cs?name=snippet_Limits&highlight=6-21)]
 
-@No__t-0 przywoływany w powyższej próbie nie występuje w `HttpContext.Features` dla żądań HTTP/2, ponieważ Modyfikowanie limitów szybkości dla poszczególnych żądań jest ogólnie nieobsługiwane w przypadku protokołu HTTP/2 z powodu obsługi żądania multipleksowania żądań. Jednak <xref:Microsoft.AspNetCore.Server.Kestrel.Core.Features.IHttpMinRequestBodyDataRateFeature> jest nadal obecne `HttpContext.Features` dla żądań HTTP/2, ponieważ limit liczby odczytów nadal można *wyłączyć całkowicie* dla poszczególnych żądań, ustawiając `IHttpMinRequestBodyDataRateFeature.MinDataRate` do `null` nawet dla żądania HTTP/2. Próba odczytania `IHttpMinRequestBodyDataRateFeature.MinDataRate` lub próby ustawienia jej na wartość inną niż `null` spowoduje wystąpienie `NotSupportedException` żądania HTTP/2.
+<xref:Microsoft.AspNetCore.Server.Kestrel.Core.Features.IHttpMinResponseDataRateFeature>, do których odwołuje się Poprzednia próbka nie występuje w `HttpContext.Features` dla żądań HTTP/2, ponieważ Modyfikowanie limitów szybkości dla poszczególnych żądań jest ogólnie nieobsługiwane w przypadku protokołu HTTP/2 z powodu obsługi żądania multipleksowania żądań. Jednak <xref:Microsoft.AspNetCore.Server.Kestrel.Core.Features.IHttpMinRequestBodyDataRateFeature> jest nadal obecne `HttpContext.Features` dla żądań HTTP/2, ponieważ limit liczby odczytów nadal można *wyłączyć całkowicie* dla poszczególnych żądań, ustawiając `IHttpMinRequestBodyDataRateFeature.MinDataRate` do `null` nawet dla żądania HTTP/2. Próba odczytania `IHttpMinRequestBodyDataRateFeature.MinDataRate` lub próby ustawienia jej na wartość inną niż `null` spowoduje wystąpienie `NotSupportedException` żądania HTTP/2.
 
 Limity szybkości dla całego serwera skonfigurowane za pośrednictwem `KestrelServerOptions.Limits` nadal mają zastosowanie do połączeń HTTP/1. x i HTTP/2.
 
@@ -394,11 +394,11 @@ Szablony projektu konfigurują aplikacje do uruchamiania domyślnie przy użyciu
 
 Wywołaj metody <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> lub <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ListenUnixSocket*> w <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions> w celu skonfigurowania prefiksów i portów adresów URL dla Kestrel.
 
-`UseUrls`, wiersz polecenia `--urls`, klucz konfiguracji hosta `urls` i zmienna środowiskowa `ASPNETCORE_URLS` działają również, ale istnieją ograniczenia wymienione w dalszej części tej sekcji (certyfikat domyślny musi być dostępny do konfiguracji punktu końcowego HTTPS).
+`UseUrls`, `--urls` argument wiersza polecenia, klucz konfiguracji hosta `urls` oraz zmienna środowiskowa `ASPNETCORE_URLS` również działają, ale mają ograniczenia wymienione w dalszej części tej sekcji (certyfikat domyślny musi być dostępny do konfiguracji punktu końcowego HTTPS).
 
 Konfiguracja `KestrelServerOptions`:
 
-### <a name="configureendpointdefaultsactionlistenoptions"></a>ConfigureEndpointDefaults (Action @ no__t-0ListenOptions >)
+### <a name="configureendpointdefaultsactionlistenoptions"></a>ConfigureEndpointDefaults (Akcja\<ListenOptions >)
 
 Określa konfigurację `Action` do uruchomienia dla każdego określonego punktu końcowego. Wywołanie `ConfigureEndpointDefaults` wiele razy zastępuje poprzednie `Action`S ostatnią `Action` określonym.
 
@@ -412,7 +412,7 @@ webBuilder.ConfigureKestrel(serverOptions =>
 });
 ```
 
-### <a name="configurehttpsdefaultsactionhttpsconnectionadapteroptions"></a>ConfigureHttpsDefaults (Action @ no__t-0HttpsConnectionAdapterOptions >)
+### <a name="configurehttpsdefaultsactionhttpsconnectionadapteroptions"></a>ConfigureHttpsDefaults (Akcja\<HttpsConnectionAdapterOptions >)
 
 Określa konfigurację `Action` do uruchomienia dla każdego punktu końcowego HTTPS. Wywołanie `ConfigureHttpsDefaults` wiele razy zastępuje poprzednie `Action`S ostatnią `Action` określonym.
 
@@ -531,7 +531,7 @@ W poniższym przykładzie pliku *appSettings. JSON* :
 }
 ```
 
-Alternatywą dla korzystania z **ścieżki** i **hasła** dla dowolnego węzła certyfikatu jest określenie certyfikatu przy użyciu pól magazynu certyfikatów. Na przykład certyfikat domyślny **@no__t-** 1 można określić jako:
+Alternatywą dla korzystania z **ścieżki** i **hasła** dla dowolnego węzła certyfikatu jest określenie certyfikatu przy użyciu pól magazynu certyfikatów. Na przykład **certyfikaty** > **domyślnego** certyfikatu można określić jako:
 
 ```json
 "Default": {
@@ -596,7 +596,7 @@ Kestrel obsługuje SNI za pośrednictwem wywołania zwrotnego `ServerCertificate
 
 Obsługa SNI wymaga:
 
-* Uruchomiona na platformie docelowej `netcoreapp2.1` lub nowszej. W `net461` lub nowszym wywołanie zwrotne jest wywoływane, ale `name` jest zawsze `null`. @No__t-0 jest również `null`, jeśli klient nie poda parametru nazwy hosta w uzgadnianiu protokołu TLS.
+* Uruchomiona na platformie docelowej `netcoreapp2.1` lub nowszej. W `net461` lub nowszym wywołanie zwrotne jest wywoływane, ale `name` jest zawsze `null`. `name` jest również `null`, jeśli klient nie poda parametru nazwy hosta w uzgadnianiu protokołu TLS.
 * Wszystkie witryny sieci Web działają na tym samym wystąpieniu Kestrel. Kestrel nie obsługuje udostępniania adresu IP i portu w wielu wystąpieniach bez zwrotnego serwera proxy.
 
 ```csharp
@@ -631,6 +631,20 @@ webBuilder.ConfigureKestrel(serverOptions =>
                 return exampleCert;
             };
         });
+    });
+});
+```
+
+### <a name="connection-logging"></a>Rejestrowanie połączeń
+
+Wywołaj <xref:Microsoft.AspNetCore.Hosting.ListenOptionsConnectionLoggingExtensions.UseConnectionLogging*>, aby emitować dzienniki poziomu debugowania dla komunikacji na poziomie bajtów w ramach połączenia. Rejestrowanie połączeń ułatwia rozwiązywanie problemów z komunikacją na niskim poziomie, na przykład podczas szyfrowania TLS i za serwerami proxy. Jeśli `UseConnectionLogging` jest umieszczony przed `UseHttps`, szyfrowany ruch jest rejestrowany. Jeśli `UseConnectionLogging` jest umieszczony po `UseHttps`, odszyfrowany ruch jest rejestrowany.
+
+```csharp
+webBuilder.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.Listen(IPAddress.Any, 8000, listenOptions =>
+    {
+        listenOptions.UseConnectionLogging();
     });
 });
 ```
@@ -700,10 +714,10 @@ Ograniczenia protokołu TLS dla protokołu HTTP/2:
 * Kompresja wyłączona
 * Minimalne rozmiary tymczasowych kluczy wymiany:
   * Krzywa eliptyczna Diffie-Hellmana (ECDHE) &lbrack;[RFC4492](https://www.ietf.org/rfc/rfc4492.txt)&rbrack; &ndash; 224 bitów minimum
-  * Ograniczone pole Diffie-Hellmana (DHE) &lbrack; @ no__t-1 @ no__t-2 &ndash; 2048 bitów minimum
+  * Ograniczone pole Diffie-Hellmana (DHE) &lbrack;`TLS12`&rbrack; &ndash; 2048 bitów
 * Mechanizm szyfrowania nie został zabroniony
 
-`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` &lbrack; @ no__t-2 @ no__t-3 z krzywą eliptyczna P-256 &lbrack; @ no__t-5 @ no__t-6 jest domyślnie obsługiwana.
+`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` &lbrack;`TLS-ECDHE`&rbrack; z krzywą eliptyczna P-256 &lbrack;`FIPS186`&rbrack; jest domyślnie obsługiwana.
 
 Poniższy przykład umożliwia nawiązywanie połączeń HTTP/1.1 i HTTP/2 na porcie 8000. Połączenia są zabezpieczone przez protokół TLS przy użyciu podanego certyfikatu:
 
@@ -889,7 +903,7 @@ Dla projektów, które wymagają użycia Libuv (<xref:Microsoft.AspNetCore.Hosti
 
 ### <a name="url-prefixes"></a>Prefiksy adresów URL
 
-W przypadku używania `UseUrls`, `--urls` argumentu wiersza polecenia, `urls` klucza konfiguracji hosta lub zmiennej środowiskowej `ASPNETCORE_URLS`, prefiksy adresów URL mogą mieć jeden z następujących formatów.
+W przypadku korzystania z `UseUrls`, `--urls` argumentu wiersza polecenia, klucza konfiguracji hosta `urls` lub zmiennej środowiskowej `ASPNETCORE_URLS`, prefiksy adresów URL mogą mieć jeden z następujących formatów.
 
 Tylko prefiksy adresów URL HTTP są prawidłowe. Kestrel nie obsługuje protokołu HTTPS podczas konfigurowania powiązań adresów URL przy użyciu `UseUrls`.
 
@@ -907,7 +921,7 @@ Tylko prefiksy adresów URL HTTP są prawidłowe. Kestrel nie obsługuje protoko
   http://[0:0:0:0:0:ffff:4137:270a]:80/
   ```
 
-  `[::]` jest odpowiednikiem IPv6 `0.0.0.0`.
+  `[::]` to odpowiednik IPv6 `0.0.0.0`IPv4.
 
 * Nazwa hosta z numerem portu
 
@@ -933,7 +947,7 @@ Tylko prefiksy adresów URL HTTP są prawidłowe. Kestrel nie obsługuje protoko
 
 ## <a name="host-filtering"></a>Filtrowanie hostów
 
-Program Kestrel obsługuje konfigurację na podstawie prefiksów, takich jak `http://example.com:5000`, Kestrel w znacznym stopniu ignoruje nazwę hosta. @No__t hosta-0 to specjalny przypadek używany do powiązania z adresami sprzężenia zwrotnego. Każdy host poza jawnym adresem IP tworzy powiązanie ze wszystkimi publicznymi adresami IP. nagłówki `Host` nie są sprawdzane.
+Program Kestrel obsługuje konfigurację na podstawie prefiksów, takich jak `http://example.com:5000`, Kestrel w znacznym stopniu ignoruje nazwę hosta. `localhost` hosta jest specjalnym przypadkiem używanym do tworzenia powiązań z adresami sprzężenia zwrotnego. Każdy host poza jawnym adresem IP tworzy powiązanie ze wszystkimi publicznymi adresami IP. nagłówki `Host` nie są sprawdzane.
 
 Aby obejść ten sposób, użyj oprogramowania pośredniczącego filtrowania hosta. Oprogramowanie pośredniczące do filtrowania hosta jest dostarczane przez pakiet [Microsoft. AspNetCore. HostFiltering](https://www.nuget.org/packages/Microsoft.AspNetCore.HostFiltering) , który jest niejawnie dostarczany dla ASP.NET Core aplikacji. Oprogramowanie pośredniczące jest dodawane przez <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>, które wywołuje <xref:Microsoft.AspNetCore.Builder.HostFilteringServicesExtensions.AddHostFiltering*>:
 
@@ -965,7 +979,7 @@ Kestrel obsługuje następujące scenariusze:
 * HTTPS
 * Nieprzezroczyste uaktualnienie używane do włączania obsługi obiektów [WebSockets](https://github.com/aspnet/websockets)
 * Gniazda systemu UNIX w celu zapewnienia wysokiej wydajności w tle Nginx
-* HTTP/2 (z wyjątkiem macOS @ no__t-0)
+* HTTP/2 (z wyjątkiem macOS&dagger;)
 
 &dagger;HTTP/2 będzie obsługiwana w przypadku macOS w przyszłej wersji.
 
@@ -977,8 +991,8 @@ Kestrel jest obsługiwana na wszystkich platformach i wersjach obsługiwanych pr
 
 [Protokół HTTP/2](https://httpwg.org/specs/rfc7540.html) jest dostępny dla aplikacji ASP.NET Core, jeśli spełnione są następujące wymagania podstawowe:
 
-* System operacyjny @ no__t-0
-  * Windows Server 2016/Windows 10 lub nowszy @ no__t-0
+* &dagger; systemu operacyjnego
+  * Windows Server 2016/Windows 10 lub nowszy&Dagger;
   * Linux z OpenSSL 1.0.2 lub nowszym (na przykład Ubuntu 16,04 lub nowszy)
 * Platforma docelowa: .NET Core 2,2 lub nowszy
 * Połączenie [negocjowania protokołu warstwy aplikacji (ClientHello alpn)](https://tools.ietf.org/html/rfc7301#section-3)
@@ -1341,11 +1355,11 @@ Szablony projektu konfigurują aplikacje do uruchamiania domyślnie przy użyciu
 
 Wywołaj metody <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> lub <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ListenUnixSocket*> w <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions> w celu skonfigurowania prefiksów i portów adresów URL dla Kestrel.
 
-`UseUrls`, wiersz polecenia `--urls`, klucz konfiguracji hosta `urls` i zmienna środowiskowa `ASPNETCORE_URLS` działają również, ale istnieją ograniczenia wymienione w dalszej części tej sekcji (certyfikat domyślny musi być dostępny do konfiguracji punktu końcowego HTTPS).
+`UseUrls`, `--urls` argument wiersza polecenia, klucz konfiguracji hosta `urls` oraz zmienna środowiskowa `ASPNETCORE_URLS` również działają, ale mają ograniczenia wymienione w dalszej części tej sekcji (certyfikat domyślny musi być dostępny do konfiguracji punktu końcowego HTTPS).
 
 Konfiguracja `KestrelServerOptions`:
 
-### <a name="configureendpointdefaultsactionlistenoptions"></a>ConfigureEndpointDefaults (Action @ no__t-0ListenOptions >)
+### <a name="configureendpointdefaultsactionlistenoptions"></a>ConfigureEndpointDefaults (Akcja\<ListenOptions >)
 
 Określa konfigurację `Action` do uruchomienia dla każdego określonego punktu końcowego. Wywołanie `ConfigureEndpointDefaults` wiele razy zastępuje poprzednie `Action`S ostatnią `Action` określonym.
 
@@ -1362,7 +1376,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         });
 ```
 
-### <a name="configurehttpsdefaultsactionhttpsconnectionadapteroptions"></a>ConfigureHttpsDefaults (Action @ no__t-0HttpsConnectionAdapterOptions >)
+### <a name="configurehttpsdefaultsactionhttpsconnectionadapteroptions"></a>ConfigureHttpsDefaults (Akcja\<HttpsConnectionAdapterOptions >)
 
 Określa konfigurację `Action` do uruchomienia dla każdego punktu końcowego HTTPS. Wywołanie `ConfigureHttpsDefaults` wiele razy zastępuje poprzednie `Action`S ostatnią `Action` określonym.
 
@@ -1484,7 +1498,7 @@ W poniższym przykładzie pliku *appSettings. JSON* :
 }
 ```
 
-Alternatywą dla korzystania z **ścieżki** i **hasła** dla dowolnego węzła certyfikatu jest określenie certyfikatu przy użyciu pól magazynu certyfikatów. Na przykład certyfikat domyślny **@no__t-** 1 można określić jako:
+Alternatywą dla korzystania z **ścieżki** i **hasła** dla dowolnego węzła certyfikatu jest określenie certyfikatu przy użyciu pól magazynu certyfikatów. Na przykład **certyfikaty** > **domyślnego** certyfikatu można określić jako:
 
 ```json
 "Default": {
@@ -1555,7 +1569,7 @@ Kestrel obsługuje SNI za pośrednictwem wywołania zwrotnego `ServerCertificate
 
 Obsługa SNI wymaga:
 
-* Uruchomiona na platformie docelowej `netcoreapp2.1` lub nowszej. W `net461` lub nowszym wywołanie zwrotne jest wywoływane, ale `name` jest zawsze `null`. @No__t-0 jest również `null`, jeśli klient nie poda parametru nazwy hosta w uzgadnianiu protokołu TLS.
+* Uruchomiona na platformie docelowej `netcoreapp2.1` lub nowszej. W `net461` lub nowszym wywołanie zwrotne jest wywoływane, ale `name` jest zawsze `null`. `name` jest również `null`, jeśli klient nie poda parametru nazwy hosta w uzgadnianiu protokołu TLS.
 * Wszystkie witryny sieci Web działają na tym samym wystąpieniu Kestrel. Kestrel nie obsługuje udostępniania adresu IP i portu w wielu wystąpieniach bez zwrotnego serwera proxy.
 
 ```csharp
@@ -1595,6 +1609,20 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
                 });
             });
         });
+```
+
+### <a name="connection-logging"></a>Rejestrowanie połączeń
+
+Wywołaj <xref:Microsoft.AspNetCore.Hosting.ListenOptionsConnectionLoggingExtensions.UseConnectionLogging*>, aby emitować dzienniki poziomu debugowania dla komunikacji na poziomie bajtów w ramach połączenia. Rejestrowanie połączeń ułatwia rozwiązywanie problemów z komunikacją na niskim poziomie, na przykład podczas szyfrowania TLS i za serwerami proxy. Jeśli `UseConnectionLogging` jest umieszczony przed `UseHttps`, szyfrowany ruch jest rejestrowany. Jeśli `UseConnectionLogging` jest umieszczony po `UseHttps`, odszyfrowany ruch jest rejestrowany.
+
+```csharp
+webBuilder.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.Listen(IPAddress.Any, 8000, listenOptions =>
+    {
+        listenOptions.UseConnectionLogging();
+    });
+});
 ```
 
 ### <a name="bind-to-a-tcp-socket"></a>Powiąż z gniazdem TCP
@@ -1662,10 +1690,10 @@ Ograniczenia protokołu TLS dla protokołu HTTP/2:
 * Kompresja wyłączona
 * Minimalne rozmiary tymczasowych kluczy wymiany:
   * Krzywa eliptyczna Diffie-Hellmana (ECDHE) &lbrack;[RFC4492](https://www.ietf.org/rfc/rfc4492.txt)&rbrack; &ndash; 224 bitów minimum
-  * Ograniczone pole Diffie-Hellmana (DHE) &lbrack; @ no__t-1 @ no__t-2 &ndash; 2048 bitów minimum
+  * Ograniczone pole Diffie-Hellmana (DHE) &lbrack;`TLS12`&rbrack; &ndash; 2048 bitów
 * Mechanizm szyfrowania nie został zabroniony
 
-`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` &lbrack; @ no__t-2 @ no__t-3 z krzywą eliptyczna P-256 &lbrack; @ no__t-5 @ no__t-6 jest domyślnie obsługiwana.
+`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` &lbrack;`TLS-ECDHE`&rbrack; z krzywą eliptyczna P-256 &lbrack;`FIPS186`&rbrack; jest domyślnie obsługiwana.
 
 Poniższy przykład umożliwia nawiązywanie połączeń HTTP/1.1 i HTTP/2 na porcie 8000. Połączenia są zabezpieczone przez protokół TLS przy użyciu podanego certyfikatu:
 
@@ -1801,7 +1829,7 @@ Dla projektów, które wymagają użycia Libuv:
 
 ### <a name="url-prefixes"></a>Prefiksy adresów URL
 
-W przypadku używania `UseUrls`, `--urls` argumentu wiersza polecenia, `urls` klucza konfiguracji hosta lub zmiennej środowiskowej `ASPNETCORE_URLS`, prefiksy adresów URL mogą mieć jeden z następujących formatów.
+W przypadku korzystania z `UseUrls`, `--urls` argumentu wiersza polecenia, klucza konfiguracji hosta `urls` lub zmiennej środowiskowej `ASPNETCORE_URLS`, prefiksy adresów URL mogą mieć jeden z następujących formatów.
 
 Tylko prefiksy adresów URL HTTP są prawidłowe. Kestrel nie obsługuje protokołu HTTPS podczas konfigurowania powiązań adresów URL przy użyciu `UseUrls`.
 
@@ -1819,7 +1847,7 @@ Tylko prefiksy adresów URL HTTP są prawidłowe. Kestrel nie obsługuje protoko
   http://[0:0:0:0:0:ffff:4137:270a]:80/
   ```
 
-  `[::]` jest odpowiednikiem IPv6 `0.0.0.0`.
+  `[::]` to odpowiednik IPv6 `0.0.0.0`IPv4.
 
 * Nazwa hosta z numerem portu
 
@@ -1845,7 +1873,7 @@ Tylko prefiksy adresów URL HTTP są prawidłowe. Kestrel nie obsługuje protoko
 
 ## <a name="host-filtering"></a>Filtrowanie hostów
 
-Program Kestrel obsługuje konfigurację na podstawie prefiksów, takich jak `http://example.com:5000`, Kestrel w znacznym stopniu ignoruje nazwę hosta. @No__t hosta-0 to specjalny przypadek używany do powiązania z adresami sprzężenia zwrotnego. Każdy host poza jawnym adresem IP tworzy powiązanie ze wszystkimi publicznymi adresami IP. nagłówki `Host` nie są sprawdzane.
+Program Kestrel obsługuje konfigurację na podstawie prefiksów, takich jak `http://example.com:5000`, Kestrel w znacznym stopniu ignoruje nazwę hosta. `localhost` hosta jest specjalnym przypadkiem używanym do tworzenia powiązań z adresami sprzężenia zwrotnego. Każdy host poza jawnym adresem IP tworzy powiązanie ze wszystkimi publicznymi adresami IP. nagłówki `Host` nie są sprawdzane.
 
 Aby obejść ten sposób, użyj oprogramowania pośredniczącego filtrowania hosta. Oprogramowanie pośredniczące do filtrowania hosta jest dostarczane przez pakiet [Microsoft. AspNetCore. HostFiltering](https://www.nuget.org/packages/Microsoft.AspNetCore.HostFiltering) , który jest zawarty w pakiecie [Microsoft. AspNetCore. App](xref:fundamentals/metapackage-app) (ASP.NET Core 2,1 lub 2,2). Oprogramowanie pośredniczące jest dodawane przez <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>, które wywołuje <xref:Microsoft.AspNetCore.Builder.HostFilteringServicesExtensions.AddHostFiltering*>:
 
@@ -2167,11 +2195,11 @@ Szablony projektu konfigurują aplikacje do uruchamiania domyślnie przy użyciu
 
 Wywołaj metody <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> lub <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ListenUnixSocket*> w <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions> w celu skonfigurowania prefiksów i portów adresów URL dla Kestrel.
 
-`UseUrls`, wiersz polecenia `--urls`, klucz konfiguracji hosta `urls` i zmienna środowiskowa `ASPNETCORE_URLS` działają również, ale istnieją ograniczenia wymienione w dalszej części tej sekcji (certyfikat domyślny musi być dostępny do konfiguracji punktu końcowego HTTPS).
+`UseUrls`, `--urls` argument wiersza polecenia, klucz konfiguracji hosta `urls` oraz zmienna środowiskowa `ASPNETCORE_URLS` również działają, ale mają ograniczenia wymienione w dalszej części tej sekcji (certyfikat domyślny musi być dostępny do konfiguracji punktu końcowego HTTPS).
 
 Konfiguracja `KestrelServerOptions`:
 
-### <a name="configureendpointdefaultsactionlistenoptions"></a>ConfigureEndpointDefaults (Action @ no__t-0ListenOptions >)
+### <a name="configureendpointdefaultsactionlistenoptions"></a>ConfigureEndpointDefaults (Akcja\<ListenOptions >)
 
 Określa konfigurację `Action` do uruchomienia dla każdego określonego punktu końcowego. Wywołanie `ConfigureEndpointDefaults` wiele razy zastępuje poprzednie `Action`S ostatnią `Action` określonym.
 
@@ -2188,7 +2216,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         });
 ```
 
-### <a name="configurehttpsdefaultsactionhttpsconnectionadapteroptions"></a>ConfigureHttpsDefaults (Action @ no__t-0HttpsConnectionAdapterOptions >)
+### <a name="configurehttpsdefaultsactionhttpsconnectionadapteroptions"></a>ConfigureHttpsDefaults (Akcja\<HttpsConnectionAdapterOptions >)
 
 Określa konfigurację `Action` do uruchomienia dla każdego punktu końcowego HTTPS. Wywołanie `ConfigureHttpsDefaults` wiele razy zastępuje poprzednie `Action`S ostatnią `Action` określonym.
 
@@ -2310,7 +2338,7 @@ W poniższym przykładzie pliku *appSettings. JSON* :
 }
 ```
 
-Alternatywą dla korzystania z **ścieżki** i **hasła** dla dowolnego węzła certyfikatu jest określenie certyfikatu przy użyciu pól magazynu certyfikatów. Na przykład certyfikat domyślny **@no__t-** 1 można określić jako:
+Alternatywą dla korzystania z **ścieżki** i **hasła** dla dowolnego węzła certyfikatu jest określenie certyfikatu przy użyciu pól magazynu certyfikatów. Na przykład **certyfikaty** > **domyślnego** certyfikatu można określić jako:
 
 ```json
 "Default": {
@@ -2381,7 +2409,7 @@ Kestrel obsługuje SNI za pośrednictwem wywołania zwrotnego `ServerCertificate
 
 Obsługa SNI wymaga:
 
-* Uruchomiona na platformie docelowej `netcoreapp2.1` lub nowszej. W `net461` lub nowszym wywołanie zwrotne jest wywoływane, ale `name` jest zawsze `null`. @No__t-0 jest również `null`, jeśli klient nie poda parametru nazwy hosta w uzgadnianiu protokołu TLS.
+* Uruchomiona na platformie docelowej `netcoreapp2.1` lub nowszej. W `net461` lub nowszym wywołanie zwrotne jest wywoływane, ale `name` jest zawsze `null`. `name` jest również `null`, jeśli klient nie poda parametru nazwy hosta w uzgadnianiu protokołu TLS.
 * Wszystkie witryny sieci Web działają na tym samym wystąpieniu Kestrel. Kestrel nie obsługuje udostępniania adresu IP i portu w wielu wystąpieniach bez zwrotnego serwera proxy.
 
 ```csharp
@@ -2422,6 +2450,20 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             });
         })
         .Build();
+```
+
+### <a name="connection-logging"></a>Rejestrowanie połączeń
+
+Wywołaj <xref:Microsoft.AspNetCore.Hosting.ListenOptionsConnectionLoggingExtensions.UseConnectionLogging*>, aby emitować dzienniki poziomu debugowania dla komunikacji na poziomie bajtów w ramach połączenia. Rejestrowanie połączeń ułatwia rozwiązywanie problemów z komunikacją na niskim poziomie, na przykład podczas szyfrowania TLS i za serwerami proxy. Jeśli `UseConnectionLogging` jest umieszczony przed `UseHttps`, szyfrowany ruch jest rejestrowany. Jeśli `UseConnectionLogging` jest umieszczony po `UseHttps`, odszyfrowany ruch jest rejestrowany.
+
+```csharp
+webBuilder.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.Listen(IPAddress.Any, 8000, listenOptions =>
+    {
+        listenOptions.UseConnectionLogging();
+    });
+});
 ```
 
 ### <a name="bind-to-a-tcp-socket"></a>Powiąż z gniazdem TCP
@@ -2553,7 +2595,7 @@ Dla projektów, które wymagają użycia Libuv:
 
 ### <a name="url-prefixes"></a>Prefiksy adresów URL
 
-W przypadku używania `UseUrls`, `--urls` argumentu wiersza polecenia, `urls` klucza konfiguracji hosta lub zmiennej środowiskowej `ASPNETCORE_URLS`, prefiksy adresów URL mogą mieć jeden z następujących formatów.
+W przypadku korzystania z `UseUrls`, `--urls` argumentu wiersza polecenia, klucza konfiguracji hosta `urls` lub zmiennej środowiskowej `ASPNETCORE_URLS`, prefiksy adresów URL mogą mieć jeden z następujących formatów.
 
 Tylko prefiksy adresów URL HTTP są prawidłowe. Kestrel nie obsługuje protokołu HTTPS podczas konfigurowania powiązań adresów URL przy użyciu `UseUrls`.
 
@@ -2571,7 +2613,7 @@ Tylko prefiksy adresów URL HTTP są prawidłowe. Kestrel nie obsługuje protoko
   http://[0:0:0:0:0:ffff:4137:270a]:80/
   ```
 
-  `[::]` jest odpowiednikiem IPv6 `0.0.0.0`.
+  `[::]` to odpowiednik IPv6 `0.0.0.0`IPv4.
 
 * Nazwa hosta z numerem portu
 
@@ -2597,7 +2639,7 @@ Tylko prefiksy adresów URL HTTP są prawidłowe. Kestrel nie obsługuje protoko
 
 ## <a name="host-filtering"></a>Filtrowanie hostów
 
-Program Kestrel obsługuje konfigurację na podstawie prefiksów, takich jak `http://example.com:5000`, Kestrel w znacznym stopniu ignoruje nazwę hosta. @No__t hosta-0 to specjalny przypadek używany do powiązania z adresami sprzężenia zwrotnego. Każdy host poza jawnym adresem IP tworzy powiązanie ze wszystkimi publicznymi adresami IP. nagłówki `Host` nie są sprawdzane.
+Program Kestrel obsługuje konfigurację na podstawie prefiksów, takich jak `http://example.com:5000`, Kestrel w znacznym stopniu ignoruje nazwę hosta. `localhost` hosta jest specjalnym przypadkiem używanym do tworzenia powiązań z adresami sprzężenia zwrotnego. Każdy host poza jawnym adresem IP tworzy powiązanie ze wszystkimi publicznymi adresami IP. nagłówki `Host` nie są sprawdzane.
 
 Aby obejść ten sposób, użyj oprogramowania pośredniczącego filtrowania hosta. Oprogramowanie pośredniczące do filtrowania hosta jest dostarczane przez pakiet [Microsoft. AspNetCore. HostFiltering](https://www.nuget.org/packages/Microsoft.AspNetCore.HostFiltering) , który jest zawarty w pakiecie [Microsoft. AspNetCore. App](xref:fundamentals/metapackage-app) (ASP.NET Core 2,1 lub 2,2). Oprogramowanie pośredniczące jest dodawane przez <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>, które wywołuje <xref:Microsoft.AspNetCore.Builder.HostFilteringServicesExtensions.AddHostFiltering*>:
 

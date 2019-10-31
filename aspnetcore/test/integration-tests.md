@@ -5,18 +5,18 @@ description: Dowiedz się, jak testy integracji zapewniają, że składniki apli
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/14/2019
+ms.date: 10/28/2019
 uid: test/integration-tests
-ms.openlocfilehash: c0fede8f9f46d1b10502055d8e1fe7caa48cf351
-ms.sourcegitcommit: 810d5831169770ee240d03207d6671dabea2486e
+ms.openlocfilehash: 33f3e29bc649fa65efdff0c47e54a83662005577
+ms.sourcegitcommit: de0fc77487a4d342bcc30965ec5c142d10d22c03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72779229"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73143366"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Testy integracji w ASP.NET Core
 
-Autorzy [Luke Latham](https://github.com/guardrex) i [Steve Smith](https://ardalis.com/)
+[Luke Latham](https://github.com/guardrex), [Javier Calvarro Nelson](https://github.com/javiercn), [Steve Kowalski](https://ardalis.com/)i [Jos van der](https://jvandertil.nl)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -130,8 +130,6 @@ Jeśli [środowisko](xref:fundamentals/environments) SUT nie jest ustawione, śr
 
 Klasy testowe implementują interfejs *armatury klasy* ([IClassFixture](https://xunit.github.io/docs/shared-context#class-fixture)) w celu wskazania, że Klasa zawiera testy i udostępnia wystąpienia obiektów udostępnionych w ramach testów w klasie.
 
-### <a name="basic-test-of-app-endpoints"></a>Podstawowy test punktów końcowych aplikacji
-
 Następująca Klasa testowa, `BasicTests`, używa `WebApplicationFactory` do ładowania SUT i zapewnienia [HttpClient](/dotnet/api/system.net.http.httpclient) do metody testowej, `Get_EndpointsReturnSuccessAndCorrectContentType`. Metoda sprawdza, czy kod stanu odpowiedzi powiedzie się (kody stanu z zakresu 200-299), a nagłówek `Content-Type` jest `text/html; charset=utf-8` dla kilku stron aplikacji.
 
 [Klient](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.createclient) tworzy wystąpienie `HttpClient`, które automatycznie następuje przekierowanie i obsługę plików cookie.
@@ -139,25 +137,6 @@ Następująca Klasa testowa, `BasicTests`, używa `WebApplicationFactory` do ła
 [!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/BasicTests.cs?name=snippet1)]
 
 Domyślnie nieistotne pliki cookie nie są zachowywane między żądaniami, gdy [zasady zgody Rodo](xref:security/gdpr) są włączone. Aby zachować nieistotne pliki cookie, takie jak te używane przez dostawcę TempData, oznacz je jako niezbędne w testach. Aby uzyskać instrukcje dotyczące oznaczania pliku cookie jako kluczowego, zobacz [podstawowe pliki cookie](xref:security/gdpr#essential-cookies).
-
-### <a name="test-a-secure-endpoint"></a>Testowanie bezpiecznego punktu końcowego
-
-Inny test w klasie `BasicTests` sprawdza, czy bezpieczny punkt końcowy przekierowuje nieuwierzytelnionego użytkownika do strony logowania aplikacji.
-
-W SUT Strona `/SecurePage` używa konwencji [AuthorizePage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage) w celu zastosowania [AuthorizeFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) do strony. Aby uzyskać więcej informacji, zobacz [Razor Pages Konwencji autoryzacji](xref:security/authorization/razor-pages-authorization#require-authorization-to-access-a-page).
-
-[!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs?name=snippet1)]
-
-W teście `Get_SecurePageRequiresAnAuthenticatedUser` [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) jest ustawiony tak, aby nie zezwalać na przekierowania przez ustawienie [AllowAutoRedirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) na `false`:
-
-[!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/BasicTests.cs?name=snippet2)]
-
-W przypadku niezezwalania klientowi na śledzenie przekierowania można wykonać następujące operacje:
-
-* Kod stanu zwracany przez SUT można sprawdzić pod kątem oczekiwanego wyniku [HttpStatusCode. Redirect](/dotnet/api/system.net.httpstatuscode) , a nie do końcowego kodu stanu po przekierowaniu do strony logowania, która byłaby [HttpStatusCode. ok](/dotnet/api/system.net.httpstatuscode).
-* Wartość nagłówka `Location` w nagłówkach odpowiedzi jest sprawdzana w celu potwierdzenia, że rozpoczyna się od `http://localhost/Identity/Account/Login`, a nie od końcowej odpowiedzi na stronę logowania, w której będzie znajdować się nagłówek `Location`.
-
-Więcej informacji o `WebApplicationFactoryClientOptions` można znaleźć w sekcji [Opcje klienta](#client-options) .
 
 ## <a name="customize-webapplicationfactory"></a>Dostosuj WebApplicationFactory
 
@@ -190,7 +169,7 @@ Konfigurację hosta sieci Web można utworzyć niezależnie od klas testów prze
 
    [!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/IndexPageTests.cs?name=snippet1)]
 
-   Klient aplikacji przykładowej jest skonfigurowany tak, aby uniemożliwiać `HttpClient` z następujących przekierowań. Zgodnie z opisem w sekcji [testowanie bezpiecznego punktu końcowego](#test-a-secure-endpoint) umożliwia ona testom sprawdzenie wyniku pierwszej odpowiedzi aplikacji. Pierwsza odpowiedź to przekierowanie w wielu z tych testów z nagłówkiem `Location`.
+   Klient aplikacji przykładowej jest skonfigurowany tak, aby uniemożliwiać `HttpClient` z następujących przekierowań. Jak wyjaśniono w dalszej części sekcji [uwierzytelnianie](#mock-authentication) , pozwala to testom sprawdzić wynik pierwszej odpowiedzi aplikacji. Pierwsza odpowiedź to przekierowanie w wielu z tych testów z nagłówkiem `Location`.
 
 3. Typowy test używa metod `HttpClient` i metody pomocnika do przetwarzania żądania i odpowiedzi:
 
@@ -297,6 +276,50 @@ Znaczniki utworzone podczas wykonywania testu odzwierciedlają tekst cytatu poda
     Mr. Scarman, and time is my business.">
 ```
 
+## <a name="mock-authentication"></a>Uwierzytelnianie w postaci makiety
+
+Testy w klasie `AuthTests` sprawdzają, czy bezpieczny punkt końcowy:
+
+* Przekierowuje nieuwierzytelnionego użytkownika do strony logowania aplikacji.
+* Zwraca zawartość dla uwierzytelnionego użytkownika.
+
+W SUT Strona `/SecurePage` używa konwencji [AuthorizePage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage) w celu zastosowania [AuthorizeFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) do strony. Aby uzyskać więcej informacji, zobacz [Razor Pages Konwencji autoryzacji](xref:security/authorization/razor-pages-authorization#require-authorization-to-access-a-page).
+
+[!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs?name=snippet1)]
+
+W teście `Get_SecurePageRedirectsAnUnauthenticatedUser` [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) jest ustawiony tak, aby nie zezwalać na przekierowania przez ustawienie [AllowAutoRedirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) na `false`:
+
+[!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/AuthTests.cs?name=snippet2)]
+
+W przypadku niezezwalania klientowi na śledzenie przekierowania można wykonać następujące operacje:
+
+* Kod stanu zwracany przez SUT można sprawdzić pod kątem oczekiwanego wyniku [HttpStatusCode. Redirect](/dotnet/api/system.net.httpstatuscode) , a nie do końcowego kodu stanu po przekierowaniu do strony logowania, która byłaby [HttpStatusCode. ok](/dotnet/api/system.net.httpstatuscode).
+* Wartość nagłówka `Location` w nagłówkach odpowiedzi jest sprawdzana w celu potwierdzenia, że rozpoczyna się od `http://localhost/Identity/Account/Login`, a nie od końcowej odpowiedzi na stronę logowania, w której będzie znajdować się nagłówek `Location`.
+
+Aplikacja testowa może zasymulować <xref:Microsoft.AspNetCore.Authentication.AuthenticationHandler`1> w [ConfigureTestServices](/dotnet/api/microsoft.aspnetcore.testhost.webhostbuilderextensions.configuretestservices) , aby przetestować aspekty uwierzytelniania i autoryzacji. Minimalny scenariusz zwraca element [AuthenticateResult. Success](xref:Microsoft.AspNetCore.Authentication.AuthenticateResult.Success*):
+
+[!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/AuthTests.cs?name=snippet4&highlight=11-18)]
+
+`TestAuthHandler` jest wywoływana w celu uwierzytelnienia użytkownika, gdy w schemacie uwierzytelniania jest ustawiona wartość `Test`, gdzie `AddAuthentication` jest zarejestrowana dla `ConfigureTestServices`:
+
+[!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/AuthTests.cs?name=snippet3&highlight=7-12)]
+
+Więcej informacji o `WebApplicationFactoryClientOptions` można znaleźć w sekcji [Opcje klienta](#client-options) .
+
+## <a name="set-the-environment"></a>Ustawianie środowiska
+
+Domyślnie środowisko hosta i aplikacji SUT jest skonfigurowane do korzystania ze środowiska deweloperskiego. Aby zastąpić środowisko SUT:
+
+* Ustaw zmienną środowiskową `ASPNETCORE_ENVIRONMENT` (na przykład `Staging`, `Production`lub inną wartość niestandardową, taką jak `Testing`).
+* Przesłoń `CreateHostBuilder` w aplikacji testowej, aby odczytać zmienne środowiskowe z prefiksem `ASPNETCORE`.
+
+```csharp
+protected override IHostBuilder CreateHostBuilder() => 
+    base.CreateHostBuilder()
+        .ConfigureHostConfiguration(
+            config => config.AddEnvironmentVariables("ASPNETCORE"));
+```
+
 ## <a name="how-the-test-infrastructure-infers-the-app-content-root-path"></a>Jak infrastruktura testowa wnioskuje ścieżkę katalogu głównego zawartości aplikacji
 
 Konstruktor `WebApplicationFactory` wnioskuje ścieżkę [katalogu głównego zawartości](xref:fundamentals/index#content-root) aplikacji, wyszukując [WebApplicationFactoryContentRootAttribute](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactorycontentrootattribute) na zestawie zawierającym testy integracji z kluczem równym zestawowi `TEntryPoint` `System.Reflection.Assembly.FullName`. W przypadku nieznalezienia atrybutu o poprawnym kluczu `WebApplicationFactory` wraca do wyszukiwania pliku rozwiązania ( *. sln*) i dołącza nazwę zestawu `TEntryPoint` do katalogu rozwiązania. Katalog główny aplikacji (ścieżka katalogu głównego zawartości) służy do odnajdywania widoków i plików zawartości.
@@ -353,8 +376,9 @@ Aplikacja testowa to Aplikacja konsolowa w katalogu *Tests/RazorPagesProject. Te
 
 | Testuj katalog aplikacji | Opis |
 | ------------------ | ----------- |
-| *BasicTests* | *BasicTests.cs* zawiera metody testowe do routingu, uzyskiwania dostępu do bezpiecznej strony przez nieuwierzytelnionego użytkownika i uzyskiwania profilu użytkownika usługi GitHub oraz sprawdzania logowania użytkownika profilu. |
-| *IntegrationTests* | *IndexPageTests.cs* zawiera testy integracji dla strony indeksu przy użyciu niestandardowej klasy `WebApplicationFactory`. |
+| *AuthTests* | Zawiera metody testowe dla:<ul><li>Uzyskiwanie dostępu do bezpiecznej strony przez nieuwierzytelniony użytkownik.</li><li>Uzyskiwanie dostępu do bezpiecznej strony przez uwierzytelnionego użytkownika przy użyciu <xref:Microsoft.AspNetCore.Authentication.AuthenticationHandler`1>imitacji.</li><li>Uzyskiwanie profilu użytkownika usługi GitHub i sprawdzanie logowania użytkownika w profilu.</li></ul> |
+| *BasicTests* | Zawiera metodę testową dla routingu i typu zawartości. |
+| *IntegrationTests* | Zawiera testy integracji dla strony indeksu przy użyciu niestandardowej klasy `WebApplicationFactory`. |
 | *Pomocnicy/narzędzia* | <ul><li>*Utilities.cs* zawiera metodę `InitializeDbForTests` używaną do wypełniania bazy danych danymi testowymi.</li><li>*HtmlHelpers.cs* zapewnia metodę do zwrócenia AngleSharp `IHtmlDocument` do użycia przez metody testowe.</li><li>*HttpClientExtensions.cs* zapewniają przeciążenia dla `SendAsync` do przesyłania żądań do SUT.</li></ul> |
 
 Platforma testowa jest [xUnit](https://xunit.github.io/). Testy integracji są przeprowadzane przy użyciu [programu Microsoft. AspNetCore. TestHost](/dotnet/api/microsoft.aspnetcore.testhost), który obejmuje [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver). Ponieważ pakiet [Microsoft. AspNetCore. MVC. test](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing) służy do konfigurowania hosta testowego i serwera testowego, pakiety `TestHost` i `TestServer` nie wymagają bezpośrednich odwołań do pakietów w pliku projektu aplikacji testowej lub konfiguracji dewelopera w teście aplikacje.
@@ -477,8 +501,6 @@ Jeśli [środowisko](xref:fundamentals/environments) SUT nie jest ustawione, śr
 
 Klasy testowe implementują interfejs *armatury klasy* ([IClassFixture](https://xunit.github.io/docs/shared-context#class-fixture)) w celu wskazania, że Klasa zawiera testy i udostępnia wystąpienia obiektów udostępnionych w ramach testów w klasie.
 
-### <a name="basic-test-of-app-endpoints"></a>Podstawowy test punktów końcowych aplikacji
-
 Następująca Klasa testowa, `BasicTests`, używa `WebApplicationFactory` do ładowania SUT i zapewnienia [HttpClient](/dotnet/api/system.net.http.httpclient) do metody testowej, `Get_EndpointsReturnSuccessAndCorrectContentType`. Metoda sprawdza, czy kod stanu odpowiedzi powiedzie się (kody stanu z zakresu 200-299), a nagłówek `Content-Type` jest `text/html; charset=utf-8` dla kilku stron aplikacji.
 
 [Klient](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.createclient) tworzy wystąpienie `HttpClient`, które automatycznie następuje przekierowanie i obsługę plików cookie.
@@ -486,25 +508,6 @@ Następująca Klasa testowa, `BasicTests`, używa `WebApplicationFactory` do ła
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/BasicTests.cs?name=snippet1)]
 
 Domyślnie nieistotne pliki cookie nie są zachowywane między żądaniami, gdy [zasady zgody Rodo](xref:security/gdpr) są włączone. Aby zachować nieistotne pliki cookie, takie jak te używane przez dostawcę TempData, oznacz je jako niezbędne w testach. Aby uzyskać instrukcje dotyczące oznaczania pliku cookie jako kluczowego, zobacz [podstawowe pliki cookie](xref:security/gdpr#essential-cookies).
-
-### <a name="test-a-secure-endpoint"></a>Testowanie bezpiecznego punktu końcowego
-
-Inny test w klasie `BasicTests` sprawdza, czy bezpieczny punkt końcowy przekierowuje nieuwierzytelnionego użytkownika do strony logowania aplikacji.
-
-W SUT Strona `/SecurePage` używa konwencji [AuthorizePage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage) w celu zastosowania [AuthorizeFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) do strony. Aby uzyskać więcej informacji, zobacz [Razor Pages Konwencji autoryzacji](xref:security/authorization/razor-pages-authorization#require-authorization-to-access-a-page).
-
-[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs?name=snippet1)]
-
-W teście `Get_SecurePageRequiresAnAuthenticatedUser` [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) jest ustawiony tak, aby nie zezwalać na przekierowania przez ustawienie [AllowAutoRedirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) na `false`:
-
-[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/BasicTests.cs?name=snippet2)]
-
-W przypadku niezezwalania klientowi na śledzenie przekierowania można wykonać następujące operacje:
-
-* Kod stanu zwracany przez SUT można sprawdzić pod kątem oczekiwanego wyniku [HttpStatusCode. Redirect](/dotnet/api/system.net.httpstatuscode) , a nie do końcowego kodu stanu po przekierowaniu do strony logowania, która byłaby [HttpStatusCode. ok](/dotnet/api/system.net.httpstatuscode).
-* Wartość nagłówka `Location` w nagłówkach odpowiedzi jest sprawdzana w celu potwierdzenia, że rozpoczyna się od `http://localhost/Identity/Account/Login`, a nie od końcowej odpowiedzi na stronę logowania, w której będzie znajdować się nagłówek `Location`.
-
-Więcej informacji o `WebApplicationFactoryClientOptions` można znaleźć w sekcji [Opcje klienta](#client-options) .
 
 ## <a name="customize-webapplicationfactory"></a>Dostosuj WebApplicationFactory
 
@@ -520,7 +523,7 @@ Konfigurację hosta sieci Web można utworzyć niezależnie od klas testów prze
 
    [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/IndexPageTests.cs?name=snippet1)]
 
-   Klient aplikacji przykładowej jest skonfigurowany tak, aby uniemożliwiać `HttpClient` z następujących przekierowań. Zgodnie z opisem w sekcji [testowanie bezpiecznego punktu końcowego](#test-a-secure-endpoint) umożliwia ona testom sprawdzenie wyniku pierwszej odpowiedzi aplikacji. Pierwsza odpowiedź to przekierowanie w wielu z tych testów z nagłówkiem `Location`.
+   Klient aplikacji przykładowej jest skonfigurowany tak, aby uniemożliwiać `HttpClient` z następujących przekierowań. Jak wyjaśniono w dalszej części sekcji [uwierzytelnianie](#mock-authentication) , pozwala to testom sprawdzić wynik pierwszej odpowiedzi aplikacji. Pierwsza odpowiedź to przekierowanie w wielu z tych testów z nagłówkiem `Location`.
 
 3. Typowy test używa metod `HttpClient` i metody pomocnika do przetwarzania żądania i odpowiedzi:
 
@@ -627,6 +630,50 @@ Znaczniki utworzone podczas wykonywania testu odzwierciedlają tekst cytatu poda
     Mr. Scarman, and time is my business.">
 ```
 
+## <a name="mock-authentication"></a>Uwierzytelnianie w postaci makiety
+
+Testy w klasie `AuthTests` sprawdzają, czy bezpieczny punkt końcowy:
+
+* Przekierowuje nieuwierzytelnionego użytkownika do strony logowania aplikacji.
+* Zwraca zawartość dla uwierzytelnionego użytkownika.
+
+W SUT Strona `/SecurePage` używa konwencji [AuthorizePage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage) w celu zastosowania [AuthorizeFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) do strony. Aby uzyskać więcej informacji, zobacz [Razor Pages Konwencji autoryzacji](xref:security/authorization/razor-pages-authorization#require-authorization-to-access-a-page).
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs?name=snippet1)]
+
+W teście `Get_SecurePageRedirectsAnUnauthenticatedUser` [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) jest ustawiony tak, aby nie zezwalać na przekierowania przez ustawienie [AllowAutoRedirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) na `false`:
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/AuthTests.cs?name=snippet2)]
+
+W przypadku niezezwalania klientowi na śledzenie przekierowania można wykonać następujące operacje:
+
+* Kod stanu zwracany przez SUT można sprawdzić pod kątem oczekiwanego wyniku [HttpStatusCode. Redirect](/dotnet/api/system.net.httpstatuscode) , a nie do końcowego kodu stanu po przekierowaniu do strony logowania, która byłaby [HttpStatusCode. ok](/dotnet/api/system.net.httpstatuscode).
+* Wartość nagłówka `Location` w nagłówkach odpowiedzi jest sprawdzana w celu potwierdzenia, że rozpoczyna się od `http://localhost/Identity/Account/Login`, a nie od końcowej odpowiedzi na stronę logowania, w której będzie znajdować się nagłówek `Location`.
+
+Aplikacja testowa może zasymulować <xref:Microsoft.AspNetCore.Authentication.AuthenticationHandler`1> w [ConfigureTestServices](/dotnet/api/microsoft.aspnetcore.testhost.webhostbuilderextensions.configuretestservices) , aby przetestować aspekty uwierzytelniania i autoryzacji. Minimalny scenariusz zwraca element [AuthenticateResult. Success](xref:Microsoft.AspNetCore.Authentication.AuthenticateResult.Success*):
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/AuthTests.cs?name=snippet4&highlight=11-18)]
+
+`TestAuthHandler` jest wywoływana w celu uwierzytelnienia użytkownika, gdy w schemacie uwierzytelniania jest ustawiona wartość `Test`, gdzie `AddAuthentication` jest zarejestrowana dla `ConfigureTestServices`:
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/AuthTests.cs?name=snippet3&highlight=7-12)]
+
+Więcej informacji o `WebApplicationFactoryClientOptions` można znaleźć w sekcji [Opcje klienta](#client-options) .
+
+## <a name="set-the-environment"></a>Ustawianie środowiska
+
+Domyślnie środowisko hosta i aplikacji SUT jest skonfigurowane do korzystania ze środowiska deweloperskiego. Aby zastąpić środowisko SUT:
+
+* Ustaw zmienną środowiskową `ASPNETCORE_ENVIRONMENT` (na przykład `Staging`, `Production`lub inną wartość niestandardową, taką jak `Testing`).
+* Przesłoń `CreateHostBuilder` w aplikacji testowej, aby odczytać zmienne środowiskowe z prefiksem `ASPNETCORE`.
+
+```csharp
+protected override IHostBuilder CreateHostBuilder() => 
+    base.CreateHostBuilder()
+        .ConfigureHostConfiguration(
+            config => config.AddEnvironmentVariables("ASPNETCORE"));
+```
+
 ## <a name="how-the-test-infrastructure-infers-the-app-content-root-path"></a>Jak infrastruktura testowa wnioskuje ścieżkę katalogu głównego zawartości aplikacji
 
 Konstruktor `WebApplicationFactory` wnioskuje ścieżkę [katalogu głównego zawartości](xref:fundamentals/index#content-root) aplikacji, wyszukując [WebApplicationFactoryContentRootAttribute](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactorycontentrootattribute) na zestawie zawierającym testy integracji z kluczem równym zestawowi `TEntryPoint` `System.Reflection.Assembly.FullName`. W przypadku nieznalezienia atrybutu o poprawnym kluczu `WebApplicationFactory` wraca do wyszukiwania pliku rozwiązania ( *. sln*) i dołącza nazwę zestawu `TEntryPoint` do katalogu rozwiązania. Katalog główny aplikacji (ścieżka katalogu głównego zawartości) służy do odnajdywania widoków i plików zawartości.
@@ -693,8 +740,9 @@ Aplikacja testowa to Aplikacja konsolowa w katalogu *Tests/RazorPagesProject. Te
 
 | Testuj katalog aplikacji | Opis |
 | ------------------ | ----------- |
-| *BasicTests* | *BasicTests.cs* zawiera metody testowe do routingu, uzyskiwania dostępu do bezpiecznej strony przez nieuwierzytelnionego użytkownika i uzyskiwania profilu użytkownika usługi GitHub oraz sprawdzania logowania użytkownika profilu. |
-| *IntegrationTests* | *IndexPageTests.cs* zawiera testy integracji dla strony indeksu przy użyciu niestandardowej klasy `WebApplicationFactory`. |
+| *AuthTests* | Zawiera metody testowe dla:<ul><li>Uzyskiwanie dostępu do bezpiecznej strony przez nieuwierzytelniony użytkownik.</li><li>Uzyskiwanie dostępu do bezpiecznej strony przez uwierzytelnionego użytkownika przy użyciu <xref:Microsoft.AspNetCore.Authentication.AuthenticationHandler`1>imitacji.</li><li>Uzyskiwanie profilu użytkownika usługi GitHub i sprawdzanie logowania użytkownika w profilu.</li></ul> |
+| *BasicTests* | Zawiera metodę testową dla routingu i typu zawartości. |
+| *IntegrationTests* | Zawiera testy integracji dla strony indeksu przy użyciu niestandardowej klasy `WebApplicationFactory`. |
 | *Pomocnicy/narzędzia* | <ul><li>*Utilities.cs* zawiera metodę `InitializeDbForTests` używaną do wypełniania bazy danych danymi testowymi.</li><li>*HtmlHelpers.cs* zapewnia metodę do zwrócenia AngleSharp `IHtmlDocument` do użycia przez metody testowe.</li><li>*HttpClientExtensions.cs* zapewniają przeciążenia dla `SendAsync` do przesyłania żądań do SUT.</li></ul> |
 
 Platforma testowa jest [xUnit](https://xunit.github.io/). Testy integracji są przeprowadzane przy użyciu [programu Microsoft. AspNetCore. TestHost](/dotnet/api/microsoft.aspnetcore.testhost), który obejmuje [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver). Ponieważ pakiet [Microsoft. AspNetCore. MVC. test](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing) służy do konfigurowania hosta testowego i serwera testowego, pakiety `TestHost` i `TestServer` nie wymagają bezpośrednich odwołań do pakietów w pliku projektu aplikacji testowej lub konfiguracji dewelopera w teście aplikacje.
@@ -712,6 +760,6 @@ Przykładowa aplikacja odziarnauje bazę danych z trzema komunikatami w *Utiliti
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Testy jednostkowe](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-* [Testy jednostkowe stron Razor](xref:test/razor-pages-tests)
-* [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)
-* [Kontrolery testów](xref:mvc/controllers/testing)
+* <xref:test/razor-pages-tests>
+* <xref:fundamentals/middleware/index>
+* <xref:mvc/controllers/testing>
