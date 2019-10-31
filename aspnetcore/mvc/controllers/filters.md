@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/28/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: 0c3597f24e02af40517e12a86127b140ed4fb550
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: 6a83b8e85b68a9b8796aeed2fd39108dbeed3266
+ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333931"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73190538"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtry w ASP.NET Core
 
@@ -147,7 +147,7 @@ Ta sekwencja pokazuje:
 ### <a name="controller-and-razor-page-level-filters"></a>Kontrolery i filtry na poziomie strony Razor
 
 Każdy kontroler, który dziedziczy z klasy bazowej <xref:Microsoft.AspNetCore.Mvc.Controller> obejmuje metody [Controller. OnActionExecuting](xref:Microsoft.AspNetCore.Mvc.Controller.OnActionExecuting*), [Controller. OnActionExecutionAsync](xref:Microsoft.AspNetCore.Mvc.Controller.OnActionExecutionAsync*)i [Controller. OnActionExecuted](xref:Microsoft.AspNetCore.Mvc.Controller.OnActionExecuted*)
- @ no__t-5 metod. Te metody:
+`OnActionExecuted`. Te metody:
 
 * Zawiń filtry, które są uruchamiane dla danego działania.
 * `OnActionExecuting` jest wywoływana przed dowolnym filtrem akcji.
@@ -156,7 +156,7 @@ Każdy kontroler, który dziedziczy z klasy bazowej <xref:Microsoft.AspNetCore.M
 
 Na przykład w przykładzie pobierania `MySampleActionFilter` jest zastosowany globalnie podczas uruchamiania.
 
-@No__t-0:
+`TestController`:
 
 * Stosuje `SampleActionFilterAttribute` (`[SampleActionFilter]`) do akcji `FilterTest2`.
 * Zastępuje `OnActionExecuting` i `OnActionExecuted`.
@@ -209,12 +209,12 @@ Potok filtru może być skrócony przez ustawienie właściwości <xref:Microsof
 
 [!code-csharp[](./filters/sample/FiltersSample/Filters/ShortCircuitingResourceFilterAttribute.cs?name=snippet)]
 
-W poniższym kodzie filtr `ShortCircuitingResourceFilter` i `AddHeader` ma wartość docelową metody akcji `SomeResource`. @No__t-0:
+W poniższym kodzie filtr `ShortCircuitingResourceFilter` i `AddHeader` ma wartość docelową metody akcji `SomeResource`. `ShortCircuitingResourceFilter`:
 
 * Uruchamia się najpierw, ponieważ jest to filtr zasobów, a `AddHeader` to filtr akcji.
 * Krótkie obwody pozostała część potoku.
 
-W związku z tym filtr `AddHeader` nigdy nie działa dla akcji `SomeResource`. Takie zachowanie będzie takie samo, jeśli oba filtry zostały zastosowane na poziomie metody akcji, pod warunkiem, że `ShortCircuitingResourceFilter` działały jako pierwsze. @No__t-0 działa najpierw ze względu na jego typ filtru lub jawne użycie właściwości `Order`.
+W związku z tym filtr `AddHeader` nigdy nie działa dla akcji `SomeResource`. Takie zachowanie będzie takie samo, jeśli oba filtry zostały zastosowane na poziomie metody akcji, pod warunkiem, że `ShortCircuitingResourceFilter` działały jako pierwsze. `ShortCircuitingResourceFilter` jest uruchamiany jako pierwszy ze względu na jego typ filtru lub jawne użycie właściwości `Order`.
 
 [!code-csharp[](./filters/sample/FiltersSample/Controllers/SampleController.cs?name=snippet_AddHeader&highlight=1,9)]
 
@@ -245,7 +245,7 @@ Rejestratory są dostępne z programu DI. Należy jednak unikać tworzenia i uż
 
 ### <a name="servicefilterattribute"></a>Servicefilterattribute
 
-Typy implementacji filtru usługi są zarejestrowane w `ConfigureServices`. @No__t-0 Pobiera wystąpienie filtru z DI.
+Typy implementacji filtru usługi są zarejestrowane w `ConfigureServices`. <xref:Microsoft.AspNetCore.Mvc.ServiceFilterAttribute> Pobiera wystąpienie filtru z DI.
 
 Poniższy kod ilustruje `AddHeaderResultServiceFilter`:
 
@@ -349,7 +349,7 @@ Poniższy kod przedstawia przykładowy filtr akcji:
 
 [!code-csharp[](./filters/sample/FiltersSample/Filters/MySampleActionFilter.cs?name=snippet_ActionFilter)]
 
-@No__t-0 zawiera następujące właściwości:
+<xref:Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext> udostępnia następujące właściwości:
 
 * <xref:Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext.ActionArguments> — umożliwia odczytywanie danych wejściowych metody akcji.
 * <xref:Microsoft.AspNetCore.Mvc.Controller> — umożliwia manipulowanie wystąpieniem kontrolera.
@@ -360,7 +360,7 @@ Zgłaszanie wyjątku w metodzie akcji:
 * Zapobiega uruchamianiu kolejnych filtrów.
 * W przeciwieństwie do ustawienia `Result`, jest traktowany jako błąd, a nie pomyślny wynik.
 
-@No__t-0 zapewnia `Controller` i `Result` oraz następujące właściwości:
+<xref:Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext> zapewnia `Controller` i `Result` oraz następujące właściwości:
 
 * <xref:System.Web.Mvc.ActionExecutedContext.Canceled>-true, jeśli wykonanie akcji było krótkie przez inny filtr.
 * <xref:System.Web.Mvc.ActionExecutedContext.Exception>-wartość null, jeśli filtr akcji lub poprzednio uruchomionego elementu zgłosił wyjątek. Ustawienie tej właściwości na wartość null:
@@ -404,7 +404,7 @@ Filtry wyjątków:
 
 Następujący przykładowy filtr wyjątku używa niestandardowego widoku błędów, aby wyświetlić szczegóły dotyczące wyjątków występujących podczas opracowywania aplikacji:
 
-[!code-csharp[](./filters/sample/FiltersSample/Filters/CustomExceptionFilterAttribute.cs?name=snippet_ExceptionFilter&highlight=16-19)]
+[!code-csharp[](./filters/sample/FiltersSample/Filters/CustomExceptionFilter.cs?name=snippet_ExceptionFilter&highlight=16-19)]
 
 Filtry wyjątków:
 
@@ -513,7 +513,7 @@ Poniższy kod przedstawia trzy podejścia do stosowania `[SampleActionFilter]`:
 
 [!code-csharp[](./filters/sample/FiltersSample/Controllers/HomeController.cs?name=snippet&highlight=1)]
 
-W poprzednim kodzie dekorowania nazwy metodę z `[SampleActionFilter]` jest preferowanym podejściem do zastosowania `SampleActionFilter`.
+W poprzednim kodzie dekorowania nazwy metodę `[SampleActionFilter]` jest preferowanym podejściem do zastosowania `SampleActionFilter`.
 
 ## <a name="using-middleware-in-the-filter-pipeline"></a>Używanie oprogramowania pośredniczącego w potoku filtru
 

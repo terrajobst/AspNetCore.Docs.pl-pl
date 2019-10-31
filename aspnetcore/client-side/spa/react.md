@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: spa/react
-ms.openlocfilehash: 0e61c5b3e31a0b050d356b8f8e16306dc1e2a7f3
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: bbe5328bfa5b4187989a00c3c94e98dabc5d032a
+ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080415"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73190514"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>Użyj szablonu projektu reagowanie z ASP.NET Core
 
@@ -20,7 +20,9 @@ Zaktualizowany szablon projektu dotyczącego reakcji umożliwia korzystanie z do
 
 Szablon jest równoznaczny z tworzeniem projektu ASP.NET Core, który działa jako zaplecze interfejsu API, a standardowy projekt reakcji CRA reaguje na działanie jako interfejs użytkownika, ale z wygodą hostingu zarówno w jednym projekcie aplikacji, który można skompilować i opublikować jako pojedynczą jednostkę.
 
-## <a name="create-a-new-app"></a>Tworzenie nowej aplikacji
+Szablon projektu reaguje nie jest przeznaczony do renderowania po stronie serwera (SSR). W przypadku usługi SSR z reagowaniem i środowiska Node. js Rozważ użycie [poniższego elementu js](https://github.com/zeit/next.js/) lub [Razzle](https://github.com/jaredpalmer/razzle).
+
+## <a name="create-a-new-app"></a>Utwórz nową aplikację
 
 Jeśli zainstalowano ASP.NET Core 2,1, nie ma potrzeby instalowania szablonu projektu z reagowaniem.
 
@@ -41,7 +43,7 @@ Proces kompilacji przywraca zależności npm w pierwszym przebiegu, co może pot
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Upewnij się, że masz zmienną środowiskową o `ASPNETCORE_Environment` nazwie `Development`z wartością. W systemie Windows (w komunikatach innych niż programu PowerShell `SET ASPNETCORE_Environment=Development`) Uruchom polecenie. W systemie Linux lub macOS Uruchom `export ASPNETCORE_Environment=Development`polecenie.
+Upewnij się, że masz zmienną środowiskową o nazwie `ASPNETCORE_Environment` z wartością `Development`. W systemie Windows (w komunikatach innych niż programu PowerShell) Uruchom `SET ASPNETCORE_Environment=Development`. W systemie Linux lub macOS Uruchom `export ASPNETCORE_Environment=Development`.
 
 Uruchom [kompilację dotnet](/dotnet/core/tools/dotnet-build) , aby sprawdzić, czy aplikacja jest poprawnie skompilowana. W pierwszym uruchomieniu proces kompilacji przywraca zależności npm, co może potrwać kilka minut. Kolejne kompilacje są znacznie szybsze.
 
@@ -78,7 +80,7 @@ Można użyć standardowych [ASP.NET Core metod hostingu i wdrażania](xref:host
 
 Projekt jest skonfigurowany tak, aby uruchamiał własne wystąpienie serwera CRA Development w tle podczas uruchamiania aplikacji ASP.NET Core w trybie tworzenia. Jest to wygodne, ponieważ oznacza to, że nie trzeba ręcznie uruchamiać oddzielnego serwera.
 
-Istnieje zwrot do tej konfiguracji domyślnej. Za każdym razem, gdy C# modyfikujesz kod, a aplikacja ASP.NET Core wymaga ponownego uruchomienia, serwer CRA zostanie uruchomiony ponownie. Aby rozpocząć tworzenie kopii zapasowej, wymagane są kilka sekund. Jeśli wprowadzasz częste C# zmiany kodu i nie chcesz czekać na ponowne uruchomienie serwera CRA, uruchom serwer CRA na zewnątrz niezależnie od procesu ASP.NET Core. Aby to zrobić:
+Istnieje zwrot do tej konfiguracji domyślnej. Za każdym razem, gdy C# modyfikujesz kod, a aplikacja ASP.NET Core wymaga ponownego uruchomienia, serwer CRA zostanie uruchomiony ponownie. Aby rozpocząć tworzenie kopii zapasowej, wymagane są kilka sekund. Jeśli wprowadzasz częste C# zmiany kodu i nie chcesz czekać na ponowne uruchomienie serwera CRA, uruchom serwer CRA na zewnątrz niezależnie od procesu ASP.NET Core. W tym celu:
 
 1. Dodaj plik *ENV* do podkatalogu *ClientApp* przy użyciu następującego ustawienia:
 
@@ -95,7 +97,7 @@ Istnieje zwrot do tej konfiguracji domyślnej. Za każdym razem, gdy C# modyfiku
     npm start
     ```
 
-3. Zmodyfikuj aplikację ASP.NET Core tak, aby korzystała z zewnętrznego wystąpienia serwera CRA, zamiast uruchamiania jednego z nich. W klasie *uruchomieniowej* Zastąp `spa.UseReactDevelopmentServer` wywołanie następującym:
+3. Zmodyfikuj aplikację ASP.NET Core tak, aby korzystała z zewnętrznego wystąpienia serwera CRA, zamiast uruchamiania jednego z nich. W klasie *uruchomieniowej* Zastąp wywołanie `spa.UseReactDevelopmentServer`, wykonując następujące czynności:
 
     ```csharp
     spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
