@@ -5,14 +5,14 @@ description: Tworzenie aplikacji Blazor krok po kroku.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 10/31/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: c357b324905ee3a4c9f4bd167dbbcacaf7e1bc76
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: cc7caa1ee01e0282024895ab35c5b9933b1504d0
+ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391211"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416177"
 ---
 # <a name="build-your-first-blazor-app"></a>Tworzenie pierwszej aplikacji Blazor
 
@@ -28,7 +28,7 @@ Postępuj zgodnie ze wskazówkami w artykule <xref:blazor/get-started>, aby utwo
 
 1. Przejdź do każdej z trzech stron aplikacji w folderze *Pages* : Home, Counter i Fetch Data. Te strony są implementowane przez pliki składników Razor *index. Razor*, *Counter. Razor*i *FetchData. Razor*.
 
-1. Na stronie licznik wybierz przycisk **kliknij** , aby zwiększyć licznik bez odświeżania strony. Zwiększenie licznika na stronie sieci Web zwykle wymaga pisania kodu JavaScript, ale Blazor zapewnia lepsze podejście przy użyciu C#.
+1. Na stronie licznik wybierz przycisk **kliknij** , aby zwiększyć licznik bez odświeżania strony. Zwiększenie licznika na stronie sieci Web zwykle wymaga pisania kodu JavaScript. W przypadku Blazor można pisać C# zamiast tego.
 
 1. Sprawdzanie implementacji składnika `Counter` w pliku *Counter. Razor* .
 

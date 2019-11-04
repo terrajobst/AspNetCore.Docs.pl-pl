@@ -5,14 +5,14 @@ description: Odkryj, jak ASP.NET Core Blazor, jak Blazor zarządza nieobsługiwa
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 10/31/2019
 uid: blazor/handle-errors
-ms.openlocfilehash: fb4c7cacfe8be2417d6009cfc722595d0d91d530
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: afcaa4d926c3e5f0a018897ce4b67b54574dae77
+ms.sourcegitcommit: 77c8be22d5e88dd710f42c739748869f198865dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72288836"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426984"
 ---
 # <a name="handle-errors-in-aspnet-core-blazor-apps"></a>Obsługa błędów w aplikacjach ASP.NET Core Blazor
 
@@ -29,7 +29,7 @@ Serwer Blazor jest strukturą stanową. Gdy użytkownicy współpracują z aplik
 
 Jeśli użytkownik otworzy aplikację na wielu kartach przeglądarki, mają one wiele niezależnych obwodów.
 
-Blazor traktuje większość nieobsłużonych wyjątków jako krytyczne do obwodu, w którym występują. Jeśli obwód zostanie przerwany z powodu nieobsługiwanego wyjątku, użytkownik może nadal korzystać z aplikacji tylko przez ponowne załadowanie strony w celu utworzenia nowego obwodu. Nie ma to wpływu na obwody, które zostały przerwane, które są obwody dla innych użytkowników lub kart przeglądarki. Ten scenariusz jest podobny do aplikacji klasycznej, która uległa awarii @ no__t-0the, należy ponownie uruchomić aplikację, ale nie ma to wpływu na inne aplikacje.
+Blazor traktuje większość nieobsłużonych wyjątków jako krytyczne do obwodu, w którym występują. Jeśli obwód zostanie przerwany z powodu nieobsługiwanego wyjątku, użytkownik może nadal korzystać z aplikacji tylko przez ponowne załadowanie strony w celu utworzenia nowego obwodu. Nie ma to wpływu na obwody, które zostały przerwane, które są obwody dla innych użytkowników lub kart przeglądarki. Ten scenariusz jest podobny do aplikacji klasycznej, która uległa awarii,&mdash;należy ponownie uruchomić aplikację, ale nie ma to wpływu na inne aplikacje.
 
 Obwód jest zakończony, gdy wystąpił nieobsługiwany wyjątek z następujących powodów:
 
@@ -75,9 +75,9 @@ Poprzednie Nieobsłużone wyjątki zostały opisane w poniższych sekcjach tego 
 Gdy Blazor tworzy wystąpienie składnika:
 
 * Konstruktor składnika jest wywoływany.
-* Konstruktory wszelkich niepojedynczych usług DI dostarczonych do konstruktora składnika za pośrednictwem dyrektywy [@inject](xref:blazor/dependency-injection#request-a-service-in-a-component) lub atrybutu [[wstrzyknięcie]](xref:blazor/dependency-injection#request-a-service-in-a-component) są wywoływane. 
+* Są wywoływane konstruktory wszelkich niepojedynczych usług DI dostarczonych do konstruktora składnika za pośrednictwem dyrektywy [@inject](xref:blazor/dependency-injection#request-a-service-in-a-component) lub atrybutu [[wstrzyknięcie]](xref:blazor/dependency-injection#request-a-service-in-a-component) . 
 
-Obwód kończy się niepowodzeniem, gdy dowolny wykonany Konstruktor lub setter dla dowolnej właściwości `[Inject]` zgłasza nieobsługiwany wyjątek. Wyjątek jest krytyczny, ponieważ struktura nie może utworzyć wystąpienia składnika. Jeśli logika konstruktora może generować wyjątki, aplikacja powinna zalewkować wyjątki przy użyciu instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem.
+Obwód kończy się niepowodzeniem, gdy dowolny wykonany Konstruktor lub setter dla każdej właściwości `[Inject]` zgłasza nieobsłużony wyjątek. Wyjątek jest krytyczny, ponieważ struktura nie może utworzyć wystąpienia składnika. Jeśli logika konstruktora może generować wyjątki, aplikacja powinna zalewkować wyjątki przy użyciu instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem.
 
 ### <a name="lifecycle-methods"></a>Metody cyklu życia
 
@@ -111,7 +111,7 @@ Aby zapobiec wystąpieniu wyjątku odwołania o wartości null w logice renderow
 
 Poprzedni kod założono, że `person` nie `null`. Często Struktura kodu gwarantuje, że obiekt istnieje w momencie renderowania składnika. W takich przypadkach nie trzeba sprawdzać `null` w logice renderowania. W poprzednim przykładzie można zagwarantować, że istnieje `person`, ponieważ podczas tworzenia wystąpienia składnika jest tworzony `person`.
 
-### <a name="event-handlers"></a>Procedury obsługi zdarzeń
+### <a name="event-handlers"></a>Programy obsługi zdarzeń
 
 Kod po stronie klienta wyzwala wywołania kodu, C# gdy programy obsługi zdarzeń są tworzone przy użyciu:
 
@@ -134,7 +134,7 @@ Jeśli metoda `Dispose` składnika zgłasza nieobsługiwany wyjątek, wyjątek j
 
 Aby uzyskać więcej informacji na temat usuwania składników, zobacz <xref:blazor/components#component-disposal-with-idisposable>.
 
-### <a name="javascript-interop"></a>Międzyoperacyjność JavaScript
+### <a name="javascript-interop"></a>Międzyoperacyjność w języku JavaScript
 
 `IJSRuntime.InvokeAsync<T>` umożliwia kodowi .NET wykonywanie wywołań asynchronicznych do środowiska uruchomieniowego JavaScript w przeglądarce użytkownika.
 
@@ -147,7 +147,7 @@ Poniższe warunki dotyczą obsługi błędów z `InvokeAsync<T>`:
 Podobnie kod JavaScript może inicjować wywołania metod .NET wskazywanych przez [atrybut [JSInvokable]](xref:blazor/javascript-interop#invoke-net-methods-from-javascript-functions). Jeśli te metody .NET zgłaszają nieobsługiwany wyjątek:
 
 * Wyjątek nie jest traktowany jako krytyczny dla obwodu.
-* @No__t po stronie skryptu JavaScript jest odrzucany.
+* `Promise` po stronie JavaScript zostanie odrzucony.
 
 Istnieje możliwość użycia kodu obsługi błędów po stronie .NET lub stronie JavaScript wywołania metody.
 
@@ -174,9 +174,9 @@ Gdy obwód kończy się, ponieważ użytkownik odłączył się i struktura czy�
 
 Składniki Blazor mogą być wstępnie renderowane przy użyciu `Html.RenderComponentAsync`, aby ich renderowane znaczniki HTML były zwracane jako część początkowego żądania HTTP użytkownika. Działa to w następujący sposób:
 
-* Tworzenie nowego obwodu zawierającego wszystkie wstępnie renderowane składniki, które są częścią tej samej strony.
+* Tworzenie nowego obwodu dla wszystkich wstępnie renderowanych składników, które są częścią tej samej strony.
 * Generowanie początkowego kodu HTML.
-* Podtraktowanie obwodu jako `disconnected` do momentu, aż przeglądarka użytkownika ustanowi połączenie sygnalizujące z powrotem do tego samego serwera w celu wznowienia interakcji z obwodem.
+* Podtraktowanie obwodu jako `disconnected`, dopóki przeglądarka użytkownika nie ustanowi połączenia z tym samym serwerem. Po nawiązaniu połączenia zostanie wznowione działanie międzydziałające w obwodzie i zostanie zaktualizowane oznaczenie HTML składników.
 
 Jeśli jakikolwiek składnik zgłasza nieobsłużony wyjątek podczas renderowania pre, na przykład podczas wykonywania metody cyklu życia lub logiki renderowania:
 

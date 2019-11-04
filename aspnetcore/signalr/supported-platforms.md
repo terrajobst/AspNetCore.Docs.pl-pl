@@ -1,51 +1,53 @@
 ---
-title: Platformy obsługiwane przez SignalR platformy ASP.NET Core
+title: Obsługiwane platformy ASP.NET Core sygnalizujące
 author: bradygaster
-description: Dowiedz się więcej o obsługiwane platformy dla biblioteki SignalR platformy ASP.NET Core.
+description: Dowiedz się więcej na temat obsługiwanych platform dla ASP.NET Core sygnalizującego.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 04/06/2019
+ms.date: 11/01/2019
 uid: signalr/supported-platforms
-ms.openlocfilehash: fefaaf97de3f1fabf8f3154bf5b4ccb37195ccff
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 1be7a307710e6e522c0088fd1ca01da11a13eda1
+ms.sourcegitcommit: 77c8be22d5e88dd710f42c739748869f198865dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898624"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73426972"
 ---
-# <a name="aspnet-core-signalr-supported-platforms"></a>Platformy obsługiwane przez SignalR platformy ASP.NET Core
+# <a name="aspnet-core-signalr-supported-platforms"></a>Obsługiwane platformy ASP.NET Core sygnalizujące
 
 ## <a name="server-system-requirements"></a>Wymagania systemowe serwera
 
-Biblioteka SignalR dla programu ASP.NET Core obsługuje związanej z platformą server, który obsługuje platformy ASP.NET Core.
+Program sygnalizujący dla ASP.NET Core obsługuje dowolną platformę serwera, którą ASP.NET Core obsługuje.
 
 ## <a name="javascript-client"></a>Klient JavaScript
 
-[Klienta JavaScript](https://www.npmjs.com/package/@aspnet/signalr) działa w środowisku NodeJS 8 i nowszymi wersjami i następujących przeglądarek:
+[Klient JavaScript](https://www.npmjs.com/package/@aspnet/signalr) działa w NodeJS 8 i nowszych wersjach oraz w następujących przeglądarkach:
 
-| Przeglądarka                         | Wersja |
-| ------------------------------- | ------- |
-| Microsoft Edge                  | bieżący |
-| Mozilla Firefox                 | bieżący |
-| Google Chrome; obejmuje systemu Android | bieżący |
-| Safari; includes iOS            | bieżący |
-| Microsoft Internet Explorer     | 11      |
- 
+| Przeglądarka                         | Wersja         |
+| ------------------------------- | --------------- |
+| Microsoft Edge                  | Bieżąca&dagger; |
+| Mozilla Firefox                 | Bieżąca&dagger; |
+| Google Chrome; obejmuje system Android | Bieżąca&dagger; |
+| Safari obejmuje system iOS            | Bieżąca&dagger; |
+| Microsoft Internet Explorer     | 11              |
+
+&dagger;*Current* odwołuje się do najnowszej wersji przeglądarki.
+
 ## <a name="net-client"></a>Klient .NET
 
-[Klient modelu .NET](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR/) działa na dowolnej platformie, obsługiwana przez platformy ASP.NET Core. Na przykład [Xamarin deweloperzy mogą używać SignalR](https://github.com/aspnet/Announcements/issues/305) do tworzenia aplikacji dla systemu Android, korzystając z platformy Xamarin.Android 8.4.0.1 i później oraz aplikacje dla systemu iOS przy użyciu rozszerzenia Xamarin.iOS 11.14.0.4 i nowszych.
+[Klient platformy .NET](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR/) działa na dowolnej platformie obsługiwanej przez ASP.NET Core. Na przykład [Deweloperzy platformy Xamarin mogą używać sygnałów](https://github.com/aspnet/Announcements/issues/305) do kompilowania aplikacji dla systemu Android za pomocą platformy Xamarin. Android 8.4.0.1 i nowszych oraz aplikacji systemu iOS przy użyciu platformy Xamarin. iOS 11.14.0.4 i nowszych.
 
-Jeśli na serwerze działa program IIS, transport gniazda Websocket wymaga usług IIS w wersji 8.0 lub nowszym w systemie Windows Server 2012 lub nowszej. Inne transportów są obsługiwane na wszystkich platformach.
+Jeśli na serwerze są uruchomione usługi IIS, transport gniazd internetowych wymaga usług IIS 8,0 lub nowszych w systemie Windows Server 2012 lub nowszym. Inne transporty są obsługiwane na wszystkich platformach.
 
 ## <a name="java-client"></a>Klient Java
 
-[Klienta Java](https://search.maven.org/artifact/com.microsoft.aspnet/signalr) obsługuje Java 8 i nowszych wersjach.
+[Klient Java](https://search.maven.org/artifact/com.microsoft.aspnet/signalr) obsługuje język Java 8 i nowsze wersje.
 
-## <a name="unsupported-clients"></a>Nieobsługiwana klientów
+## <a name="unsupported-clients"></a>Nieobsługiwane klienci
 
-Następujący klienci są dostępne, ale są eksperymentalne lub nieoficjalny. One nie są obecnie obsługiwane i nigdy nie może być.
+Następujący klienci są dostępni, ale są eksperymentalni lub nieoficjalni. Nie są one obecnie obsługiwane i mogą nie być dostępne.
 
-* [Klient języka C++](https://github.com/aspnet/SignalR/tree/master/clients/cpp)
+* [C++Klient](https://github.com/aspnet/SignalR/tree/master/clients/cpp)
 
 * [Klient SWIFT](https://github.com/moozzyk/SignalR-Client-Swift)

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/24/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 8b4da4e1e262ec82225413d0338b3492d0b5e152
-ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
+ms.openlocfilehash: be4493cc927bd5437a2c9dab00b6a555756195bb
+ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73190505"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416137"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w ASP.NET Core
 
@@ -127,7 +127,7 @@ Metody zapewniane przez <xref:Microsoft.AspNetCore.Routing.LinkGenerator> obsłu
 >
 > * Używaj <xref:Microsoft.AspNetCore.Routing.LinkGenerator> z przestrogą w oprogramowaniu pośredniczącym w połączeniu z `Map` lub `MapWhen`. `Map*` zmienia ścieżkę podstawową żądania wykonania, która ma wpływ na dane wyjściowe generowania łącza. Wszystkie <xref:Microsoft.AspNetCore.Routing.LinkGenerator> interfejsy API umożliwiają określanie ścieżki podstawowej. Zawsze określaj pustą ścieżkę bazową do cofnięcia `Map*`ma wpływ na generowanie linków.
 
-## <a name="differences-from-earlier-versions-of-routing"></a>Różnice wynikające z wcześniejszych wersji usługi Routing
+## <a name="endpoint-routing-differences-from-earlier-versions-of-routing"></a>Różnice w kierowaniu punktów końcowych z wcześniejszych wersji routingu
 
 Istnieje kilka różnic między routingiem punktu końcowego i wersjami routingu wcześniejszego niż w ASP.NET Core 2,2:
 

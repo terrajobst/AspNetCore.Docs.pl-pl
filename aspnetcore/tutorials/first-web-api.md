@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/29/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 6f2d62600da828261ecfc3a1df688ce914eccf33
-ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.openlocfilehash: abb55ea12583374639f28945037cb6aa41a5a32d
+ms.sourcegitcommit: 77c8be22d5e88dd710f42c739748869f198865dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72590012"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73427034"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Samouczek: Tworzenie internetowego interfejsu API za pomocą ASP.NET Core
 
@@ -901,7 +901,7 @@ jQuery wysyła żądanie HTTP POST z elementem do wykonania w treści żądania.
 
 ### <a name="update-a-to-do-item"></a>Aktualizowanie elementu do wykonania
 
-Aktualizowanie elementu do wykonania jest podobne do dodawania jednego. @No__t_0 zmieni się, aby dodać unikatowy identyfikator elementu, a `type` jest `PUT`.
+Aktualizowanie elementu do wykonania jest podobne do dodawania jednego. `url` zmieni się, aby dodać unikatowy identyfikator elementu, a `type` jest `PUT`.
 
 [!code-javascript[](first-web-api/samples/2.2/TodoApi/wwwroot/site.js?name=snippet_AjaxPut)]
 
@@ -917,7 +917,7 @@ Usuwanie elementu do wykonania jest realizowane przez ustawienie `type` w wywoł
 
 ## <a name="add-authentication-support-to-a-web-api"></a>Dodawanie obsługi uwierzytelniania do internetowego interfejsu API
 
-Zobacz samouczek [usługi identityserver4](https://identityserver4.readthedocs.io/en/latest/quickstarts/0_overview.html) .
+[!INCLUDE[](~/includes/IdentityServer4.md)]
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

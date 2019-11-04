@@ -10,16 +10,16 @@ products:
 - vs-code
 - vs-mac
 urlFragment: getstarted-swashbuckle-aspnetcore
-ms.openlocfilehash: 2b1da1d524eb18f1048314c544c64f82c22761e9
-ms.sourcegitcommit: 6189b0ced9c115248c6ede02efcd0b29d31f2115
+ms.openlocfilehash: c3c11f8b8f93cf7256a787c09dec7a2fb1f4e8b7
+ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69988983"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416181"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Wprowadzenie do Swashbuckle i ASP.NET Core
 
-Podczas korzystania z internetowego interfejsu API, informacje o jego różne metody może stanowić wyzwanie dla dewelopera. [Struktury swagger](https://swagger.io/), znane również jako [OpenAPI](https://www.openapis.org/), rozwiązuje problem Generowanie przydatne stron pomocy i dokumentacji dla interfejsów API sieci Web. Zapewnia korzyści, takich jak dokumentacja interaktywne, generowanie zestawów SDK klienta i odnajdywania interfejsu API.
+W przypadku korzystania z internetowego interfejsu API zrozumienie jego różnych metod może być trudne dla dewelopera. Struktura [Swagger](https://swagger.io/), znana również jako [openapi](https://www.openapis.org/), rozwiązuje problem związany z generowaniem użytecznej dokumentacji i stron pomocy dla interfejsów API sieci Web. Zapewnia takie korzyści, jak dokumentacja interaktywna, generowanie zestawu SDK klienta i możliwość odnajdywania interfejsów API.
 
 W tym przykładzie pokazano [Swashbuckle. AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) implementacja platformy .NET.
 
@@ -40,7 +40,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-`Startup.Configure` W metodzie Włącz oprogramowanie pośredniczące do obsługi wygenerowanego dokumentu JSON i interfejsu użytkownika programu Swagger:
+W metodzie `Startup.Configure` Włącz oprogramowanie pośredniczące do obsługi wygenerowanego dokumentu JSON i interfejsu użytkownika programu Swagger:
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -63,14 +63,14 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-Poprzednie `UseSwaggerUI` wywołanie metody włącza [oprogramowanie pośredniczące pliku statycznego](https://docs.microsoft.com/aspnet/core/fundamentals/static-files). Jeśli obiektem docelowym jest .NET Framework lub .NET Core 1. x, Dodaj pakiet NuGet [Microsoft. AspNetCore. StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) do projektu.
+Poprzednie wywołanie metody `UseSwaggerUI` włącza [oprogramowanie pośredniczące pliku statycznego](https://docs.microsoft.com/aspnet/core/fundamentals/static-files). Jeśli obiektem docelowym jest .NET Framework lub .NET Core 1. x, Dodaj pakiet NuGet [Microsoft. AspNetCore. StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) do projektu.
 
 Uruchom aplikację i przejdź do `http://localhost:<port>/swagger/v1/swagger.json`. Wygenerowany dokument opisujący punkty końcowe pojawia się, jak pokazano w [specyfikacji Swagger (Swagger. JSON)](https://docs.microsoft.com/aspnet/core/tutorials/web-api-help-pages-using-swagger#swagger-specification-swaggerjson).
 
-Interfejs użytkownika struktury Swagger można znaleźć pod `http://localhost:<port>/swagger`adresem. Eksploruj interfejs API za pośrednictwem interfejsu użytkownika struktury Swagger i Uwzględnij go w innych programach.
+Interfejs użytkownika struktury Swagger można znaleźć pod adresem `http://localhost:<port>/swagger`. Eksploruj interfejs API za pośrednictwem interfejsu użytkownika struktury Swagger i Uwzględnij go w innych programach.
 
 > [!TIP]
-> Aby obpracować interfejs użytkownika struktury Swagger w katalogu głównym aplikacji`http://localhost:<port>/`(), `RoutePrefix` ustaw właściwość na pusty ciąg:
+> Aby obpracować interfejs użytkownika struktury Swagger w katalogu głównym aplikacji (`http://localhost:<port>/`), ustaw właściwość `RoutePrefix` na pusty ciąg:
 >
 > ```csharp
 >app.UseSwaggerUI(c =>
@@ -80,13 +80,13 @@ Interfejs użytkownika struktury Swagger można znaleźć pod `http://localhost:
 >});
 >```
 
-W przypadku używania katalogów z usługami IIS lub zwrotnego serwera proxy Ustaw punkt końcowy struktury Swagger na ścieżkę względną przy użyciu `./` prefiksu. Na przykład `./swagger/v1/swagger.json`. Użycie `/swagger/v1/swagger.json` instruuje aplikację, aby wyszukać plik JSON w prawdziwym katalogu głównym adresu URL (plus prefiks trasy, jeśli jest używany). Na przykład użyj `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`zamiast.
+W przypadku używania katalogów z usługami IIS lub zwrotnego serwera proxy Ustaw punkt końcowy struktury Swagger na ścieżkę względną przy użyciu prefiksu `./`. Na przykład `./swagger/v1/swagger.json`. Przy użyciu `/swagger/v1/swagger.json` nakazuje aplikacji wyszukanie pliku JSON w prawdziwym katalogu głównym adresu URL (plus prefiks trasy, jeśli jest używany). Na przykład użyj `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json`, a nie `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`.
 
 ## <a name="customize-and-extend"></a>Dostosuj i rozwiń
 
 Struktura Swagger zawiera opcje dokumentowania modelu obiektów i dostosowywania interfejsu użytkownika w celu dopasowania go do motywu.
 
-`Startup` W klasie Dodaj następujące przestrzenie nazw:
+W klasie `Startup` Dodaj następujące przestrzenie nazw:
 ```csharp
 using System;
 using System.Reflection;
@@ -95,7 +95,7 @@ using System.IO;
 
 ### <a name="api-info-and-description"></a>Informacje o interfejsie API i opis
 
-Akcja konfiguracji przeniesiona do `AddSwaggerGen` metody powoduje dodanie informacji, takich jak autor, licencja i opis:
+Akcja konfiguracji przeniesiona do metody `AddSwaggerGen` dodaje informacje takie jak autor, licencja i opis:
 
 ```csharp
 // Register the Swagger generator, defining 1 or more Swagger documents
@@ -142,9 +142,9 @@ Komentarze XML można włączyć przy użyciu następujących metod:
 </PropertyGroup>
 ```
 
-#### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+#### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
-* W *okienko rozwiązania*naciśnij klawisz **Control** i kliknij nazwę projektu. Przejdź do **menu Narzędzia** > **Edytuj plik**.
+* W *okienko rozwiązania*naciśnij klawisz **Control** i kliknij nazwę projektu. Przejdź do **menu narzędzia** > **Edytuj plik**.
 * Ręcznie Dodaj wyróżnione wiersze do pliku *csproj* :
 
 ```xml
@@ -173,13 +173,13 @@ Włączenie komentarzy XML zapewnia informacje debugowania dla nieudokumentowany
 warning CS1591: Missing XML comment for publicly visible type or member 'TodoController.GetAll()'
 ```
 
-Aby pominąć ostrzeżenia dla całego projektu, należy zdefiniować rozdzielaną średnikami listę kodów ostrzeżeń do ignorowania w pliku projektu. Dołączanie kodów ostrzeżeń w `$(NoWarn);` celu zastosowania [ C# wartości domyślnych](https://github.com/dotnet/sdk/blob/2eb6c546931b5bcb92cd3128b93932a980553ea1/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.CSharp.props#L16) .
+Aby pominąć ostrzeżenia dla całego projektu, należy zdefiniować rozdzielaną średnikami listę kodów ostrzeżeń do ignorowania w pliku projektu. Dołączanie kodów ostrzeżeń do `$(NoWarn);` powoduje zastosowanie [ C# wartości domyślnych](https://github.com/dotnet/sdk/blob/2eb6c546931b5bcb92cd3128b93932a980553ea1/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.CSharp.props#L16) .
 
 ```xml
 <NoWarn>$(NoWarn);1591</NoWarn>
 ```
 
-Aby pominąć ostrzeżenia tylko dla określonych elementów członkowskich, należy ująć kod w [#pragma ostrzeżenia](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-pragma-warning) preprocesora. Takie podejście jest przydatne w przypadku kodu, który nie powinien być ujawniony za pośrednictwem dokumentacji interfejsu API. W poniższym przykładzie kod ostrzegawczy CS1591 jest ignorowany dla całej `Program` klasy. Wymuszanie kodu ostrzegawczego jest przywracane po zamknięciu definicji klasy. Określ wiele kodów ostrzeżeń z listą rozdzielaną przecinkami.
+Aby pominąć ostrzeżenia tylko dla określonych elementów członkowskich, należy ująć kod w [#pragma ostrzeżenia](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-pragma-warning) preprocesora. Takie podejście jest przydatne w przypadku kodu, który nie powinien być ujawniony za pośrednictwem dokumentacji interfejsu API. W poniższym przykładzie kod ostrzegawczy CS1591 jest ignorowany dla całej klasy `Program`. Wymuszanie kodu ostrzegawczego jest przywracane po zamknięciu definicji klasy. Określ wiele kodów ostrzeżeń z listą rozdzielaną przecinkami.
 
 ```csharp
 namespace TodoApi
@@ -239,9 +239,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-W poprzednim kodzie odbicie [](/dotnet/csharp/programming-guide/concepts/reflection) jest używane do kompilowania nazwy pliku XML pasującego do projektu interfejsu API sieci Web. Właściwość [AppContext. BaseDirectory](/dotnet/api/system.appcontext.basedirectory) służy do konstruowania ścieżki do pliku XML. Niektóre funkcje struktury Swagger (na przykład schematu parametrów wejściowych lub metod HTTP i kodów odpowiedzi z odpowiednich atrybutów) działają bez użycia pliku dokumentacji XML. W przypadku większości funkcji, a mianowicie podsumowania metod i opisów parametrów i kodów odpowiedzi, użycie pliku XML jest obowiązkowe.
+W poprzednim kodzie [odbicie](/dotnet/csharp/programming-guide/concepts/reflection) jest używane do kompilowania nazwy pliku XML pasującego do projektu interfejsu API sieci Web. Właściwość [AppContext. BaseDirectory](/dotnet/api/system.appcontext.basedirectory) służy do konstruowania ścieżki do pliku XML. Niektóre funkcje struktury Swagger (na przykład schematu parametrów wejściowych lub metod HTTP i kodów odpowiedzi z odpowiednich atrybutów) działają bez użycia pliku dokumentacji XML. W przypadku większości funkcji, a mianowicie podsumowania metod i opisów parametrów i kodów odpowiedzi, użycie pliku XML jest obowiązkowe.
 
-Dodawanie komentarzy z potrójnym ukośnikiem do akcji rozszerza interfejs użytkownika struktury Swagger, dodając opis do nagłówka sekcji. Dodaj element `Delete` podsumowania > powyżej akcji: [ \<](/dotnet/csharp/programming-guide/xmldoc/summary)
+Dodawanie komentarzy z potrójnym ukośnikiem do akcji rozszerza interfejs użytkownika struktury Swagger, dodając opis do nagłówka sekcji. Dodaj element [\<podsumowania](/dotnet/csharp/programming-guide/xmldoc/summary) powyżej akcji `Delete`:
 
 ```csharp
 /// <summary>
@@ -264,7 +264,7 @@ public IActionResult Delete(long id)
     return NoContent();
 }
 ```
-Interfejs użytkownika struktury Swagger wyświetla tekst wewnętrzny `<summary>` elementu poprzedniego kodu:
+Interfejs użytkownika struktury Swagger wyświetla tekst wewnętrzny elementu `<summary>` poprzedniego kodu:
 
 ![Interfejs użytkownika struktury Swagger pokazujący komentarz XML "Usuwa określony TodoItem". dla metody DELETE](sample_images/triple-slash-comments.png)
 
@@ -296,7 +296,7 @@ Interfejs użytkownika jest oparty na wygenerowanym schemacie JSON:
     }
 }
 ```
-`Create` [ Dodaj\<> element uwagi](/dotnet/csharp/programming-guide/xmldoc/remarks) do dokumentacji metody akcji. Uzupełnia on informacje określone w `<summary>` elemencie i zapewnia bardziej niezawodny interfejs użytkownika struktury Swagger. Zawartość `<remarks>` elementu może składać się z tekstu, JSON lub XML.
+Dodaj [\<uwagi >](/dotnet/csharp/programming-guide/xmldoc/remarks) elementu do dokumentacji metody akcji `Create`. Uzupełnia informacje określone w `<summary>` elemencie i zapewnia bardziej niezawodny interfejs użytkownika struktury Swagger. Zawartość elementu `<remarks>` może składać się z tekstu, JSON lub XML.
 
 ```csharp
 /// <summary>
@@ -318,8 +318,8 @@ Interfejs użytkownika jest oparty na wygenerowanym schemacie JSON:
 /// <response code="201">Returns the newly created item</response>
 /// <response code="400">If the item is null</response>            
 [HttpPost]
-[ProducesResponseType(201)]
-[ProducesResponseType(400)]
+[ProducesResponseType(StatusCodes.Status201Created)]
+[ProducesResponseType(StatusCodes.Status400BadRequest)]
 public ActionResult<TodoItem> Create(TodoItem item)
 {
     _context.TodoItems.Add(item);
@@ -334,9 +334,9 @@ Zwróć uwagę na ulepszenia interfejsu użytkownika z następującymi dodatkowy
 
 ### <a name="data-annotations"></a>Adnotacje danych
 
-Dekorować model z atrybutami, które znajdują się w przestrzeni nazw [System. ComponentModel.](/dotnet/api/system.componentmodel.dataannotations) DataAnnotations, aby pomóc w użyciu składników interfejsu użytkownika struktury Swagger.
+Dekorować model z atrybutami, które znajdują się w przestrzeni nazw [System. ComponentModel. DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) , aby pomóc w użyciu składników interfejsu użytkownika struktury Swagger.
 
-`[Required]` Dodaj atrybut`Name` do właściwości`TodoItem` klasy:
+Dodaj atrybut `[Required]` do właściwości `Name` klasy `TodoItem`:
 
 ```csharp
 using System.ComponentModel;
@@ -383,7 +383,7 @@ Obecność tego atrybutu zmienia zachowanie interfejsu użytkownika i zmienia ź
 },
 ```
 
-`[Produces("application/json")]` Dodaj atrybut do kontrolera interfejsu API. Celem jest zadeklarowanie, że działania kontrolera obsługują typ zawartości odpowiedzi dla *aplikacji/JSON*:
+Dodaj atrybut `[Produces("application/json")]` do kontrolera interfejsu API. Celem jest zadeklarowanie, że działania kontrolera obsługują typ zawartości odpowiedzi dla *aplikacji/JSON*:
 
 ```csharp
 [Produces("application/json")]
@@ -401,17 +401,17 @@ W miarę wzrostu użycia adnotacji danych w interfejsie API sieci Web strony int
 
 ### <a name="describe-response-types"></a>Opisz typy odpowiedzi
 
-Deweloperzy korzystający z internetowego interfejsu API są najbardziej zainteresowani, które są&mdash;zwracane w szczególności typy odpowiedzi i kody błędów (jeśli nie są standardem). Typy odpowiedzi i kody błędów są oznaczane w komentarzach XML i adnotacjach danych.
+Deweloperzy korzystający z interfejsu API sieci Web mają największe znaczenie w odróżnieniu od typów odpowiedzi i kodów błędów (jeśli nie&mdash;są standardem). Typy odpowiedzi i kody błędów są oznaczane w komentarzach XML i adnotacjach danych.
 
-`Create` Akcja zwraca kod stanu HTTP 201 na sukcesie. Kod stanu HTTP 400 jest zwracany, gdy treść ogłoszonego żądania ma wartość null. Bez odpowiedniej dokumentacji w interfejsie użytkownika programu Swagger klient nie ma wiedzy na temat oczekiwanych wyników. Rozwiąż ten problem, dodając wyróżnione wiersze w następującym przykładzie:
+Akcja `Create` zwraca kod stanu HTTP 201 na powodzeniu. Kod stanu HTTP 400 jest zwracany, gdy treść ogłoszonego żądania ma wartość null. Bez odpowiedniej dokumentacji w interfejsie użytkownika programu Swagger klient nie ma wiedzy na temat oczekiwanych wyników. Rozwiąż ten problem, dodając wyróżnione wiersze w następującym przykładzie:
 
 ```csharp
 /// <returns>A newly created TodoItem</returns>
 /// <response code="201">Returns the newly created item</response>
 /// <response code="400">If the item is null</response>            
 [HttpPost]
-[ProducesResponseType(201)]
-[ProducesResponseType(400)]
+[ProducesResponseType(StatusCodes.Status201Created)]
+[ProducesResponseType(StatusCodes.Status400BadRequest)]
 public ActionResult<TodoItem> Create(TodoItem item)
 ```
 
