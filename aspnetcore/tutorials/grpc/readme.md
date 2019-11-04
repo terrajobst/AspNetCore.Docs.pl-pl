@@ -8,12 +8,12 @@ products:
 - aspnet-core
 - vs
 urlFragment: create-grpc-client
-ms.openlocfilehash: a281adc3b1fe90eeb32c1185750f911af683af83
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: b9feb9eed62177358fffc0d7da582f625a431e32
+ms.sourcegitcommit: 9e85c2562df5e108d7933635c830297f484bb775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69029094"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73463043"
 ---
 # <a name="create-a-grpc-client-and-server-in-aspnet-core-30-using-visual-studio"></a>Tworzenie gRPC klienta i serwera w ASP.NET Core 3,0 przy użyciu programu Visual Studio
 
@@ -29,7 +29,7 @@ W tym samouczku:
 
 ## <a name="create-a-grpc-service"></a>Tworzenie usługi gRPC
 
-* W programie Visual Studio **pliku** menu, wybierz opcję **New** > **projektu**.
+* Z menu **plik** programu Visual Studio wybierz pozycję **Nowy** **projekt** > .
 * W oknie dialogowym **Tworzenie nowego projektu** wybierz pozycję **ASP.NET Core aplikacji sieci Web**.
 * Wybierz pozycję **dalej**
 * Nazwij projekt **GrpcGreeter**. Ważne jest, aby nazwa projektu *GrpcGreeter* , tak aby przestrzenie nazw były zgodne podczas kopiowania i wklejania kodu.
@@ -41,11 +41,11 @@ W tym samouczku:
 
 ### <a name="run-the-service"></a>Uruchamianie usługi
 
-* Naciśnij `Ctrl+F5` klawisz, aby uruchomić usługę gRPC bez debugera.
+* Naciśnij `Ctrl+F5`, aby uruchomić usługę gRPC bez debugera.
 
   Program Visual Studio uruchamia usługę w wierszu polecenia.
 
-Dzienniki pokazują, że usługa nasłuchuje `https://localhost:5001`.
+Dzienniki pokazują, że usługa nasłuchuje na `https://localhost:5001`.
 
 ```console
 info: Microsoft.Hosting.Lifetime[0]
@@ -66,16 +66,16 @@ info: Microsoft.Hosting.Lifetime[0]
 
 *GrpcGreeter* pliki projektu:
 
-* *Greeting. proto*: Plik *Protos/Greeting. proto* definiuje `Greeter` gRPC i służy do generowania zasobów serwera gRPC. Aby uzyskać więcej informacji, zobacz [wprowadzenie do gRPC](xref:grpc/index).
-* Folder *usługi* : Zawiera implementację `Greeter` usługi.
-* *appSettings.json*: Zawiera dane konfiguracyjne, takie jak protokół używany przez Kestrel. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/index>.
-* *Program.cs*: Zawiera punkt wejścia dla usługi gRPC. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host>.
-* *Startup.cs*: Zawiera kod, który konfiguruje zachowanie aplikacji. Aby uzyskać więcej informacji, zobacz [Uruchamianie aplikacji](xref:fundamentals/startup).
+* *Greeting. proto*: plik *Protos/Greeting. proto* definiuje `Greeter` gRPC i służy do generowania zasobów serwera gRPC. Aby uzyskać więcej informacji, zobacz [wprowadzenie do gRPC](xref:grpc/index).
+* Folder *usługi* : zawiera implementację usługi `Greeter`.
+* *appSettings. JSON*: zawiera dane konfiguracyjne, takie jak protokół używany przez Kestrel. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/index>.
+* *Program.cs*: zawiera punkt wejścia dla usługi gRPC. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host>.
+* *Startup.cs*: zawiera kod, który konfiguruje zachowanie aplikacji. Aby uzyskać więcej informacji, zobacz [Uruchamianie aplikacji](xref:fundamentals/startup).
 
 ## <a name="create-the-grpc-client-in-a-net-console-app"></a>Tworzenie klienta gRPC w aplikacji konsolowej .NET
 
 * Otwórz drugie wystąpienie programu Visual Studio.
-* Na pasku menu wybierz pozycję **plik** > **Nowy** > **projekt** .
+* Wybierz pozycję **plik** > **Nowy** > **projekt** na pasku menu.
 * W oknie dialogowym **Tworzenie nowego projektu** wybierz pozycję **Aplikacja konsolowa (.NET Core)** .
 * Wybierz pozycję **dalej**
 * W polu tekstowym **Nazwa** wprowadź wartość "GrpcGreeterClient".
@@ -87,13 +87,13 @@ Projekt klienta gRPC wymaga następujących pakietów:
 
 * [GRPC .NET. Client](https://www.nuget.org/packages/Grpc.Net.Client), który zawiera klienta .NET Core.
 * [Google. protobuf](https://www.nuget.org/packages/Google.Protobuf/), który zawiera interfejsy API komunikatów protobuf C#dla.
-* [GRPC. Tools](https://www.nuget.org/packages/Grpc.Tools/), która zawiera C# obsługę narzędzi dla plików protobuf. Pakiet narzędzi nie jest wymagany w czasie wykonywania, dlatego zależność jest oznaczona za pomocą `PrivateAssets="All"`.
+* [GRPC. Tools](https://www.nuget.org/packages/Grpc.Tools/), która zawiera C# obsługę narzędzi dla plików protobuf. Pakiet narzędzi nie jest wymagany w czasie wykonywania, więc zależność jest oznaczona za pomocą `PrivateAssets="All"`.
 
 Zainstaluj pakiety przy użyciu konsoli Menedżera pakietów (PMC) lub Zarządzaj pakietami NuGet.
 
 #### <a name="pmc-option-to-install-packages"></a>Opcja PMC, aby zainstalować pakiety
 
-* W programie Visual Studio wybierz kolejno pozycje **Narzędzia** > Menedżer**pakietów** > NuGet**konsola Menedżera pakietów**
+* W programie Visual Studio wybierz kolejno pozycje **narzędzia** > **menedżer pakietów NuGet** > **konsola Menedżera pakietów**
 * W oknie **konsola Menedżera pakietów** przejdź do katalogu, w którym znajduje się plik *GrpcGreeterClient. csproj* .
 * Uruchom następujące polecenia:
 
@@ -119,7 +119,7 @@ Install-Package Grpc.Tools
 
   Kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Edytuj plik projektu**.
 
-* Dodaj grupę elementów z `<Protobuf>` elementem, który odwołuje się do pliku **Greeting. proto** :
+* Dodaj grupę elementów z elementem `<Protobuf>`, który odwołuje się do pliku **Greeting. proto** :
 
   ```xml
   <ItemGroup>
@@ -129,7 +129,7 @@ Install-Package Grpc.Tools
 
 ### <a name="create-the-greeter-client"></a>Tworzenie klienta Greeter
 
-Skompiluj projekt, aby utworzyć typy w `GrpcGreeter` przestrzeni nazw. `GrpcGreeter` Typy są generowane automatycznie przez proces kompilacji.
+Skompiluj projekt, aby utworzyć typy w przestrzeni nazw `GrpcGreeter`. Typy `GrpcGreeter` są generowane automatycznie przez proces kompilacji.
 
 Zaktualizuj plik *program.cs* klienta gRPC za pomocą następującego kodu:
 
@@ -146,10 +146,9 @@ namespace GrpcGreeterClient
     {
         static async Task Main(string[] args)
         {
-            var httpClient = new HttpClient();
             // The port number(5001) must match the port of the gRPC server.
-            httpClient.BaseAddress = new Uri("https://localhost:5001");
-            var client = GrpcClient.Create<Greeter.GreeterClient>(httpClient);
+            var channel = GrpcChannel.ForAddress("https://localhost:5001");
+            var client = new Greeter.GreeterClient(channel);
             var reply = await client.SayHelloAsync(
                               new HelloRequest { Name = "GreeterClient" });
             Console.WriteLine("Greeting: " + reply.Message);
@@ -164,45 +163,13 @@ namespace GrpcGreeterClient
 
 Klient Greeter jest tworzony przez:
 
-* Utworzenie wystąpienia zawierającego informacje dotyczące tworzenia połączenia z usługą gRPC. `HttpClient`
-* Korzystanie z programu do konstruowania klienta Greeter: `HttpClient`
-
-```csharp
-static async Task Main(string[] args)
-{
-    var httpClient = new HttpClient();
-    // The port number(5001) must match the port of the gRPC server.
-    httpClient.BaseAddress = new Uri("https://localhost:5001");
-    var client = GrpcClient.Create<Greeter.GreeterClient>(httpClient);
-    var reply = await client.SayHelloAsync(
-                      new HelloRequest { Name = "GreeterClient" });
-    Console.WriteLine("Greeting: " + reply.Message);
-    Console.WriteLine("Press any key to exit...");
-    Console.ReadKey();
-}
-```
-
-Klient Greeter wywołuje metodę asynchroniczną `SayHello` . Zostanie wyświetlony wynik `SayHello` wywołania:
-
-```csharp
-static async Task Main(string[] args)
-{
-    var httpClient = new HttpClient();
-    // The port number(5001) must match the port of the gRPC server.
-    httpClient.BaseAddress = new Uri("https://localhost:5001");
-    var client = GrpcClient.Create<Greeter.GreeterClient>(httpClient);
-    var reply = await client.SayHelloAsync(
-                      new HelloRequest { Name = "GreeterClient" });
-    Console.WriteLine("Greeting: " + reply.Message);
-    Console.WriteLine("Press any key to exit...");
-    Console.ReadKey();
-}
-```
+* Utworzenie wystąpienia `GrpcChannel` zawierającego informacje służące do tworzenia połączenia z usługą gRPC.
+* Używanie `GrpcChannel` do konstruowania klienta Greeter.
 
 ## <a name="test-the-grpc-client-with-the-grpc-greeter-service"></a>Testowanie klienta gRPC za pomocą usługi gRPC Greeter
 
-* W usłudze Greeter naciśnij klawisz `Ctrl+F5` , aby uruchomić serwer bez debugera.
-* W projekcie naciśnij klawisz `Ctrl+F5` , aby uruchomić klienta bez debugera. `GrpcGreeterClient`
+* W usłudze Greeter naciśnij `Ctrl+F5`, aby uruchomić serwer bez debugera.
+* W projekcie `GrpcGreeterClient` naciśnij klawisz `Ctrl+F5`, aby uruchomić klienta bez debugera.
 
 Klient wysyła powitanie do usługi z komunikatem zawierającym nazwę "GreeterClient". Usługa wysyła komunikat "Hello GreeterClient" jako odpowiedź. Odpowiedź "Hello GreeterClient" jest wyświetlana w wierszu polecenia:
 

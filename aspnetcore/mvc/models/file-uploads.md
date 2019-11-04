@@ -5,14 +5,14 @@ description: Jak używać powiązania modelu i przesyłania strumieniowego do pr
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/02/2019
+ms.date: 10/31/2019
 uid: mvc/models/file-uploads
-ms.openlocfilehash: de8bfee22e39dfc5a6ed254cf0555887891d4590
-ms.sourcegitcommit: d81912782a8b0bd164f30a516ad80f8defb5d020
+ms.openlocfilehash: 04e7533aa190a4875d3f66e8665fec16abec48b3
+ms.sourcegitcommit: 9e85c2562df5e108d7933635c830297f484bb775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72179306"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73462944"
 ---
 # <a name="upload-files-in-aspnet-core"></a>Przekaż pliki w ASP.NET Core
 
@@ -34,13 +34,12 @@ Należy zachować ostrożność, zapewniając użytkownikom możliwość przekaz
 
 Kroki zabezpieczeń, które zmniejszają prawdopodobieństwo pomyślnego ataku:
 
-* Przekaż pliki do dedykowanego obszaru przekazywania plików w systemie, najlepiej do dysku niesystemowego. Użycie dedykowanej lokalizacji ułatwia nakładanie ograniczeń zabezpieczeń na przekazane pliki. Wyłącz uprawnienia do wykonywania w lokalizacji przekazywania pliku. &dagger;
-* Nigdy nie Utrwalaj przekazanych plików w tym samym drzewie katalogów co aplikacja. &dagger;
-* Użyj bezpiecznej nazwy pliku, która jest określana przez aplikację. Nie należy używać nazwy pliku dostarczonej przez użytkownika lub niezaufanej nazwy pliku przekazanego pliku. &dagger; Aby wyświetlić niezaufaną nazwę pliku w interfejsie użytkownika lub w komunikacie rejestrowania, użyj kodu HTML.
-* Zezwala tylko na określony zestaw zatwierdzonych rozszerzeń plików. &dagger;
-* Sprawdź podpis formatu pliku, aby uniemożliwić użytkownikowi przekazywanie zamaskowanego pliku. &dagger; na przykład nie Zezwalaj użytkownikowi na przekazywanie pliku *exe* z rozszerzeniem *. txt* .
-* Sprawdź, czy testy po stronie klienta są również wykonywane na serwerze. testy po stronie klienta &dagger; są łatwe do obejścia.
-* Sprawdź rozmiar przekazanego pliku i Zapobiegaj przeciążom, które są większe niż oczekiwano. &dagger;
+* Przekaż pliki do dedykowanego obszaru przekazywania plików, najlepiej do dysku niesystemowego. Dedykowana lokalizacja ułatwia nakładanie ograniczeń zabezpieczeń na przekazane pliki. Wyłącz uprawnienia do wykonywania w lokalizacji przekazywania pliku. &dagger;
+* **Nie** Utrwalaj przekazanych plików w tym samym drzewie katalogów co aplikacja.&dagger;
+* Użyj bezpiecznej nazwy pliku, która jest określana przez aplikację. Nie należy używać nazwy pliku dostarczonej przez użytkownika lub niezaufanej nazwy pliku przekazanego pliku.&dagger; kod HTML zakodować niezaufaną nazwę pliku podczas jego wyświetlania. Na przykład podczas rejestrowania nazwy pliku lub wyświetlania w interfejsie użytkownika (Razor automatyczne kodowanie HTML kodu.
+* Zezwalaj tylko na zatwierdzone rozszerzenia plików dla specyfikacji projektu aplikacji.&dagger; <!-- * Check the file format signature to prevent a user from uploading a masqueraded file.&dagger; For example, don't permit a user to upload an *.exe* file with a *.txt* extension. Add this back when we get instructions how to do this.  -->
+* Sprawdź, czy testy po stronie klienta są wykonywane na serwerze.&dagger; sprawdzenia po stronie klienta można łatwo obejść.
+* Sprawdź rozmiar przekazanego pliku. Ustaw maksymalny limit rozmiaru, aby zapobiec dużej ilości operacji przekazywania.&dagger;
 * Jeśli pliki nie powinny być zastąpione przez przekazany plik o tej samej nazwie, przed przekazaniem pliku Sprawdź nazwę pliku względem bazy danych lub magazynu fizycznego.
 * **Przed zapisaniem pliku Uruchom skaner wirusów/złośliwego oprogramowania dla przekazanej zawartości.**
 
@@ -212,8 +211,20 @@ Aby element wejściowy `files` obsługiwał przekazywanie wielu plików, podaj a
 
 Do poszczególnych plików przekazanych do serwera można uzyskać dostęp za pośrednictwem [powiązania modelu](xref:mvc/models/model-binding) przy użyciu <xref:Microsoft.AspNetCore.Http.IFormFile>. Przykładowa aplikacja pokazuje wiele buforowanych operacji przekazywania plików dla scenariuszy bazy danych i magazynu fizycznego.
 
+<a name="filename"></a>
+
 > [!WARNING]
-> Nie używaj ani nie ufaj właściwości `FileName` <xref:Microsoft.AspNetCore.Http.IFormFile> bez sprawdzania poprawności. Właściwość `FileName` powinna być używana tylko do celów wyświetlania i tylko po kodowaniu w kodzie HTML wartości.
+> **Nie** należy używać właściwości `FileName` <xref:Microsoft.AspNetCore.Http.IFormFile> innej niż na potrzeby wyświetlania i rejestrowania. Podczas wyświetlania lub rejestrowania, kod HTML koduje nazwę pliku. Osoba atakująca może dostarczyć złośliwą nazwę pliku, w tym pełne ścieżki lub ścieżki względne. Aplikacje powinny:
+>
+> * Usuń ścieżkę z nazwy pliku dostarczonej przez użytkownika.
+> * Zapisz plik w formacie HTML, który został usunięty z ścieżką dla interfejsu użytkownika lub rejestrowania.
+> * Wygeneruj nową losową nazwę pliku dla magazynu.
+>
+> Poniższy kod usuwa ścieżkę z nazwy pliku:
+>
+> ```csharp
+> string untrustedFileName = Path.GetFileName(pathName);
+> ```
 >
 > Przykłady udostępnione w ten sposób nie uwzględniają zagadnień związanych z bezpieczeństwem. Dodatkowe informacje są dostarczane przez następujące sekcje i [Przykładowa aplikacja](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >
@@ -226,7 +237,7 @@ Podczas przekazywania plików przy użyciu powiązania modelu i <xref:Microsoft.
 * Dowolne z następujących kolekcji, które reprezentują kilka plików:
   * <xref:Microsoft.AspNetCore.Http.IFormFileCollection>
   * <xref:System.Collections.IEnumerable>\<<xref:Microsoft.AspNetCore.Http.IFormFile>>
-  * [Lista](xref:System.Collections.Generic.List`1)\< @ no__t-2 @ no__t-3
+  * \<<xref:Microsoft.AspNetCore.Http.IFormFile>[listy](xref:System.Collections.Generic.List`1) >
 
 > [!NOTE]
 > Powiązanie dopasowuje pliki formularza według nazwy. Na przykład wartość HTML `name` w `<input type="file" name="formFile">` musi być zgodna z C# wartością parametru/właściwości (`FormFile`). Aby uzyskać więcej informacji, zobacz sekcję [dopasowanie wartości atrybutu do nazwy parametru w sekcji Metoda post](#match-name-attribute-value-to-parameter-name-of-post-method) .
@@ -329,7 +340,7 @@ public class BufferedSingleFileUploadDb
 > [!NOTE]
 > <xref:Microsoft.AspNetCore.Http.IFormFile> może być używana bezpośrednio jako parametr metody akcji lub jako właściwość modelu powiązania. W poprzednim przykładzie użyto powiązanej właściwości modelu.
 
-@No__t-0 jest używana w formularzu Razor Pages:
+`FileUpload` jest używana w formularzu Razor Pages:
 
 ```cshtml
 <form enctype="multipart/form-data" method="post">
@@ -399,7 +410,7 @@ Początkowa odpowiedź strony ładuje formularz i zapisuje w pliku cookie token 
 
 [!code-csharp[](file-uploads/samples/3.x/SampleApp/Filters/Antiforgery.cs?name=snippet_GenerateAntiforgeryTokenCookieAttribute)]
 
-@No__t-0 służy do wyłączania powiązania modelu:
+`DisableFormValueModelBindingAttribute` jest używany do wyłączania powiązania modelu:
 
 [!code-csharp[](file-uploads/samples/3.x/SampleApp/Filters/ModelBinding.cs?name=snippet_DisableFormValueModelBindingAttribute)]
 
@@ -407,7 +418,7 @@ W przykładowej aplikacji `GenerateAntiforgeryTokenCookieAttribute` i `DisableFo
 
 [!code-csharp[](file-uploads/samples/3.x/SampleApp/Startup.cs?name=snippet_AddRazorPages&highlight=8-11,17-20)]
 
-Ponieważ powiązanie modelu nie odczytuje formularza, parametry, które są powiązane z formularza nie są powiązane (zapytania, trasy i nagłówki nadal pracują). Metoda akcji działa bezpośrednio z właściwością `Request`. @No__t-0 jest używany do odczytywania każdej sekcji. Dane klucza/wartości są przechowywane w `KeyValueAccumulator`. Po odczytaniu sekcji wieloczęściowych zawartość `KeyValueAccumulator` służy do powiązania danych formularza z typem modelu.
+Ponieważ powiązanie modelu nie odczytuje formularza, parametry, które są powiązane z formularza nie są powiązane (zapytania, trasy i nagłówki nadal pracują). Metoda akcji działa bezpośrednio z właściwością `Request`. `MultipartReader` jest używany do odczytywania każdej sekcji. Dane klucza/wartości są przechowywane w `KeyValueAccumulator`. Po odczytaniu sekcji wieloczęściowych zawartość `KeyValueAccumulator` służy do powiązania danych formularza z typem modelu.
 
 Pełna Metoda `StreamingController.UploadDatabase` do przesyłania strumieniowego do bazy danych z EF Core:
 
@@ -519,7 +530,7 @@ W przykładowej aplikacji rozmiar pliku jest ograniczony do 2 MB (wyrażony w ba
 }
 ```
 
-@No__t-0 jest wstrzykiwana do klas `PageModel`:
+`FileSizeLimit` jest wstrzykiwana do klas `PageModel`:
 
 ```csharp
 public class BufferedSingleFileUploadPhysicalModel : PageModel
@@ -675,7 +686,7 @@ public class BufferedSingleFileUploadPhysicalModel : PageModel
 }
 ```
 
-@No__t-0 można również zastosować przy użyciu dyrektywy Razor [@attribute](xref:mvc/views/razor#attribute) :
+`RequestSizeLimitAttribute` można również zastosować przy użyciu dyrektywy Razor [@attribute](xref:mvc/views/razor#attribute) :
 
 ```cshtml
 @attribute [RequestSizeLimitAttribute(52428800)]
@@ -748,13 +759,12 @@ Należy zachować ostrożność, zapewniając użytkownikom możliwość przekaz
 
 Kroki zabezpieczeń, które zmniejszają prawdopodobieństwo pomyślnego ataku:
 
-* Przekaż pliki do dedykowanego obszaru przekazywania plików w systemie, najlepiej do dysku niesystemowego. Użycie dedykowanej lokalizacji ułatwia nakładanie ograniczeń zabezpieczeń na przekazane pliki. Wyłącz uprawnienia do wykonywania w lokalizacji przekazywania pliku. &dagger;
-* Nigdy nie Utrwalaj przekazanych plików w tym samym drzewie katalogów co aplikacja. &dagger;
-* Użyj bezpiecznej nazwy pliku, która jest określana przez aplikację. Nie należy używać nazwy pliku dostarczonej przez użytkownika lub niezaufanej nazwy pliku przekazanego pliku. &dagger; Aby wyświetlić niezaufaną nazwę pliku w interfejsie użytkownika lub w komunikacie rejestrowania, użyj kodu HTML.
-* Zezwala tylko na określony zestaw zatwierdzonych rozszerzeń plików. &dagger;
-* Sprawdź podpis formatu pliku, aby uniemożliwić użytkownikowi przekazywanie zamaskowanego pliku. &dagger; na przykład nie Zezwalaj użytkownikowi na przekazywanie pliku *exe* z rozszerzeniem *. txt* .
-* Sprawdź, czy testy po stronie klienta są również wykonywane na serwerze. testy po stronie klienta &dagger; są łatwe do obejścia.
-* Sprawdź rozmiar przekazanego pliku i Zapobiegaj przeciążom, które są większe niż oczekiwano. &dagger;
+* Przekaż pliki do dedykowanego obszaru przekazywania plików, najlepiej do dysku niesystemowego. Dedykowana lokalizacja ułatwia nakładanie ograniczeń zabezpieczeń na przekazane pliki. Wyłącz uprawnienia do wykonywania w lokalizacji przekazywania pliku. &dagger;
+* **Nie** Utrwalaj przekazanych plików w tym samym drzewie katalogów co aplikacja.&dagger;
+* Użyj bezpiecznej nazwy pliku, która jest określana przez aplikację. Nie należy używać nazwy pliku dostarczonej przez użytkownika lub niezaufanej nazwy pliku przekazanego pliku.&dagger; kod HTML zakodować niezaufaną nazwę pliku podczas jego wyświetlania. Na przykład podczas rejestrowania nazwy pliku lub wyświetlania w interfejsie użytkownika (Razor automatyczne kodowanie HTML kodu.
+* Zezwalaj tylko na zatwierdzone rozszerzenia plików dla specyfikacji projektu aplikacji.&dagger; <!-- * Check the file format signature to prevent a user from uploading a masqueraded file.&dagger; For example, don't permit a user to upload an *.exe* file with a *.txt* extension. Add this back when we get instructions how to do this.  -->
+* Sprawdź, czy testy po stronie klienta są wykonywane na serwerze.&dagger; sprawdzenia po stronie klienta można łatwo obejść.
+* Sprawdź rozmiar przekazanego pliku. Ustaw maksymalny limit rozmiaru, aby zapobiec dużej ilości operacji przekazywania.&dagger;
 * Jeśli pliki nie powinny być zastąpione przez przekazany plik o tej samej nazwie, przed przekazaniem pliku Sprawdź nazwę pliku względem bazy danych lub magazynu fizycznego.
 * **Przed zapisaniem pliku Uruchom skaner wirusów/złośliwego oprogramowania dla przekazanej zawartości.**
 
@@ -926,8 +936,20 @@ Aby element wejściowy `files` obsługiwał przekazywanie wielu plików, podaj a
 
 Do poszczególnych plików przekazanych do serwera można uzyskać dostęp za pośrednictwem [powiązania modelu](xref:mvc/models/model-binding) przy użyciu <xref:Microsoft.AspNetCore.Http.IFormFile>. Przykładowa aplikacja pokazuje wiele buforowanych operacji przekazywania plików dla scenariuszy bazy danych i magazynu fizycznego.
 
+<a name="filename2"></a>
+
 > [!WARNING]
-> Nie używaj ani nie ufaj właściwości `FileName` <xref:Microsoft.AspNetCore.Http.IFormFile> bez sprawdzania poprawności. Właściwość `FileName` powinna być używana tylko do celów wyświetlania i tylko po kodowaniu w kodzie HTML wartości.
+> **Nie** należy używać właściwości `FileName` <xref:Microsoft.AspNetCore.Http.IFormFile> innej niż na potrzeby wyświetlania i rejestrowania. Podczas wyświetlania lub rejestrowania, kod HTML koduje nazwę pliku. Osoba atakująca może dostarczyć złośliwą nazwę pliku, w tym pełne ścieżki lub ścieżki względne. Aplikacje powinny:
+>
+> * Usuń ścieżkę z nazwy pliku dostarczonej przez użytkownika.
+> * Zapisz plik w formacie HTML, który został usunięty z ścieżką dla interfejsu użytkownika lub rejestrowania.
+> * Wygeneruj nową losową nazwę pliku dla magazynu.
+>
+> Poniższy kod usuwa ścieżkę z nazwy pliku:
+>
+> ```csharp
+> string untrustedFileName = Path.GetFileName(pathName);
+> ```
 >
 > Przykłady udostępnione w ten sposób nie uwzględniają zagadnień związanych z bezpieczeństwem. Dodatkowe informacje są dostarczane przez następujące sekcje i [Przykładowa aplikacja](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >
@@ -940,7 +962,7 @@ Podczas przekazywania plików przy użyciu powiązania modelu i <xref:Microsoft.
 * Dowolne z następujących kolekcji, które reprezentują kilka plików:
   * <xref:Microsoft.AspNetCore.Http.IFormFileCollection>
   * <xref:System.Collections.IEnumerable>\<<xref:Microsoft.AspNetCore.Http.IFormFile>>
-  * [Lista](xref:System.Collections.Generic.List`1)\< @ no__t-2 @ no__t-3
+  * \<<xref:Microsoft.AspNetCore.Http.IFormFile>[listy](xref:System.Collections.Generic.List`1) >
 
 > [!NOTE]
 > Powiązanie dopasowuje pliki formularza według nazwy. Na przykład wartość HTML `name` w `<input type="file" name="formFile">` musi być zgodna z C# wartością parametru/właściwości (`FormFile`). Aby uzyskać więcej informacji, zobacz sekcję [dopasowanie wartości atrybutu do nazwy parametru w sekcji Metoda post](#match-name-attribute-value-to-parameter-name-of-post-method) .
@@ -1043,7 +1065,7 @@ public class BufferedSingleFileUploadDb
 > [!NOTE]
 > <xref:Microsoft.AspNetCore.Http.IFormFile> może być używana bezpośrednio jako parametr metody akcji lub jako właściwość modelu powiązania. W poprzednim przykładzie użyto powiązanej właściwości modelu.
 
-@No__t-0 jest używana w formularzu Razor Pages:
+`FileUpload` jest używana w formularzu Razor Pages:
 
 ```cshtml
 <form enctype="multipart/form-data" method="post">
@@ -1113,7 +1135,7 @@ Początkowa odpowiedź strony ładuje formularz i zapisuje w pliku cookie token 
 
 [!code-csharp[](file-uploads/samples/2.x/SampleApp/Filters/Antiforgery.cs?name=snippet_GenerateAntiforgeryTokenCookieAttribute)]
 
-@No__t-0 służy do wyłączania powiązania modelu:
+`DisableFormValueModelBindingAttribute` jest używany do wyłączania powiązania modelu:
 
 [!code-csharp[](file-uploads/samples/2.x/SampleApp/Filters/ModelBinding.cs?name=snippet_DisableFormValueModelBindingAttribute)]
 
@@ -1121,7 +1143,7 @@ W przykładowej aplikacji `GenerateAntiforgeryTokenCookieAttribute` i `DisableFo
 
 [!code-csharp[](file-uploads/samples/2.x/SampleApp/Startup.cs?name=snippet_AddMvc&highlight=8-11,17-20)]
 
-Ponieważ powiązanie modelu nie odczytuje formularza, parametry, które są powiązane z formularza nie są powiązane (zapytania, trasy i nagłówki nadal pracują). Metoda akcji działa bezpośrednio z właściwością `Request`. @No__t-0 jest używany do odczytywania każdej sekcji. Dane klucza/wartości są przechowywane w `KeyValueAccumulator`. Po odczytaniu sekcji wieloczęściowych zawartość `KeyValueAccumulator` służy do powiązania danych formularza z typem modelu.
+Ponieważ powiązanie modelu nie odczytuje formularza, parametry, które są powiązane z formularza nie są powiązane (zapytania, trasy i nagłówki nadal pracują). Metoda akcji działa bezpośrednio z właściwością `Request`. `MultipartReader` jest używany do odczytywania każdej sekcji. Dane klucza/wartości są przechowywane w `KeyValueAccumulator`. Po odczytaniu sekcji wieloczęściowych zawartość `KeyValueAccumulator` służy do powiązania danych formularza z typem modelu.
 
 Pełna Metoda `StreamingController.UploadDatabase` do przesyłania strumieniowego do bazy danych z EF Core:
 
@@ -1233,7 +1255,7 @@ W przykładowej aplikacji rozmiar pliku jest ograniczony do 2 MB (wyrażony w ba
 }
 ```
 
-@No__t-0 jest wstrzykiwana do klas `PageModel`:
+`FileSizeLimit` jest wstrzykiwana do klas `PageModel`:
 
 ```csharp
 public class BufferedSingleFileUploadPhysicalModel : PageModel
