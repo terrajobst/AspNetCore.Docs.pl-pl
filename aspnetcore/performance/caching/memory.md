@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak buforować dane w pamięci w ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 8/22/2019
+ms.date: 11/2/2019
 uid: performance/caching/memory
-ms.openlocfilehash: d6b2aa363c552fdbda7f6e9ec5d476768c17d8a5
-ms.sourcegitcommit: 810d5831169770ee240d03207d6671dabea2486e
+ms.openlocfilehash: 1114d154ed1af09958df63ae718712177bbf6db0
+ms.sourcegitcommit: 09f4a5ded39cc8204576fe801d760bd8b611f3aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72779192"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611442"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Buforowanie w pamięci w ASP.NET Core
 
@@ -158,15 +158,18 @@ Aby uzyskać więcej informacji, zobacz artykuł [Compact Source w witrynie GitH
 
 ## <a name="cache-dependencies"></a>Zależności pamięci podręcznej
 
-Poniższy przykład pokazuje, jak wygasa wpis pamięci podręcznej, Jeśli wpis zależny wygaśnie. `CancellationChangeToken` zostanie dodany do elementu w pamięci podręcznej. Gdy `Cancel` jest wywoływana dla `CancellationTokenSource`, oba wpisy pamięci podręcznej są wykluczone.
+Poniższy przykład pokazuje, jak wygasa wpis pamięci podręcznej, Jeśli wpis zależny wygaśnie. <xref:Microsoft.Extensions.Primitives.CancellationChangeToken> zostanie dodany do elementu w pamięci podręcznej. Gdy `Cancel` jest wywoływana dla `CancellationTokenSource`, oba wpisy pamięci podręcznej są wykluczone.
 
 [!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet_ed)]
 
-Użycie `CancellationTokenSource` umożliwia wykluczenie wielu wpisów pamięci podręcznej jako grupy. Ze wzorcem `using` w powyższym kodzie, wpisy pamięci podręcznej utworzone w bloku `using` będą dziedziczyć wyzwalacze i ustawienia wygasania.
+Użycie <xref:System.Threading.CancellationTokenSource> umożliwia wykluczenie wielu wpisów pamięci podręcznej jako grupy. Ze wzorcem `using` w powyższym kodzie, wpisy pamięci podręcznej utworzone w bloku `using` będą dziedziczyć wyzwalacze i ustawienia wygasania.
 
 ## <a name="additional-notes"></a>Dodatkowe uwagi
 
-* Wygaśnięcie nie odbywa się w tle. Nie ma czasomierza, który aktywnie skanuje pamięć podręczną pod kątem wygasłych elementów. Wszystkie działania w pamięci podręcznej (`Get`, `Set`, `Remove`) mogą wyzwalać skanowanie w tle dla elementów, które utraciły ważność. Czasomierz na `CancellationTokenSource` (`CancelAfter`) również usunie wpis i wyzwolenie skanowania dla wygasłych elementów. Na przykład zamiast używać `SetAbsoluteExpiration(TimeSpan.FromHours(1))`, użyj `CancellationTokenSource.CancelAfter(TimeSpan.FromHours(1))` dla zarejestrowanego tokenu. Gdy ten token wyzwala, usuwa wpis natychmiast i wyzwala wywołania zwrotne wykluczenia. Aby uzyskać więcej informacji, zobacz [ten problem](https://github.com/aspnet/Caching/issues/248)w serwisie GitHub.
+* Wygaśnięcie nie odbywa się w tle. Nie ma czasomierza, który aktywnie skanuje pamięć podręczną pod kątem wygasłych elementów. Wszystkie działania w pamięci podręcznej (`Get`, `Set`, `Remove`) mogą wyzwalać skanowanie w tle dla elementów, które utraciły ważność. Czasomierz na `CancellationTokenSource` (<xref:System.Threading.CancellationTokenSource.CancelAfter*>) usuwa również wpis i wyzwala skanowanie w poszukiwaniu elementów wygasłych. W poniższym przykładzie zastosowano [CancellationTokenSource (TimeSpan)](/dotnet/api/system.threading.cancellationtokensource.-ctor) dla zarejestrowanego tokenu. Gdy ten token wyzwala, usuwa wpis natychmiast i wyzwala wywołania zwrotne wykluczenia:
+
+[!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet_ae)]
+
 * W przypadku użycia wywołania zwrotnego do ponownego wypełnienia elementu pamięci podręcznej:
 
   * Wiele żądań może znaleźć pustą wartość klucza w pamięci podręcznej, ponieważ wywołanie zwrotne nie zostało zakończone.
@@ -327,7 +330,7 @@ Aby uzyskać więcej informacji, zobacz artykuł [Compact Source w witrynie GitH
 
 ## <a name="cache-dependencies"></a>Zależności pamięci podręcznej
 
-Poniższy przykład pokazuje, jak wygasa wpis pamięci podręcznej, Jeśli wpis zależny wygaśnie. `CancellationChangeToken` zostanie dodany do elementu w pamięci podręcznej. Gdy `Cancel` jest wywoływana dla `CancellationTokenSource`, oba wpisy pamięci podręcznej są wykluczone.
+Poniższy przykład pokazuje, jak wygasa wpis pamięci podręcznej, Jeśli wpis zależny wygaśnie. <xref:Microsoft.Extensions.Primitives.CancellationChangeToken> zostanie dodany do elementu w pamięci podręcznej. Gdy `Cancel` jest wywoływana dla `CancellationTokenSource`, oba wpisy pamięci podręcznej są wykluczone.
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ed)]
 

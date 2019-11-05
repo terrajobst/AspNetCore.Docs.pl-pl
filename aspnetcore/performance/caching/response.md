@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak korzystać z buforowania odpowiedzi, aby zmniejszyć wymagania dotyczące przepustowości i zwiększyć wydajność ASP.NET Core aplikacji.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 10/15/2019
+ms.date: 11/04/2019
 uid: performance/caching/response
-ms.openlocfilehash: 4ebac97689347245d25e0954b33729d78dd1b516
-ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
+ms.openlocfilehash: a456e97053fea7c9ee9ec634ae9b7bbd52febe7f
+ms.sourcegitcommit: 09f4a5ded39cc8204576fe801d760bd8b611f3aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72378833"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611475"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Buforowanie odpowiedzi w ASP.NET Core
 
@@ -21,7 +21,9 @@ ms.locfileid: "72378833"
 
 Buforowanie odpowiedzi zmniejsza liczbę żądań wysyłanych przez klienta lub serwer proxy do serwera sieci Web. Buforowanie odpowiedzi zmniejsza również ilość pracy wykonywanej przez serwer sieci Web w celu wygenerowania odpowiedzi. Buforowanie odpowiedzi jest kontrolowane przez nagłówki, które określają sposób, w jaki klient, serwer proxy i oprogramowanie pośredniczące buforują odpowiedzi.
 
-[Atrybut ResponseCache](#responsecache-attribute) uczestniczy w ustawieniu nagłówków buforowania odpowiedzi, które mogą być uznawane przez klientów podczas buforowania odpowiedzi. [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware) może służyć do buforowania odpowiedzi na serwerze. Oprogramowanie pośredniczące może użyć właściwości <xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute> w celu wpływu na zachowanie buforowania po stronie serwera.
+[Atrybut ResponseCache](#responsecache-attribute) uczestniczy w ustawianiu nagłówków buforowania odpowiedzi. Klienci i pośredniczące serwery proxy powinny przestrzegać nagłówków do buforowania odpowiedzi w [specyfikacji buforowania HTTP 1,1](https://tools.ietf.org/html/rfc7234).
+
+W przypadku buforowania po stronie serwera, które następuje zgodnie ze specyfikacją buforowania HTTP 1,1, należy użyć [oprogramowania pośredniczącego buforowania odpowiedzi](xref:performance/caching/middleware). Oprogramowanie pośredniczące może użyć właściwości <xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute>, aby wpływać na zachowanie buforowania po stronie serwera.
 
 ## <a name="http-based-response-caching"></a>Buforowanie odpowiedzi oparte na protokole HTTP
 
@@ -82,7 +84,7 @@ Aby uzyskać więcej informacji, zobacz <xref:mvc/views/tag-helpers/builtin-th/d
 
 ## <a name="responsecache-attribute"></a>ResponseCache — atrybut
 
-@No__t-0 określa parametry niezbędne do ustawiania odpowiednich nagłówków w pamięci podręcznej odpowiedzi.
+<xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute> określa parametry niezbędne do ustawiania odpowiednich nagłówków w pamięci podręcznej odpowiedzi.
 
 > [!WARNING]
 > Wyłącz buforowanie zawartości zawierającej informacje dla uwierzytelnionych klientów. Buforowanie powinno być włączone tylko dla zawartości, która nie zmienia się na podstawie tożsamości użytkownika ani od tego, czy użytkownik jest zalogowany.
@@ -99,7 +101,7 @@ Aby uzyskać więcej informacji, zobacz <xref:mvc/views/tag-helpers/builtin-th/d
 
 Pierwsze żądanie jest zwracane przez serwer i w pamięci podręcznej w oprogramowaniu pośredniczącym. Drugie żądanie jest zwracane przez oprogramowanie pośredniczące, ponieważ ciąg zapytania pasuje do poprzedniego żądania. Trzecie żądanie nie znajduje się w pamięci podręcznej pośredniczącej, ponieważ wartość ciągu zapytania nie pasuje do poprzedniego żądania.
 
-@No__t-0 służy do konfigurowania i tworzenia (za pośrednictwem <xref:Microsoft.AspNetCore.Mvc.Filters.IFilterFactory>) `Microsoft.AspNetCore.Mvc.Internal.ResponseCacheFilter`. @No__t-0 wykonuje operacje aktualizowania odpowiednich nagłówków HTTP i funkcji odpowiedzi. Filtr:
+<xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute> służy do konfigurowania i tworzenia (za pośrednictwem <xref:Microsoft.AspNetCore.Mvc.Filters.IFilterFactory>) `Microsoft.AspNetCore.Mvc.Internal.ResponseCacheFilter`. `ResponseCacheFilter` wykonuje operacje aktualizowania odpowiednich nagłówków HTTP i funkcji odpowiedzi. Filtr:
 
 * Usuwa wszystkie istniejące nagłówki dla `Vary`, `Cache-Control` i `Pragma`.
 * Zapisuje odpowiednie nagłówki na podstawie właściwości ustawionych w <xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute>.
@@ -140,10 +142,15 @@ Pragma: no-cache
 
 ### <a name="location-and-duration"></a>Lokalizacja i czas trwania
 
-Aby włączyć buforowanie, <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Duration> musi być ustawiona na wartość dodatnią, a <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> musi być `Any` (wartość domyślna) lub `Client`. W takim przypadku nagłówek `Cache-Control` jest ustawiony na wartość lokalizacji, a po niej `max-age` odpowiedzi.
+Aby włączyć buforowanie, <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Duration> musi być ustawiona na wartość dodatnią, a <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> musi być `Any` (wartość domyślna) lub `Client`. Struktura ustawia `Cache-Control` nagłówek na wartość lokalizacji, po której następuje `max-age` odpowiedzi.
 
-> [!NOTE]
-> Opcje <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> `Any` i `Client` są tłumaczone na wartości nagłówka `Cache-Control` odpowiednio `public` i `private`. Jak wspomniano wcześniej, ustawienie <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> do `None` ustawia zarówno nagłówek `Cache-Control`, jak i `Pragma` do `no-cache`.
+Opcje <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> `Any` i `Client` są tłumaczone na wartości nagłówka `Cache-Control` odpowiednio `public` i `private`. Zgodnie z opisem w sekcji [NoStore and Location. None](#nostore-and-locationnone) ustawienie <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> na `None` ustawia nagłówki `Cache-Control` i `Pragma` na `no-cache`.
+
+`Location.Any` (`Cache-Control` ustawiona na `public`) wskazuje, że *klient lub dowolny pośredni serwer proxy* może buforować wartość, w tym [oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware).
+
+`Location.Client` (`Cache-Control` ustawiona na `private`) wskazuje, że *tylko klient* może buforować wartość. Żadna pośrednia pamięć podręczna powinna buforować wartość, w tym [oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware).
+
+Nagłówki kontroli pamięci podręcznej jedynie zapewniają wskazówki klientom i pośrednim serwerom proxy, kiedy i w jaki sposób należy buforować odpowiedzi. Nie ma gwarancji, że klienci i serwery proxy będą przestrzegać [specyfikacji buforowania HTTP 1,1](https://tools.ietf.org/html/rfc7234). [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware) zawsze jest zgodne z regułami buforowania ustanowionymi przez specyfikację.
 
 W poniższym przykładzie przedstawiono model strony Cache3 z przykładowej aplikacji i nagłówki utworzone przez ustawienie <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Duration> i pozostawienie domyślnej wartości <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location>:
 
@@ -159,7 +166,7 @@ Cache-Control: public,max-age=10
 
 Zamiast duplikowania ustawień pamięci podręcznej odpowiedzi w wielu atrybutach akcji kontrolera, profile pamięci podręcznej można skonfigurować jako opcje podczas konfigurowania MVC/Razor Pages w `Startup.ConfigureServices`. Wartości Znalezione w profilu pamięci podręcznej, do którego istnieje odwołanie, są używane jako wartości domyślne dla <xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute> i są zastępowane przez wszystkie właściwości określone w atrybucie.
 
-Skonfiguruj profil pamięci podręcznej. Poniższy przykład przedstawia 30-sekundowy profil pamięci podręcznej w @no__t aplikacji przykładowej-0:
+Skonfiguruj profil pamięci podręcznej. Poniższy przykład przedstawia 30-sekundowy profil pamięci podręcznej w `Startup.ConfigureServices`aplikacji przykładowej:
 
 [!code-csharp[](response/samples/2.x/ResponseCacheSample/Startup.cs?name=snippet1)]
 
@@ -167,11 +174,11 @@ Model strony Cache4 aplikacji przykładowej odwołuje się do profilu pamięci p
 
 [!code-csharp[](response/samples/2.x/ResponseCacheSample/Pages/Cache4.cshtml.cs?name=snippet)]
 
-@No__t-0 można zastosować do:
+<xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute> można zastosować do:
 
-* Programy obsługi stron Razor (klasy) @no__t atrybuty-0 nie mogą być stosowane do metod obsługi.
+* Obsługi stron Razor (klasy) &ndash; atrybuty nie można zastosować do metod obsługi.
 * Kontrolery MVC (klasy).
-* Akcje MVC (metody) @no__t atrybuty poziomu metody-0 zastępują ustawienia określone w atrybutach na poziomie klasy.
+* Akcje MVC (metody) &ndash; atrybuty poziomu metody zastępują ustawienia określone w atrybutach na poziomie klasy.
 
 Otrzymany nagłówek zastosowany do odpowiedzi strony Cache4 przez profil pamięci podręcznej `Default30`:
 
