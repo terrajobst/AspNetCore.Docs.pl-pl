@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 09/25/2019
 uid: grpc/migration
-ms.openlocfilehash: 596eca0f510387a18472eb353672980e0a8e0d24
-ms.sourcegitcommit: eb4fcdeb2f9e8413117624de42841a4997d1d82d
+ms.openlocfilehash: c4c07808540c9af370bfa253e8154a8a19f0f3de
+ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72697997"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73634069"
 ---
 # <a name="migrating-grpc-services-from-c-core-to-aspnet-core"></a>Migrowanie usług gRPC z dysku C-Core do ASP.NET Core
 
@@ -80,9 +80,27 @@ public class GreeterService : Greeter.GreeterBase
 
 Aplikacje oparte na rdzeniu C konfigurują protokół HTTPS za pomocą [właściwości Server. Ports](https://grpc.io/grpc/csharp/api/Grpc.Core.Server.html#Grpc_Core_Server_Ports). Podobne pojęcie służy do konfigurowania serwerów w ASP.NET Core. Na przykład Kestrel używa [konfiguracji punktu końcowego](xref:fundamentals/servers/kestrel#endpoint-configuration) dla tej funkcji.
 
-## <a name="interceptors-and-middleware"></a>Interceptory i oprogramowanie pośredniczące
+## <a name="grpc-interceptors-vs-middleware"></a>Interceptory gRPC i oprogramowanie pośredniczące
 
-ASP.NET Core [oprogramowanie pośredniczące](xref:fundamentals/middleware/index) oferuje podobne funkcje w porównaniu do przechwyceń w aplikacjach gRPC opartych na rdzeniach języka C. Oprogramowanie pośredniczące i Interceptory są koncepcyjnie takie same, jak w obu przypadkach są używane do konstruowania potoku, który obsługuje żądanie gRPC. Umożliwiają one wykonywanie zadań przed lub po następnym składniku w potoku. Jednak ASP.NET Core oprogramowanie pośredniczące działa na podstawowych komunikatach HTTP/2, podczas gdy Interceptory działają na warstwie abstrakcji gRPC przy użyciu [ServerCallContext](https://grpc.io/grpc/csharp/api/Grpc.Core.ServerCallContext.html).
+ASP.NET Core [oprogramowanie pośredniczące](xref:fundamentals/middleware/index) oferuje podobne funkcje w porównaniu do przechwyceń w aplikacjach gRPC opartych na rdzeniach języka C. ASP.NET Core oprogramowanie pośredniczące i Interceptory są koncepcyjnie podobne. Jedn
+
+* Służy do konstruowania potoku, który obsługuje żądanie gRPC.
+* Zezwalaj na wykonywanie pracy przed lub po następnym składniku w potoku.
+* Zapewnianie dostępu do `HttpContext`:
+  * W przypadku oprogramowania pośredniczącego `HttpContext` jest parametrem.
+  * W przypadku interceptorów `HttpContext` można uzyskać dostęp przy użyciu parametru `ServerCallContext` z metodą rozszerzenia `ServerCallContext.GetHttpContext`. Należy zauważyć, że ta funkcja jest specyficzna dla przechwyceń działających w ASP.NET Core.
+
+różnice gRPC wychwytcy z ASP.NET Core oprogramowania pośredniczącego:
+
+* Interceptory
+  * Działa na warstwie gRPC abstrakcji przy użyciu [ServerCallContext](https://grpc.io/grpc/csharp/api/Grpc.Core.ServerCallContext.html).
+  * Zapewnianie dostępu do:
+    * Komunikat z deserializowanym wysłany do wywołania.
+    * Komunikat zwracany z wywołania, zanim zostanie Zserializowany.
+* Oprogramowania pośredniczącego
+  * Uruchamiany przed interceptorami gRPC.
+  * Działa na podstawowych komunikatach HTTP/2.
+  * Można uzyskać dostęp tylko do bajtów z strumienia żądań i odpowiedzi.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

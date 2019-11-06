@@ -5,14 +5,14 @@ description: Dowiedz się, w jaki sposób ASP.NET Core implementuje iniekcję za
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/12/2019
+ms.date: 11/05/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: b07ed6d1c23454c95778a5942de615684b70bc36
-ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.openlocfilehash: c46e7322e86c2836a15bd0720995a8634bb185be
+ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72589900"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73634009"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Wstrzykiwanie zależności w ASP.NET Core
 
@@ -396,7 +396,7 @@ W `Startup.ConfigureServices` każdy typ jest dodawany do kontenera zgodnie z je
 
 Usługa `IOperationSingletonInstance` używa określonego wystąpienia o znanym IDENTYFIKATORze `Guid.Empty`. Jest to jasne, gdy ten typ jest używany (jego identyfikator GUID to wszystkie zera).
 
-Przykładowa aplikacja pokazuje okresy istnienia obiektów w ramach poszczególnych żądań i między nimi. @No__t_0 Przykładowa aplikacja żąda każdego rodzaju typu `IOperation` i `OperationService`. Na stronie zostaną wyświetlone wszystkie wartości `OperationId` klasy modelu strony i usługi za pomocą przypisań właściwości:
+Przykładowa aplikacja pokazuje okresy istnienia obiektów w ramach poszczególnych żądań i między nimi. `IndexModel` Przykładowa aplikacja żąda każdego rodzaju typu `IOperation` i `OperationService`. Na stronie zostaną wyświetlone wszystkie wartości `OperationId` klasy modelu strony i usługi za pomocą przypisań właściwości:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -571,7 +571,7 @@ Ogólnie rzecz biorąc aplikacja nie powinna używać tych właściwości bezpo�
 Najlepsze rozwiązania:
 
 * Projektowanie usług do korzystania z iniekcji zależności w celu uzyskania ich zależności.
-* Unikaj stanowych wywołań metod statycznych.
+* Unikaj stanowych, statycznych klas i elementów członkowskich. Zaprojektuj aplikacje do korzystania z pojedynczych usług, aby uniknąć tworzenia stanu globalnego.
 * Unikaj bezpośredniego tworzenia wystąpień klas zależnych w ramach usług. Bezpośrednie utworzenie wystąpienia Couples kod do konkretnej implementacji.
 * Twórz klasy aplikacji małymi, dobrze i łatwo przetestowane.
 

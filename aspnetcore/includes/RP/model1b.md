@@ -1,14 +1,14 @@
 <!-- THIS INCLUDE USED BY MVC AND RP -->
-Dodaj następujące właściwości do `Movie` klasy:
+Dodaj następujące właściwości do klasy `Movie`:
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Models/Movie.cs?name=snippet1)]
 
-`Movie` Klasa zawiera:
+Klasa `Movie` zawiera:
 
-* `ID` Pole jest wymagane przez bazę danych dla klucza podstawowego.
-* `[DataType(DataType.Date)]`:  [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) atrybut określa typ danych (Data). Z tego atrybutu:
+* Wartość pola `ID` jest wymagana przez bazę danych klucza podstawowego.
+* `[DataType(DataType.Date)]`: atrybut [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) określa typ danych (Data). Z tym atrybutem:
 
-  * Użytkownik nie musi wprowadzić informacje o czasie w polu daty.
-  * Tylko data jest wyświetlany, nie czas informacji.
+  * Użytkownik nie musi wprowadzać informacji o czasie w polu Data.
+  * Tylko data jest wyświetlana, a nie informacje o czasie.
 
-[DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) zostały omówione później w samouczku.
+[Adnotacje DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) są omówione w kolejnym samouczku.
