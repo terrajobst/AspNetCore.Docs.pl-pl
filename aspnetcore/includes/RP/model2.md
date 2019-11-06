@@ -2,11 +2,11 @@
 
 ### <a name="add-a-database-context-class"></a>Dodaj klasę kontekstu bazy danych
 
-W projekcie RazorPagesMovie Utwórz nowy folder o nazwie *dane*. Dodaj następującą `RazorPagesMovieContext` klasę do folderu *danych* :
+W projekcie RazorPagesMovie Utwórz nowy folder o nazwie *dane*. Dodaj następującą klasę `RazorPagesMovieContext` do folderu *danych* :
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Data/RazorPagesMovieContext.cs)]
 
-Poprzedni kod tworzy `DbSet` Właściwość zestawu jednostek. W Entity Framework terminologii zestaw jednostek zwykle odpowiada tabeli bazy danych, a jednostka odpowiada wierszowi w tabeli.
+Poprzedni kod tworzy właściwość `DbSet` dla zestawu jednostek. W Entity Framework terminologii zestaw jednostek zwykle odpowiada tabeli bazy danych, a jednostka odpowiada wierszowi w tabeli.
 
 <a name="cs"></a>
 
@@ -24,9 +24,9 @@ Dodaj parametry połączenia do pliku *appSettings. JSON* , jak pokazano w nast�
 
 <a name="reg"></a>
 
-### <a name="register-the-database-context"></a>Zarejestruj kontekst bazy danych
+### <a name="register-the-database-context"></a>Rejestrowanie kontekstu bazy danych
 
-Dodaj następujące `using` instrukcje w górnej części *Startup.cs*:
+Dodaj następujące instrukcje `using` w górnej części *Startup.cs*:
 
 ```csharp
 using RazorPagesMovie.Models;
@@ -53,13 +53,13 @@ dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet add package Microsoft.EntityFrameworkCore.Design
 ```
 
-`Microsoft.VisualStudio.Web.CodeGeneration.Design` Pakiet jest wymagany do tworzenia szkieletów.
+Pakiet `Microsoft.VisualStudio.Web.CodeGeneration.Design` jest wymagany do tworzenia szkieletów.
 
 <a name="reg"></a>
 
-### <a name="register-the-database-context"></a>Zarejestruj kontekst bazy danych
+### <a name="register-the-database-context"></a>Rejestrowanie kontekstu bazy danych
 
-Dodaj następujące `using` instrukcje w górnej części *Startup.cs*:
+Dodaj następujące instrukcje `using` w górnej części *Startup.cs*:
 
 ```csharp
 using RazorPagesMovie.Models;
@@ -71,4 +71,5 @@ Zarejestruj kontekst bazy danych z kontenerem [iniekcji zależności](xref:funda
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
 
 Kompiluj projekt jako sprawdzenie pod kątem błędów.
+
 ::: moniker-end

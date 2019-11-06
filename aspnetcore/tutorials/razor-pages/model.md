@@ -3,14 +3,14 @@ title: Dodawanie modelu do aplikacji Razor Pages w programie ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak dodać klasy do zarządzania filmami w bazie danych przy użyciu Entity Framework Core (EF Core).
 ms.author: riande
-ms.date: 9/22/2019
+ms.date: 11/05/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 4f8b80cb51bd10eb3b136a780dc123c41d61c0a5
-ms.sourcegitcommit: e71b6a85b0e94a600af607107e298f932924c849
+ms.openlocfilehash: 312b3d4eb13eb04453bf0c3256fc362918157a45
+ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72519076"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73634171"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Dodawanie modelu do aplikacji Razor Pages w programie ASP.NET Core
 
@@ -18,7 +18,7 @@ Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 
-W tej sekcji są dodawane klasy do zarządzania filmami w bazie danych. Te klasy są używane z [Entity Framework Core](/ef/core) (Ef Core) do pracy z bazą danych. EF Core to struktura obiektów mapowania relacyjnego (ORM), która upraszcza dostęp do danych.
+W tej sekcji są dodawane klasy do zarządzania filmami w wieloplatformowej [bazie danych SQLite](https://www.sqlite.org/index.html). Aplikacje utworzone na podstawie szablonu ASP.NET Core korzystają z bazy danych programu SQLite. Klasy modelu aplikacji są używane z [Entity Framework Core (Ef Core)](/ef/core) ([dostawca bazy danych programu SQLite EF Core](/ef/core/providers/sqlite)) do pracy z bazą danych. EF Core to struktura obiektów mapowania relacyjnego (ORM), która upraszcza dostęp do danych.
 
 Klasy modelu są znane jako klasy POCO (z "zwykłych, starych obiektów CLR"), ponieważ nie mają żadnej zależności od EF Core. Definiują właściwości danych przechowywanych w bazie danych programu.
 
@@ -198,7 +198,7 @@ Możesz zignorować to ostrzeżenie. zostanie on rozwiązany w kolejnym samouczk
 
 Polecenie migrations generuje kod, aby utworzyć początkowy schemat bazy danych. Schemat jest oparty na modelu określonym w `DbContext`. Argument `InitialCreate` jest używany do nazwy migracji. Można użyć dowolnej nazwy, ale według Konwencji została wybrana nazwa opisująca migrację.
 
-Polecenie `update` uruchamia metodę `Up` w migracjach, które nie zostały zastosowane. W takim przypadku `update` uruchamia metodę `Up` w *migracji/\<time-sygnaturze > _InitialCreate. cs* , który tworzy bazę danych.
+Polecenie `update` uruchamia metodę `Up` w migracjach, które nie zostały zastosowane. W takim przypadku `update` uruchamia metodę `Up` w przypadku *migracji/\<sygnatury czasowej > pliku _InitialCreate. cs* , który tworzy bazę danych.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -212,7 +212,7 @@ Przeanalizuj metodę `Startup.ConfigureServices`. Podświetlony wiersz został d
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Startup.cs?name=snippet_ConfigureServices&highlight=5-6)]
 
-@No__t-0 koordynuje EF Core funkcjonalności (tworzenie, odczytywanie, aktualizowanie, usuwanie itp.) dla modelu `Movie`. Kontekst danych (`RazorPagesMovieContext`) pochodzi od [Microsoft. EntityFrameworkCore. DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext). Kontekst danych określa, które jednostki są uwzględnione w modelu danych.
+`RazorPagesMovieContext` koordynuje EF Core funkcji (tworzenie, odczytywanie, aktualizowanie, usuwanie itp.) dla modelu `Movie`. Kontekst danych (`RazorPagesMovieContext`) pochodzi od [Microsoft. EntityFrameworkCore. DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext). Kontekst danych określa, które jednostki są uwzględnione w modelu danych.
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Data/RazorPagesMovieContext.cs)]
 
@@ -267,7 +267,7 @@ W następnym samouczku objaśniono pliki utworzone przez tworzenie szkieletu.
 <!--  ::: moniker previous version   -->
 ::: moniker range="< aspnetcore-3.0"
 
-W tej sekcji są dodawane klasy do zarządzania filmami w bazie danych. Te klasy są używane z [Entity Framework Core](/ef/core) (Ef Core) do pracy z bazą danych. EF Core to struktura obiektu mapowania relacyjnego (ORM), która upraszcza kod dostępu do danych.
+W tej sekcji są dodawane klasy do zarządzania filmami w wieloplatformowej [bazie danych SQLite](https://www.sqlite.org/index.html). Aplikacje utworzone na podstawie szablonu ASP.NET Core korzystają z bazy danych programu SQLite. Klasy modelu aplikacji są używane z [Entity Framework Core (Ef Core)](/ef/core) ([dostawca bazy danych programu SQLite EF Core](/ef/core/providers/sqlite)) do pracy z bazą danych. EF Core to struktura obiektów mapowania relacyjnego (ORM), która upraszcza dostęp do danych.
 
 Klasy modelu są znane jako klasy POCO (z "zwykłych, starych obiektów CLR"), ponieważ nie mają żadnej zależności od EF Core. Definiują właściwości danych przechowywanych w bazie danych programu.
 
@@ -425,7 +425,7 @@ Update-Database
 
 Polecenie `Add-Migration` generuje kod, aby utworzyć początkowy schemat bazy danych. Schemat jest oparty na modelu określonym w `DbContext` (w pliku *RazorPagesMovieContext.cs* ). Do nazwy migracji użyto argumentu `InitialCreate`. Można użyć dowolnej nazwy, ale według Konwencji Nazwa opisująca migrację jest używana. Aby uzyskać więcej informacji, zobacz <xref:data/ef-mvc/migrations>.
 
-Polecenie `Update-Database` uruchamia metodę `Up` w pliku *migrations/\<time-sygnatura > _InitialCreate. cs* . Metoda `Up` tworzy bazę danych.
+`Update-Database` polecenie uruchamia metodę `Up` w *sygnaturze czasowej migracji/\<> pliku _InitialCreate. cs* . Metoda `Up` tworzy bazę danych.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -451,7 +451,7 @@ Przeanalizuj metodę `Startup.ConfigureServices`. Podświetlony wiersz został d
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=15-18)]
 
-@No__t-0 koordynuje EF Core funkcjonalności (tworzenie, odczytywanie, aktualizowanie, usuwanie itp.) dla modelu `Movie`. Kontekst danych (`RazorPagesMovieContext`) pochodzi od [Microsoft. EntityFrameworkCore. DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext). Kontekst danych określa, które jednostki są uwzględnione w modelu danych.
+`RazorPagesMovieContext` koordynuje EF Core funkcji (tworzenie, odczytywanie, aktualizowanie, usuwanie itp.) dla modelu `Movie`. Kontekst danych (`RazorPagesMovieContext`) pochodzi od [Microsoft. EntityFrameworkCore. DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext). Kontekst danych określa, które jednostki są uwzględnione w modelu danych.
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Data/RazorPagesMovieContext.cs)]
 

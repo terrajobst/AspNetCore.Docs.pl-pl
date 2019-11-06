@@ -13,4 +13,6 @@ Powyższe polecenia powodują dodanie:
 * Narzędzie do tworzenia [szkieletu ASPNET-CodeGenerator](xref:fundamentals/tools/dotnet-aspnet-codegenerator).
 * Entity Framework Core narzędzia dla interfejs wiersza polecenia platformy .NET Core.
 * EF Core dostawca oprogramowania SQLite, który instaluje pakiet EF Core jako zależność.
-* Pakiety wymagające tworzenia szkieletów `Microsoft.VisualStudio.Web.CodeGeneration.Design` : `Microsoft.EntityFrameworkCore.SqlServer`i.
+* Pakiety wymagające tworzenia szkieletów: `Microsoft.VisualStudio.Web.CodeGeneration.Design` i `Microsoft.EntityFrameworkCore.SqlServer`.
+
+Aby uzyskać wskazówki dotyczące wielu konfiguracji środowiska, które umożliwiają aplikacji skonfigurowanie kontekstów bazy danych według środowiska, zobacz <xref:fundamentals/environments#environment-based-startup-class-and-methods>.
