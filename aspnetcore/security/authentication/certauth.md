@@ -4,14 +4,14 @@ author: blowdart
 description: Dowiedz się, jak skonfigurować uwierzytelnianie certyfikatów w ASP.NET Core dla usług IIS i HTTP. sys.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: bdorrans
-ms.date: 08/19/2019
+ms.date: 11/05/2019
 uid: security/authentication/certauth
-ms.openlocfilehash: 1e646aabb4e384e6906575e7beaa680e91f968a0
-ms.sourcegitcommit: e5d4768aaf85703effb4557a520d681af8284e26
+ms.openlocfilehash: 081935e6e6248b5fe9b7bf4cd966dc73761d2ec1
+ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73616577"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73634052"
 ---
 # <a name="configure-certificate-authentication-in-aspnet-core"></a>Konfigurowanie uwierzytelniania certyfikatów w ASP.NET Core
 
@@ -32,7 +32,7 @@ Alternatywą dla uwierzytelniania certyfikatu w środowiskach, w których są u�
 
 Uzyskaj certyfikat HTTPS, zastosuj go i [skonfiguruj hosta](#configure-your-host-to-require-certificates) , aby wymagał certyfikatów.
 
-W aplikacji sieci Web Dodaj odwołanie do pakietu `Microsoft.AspNetCore.Authentication.Certificate`. Następnie w metodzie `Startup.ConfigureServices` Wywołaj `services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).UseCertificateAuthentication(...);` z opcjami, podając delegata `OnCertificateValidated` w celu przeprowadzenia wszelkich dodatkowych weryfikacji w certyfikacie klienta wysłanym z żądaniami. Przełączaj te informacje do `ClaimsPrincipal` i ustaw je na właściwości `context.Principal`.
+W aplikacji sieci Web Dodaj odwołanie do pakietu `Microsoft.AspNetCore.Authentication.Certificate`. Następnie w metodzie `Startup.ConfigureServices` Wywołaj `services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).AddCertificate(...);` z opcjami, podając delegata `OnCertificateValidated` w celu przeprowadzenia wszelkich dodatkowych weryfikacji w certyfikacie klienta wysłanym z żądaniami. Przełączaj te informacje do `ClaimsPrincipal` i ustaw je na właściwości `context.Principal`.
 
 Jeśli uwierzytelnianie nie powiedzie się, ta procedura obsługi zwróci odpowiedź `403 (Forbidden)`, a nie `401 (Unauthorized)`, zgodnie z oczekiwaniami. Powodem jest to, że uwierzytelnianie powinno nastąpić podczas początkowego połączenia TLS. Przez czas, gdy dociera do programu obsługi, jest zbyt opóźniony. Nie ma możliwości uaktualnienia połączenia z anonimowego połączenia z certyfikatem.
 
@@ -186,16 +186,24 @@ Koncepcyjnie sprawdzenie poprawności certyfikatu jest problemem z autoryzacją.
 W *program.cs*Skonfiguruj Kestrel w następujący sposób:
 
 ```csharp
-public static IWebHost BuildWebHost(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-        .UseStartup<Startup>()
-        .ConfigureKestrel(options =>
-        {
-            options.ConfigureHttpsDefaults(opt => 
-                opt.ClientCertificateMode = 
-                    ClientCertificateMode.RequireCertificate);
-        })
-        .Build();
+
+public static void Main(string[] args)
+{
+    CreateHostBuilder(args).Build().Run();
+}
+
+public static IHostBuilder CreateHostBuilder(string[] args)
+{
+    return Host.CreateDefaultBuilder(args)
+               .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                    webBuilder.ConfigureKestrel(o =>
+                    {
+                        o.ConfigureHttpsDefaults(o => o.ClientCertificateMode = ClientCertificateMode.RequireCertificate);
+                    });
+                });
+}
 ```
 
 ### <a name="iis"></a>IIS
