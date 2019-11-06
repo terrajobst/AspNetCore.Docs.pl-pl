@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/15/2018
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 835592521c714e270595e1448ae6e0aed1707b77
-ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.openlocfilehash: acc931da1be0940fac72b0aabe07ab17ca7e63bd
+ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72590005"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73660003"
 ---
 # <a name="resource-based-authorization-in-aspnet-core"></a>Autoryzacja oparta na zasobach w ASP.NET Core
 
@@ -19,7 +19,17 @@ Strategia autoryzacji zależy od zasobów, do których uzyskuje się dostęp. Ro
 
 Obliczanie atrybutu występuje przed powiązaniem danych i przed wykonaniem procedury obsługi stron lub akcji ładującej dokument. Z tych powodów niewystarczająca jest autoryzacja deklaratywna z atrybutem `[Authorize]`. Zamiast tego można wywołać niestandardową metodę autoryzacji &mdash;a stylu znanej jako samodzielna *autoryzacja*.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples) ([jak pobrać](xref:index#how-to-download-a-sample)).
+::: moniker range=">= aspnetcore-3.0"
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples/3_0) ([jak pobrać](xref:index#how-to-download-a-sample)).
+::: moniker-end
+
+ ::: moniker range=">= aspnetcore-2.0 < aspnetcore-3.0"
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples/2_2) ([jak pobrać](xref:index#how-to-download-a-sample)).
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples/1_1) ([jak pobrać](xref:index#how-to-download-a-sample)).
+::: moniker-end
 
 [Tworzenie aplikacji ASP.NET Core przy użyciu danych użytkownika chronionych przez autoryzację](xref:security/authorization/secure-data) zawiera przykładową aplikację, która korzysta z autoryzacji opartej na zasobach.
 
@@ -27,7 +37,7 @@ Obliczanie atrybutu występuje przed powiązaniem danych i przed wykonaniem proc
 
 Autoryzacja jest zaimplementowana jako usługa [IAuthorizationService](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationservice) i jest zarejestrowana w kolekcji usług w ramach klasy `Startup`. Usługa jest udostępniana za pośrednictwem [iniekcji zależności](xref:fundamentals/dependency-injection) do obsługi stron lub akcji.
 
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Controllers/DocumentController.cs?name=snippet_IAuthServiceDI&highlight=6)]
+[!code-csharp[](resourcebased/samples/3_0/ResourceBasedAuthApp2/Controllers/DocumentController.cs?name=snippet_IAuthServiceDI&highlight=6)]
 
 `IAuthorizationService` ma dwa przeciążania metody `AuthorizeAsync`: jeden z nich akceptuje zasób i nazwę zasad, a pozostałe zaakceptują zasób i listę wymagań do obliczenia.
 
@@ -66,13 +76,13 @@ W poniższym przykładzie zasób do zabezpieczenia jest ładowany do niestandard
 
 ::: moniker range=">= aspnetcore-2.0"
 
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Pages/Document/Edit.cshtml.cs?name=snippet_DocumentEditHandler)]
+[!code-csharp[](resourcebased/samples/3_0/ResourceBasedAuthApp2/Pages/Document/Edit.cshtml.cs?name=snippet_DocumentEditHandler)]
 
 ::: moniker-end
 
 ::: moniker range="<= aspnetcore-1.1"
 
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Controllers/DocumentController.cs?name=snippet_DocumentEditAction)]
+[!code-csharp[](resourcebased/samples/1_1/ResourceBasedAuthApp1/Controllers/DocumentController.cs?name=snippet_DocumentEditAction)]
 
 ::: moniker-end
 
@@ -84,13 +94,13 @@ Klasa obsługi określa typ wymagania i zasobu. Na przykład program obsługi wy
 
 ::: moniker range=">= aspnetcore-2.0"
 
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Services/DocumentAuthorizationHandler.cs?name=snippet_HandlerAndRequirement)]
+[!code-csharp[](resourcebased/samples/3_0/ResourceBasedAuthApp2/Services/DocumentAuthorizationHandler.cs?name=snippet_HandlerAndRequirement)]
 
 ::: moniker-end
 
 ::: moniker range="<= aspnetcore-1.1"
 
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Services/DocumentAuthorizationHandler.cs?name=snippet_HandlerAndRequirement)]
+[!code-csharp[](resourcebased/samples/1_1/ResourceBasedAuthApp1/Services/DocumentAuthorizationHandler.cs?name=snippet_HandlerAndRequirement)]
 
 ::: moniker-end
 
@@ -98,25 +108,34 @@ W poprzednim przykładzie Załóżmy, że `SameAuthorRequirement` jest szczegól
 
 Zarejestrowanie wymagania i procedury obsługi w `Startup.ConfigureServices`:
 
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Startup.cs?name=snippet_ConfigureServicesSample&highlight=3-7,9)]
+::: moniker range=">= aspnetcore-3.0"
+[!code-csharp[](resourcebased/samples/3_0/ResourceBasedAuthApp2/Startup.cs?name=snippet_ConfigureServicesSample&highlight=4-8,10)]
+::: moniker-end
+
+ ::: moniker range=">= aspnetcore-2.0 < aspnetcore-3.0"
+[!code-csharp[](resourcebased/samples/2_2/ResourceBasedAuthApp2/Startup.cs?name=snippet_ConfigureServicesSample&highlight=3-7,9)]
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
+[!code-csharp[](resourcebased/samples/1_1/ResourceBasedAuthApp1/Startup.cs?name=snippet_ConfigureServicesSample&highlight=3-7,9)]
+::: moniker-end
 
 ### <a name="operational-requirements"></a>Wymagania operacyjne
 
 Jeśli podejmujesz decyzje w oparciu o wyniki operacji CRUD (tworzenie, odczytywanie, aktualizowanie, usuwanie), użyj klasy pomocnika [OperationAuthorizationRequirement](/dotnet/api/microsoft.aspnetcore.authorization.infrastructure.operationauthorizationrequirement) . Ta klasa umożliwia pisanie pojedynczej procedury obsługi zamiast pojedynczej klasy dla każdego typu operacji. Aby go użyć, Podaj nazwy niektórych operacji:
 
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_OperationsClass)]
+[!code-csharp[](resourcebased/samples/3_0/ResourceBasedAuthApp2/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_OperationsClass)]
 
 Procedura obsługi jest implementowana w następujący sposób przy użyciu wymagania `OperationAuthorizationRequirement` i zasobu `Document`:
 
-::: moniker range=">= aspnetcore-2.0"
-
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_Handler)]
+ ::: moniker range=">= aspnetcore-2.0"
+[!code-csharp[](resourcebased/samples/3_0/ResourceBasedAuthApp2/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_Handler)]
 
 ::: moniker-end
 
 ::: moniker range="<= aspnetcore-1.1"
 
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_Handler)]
+[!code-csharp[](resourcebased/samples/1_1/ResourceBasedAuthApp1/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_Handler)]
 
 ::: moniker-end
 
@@ -133,7 +152,7 @@ Aby wywołać procedurę obsługi zasobów operacyjnych, określ operację podcz
 
 ::: moniker range=">= aspnetcore-2.0"
 
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Pages/Document/View.cshtml.cs?name=snippet_DocumentViewHandler&highlight=10-11)]
+[!code-csharp[](resourcebased/samples/3_0/ResourceBasedAuthApp2/Pages/Document/View.cshtml.cs?name=snippet_DocumentViewHandler&highlight=10-11)]
 
 Jeśli autoryzacja powiedzie się, zostanie zwrócona Strona do wyświetlania dokumentu. Jeśli autoryzacja nie powiedzie się, ale użytkownik zostanie uwierzytelniony, zwrócenie `ForbidResult` informuje wszystkie oprogramowanie pośredniczące uwierzytelniania, które nie powiodło się. Podczas uwierzytelniania należy zwrócić `ChallengeResult`. W przypadku klientów interakcyjnej przeglądarki może być konieczne przekierowanie użytkownika do strony logowania.
 
@@ -141,7 +160,7 @@ Jeśli autoryzacja powiedzie się, zostanie zwrócona Strona do wyświetlania do
 
 ::: moniker range="<= aspnetcore-1.1"
 
-[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Controllers/DocumentController.cs?name=snippet_DocumentViewAction&highlight=11-12)]
+[!code-csharp[](resourcebased/samples/1_1/ResourceBasedAuthApp1/Controllers/DocumentController.cs?name=snippet_DocumentViewAction&highlight=11-12)]
 
 Jeśli autoryzacja powiedzie się, zostanie zwrócony widok dla dokumentu. Jeśli autoryzacja nie powiedzie się, zwraca `ChallengeResult` informuje inne oprogramowanie pośredniczące uwierzytelniania, że autoryzacja nie powiodła się, a oprogramowanie pośredniczące może pobrać odpowiednią odpowiedź. Odpowiednia odpowiedź może zwrócić kod stanu 401 lub 403. W przypadku klientów interakcyjnych przeglądarki może to oznaczać przekierowanie użytkownika do strony logowania.
 

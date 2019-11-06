@@ -5,14 +5,14 @@ description: Dowiedz się, jak używać scenariuszy formularzy i walidacji pól 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 11/04/2019
 uid: blazor/forms-validation
-ms.openlocfilehash: 6f6ace3deb7ed4262b643d897273bc767334b5e6
-ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
+ms.openlocfilehash: 09281779e7f0b31e525e0e79c2d6d9ce9ca5b8ce
+ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71207175"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73659787"
 ---
 # <a name="aspnet-core-blazor-forms-and-validation"></a>ASP.NET Core formularzy i walidacji Blazor
 
@@ -20,7 +20,7 @@ Autorzy [Daniel Roth](https://github.com/danroth27) i [Luke Latham](https://gith
 
 Formularze i walidacje są obsługiwane w programie Blazor przy użyciu [adnotacji danych](xref:mvc/models/validation).
 
-Następujący `ExampleModel` typ definiuje logikę walidacji przy użyciu adnotacji danych:
+Następujący typ `ExampleModel` definiuje logikę walidacji przy użyciu adnotacji danych:
 
 ```csharp
 using System.ComponentModel.DataAnnotations;
@@ -33,7 +33,7 @@ public class ExampleModel
 }
 ```
 
-Formularz jest definiowany przy użyciu `EditForm` składnika. W poniższej formie przedstawiono typowe elementy, składniki i kod Razor:
+Formularz jest definiowany przy użyciu składnika `EditForm`. W poniższej formie przedstawiono typowe elementy, składniki i kod Razor:
 
 ```csharp
 <EditForm Model="@exampleModel" OnValidSubmit="@HandleValidSubmit">
@@ -55,10 +55,10 @@ Formularz jest definiowany przy użyciu `EditForm` składnika. W poniższej form
 }
 ```
 
-* Formularz sprawdza poprawność danych wejściowych użytkownika `name` w polu przy użyciu walidacji zdefiniowanej `ExampleModel` w typie. Model jest tworzony w `@code` bloku składnika i przechowywany w prywatnym polu (`exampleModel`). Pole jest przypisane do `Model` atrybutu `<EditForm>` elementu.
-* `DataAnnotationsValidator` Składnik dołącza obsługę walidacji przy użyciu adnotacji danych.
-* `ValidationSummary` Składnik podsumowuje komunikaty weryfikacyjne.
-* `HandleValidSubmit`jest wyzwalany po pomyślnym przesłaniu formularza (kończy walidację).
+* Formularz sprawdza poprawność danych wejściowych użytkownika w polu `name` przy użyciu walidacji zdefiniowanej w typie `ExampleModel`. Model jest tworzony w bloku `@code` składnika i przechowywany w polu prywatnym (`exampleModel`). Pole jest przypisane do atrybutu `Model` elementu `<EditForm>`.
+* Składnik `DataAnnotationsValidator` dołącza obsługę walidacji przy użyciu adnotacji danych.
+* Składnik `ValidationSummary` podsumowuje komunikaty weryfikacyjne.
+* `HandleValidSubmit` jest wyzwalany po pomyślnym przesłaniu formularza (kończy walidację).
 
 Zestaw wbudowanych składników wejściowych jest dostępny do odbierania i weryfikowania danych wejściowych użytkownika. Dane wejściowe są weryfikowane po ich zmianie i po przesłaniu formularza. W poniższej tabeli przedstawiono dostępne składniki danych wejściowych.
 
@@ -73,9 +73,9 @@ Zestaw wbudowanych składników wejściowych jest dostępny do odbierania i wery
 
 Wszystkie składniki danych wejściowych, w tym `EditForm`, obsługują dowolne atrybuty. Dowolny atrybut, który nie jest zgodny z parametrem składnika, jest dodawany do renderowanego elementu HTML.
 
-Składniki wejściowe zapewniają domyślne zachowanie podczas sprawdzania poprawności edycji i zmiany ich klasy CSS, aby odzwierciedlały stan pola. Niektóre składniki obejmują przydatne logiki analizy. Na przykład i `InputDate` `InputNumber` bezproblemowo obsłużyć wartości, które można przeanalizować, rejestrując je jako błędy walidacji. Typy, które mogą akceptować wartości null, obsługują również wartość null pola docelowego (na przykład `int?`).
+Składniki wejściowe zapewniają domyślne zachowanie podczas sprawdzania poprawności edycji i zmiany ich klasy CSS, aby odzwierciedlały stan pola. Niektóre składniki obejmują przydatne logiki analizy. Na przykład `InputDate` i `InputNumber` obsłużyć bezproblemowo przeanalizować wartości, rejestrując je jako błędy walidacji. Typy, które mogą akceptować wartości null, obsługują również wartość null pola docelowego (na przykład `int?`).
 
-Następujący `Starship` typ definiuje logikę walidacji przy użyciu większego zestawu właściwości i adnotacji danych niż wcześniej `ExampleModel`:
+Następujący typ `Starship` definiuje logikę walidacji przy użyciu większego zestawu właściwości i adnotacji danych niż wcześniejsza `ExampleModel`:
 
 ```csharp
 using System;
@@ -105,9 +105,9 @@ public class Starship
 }
 ```
 
-W powyższym przykładzie `Description` jest opcjonalne, ponieważ nie są obecne adnotacje danych.
+W poprzednim przykładzie `Description` jest opcjonalne, ponieważ nie są obecne adnotacje danych.
 
-Następujący formularz sprawdza poprawność danych wejściowych użytkownika przy użyciu weryfikacji zdefiniowanej w `Starship` modelu:
+Następujący formularz sprawdza poprawność danych wejściowych użytkownika przy użyciu weryfikacji zdefiniowanej w modelu `Starship`:
 
 ```cshtml
 @page "/FormsValidation"
@@ -170,11 +170,11 @@ Następujący formularz sprawdza poprawność danych wejściowych użytkownika p
 }
 ```
 
-Tworzy jako wartość kaskadową, która śledzi metadane dotyczące procesu edycji, w tym pola, które zostały zmodyfikowane i bieżące komunikaty weryfikacyjne. [](xref:blazor/components#cascading-values-and-parameters) `EditForm` `EditContext` Zapewnia również wygodne zdarzenia dla prawidłowych i nieprawidłowych przesyłania`OnValidSubmit`( `OnInvalidSubmit`,). `EditForm` Alternatywnie można użyć `OnSubmit` do wyzwolenia walidacji i sprawdzenia wartości pól z niestandardowym kodem walidacji.
+`EditForm` tworzy `EditContext` jako [wartość kaskadową](xref:blazor/components#cascading-values-and-parameters) , która śledzi metadane dotyczące procesu edycji, w tym pola, które zostały zmodyfikowane, i bieżące komunikaty weryfikacyjne. `EditForm` również zapewnia wygodne zdarzenia dla prawidłowych i nieprawidłowych przesyłania (`OnValidSubmit`, `OnInvalidSubmit`). Alternatywnie możesz użyć `OnSubmit`, aby wyzwolić walidację i sprawdzanie wartości pól przy użyciu niestandardowego kodu sprawdzania poprawności.
 
 ## <a name="inputtext-based-on-the-input-event"></a>InputText na podstawie zdarzenia wejściowego
 
-Użyj składnika, aby utworzyć niestandardowy składnik, który `input` używa zdarzenia zamiast `change` zdarzenia. `InputText`
+Użyj składnika `InputText`, aby utworzyć niestandardowy składnik, który używa zdarzenia `input` zamiast zdarzenia `change`.
 
 Utwórz składnik z następującą adiustacją i użyj składnika, tak jak `InputText` jest używany:
 
@@ -191,18 +191,34 @@ Utwórz składnik z następującą adiustacją i użyj składnika, tak jak `Inpu
 
 ## <a name="validation-support"></a>Obsługa walidacji
 
-Składnik dołącza obsługę walidacji przy użyciu adnotacji danych do `EditContext`kaskadowo. `DataAnnotationsValidator` Włączenie obsługi walidacji przy użyciu adnotacji danych wymaga tego jawnego gestu. Aby użyć innego systemu sprawdzania poprawności niż adnotacje danych, Zastąp zmienną `DataAnnotationsValidator` implementacją niestandardową. Implementacja ASP.NET Core jest dostępna do inspekcji w źródle odwołania: [](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Forms/src/DataAnnotationsValidator.cs)DataAnnotationsValidator/[AddDataAnnotationsValidation](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Forms/src/EditContextDataAnnotationsExtensions.cs).
+Składnik `DataAnnotationsValidator` dołącza obsługę walidacji przy użyciu adnotacji danych do `EditContext`kaskadowo. Włączenie obsługi walidacji przy użyciu adnotacji danych wymaga tego jawnego gestu. Aby użyć innego systemu sprawdzania poprawności niż adnotacje danych, Zastąp `DataAnnotationsValidator` implementacją niestandardową. Implementacja ASP.NET Core jest dostępna do inspekcji w źródle referencyjnym: [DataAnnotationsValidator](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Forms/src/DataAnnotationsValidator.cs)/[AddDataAnnotationsValidation](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Forms/src/EditContextDataAnnotationsExtensions.cs).
 
-Składnik podsumowuje wszystkie komunikaty weryfikacyjne podobne do [pomocnika tagów podsumowania walidacji.](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper) `ValidationSummary`
+Składnik `ValidationSummary` podsumowuje wszystkie komunikaty weryfikacyjne podobne do [pomocnika tagów podsumowania walidacji](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper).
 
-Składnik wyświetla komunikaty sprawdzania poprawności dla określonego pola, które jest podobne do pomocnika [tagów komunikatu weryfikacji.](xref:mvc/views/working-with-forms#the-validation-message-tag-helper) `ValidationMessage` Określ pole do walidacji z `For` atrybutem i wyrażeniem lambda, które nazywa właściwość modelu:
+Składnik `ValidationMessage` wyświetla komunikaty weryfikacyjne dla określonego pola, który jest podobny do [pomocnika tagów komunikatu weryfikacji](xref:mvc/views/working-with-forms#the-validation-message-tag-helper). Określ pole do walidacji z atrybutem `For` i wyrażenie lambda, które nazywa właściwość modelu:
 
 ```cshtml
 <ValidationMessage For="@(() => starship.MaximumAccommodation)" />
 ```
 
-Składniki `ValidationMessage` i`ValidationSummary` obsługują dowolne atrybuty. Dowolny atrybut, który nie jest zgodny z parametrem składnika, jest `<div>` dodawany `<ul>` do wygenerowanego elementu or.
+Składniki `ValidationMessage` i `ValidationSummary` obsługują dowolne atrybuty. Dowolny atrybut, który nie jest zgodny z parametrem składnika, jest dodawany do wygenerowanego elementu `<div>` lub `<ul>`.
+
+::: moniker range=">= aspnetcore-3.1"
+
+**Microsoft. AspNetCore. Blazor. DataAnnotations. Validation — pakiet**
+
+[Microsoft. AspNetCore. Blazor. DataAnnotations. Validation](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.DataAnnotations.Validation) to pakiet, który wypełnia luki w środowisku walidacji przy użyciu składnika `DataAnnotationsValidator`. Pakiet jest obecnie *eksperymentalny*i planujemy dodać te scenariusze do ASP.NET Core Framework w przyszłej wersji.
+
+Składnik `DataAnnotationsValidator` nie weryfikuje podwłaściwości złożonych właściwości w modelu walidacji. Elementy właściwości typu kolekcji nie są weryfikowane. Aby sprawdzić poprawność tych typów, pakiet `Microsoft.AspNetCore.Blazor.DataAnnotations.Validation` wprowadza atrybut walidacji `ValidateComplexType`, który działa wspólnie ze składnikiem `ObjectGraphDataAnnotationsValidator`. Aby zapoznać się z przykładem tych typów, zobacz [przykład Blazor Validation w repozytorium GitHub/Samples ](https://github.com/aspnet/samples/tree/master/samples/aspnetcore/blazor/Validation).
+
+<xref:System.ComponentModel.DataAnnotations.CompareAttribute> nie działa dobrze ze składnikiem `DataAnnotationsValidator`. Pakiet `Microsoft.AspNetCore.Blazor.DataAnnotations.Validation` wprowadza dodatkowy atrybut sprawdzania poprawności, `ComparePropertyAttribute`, który działa wokół tych ograniczeń. W aplikacji Blazor `ComparePropertyAttribute` jest bezpośrednią wymianą dla `CompareAttribute`. Aby uzyskać więcej informacji, zobacz [CompareAttribute został zignorowany z OnValidSubmit EditForm (ASPNET/AspNetCore \#10643)](https://github.com/aspnet/AspNetCore/issues/10643#issuecomment-543909748).
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.1"
 
 ### <a name="validation-of-complex-or-collection-type-properties"></a>Walidacja właściwości typu złożonego lub kolekcji
 
-Atrybuty walidacji zastosowane do właściwości modelu sprawdzają poprawność podczas przesyłania formularza. Jednak właściwości kolekcji lub złożonych typów danych modelu nie są weryfikowane w przypadku przesłania formularza. Aby przestrzegać zagnieżdżonych atrybutów walidacji w tym scenariuszu, Użyj niestandardowego składnika walidacji. Aby zapoznać się z przykładem, zobacz przykład [Blazor Validation w repozytorium GitHub/Samples](https://github.com/aspnet/samples/tree/master/samples/aspnetcore/blazor/Validation).
+Atrybuty walidacji zastosowane do właściwości modelu sprawdzają poprawność podczas przesyłania formularza. Jednak właściwości kolekcji lub złożonych typów danych modelu nie są sprawdzane w wyniku przesłania formularza przez składnik `DataAnnotationsValidator`. Aby przestrzegać zagnieżdżonych atrybutów walidacji w tym scenariuszu, Użyj niestandardowego składnika walidacji. Aby zapoznać się z przykładem, zobacz przykład [Blazor Validation w repozytorium GitHub/Samples](https://github.com/aspnet/samples/tree/master/samples/aspnetcore/blazor/Validation).
+
+::: moniker-end

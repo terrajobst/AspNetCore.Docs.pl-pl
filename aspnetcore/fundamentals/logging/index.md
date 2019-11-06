@@ -5,14 +5,14 @@ description: Dowiedz się, jak używać struktury rejestrowania dostarczonej prz
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/08/2019
+ms.date: 11/05/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 697e6cf0cd1b51ad6c2942e21bc084d1fe6bfa4e
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 2cb19d251ad69ebd7d18480c14857e948c69b747
+ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259732"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73659971"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Rejestrowanie w programie .NET Core i ASP.NET Core
 
@@ -46,14 +46,14 @@ W aplikacji konsolowej bez hosta Wywołaj metodę rozszerzenia `Add{provider nam
 
 `LoggerFactory` i `AddConsole` wymagają instrukcji `using` dla `Microsoft.Extensions.Logging`.
 
-Domyślne ASP.NET Core szablonów projektu wywołują <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder%2A>, które dodaje następujących dostawców rejestrowania:
+Domyślne ASP.NET Core wywołań szablonów projektu <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder%2A>, które dodaje następujących dostawców rejestrowania:
 
-* Console
+* Konsola
 * Debugowanie
 * EventSource
 * EventLog (tylko w przypadku uruchamiania w systemie Windows)
 
-Dostawców domyślnych można zastąpić własnymi opcjami. Wywołaj <xref:Microsoft.Extensions.Logging.LoggingBuilderExtensions.ClearProviders%2A> i Dodaj żądanych dostawców.
+Dostawców domyślnych można zastąpić własnymi opcjami. Wywołaj <xref:Microsoft.Extensions.Logging.LoggingBuilderExtensions.ClearProviders%2A>i Dodaj żądanych dostawców.
 
 [!code-csharp[](index/samples/3.x/TodoApiSample/Program.cs?name=snippet_AddProvider&highlight=5)]
 
@@ -67,15 +67,15 @@ Aby dodać dostawcę, wywołaj metodę rozszerzenia `Add{provider name}` dostawc
 
 Poprzedzający kod wymaga odwołań do `Microsoft.Extensions.Logging` i `Microsoft.Extensions.Configuration`.
 
-Domyślny szablon projektu wywołuje <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A>, które dodaje następujących dostawców rejestrowania:
+Domyślny szablon projektu wywołuje <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A>, który dodaje następujących dostawców rejestrowania:
 
-* Console
+* Konsola
 * Debugowanie
 * EventSource (rozpoczęcie w ASP.NET Core 2,2)
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_TemplateCode&highlight=7)]
 
-Jeśli używasz `CreateDefaultBuilder`, możesz zastąpić domyślnych dostawców własnymi opcjami. Wywołaj <xref:Microsoft.Extensions.Logging.LoggingBuilderExtensions.ClearProviders%2A> i Dodaj żądanych dostawców.
+Jeśli używasz `CreateDefaultBuilder`, możesz zastąpić domyślnych dostawców własnymi opcjami. Wywołaj <xref:Microsoft.Extensions.Logging.LoggingBuilderExtensions.ClearProviders%2A>i Dodaj żądanych dostawców.
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_LogFromMain&highlight=18-22)]
 
@@ -131,6 +131,69 @@ Aby napisać dzienniki w klasie `Program` aplikacji ASP.NET Core, Pobierz wystą
 
 [!code-csharp[](index/samples/3.x/TodoApiSample/Program.cs?name=snippet_LogFromMain&highlight=9,10)]
 
+Rejestrowanie podczas konstruowania hosta nie jest bezpośrednio obsługiwane. Można jednak użyć osobnego rejestratora. W poniższym przykładzie Rejestrator [Serilog](https://serilog.net/) jest używany do logowania się `CreateHostBuilder`. `AddSerilog` używa konfiguracji statycznej określonej w `Log.Logger`:
+
+```csharp
+using System;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateHostBuilder(args).Build().Run();
+    }
+
+    public static IHostBuilder CreateHostBuilder(string[] args)
+    {
+        var builtConfig = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json")
+            .AddCommandLine(args)
+            .Build();
+
+        Log.Logger = new LoggerConfiguration()
+            .WriteTo.Console()
+            .WriteTo.File(builtConfig["Logging:FilePath"])
+            .CreateLogger();
+
+        try
+        {
+            return Host.CreateDefaultBuilder(args)
+                .ConfigureServices((context, services) =>
+                {
+                    services.AddRazorPages();
+                })
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    config.AddConfiguration(builtConfig);
+                })
+                .ConfigureLogging(logging =>
+                {   
+                    logging.AddSerilog();
+                })
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
+        }
+        catch (Exception ex)
+        {
+            Log.Fatal(ex, "Host builder error");
+
+            throw;
+        }
+        finally
+        {
+            Log.CloseAndFlush();
+        }
+    }
+}
+```
+
 ### <a name="create-logs-in-the-startup-class"></a>Tworzenie dzienników w klasie startowej
 
 Aby napisać dzienniki w metodzie `Startup.Configure` aplikacji ASP.NET Core, należy uwzględnić parametr `ILogger` w podpisie metody:
@@ -168,13 +231,73 @@ Aby napisać dzienniki w klasie `Program`, Pobierz wystąpienie `ILogger` od DI:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_LogFromMain&highlight=9,10)]
 
+Rejestrowanie podczas konstruowania hosta nie jest bezpośrednio obsługiwane. Można jednak użyć osobnego rejestratora. W poniższym przykładzie Rejestrator [Serilog](https://serilog.net/) jest używany do logowania się `CreateWebHostBuilder`. `AddSerilog` używa konfiguracji statycznej określonej w `Log.Logger`:
+
+```csharp
+using System;
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateWebHostBuilder(args).Build().Run();
+    }
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+    {
+        var builtConfig = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json")
+            .AddCommandLine(args)
+            .Build();
+
+        Log.Logger = new LoggerConfiguration()
+            .WriteTo.Console()
+            .WriteTo.File(builtConfig["Logging:FilePath"])
+            .CreateLogger();
+
+        try
+        {
+            return WebHost.CreateDefaultBuilder(args)
+                .ConfigureServices((context, services) =>
+                {
+                    services.AddMvc();
+                })
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    config.AddConfiguration(builtConfig);
+                })
+                .ConfigureLogging(logging =>
+                {
+                    logging.AddSerilog();
+                })
+                .UseStartup<Startup>();
+        }
+        catch (Exception ex)
+        {
+            Log.Fatal(ex, "Host builder error");
+
+            throw;
+        }
+        finally
+        {
+            Log.CloseAndFlush();
+        }
+    }
+}
+```
+
 ::: moniker-end
 
 ### <a name="no-asynchronous-logger-methods"></a>Brak metod rejestratora asynchronicznego
 
 Rejestracja powinna być tak szybka, że nie jest to koszt wydajności kodu asynchronicznego. Jeśli magazyn danych rejestrowania jest wolny, nie zapisuj go bezpośrednio. Najpierw Rozważ zapisanie komunikatów dziennika do szybkiego sklepu, a następnie przeniesienie ich do wolnego magazynu później. Na przykład jeśli rejestrujesz się do SQL Server, nie chcesz tego robić bezpośrednio w metodzie `Log`, ponieważ metody `Log` są synchroniczne. Zamiast tego można synchronicznie dodawać komunikaty dziennika do kolejki w pamięci, a proces roboczy w tle ściągał komunikaty z kolejki, aby wykonać asynchroniczne działanie wypychania danych do SQL Server.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 Konfiguracja dostawcy rejestrowania jest świadczona przez co najmniej jednego dostawcę konfiguracji:
 
@@ -623,16 +746,16 @@ Drugi `AddFilter` określa dostawcę debugowania za pomocą nazwy typu. Pierwszy
 
 Dane konfiguracji i kod `AddFilter` pokazane w powyższych przykładach tworzą reguły przedstawione w poniższej tabeli. Pierwsze sześć pochodzi z przykładu konfiguracji, a ostatnie dwa pochodzą z przykładu kodu.
 
-| Liczba | Dostawca      | Kategorie zaczynające się od...          | Minimalny poziom rejestrowania |
+| Wartość liczbowa | Dostawcy      | Kategorie zaczynające się od...          | Minimalny poziom rejestrowania |
 | :----: | ------------- | --------------------------------------- | ----------------- |
 | 1      | Debugowanie         | Wszystkie kategorie                          | Informacje       |
-| 2      | Console       | Microsoft. AspNetCore. MVC. Razor. Internal | Ostrzeżenie           |
-| 3      | Console       | Microsoft. AspNetCore. MVC. Razor. Razor    | Debugowanie             |
-| 4      | Console       | Microsoft. AspNetCore. MVC. Razor          | Błąd             |
-| 5      | Console       | Wszystkie kategorie                          | Informacje       |
+| 2      | Konsola       | Microsoft. AspNetCore. MVC. Razor. Internal | Ostrzeżenie           |
+| 3      | Konsola       | Microsoft. AspNetCore. MVC. Razor. Razor    | Debugowanie             |
+| 4      | Konsola       | Microsoft. AspNetCore. MVC. Razor          | Błąd             |
+| 5      | Konsola       | Wszystkie kategorie                          | Informacje       |
 | 6      | Wszyscy dostawcy | Wszystkie kategorie                          | Debugowanie             |
 | 7      | Wszyscy dostawcy | System                                  | Debugowanie             |
-| 8      | Debugowanie         | Microsoft                               | Ślad             |
+| 8      | Debugowanie         | Microsoft                               | Szuka             |
 
 Po utworzeniu obiektu `ILogger` obiekt `ILoggerFactory` wybiera jedną regułę dla każdego dostawcy do zastosowania do tego rejestratora. Wszystkie komunikaty zapisywane przez wystąpienie `ILogger` są filtrowane na podstawie wybranych reguł. Najbardziej konkretną regułą można wybrać dla każdego dostawcy i pary kategorii z dostępnych reguł.
 
@@ -654,7 +777,7 @@ Wystąpienie `ILogger` wysyła dzienniki poziomu `Trace` i powyżej do dostawcy 
 
 Każdy dostawca definiuje *alias* , który może być używany w konfiguracji zamiast w pełni kwalifikowanej nazwy typu.  W przypadku dostawców wbudowanych Użyj następujących aliasów:
 
-* Console
+* Konsola
 * Debugowanie
 * EventSource
 * Elemencie
@@ -768,7 +891,7 @@ warn: TodoApiSample.Controllers.TodoController[4000]
 ASP.NET Core dostarcza następujących dostawców:
 
 * [Console](#console-provider)
-* [Debugowanie](#debug-provider)
+* [Rozpocząć](#debug-provider)
 * [EventSource](#eventsource-provider)
 * [Elemencie](#windows-eventlog-provider)
 * [TraceSource](#tracesource-provider)
@@ -885,9 +1008,9 @@ Po wdrożeniu w aplikacji App Service, aplikacja będzie przestrzegać ustawień
 * **Rejestrowanie aplikacji (system plików)**
 * **Rejestrowanie aplikacji (BLOB)**
 
-Domyślną lokalizacją plików dziennika jest folder *D: \\home @ no__t-2LogFiles @ no__t-3Application* , a domyślna nazwa pliku to *Diagnostics-YYYYMMDD. txt*. Domyślny limit rozmiaru pliku wynosi 10 MB, a domyślna maksymalna liczba zachowywanych plików to 2. Domyślną nazwą obiektu BLOB jest *{App-Name} {timestamp}/yyyy/mm/dd/hh/{GUID}-applicationLog.txt*.
+Domyślna lokalizacja plików dziennika znajduje się w folderze *D:\\home\\plik_dziennikas\\folder aplikacji* , a domyślna nazwa pliku to *Diagnostics-YYYYMMDD. txt*. Domyślny limit rozmiaru pliku wynosi 10 MB, a domyślna maksymalna liczba zachowywanych plików to 2. Domyślną nazwą obiektu BLOB jest *{App-Name} {timestamp}/yyyy/mm/dd/hh/{GUID}-applicationLog.txt*.
 
-Dostawca działa tylko wtedy, gdy projekt jest uruchomiony w środowisku platformy Azure. Nie ma ono wpływu, gdy projekt jest uruchamiany lokalnie @ no__t-0it nie zapisuje do plików lokalnych lub lokalnego magazynu tworzenia dla obiektów BLOB.
+Dostawca działa tylko wtedy, gdy projekt jest uruchomiony w środowisku platformy Azure. Nie ma ono wpływu, gdy projekt jest uruchamiany lokalnie&mdash;nie zapisuje w plikach lokalnych ani w lokalnym magazynie programistycznym dla obiektów BLOB.
 
 #### <a name="azure-log-streaming"></a>Przesyłanie strumieniowe dzienników Azure
 
@@ -911,9 +1034,9 @@ Pakiet [Microsoft. Extensions. Logging. ApplicationInsights](https://www.nuget.o
 
 Dostawca rejestrowania jest dołączony jako zależność [Microsoft. ApplicationInsights. AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), który jest pakietem, który zapewnia wszystkie dostępne dane telemetryczne dla ASP.NET Core. Jeśli używasz tego pakietu, nie musisz instalować pakietu dostawcy.
 
-Nie używaj pakietu [Microsoft. ApplicationInsights. Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) Package @ no__t-1that's for ASP.NET 4. x.
+Nie używaj pakietu [Microsoft. ApplicationInsights. Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) Package&mdash;, który jest przeznaczony dla ASP.NET 4. x.
 
-Więcej informacji zawierają następujące zasoby:
+Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
 * [Przegląd Application Insights](/azure/application-insights/app-insights-overview)
 * [Application Insights dla ASP.NET Core aplikacji](/azure/azure-monitor/app/asp-net-core) — Zacznij tutaj, jeśli chcesz zaimplementować cały zakres Application Insights telemetrii wraz z rejestrowaniem.
@@ -945,6 +1068,6 @@ Korzystanie z struktury innej firmy jest podobne do korzystania z jednego z wbud
 
 Aby uzyskać więcej informacji, zobacz dokumentację każdego dostawcy. Dostawcy rejestrowania innych firm nie są obsługiwani przez firmę Microsoft.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * <xref:fundamentals/logging/loggermessage>

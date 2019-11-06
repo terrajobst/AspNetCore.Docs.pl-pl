@@ -5,22 +5,22 @@ description: Dowiedz się, jak hostować aplikację ASP.NET Core w usłudze syst
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/10/2019
+ms.date: 10/30/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: b02e627af875f15a81d68b0d625a2eccf25c0657
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: 014585cd1e170fc94f7f577e11ec19824e54572f
+ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333804"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73659846"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>ASP.NET Core hosta w usłudze systemu Windows
 
-Autorzy [Luke Latham](https://github.com/guardrex) i [Tomasz Dykstra](https://github.com/tdykstra)
+Autor [Luke Latham](https://github.com/guardrex)
 
 Aplikacja ASP.NET Core może być hostowana w systemie Windows jako [Usługa systemu Windows](/dotnet/framework/windows-services/introduction-to-windows-service-applications) bez korzystania z usług IIS. Gdy usługa jest hostowana w systemie Windows, aplikacja jest uruchamiana automatycznie po ponownym uruchomieniu serwera.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/windows-service/) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -38,15 +38,15 @@ Szablon usługi ASP.NET Core Worker zapewnia punkt początkowy do pisania długo
 
 [!INCLUDE[](~/includes/worker-template-instructions.md)]
 
----
-
 ::: moniker-end
 
 ## <a name="app-configuration"></a>Konfiguracja aplikacji
 
 ::: moniker range=">= aspnetcore-3.0"
 
-`IHostBuilder.UseWindowsService`, dostarczone przez pakiet [Microsoft. Extensions. hosting. WindowsServices](https://www.nuget.org/packages/Microsoft.Extensions.Hosting.WindowsServices) , jest wywoływana podczas kompilowania hosta. Jeśli aplikacja działa jako usługa systemu Windows, Metoda:
+Aplikacja wymaga odwołania do pakietu dla elementu [Microsoft. Extensions. hosting. WindowsServices](https://www.nuget.org/packages/Microsoft.Extensions.Hosting.WindowsServices).
+
+`IHostBuilder.UseWindowsService` jest wywoływana podczas kompilowania hosta. Jeśli aplikacja działa jako usługa systemu Windows, Metoda:
 
 * Ustawia okres istnienia hosta na `WindowsServiceLifetime`.
 * Ustawia [katalog główny zawartości](xref:fundamentals/index#content-root).
@@ -54,7 +54,20 @@ Szablon usługi ASP.NET Core Worker zapewnia punkt początkowy do pisania długo
   * Poziom dziennika można skonfigurować przy użyciu klucza `Logging:LogLevel:Default` w pliku *appSettings. Plik Product. JSON* .
   * Tylko Administratorzy mogą tworzyć nowe źródła zdarzeń. Gdy nie można utworzyć źródła zdarzeń przy użyciu nazwy aplikacji, w źródle *aplikacji* jest rejestrowane ostrzeżenie, a dzienniki zdarzeń są wyłączone.
 
-[!code-csharp[](windows-service/samples/3.x/AspNetCoreService/Program.cs?name=snippet_Program)]
+W `CreateHostBuilder` *program.cs*:
+
+```csharp
+Host.CreateDefaultBuilder(args)
+    .UseWindowsService()
+    ...
+```
+
+Następujące przykładowe aplikacje zostały dołączone do tego tematu:
+
+* Przykład usługi procesu roboczego w tle &ndash; przykład aplikacji innej niż sieć Web oparta na [szablonie usługi procesu roboczego](#worker-service-template) , który korzysta z [usług hostowanych](xref:fundamentals/host/hosted-services) na potrzeby zadań w tle.
+* Przykład App Service sieci Web &ndash; przykład aplikacji internetowej Razor Pages, która działa jako usługa systemu Windows z [usługami hostowanymi](xref:fundamentals/host/hosted-services) dla zadań w tle.
+
+Wskazówki dotyczące MVC można znaleźć w artykułach w obszarze <xref:mvc/overview> i <xref:migration/22-to-30>.
 
 ::: moniker-end
 
@@ -64,7 +77,7 @@ Aplikacja wymaga odwołania do pakietów dla elementu [Microsoft. AspNetCore. ho
 
 Aby przetestować i debugować w przypadku uruchamiania poza usługą, należy dodać kod, aby określić, czy aplikacja działa jako usługa, czy Aplikacja konsolowa. Sprawdź, czy debuger jest podłączony lub czy jest dostępny przełącznik `--console`. Jeśli którykolwiek z warunków jest spełniony (aplikacja nie jest uruchomiona jako usługa), wywołaj <xref:Microsoft.AspNetCore.Hosting.WebHostExtensions.Run*>. Jeśli warunki są fałszywe (aplikacja jest uruchamiana jako usługa):
 
-* Wywołaj <xref:System.IO.Directory.SetCurrentDirectory*> i użyj ścieżki do lokalizacji opublikowanej aplikacji. Nie wywołuj <xref:System.IO.Directory.GetCurrentDirectory*> w celu uzyskania ścieżki, ponieważ aplikacja usługi systemu Windows zwraca folder *C: \\WINDOWS @ no__t-3system32* po wywołaniu <xref:System.IO.Directory.GetCurrentDirectory*>. Aby uzyskać więcej informacji, zapoznaj się z sekcją [Current Directory i root Content](#current-directory-and-content-root) . Ten krok jest wykonywany przed skonfigurowaniem aplikacji w `CreateWebHostBuilder`.
+* Wywołaj <xref:System.IO.Directory.SetCurrentDirectory*> i użyj ścieżki do lokalizacji opublikowanej aplikacji. Nie wywołuj <xref:System.IO.Directory.GetCurrentDirectory*>, aby uzyskać ścieżkę, ponieważ aplikacja usługi systemu Windows zwraca folder *C:\\Windows\\system32* w przypadku wywołania <xref:System.IO.Directory.GetCurrentDirectory*>. Aby uzyskać więcej informacji, zapoznaj się z sekcją [Current Directory i root Content](#current-directory-and-content-root) . Ten krok jest wykonywany przed skonfigurowaniem aplikacji w `CreateWebHostBuilder`.
 * Wywołaj <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*>, aby uruchomić aplikację jako usługę.
 
 Ponieważ [dostawca konfiguracji wiersza polecenia](xref:fundamentals/configuration/index#command-line-configuration-provider) wymaga par nazwa-wartość dla argumentów wiersza polecenia, przełącznik `--console` jest usuwany z argumentów przed <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> odbiera argumenty.
@@ -81,24 +94,31 @@ W poniższym przykładzie z przykładowej aplikacji `RunAsCustomService` jest wy
 
 Aby uzyskać informacje i porady dotyczące scenariuszy wdrażania, zobacz [wdrażanie aplikacji .NET Core](/dotnet/core/deploying/).
 
+### <a name="sdk"></a>SDK
+
+W przypadku usługi opartej na aplikacji sieci Web używającej platform Razor Pages lub MVC należy określić zestaw SDK sieci Web w pliku projektu:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web">
+```
+
+Jeśli usługa wykonuje tylko zadania w tle (na przykład [usługi hostowane](xref:fundamentals/host/hosted-services)), określ zestaw SDK procesu roboczego w pliku projektu:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+```
+
 ### <a name="framework-dependent-deployment-fdd"></a>Wdrożenie zależne od platformy (FDD)
 
 Wdrożenie zależne od platformy (FDD) zależy od obecności udostępnionej systemowej wersji platformy .NET Core w systemie docelowym. Po przyjęciu scenariusza FDD zgodnie ze wskazówkami zawartymi w tym artykule zestaw SDK tworzy plik wykonywalny ( *. exe*), nazywany *plik wykonywalny zależny od platformy*.
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Dodaj następujące elementy właściwości do pliku projektu:
-
-* `<OutputType>` &ndash; typ danych wyjściowych aplikacji (`Exe` dla pliku wykonywalnego).
-* `<LangVersion>` &ndash; wersji C# językowej (`latest` lub `preview`).
-
-Plik *Web. config* , który jest zwykle tworzony podczas publikowania aplikacji ASP.NET Core, nie jest konieczny dla aplikacji usług systemu Windows. Aby wyłączyć tworzenie pliku *Web. config* , należy dodać właściwość `<IsTransformWebConfigDisabled>` do `true`.
+Jeśli używasz [zestawu SDK sieci Web](#sdk), plik *Web. config* , który jest zwykle tworzony podczas publikowania aplikacji ASP.NET Core, jest zbędny dla aplikacji usług systemu Windows. Aby wyłączyć tworzenie pliku *Web. config* , należy dodać właściwość `<IsTransformWebConfigDisabled>` do `true`.
 
 ```xml
 <PropertyGroup>
   <TargetFramework>netcoreapp3.0</TargetFramework>
-  <OutputType>Exe</OutputType>
-  <LangVersion>preview</LangVersion>
   <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
 </PropertyGroup>
 ```
@@ -132,7 +152,7 @@ Plik *Web. config* , który jest zwykle tworzony podczas publikowania aplikacji 
 
 ```xml
 <PropertyGroup>
-  <TargetFramework>netcoreapp2.1</TargetFramework>
+  <TargetFramework>netcoreapp2.2</TargetFramework>
   <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
   <UseAppHost>true</UseAppHost>
   <SelfContained>false</SelfContained>
@@ -314,7 +334,7 @@ Powyższe wskazówki obejmują obsługę punktów końcowych HTTPS. Na przykład
 
 ## <a name="current-directory-and-content-root"></a>Bieżący katalog i główna Zawartość
 
-Bieżący katalog roboczy zwrócony przez wywołanie <xref:System.IO.Directory.GetCurrentDirectory*> dla usługi systemu Windows jest folderem *C: \\WINDOWS @ no__t-3system32* . Folder *system32* nie jest odpowiednią lokalizacją do przechowywania plików usługi (na przykład plików ustawień). Użyj jednego z poniższych metod, aby zachować i uzyskać dostęp do plików ustawień i zasobów usługi.
+Bieżącym katalogiem roboczym zwróconym przez wywoływanie <xref:System.IO.Directory.GetCurrentDirectory*> dla usługi systemu Windows jest folder *C:\\Windows\\system32* . Folder *system32* nie jest odpowiednią lokalizacją do przechowywania plików usługi (na przykład plików ustawień). Użyj jednego z poniższych metod, aby zachować i uzyskać dostęp do plików ustawień i zasobów usługi.
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -328,7 +348,7 @@ Użyj [IHostEnvironment. ContentRootPath](xref:Microsoft.Extensions.Hosting.IHos
 
 ### <a name="set-the-content-root-path-to-the-apps-folder"></a>Ustawianie ścieżki katalogu głównego zawartości do folderu aplikacji
 
-@No__t-0 jest tą samą ścieżką dostarczoną do argumentu `binPath` podczas tworzenia usługi. Zamiast wywoływania `GetCurrentDirectory` Aby utworzyć ścieżki do plików ustawień, wywołaj <xref:System.IO.Directory.SetCurrentDirectory*> ze ścieżką do [katalogu głównego zawartości](xref:fundamentals/index#content-root)aplikacji.
+<xref:Microsoft.Extensions.Hosting.IHostingEnvironment.ContentRootPath*> jest tą samą ścieżką dostarczoną do argumentu `binPath` podczas tworzenia usługi. Zamiast wywoływania `GetCurrentDirectory` Aby utworzyć ścieżki do plików ustawień, wywołaj <xref:System.IO.Directory.SetCurrentDirectory*> ze ścieżką do [katalogu głównego zawartości](xref:fundamentals/index#content-root)aplikacji.
 
 W `Program.Main` określ ścieżkę do folderu wykonywalnego usługi i użyj ścieżki, aby określić katalog główny zawartości aplikacji:
 
