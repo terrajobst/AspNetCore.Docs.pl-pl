@@ -1020,6 +1020,8 @@
   items:
     - name: Omówienie
       uid: performance/performance-best-practices
+    - name: Pamięć i odzyskiwanie pamięci
+      uid: performance/memory
     - name: Buforowanie odpowiedzi
       items:
         - name: Omówienie
