@@ -1,20 +1,20 @@
 ---
-title: Profile publikowania programu Visual Studio dla wdrożenia aplikacji ASP.NET Core
+title: Profile publikacji programu Visual Studio (. pubxml) dla wdrożenia aplikacji ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak tworzyć profile publikowania w programie Visual Studio i używać ich do zarządzania wdrożeniami aplikacji ASP.NET Core w różnych celach.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/12/2019
+ms.date: 11/07/2019
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: a3d6cc450e42d7eb6b694cd4985828ce52fa7519
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: 274dd2cd528d3766aa07f69aac3470a131c79ffe
+ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333763"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799350"
 ---
-# <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Profile publikowania programu Visual Studio dla wdrożenia aplikacji ASP.NET Core
+# <a name="visual-studio-publish-profiles-pubxml-for-aspnet-core-app-deployment"></a>Profile publikacji programu Visual Studio (. pubxml) dla wdrożenia aplikacji ASP.NET Core
 
 Autorzy [Sayed Ibrahim Hashimi](https://github.com/sayedihashimi) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -42,7 +42,7 @@ Gdy program MSBuild lub program Visual Studio ładuje projekt, wykonywane są na
 
 Po załadowaniu projektu są obliczane [elementy projektu MSBuild](/visualstudio/msbuild/common-msbuild-project-items) (pliki). Typ elementu określa sposób przetwarzania pliku. Domyślnie pliki *. cs* znajdują się na liście elementów `Compile`. Pliki na liście elementów `Compile` są kompilowane.
 
-Lista elementów `Content` zawiera pliki, które są publikowane w uzupełnieniu do danych wyjściowych kompilacji. Domyślnie pliki zgodne ze wzorcami `wwwroot\**`, `**\*.config` i `**\*.json` są uwzględnione na liście elementów `Content`. Na przykład [wzorzec obsługi symboli wieloznacznych](https://gruntjs.com/configuring-tasks#globbing-patterns) -0 @no__t programu dopasowuje wszystkie pliki w folderze *wwwroot* i jego podfolderach.
+Lista elementów `Content` zawiera pliki, które są publikowane w uzupełnieniu do danych wyjściowych kompilacji. Domyślnie pliki zgodne ze wzorcami `wwwroot\**`, `**\*.config` i `**\*.json` są uwzględnione na liście elementów `Content`. Na przykład [wzorzec `wwwroot\**` obsługi symboli wieloznacznych](https://gruntjs.com/configuring-tasks#globbing-patterns) dopasowuje wszystkie pliki w folderze *wwwroot* i jego podfolderach.
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -96,7 +96,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
   Web1 -> C:\Webs\Web1\bin\Debug\{TARGET FRAMEWORK MONIKER}\publish\
 ```
 
-Domyślny format folderu publikowania to *bin\Debug @ no__t-1 {Target Framework MONIKER} \publish @ no__t-2*. Na przykład *bin\Debug\netcoreapp2.2\publish @ no__t-1*.
+Domyślny format folderu publikowania to *bin\Debug\\{Target Framework MONIKER} \publish\\* . Na przykład *bin\Debug\netcoreapp2.2\publish\\* .
 
 Następujące polecenie określa kompilację `Release` i katalog publikowania:
 
@@ -139,7 +139,7 @@ Zostanie wyświetlona karta **Publikowanie** na stronie możliwości aplikacji. 
 
 Aby określić najbardziej odpowiedni cel publikowania, zobacz, [jakie opcje publikowania są odpowiednie dla mnie](/visualstudio/ide/not-in-toc/web-publish-options).
 
-Po wybraniu elementu docelowego publikowania **folderu** określ ścieżkę folderu do przechowywania opublikowanych zasobów. Domyślną ścieżką folderu jest *bin @ no__t-1 {Konfiguracja projektu} \\ {Target Framework MONIKER} \publish @ no__t-3*. Na przykład *bin\Release\netcoreapp2.2\publish @ no__t-1*. Wybierz przycisk **Utwórz profil** , aby zakończyć.
+Po wybraniu elementu docelowego publikowania **folderu** określ ścieżkę folderu do przechowywania opublikowanych zasobów. Domyślną ścieżką folderu jest *\\bin {Project Configuration}\\{Target Framework MONIKER} \publish\\* . Na przykład *bin\Release\netcoreapp2.2\publish\\* . Wybierz przycisk **Utwórz profil** , aby zakończyć.
 
 Po utworzeniu profilu publikowania zostanie zmieniona zawartość karty **Publikuj** . Nowo utworzony profil zostanie wyświetlony na liście rozwijanej. Poniżej listy rozwijanej wybierz pozycję **Utwórz nowy profil** , aby utworzyć inny nowy profil.
 
@@ -227,7 +227,7 @@ NOTE: Temporarily removed until https://github.com/aspnet/websdk/issues/888 is r
 * `dotnet build /p:DeployOnBuild=true /p:PublishProfile=FolderProfile`
 * `msbuild /p:DeployOnBuild=true /p:PublishProfile=FolderProfile`
 
-Wywołanie polecenia [kompilacji dotnet](/dotnet/core/tools/dotnet-build) interfejs wiersza polecenia platformy .NET Core `msbuild` do uruchomienia procesu kompilacji i publikowania. @No__t-0 i `msbuild` polecenia są równoważne podczas przekazywania w profilu folderu. W przypadku wywołania `msbuild` bezpośrednio w systemie Windows jest używana .NET Framework wersja programu MSBuild. Wywoływanie `dotnet build` w profilu nienależącym do folderu:
+Wywołanie polecenia [kompilacji dotnet](/dotnet/core/tools/dotnet-build) interfejs wiersza polecenia platformy .NET Core `msbuild` do uruchomienia procesu kompilacji i publikowania. `dotnet build` i `msbuild` polecenia są równoważne podczas przekazywania profilu folderu. W przypadku wywołania `msbuild` bezpośrednio w systemie Windows jest używana .NET Framework wersja programu MSBuild. Wywoływanie `dotnet build` w profilu nienależącym do folderu:
 
 * Wywołuje `msbuild`, który używa MSDeploy.
 * Powoduje niepowodzenie (nawet w przypadku uruchamiania w systemie Windows). Aby opublikować z profilem nienależącym do folderu, wywołaj `msbuild` bezpośrednio.
@@ -438,7 +438,7 @@ W poniższych sekcjach opisano różne podejścia do dołączania plików w czas
 
 ### <a name="general-file-inclusion"></a>Ogólny dołączenie plików
 
-Poniższy przykład `<ItemGroup>` ilustruje Kopiowanie folderu znajdującego się poza katalogiem projektu do folderu opublikowanej witryny. Wszystkie pliki dodane do poniższego @no__t znacznika-0 są uwzględniane domyślnie.
+Poniższy przykład `<ItemGroup>` ilustruje Kopiowanie folderu znajdującego się poza katalogiem projektu do folderu opublikowanej witryny. Wszystkie pliki dodane do poniższych `<ItemGroup>` znaczników są uwzględniane domyślnie.
 
 ```xml
 <ItemGroup>
@@ -452,7 +452,7 @@ Poniższy przykład `<ItemGroup>` ilustruje Kopiowanie folderu znajdującego si�
 Poprzedzające znaczniki:
 
 * Można dodać do pliku *csproj* lub profilu publikacji. Jeśli zostanie ona dodana do pliku *. csproj* , jest zawarta w każdym profilu publikacji w projekcie.
-* Deklaruje element `_CustomFiles` do przechowywania plików pasujących do wzorca obsługi symboli wieloznacznych atrybutu `Include`. Folder *obrazów* , do którego odwołuje się wzorzec, znajduje się poza katalogiem projektu. [Właściwość zastrzeżona](/visualstudio/msbuild/msbuild-reserved-and-well-known-properties)o nazwie `$(MSBuildProjectDirectory)` jest rozpoznawana jako ścieżka bezwzględna pliku projektu.
+* Deklaruje element `_CustomFiles` do przechowywania plików zgodnych ze wzorcem obsługi symboli wieloznacznych atrybutu `Include`. Folder *obrazów* , do którego odwołuje się wzorzec, znajduje się poza katalogiem projektu. [Właściwość zastrzeżona](/visualstudio/msbuild/msbuild-reserved-and-well-known-properties)o nazwie `$(MSBuildProjectDirectory)` jest rozpoznawana jako ścieżka bezwzględna pliku projektu.
 * Zawiera listę plików dla elementu `DotNetPublishFiles`. Domyślnie element `<DestinationRelativePath>` elementu jest pusty. Wartość domyślna jest zastępowana w znaczniku i używa [dobrze znanych metadanych elementu](/visualstudio/msbuild/msbuild-well-known-item-metadata) , takich jak `%(RecursiveDir)`. Tekst wewnętrzny reprezentuje folder *wwwroot/images* opublikowanej witryny.
 
 ### <a name="selective-file-inclusion"></a>Selektywne Dołączanie plików

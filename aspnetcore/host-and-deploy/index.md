@@ -1,83 +1,87 @@
 ---
-title: Hostowanie i wdrażanie platformy ASP.NET Core
+title: Hostowanie i wdrażanie ASP.NET Core
 author: guardrex
-description: Dowiedz się, jak skonfigurować środowiskach hostingu i wdrażanie aplikacji platformy ASP.NET Core.
+description: Dowiedz się, jak konfigurować środowiska hostingu i wdrażać ASP.NET Core aplikacje.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/12/2019
+ms.date: 11/07/2019
 uid: host-and-deploy/index
-ms.openlocfilehash: 068c5f357b8010d78493a78a10c353e3317f3867
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: aa6e3da5f40211535037c671de913ab3219f063a
+ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969883"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799332"
 ---
-# <a name="host-and-deploy-aspnet-core"></a>Hostowanie i wdrażanie platformy ASP.NET Core
+# <a name="host-and-deploy-aspnet-core"></a>Hostowanie i wdrażanie ASP.NET Core
 
 Ogólnie rzecz biorąc, aby wdrożyć aplikację ASP.NET Core w środowisku hostingu:
 
-* Wdróż opublikowanej aplikacji do folderu na serwerze hostingu.
-* Skonfiguruj menedżera procesów, które uruchamia aplikację podczas żądania, odbierania i ponownie uruchamia aplikację po jej awarii lub ponownym uruchomieniu serwera.
-* Dla konfiguracji zwrotny serwer proxy skonfiguruj zwrotny serwer proxy do przekazywania żądań do aplikacji.
+* Wdróż opublikowaną aplikację w folderze na serwerze hostingu.
+* Skonfiguruj Menedżera procesów uruchamiający aplikację po nadejściu żądań i ponownym uruchomieniu aplikacji po awarii lub ponownym uruchomieniu serwera.
+* W przypadku konfiguracji zwrotnego serwera proxy Skonfiguruj zwrotny serwer proxy do przesyłania dalej żądań do aplikacji.
 
 ## <a name="publish-to-a-folder"></a>Publikowanie w folderze
 
-[Publikowania dotnet](/dotnet/core/tools/dotnet-publish) polecenie kompiluje kod aplikacji i kopiuje pliki wymagane do uruchamiania aplikacji w *publikowania* folderu. W przypadku wdrażania w programie Visual Studio, `dotnet publish` kroku odbywa się automatycznie przed pliki są kopiowane do lokalizacji docelowej wdrożenia.
+[Dotnet Publish](/dotnet/core/tools/dotnet-publish) polecenie kompiluje kod aplikacji i kopiuje pliki wymagane do uruchomienia aplikacji w folderze *publikacji* . Podczas wdrażania z programu Visual Studio krok `dotnet publish` następuje automatycznie przed skopiowaniem plików do lokalizacji docelowej wdrożenia.
 
 ### <a name="folder-contents"></a>Zawartość folderu
 
-*Publikowania* folder zawiera jeden lub więcej plików zestawu aplikacji, zależności i, opcjonalnie, środowisko uruchomieniowe platformy .NET.
+Folder *publikowania* zawiera jeden lub więcej plików zestawów aplikacji, zależności i opcjonalnie środowiska uruchomieniowego platformy .NET.
 
-Aplikację platformy .NET Core mogą być publikowane jako *niezależna wdrożenia* lub *wdrożenia zależny od struktury*. Jeśli aplikacja jest niezależny, plików zestawów, które zawierają środowisko uruchomieniowe platformy .NET są uwzględnione w *publikowania* folderu. Jeśli aplikacja jest zależny od struktury, pliki środowiska uruchomieniowego .NET nie są uwzględniane ponieważ aplikacja odwołuje się do wersji platformy .NET, który jest zainstalowany na serwerze. Domyślny model wdrożenia jest zależny od struktury. Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji .NET Core](/dotnet/core/deploying/).
+Aplikację platformy .NET Core można opublikować jako *samodzielne wdrożenie* lub *wdrożenie zależne od platformy*. Jeśli aplikacja jest samodzielna, pliki zestawu, które zawierają środowisko uruchomieniowe platformy .NET, znajdują się w folderze *Publikowanie* . Jeśli aplikacja jest zależna od struktury, pliki środowiska uruchomieniowego platformy .NET nie są uwzględniane, ponieważ aplikacja ma odwołanie do wersji platformy .NET zainstalowanej na serwerze. Domyślny model wdrażania jest zależny od platformy. Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji .NET Core](/dotnet/core/deploying/).
 
-Oprócz *.exe* i *.dll* plików *publikowania* folder dla aplikacji ASP.NET Core zwykle zawiera pliki konfiguracyjne, statycznych zasobów i widoków MVC. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/directory-structure>.
+Oprócz plików *exe* i *dll* , folder *publikacji* aplikacji ASP.NET Core zwykle zawiera pliki konfiguracji, zasoby statyczne i widoki MVC. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/directory-structure>.
 
-## <a name="set-up-a-process-manager"></a>Konfigurowanie menedżera procesów
+## <a name="set-up-a-process-manager"></a>Konfigurowanie Menedżera procesów
 
-Aplikacja platformy ASP.NET Core to aplikacja konsolowa, która musi zostać uruchomione, gdy serwer jest uruchamiany i uruchamiane ponownie, jeśli jego awarii. Aby zautomatyzować rozpoczyna się i ponownego uruchomienia, menedżera procesów jest wymagana. Najbardziej typowe menedżerów procesu dla platformy ASP.NET Core to:
+Aplikacja ASP.NET Core jest aplikacją konsolową, która musi zostać uruchomiona w przypadku awarii i ponownego uruchomienia serwera. Aby zautomatyzować uruchamianie i ponowne uruchamianie, wymagany jest Menedżer procesów. Najbardziej typowymi menedżerami procesów dla ASP.NET Core są:
 
 * Linux
   * [Nginx](xref:host-and-deploy/linux-nginx)
   * [Apache](xref:host-and-deploy/linux-apache)
 * Windows
-  * [IIS](xref:host-and-deploy/iis/index)
-  * [Windows Service](xref:host-and-deploy/windows-service)
+  * [SERWERZE](xref:host-and-deploy/iis/index)
+  * [Usługa systemu Windows](xref:host-and-deploy/windows-service)
 
 ## <a name="set-up-a-reverse-proxy"></a>Konfigurowanie zwrotnego serwera proxy
 
-Jeśli aplikacja korzysta z [Kestrel](xref:fundamentals/servers/kestrel) serwera [Nginx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache), lub [IIS](xref:host-and-deploy/iis/index) mogą być używane jako zwrotnego serwera proxy. Serwer proxy odwrotnej odbiera żądania HTTP z Internetu i przekazuje je do Kestrel.
+Jeśli aplikacja używa serwera [Kestrel](xref:fundamentals/servers/kestrel) , usługi [Nginx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache)lub [IIS](xref:host-and-deploy/iis/index) mogą być używane jako zwrotny serwer proxy. Odwrotny serwer proxy odbiera żądania HTTP z Internetu i przekazuje je do usługi Kestrel.
 
-Każda konfiguracja&mdash;z lub bez serwera proxy odwrotnej&mdash;jest obsługiwana konfiguracja hostingu. Aby uzyskać więcej informacji, zobacz [kiedy należy używać Kestrel przy użyciu zwrotnego serwera proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
+&mdash;konfiguracji z serwerem zwrotnego serwera proxy lub bez niego&mdash;jest obsługiwaną konfiguracją hostingu. Aby uzyskać więcej informacji, zobacz [Kiedy używać Kestrel z zwrotnym serwerem proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
 
-## <a name="proxy-server-and-load-balancer-scenarios"></a>Serwer proxy i scenariuszy usługi równoważenia obciążenia
+## <a name="proxy-server-and-load-balancer-scenarios"></a>Scenariusze serwera proxy i modułu równoważenia obciążenia
 
-Dodatkowa konfiguracja może być wymagane dla aplikacji hostowanych za serwery proxy i moduły równoważenia obciążenia. Bez dodatkowej konfiguracji aplikacji nie mieć dostępu do schemat (HTTP/HTTPS) i adres IP zdalnego skąd pochodzi żądanie. Aby uzyskać więcej informacji, zobacz [Konfigurowanie platformy ASP.NET Core pracować z serwerów proxy i moduły równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer).
+Dodatkowa konfiguracja może być wymagana dla aplikacji hostowanych w ramach serwerów proxy i modułów równoważenia obciążenia. Bez dodatkowej konfiguracji aplikacja może nie mieć dostępu do schematu (HTTP/HTTPS) i zdalnego adresu IP, z którego pochodzi żądanie. Aby uzyskać więcej informacji, zobacz [konfigurowanie ASP.NET Core do pracy z serwerami proxy i usługami równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer).
 
-## <a name="use-visual-studio-and-msbuild-to-automate-deployments"></a>Umożliwia zautomatyzowanie wdrożeń programu Visual Studio i MSBuild
+## <a name="use-visual-studio-and-msbuild-to-automate-deployments"></a>Korzystanie z programu Visual Studio i narzędzia MSBuild do automatyzowania wdrożeń
 
-Wdrożenie często wymaga dodatkowych zadań, oprócz kopiowania danych wyjściowych [publikowania dotnet](/dotnet/core/tools/dotnet-publish) do serwera. Na przykład może być wymagane lub wykluczone z dodatkowych plików *publikowania* folderu. Program Visual Studio używa MSBuild dla wdrażania w Internecie i MSBuild można dostosować do wykonywania wielu innych zadań podczas wdrażania. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/visual-studio-publish-profiles> i [przy użyciu programu MSBuild i Team Foundation Build](http://msbuildbook.com/) książki.
+Wdrożenie często wymaga dodatkowych zadań oprócz kopiowania danych wyjściowych z [dotnet Publish](/dotnet/core/tools/dotnet-publish) na serwer. Na przykład dodatkowe pliki mogą być wymagane lub wykluczone z folderu *publikacji* . Program Visual Studio używa programu MSBuild do wdrażania w sieci Web, a programu MSBuild można dostosować do wykonywania wielu innych zadań podczas wdrażania. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/visual-studio-publish-profiles> i [Używanie programu MSBuild i Team Foundation Build](http://msbuildbook.com/) Book.
 
-Za pomocą [funkcji publikowania w sieci Web](xref:tutorials/publish-to-azure-webapp-using-vs) lub [wbudowana obsługa Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment), aplikacje można wdrożyć bezpośrednio z programu Visual Studio w usłudze Azure App Service. Obsługuje usługi Azure DevOps [ciągłe wdrażanie w usłudze Azure App Service](/azure/devops/pipelines/targets/webapp). Aby uzyskać więcej informacji, zobacz [DevOps z platformą ASP.NET Core i platformy Azure](xref:azure/devops/index).
+Za pomocą [funkcji publikowania w sieci Web](xref:tutorials/publish-to-azure-webapp-using-vs) lub [wbudowanej obsługi narzędzia Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment)aplikacje można wdrażać bezpośrednio z programu Visual Studio do Azure App Service. Azure DevOps Services obsługuje [ciągłe wdrażanie do Azure App Service](/azure/devops/pipelines/targets/webapp). Aby uzyskać więcej informacji, zobacz [DevOps with ASP.NET Core i platformę Azure](xref:azure/devops/index).
 
 ## <a name="publish-to-azure"></a>Publikowanie na platformie Azure
 
-Zobacz <xref:tutorials/publish-to-azure-webapp-using-vs> instrukcje dotyczące sposobu publikowania aplikacji za pomocą programu Visual Studio. Dodatkowe przykład odbywa się przy [tworzenie aplikacji internetowej platformy ASP.NET Core na platformie Azure](/azure/app-service/app-service-web-get-started-dotnet).
+Zobacz <xref:tutorials/publish-to-azure-webapp-using-vs>, aby uzyskać instrukcje dotyczące publikowania aplikacji na platformie Azure przy użyciu programu Visual Studio. Dodatkowy przykład jest zapewniany przez [utworzenie aplikacji sieci web ASP.NET Core na platformie Azure](/azure/app-service/app-service-web-get-started-dotnet).
 
-## <a name="publish-with-msdeploy-on-windows"></a>Publikowanie za pomocą narzędzia MSDeploy na Windows
+## <a name="publish-with-msdeploy-on-windows"></a>Publikowanie z MSDeploy w systemie Windows
 
-Zobacz <xref:host-and-deploy/visual-studio-publish-profiles> dla profilu publikowania instrukcje dotyczące sposobu publikowania aplikacji za pomocą programu Visual Studio, łącznie z wiersza polecenia Windows przy użyciu [dotnet msbuild](/dotnet/core/tools/dotnet-msbuild) polecenia.
+Zobacz <xref:host-and-deploy/visual-studio-publish-profiles>, aby uzyskać instrukcje dotyczące publikowania aplikacji z profilem publikacji programu Visual Studio, w tym z poziomu wiersza polecenia systemu Windows przy użyciu polecenia [MSBuild programu dotnet](/dotnet/core/tools/dotnet-msbuild) .
+
+## <a name="internet-information-services-iis"></a>Internet Information Services (IIS)
+
+W przypadku wdrożeń do Internet Information Services (IIS) z konfiguracją dostarczoną przez plik *Web. config* zapoznaj się z artykułami w obszarze <xref:host-and-deploy/iis/index>.
 
 ## <a name="host-in-a-web-farm"></a>Hosting w farmie internetowej
 
-Instrukcje dotyczące konfiguracji do hostowania aplikacji platformy ASP.NET Core w środowisku farmy sieci web (na przykład wdrożenie wielu wystąpień aplikacji w przypadku skalowalności), zobacz <xref:host-and-deploy/web-farm>.
+Aby uzyskać informacje na temat konfiguracji do hostowania aplikacji ASP.NET Core w środowisku kolektywu serwerów sieci Web (na przykład wdrażania wielu wystąpień aplikacji na potrzeby skalowalności), zobacz <xref:host-and-deploy/web-farm>.
 
 ::: moniker range=">= aspnetcore-2.2"
 
-## <a name="perform-health-checks"></a>Kontrole kondycji
+## <a name="perform-health-checks"></a>Przeprowadzanie kontroli kondycji
 
-Użyj kondycji Sprawdź w oprogramowaniu pośredniczącym, aby sprawdzać kondycję aplikacji i jego zależności. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/health-checks>.
+Używaj oprogramowania do sprawdzania kondycji, aby przeprowadzać kontrole kondycji aplikacji i jej zależności. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/health-checks>.
 
 ::: moniker-end
 

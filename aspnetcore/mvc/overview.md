@@ -3,14 +3,14 @@ title: Omówienie platformy ASP.NET Core MVC
 author: ardalis
 description: Dowiedz się, jak ASP.NET Core MVC to rozbudowana platforma służąca do tworzenia aplikacji sieci Web i interfejsów API przy użyciu wzorca projektowego modelu widoku.
 ms.author: riande
-ms.date: 08/01/2019
+ms.date: 11/07/2019
 uid: mvc/overview
-ms.openlocfilehash: 7f09751850cbfa7bb3dc79656d4530445a9767b1
-ms.sourcegitcommit: 3204bc89ae6354b61ee0a9b2770ebe5214b7790c
+ms.openlocfilehash: 4f4ea3da8563cabaaa6183c6835c2f1eb8c387b4
+ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707821"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799494"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Omówienie platformy ASP.NET Core MVC
 
@@ -20,7 +20,7 @@ ASP.NET Core MVC to rozbudowana platforma służąca do tworzenia aplikacji siec
 
 ## <a name="what-is-the-mvc-pattern"></a>Co to jest wzorzec MVC?
 
-Wzorzec architektoniczny Model-View-Controller (MVC) oddziela aplikację do trzech głównych grup składników: Modele, widoki i kontrolery. Ten wzorzec pozwala uzyskać [rozdzielenie obaw](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns). Korzystając z tego wzorca, żądania użytkowników są kierowane do kontrolera, który jest odpowiedzialny za pracę z modelem w celu wykonywania akcji użytkownika i/lub pobierania wyników zapytań. Kontroler wybierze widok, który ma być wyświetlany użytkownikowi, i udostępnia mu wymagane dane modelu.
+Wzorzec architektoniczny Model-View-Controller (MVC) oddziela aplikację do trzech głównych grup składników: modeli, widoków i kontrolerów. Ten wzorzec pozwala uzyskać [rozdzielenie obaw](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns). Korzystając z tego wzorca, żądania użytkowników są kierowane do kontrolera, który jest odpowiedzialny za pracę z modelem w celu wykonywania akcji użytkownika i/lub pobierania wyników zapytań. Kontroler wybierze widok, który ma być wyświetlany użytkownikowi, i udostępnia mu wymagane dane modelu.
 
 Na poniższym diagramie przedstawiono trzy główne składniki, które odwołują się do innych:
 
@@ -62,7 +62,7 @@ ASP.NET Core MVC obejmuje następujące elementy:
 * [Routing](#routing)
 * [Wiązanie modelu](#model-binding)
 * [Walidacja modelu](#model-validation)
-* [Wstrzykiwanie zależności](../fundamentals/dependency-injection.md)
+* [Iniekcja zależności](../fundamentals/dependency-injection.md)
 * [Filtry](#filters)
 * [Obszary](#areas)
 * [Interfejsy API sieci Web](#web-apis)
@@ -143,9 +143,9 @@ Platforma obsługuje walidację danych żądania zarówno na kliencie, jak i na 
 
 ### <a name="dependency-injection"></a>Wstrzykiwanie zależności
 
-ASP.NET Core ma wbudowaną obsługę iniekcji [zależności (di)](../fundamentals/dependency-injection.md). W ASP.NET Core MVC [Kontrolery](controllers/dependency-injection.md) mogą zażądać wymaganych usług za pomocą ich konstruktorów, umożliwiając im przestrzeganie [zasad jawnych zależności](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies).
+ASP.NET Core ma wbudowaną obsługę [iniekcji zależności (di)](../fundamentals/dependency-injection.md). W ASP.NET Core MVC [Kontrolery](controllers/dependency-injection.md) mogą zażądać wymaganych usług za pomocą ich konstruktorów, umożliwiając im przestrzeganie [zasad jawnych zależności](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies).
 
-Twoja aplikacja może również używać [iniekcji zależności w plikach widoku](views/dependency-injection.md)przy użyciu `@inject` dyrektywy:
+Twoja aplikacja może również używać [iniekcji zależności w plikach widoku](views/dependency-injection.md)przy użyciu dyrektywy `@inject`:
 
 ```cshtml
 @inject SomeService ServiceName
@@ -163,7 +163,7 @@ Twoja aplikacja może również używać [iniekcji zależności w plikach widoku
 
 ### <a name="filters"></a>Filtry
 
-[Filtry](controllers/filters.md) ułatwiają deweloperom hermetyzację zagadnień związanych z zmniejszeniem, takich jak obsługa wyjątków czy autoryzacja. Filtry umożliwiają uruchamianie niestandardowej logiki sprzed i po przetworzeniu dla metod akcji i można ją skonfigurować do uruchamiania w określonych punktach w potoku wykonywania dla danego żądania. Filtry mogą być stosowane do kontrolerów lub akcji jako atrybuty (lub mogą być uruchamiane globalnie). W strukturze uwzględniono kilka `Authorize`filtrów (takich jak). `[Authorize]`jest atrybutem używanym do tworzenia filtrów autoryzacji MVC.
+[Filtry](controllers/filters.md) ułatwiają deweloperom hermetyzację zagadnień związanych z zmniejszeniem, takich jak obsługa wyjątków czy autoryzacja. Filtry umożliwiają uruchamianie niestandardowej logiki sprzed i po przetworzeniu dla metod akcji i można ją skonfigurować do uruchamiania w określonych punktach w potoku wykonywania dla danego żądania. Filtry mogą być stosowane do kontrolerów lub akcji jako atrybuty (lub mogą być uruchamiane globalnie). Niektóre filtry (takie jak `Authorize`) są zawarte w strukturze. `[Authorize]` jest atrybutem używanym do tworzenia filtrów autoryzacji MVC.
 
 ```csharp
 [Authorize]
@@ -178,7 +178,7 @@ public class AccountController : Controller
 
 Poza doskonałym platformą do tworzenia witryn sieci Web, ASP.NET Core MVC ma doskonałą obsługę tworzenia interfejsów API sieci Web. Możesz tworzyć usługi, które docierają do szerokiego zakresu klientów, w tym przeglądarek i urządzeń przenośnych.
 
-Platforma obejmuje obsługę negocjacji zawartości HTTP z wbudowaną obsługą [formatowania danych](xref:web-api/advanced/formatting) jako JSON lub XML. Napisz [niestandardowe](xref:web-api/advanced/custom-formatters) elementy formatujące, aby dodać obsługę własnych formatów.
+Platforma obejmuje obsługę negocjacji zawartości HTTP z wbudowaną obsługą [formatowania danych](xref:web-api/advanced/formatting) jako JSON lub XML. Napisz [niestandardowe elementy formatujące](xref:web-api/advanced/custom-formatters) , aby dodać obsługę własnych formatów.
 
 Użyj generowania linków, aby włączyć obsługę multimediów. Łatwo Włącz obsługę [udostępniania zasobów między źródłami (CORS)](https://www.w3.org/TR/cors/) , aby interfejsy API sieci Web mogły być współużytkowane przez wiele aplikacji sieci Web.
 
@@ -204,7 +204,7 @@ Korzystając z aparatu widoku Razor, można definiować [układy](views/layout.m
 
 Widoki Razor w MVC mogą być silnie wpisane na podstawie modelu. Kontrolery mogą przekazać silnie wpisany model do widoków, co umożliwia kontrolowanie typów i obsługę technologii IntelliSense.
 
-Na przykład następujący widok renderuje model typu `IEnumerable<Product>`:
+Na przykład następujący widok ilustruje model typu `IEnumerable<Product>`:
 
 ```cshtml
 @model IEnumerable<Product>
@@ -218,9 +218,9 @@ Na przykład następujący widok renderuje model typu `IEnumerable<Product>`:
 
 ### <a name="tag-helpers"></a>Pomocnicy tagów
 
-[Pomocnicy tagów](views/tag-helpers/intro.md) Włącz kod po stronie serwera, aby wziąć udział w tworzeniu i RENDEROWANIU elementów HTML w plikach Razor. Za pomocą pomocników tagów można definiować niestandardowe znaczniki (na przykład `<environment>`) lub modyfikować zachowanie istniejących tagów (na `<label>`przykład). Pomocnicy tagów powiążą się z określonymi elementami na podstawie nazwy elementu i jego atrybutów. Zapewniają one zalety renderowania po stronie serwera, zachowując jednocześnie środowisko edycji HTML.
+[Pomocnicy tagów](views/tag-helpers/intro.md) Włącz kod po stronie serwera, aby wziąć udział w tworzeniu i RENDEROWANIU elementów HTML w plikach Razor. Za pomocą pomocników tagów można definiować niestandardowe znaczniki (na przykład `<environment>`) lub zmodyfikować zachowanie istniejących tagów (na przykład `<label>`). Pomocnicy tagów powiążą się z określonymi elementami na podstawie nazwy elementu i jego atrybutów. Zapewniają one zalety renderowania po stronie serwera, zachowując jednocześnie środowisko edycji HTML.
 
-Istnieje wiele wbudowanych pomocników tagów dla typowych zadań, takich jak tworzenie formularzy, linków, ładowanie zasobów i inne — a nawet więcej dostępnych w publicznych repozytoriach GitHub i jako pakiety NuGet. Pomocnicy tagów są autorzy C#i są elementami DOCELOWYmi HTML w oparciu o nazwę elementu, nazwę atrybutu lub tag nadrzędny. Na przykład wbudowana LinkTagHelper może służyć do tworzenia linku do `Login` akcji: `AccountsController`
+Istnieje wiele wbudowanych pomocników tagów dla typowych zadań, takich jak tworzenie formularzy, linków, ładowanie zasobów i inne — a nawet więcej dostępnych w publicznych repozytoriach GitHub i jako pakiety NuGet. Pomocnicy tagów są autorzy C#i są elementami DOCELOWYmi HTML w oparciu o nazwę elementu, nazwę atrybutu lub tag nadrzędny. Na przykład wbudowana LinkTagHelper może służyć do tworzenia linku do akcji `Login` `AccountsController`:
 
 ```cshtml
 <p>
@@ -229,7 +229,7 @@ Istnieje wiele wbudowanych pomocników tagów dla typowych zadań, takich jak tw
 </p>
 ```
 
-`EnvironmentTagHelper` Może służyć do uwzględnienia różnych skryptów w widokach (na przykład Raw lub zminimalizowanego) w oparciu o środowisko uruchomieniowe, takie jak programowanie, przemieszczanie lub produkcja:
+`EnvironmentTagHelper` może służyć do uwzględnienia różnych skryptów w widokach (na przykład Raw lub zminimalizowanego) w oparciu o środowisko uruchomieniowe, takie jak programowanie, przemieszczanie lub produkcja:
 
 ```cshtml
 <environment names="Development">
@@ -251,6 +251,11 @@ Pomocnicy tagów zapewniają przyjazne dla języka HTML środowisko programistyc
 
 ## <a name="compatibility-version"></a>Wersja zgodności
 
-Metoda <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> umożliwia aplikacji włączenie wykorzystania lub rezygnację ze zmian zachowania wprowadzanych w programie ASP.NET Core MVC w wersji 2.1 lub nowszej, które potencjalnie mogą prowadzić do awarii.
+Metoda <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> pozwala aplikacji na zgodę lub rezygnację z ewentualnych zmian w zachowaniu, które wprowadzono w ASP.NET Core MVC 2,1 lub nowszych.
 
 Aby uzyskać więcej informacji, zobacz <xref:mvc/compatibility-version>.
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* [Przetestowana Biblioteka testowania AspNetCore. MVC-Fluent dla ASP.NET Core Mvc](https://github.com/ivaylokenov/MyTested.AspNetCore.Mvc) &ndash; Biblioteka testów jednostkowych z silną typem, zapewniająca interfejs Fluent do testowania aplikacji MVC i Web API. (*Niekonserwowane lub obsługiwane przez firmę Microsoft).*
+

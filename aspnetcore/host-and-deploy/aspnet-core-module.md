@@ -5,14 +5,14 @@ description: Dowiedz się, jak skonfigurować moduł ASP.NET Core na potrzeby ho
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2019
+ms.date: 11/07/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 42ff4438738931fde70e123031412bcfc8a83efb
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: c9bbd36b8a55b837f6d78abf99215c5496895a39
+ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034213"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799413"
 ---
 # <a name="aspnet-core-module"></a>Moduł ASP.NET Core
 
@@ -208,7 +208,7 @@ W poniższym przykładzie są ustawiane dwie zmienne środowiskowe w *pliku Web.
 ```
 
 > [!NOTE]
-> Alternatywą dla ustawienia środowiska bezpośrednio w pliku *Web. config* jest uwzględnienie właściwości `<EnvironmentName>` w profilu publikacji ( *. pubxml*) lub plik projektu. To podejście ustawia środowisko w *pliku Web. config* po opublikowaniu projektu:
+> Alternatywą dla ustawienia środowiska bezpośrednio w pliku *Web. config* jest uwzględnienie właściwości `<EnvironmentName>` w [profilu publikacji (. pubxml)](xref:host-and-deploy/visual-studio-publish-profiles) lub plik projektu. To podejście ustawia środowisko w *pliku Web. config* po opublikowaniu projektu:
 >
 > ```xml
 > <PropertyGroup>
@@ -623,7 +623,7 @@ W poniższym przykładzie są ustawiane dwie zmienne środowiskowe. `ASPNETCORE_
 ```
 
 > [!NOTE]
-> Alternatywą dla ustawienia środowiska bezpośrednio w pliku *Web. config* jest uwzględnienie właściwości `<EnvironmentName>` w profilu publikacji ( *. pubxml*) lub plik projektu. To podejście ustawia środowisko w *pliku Web. config* po opublikowaniu projektu:
+> Alternatywą dla ustawienia środowiska bezpośrednio w pliku *Web. config* jest uwzględnienie właściwości `<EnvironmentName>` w [profilu publikacji (. pubxml)](xref:host-and-deploy/visual-studio-publish-profiles) lub plik projektu. To podejście ustawia środowisko w *pliku Web. config* po opublikowaniu projektu:
 >
 > ```xml
 > <PropertyGroup>

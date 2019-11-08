@@ -5,14 +5,14 @@ description: Dowiedz się, jak kontrolować zachowanie aplikacji w wielu środow
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 11/07/2019
 uid: fundamentals/environments
-ms.openlocfilehash: 91fa2a78e62dff65704a3dda826f45f27bad6064
-ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
+ms.openlocfilehash: 7e49499e94fb9ea82a0ba17e4e9de05c6a2d4e98
+ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73634096"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799315"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>Używanie wielu środowisk w ASP.NET Core
 
@@ -262,7 +262,7 @@ Aby ustawić zmienną środowiskową `ASPNETCORE_ENVIRONMENT` za pomocą *pliku 
 
 **Plik projektu lub profil publikacji**
 
-**W przypadku wdrożeń usług Windows IIS:** Uwzględnij Właściwość `<EnvironmentName>` w profilu publikowania (*pubxml*) lub pliku projektu. To podejście ustawia środowisko w *pliku Web. config* po opublikowaniu projektu:
+**W przypadku wdrożeń usług Windows IIS:** Uwzględnij Właściwość `<EnvironmentName>` w [profilu publikowania (pubxml)](xref:host-and-deploy/visual-studio-publish-profiles) lub pliku projektu. To podejście ustawia środowisko w *pliku Web. config* po opublikowaniu projektu:
 
 ```xml
 <PropertyGroup>

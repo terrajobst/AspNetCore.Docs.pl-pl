@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/26/2019
 uid: performance/performance-best-practices
-ms.openlocfilehash: 3484a0233a0d56811235192c4b64aa9296e72b58
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: 1cd4ca6fccfee674f46e87ba051e049f7daa5b66
+ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72289071"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799513"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core najlepszych rozwiązań dotyczących wydajności
 
@@ -233,7 +233,7 @@ ASP.NET Core 3,0 domyślnie używa <xref:System.Text.Json> dla serializacji JSON
 
 ## <a name="do-not-store-ihttpcontextaccessorhttpcontext-in-a-field"></a>Nie należy przechowywać IHttpContextAccessor. HttpContext w polu
 
-[IHttpContextAccessor. HttpContext](xref:Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext) zwraca `HttpContext` żądania aktywnego, gdy uzyskuje dostęp z wątku żądania. @No__t-0 **nie** powinna być przechowywana w polu ani zmiennej.
+[IHttpContextAccessor. HttpContext](xref:Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext) zwraca `HttpContext` żądania aktywnego, gdy uzyskuje dostęp z wątku żądania. `IHttpContextAccessor.HttpContext` **nie** powinna być przechowywana w polu ani zmiennej.
 
 **Nie wykonuj tej czynności:** Poniższy przykład zapisuje `HttpContext` w polu, a następnie próbuje użyć go później.
 
@@ -292,9 +292,11 @@ wartość `HttpContext` jest prawidłowa tylko pod warunkiem, że w potoku ASP.N
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetFirstController.cs?name=snippet2)]
 
+Zadania w tle należy zaimplementować jako usługi hostowane. Aby uzyskać więcej informacji, zobacz [zadania w tle z usługami hostowanymi](xref:fundamentals/host/hosted-services).
+
 ## <a name="do-not-capture-services-injected-into-the-controllers-on-background-threads"></a>Nie Przechwytuj usług wprowadzonych do kontrolerów w wątkach w tle
 
-**Nie wykonuj tej czynności:** Poniższy przykład pokazuje, że zamknięcie przechwytuje `DbContext` z parametru akcji `Controller`. Jest to niewłaściwe rozwiązanie.  Element roboczy można uruchomić poza zakresem żądania. @No__t-0 jest objęty zakresem żądania, co skutkuje `ObjectDisposedException`.
+**Nie wykonuj tej czynności:** Poniższy przykład pokazuje, że zamknięcie przechwytuje `DbContext` z parametru akcji `Controller`. Jest to niewłaściwe rozwiązanie.  Element roboczy można uruchomić poza zakresem żądania. `ContosoDbContext` jest objęty zakresem żądania, co skutkuje `ObjectDisposedException`.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetSecondController.cs?name=snippet1)]
 
@@ -325,7 +327,7 @@ ASP.NET Core nie buforuje treści odpowiedzi HTTP. Podczas pierwszego zapisywani
 
 [!code-csharp[](performance-best-practices/samples/3.0/Startup22.cs?name=snippet1)]
 
-W poprzednim kodzie `context.Response.Headers["test"] = "test value";` zgłosi wyjątek, jeśli `next()` zapisał w odpowiedzi.
+W poprzednim kodzie, `context.Response.Headers["test"] = "test value";` zgłosi wyjątek, jeśli `next()` zapisał w odpowiedzi.
 
 **Wykonaj następujące czynności:** Poniższy przykład sprawdza, czy odpowiedź HTTP została uruchomiona przed zmodyfikowaniem nagłówków.
 

@@ -5,14 +5,14 @@ description: Odkryj serwery sieci Web Kestrel i HTTP. sys dla ASP.NET Core. Dowi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/10/2019
+ms.date: 11/07/2019
 uid: fundamentals/servers/index
-ms.openlocfilehash: 3bdc2bf776946b8fae8886a37ecd3ed5e3f860fe
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: e542dd4506eb77f949c0c87bea3044397bbb1b8f
+ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259819"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799406"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementacje serwera sieci Web w ASP.NET Core
 
@@ -34,7 +34,7 @@ Użyj Kestrel:
 
   ![Kestrel komunikuje się pośrednio z Internetem za pomocą odwrotnego serwera proxy, takiego jak IIS, Nginx lub Apache](kestrel/_static/kestrel-to-internet.png)
 
-Obsługiwana jest konfiguracja hosta @ no__t-0with lub bez serwera proxy zwrotnego @ no__t-1Is.
+Obsługiwane jest&mdash;hostowanie konfiguracji z serwerem zwrotnego serwera proxy lub bez niego&mdash;.
 
 Aby uzyskać wskazówki dotyczące konfiguracji Kestrel i informacje o tym, kiedy używać Kestrel w konfiguracji zwrotnego serwera proxy, zobacz <xref:fundamentals/servers/kestrel>.
 
@@ -70,7 +70,7 @@ Aby uzyskać więcej informacji i wskazówki dotyczące konfiguracji, zobacz nas
 
 ASP.NET Core jest dostarczany z [serwerem Kestrel](xref:fundamentals/servers/kestrel), który jest domyślnym serwerem HTTP dla wielu platform.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linuxtablinux"></a>[System](#tab/linux)
 
 ASP.NET Core jest dostarczany z [serwerem Kestrel](xref:fundamentals/servers/kestrel), który jest domyślnym serwerem HTTP dla wielu platform.
 
@@ -110,7 +110,7 @@ Aby uzyskać wskazówki dotyczące konfiguracji modułu usług IIS i ASP.NET Cor
 
 ASP.NET Core jest dostarczany z [serwerem Kestrel](xref:fundamentals/servers/kestrel), który jest domyślnym serwerem HTTP dla wielu platform.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linuxtablinux"></a>[System](#tab/linux)
 
 ASP.NET Core jest dostarczany z [serwerem Kestrel](xref:fundamentals/servers/kestrel), który jest domyślnym serwerem HTTP dla wielu platform.
 
@@ -126,7 +126,7 @@ Aby uzyskać informacje na temat korzystania z usługi Nginx w systemie Linux ja
 
 Aby uzyskać informacje na temat korzystania z usługi Apache w systemie Linux jako serwera zwrotnego proxy dla usługi Kestrel, zobacz <xref:host-and-deploy/linux-apache>.
 
-## <a name="httpsys"></a>HTTP. sys
+## <a name="httpsys"></a>HTTP.sys
 
 Jeśli ASP.NET Core aplikacje są uruchamiane w systemie Windows, HTTP. sys jest alternatywą dla Kestrel. Kestrel jest zwykle zalecana w celu uzyskania najlepszej wydajności. Protokołu HTTP. sys można używać w scenariuszach, w których aplikacja jest narażona na dostęp do Internetu, a wymagane możliwości są obsługiwane przez protokół HTTP. sys, ale nie Kestrel. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/servers/httpsys>.
 
@@ -140,7 +140,7 @@ Aby uzyskać wskazówki dotyczące konfiguracji protokołu HTTP. sys, zobacz <xr
 
 ## <a name="aspnet-core-server-infrastructure"></a>Infrastruktura serwera ASP.NET Core
 
-@No__t-0 dostępne w metodzie `Startup.Configure` uwidacznia Właściwość <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ServerFeatures> typu <xref:Microsoft.AspNetCore.Http.Features.IFeatureCollection>. Kestrel i HTTP. sys uwidaczniają tylko jedną funkcję, <xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>, ale różne implementacje serwera mogą uwidaczniać dodatkowe funkcje.
+<xref:Microsoft.AspNetCore.Builder.IApplicationBuilder> dostępne w metodzie `Startup.Configure` uwidacznia Właściwość <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ServerFeatures> typu <xref:Microsoft.AspNetCore.Http.Features.IFeatureCollection>. Kestrel i HTTP. sys uwidaczniają tylko jedną funkcję, <xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>, ale różne implementacje serwera mogą uwidaczniać dodatkowe funkcje.
 
 `IServerAddressesFeature` można użyć, aby dowiedzieć się, który port implementacji serwera w czasie wykonywania.
 
@@ -156,7 +156,9 @@ Serwer jest uruchamiany po uruchomieniu aplikacji zintegrowanego środowiska pro
 * [Visual Studio Code](https://code.visualstudio.com/) &ndash; aplikacja i serwer są uruchamiane przez [omnisharp](https://github.com/OmniSharp/omnisharp-vscode), która aktywuje debuger CoreCLR.
 * [Visual Studio dla komputerów Mac](https://visualstudio.microsoft.com/vs/mac/) &ndash; aplikacja i serwer są uruchamiane przez [debuger trybu miękkiego mono](https://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/).
 
-Podczas uruchamiania aplikacji z poziomu wiersza polecenia w folderze projektu, [uruchomienie dotnet](/dotnet/core/tools/dotnet-run) uruchamia aplikację i serwer (tylko KESTREL i http. sys). Konfiguracja jest określona przez opcję `-c|--configuration`, która jest ustawiona na `Debug` (wartość domyślna) lub `Release`. Jeśli w pliku *profilu launchsettings. JSON* istnieją profile uruchamiania, użyj opcji `--launch-profile <NAME>`, aby ustawić profil uruchamiania (na przykład `Development` lub `Production`). Aby uzyskać więcej informacji, [](/dotnet/core/tools/dotnet-run) zobacz [pakietem rozkładu dotnet i .NET Core](/dotnet/core/build/distribution-packaging).
+Podczas uruchamiania aplikacji z poziomu wiersza polecenia w folderze projektu, [uruchomienie dotnet](/dotnet/core/tools/dotnet-run) uruchamia aplikację i serwer (tylko KESTREL i http. sys). Konfiguracja jest określona przez opcję `-c|--configuration`, która jest ustawiona na `Debug` (wartość domyślna) lub `Release`.
+
+Plik *profilu launchsettings. JSON* zapewnia konfigurację podczas uruchamiania aplikacji przy użyciu `dotnet run` lub debugera wbudowanego w narzędzia, takie jak Visual Studio. Jeśli w pliku *profilu launchsettings. JSON* istnieją profile uruchamiania, użyj opcji `--launch-profile {PROFILE NAME}` z`dotnet run` polecenie lub wybierz profil w programie Visual Studio. Aby uzyskać więcej informacji, [](/dotnet/core/tools/dotnet-run) zobacz [pakietem rozkładu dotnet i .NET Core](/dotnet/core/build/distribution-packaging).
 
 ## <a name="http2-support"></a>Obsługa protokołu HTTP/2
 
@@ -166,11 +168,11 @@ Podczas uruchamiania aplikacji z poziomu wiersza polecenia w folderze projektu, 
 
 * [Kestrel](xref:fundamentals/servers/kestrel#http2-support)
   * System operacyjny
-    * Windows Server 2016/Windows 10 lub nowszy @ no__t-0
+    * Windows Server 2016/Windows 10 lub nowszy&dagger;
     * Linux z OpenSSL 1.0.2 lub nowszym (na przykład Ubuntu 16,04 lub nowszy)
     * Protokół HTTP/2 będzie obsługiwany w przypadku macOS w przyszłej wersji.
   * Platforma docelowa: .NET Core 2,2 lub nowszy
-* [HTTP. sys](xref:fundamentals/servers/httpsys#http2-support)
+* [HTTP.sys](xref:fundamentals/servers/httpsys#http2-support)
   * Windows Server 2016/Windows 10 lub nowszy
   * Struktura docelowa: nie dotyczy wdrożeń HTTP. sys.
 * [Usługi IIS (w procesie)](xref:host-and-deploy/iis/index#http2-support)
@@ -187,7 +189,7 @@ Podczas uruchamiania aplikacji z poziomu wiersza polecenia w folderze projektu, 
 
 ::: moniker range="< aspnetcore-2.2"
 
-* [HTTP. sys](xref:fundamentals/servers/httpsys#http2-support)
+* [HTTP.sys](xref:fundamentals/servers/httpsys#http2-support)
   * Windows Server 2016/Windows 10 lub nowszy
   * Struktura docelowa: nie dotyczy wdrożeń HTTP. sys.
 * [Usługi IIS (pozaprocesowe)](xref:host-and-deploy/iis/index#http2-support)
@@ -199,7 +201,7 @@ Podczas uruchamiania aplikacji z poziomu wiersza polecenia w folderze projektu, 
 
 Połączenie HTTP/2 musi korzystać z [negocjacji protokołu warstwy aplikacji (ClientHello alpn)](https://tools.ietf.org/html/rfc7301#section-3) i TLS 1,2 lub nowszej. Aby uzyskać więcej informacji, zapoznaj się z tematami dotyczącymi scenariuszy wdrażania serwera.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * <xref:fundamentals/servers/kestrel>
 * <xref:host-and-deploy/aspnet-core-module>

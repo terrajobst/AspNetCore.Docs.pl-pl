@@ -5,12 +5,12 @@ description: Dodaj model do prostej aplikacji ASP.NET Core.
 ms.author: riande
 ms.date: 8/15/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: d6d75bcbab875c08bfff532d968013dca323beed
-ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
+ms.openlocfilehash: 2fac37e7069fb2a464d4de1da8912197f7adf8a8
+ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73634105"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73761089"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Dodawanie modelu do aplikacji ASP.NET Core MVC
 
@@ -286,6 +286,8 @@ Zapoznaj się z plikiem migracji *_InitialCreate. cs migracji/{timestamp}* :
 
 ## <a name="dependency-injection-in-the-controller"></a>Wstrzykiwanie zależności w kontrolerze
 
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
 Otwórz plik *controllers/MoviesController. cs* i zapoznaj się z konstruktorem:
 
 <!-- l.. Make copy of Movies controller (or use the old one as I did in the 3.0 upgrade) because we comment out the initial index method and update it later  -->
@@ -293,6 +295,17 @@ Otwórz plik *controllers/MoviesController. cs* i zapoznaj się z konstruktorem:
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Controllers/MC1.cs?name=snippet_1)]
 
 Konstruktor używa [iniekcji zależności](xref:fundamentals/dependency-injection) do iniekcji kontekstu bazy danych (`MvcMovieContext`) do kontrolera. Kontekst bazy danych jest używany w każdej z metod [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) w kontrolerze.
+
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Controllers/MC1.cs?name=snippet_1)]
+
+Konstruktor używa [iniekcji zależności](xref:fundamentals/dependency-injection) do iniekcji kontekstu bazy danych (`MvcMovieContext`) do kontrolera. Kontekst bazy danych jest używany w każdej z metod [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) w kontrolerze.
+
+[!INCLUDE [use SQL Server in production](~/includes/RP/sqlitedev.md)]
+
+---
+<!-- end of tabs --->
 
 <a name="strongly-typed-models-keyword-label"></a>
 <a name="strongly-typed-models-and-the--keyword"></a>
