@@ -1,90 +1,94 @@
 ---
-title: Host platformy ASP.NET Core w ramach farmy sieci web
+title: ASP.NET Core hosta w kolektywie serwerów sieci Web
 author: guardrex
-description: Dowiedz się, jak hostować wiele wystąpień aplikacji ASP.NET Core z udostępnionymi zasobami w środowisku farmy sieci web.
+description: Dowiedz się, jak hostować wiele wystąpień aplikacji ASP.NET Core z zasobami udostępnionymi w środowisku kolektywu serwerów sieci Web.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/12/2019
+ms.date: 11/07/2019
 uid: host-and-deploy/web-farm
-ms.openlocfilehash: df1be8cc76a5017923f26636a241b69881dfcc81
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: 16ec2162be8199857d0f2d0ff989ec4cdc6c3277
+ms.sourcegitcommit: 68d804d60e104c81fe77a87a9af70b5df2726f60
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65970108"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830705"
 ---
-# <a name="host-aspnet-core-in-a-web-farm"></a>Host platformy ASP.NET Core w ramach farmy sieci web
+# <a name="host-aspnet-core-in-a-web-farm"></a>ASP.NET Core hosta w kolektywie serwerów sieci Web
 
-Przez [Luke Latham](https://github.com/guardrex) i [Chris Ross](https://github.com/Tratcher)
+[Luke Latham](https://github.com/guardrex) i [Krzysztof Ross](https://github.com/Tratcher)
 
-A *kolektywu serwerów sieci web* jest grupą dwóch lub więcej serwerów sieci web (lub *węzłów*) które hostują wiele wystąpień aplikacji. W przypadku żądań od użytkowników dotrze do farmy sieci web *moduł równoważenia obciążenia* rozdziela żądania do węzłów kolektywu serwerów sieci web. Poprawa farmy serwerów sieci Web:
+*Farma sieci Web* jest grupą zawierającą co najmniej dwa serwery sieci Web (lub *węzły*), które obsługują wiele wystąpień aplikacji. Gdy żądania użytkowników docierają do kolektywu serwerów sieci Web, *moduł równoważenia obciążenia* dystrybuuje żądania do węzłów kolektywu serwerów sieci Web. Usprawnienia farmy sieci Web:
 
-* **Niezawodność/dostępności** &ndash; przy co najmniej jeden węzeł ulegnie awarii, moduł równoważenia obciążenia może kierować żądania do innych węzłów działa, aby kontynuować przetwarzanie żądań.
-* **Pojemności i wydajności** &ndash; wielu węzłach może przetwarzać żądania więcej niż jednym serwerze. Moduł równoważenia obciążenia równoważy obciążenie przez dystrybucję żądań do węzłów.
-* **Skalowalność** &ndash; gdy wymagana jest więcej lub mniej pojemności, liczba aktywnych węzłów można zwiększyć lub zmniejszyć do dopasowania obciążenia. Sieci Web farmy technologie platformy, takie jak [usługi Azure App Service](https://azure.microsoft.com/services/app-service/), automatycznie dodawać lub usuwać węzły na żądanie przez administratora systemu lub automatycznie bez interwencji człowieka.
-* **Łatwość konserwacji** &ndash; węzły farmy sieci web może polegać na zbiór usług udostępnionych, co skutkuje łatwiejsze zarządzanie w systemie. Na przykład polegać węzły farmy sieci web od pojedynczego serwera bazy danych i wspólnej lokalizacji sieciowej dla zasobów statycznych, takich jak obrazy i pliki do pobrania.
+* **Niezawodność/dostępność** &ndash; w przypadku awarii co najmniej jednego węzła moduł równoważenia obciążenia może kierować żądania do innych działających węzłów, aby kontynuować przetwarzanie żądań.
+* **Pojemność/wydajność** &ndash; wiele węzłów może przetwarzać więcej żądań niż pojedynczy serwer. Moduł równoważenia obciążenia równoważy obciążenie przez dystrybuowanie żądań do węzłów.
+* **Skalowalność** &ndash;, gdy wymagana jest większa lub mniejsza pojemność, liczbę aktywnych węzłów można zwiększyć lub zmniejszyć w celu dopasowania do obciążenia. Technologie platformy farmy sieci Web, takie jak [Azure App Service](https://azure.microsoft.com/services/app-service/), mogą automatycznie dodawać lub usuwać węzły na żądanie administratora systemu lub automatycznie bez udziału człowieka.
+* **Łatwość utrzymania** &ndash; węzły kolektywu serwerów sieci Web mogą polegać na zestawie usług udostępnionych, co ułatwia zarządzanie systemem. Na przykład węzły kolektywu serwerów sieci Web mogą polegać na jednym serwerze bazy danych i wspólnej lokalizacji sieciowej dla zasobów statycznych, takich jak obrazy i pliki do pobrania.
 
-W tym temacie opisano, konfiguracji i zależności dla aplikacji ASP.NET core hostowana na farmie sieci web, które korzystają z zasobów udostępnionych.
+W tym temacie opisano konfigurację i zależności dla aplikacji ASP.NET Core hostowanych w kolektywie serwerów sieci Web, które są zależne od udostępnionych zasobów.
 
 ## <a name="general-configuration"></a>Konfiguracja ogólna
 
 <xref:host-and-deploy/index>  
-Dowiedz się, jak skonfigurować środowiskach hostingu i wdrażanie aplikacji platformy ASP.NET Core. Skonfiguruj menedżera procesów w każdym węźle kolektywu serwerów sieci web do zautomatyzowania aplikacja uruchamia się i ponownego uruchomienia. Każdy węzeł wymaga środowiska uruchomieniowego platformy ASP.NET Core. Aby uzyskać więcej informacji, zobacz Tematy w [hosta i wdrażanie](xref:host-and-deploy/index) obszaru dokumentacji.
+Dowiedz się, jak konfigurować środowiska hostingu i wdrażać ASP.NET Core aplikacje. Skonfiguruj Menedżera procesów na każdym węźle kolektywu serwerów sieci Web, aby zautomatyzować uruchamianie i ponowne uruchamianie aplikacji. Każdy węzeł wymaga środowiska uruchomieniowego ASP.NET Core. Aby uzyskać więcej informacji, zobacz tematy w obszarze [host i wdrażanie](xref:host-and-deploy/index) w dokumentacji.
 
 <xref:host-and-deploy/proxy-load-balancer>  
-Więcej informacji o konfiguracji dla aplikacji hostowanych za serwery proxy i moduły równoważenia obciążenia, które często zasłaniać żądanie ważnych informacji.
+Dowiedz się więcej o konfigurowaniu aplikacji hostowanych za serwerami proxy i usługami równoważenia obciążenia, które często zasłaniają ważne informacje o żądaniu.
 
 <xref:host-and-deploy/azure-apps/index>  
-[Usługa Azure App Service](https://azure.microsoft.com/services/app-service/) jest [chmury obliczeniowej platformy usługi firmy Microsoft](https://azure.microsoft.com/) do hostowania aplikacji sieci web, łącznie z platformą ASP.NET Core. App Service to w pełni zarządzana platforma, która umożliwia automatyczne skalowanie, równoważenie obciążenia sieciowego, poprawek i ciągłego wdrażania.
+[Azure App Service](https://azure.microsoft.com/services/app-service/) to [usługa platformy obliczeniowej w chmurze firmy Microsoft](https://azure.microsoft.com/) do hostowania aplikacji sieci web, w tym ASP.NET Core. App Service to w pełni zarządzana platforma, która zapewnia automatyczne skalowanie, równoważenie obciążenia, stosowanie poprawek i ciągłe wdrażanie.
 
 ## <a name="app-data"></a>Dane aplikacji
 
-Gdy aplikacja jest skalowana do wielu wystąpień, może to być stan aplikacji, który wymaga udostępnianie między węzłami. Jeśli stan jest przejściowe, rozważ udostępnienie [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache). Jeśli udostępniony stan wymaga trwałości, należy wziąć pod uwagę przechowywania udostępnionego stanu w bazie danych.
+Gdy aplikacja jest skalowana w wielu wystąpieniach, może być stan aplikacji, który wymaga udostępniania między węzłami. Jeśli stan jest przejściowy, rozważ udostępnienie [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache). Jeśli współużytkowany stan wymaga trwałości, rozważ zapisanie stanu udostępnionego w bazie danych.
 
-## <a name="required-configuration"></a>Wymaganej konfiguracji
+## <a name="required-configuration"></a>Wymagana konfiguracja
 
-Ochrona danych i pamięć podręczna wymagają konfiguracji dla aplikacji wdrożonych na farmie sieci web.
+Ochrona danych i buforowanie wymagają konfiguracji aplikacji wdrożonych w kolektywie serwerów sieci Web.
 
 ### <a name="data-protection"></a>Ochrona danych
 
-[System ochrony danych programu ASP.NET Core](xref:security/data-protection/introduction) jest używane przez aplikacje do ochrony danych. Ochrona danych opiera się na zestaw klucze szyfrowania są przechowywane w *pierścienia klucz*. Po zainicjowaniu system ochrony danych dotyczy [domyślne ustawienia](xref:security/data-protection/configuration/default-settings) , zapisać pierścienia klucz lokalnie. W obszarze Konfiguracja domyślna pierścień Unikatowy klucz znajduje się w każdym węźle kolektywu serwerów sieci web. W związku z tym każdy węzeł farmy sieci web nie może odszyfrować danych, które są szyfrowane przez aplikację w innym węźle. Domyślna konfiguracja nie jest zazwyczaj odpowiedni do hostowania aplikacji w ramach farmy sieci web. Alternatywa Implementowanie udostępnionego pierścień klucza jest zawsze Przekierowywanie żądań użytkowników do tego samego węzła. Aby uzyskać więcej informacji na temat konfiguracji systemu ochrony danych w przypadku wdrożeń kolektywu serwerów sieci web, zobacz <xref:security/data-protection/configuration/overview>.
+[System ochrony danych ASP.NET Core](xref:security/data-protection/introduction) jest używany przez aplikacje do ochrony danych. Ochrona danych opiera się na zestawie kluczy kryptograficznych przechowywanych w *pęku kluczy*. Gdy system ochrony danych jest zainicjowany, stosuje [domyślne ustawienia](xref:security/data-protection/configuration/default-settings) , które przechowują pierścień kluczy lokalnie. W ramach konfiguracji domyślnej unikatowy pierścień kluczy jest przechowywany w każdym węźle kolektywu serwerów sieci Web. W związku z tym każdy węzeł kolektywu serwerów sieci Web nie może odszyfrować danych szyfrowanych przez aplikację w żadnym innym węźle. Konfiguracja domyślna nie jest zazwyczaj odpowiednia do hostowania aplikacji w kolektywie serwerów sieci Web. Alternatywą dla implementacji pierścienia klucza współdzielonego jest zawsze kierowanie żądań użytkowników do tego samego węzła. Aby uzyskać więcej informacji na temat konfiguracji systemu ochrony danych dla wdrożeń farmy sieci Web, zobacz <xref:security/data-protection/configuration/overview>.
 
 ### <a name="caching"></a>Buforowanie
 
-W środowisku farmy sieci web mechanizm buforowania muszą współużytkować elementów pamięci podręcznej w węzłach kolektywu serwerów sieci web. Buforowanie musi albo korzystają z typowych pamięci podręcznej redis cache, udostępnionej bazy danych programu SQL Server lub niestandardowych implementacji buforowania, która udostępnia elementy pamięci podręcznej w całej farmie sieci web. Aby uzyskać więcej informacji, zobacz <xref:performance/caching/distributed>.
+W środowisku kolektywu serwerów sieci Web mechanizm buforowania musi współdzielić elementy w pamięci podręcznej w węzłach kolektywu serwerów sieci Web. Buforowanie musi być zależne od typowej pamięci podręcznej Redis, udostępnionej bazy danych SQL Server lub niestandardowej implementacji buforowania, która udostępnia elementy w pamięci podręcznej w ramach kolektywu serwerów sieci Web. Aby uzyskać więcej informacji, zobacz <xref:performance/caching/distributed>.
 
 ## <a name="dependent-components"></a>Składniki zależne
 
-Następujące scenariusze nie wymaga dodatkowych czynności konfiguracyjnych, ale są one zależne od technologii, które wymagają konfiguracji dla farmy serwerów sieci web.
+Poniższe scenariusze nie wymagają dodatkowej konfiguracji, ale zależą od technologii, które wymagają konfiguracji farmy serwerów sieci Web.
 
 | Scenariusz | Zależy od &hellip; |
 | -------- | ------------------- |
 | Uwierzytelnianie | Ochrona danych (zobacz <xref:security/data-protection/configuration/overview>).<br><br>Aby uzyskać więcej informacji, zobacz <xref:security/authentication/cookie> i <xref:security/cookie-sharing>. |
 | Tożsamość | Konfiguracja uwierzytelniania i bazy danych.<br><br>Aby uzyskać więcej informacji, zobacz <xref:security/authentication/identity>. |
-| Sesja | Ochrona danych (zaszyfrowanych plików cookie) (zobacz <xref:security/data-protection/configuration/overview>) i pamięć podręczna (zobacz <xref:performance/caching/distributed>).<br><br>Aby uzyskać więcej informacji, zobacz [stan sesji i aplikacji: Stan sesji](xref:fundamentals/app-state#session-state). |
-| TempData | Ochrona danych (zaszyfrowanych plików cookie) (zobacz <xref:security/data-protection/configuration/overview>) lub sesji (zobacz [stan sesji i aplikacji: Stan sesji](xref:fundamentals/app-state#session-state)).<br><br>Aby uzyskać więcej informacji, zobacz [stan sesji i aplikacji: TempData](xref:fundamentals/app-state#tempdata). |
-| Zabezpieczający przed sfałszowaniem | Ochrona danych (zobacz <xref:security/data-protection/configuration/overview>).<br><br>Aby uzyskać więcej informacji, zobacz <xref:security/anti-request-forgery>. |
+| Sesja | Ochrona danych (zaszyfrowane pliki cookie) (zobacz <xref:security/data-protection/configuration/overview>) i buforowanie (zobacz <xref:performance/caching/distributed>).<br><br>Aby uzyskać więcej informacji, zobacz informacje o [stanie sesji i aplikacji: stan sesji](xref:fundamentals/app-state#session-state). |
+| TempData | Ochrona danych (zaszyfrowane pliki cookie) (zobacz <xref:security/data-protection/configuration/overview>) lub sesja (zobacz [stan sesji i aplikacji: stan sesji](xref:fundamentals/app-state#session-state)).<br><br>Aby uzyskać więcej informacji, zobacz [sesja i stan aplikacji: TempData](xref:fundamentals/app-state#tempdata). |
+| Ochrona przed fałszowaniem | Ochrona danych (zobacz <xref:security/data-protection/configuration/overview>).<br><br>Aby uzyskać więcej informacji, zobacz <xref:security/anti-request-forgery>. |
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-### <a name="data-protection-and-caching"></a>Ochrona danych i buforowanie
+### <a name="data-protection-and-caching"></a>Ochrona i buforowanie danych
 
-Podczas ochrony danych lub pamięci podręcznej nie jest skonfigurowany w środowisku kolektywu serwerów sieci web, sporadyczne błędy występują podczas przetwarzania żądania. Dzieje się tak, ponieważ węzły nie współużytkują te same zasoby, a żądania użytkowników nie są zawsze kierowane do tego samego węzła.
+Gdy ochrona danych lub buforowanie nie jest skonfigurowane dla środowiska kolektywu serwerów sieci Web, podczas przetwarzania żądań występują sporadyczne błędy. Dzieje się tak, ponieważ węzły nie współdzielą tych samych zasobów i żądania użytkownika nie zawsze są kierowane do tego samego węzła.
 
-Należy wziąć pod uwagę użytkownika, który zaloguje się do aplikacji przy użyciu uwierzytelniania plików cookie. Zalogowaniu się użytkownika do aplikacji na węzeł farmy jedną witrynę sieci web. Jeśli ich kolejne żądanie zostanie odebrana na tym samym węźle, gdzie one podpisane, aplikacja jest w stanie odszyfrować pliku cookie uwierzytelniania i umożliwia dostęp do zasobów aplikacji. Jeśli ich kolejne żądanie dociera do innego węzła, aplikacja nie można odszyfrować pliku cookie uwierzytelniania z poziomu węzła, gdzie użytkownik jest zalogowany i autoryzacji dla żądanego zasobu nie powiodło się.
+Rozważ użytkownikowi, który zaloguje się do aplikacji przy użyciu uwierzytelniania plików cookie. Użytkownik loguje się do aplikacji w jednym węźle kolektywu serwerów sieci Web. Jeśli następne żądanie zostanie odebrane w tym samym węźle, na którym się zalogowano, aplikacja będzie mogła odszyfrować plik cookie uwierzytelniania i zezwalać na dostęp do zasobu aplikacji. Jeśli kolejne żądanie dociera do innego węzła, aplikacja nie może odszyfrować pliku cookie uwierzytelniania z węzła, w którym zalogowany jest użytkownik, a autoryzacja dla żądanego zasobu kończy się niepowodzeniem.
 
-Gdy wystąpienia któregokolwiek z następujących objawów **sporadycznie**, problem jest zazwyczaj śledzone niewłaściwa ochrona danych lub konfiguracji buforowania w środowisku farmy sieci web:
+Gdy którykolwiek z następujących objawów występuje **sporadycznie**, problem zwykle jest śledzony do nieprawidłowej ochrony danych lub konfiguracji buforowania dla środowiska farmy sieci Web:
 
-* Podziały uwierzytelniania &ndash; pliku cookie uwierzytelniania jest nieprawidłowo skonfigurowana lub nie można odszyfrować. OAuth (Facebook, Microsoft, Twitter) lub OpenIdConnect logowania się nie powieść z powodu błędu "Korelacji nie powiodło się."
-* Podziały autoryzacji &ndash; tożsamości zostaną utracone.
-* Stan sesji powoduje utratę danych.
-* Elementy pamięci podręcznej znikną.
+* Przerwy uwierzytelniania &ndash; plik cookie uwierzytelniania jest niepoprawnie skonfigurowany lub nie można go odszyfrować. Logowanie OAuth (Facebook, Microsoft, Twitter) lub OpenIdConnect kończy się niepowodzeniem z błędem "korelacja nie powiodła się".
+* Przerwania autoryzacji &ndash; tożsamość zostanie utracona.
+* Stan sesji utraci dane.
+* Wyznikane elementy w pamięci podręcznej.
 * TempData kończy się niepowodzeniem.
-* Publikuje niepowodzenie &ndash; sprawdzenie zabezpieczający przed sfałszowaniem nie powiedzie się.
+* Wpisy nie powiodą się, &ndash; sprawdzenie ochrony przed fałszerstwem nie powiedzie się.
 
-Aby uzyskać więcej informacji na temat konfigurowania ochrony danych dla wdrożeń kolektywu serwerów sieci web, zobacz <xref:security/data-protection/configuration/overview>. Aby uzyskać więcej informacji na temat konfiguracji buforowania w przypadku wdrożeń kolektywu serwerów sieci web, zobacz <xref:performance/caching/distributed>.
+Aby uzyskać więcej informacji na temat konfiguracji ochrony danych dla wdrożeń farmy sieci Web, zobacz <xref:security/data-protection/configuration/overview>. Aby uzyskać więcej informacji o konfigurowaniu pamięci podręcznej dla wdrożeń farmy sieci Web, zobacz <xref:performance/caching/distributed>.
 
 ## <a name="obtain-data-from-apps"></a>Uzyskiwanie danych z aplikacji
 
-Aplikacje sieci web w farmie są w stanie odpowiadać na żądania, z aplikacji za pomocą oprogramowania pośredniczącego terminalu wbudowane uzyskać żądania, połączenia i dodatkowych danych. Aby uzyskać więcej informacji i przykładowy kod, zobacz <xref:test/troubleshoot#obtain-data-from-an-app>.
+Jeśli aplikacje kolektywu serwerów sieci Web mogą odpowiadać na żądania, uzyskiwać żądania, połączenia i dodatkowe dane z aplikacji przy użyciu wbudowanego oprogramowania terminala. Aby uzyskać więcej informacji i przykładowy kod, zobacz <xref:test/troubleshoot#obtain-data-from-an-app>.
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* [Rozszerzenie niestandardowego skryptu dla systemu Windows](/azure/virtual-machines/extensions/custom-script-windows) &ndash; pobiera i wykonuje skrypty na maszynach wirtualnych platformy Azure, co jest przydatne w przypadku konfiguracji po wdrożeniu i instalacji oprogramowania.
