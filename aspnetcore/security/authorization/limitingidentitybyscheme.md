@@ -1,24 +1,23 @@
 ---
-title: Autoryzuj przy użyciu określonego schematu w programie ASP.NET Core
+title: Autoryzuj z określonym schematem w ASP.NET Core
 author: rick-anderson
-description: W tym artykule opisano sposób ograniczenia tożsamości do określonego schematu podczas pracy z wielu metod uwierzytelniania.
+description: W tym artykule wyjaśniono, jak ograniczyć tożsamość do określonego schematu podczas pracy z wieloma metodami uwierzytelniania.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 10/22/2018
+ms.date: 11/08/2019
 uid: security/authorization/limitingidentitybyscheme
-ms.openlocfilehash: 778bb61f472ab2e76f85da5999d3c79238188f19
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 38da80519b9d5d097c24d38b5a37503174629fc4
+ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64903004"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73896970"
 ---
-# <a name="authorize-with-a-specific-scheme-in-aspnet-core"></a>Autoryzuj przy użyciu określonego schematu w programie ASP.NET Core
+# <a name="authorize-with-a-specific-scheme-in-aspnet-core"></a>Autoryzuj z określonym schematem w ASP.NET Core
 
-W niektórych scenariuszach, takich jak aplikacje jednostronicowe (źródła) jest często używa wielu metod uwierzytelniania. Na przykład aplikacja może używać na podstawie plików cookie uwierzytelniania do logowania i uwierzytelniania elementu nośnego tokenu JWT dla żądań JavaScript. W niektórych przypadkach aplikacja może mieć wiele wystąpień do obsługi uwierzytelniania. Na przykład dwa obsługi plików cookie, w których jedna zawiera podstawowe tożsamości, a drugi jest tworzony podczas została wyzwolona usługi Multi-Factor authentication (MFA). Może zostać wyzwolone MFA, ponieważ użytkownik zażądał operacji, która wymaga zapewnienia dodatkowego bezpieczeństwa.
+W niektórych scenariuszach, takich jak aplikacje jednostronicowe (aplikacji jednostronicowych), często używane są wiele metod uwierzytelniania. Na przykład aplikacja może używać uwierzytelniania opartego na plikach cookie do logowania się i uwierzytelniania JWT dla żądań języka JavaScript. W niektórych przypadkach aplikacja może mieć wiele wystąpień programu obsługi uwierzytelniania. Na przykład dwa programy obsługi plików cookie, w których jeden zawiera tożsamość podstawową, a jedna jest tworzona podczas wyzwalania uwierzytelniania wieloskładnikowego (MFA). Uwierzytelnianie wieloskładnikowe może być wyzwalane, ponieważ użytkownik zażądał operacji wymagającej dodatkowych zabezpieczeń.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
-Schemat uwierzytelniania nosi nazwę po skonfigurowaniu usługi uwierzytelniania podczas uwierzytelniania. Na przykład:
+Schemat uwierzytelniania ma nazwę, gdy usługa uwierzytelniania jest konfigurowana podczas uwierzytelniania. Na przykład:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -36,50 +35,14 @@ public void ConfigureServices(IServiceCollection services)
         });
 ```
 
-W poprzednim kodzie zostały dodane dwa obsługi uwierzytelniania: jeden dla plików cookie i jeden dla elementu nośnego.
+W poprzednim kodzie dodano dwa programy obsługi uwierzytelniania: jeden dla plików cookie i jeden dla okaziciela.
 
 >[!NOTE]
->Określanie domyślnego schematu powoduje `HttpContext.User` ustawioną na tej tożsamości. Jeśli to zachowanie nie jest konieczne, ją wyłączyć, wywołując bez parametrów formie `AddAuthentication`.
+>Określanie schematu domyślnego powoduje, że właściwość `HttpContext.User` jest ustawiana na tę tożsamość. Jeśli takie zachowanie nie jest wymagane, należy je wyłączyć, wywołując formularz bez parametrów `AddAuthentication`.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+## <a name="selecting-the-scheme-with-the-authorize-attribute"></a>Wybieranie schematu z atrybutem Autoryzuj
 
-Schematy uwierzytelniania są nazywane po skonfigurowaniu uwierzytelniania middlewares podczas uwierzytelniania. Na przykład:
-
-```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-{
-    // Code omitted for brevity
-
-    app.UseCookieAuthentication(new CookieAuthenticationOptions()
-    {
-        AuthenticationScheme = "Cookie",
-        LoginPath = "/Account/Unauthorized/",
-        AccessDeniedPath = "/Account/Forbidden/",
-        AutomaticAuthenticate = false
-    });
-    
-    app.UseJwtBearerAuthentication(new JwtBearerOptions()
-    {
-        AuthenticationScheme = "Bearer",
-        AutomaticAuthenticate = false,
-        Audience = "http://localhost:5001/",
-        Authority = "http://localhost:5000/",
-        RequireHttpsMetadata = false
-    });
-```
-
-W poprzednim kodzie zostały dodane dwa middlewares uwierzytelniania: jeden dla plików cookie i jeden dla elementu nośnego.
-
->[!NOTE]
->Określanie domyślnego schematu powoduje `HttpContext.User` ustawioną na tej tożsamości. Jeśli to zachowanie nie jest konieczne, ją wyłączyć, ustawiając `AuthenticationOptions.AutomaticAuthenticate` właściwość `false`.
-
----
-
-## <a name="selecting-the-scheme-with-the-authorize-attribute"></a>Wybieranie schematu z atrybutem autoryzacji
-
-Punkcie autoryzacji aplikacja wskazuje obsługi, który ma być używany. Wybierz program obsługi, za pomocą którego aplikacja będzie autoryzować przez przekazanie rozdzielana przecinkami lista schematów uwierzytelniania na `[Authorize]`. `[Authorize]` Atrybut Określa schemat uwierzytelniania lub schematów niezależnie od tego, czy domyślny jest skonfigurowany. Na przykład:
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+W punkcie autoryzacji Aplikacja wskazuje program obsługi, który ma być używany. Wybierz program obsługi, za pomocą którego aplikacja będzie autoryzować, przekazując rozdzieloną przecinkami listę schematów uwierzytelniania do `[Authorize]`. Atrybut `[Authorize]` określa schemat lub schematy uwierzytelniania, które mają być używane niezależnie od tego, czy skonfigurowano wartość domyślną. Na przykład:
 
 ```csharp
 [Authorize(AuthenticationSchemes = AuthSchemes)]
@@ -92,24 +55,7 @@ public class MixedController : Controller
         JwtBearerDefaults.AuthenticationScheme;
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-```csharp
-[Authorize(ActiveAuthenticationSchemes = AuthSchemes)]
-public class MixedController : Controller
-    // Requires the following imports:
-    // using Microsoft.AspNetCore.Authentication.Cookies;
-    // using Microsoft.AspNetCore.Authentication.JwtBearer;
-    private const string AuthSchemes =
-        CookieAuthenticationDefaults.AuthenticationScheme + "," +
-        JwtBearerDefaults.AuthenticationScheme;
-```
-
----
-
-W powyższym przykładzie obsługi plików cookie i elementu nośnego Uruchom i masz szansę, aby utworzyć i dołączyć tożsamości dla bieżącego użytkownika. Określając tylko jednego schematu, odpowiedni program obsługi jest uruchamiany.
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+W poprzednim przykładzie uruchomiono zarówno programy obsługi plików cookie, jak i okaziciela oraz możliwość tworzenia i dołączania tożsamości bieżącego użytkownika. Określając tylko jeden schemat, zostanie uruchomiony odpowiedni program obsługi.
 
 ```csharp
 [Authorize(AuthenticationSchemes = 
@@ -117,21 +63,11 @@ W powyższym przykładzie obsługi plików cookie i elementu nośnego Uruchom i 
 public class MixedController : Controller
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+W poprzednim kodzie jest tylko procedura obsługi ze schematem "Bearer". Wszystkie tożsamości oparte na plikach cookie są ignorowane.
 
-```csharp
-[Authorize(ActiveAuthenticationSchemes = 
-    JwtBearerDefaults.AuthenticationScheme)]
-public class MixedController : Controller
-```
+## <a name="selecting-the-scheme-with-policies"></a>Wybieranie schematu z zasadami
 
----
-
-W poprzednim kodzie obsługi ze schematem "Bearer" działa. Wszystkie tożsamości oparte na pliku cookie są ignorowane.
-
-## <a name="selecting-the-scheme-with-policies"></a>Wybieranie schematu przy użyciu zasad
-
-Jeśli chcesz określić żądany schemat w [zasad](xref:security/authorization/policies), można ustawić `AuthenticationSchemes` kolekcji podczas dodawania zasad:
+Jeśli wolisz określić żądane schematy w [zasadach](xref:security/authorization/policies), możesz ustawić kolekcje `AuthenticationSchemes` podczas dodawania zasad:
 
 ```csharp
 services.AddAuthorization(options =>
@@ -145,7 +81,7 @@ services.AddAuthorization(options =>
 });
 ```
 
-W powyższym przykładzie zasady "Over18" działa tylko względem utworzonej przez procedurę obsługi "Bearer" tożsamości. Użyj zasad, ustawiając `[Authorize]` atrybutu `Policy` właściwości:
+W poprzednim przykładzie zasada "Over18" działa tylko w odniesieniu do tożsamości utworzonej przez procedurę obsługi "Bearer". Użyj zasad, ustawiając właściwość `Policy` `[Authorize]` atrybutu:
 
 ```csharp
 [Authorize(Policy = "Over18")]
@@ -154,11 +90,11 @@ public class RegistrationController : Controller
 
 ::: moniker range=">= aspnetcore-2.0"
 
-## <a name="use-multiple-authentication-schemes"></a>Użyj wielu schematów uwierzytelniania
+## <a name="use-multiple-authentication-schemes"></a>Używanie wielu schematów uwierzytelniania
 
-Niektóre aplikacje może być konieczne obsługuje wiele typów uwierzytelniania. Na przykład aplikacja może uwierzytelniać użytkowników z usługi Azure Active Directory i z bazy danych użytkowników. Innym przykładem jest aplikacja, która uwierzytelnia użytkowników z usług federacyjnych Active Directory i Azure Active Directory B2C. W takim przypadku aplikacja powinna obsługiwać tokenu elementu nośnego JWT z kilku wystawców.
+Niektóre aplikacje mogą wymagać obsługi wielu typów uwierzytelniania. Na przykład aplikacja może uwierzytelniać użytkowników z Azure Active Directory i z bazy danych użytkowników. Innym przykładem jest aplikacja, która uwierzytelnia użytkowników zarówno z Active Directory Federation Services, jak i Azure Active Directory B2C. W takim przypadku aplikacja powinna akceptować token okaziciela JWT z kilku wystawców.
 
-Dodaj wszystkie schematy uwierzytelniania, który chcesz zaakceptować. Na przykład, poniższy kod w `Startup.ConfigureServices` dodaje dwa schematy uwierzytelniania elementu nośnego tokenu JWT z różnych wydawców:
+Dodaj wszystkie schematy uwierzytelniania, które chcesz zaakceptować. Na przykład poniższy kod w `Startup.ConfigureServices` dodaje dwa systemy uwierzytelniania okaziciela JWT z różnymi wystawcami:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -180,9 +116,9 @@ public void ConfigureServices(IServiceCollection services)
 ```
 
 > [!NOTE]
-> Tylko jeden uwierzytelniania elementu nośnego tokenu JWT jest zarejestrowana przy użyciu domyślnego schematu uwierzytelniania `JwtBearerDefaults.AuthenticationScheme`. Dodatkowe uwierzytelnianie musi być zarejestrowane przy użyciu schematu; unikatowe uwierzytelnianie.
+> Zarejestrowano tylko jedno uwierzytelnianie okaziciela JWT z domyślnym schematem uwierzytelniania `JwtBearerDefaults.AuthenticationScheme`. Dodatkowe uwierzytelnianie musi być zarejestrowane przy użyciu unikatowego schematu uwierzytelniania.
 
-Następnym krokiem jest zaktualizuj domyślne zasady autoryzacji do akceptowania zarówno schematów uwierzytelniania. Na przykład:
+Następnym krokiem jest zaktualizowanie domyślnych zasad autoryzacji w celu zaakceptowania obu schematów uwierzytelniania. Na przykład:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -201,6 +137,6 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Jako domyślne zasady autoryzacji jest zastępowany, jest możliwe użycie `[Authorize]` atrybutu w kontrolerach. Kontroler akceptuje żądania następnie, przy użyciu tokenu JWT wystawione przez wystawcę pierwszej lub drugiej.
+Ponieważ domyślne zasady autoryzacji są zastępowane, można użyć atrybutu `[Authorize]` w kontrolerach. Kontroler akceptuje żądania z tokenem JWT wystawionym przez pierwszego lub drugiego wystawcy.
 
 ::: moniker-end

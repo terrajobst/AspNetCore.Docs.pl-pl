@@ -5,14 +5,14 @@ description: Używanie tożsamości z aplikacją jednostronicową hostowaną w a
 monikerRange: '>= aspnetcore-3.0'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 10/29/2019
+ms.date: 11/08/2019
 uid: security/authentication/identity/spa
-ms.openlocfilehash: 5ed5fb61e5989b291523332c6a2ec332f9ca0f6b
-ms.sourcegitcommit: e5d4768aaf85703effb4557a520d681af8284e26
+ms.openlocfilehash: f58d92634ce1ef6110533d56c40b7520dda90514
+ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73616622"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73897048"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Uwierzytelnianie i autoryzacja dla aplikacji jednostronicowych
 
@@ -182,6 +182,30 @@ services.Configure<JwtBearerOptions>(
         ...
     });
 ```
+
+Procedura obsługi JWT interfejsu API wywołuje zdarzenia, które umożliwiają kontrolę nad procesem uwierzytelniania przy użyciu `JwtBearerEvents`. Aby zapewnić pomoc techniczną dla autoryzacji interfejsu API, `AddIdentityServerJwt` rejestruje własne procedury obsługi zdarzeń.
+
+Aby dostosować obsługę zdarzenia, zawiń istniejący program obsługi zdarzeń z dodatkową logiką zgodnie z wymaganiami. Na przykład:
+
+```csharp
+services.Configure<JwtBearerOptions>(
+    IdentityServerJwtConstants.IdentityServerJwtBearerScheme,
+    options =>
+    {
+        var onTokenValidated = options.Events.OnTokenValidated;       
+        
+        options.Events.OnTokenValidated = async context =>
+        {
+            await onTokenValidated(context);
+            ...
+        }
+    });
+```
+
+W poprzednim kodzie program obsługi zdarzeń `OnTokenValidated` został zastąpiony implementacją niestandardową. Ta implementacja:
+
+1. Wywołuje oryginalną implementację dostarczoną przez obsługę autoryzacji interfejsu API.
+1. Uruchom własną logikę niestandardową.
 
 ## <a name="protect-a-client-side-route-angular"></a>Ochrona trasy po stronie klienta (wartość kątowa)
 

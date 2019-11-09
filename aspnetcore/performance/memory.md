@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/05/2019
 uid: performance/memory
-ms.openlocfilehash: 8f6b47ecde6f265bfb9437234b89f11f7d235869
-ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
+ms.openlocfilehash: 4c25c069aa2a6088c0549d786ecdd487ab7b9ea5
+ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73660013"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73896945"
 ---
 # <a name="memory-management-and-garbage-collection-gc-in-aspnet-core"></a>Zarządzanie pamięcią i wyrzucanie elementów bezużytecznych (GC) w ASP.NET Core
 
@@ -82,7 +82,7 @@ Uruchom MemoryLeak. Przydzieloną pamięć powoli wzrasta do momentu wystąpieni
 Na wykresie są wyświetlane dwie wartości użycia pamięci:
 
 - Przydzielone: ilość pamięci zajętej przez zarządzane obiekty
-- Zestaw roboczy: całkowity rozmiar pamięci fizycznej (RAM) używany przez proces. Wyświetlany zestaw roboczy jest taka sama jak wartość Menedżer zadań może być wyświetlana.
+- [Zestaw roboczy](/windows/win32/memory/working-set): zestaw stron w wirtualnej przestrzeni adresowej procesu, który jest obecnie rezydentem pamięci fizycznej. Wyświetlany zestaw roboczy jest taka sama jak wartość w Menedżerze zadań.
 
 ### <a name="transient-objects"></a>Obiekty przejściowe
 

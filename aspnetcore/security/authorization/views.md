@@ -1,31 +1,30 @@
 ---
-title: Autoryzacja oparta na widok w programie ASP.NET Core MVC
+title: Autoryzacja na podstawie widoku w ASP.NET Core MVC
 author: rick-anderson
-description: W tym dokumencie pokazano, jak wprowadzić i korzystanie z usługi autoryzacji w widoku platformy ASP.NET Core Razor.
+description: W tym dokumencie pokazano, jak wstrzyknąć i wykorzystać usługę autoryzacji wewnątrz widoku ASP.NET Core Razor.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 10/30/2017
+ms.date: 11/08/2019
 uid: security/authorization/views
-ms.openlocfilehash: e497c41d4dca29fed8733f18cf727804e3f06d8c
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: fc03da9eb98d36ffdda932ee5b16f327c2be9f83
+ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898651"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73896978"
 ---
-# <a name="view-based-authorization-in-aspnet-core-mvc"></a>Autoryzacja oparta na widok w programie ASP.NET Core MVC
+# <a name="view-based-authorization-in-aspnet-core-mvc"></a>Autoryzacja na podstawie widoku w ASP.NET Core MVC
 
-Deweloper chce często Pokazywanie, ukrywanie i inny sposób modyfikować interfejsu użytkownika na podstawie bieżącej tożsamości użytkownika. Aby uzyskać dostęp usługi autoryzacji w obrębie widoków MVC za pomocą [wstrzykiwanie zależności](xref:fundamentals/dependency-injection). Aby wstawić usługi autoryzacji do widoku Razor, należy użyć `@inject` dyrektywy:
+Deweloper często chce pokazać, ukryć lub zmodyfikować inny interfejs użytkownika w oparciu o bieżącą tożsamość użytkownika. Dostęp do usługi autoryzacji można uzyskać w widokach MVC za pośrednictwem [iniekcji zależności](xref:fundamentals/dependency-injection). Aby wstrzyknąć usługę autoryzacji do widoku Razor, użyj dyrektywy `@inject`:
 
 ```cshtml
 @using Microsoft.AspNetCore.Authorization
 @inject IAuthorizationService AuthorizationService
 ```
 
-Jeśli chcesz, aby usługi autoryzacji w każdym widoku, należy umieścić `@inject` dyrektywy do *_ViewImports.cshtml* pliku *widoków* katalogu. Aby uzyskać więcej informacji, zobacz [wstrzykiwanie zależności do widoków](xref:mvc/views/dependency-injection).
+Jeśli chcesz, aby usługa autoryzacji była w każdym widoku, umieść dyrektywę `@inject` w pliku *_ViewImports. cshtml* w katalogu *widoki* . Aby uzyskać więcej informacji, zobacz [iniekcja zależności w widokach](xref:mvc/views/dependency-injection).
 
-Użyj usługi wprowadzonego kodu autoryzacji do wywołania `AuthorizeAsync` dokładnie tak samo jak zaznaczysz podczas [autoryzacja na podstawie zasobów](xref:security/authorization/resourcebased#security-authorization-resource-based-imperative):
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+Użyj wstrzykiwanej usługi autoryzacji do wyzwolenia `AuthorizeAsync` w taki sam sposób, jak podczas [autoryzacji opartej na zasobach](xref:security/authorization/resourcebased#security-authorization-resource-based-imperative):
 
 ```cshtml
 @if ((await AuthorizationService.AuthorizeAsync(User, "PolicyName")).Succeeded)
@@ -34,20 +33,7 @@ Użyj usługi wprowadzonego kodu autoryzacji do wywołania `AuthorizeAsync` dok�
 }
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-```cshtml
-@if (await AuthorizationService.AuthorizeAsync(User, "PolicyName"))
-{
-    <p>This paragraph is displayed because you fulfilled PolicyName.</p>
-}
-```
-
----
-
-W niektórych przypadkach zasób zostanie modelu widoku. Wywoływanie `AuthorizeAsync` dokładnie tak samo jak zaznaczysz podczas [autoryzacja na podstawie zasobów](xref:security/authorization/resourcebased#security-authorization-resource-based-imperative):
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+W niektórych przypadkach zasób będzie modelem widoku. Wywołaj `AuthorizeAsync` w taki sam sposób, jak podczas [autoryzacji opartej na zasobach](xref:security/authorization/resourcebased#security-authorization-resource-based-imperative):
 
 ```cshtml
 @if ((await AuthorizationService.AuthorizeAsync(User, Model, Operations.Edit)).Succeeded)
@@ -57,19 +43,7 @@ W niektórych przypadkach zasób zostanie modelu widoku. Wywoływanie `Authorize
 }
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-```cshtml
-@if (await AuthorizationService.AuthorizeAsync(User, Model, Operations.Edit))
-{
-    <p><a class="btn btn-default" role="button"
-        href="@Url.Action("Edit", "Document", new { id = Model.Id })">Edit</a></p>
-}
-```
-
----
-
-W poprzednim kodzie modelu jest przekazywany jako zasób, który powinno zająć oceny zasad pod uwagę.
+W poprzednim kodzie model jest przenoszona jako zasób, a Ocena zasad powinna być uwzględniana.
 
 > [!WARNING]
-> Nie należy polegać na przełączanie widoczność elementów interfejsu użytkownika aplikacji, jak wyboru jedyny autoryzacji. Ukrywanie elementu interfejsu użytkownika może nie całkowicie uniemożliwić dostęp do jego działania skojarzonego kontrolera. Rozważmy na przykład przycisk w poprzednim fragmencie kodu. Użytkownik może wywołać `Edit` metody akcji, jeśli użytkownik zna względną zasobu Adres URL jest */Document/Edit/1*. Z tego powodu `Edit` metody akcji, należy wykonać swoje własne sprawdzenie autoryzacji.
+> Nie należy polegać na przełączaniu widoczności elementów interfejsu użytkownika aplikacji jako pojedynczej kontroli autoryzacji. Ukrycie elementu interfejsu użytkownika może nie całkowicie uniemożliwić dostęp do jego skojarzonej akcji kontrolera. Rozważmy na przykład przycisk w powyższym fragmencie kodu. Użytkownik może wywołać metodę akcji `Edit`, jeśli wie, że adres URL zasobu względnego to */Document/Edit/1*. Z tego powodu metoda działania `Edit` powinna wykonywać własne sprawdzanie autoryzacji.
