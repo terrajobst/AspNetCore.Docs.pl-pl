@@ -22,10 +22,9 @@ Aby opóźnić wywołania międzyoperacyjne języka JavaScript do momentu ustano
 }
 ```
 
-W powyższym przykładowym kodzie Podaj `setElementText` funkcję JavaScript wewnątrz elementu `<head>` *wwwroot/index.html* (Blazor webassembly) lub *Pages/_Host. cshtml* (Blazor Server). Funkcja jest wywoływana z `IJSRuntime.InvokeVoidAsync` i nie zwraca wartości:
+W powyższym przykładowym kodzie Podaj `setElementText` funkcję JavaScript wewnątrz elementu `<head>` *wwwroot/index.html* (Blazor webassembly) lub *pages/_Host. cshtml* (Blazor Server). Funkcja jest wywoływana z `IJSRuntime.InvokeVoidAsync` i nie zwraca wartości:
 
 ```html
-<!--  -->
 <script>
   window.setElementText = (element, text) => element.innerText = text;
 </script>
@@ -71,7 +70,7 @@ Set value via JS interop call:
 }
 ```
 
-W powyższym przykładowym kodzie Podaj `setElementText` funkcję JavaScript wewnątrz elementu `<head>` *wwwroot/index.html* (Blazor webassembly) lub *Pages/_Host. cshtml* (Blazor Server). Funkcja jest wywoływana z `IJSRuntime.InvokeAsync` i zwraca wartość:
+W powyższym przykładowym kodzie Podaj `setElementText` funkcję JavaScript wewnątrz elementu `<head>` *wwwroot/index.html* (Blazor webassembly) lub *pages/_Host. cshtml* (Blazor Server). Funkcja jest wywoływana z `IJSRuntime.InvokeAsync` i zwraca wartość:
 
 ```html
 <script>
