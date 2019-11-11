@@ -5,14 +5,14 @@ description: Dowiedz się, jak ASP.NET Core abstrakcji dostępu do systemu plik�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 11/07/2019
 uid: fundamentals/file-providers
-ms.openlocfilehash: 3a92b44efc70d156596ee9fe80b4f6a65266e73d
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: 531f7acd7a704a74e6142d201f613f05288deecb
+ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007167"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73896852"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Dostawcy plików w ASP.NET Core
 
@@ -22,16 +22,16 @@ ms.locfileid: "72007167"
 
 ASP.NET Core abstrakcję dostępu systemu plików przy użyciu dostawców plików. Dostawcy plików są używani w całym ASP.NET Core Framework:
 
-* `IWebHostEnvironment` uwidacznia [katalog główny zawartości](xref:fundamentals/index#content-root) aplikacji i [katalog główny sieci web](xref:fundamentals/index#web-root) jako typy `IFileProvider`.
+* `IWebHostEnvironment` uwidacznia [katalog główny zawartości](xref:fundamentals/index#content-root) aplikacji i [katalogu głównego sieci web](xref:fundamentals/index#web-root) jako typy `IFileProvider`.
 * [Oprogramowanie pośredniczące plików statycznych](xref:fundamentals/static-files) używa dostawców plików do lokalizowania plików statycznych.
 * [Razor](xref:mvc/views/razor) używa dostawców plików do lokalizowania stron i widoków.
 * Narzędzia .NET Core używają dostawców plików i wzorców globalizowania, aby określić, które pliki powinny zostać opublikowane.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="file-provider-interfaces"></a>Interfejsy dostawcy plików
 
-Podstawowy interfejs to <xref:Microsoft.Extensions.FileProviders.IFileProvider>. `IFileProvider` uwidacznia metody, aby:
+Interfejs podstawowy jest <xref:Microsoft.Extensions.FileProviders.IFileProvider>. `IFileProvider` uwidacznia metody:
 
 * Uzyskaj informacje o pliku (<xref:Microsoft.Extensions.FileProviders.IFileInfo>).
 * Uzyskaj informacje o katalogu (<xref:Microsoft.Extensions.FileProviders.IDirectoryContents>).
@@ -43,7 +43,7 @@ Podstawowy interfejs to <xref:Microsoft.Extensions.FileProviders.IFileProvider>.
 * <xref:Microsoft.Extensions.FileProviders.IFileInfo.IsDirectory>
 * <xref:Microsoft.Extensions.FileProviders.IFileInfo.Name>
 * <xref:Microsoft.Extensions.FileProviders.IFileInfo.Length> (w bajtach)
-* <xref:Microsoft.Extensions.FileProviders.IFileInfo.LastModified> Data
+* Data <xref:Microsoft.Extensions.FileProviders.IFileInfo.LastModified>
 
 Można odczytać z pliku za pomocą metody [IFileInfo. CreateReadStream](xref:Microsoft.Extensions.FileProviders.IFileInfo.CreateReadStream*) .
 
@@ -53,7 +53,7 @@ Przykładowa aplikacja pokazuje, jak skonfigurować dostawcę plików w `Startup
 
 Dostępne są trzy implementacje `IFileProvider`.
 
-| Wdrażanie | Opis |
+| Implementacja | Opis |
 | -------------- | ----------- |
 | [PhysicalFileProvider](#physicalfileprovider) | Dostawca fizyczny jest używany do uzyskiwania dostępu do plików fizycznych systemu. |
 | [ManifestEmbeddedFileProvider](#manifestembeddedfileprovider) | Dostawca osadzony manifestu służy do uzyskiwania dostępu do plików osadzonych w zestawach. |
@@ -61,7 +61,7 @@ Dostępne są trzy implementacje `IFileProvider`.
 
 ### <a name="physicalfileprovider"></a>PhysicalFileProvider
 
-@No__t-0 zapewnia dostęp do fizycznego systemu plików. `PhysicalFileProvider` używa typu <xref:System.IO.File?displayProperty=fullName> (dla dostawcy fizycznego) i zakresy wszystkie ścieżki do katalogu i jego elementów podrzędnych. Takie Określanie zakresu uniemożliwia dostęp do systemu plików poza określonym katalogiem i jego elementami podrzędnymi. Najbardziej typowym scenariuszem tworzenia i używania `PhysicalFileProvider` jest zażądanie `IFileProvider` w konstruktorze poprzez [iniekcję zależności](xref:fundamentals/dependency-injection).
+<xref:Microsoft.Extensions.FileProviders.PhysicalFileProvider> zapewnia dostęp do fizycznego systemu plików. `PhysicalFileProvider` używa typu <xref:System.IO.File?displayProperty=fullName> (dla dostawcy fizycznego) i zakresy wszystkie ścieżki do katalogu i jego elementów podrzędnych. Takie Określanie zakresu uniemożliwia dostęp do systemu plików poza określonym katalogiem i jego elementami podrzędnymi. Najbardziej typowym scenariuszem tworzenia i używania `PhysicalFileProvider` jest zażądanie `IFileProvider` w konstruktorze poprzez [iniekcję zależności](xref:fundamentals/dependency-injection).
 
 W przypadku bezpośredniego tworzenia wystąpienia tego dostawcy ścieżka katalogu jest wymagana i służy jako ścieżka podstawowa dla wszystkich żądań wysyłanych przy użyciu dostawcy.
 
@@ -75,11 +75,11 @@ var fileInfo = provider.GetFileInfo("wwwroot/js/site.js");
 
 Typy w poprzednim przykładzie:
 
-* `provider` to `IFileProvider`.
-* `contents` to `IDirectoryContents`.
-* `fileInfo` to `IFileInfo`.
+* `provider` jest `IFileProvider`.
+* `contents` jest `IDirectoryContents`.
+* `fileInfo` jest `IFileInfo`.
 
-Dostawca plików może służyć do iteracji przez katalog określony przez `applicationRoot` lub wywołania `GetFileInfo` w celu uzyskania informacji o pliku. Dostawca plików nie ma dostępu poza katalogiem `applicationRoot`.
+Dostawcy plików można użyć do iteracji w katalogu określonym przez `applicationRoot` lub wywołać `GetFileInfo`, aby uzyskać informacje o pliku. Dostawca plików nie ma dostępu poza katalogiem `applicationRoot`.
 
 Przykładowa aplikacja tworzy dostawcę w klasie `Startup.ConfigureServices` aplikacji za pomocą [IHostingEnvironment. ContentRootFileProvider](xref:Microsoft.Extensions.Hosting.IHostingEnvironment.ContentRootFileProvider):
 
@@ -89,7 +89,7 @@ var physicalProvider = _env.ContentRootFileProvider;
 
 ### <a name="manifestembeddedfileprovider"></a>ManifestEmbeddedFileProvider
 
-@No__t-0 służy do uzyskiwania dostępu do plików osadzonych w zestawach. @No__t-0 używa manifestu skompilowanego w zestawie, aby odtworzyć oryginalne ścieżki osadzonych plików.
+<xref:Microsoft.Extensions.FileProviders.ManifestEmbeddedFileProvider> służy do uzyskiwania dostępu do plików osadzonych w zestawach. `ManifestEmbeddedFileProvider` używa manifestu skompilowanego w zestawie, aby odtworzyć oryginalne ścieżki osadzonych plików.
 
 Dodaj odwołanie do pakietu do projektu dla pakietu [Microsoft. Extensions. FileProviders. Embedded](https://www.nuget.org/packages/Microsoft.Extensions.FileProviders.Embedded) .
 
@@ -105,7 +105,7 @@ Przykładowa aplikacja tworzy `ManifestEmbeddedFileProvider` i przekazuje aktual
 
 ```csharp
 var manifestEmbeddedProvider = 
-    new ManifestEmbeddedFileProvider(Assembly.GetEntryAssembly());
+    new ManifestEmbeddedFileProvider(typeof(Program).Assembly);
 ```
 
 Dodatkowe przeciążenia umożliwiają:
@@ -116,13 +116,13 @@ Dodatkowe przeciążenia umożliwiają:
 
 | Występują | Opis |
 | -------- | ----------- |
-| `ManifestEmbeddedFileProvider(Assembly, String)` | Akceptuje opcjonalny parametr ścieżki względnej `root`. Określ `root` do zakresu wywołań do <xref:Microsoft.Extensions.FileProviders.IFileProvider.GetDirectoryContents*> do tych zasobów w ramach podanej ścieżki. |
-| `ManifestEmbeddedFileProvider(Assembly, String, DateTimeOffset)` | Akceptuje opcjonalny parametr ścieżki względnej `root` i `lastModified` Data (<xref:System.DateTimeOffset>). W przypadku zakresów `lastModified` Data ostatniej modyfikacji dla wystąpień <xref:Microsoft.Extensions.FileProviders.IFileInfo> zwracanych przez <xref:Microsoft.Extensions.FileProviders.IFileProvider>. |
-| `ManifestEmbeddedFileProvider(Assembly, String, String, DateTimeOffset)` | Akceptuje opcjonalną ścieżkę względną `root`, datę `lastModified` i parametry `manifestName`. @No__t-0 reprezentuje nazwę osadzonego zasobu zawierającego manifest. |
+| `ManifestEmbeddedFileProvider(Assembly, String)` | Akceptuje opcjonalny parametr ścieżki względnej `root`. Określ `root`, aby określić zakres wywołań <xref:Microsoft.Extensions.FileProviders.IFileProvider.GetDirectoryContents*> do tych zasobów w ramach podanej ścieżki. |
+| `ManifestEmbeddedFileProvider(Assembly, String, DateTimeOffset)` | Akceptuje opcjonalny parametr ścieżki względnej `root` i parametr `lastModified` Date (<xref:System.DateTimeOffset>). Data `lastModified` zakresy dat ostatniej modyfikacji <xref:Microsoft.Extensions.FileProviders.IFileInfo> wystąpień zwracanych przez <xref:Microsoft.Extensions.FileProviders.IFileProvider>. |
+| `ManifestEmbeddedFileProvider(Assembly, String, String, DateTimeOffset)` | Akceptuje opcjonalną `root` ścieżkę względną, datę `lastModified` i parametry `manifestName`. `manifestName` reprezentuje nazwę zasobu osadzonego zawierającego manifest. |
 
 ### <a name="compositefileprovider"></a>CompositeFileProvider
 
-@No__t-0 łączy wystąpienia `IFileProvider`, uwidaczniając pojedynczy interfejs do pracy z plikami z wielu dostawców. Podczas tworzenia `CompositeFileProvider` do jego konstruktora należy przekazać co najmniej jedno wystąpienie `IFileProvider`.
+<xref:Microsoft.Extensions.FileProviders.CompositeFileProvider> łączy wystąpienia `IFileProvider`, uwidaczniając pojedynczy interfejs do pracy z plikami z wielu dostawców. Podczas tworzenia `CompositeFileProvider`Przekaż co najmniej jedno wystąpienie `IFileProvider` do jego konstruktora.
 
 W przykładowej aplikacji `PhysicalFileProvider` i `ManifestEmbeddedFileProvider` udostępniają pliki `CompositeFileProvider` zarejestrowane w kontenerze usługi aplikacji:
 
@@ -133,13 +133,13 @@ W przykładowej aplikacji `PhysicalFileProvider` i `ManifestEmbeddedFileProvider
 Metoda [IFileProvider. Watch](xref:Microsoft.Extensions.FileProviders.IFileProvider.Watch*) zawiera scenariusz, aby obejrzeć zmiany w jednym lub kilku plikach lub katalogach. `Watch` akceptuje ciąg ścieżki, który może używać [wzorców globalizowania](#glob-patterns) do określenia wielu plików. `Watch` zwraca <xref:Microsoft.Extensions.Primitives.IChangeToken>. Token zmiany ujawnia:
 
 * <xref:Microsoft.Extensions.Primitives.IChangeToken.HasChanged> &ndash; właściwość, którą można sprawdzić w celu ustalenia, czy wprowadzono zmianę.
-* <xref:Microsoft.Extensions.Primitives.IChangeToken.RegisterChangeCallback*> &ndash; wywołana, gdy zostaną wykryte zmiany do określonego ciągu ścieżki. Każdy token zmiany wywołuje tylko skojarzone wywołanie zwrotne w odpowiedzi na pojedynczą zmianę. Aby włączyć monitorowanie stałe, użyj <xref:System.Threading.Tasks.TaskCompletionSource`1> (pokazanego poniżej) lub ponownie utwórz wystąpienia `IChangeToken` w odpowiedzi na zmiany.
+* <xref:Microsoft.Extensions.Primitives.IChangeToken.RegisterChangeCallback*> &ndash; wywoływana, gdy zostaną wykryte zmiany do określonego ciągu ścieżki. Każdy token zmiany wywołuje tylko skojarzone wywołanie zwrotne w odpowiedzi na pojedynczą zmianę. Aby włączyć monitorowanie stałe, użyj <xref:System.Threading.Tasks.TaskCompletionSource`1> (pokazane poniżej) lub ponownie utwórz wystąpienia `IChangeToken` w odpowiedzi na zmiany.
 
 W aplikacji przykładowej Aplikacja konsolowa *WatchConsole* jest skonfigurowana do wyświetlania komunikatu za każdym razem, gdy plik tekstowy zostanie zmodyfikowany:
 
 [!code-csharp[](file-providers/samples/3.x/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
 
-Niektóre systemy plików, takie jak kontenery platformy Docker i udziały sieciowe, mogą niezawodnie wysyłać powiadomienia o zmianach. Ustaw zmienną środowiskową `DOTNET_USE_POLLING_FILE_WATCHER` na `1` lub `true`, aby sondować system plików pod kątem zmian co cztery sekundy (nie można skonfigurować).
+Niektóre systemy plików, takie jak kontenery platformy Docker i udziały sieciowe, mogą niezawodnie wysyłać powiadomienia o zmianach. Ustaw zmienną środowiskową `DOTNET_USE_POLLING_FILE_WATCHER`, aby `1` lub `true` sondować system plików pod kątem zmian co cztery sekundy (nie można skonfigurować).
 
 ## <a name="glob-patterns"></a>Wzorce globalizowania
 
@@ -171,16 +171,16 @@ Dopasowuje wszystkie pliki z rozszerzeniem *. txt* , które znajdują się w dow
 
 ASP.NET Core abstrakcję dostępu systemu plików przy użyciu dostawców plików. Dostawcy plików są używani w całym ASP.NET Core Framework:
 
-* <xref:Microsoft.Extensions.Hosting.IHostingEnvironment> uwidacznia [katalog główny zawartości](xref:fundamentals/index#content-root) aplikacji i [katalog główny sieci web](xref:fundamentals/index#web-root) jako typy `IFileProvider`.
+* <xref:Microsoft.Extensions.Hosting.IHostingEnvironment> uwidacznia [katalog główny zawartości](xref:fundamentals/index#content-root) aplikacji i [katalogu głównego sieci web](xref:fundamentals/index#web-root) jako typy `IFileProvider`.
 * [Oprogramowanie pośredniczące plików statycznych](xref:fundamentals/static-files) używa dostawców plików do lokalizowania plików statycznych.
 * [Razor](xref:mvc/views/razor) używa dostawców plików do lokalizowania stron i widoków.
 * Narzędzia .NET Core używają dostawców plików i wzorców globalizowania, aby określić, które pliki powinny zostać opublikowane.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="file-provider-interfaces"></a>Interfejsy dostawcy plików
 
-Podstawowy interfejs to <xref:Microsoft.Extensions.FileProviders.IFileProvider>. `IFileProvider` uwidacznia metody, aby:
+Interfejs podstawowy jest <xref:Microsoft.Extensions.FileProviders.IFileProvider>. `IFileProvider` uwidacznia metody:
 
 * Uzyskaj informacje o pliku (<xref:Microsoft.Extensions.FileProviders.IFileInfo>).
 * Uzyskaj informacje o katalogu (<xref:Microsoft.Extensions.FileProviders.IDirectoryContents>).
@@ -192,7 +192,7 @@ Podstawowy interfejs to <xref:Microsoft.Extensions.FileProviders.IFileProvider>.
 * <xref:Microsoft.Extensions.FileProviders.IFileInfo.IsDirectory>
 * <xref:Microsoft.Extensions.FileProviders.IFileInfo.Name>
 * <xref:Microsoft.Extensions.FileProviders.IFileInfo.Length> (w bajtach)
-* <xref:Microsoft.Extensions.FileProviders.IFileInfo.LastModified> Data
+* Data <xref:Microsoft.Extensions.FileProviders.IFileInfo.LastModified>
 
 Można odczytać z pliku za pomocą metody [IFileInfo. CreateReadStream](xref:Microsoft.Extensions.FileProviders.IFileInfo.CreateReadStream*) .
 
@@ -202,7 +202,7 @@ Przykładowa aplikacja pokazuje, jak skonfigurować dostawcę plików w `Startup
 
 Dostępne są trzy implementacje `IFileProvider`.
 
-| Wdrażanie | Opis |
+| Implementacja | Opis |
 | -------------- | ----------- |
 | [PhysicalFileProvider](#physicalfileprovider) | Dostawca fizyczny jest używany do uzyskiwania dostępu do plików fizycznych systemu. |
 | [ManifestEmbeddedFileProvider](#manifestembeddedfileprovider) | Dostawca osadzony manifestu służy do uzyskiwania dostępu do plików osadzonych w zestawach. |
@@ -210,7 +210,7 @@ Dostępne są trzy implementacje `IFileProvider`.
 
 ### <a name="physicalfileprovider"></a>PhysicalFileProvider
 
-@No__t-0 zapewnia dostęp do fizycznego systemu plików. `PhysicalFileProvider` używa typu <xref:System.IO.File?displayProperty=fullName> (dla dostawcy fizycznego) i zakresy wszystkie ścieżki do katalogu i jego elementów podrzędnych. Takie Określanie zakresu uniemożliwia dostęp do systemu plików poza określonym katalogiem i jego elementami podrzędnymi. Najbardziej typowym scenariuszem tworzenia i używania `PhysicalFileProvider` jest zażądanie `IFileProvider` w konstruktorze poprzez [iniekcję zależności](xref:fundamentals/dependency-injection).
+<xref:Microsoft.Extensions.FileProviders.PhysicalFileProvider> zapewnia dostęp do fizycznego systemu plików. `PhysicalFileProvider` używa typu <xref:System.IO.File?displayProperty=fullName> (dla dostawcy fizycznego) i zakresy wszystkie ścieżki do katalogu i jego elementów podrzędnych. Takie Określanie zakresu uniemożliwia dostęp do systemu plików poza określonym katalogiem i jego elementami podrzędnymi. Najbardziej typowym scenariuszem tworzenia i używania `PhysicalFileProvider` jest zażądanie `IFileProvider` w konstruktorze poprzez [iniekcję zależności](xref:fundamentals/dependency-injection).
 
 W przypadku bezpośredniego tworzenia wystąpienia tego dostawcy ścieżka katalogu jest wymagana i służy jako ścieżka podstawowa dla wszystkich żądań wysyłanych przy użyciu dostawcy.
 
@@ -224,11 +224,11 @@ var fileInfo = provider.GetFileInfo("wwwroot/js/site.js");
 
 Typy w poprzednim przykładzie:
 
-* `provider` to `IFileProvider`.
-* `contents` to `IDirectoryContents`.
-* `fileInfo` to `IFileInfo`.
+* `provider` jest `IFileProvider`.
+* `contents` jest `IDirectoryContents`.
+* `fileInfo` jest `IFileInfo`.
 
-Dostawca plików może służyć do iteracji przez katalog określony przez `applicationRoot` lub wywołania `GetFileInfo` w celu uzyskania informacji o pliku. Dostawca plików nie ma dostępu poza katalogiem `applicationRoot`.
+Dostawcy plików można użyć do iteracji w katalogu określonym przez `applicationRoot` lub wywołać `GetFileInfo`, aby uzyskać informacje o pliku. Dostawca plików nie ma dostępu poza katalogiem `applicationRoot`.
 
 Przykładowa aplikacja tworzy dostawcę w klasie `Startup.ConfigureServices` aplikacji za pomocą [IHostingEnvironment. ContentRootFileProvider](xref:Microsoft.Extensions.Hosting.IHostingEnvironment.ContentRootFileProvider):
 
@@ -238,9 +238,9 @@ var physicalProvider = _env.ContentRootFileProvider;
 
 ### <a name="manifestembeddedfileprovider"></a>ManifestEmbeddedFileProvider
 
-@No__t-0 służy do uzyskiwania dostępu do plików osadzonych w zestawach. @No__t-0 używa manifestu skompilowanego w zestawie, aby odtworzyć oryginalne ścieżki osadzonych plików.
+<xref:Microsoft.Extensions.FileProviders.ManifestEmbeddedFileProvider> służy do uzyskiwania dostępu do plików osadzonych w zestawach. `ManifestEmbeddedFileProvider` używa manifestu skompilowanego w zestawie, aby odtworzyć oryginalne ścieżki osadzonych plików.
 
-Aby wygenerować manifest osadzonych plików, ustaw właściwość `<GenerateEmbeddedFilesManifest>` na `true`. Określ pliki do osadzenia przy użyciu [&lt;EmbeddedResource @ no__t-2](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects):
+Aby wygenerować manifest osadzonych plików, ustaw właściwość `<GenerateEmbeddedFilesManifest>` na `true`. Określ pliki do osadzenia przy użyciu [&lt;EmbeddedResource&gt;](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects):
 
 [!code-csharp[](file-providers/samples/2.x/FileProviderSample/FileProviderSample.csproj?highlight=6,14)]
 
@@ -252,7 +252,7 @@ Przykładowa aplikacja tworzy `ManifestEmbeddedFileProvider` i przekazuje aktual
 
 ```csharp
 var manifestEmbeddedProvider = 
-    new ManifestEmbeddedFileProvider(Assembly.GetEntryAssembly());
+    new ManifestEmbeddedFileProvider(typeof(Program).Assembly);
 ```
 
 Dodatkowe przeciążenia umożliwiają:
@@ -263,13 +263,13 @@ Dodatkowe przeciążenia umożliwiają:
 
 | Występują | Opis |
 | -------- | ----------- |
-| `ManifestEmbeddedFileProvider(Assembly, String)` | Akceptuje opcjonalny parametr ścieżki względnej `root`. Określ `root` do zakresu wywołań do <xref:Microsoft.Extensions.FileProviders.IFileProvider.GetDirectoryContents*> do tych zasobów w ramach podanej ścieżki. |
-| `ManifestEmbeddedFileProvider(Assembly, String, DateTimeOffset)` | Akceptuje opcjonalny parametr ścieżki względnej `root` i `lastModified` Data (<xref:System.DateTimeOffset>). W przypadku zakresów `lastModified` Data ostatniej modyfikacji dla wystąpień <xref:Microsoft.Extensions.FileProviders.IFileInfo> zwracanych przez <xref:Microsoft.Extensions.FileProviders.IFileProvider>. |
-| `ManifestEmbeddedFileProvider(Assembly, String, String, DateTimeOffset)` | Akceptuje opcjonalną ścieżkę względną `root`, datę `lastModified` i parametry `manifestName`. @No__t-0 reprezentuje nazwę osadzonego zasobu zawierającego manifest. |
+| `ManifestEmbeddedFileProvider(Assembly, String)` | Akceptuje opcjonalny parametr ścieżki względnej `root`. Określ `root`, aby określić zakres wywołań <xref:Microsoft.Extensions.FileProviders.IFileProvider.GetDirectoryContents*> do tych zasobów w ramach podanej ścieżki. |
+| `ManifestEmbeddedFileProvider(Assembly, String, DateTimeOffset)` | Akceptuje opcjonalny parametr ścieżki względnej `root` i parametr `lastModified` Date (<xref:System.DateTimeOffset>). Data `lastModified` zakresy dat ostatniej modyfikacji <xref:Microsoft.Extensions.FileProviders.IFileInfo> wystąpień zwracanych przez <xref:Microsoft.Extensions.FileProviders.IFileProvider>. |
+| `ManifestEmbeddedFileProvider(Assembly, String, String, DateTimeOffset)` | Akceptuje opcjonalną `root` ścieżkę względną, datę `lastModified` i parametry `manifestName`. `manifestName` reprezentuje nazwę zasobu osadzonego zawierającego manifest. |
 
 ### <a name="compositefileprovider"></a>CompositeFileProvider
 
-@No__t-0 łączy wystąpienia `IFileProvider`, uwidaczniając pojedynczy interfejs do pracy z plikami z wielu dostawców. Podczas tworzenia `CompositeFileProvider` do jego konstruktora należy przekazać co najmniej jedno wystąpienie `IFileProvider`.
+<xref:Microsoft.Extensions.FileProviders.CompositeFileProvider> łączy wystąpienia `IFileProvider`, uwidaczniając pojedynczy interfejs do pracy z plikami z wielu dostawców. Podczas tworzenia `CompositeFileProvider`Przekaż co najmniej jedno wystąpienie `IFileProvider` do jego konstruktora.
 
 W przykładowej aplikacji `PhysicalFileProvider` i `ManifestEmbeddedFileProvider` udostępniają pliki `CompositeFileProvider` zarejestrowane w kontenerze usługi aplikacji:
 
@@ -280,13 +280,13 @@ W przykładowej aplikacji `PhysicalFileProvider` i `ManifestEmbeddedFileProvider
 Metoda [IFileProvider. Watch](xref:Microsoft.Extensions.FileProviders.IFileProvider.Watch*) zawiera scenariusz, aby obejrzeć zmiany w jednym lub kilku plikach lub katalogach. `Watch` akceptuje ciąg ścieżki, który może używać [wzorców globalizowania](#glob-patterns) do określenia wielu plików. `Watch` zwraca <xref:Microsoft.Extensions.Primitives.IChangeToken>. Token zmiany ujawnia:
 
 * <xref:Microsoft.Extensions.Primitives.IChangeToken.HasChanged> &ndash; właściwość, którą można sprawdzić w celu ustalenia, czy wprowadzono zmianę.
-* <xref:Microsoft.Extensions.Primitives.IChangeToken.RegisterChangeCallback*> &ndash; wywołana, gdy zostaną wykryte zmiany do określonego ciągu ścieżki. Każdy token zmiany wywołuje tylko skojarzone wywołanie zwrotne w odpowiedzi na pojedynczą zmianę. Aby włączyć monitorowanie stałe, użyj <xref:System.Threading.Tasks.TaskCompletionSource`1> (pokazanego poniżej) lub ponownie utwórz wystąpienia `IChangeToken` w odpowiedzi na zmiany.
+* <xref:Microsoft.Extensions.Primitives.IChangeToken.RegisterChangeCallback*> &ndash; wywoływana, gdy zostaną wykryte zmiany do określonego ciągu ścieżki. Każdy token zmiany wywołuje tylko skojarzone wywołanie zwrotne w odpowiedzi na pojedynczą zmianę. Aby włączyć monitorowanie stałe, użyj <xref:System.Threading.Tasks.TaskCompletionSource`1> (pokazane poniżej) lub ponownie utwórz wystąpienia `IChangeToken` w odpowiedzi na zmiany.
 
 W aplikacji przykładowej Aplikacja konsolowa *WatchConsole* jest skonfigurowana do wyświetlania komunikatu za każdym razem, gdy plik tekstowy zostanie zmodyfikowany:
 
 [!code-csharp[](file-providers/samples/2.x/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
 
-Niektóre systemy plików, takie jak kontenery platformy Docker i udziały sieciowe, mogą niezawodnie wysyłać powiadomienia o zmianach. Ustaw zmienną środowiskową `DOTNET_USE_POLLING_FILE_WATCHER` na `1` lub `true`, aby sondować system plików pod kątem zmian co cztery sekundy (nie można skonfigurować).
+Niektóre systemy plików, takie jak kontenery platformy Docker i udziały sieciowe, mogą niezawodnie wysyłać powiadomienia o zmianach. Ustaw zmienną środowiskową `DOTNET_USE_POLLING_FILE_WATCHER`, aby `1` lub `true` sondować system plików pod kątem zmian co cztery sekundy (nie można skonfigurować).
 
 ## <a name="glob-patterns"></a>Wzorce globalizowania
 
