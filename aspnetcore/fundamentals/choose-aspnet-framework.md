@@ -1,63 +1,65 @@
 ---
-title: Wybieranie między ASP.NET 4.x i ASP.NET Core
+title: Wybierz między ASP.NET 4. x i ASP.NET Core
 author: rick-anderson
-description: W tym artykule wyjaśniono vs platformy ASP.NET Core. ASP.NET 4.x i jak dokonać wyboru między nimi.
+description: Wyjaśnia ASP.NET Core a ASP.NET 4. x oraz jak wybierać między nimi.
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 07/15/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: 9e093e83a1f6367cbb244076a8351644244f9874
-ms.sourcegitcommit: 7e00e8236ca4eabf058f07020a5a3882daf7564f
+ms.openlocfilehash: 8b1681476f96e8613f9461c507fbb7696f888cbc
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68239202"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963627"
 ---
-# <a name="choose-between-aspnet-4x-and-aspnet-core"></a>Wybieranie między ASP.NET 4.x i ASP.NET Core
+# <a name="choose-between-aspnet-4x-and-aspnet-core"></a>Wybierz między ASP.NET 4. x i ASP.NET Core
 
-Platforma ASP.NET Core to przeprojektowana platforma ASP.NET 4.x. W tym artykule przedstawiono różnice między nimi.
+ASP.NET Core jest przeprojektowana ASP.NET 4. x. W tym artykule wymieniono różnice między nimi.
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
-ASP.NET Core to architektura typu open source i między platformami do tworzenia aplikacji sieci web Nowoczesna, oparta na chmurze systemie Windows, macOS lub Linux.
+ASP.NET Core to międzyplatformowa platforma służąca do tworzenia nowoczesnych, opartych na chmurze aplikacji sieci Web w systemie Windows, macOS lub Linux.
 
 [!INCLUDE[](~/includes/benefits.md)]
 
-## <a name="aspnet-4x"></a>ASP.NET 4.x
+## <a name="aspnet-4x"></a>ASP.NET 4. x
 
-ASP.NET 4.x to dojrzała platforma, która zapewnia usługi potrzebne do tworzenia przeznaczonych dla przedsiębiorstw oparte na serwerze aplikacji sieci web na Windows.
+ASP.NET 4. x to przedwczesne środowisko, które zapewnia usługi, które są konieczne do tworzenia aplikacji sieci Web klasy korporacyjnej opartych na serwerze w systemie Windows.
 
-## <a name="framework-selection"></a>Wybór Framework
+## <a name="framework-selection"></a>Wybór struktury
 
-W poniższej tabeli porównano platformy ASP.NET Core, platformy ASP.NET 4.x.
+Poniższa tabela zawiera porównanie ASP.NET Core z ASP.NET 4. x.
 
-| ASP.NET Core | ASP.NET 4.x |
+| ASP.NET Core | ASP.NET 4. x |
 |---|---|
-|Tworzenie dla systemu Windows, system macOS lub Linux|Tworzenie dla systemu Windows|
-|[Strony razor](xref:razor-pages/index) przedstawia zalecane podejście do tworzenia interfejsu użytkownika sieci Web począwszy od platformy ASP.NET Core 2.x. Zobacz też [MVC](xref:mvc/overview), [interfejs API sieci Web](xref:tutorials/first-web-api), i [SignalR](xref:signalr/introduction).|Użyj [Web Forms](/aspnet/web-forms), [SignalR](/aspnet/signalr), [MVC](/aspnet/mvc), [interfejs API sieci Web](/aspnet/web-api/), [elementów Webhook](/aspnet/webhooks/), lub [stron sieci Web](/aspnet/web-pages)|
-|Wiele wersji na maszynie|Jedna wersja na maszynie|
-|Programowanie z użyciem [programu Visual Studio](https://visualstudio.microsoft.com/vs/), [programu Visual Studio dla komputerów Mac](https://visualstudio.microsoft.com/vs/mac/), lub [programu Visual Studio Code](https://code.visualstudio.com/) przy użyciu C# lubF#|Programowanie z użyciem [programu Visual Studio](https://visualstudio.microsoft.com/vs/) przy użyciu C#, VB, lubF#|
-|Wyższą wydajność niż ASP.NET 4.x|Dobra wydajność|
-|[Użyj środowiska uruchomieniowego .NET Core](/dotnet/standard/choosing-core-framework-server)|Używasz środowiska uruchomieniowego .NET Framework|
+|Kompilacja dla systemu Windows, macOS lub Linux|Kompiluj dla systemu Windows|
+|[Razor Pages](xref:razor-pages/index) jest zalecanym podejściem do tworzenia interfejsu użytkownika sieci Web w przypadku ASP.NET Core 2. x. Zobacz również [MVC](xref:mvc/overview), [Web API](xref:tutorials/first-web-api)i [SignalR](xref:signalr/introduction).|Korzystanie z [formularzy sieci Web](/aspnet/web-forms), [SignalR](/aspnet/signalr), [MVC](/aspnet/mvc), internetowego [interfejsu API](/aspnet/web-api/), elementów [webhook](/aspnet/webhooks/)lub [stron sieci Web](/aspnet/web-pages)|
+|Wiele wersji na maszynę|Jedna wersja na maszynę|
+|Programowanie za pomocą [programu Visual Studio](https://visualstudio.microsoft.com/vs/), [Visual Studio dla komputerów Mac](https://visualstudio.microsoft.com/vs/mac/)lub [Visual Studio Code](https://code.visualstudio.com/) przy użyciu C# lubF#|Programowanie w programie [Visual Studio](https://visualstudio.microsoft.com/vs/) przy użyciu C#programu, VB lubF#|
+|Wyższa wydajność niż ASP.NET 4. x|Dobra wydajność|
+|[Korzystanie z środowiska uruchomieniowego platformy .NET Core](/dotnet/standard/choosing-core-framework-server)|Użyj środowiska uruchomieniowego .NET Framework|
 
-Zobacz [platformy ASP.NET Core przeznaczone dla .NET Framework](xref:index#target-framework) informacje na temat platformy ASP.NET Core 2.x obsługi w programie .NET Framework.
+Aby uzyskać informacje na temat obsługi programu ASP.NET Core 2. x w systemie .NET Framework, zobacz [ASP.NET Core określania celu .NET Framework](xref:index#target-framework) .
 
-## <a name="aspnet-core-scenarios"></a>Scenariusze platformy ASP.NET Core
+## <a name="aspnet-core-scenarios"></a>Scenariusze ASP.NET Core
 
-* [Witryny sieci Web](xref:tutorials/first-mvc-app/index)
-* [Interfejsy API](xref:tutorials/first-web-api)
+* [Zaufany](xref:tutorials/first-mvc-app/index)
+* [Programowania](xref:tutorials/first-web-api)
 * [W czasie rzeczywistym](xref:signalr/index)
 * [Wdrażanie aplikacji ASP.NET Core na platformie Azure](/azure/app-service/app-service-web-get-started-dotnet)
 
-## <a name="aspnet-4x-scenarios"></a>Scenariusze 4.x ASP.NET
+## <a name="aspnet-4x-scenarios"></a>Scenariusze ASP.NET 4. x
 
-* [Witryny sieci Web](/aspnet/mvc)
-* [Interfejsy API](/aspnet/web-api)
+* [Zaufany](/aspnet/mvc)
+* [Programowania](/aspnet/web-api)
 * [W czasie rzeczywistym](/aspnet/signalr)
-* [Tworzenie aplikacji sieci web platformy ASP.NET 4.x na platformie Azure](/azure/app-service/app-service-web-get-started-dotnet-framework)
+* [Tworzenie aplikacji sieci Web ASP.NET 4. x na platformie Azure](/azure/app-service/app-service-web-get-started-dotnet-framework)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Wprowadzenie do platformy ASP.NET](/aspnet/overview)
-* [Wprowadzenie do platformy ASP.NET Core](xref:index)
+* [Wprowadzenie do ASP.NET](/aspnet/overview)
+* [Wprowadzenie do ASP.NET Core](xref:index)
 * <xref:host-and-deploy/azure-apps/index>
