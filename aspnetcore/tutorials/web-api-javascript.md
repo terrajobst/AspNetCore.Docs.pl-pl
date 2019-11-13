@@ -4,13 +4,13 @@ author: rick-anderson
 description: Dowiedz się, jak wywołać interfejs API sieci Web ASP.NET Core przy użyciu języka JavaScript.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 08/27/2019
 uid: tutorials/web-api-javascript
-ms.openlocfilehash: bbe261307f6f68af002cb98cc4895888ade7f61c
-ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
+ms.openlocfilehash: 0070816149d64fc1d71d453eb0f135050c78597a
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 11/13/2019
 ms.locfileid: "72378700"
 ---
 # <a name="tutorial-call-an-aspnet-core-web-api-with-javascript"></a>Samouczek: wywoływanie interfejsu API sieci Web ASP.NET Core przy użyciu języka JavaScript
@@ -18,6 +18,14 @@ ms.locfileid: "72378700"
 Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tym samouczku pokazano, jak wywołać interfejs API sieci Web ASP.NET Core przy użyciu [interfejsu API pobierania](https://developer.mozilla.org/docs/Web/API/Fetch_API).
+
+::: moniker range="< aspnetcore-3.0"
+
+Aby uzyskać ASP.NET Core 2,2, zobacz wersja 2,2 [wywołania interfejsu API sieci Web przy użyciu języka JavaScript](xref:tutorials/first-web-api#call-the-web-api-with-javascript).
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -49,7 +57,7 @@ Najprostszym wywołaniem `fetch` akceptuje pojedynczy parametr reprezentujący t
 Zmiana ustawień uruchamiania projektu ASP.NET Core może być wymagana do lokalnego przetestowania strony HTML:
 
 1. Otwórz *Properties\launchSettings.JSON*.
-1. Usuń właściwość `launchUrl`, aby wymusić, że aplikacja zostanie otwarta w pliku *index. html*@no__t — domyślny plik projektu 2the.
+1. Usuń właściwość `launchUrl`, aby wymusić, że aplikacja zostanie otwarta w pliku *index. html* &mdash;the domyślny plik projektu.
 
 Ten przykład wywołuje wszystkie metody CRUD internetowego interfejsu API. Poniżej znajdują się wyjaśnienia żądań interfejsu API sieci Web.
 
@@ -67,9 +75,9 @@ W poniższym kodzie:
 
 * Zmienna `item` jest zadeklarowana w celu skonstruowania literału obiektu reprezentacji elementu do wykonania.
 * Żądanie pobrania jest konfigurowane z następującymi opcjami:
-  * `method` @ no__t-1specifies zlecenie akcji POST protokołu HTTP.
-  * `body` @ no__t-1specifies reprezentację treści żądania w formacie JSON. KOD JSON jest tworzony przez przekazanie literału obiektu przechowywanego w `item` do funkcji [JSON. stringify](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) .
-  * `headers` @ no__t-1specifies nagłówki żądania HTTP `Accept` i `Content-Type`. Oba nagłówki są ustawione na `application/json`, aby określić typ nośnika, który jest odbierany i wysyłany odpowiednio.
+    * `method`&mdash;określa zlecenie akcji POST protokołu HTTP.
+    * `body`&mdash;określa reprezentację treści żądania w formacie JSON. KOD JSON jest tworzony przez przekazanie literału obiektu przechowywanego w `item` do funkcji [JSON. stringify](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) .
+    * `headers`&mdash;Określa nagłówki żądania HTTP `Accept` i `Content-Type`. Oba nagłówki są ustawione na `application/json`, aby określić typ nośnika, który jest odbierany i wysyłany odpowiednio.
 * Żądanie HTTP POST jest wysyłane do trasy *API/TodoItems* .
 
 [!code-javascript[](first-web-api/samples/3.0/TodoApi/wwwroot/js/site.js?name=snippet_AddItem)]
@@ -95,3 +103,5 @@ Przejdź do następnego samouczka, aby dowiedzieć się, jak generować strony p
 
 > [!div class="nextstepaction"]
 > <xref:tutorials/get-started-with-swashbuckle>
+
+::: moniker-end
