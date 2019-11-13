@@ -5,14 +5,14 @@ description: Jak używać powiązania modelu i przesyłania strumieniowego do pr
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/31/2019
+ms.date: 11/04/2019
 uid: mvc/models/file-uploads
-ms.openlocfilehash: 04e7533aa190a4875d3f66e8665fec16abec48b3
-ms.sourcegitcommit: 9e85c2562df5e108d7933635c830297f484bb775
+ms.openlocfilehash: b57ad4fe62de38085c11d7026d278cc6e0c565ce
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73462944"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963155"
 ---
 # <a name="upload-files-in-aspnet-core"></a>Przekaż pliki w ASP.NET Core
 
@@ -34,7 +34,7 @@ Należy zachować ostrożność, zapewniając użytkownikom możliwość przekaz
 
 Kroki zabezpieczeń, które zmniejszają prawdopodobieństwo pomyślnego ataku:
 
-* Przekaż pliki do dedykowanego obszaru przekazywania plików, najlepiej do dysku niesystemowego. Dedykowana lokalizacja ułatwia nakładanie ograniczeń zabezpieczeń na przekazane pliki. Wyłącz uprawnienia do wykonywania w lokalizacji przekazywania pliku. &dagger;
+* Przekaż pliki do dedykowanego obszaru przekazywania plików, najlepiej do dysku niesystemowego. Dedykowana lokalizacja ułatwia nakładanie ograniczeń zabezpieczeń na przekazane pliki. Wyłącz uprawnienia do wykonywania w lokalizacji przekazywania pliku.&dagger;
 * **Nie** Utrwalaj przekazanych plików w tym samym drzewie katalogów co aplikacja.&dagger;
 * Użyj bezpiecznej nazwy pliku, która jest określana przez aplikację. Nie należy używać nazwy pliku dostarczonej przez użytkownika lub niezaufanej nazwy pliku przekazanego pliku.&dagger; kod HTML zakodować niezaufaną nazwę pliku podczas jego wyświetlania. Na przykład podczas rejestrowania nazwy pliku lub wyświetlania w interfejsie użytkownika (Razor automatyczne kodowanie HTML kodu.
 * Zezwalaj tylko na zatwierdzone rozszerzenia plików dla specyfikacji projektu aplikacji.&dagger; <!-- * Check the file format signature to prevent a user from uploading a masqueraded file.&dagger; For example, don't permit a user to upload an *.exe* file with a *.txt* extension. Add this back when we get instructions how to do this.  -->
@@ -43,7 +43,7 @@ Kroki zabezpieczeń, które zmniejszają prawdopodobieństwo pomyślnego ataku:
 * Jeśli pliki nie powinny być zastąpione przez przekazany plik o tej samej nazwie, przed przekazaniem pliku Sprawdź nazwę pliku względem bazy danych lub magazynu fizycznego.
 * **Przed zapisaniem pliku Uruchom skaner wirusów/złośliwego oprogramowania dla przekazanej zawartości.**
 
-Przykładowa aplikacja &dagger;The ilustruje podejście, które spełnia kryteria.
+&dagger;przykładowej aplikacji przedstawiono podejście, które spełnia kryteria.
 
 > [!WARNING]
 > Przekazywanie złośliwego kodu do systemu jest często pierwszym krokiem do wykonania kodu, który może:
@@ -83,7 +83,7 @@ Typowe opcje magazynu dla plików to:
   * Usługa zazwyczaj oferuje ulepszoną skalowalność i odporność w rozwiązaniach lokalnych, które zwykle podlegają pojedynczym punktom awarii.
   * Usługi są potencjalnie tańsze w dużych scenariuszach infrastruktury magazynu.
 
-  Aby uzyskać więcej informacji, zobacz [Szybki Start: korzystanie z platformy .NET do tworzenia obiektów BLOB w magazynie obiektów](/azure/storage/blobs/storage-quickstart-blobs-dotnet). W temacie przedstawiono <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromFileAsync*>, ale <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromStreamAsync*> można użyć do zapisania <xref:System.IO.FileStream> do magazynu obiektów BLOB podczas pracy z <xref:System.IO.Stream>.
+  Aby uzyskać więcej informacji, zobacz [Szybki Start: korzystanie z platformy .NET do tworzenia obiektów BLOB w magazynie obiektów](/azure/storage/blobs/storage-quickstart-blobs-dotnet). Temat ilustruje <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromFileAsync*>, ale <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromStreamAsync*> może służyć do zapisywania <xref:System.IO.FileStream> do magazynu obiektów BLOB podczas pracy z <xref:System.IO.Stream>.
 
 ## <a name="file-upload-scenarios"></a>Scenariusze przekazywania plików
 
@@ -201,9 +201,9 @@ Aby wykonać formularz POST w języku JavaScript dla klientów, którzy [nie obs
   </script>
   ```
 
-W celu obsługi przekazywania plików formularze HTML muszą określać typ kodowania (`enctype`) dla `multipart/form-data`.
+W celu obsługi przekazywania plików formularze HTML muszą określać typ kodowania (`enctype`) `multipart/form-data`.
 
-Aby element wejściowy `files` obsługiwał przekazywanie wielu plików, podaj atrybut `multiple` dla elementu `<input>`:
+Aby `files` element wejściowy obsługujący przekazywanie wielu plików, podaj atrybut `multiple` dla elementu `<input>`:
 
 ```cshtml
 <input asp-for="FileUpload.FormFiles" type="file" multiple>
@@ -231,7 +231,7 @@ Do poszczególnych plików przekazanych do serwera można uzyskać dostęp za po
 > * [Zagadnienia dotyczące bezpieczeństwa](#security-considerations)
 > * [Walidacja](#validation)
 
-Podczas przekazywania plików przy użyciu powiązania modelu i <xref:Microsoft.AspNetCore.Http.IFormFile> Metoda akcji może przyjmować następujące wartości:
+Podczas przekazywania plików przy użyciu powiązania modelu i <xref:Microsoft.AspNetCore.Http.IFormFile>, Metoda akcji może przyjmować:
 
 * Jeden <xref:Microsoft.AspNetCore.Http.IFormFile>.
 * Dowolne z następujących kolekcji, które reprezentują kilka plików:
@@ -240,7 +240,7 @@ Podczas przekazywania plików przy użyciu powiązania modelu i <xref:Microsoft.
   * \<<xref:Microsoft.AspNetCore.Http.IFormFile>[listy](xref:System.Collections.Generic.List`1) >
 
 > [!NOTE]
-> Powiązanie dopasowuje pliki formularza według nazwy. Na przykład wartość HTML `name` w `<input type="file" name="formFile">` musi być zgodna z C# wartością parametru/właściwości (`FormFile`). Aby uzyskać więcej informacji, zobacz sekcję [dopasowanie wartości atrybutu do nazwy parametru w sekcji Metoda post](#match-name-attribute-value-to-parameter-name-of-post-method) .
+> Powiązanie dopasowuje pliki formularza według nazwy. Na przykład wartość `name` HTML w `<input type="file" name="formFile">` musi być zgodna z C# wartością parametru/właściwością (`FormFile`). Aby uzyskać więcej informacji, zobacz sekcję [dopasowanie wartości atrybutu do nazwy parametru w sekcji Metoda post](#match-name-attribute-value-to-parameter-name-of-post-method) .
 
 Poniższy przykład:
 
@@ -294,7 +294,7 @@ foreach (var formFile in files)
 
 Ścieżka przeniesiona do <xref:System.IO.FileStream> *musi* zawierać nazwę pliku. Jeśli nie podano nazwy pliku, <xref:System.UnauthorizedAccessException> jest generowany w czasie wykonywania.
 
-Pliki przekazane przy użyciu techniki <xref:Microsoft.AspNetCore.Http.IFormFile> są buforowane w pamięci lub na dysku na serwerze przed przetworzeniem. Wewnątrz metody akcji zawartość <xref:Microsoft.AspNetCore.Http.IFormFile> jest dostępna jako <xref:System.IO.Stream>. Oprócz lokalnego systemu plików można zapisywać pliki w udziale sieciowym lub w usłudze magazynu plików, na przykład w [usłudze Azure Blob Storage](/azure/visual-studio/vs-storage-aspnet5-getting-started-blobs).
+Pliki przekazane przy użyciu techniki <xref:Microsoft.AspNetCore.Http.IFormFile> są buforowane w pamięci lub na dysku na serwerze przed przetworzeniem. Wewnątrz metody akcji <xref:Microsoft.AspNetCore.Http.IFormFile> zawartość jest dostępna jako <xref:System.IO.Stream>. Oprócz lokalnego systemu plików można zapisywać pliki w udziale sieciowym lub w usłudze magazynu plików, na przykład w [usłudze Azure Blob Storage](/azure/visual-studio/vs-storage-aspnet5-getting-started-blobs).
 
 Aby uzyskać inny przykład pętli dla wielu plików na potrzeby przekazywania i używania bezpiecznych nazw plików, zobacz *Pages/BufferedMultipleFileUploadPhysical. cshtml. cs* w przykładowej aplikacji.
 
@@ -306,7 +306,7 @@ Aby uzyskać inny przykład pętli dla wielu plików na potrzeby przekazywania i
 
 ### <a name="upload-small-files-with-buffered-model-binding-to-a-database"></a>Przekazywanie małych plików z buforowanym powiązaniem modelu z bazą danych
 
-Aby przechowywać dane binarne pliku w bazie danych przy użyciu [Entity Framework](/ef/core/index), zdefiniuj właściwość tablicy <xref:System.Byte> dla jednostki:
+Aby przechowywać dane binarne pliku w bazie danych przy użyciu [Entity Framework](/ef/core/index), zdefiniuj Właściwość <xref:System.Byte> tablicy dla jednostki:
 
 ```csharp
 public class AppFile
@@ -338,7 +338,7 @@ public class BufferedSingleFileUploadDb
 ```
 
 > [!NOTE]
-> <xref:Microsoft.AspNetCore.Http.IFormFile> może być używana bezpośrednio jako parametr metody akcji lub jako właściwość modelu powiązania. W poprzednim przykładzie użyto powiązanej właściwości modelu.
+> <xref:Microsoft.AspNetCore.Http.IFormFile> można używać bezpośrednio jako parametru metody akcji lub jako powiązanej właściwości modelu. W poprzednim przykładzie użyto powiązanej właściwości modelu.
 
 `FileUpload` jest używana w formularzu Razor Pages:
 
@@ -395,7 +395,7 @@ Poprzedni przykład przypomina scenariusz przedstawiony w przykładowej aplikacj
 > [!WARNING]
 > Należy zachować ostrożność podczas przechowywania danych binarnych w relacyjnych bazach danych, ponieważ może to mieć negatywny wpływ na wydajność.
 >
-> Nie używaj ani nie ufaj właściwości `FileName` <xref:Microsoft.AspNetCore.Http.IFormFile> bez sprawdzania poprawności. Właściwość `FileName` powinna być używana tylko na potrzeby wyświetlania i tylko po kodowaniu HTML.
+> Nie używaj ani nie ufaj właściwości `FileName` <xref:Microsoft.AspNetCore.Http.IFormFile> bez weryfikacji. Właściwość `FileName` powinna być używana tylko do celów wyświetlania i tylko po kodowaniu kodu HTML.
 >
 > Podane przykłady nie uwzględniają zagadnień związanych z zabezpieczeniami. Dodatkowe informacje są dostarczane przez następujące sekcje i [Przykładowa aplikacja](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >
@@ -404,7 +404,7 @@ Poprzedni przykład przypomina scenariusz przedstawiony w przykładowej aplikacj
 
 ### <a name="upload-large-files-with-streaming"></a>Przekazywanie dużych plików strumieniowo
 
-Poniższy przykład ilustruje sposób użycia języka JavaScript do przesyłania strumieniowego pliku do akcji kontrolera. Token antysfałszowany pliku jest generowany przy użyciu niestandardowego atrybutu filtru i przekazywać do nagłówków HTTP klienta zamiast w treści żądania. Ponieważ metoda akcji przetwarza przekazane dane bezpośrednio, powiązanie modelu formularza jest wyłączone przez inny filtr niestandardowy. W ramach akcji zawartość formularza jest odczytywana przy użyciu `MultipartReader`, który odczytuje każdy indywidualny `MultipartSection`, przetwarza plik lub przechowując zawartość odpowiednio do potrzeb. Po odczytaniu sekcji wieloczęściowej akcja wykonuje własne powiązanie modelu.
+Poniższy przykład ilustruje sposób użycia języka JavaScript do przesyłania strumieniowego pliku do akcji kontrolera. Token antysfałszowany pliku jest generowany przy użyciu niestandardowego atrybutu filtru i przekazywać do nagłówków HTTP klienta zamiast w treści żądania. Ponieważ metoda akcji przetwarza przekazane dane bezpośrednio, powiązanie modelu formularza jest wyłączone przez inny filtr niestandardowy. W ramach akcji zawartość formularza jest odczytywana przy użyciu `MultipartReader`, który odczytuje poszczególne `MultipartSection`, przetwarza plik lub przechowując zawartość odpowiednio do potrzeb. Po odczytaniu sekcji wieloczęściowej akcja wykonuje własne powiązanie modelu.
 
 Początkowa odpowiedź strony ładuje formularz i zapisuje w pliku cookie token antysfałszowany (za pośrednictwem atrybutu `GenerateAntiforgeryTokenCookieAttribute`). Ten atrybut używa wbudowanej [obsługi przed fałszowaniem](xref:security/anti-request-forgery) ASP.NET Core, aby ustawić plik cookie z tokenem żądania:
 
@@ -418,9 +418,9 @@ W przykładowej aplikacji `GenerateAntiforgeryTokenCookieAttribute` i `DisableFo
 
 [!code-csharp[](file-uploads/samples/3.x/SampleApp/Startup.cs?name=snippet_AddRazorPages&highlight=8-11,17-20)]
 
-Ponieważ powiązanie modelu nie odczytuje formularza, parametry, które są powiązane z formularza nie są powiązane (zapytania, trasy i nagłówki nadal pracują). Metoda akcji działa bezpośrednio z właściwością `Request`. `MultipartReader` jest używany do odczytywania każdej sekcji. Dane klucza/wartości są przechowywane w `KeyValueAccumulator`. Po odczytaniu sekcji wieloczęściowych zawartość `KeyValueAccumulator` służy do powiązania danych formularza z typem modelu.
+Ponieważ powiązanie modelu nie odczytuje formularza, parametry, które są powiązane z formularza nie są powiązane (zapytania, trasy i nagłówki nadal pracują). Metoda akcji działa bezpośrednio z właściwością `Request`. `MultipartReader` jest używany do odczytywania każdej sekcji. Dane klucza/wartości są przechowywane w `KeyValueAccumulator`. Po odczytaniu sekcji wieloczęściowych zawartość `KeyValueAccumulator` są używane do powiązania danych formularza z typem modelu.
 
-Pełna Metoda `StreamingController.UploadDatabase` do przesyłania strumieniowego do bazy danych z EF Core:
+Pełna `StreamingController.UploadDatabase` Metoda przesyłania strumieniowego do bazy danych z EF Core:
 
 [!code-csharp[](file-uploads/samples/3.x/SampleApp/Controllers/StreamingController.cs?name=snippet_UploadDatabase)]
 
@@ -428,7 +428,7 @@ Pełna Metoda `StreamingController.UploadDatabase` do przesyłania strumienioweg
 
 [!code-csharp[](file-uploads/samples/3.x/SampleApp/Utilities/MultipartRequestHelper.cs)]
 
-Pełna Metoda `StreamingController.UploadPhysical` do przesyłania strumieniowego do lokalizacji fizycznej:
+Pełna `StreamingController.UploadPhysical` Metoda przesyłania strumieniowego do lokalizacji fizycznej:
 
 [!code-csharp[](file-uploads/samples/3.x/SampleApp/Controllers/StreamingController.cs?name=snippet_UploadPhysical)]
 
@@ -436,7 +436,7 @@ W przykładowej aplikacji sprawdzanie poprawności jest obsługiwane przez `File
 
 ## <a name="validation"></a>Walidacja
 
-Klasa `FileHelpers` aplikacji przykładowej pokazuje kilka testów dla buforowanych <xref:Microsoft.AspNetCore.Http.IFormFile> i przesyłanych strumieniowo przekazywania plików. Aby przetwarzać <xref:Microsoft.AspNetCore.Http.IFormFile> buforowane przekazywanie plików w przykładowej aplikacji, zobacz `ProcessFormFile` metody w pliku *Utilities/FileHelpers. cs* . Aby można było przetwarzać pliki przesyłane strumieniowo, zobacz metodę `ProcessStreamedFile` w tym samym pliku.
+Klasa `FileHelpers` aplikacji przykładowej pokazuje kilka testów dla buforowanych <xref:Microsoft.AspNetCore.Http.IFormFile> i przesyłania strumieniowego plików. Aby przetwarzać <xref:Microsoft.AspNetCore.Http.IFormFile> buforowane operacje przekazywania plików w aplikacji przykładowej, zobacz `ProcessFormFile` metody w pliku *Utilities/FileHelpers. cs* . Aby przetwarzać pliki przesyłane strumieniowo, zobacz metodę `ProcessStreamedFile` w tym samym pliku.
 
 > [!WARNING]
 > Metody przetwarzania walidacji przedstawione w przykładowej aplikacji nie skanują zawartości przekazanych plików. W większości scenariuszy produkcyjnych do pliku jest używany interfejs API skanera wirusów/złośliwego oprogramowania przed udostępnieniem go użytkownikom lub innym systemom.
@@ -557,7 +557,7 @@ if (formFile.Length > _fileSizeLimit)
 
 ### <a name="match-name-attribute-value-to-parameter-name-of-post-method"></a>Dopasuj wartość atrybutu Name do nazwy parametru metody POST
 
-W formularzach innych niż Razor, które PUBLIKUJą dane formularza lub używają kodu JavaScript `FormData` bezpośrednio, nazwa określona w elemencie formularza lub `FormData` musi być zgodna z nazwą parametru w akcji kontrolera.
+W formularzach innych niż Razor, które PUBLIKUJą dane formularza lub używają `FormData` języka JavaScript bezpośrednio, nazwa określona w elemencie formularza lub `FormData` musi być zgodna z nazwą parametru w akcji kontrolera.
 
 W poniższym przykładzie:
 
@@ -567,7 +567,7 @@ W poniższym przykładzie:
   <input type="file" name="battlePlans" multiple>
   ```
 
-* W przypadku używania `FormData` w języku JavaScript nazwa jest ustawiona na wartość `battlePlans`:
+* W przypadku używania `FormData` w języku JavaScript nazwa jest ustawiana na wartość `battlePlans`:
 
   ```javascript
   var formData = new FormData();
@@ -595,7 +595,7 @@ Użyj zgodnej nazwy dla parametru C# metody (`battlePlans`):
 
 ### <a name="multipart-body-length-limit"></a>Limit długości treści wieloczęściowej
 
-<xref:Microsoft.AspNetCore.Http.Features.FormOptions.MultipartBodyLengthLimit> ustawia limit długości każdej wieloczęściowej treści. Sekcje formularza, które przekraczają ten limit, zgłaszają <xref:System.IO.InvalidDataException> podczas analizowania. Wartość domyślna to 134 217 728 (128 MB). Dostosuj limit przy użyciu ustawienia <xref:Microsoft.AspNetCore.Http.Features.FormOptions.MultipartBodyLengthLimit> w `Startup.ConfigureServices`:
+<xref:Microsoft.AspNetCore.Http.Features.FormOptions.MultipartBodyLengthLimit> ustawia limit długości każdej wieloczęściowej treści. Sekcje formularzy, które przekraczają ten limit, generują <xref:System.IO.InvalidDataException> podczas analizowania. Wartość domyślna to 134 217 728 (128 MB). Dostosuj limit przy użyciu ustawienia <xref:Microsoft.AspNetCore.Http.Features.FormOptions.MultipartBodyLengthLimit> w `Startup.ConfigureServices`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -739,7 +739,11 @@ Wystąpił błąd połączenia i połączenie z serwerem resetowania prawdopodob
 
 ### <a name="null-reference-exception-with-iformfile"></a>Wyjątek odwołania o wartości null z IFormFile
 
-Jeśli kontroler akceptuje przekazane pliki przy użyciu <xref:Microsoft.AspNetCore.Http.IFormFile>, ale wartość jest `null`, upewnij się, że w formularzu HTML określono wartość `enctype` `multipart/form-data`. Jeśli ten atrybut nie jest ustawiony dla elementu `<form>`, przekazywanie pliku nie wystąpi i wszystkie powiązane argumenty <xref:Microsoft.AspNetCore.Http.IFormFile> są `null`. Sprawdź również, czy [Nazwa przekazywania w postaci danych jest zgodna z nazewnictwem aplikacji](#match-name-attribute-value-to-parameter-name-of-post-method).
+Jeśli kontroler akceptuje przekazane pliki przy użyciu <xref:Microsoft.AspNetCore.Http.IFormFile> ale wartość jest `null`, upewnij się, że w formularzu HTML określono wartość `enctype` `multipart/form-data`. Jeśli ten atrybut nie jest ustawiony dla elementu `<form>`, przekazywanie pliku nie wystąpi i wszystkie powiązane argumenty <xref:Microsoft.AspNetCore.Http.IFormFile> są `null`. Sprawdź również, czy [Nazwa przekazywania w postaci danych jest zgodna z nazewnictwem aplikacji](#match-name-attribute-value-to-parameter-name-of-post-method).
+
+### <a name="stream-was-too-long"></a>Strumień był zbyt długi
+
+Przykłady w tym temacie polegają na <xref:System.IO.MemoryStream> do przechowywania zawartości przekazanego pliku. Limit rozmiaru `MemoryStream` jest `int.MaxValue`. Jeśli scenariusz przekazywania plików aplikacji wymaga przechowywania zawartości pliku o rozmiarze większym niż 50 MB, użyj alternatywnego podejścia, które nie polega na pojedynczym `MemoryStream` do przechowywania zawartości przekazanego pliku.
 
 ::: moniker-end
 
@@ -759,7 +763,7 @@ Należy zachować ostrożność, zapewniając użytkownikom możliwość przekaz
 
 Kroki zabezpieczeń, które zmniejszają prawdopodobieństwo pomyślnego ataku:
 
-* Przekaż pliki do dedykowanego obszaru przekazywania plików, najlepiej do dysku niesystemowego. Dedykowana lokalizacja ułatwia nakładanie ograniczeń zabezpieczeń na przekazane pliki. Wyłącz uprawnienia do wykonywania w lokalizacji przekazywania pliku. &dagger;
+* Przekaż pliki do dedykowanego obszaru przekazywania plików, najlepiej do dysku niesystemowego. Dedykowana lokalizacja ułatwia nakładanie ograniczeń zabezpieczeń na przekazane pliki. Wyłącz uprawnienia do wykonywania w lokalizacji przekazywania pliku.&dagger;
 * **Nie** Utrwalaj przekazanych plików w tym samym drzewie katalogów co aplikacja.&dagger;
 * Użyj bezpiecznej nazwy pliku, która jest określana przez aplikację. Nie należy używać nazwy pliku dostarczonej przez użytkownika lub niezaufanej nazwy pliku przekazanego pliku.&dagger; kod HTML zakodować niezaufaną nazwę pliku podczas jego wyświetlania. Na przykład podczas rejestrowania nazwy pliku lub wyświetlania w interfejsie użytkownika (Razor automatyczne kodowanie HTML kodu.
 * Zezwalaj tylko na zatwierdzone rozszerzenia plików dla specyfikacji projektu aplikacji.&dagger; <!-- * Check the file format signature to prevent a user from uploading a masqueraded file.&dagger; For example, don't permit a user to upload an *.exe* file with a *.txt* extension. Add this back when we get instructions how to do this.  -->
@@ -768,7 +772,7 @@ Kroki zabezpieczeń, które zmniejszają prawdopodobieństwo pomyślnego ataku:
 * Jeśli pliki nie powinny być zastąpione przez przekazany plik o tej samej nazwie, przed przekazaniem pliku Sprawdź nazwę pliku względem bazy danych lub magazynu fizycznego.
 * **Przed zapisaniem pliku Uruchom skaner wirusów/złośliwego oprogramowania dla przekazanej zawartości.**
 
-Przykładowa aplikacja &dagger;The ilustruje podejście, które spełnia kryteria.
+&dagger;przykładowej aplikacji przedstawiono podejście, które spełnia kryteria.
 
 > [!WARNING]
 > Przekazywanie złośliwego kodu do systemu jest często pierwszym krokiem do wykonania kodu, który może:
@@ -808,7 +812,7 @@ Typowe opcje magazynu dla plików to:
   * Usługa zazwyczaj oferuje ulepszoną skalowalność i odporność w rozwiązaniach lokalnych, które zwykle podlegają pojedynczym punktom awarii.
   * Usługi są potencjalnie tańsze w dużych scenariuszach infrastruktury magazynu.
 
-  Aby uzyskać więcej informacji, zobacz [Szybki Start: korzystanie z platformy .NET do tworzenia obiektów BLOB w magazynie obiektów](/azure/storage/blobs/storage-quickstart-blobs-dotnet). W temacie przedstawiono <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromFileAsync*>, ale <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromStreamAsync*> można użyć do zapisania <xref:System.IO.FileStream> do magazynu obiektów BLOB podczas pracy z <xref:System.IO.Stream>.
+  Aby uzyskać więcej informacji, zobacz [Szybki Start: korzystanie z platformy .NET do tworzenia obiektów BLOB w magazynie obiektów](/azure/storage/blobs/storage-quickstart-blobs-dotnet). Temat ilustruje <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromFileAsync*>, ale <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromStreamAsync*> może służyć do zapisywania <xref:System.IO.FileStream> do magazynu obiektów BLOB podczas pracy z <xref:System.IO.Stream>.
 
 ## <a name="file-upload-scenarios"></a>Scenariusze przekazywania plików
 
@@ -926,9 +930,9 @@ Aby wykonać formularz POST w języku JavaScript dla klientów, którzy [nie obs
   </script>
   ```
 
-W celu obsługi przekazywania plików formularze HTML muszą określać typ kodowania (`enctype`) dla `multipart/form-data`.
+W celu obsługi przekazywania plików formularze HTML muszą określać typ kodowania (`enctype`) `multipart/form-data`.
 
-Aby element wejściowy `files` obsługiwał przekazywanie wielu plików, podaj atrybut `multiple` dla elementu `<input>`:
+Aby `files` element wejściowy obsługujący przekazywanie wielu plików, podaj atrybut `multiple` dla elementu `<input>`:
 
 ```cshtml
 <input asp-for="FileUpload.FormFiles" type="file" multiple>
@@ -956,7 +960,7 @@ Do poszczególnych plików przekazanych do serwera można uzyskać dostęp za po
 > * [Zagadnienia dotyczące bezpieczeństwa](#security-considerations)
 > * [Walidacja](#validation)
 
-Podczas przekazywania plików przy użyciu powiązania modelu i <xref:Microsoft.AspNetCore.Http.IFormFile> Metoda akcji może przyjmować następujące wartości:
+Podczas przekazywania plików przy użyciu powiązania modelu i <xref:Microsoft.AspNetCore.Http.IFormFile>, Metoda akcji może przyjmować:
 
 * Jeden <xref:Microsoft.AspNetCore.Http.IFormFile>.
 * Dowolne z następujących kolekcji, które reprezentują kilka plików:
@@ -965,7 +969,7 @@ Podczas przekazywania plików przy użyciu powiązania modelu i <xref:Microsoft.
   * \<<xref:Microsoft.AspNetCore.Http.IFormFile>[listy](xref:System.Collections.Generic.List`1) >
 
 > [!NOTE]
-> Powiązanie dopasowuje pliki formularza według nazwy. Na przykład wartość HTML `name` w `<input type="file" name="formFile">` musi być zgodna z C# wartością parametru/właściwości (`FormFile`). Aby uzyskać więcej informacji, zobacz sekcję [dopasowanie wartości atrybutu do nazwy parametru w sekcji Metoda post](#match-name-attribute-value-to-parameter-name-of-post-method) .
+> Powiązanie dopasowuje pliki formularza według nazwy. Na przykład wartość `name` HTML w `<input type="file" name="formFile">` musi być zgodna z C# wartością parametru/właściwością (`FormFile`). Aby uzyskać więcej informacji, zobacz sekcję [dopasowanie wartości atrybutu do nazwy parametru w sekcji Metoda post](#match-name-attribute-value-to-parameter-name-of-post-method) .
 
 Poniższy przykład:
 
@@ -1019,7 +1023,7 @@ foreach (var formFile in files)
 
 Ścieżka przeniesiona do <xref:System.IO.FileStream> *musi* zawierać nazwę pliku. Jeśli nie podano nazwy pliku, <xref:System.UnauthorizedAccessException> jest generowany w czasie wykonywania.
 
-Pliki przekazane przy użyciu techniki <xref:Microsoft.AspNetCore.Http.IFormFile> są buforowane w pamięci lub na dysku na serwerze przed przetworzeniem. Wewnątrz metody akcji zawartość <xref:Microsoft.AspNetCore.Http.IFormFile> jest dostępna jako <xref:System.IO.Stream>. Oprócz lokalnego systemu plików można zapisywać pliki w udziale sieciowym lub w usłudze magazynu plików, na przykład w [usłudze Azure Blob Storage](/azure/visual-studio/vs-storage-aspnet5-getting-started-blobs).
+Pliki przekazane przy użyciu techniki <xref:Microsoft.AspNetCore.Http.IFormFile> są buforowane w pamięci lub na dysku na serwerze przed przetworzeniem. Wewnątrz metody akcji <xref:Microsoft.AspNetCore.Http.IFormFile> zawartość jest dostępna jako <xref:System.IO.Stream>. Oprócz lokalnego systemu plików można zapisywać pliki w udziale sieciowym lub w usłudze magazynu plików, na przykład w [usłudze Azure Blob Storage](/azure/visual-studio/vs-storage-aspnet5-getting-started-blobs).
 
 Aby uzyskać inny przykład pętli dla wielu plików na potrzeby przekazywania i używania bezpiecznych nazw plików, zobacz *Pages/BufferedMultipleFileUploadPhysical. cshtml. cs* w przykładowej aplikacji.
 
@@ -1031,7 +1035,7 @@ Aby uzyskać inny przykład pętli dla wielu plików na potrzeby przekazywania i
 
 ### <a name="upload-small-files-with-buffered-model-binding-to-a-database"></a>Przekazywanie małych plików z buforowanym powiązaniem modelu z bazą danych
 
-Aby przechowywać dane binarne pliku w bazie danych przy użyciu [Entity Framework](/ef/core/index), zdefiniuj właściwość tablicy <xref:System.Byte> dla jednostki:
+Aby przechowywać dane binarne pliku w bazie danych przy użyciu [Entity Framework](/ef/core/index), zdefiniuj Właściwość <xref:System.Byte> tablicy dla jednostki:
 
 ```csharp
 public class AppFile
@@ -1063,7 +1067,7 @@ public class BufferedSingleFileUploadDb
 ```
 
 > [!NOTE]
-> <xref:Microsoft.AspNetCore.Http.IFormFile> może być używana bezpośrednio jako parametr metody akcji lub jako właściwość modelu powiązania. W poprzednim przykładzie użyto powiązanej właściwości modelu.
+> <xref:Microsoft.AspNetCore.Http.IFormFile> można używać bezpośrednio jako parametru metody akcji lub jako powiązanej właściwości modelu. W poprzednim przykładzie użyto powiązanej właściwości modelu.
 
 `FileUpload` jest używana w formularzu Razor Pages:
 
@@ -1120,7 +1124,7 @@ Poprzedni przykład przypomina scenariusz przedstawiony w przykładowej aplikacj
 > [!WARNING]
 > Należy zachować ostrożność podczas przechowywania danych binarnych w relacyjnych bazach danych, ponieważ może to mieć negatywny wpływ na wydajność.
 >
-> Nie używaj ani nie ufaj właściwości `FileName` <xref:Microsoft.AspNetCore.Http.IFormFile> bez sprawdzania poprawności. Właściwość `FileName` powinna być używana tylko na potrzeby wyświetlania i tylko po kodowaniu HTML.
+> Nie używaj ani nie ufaj właściwości `FileName` <xref:Microsoft.AspNetCore.Http.IFormFile> bez weryfikacji. Właściwość `FileName` powinna być używana tylko do celów wyświetlania i tylko po kodowaniu kodu HTML.
 >
 > Podane przykłady nie uwzględniają zagadnień związanych z zabezpieczeniami. Dodatkowe informacje są dostarczane przez następujące sekcje i [Przykładowa aplikacja](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >
@@ -1129,7 +1133,7 @@ Poprzedni przykład przypomina scenariusz przedstawiony w przykładowej aplikacj
 
 ### <a name="upload-large-files-with-streaming"></a>Przekazywanie dużych plików strumieniowo
 
-Poniższy przykład ilustruje sposób użycia języka JavaScript do przesyłania strumieniowego pliku do akcji kontrolera. Token antysfałszowany pliku jest generowany przy użyciu niestandardowego atrybutu filtru i przekazywać do nagłówków HTTP klienta zamiast w treści żądania. Ponieważ metoda akcji przetwarza przekazane dane bezpośrednio, powiązanie modelu formularza jest wyłączone przez inny filtr niestandardowy. W ramach akcji zawartość formularza jest odczytywana przy użyciu `MultipartReader`, który odczytuje każdy indywidualny `MultipartSection`, przetwarza plik lub przechowując zawartość odpowiednio do potrzeb. Po odczytaniu sekcji wieloczęściowej akcja wykonuje własne powiązanie modelu.
+Poniższy przykład ilustruje sposób użycia języka JavaScript do przesyłania strumieniowego pliku do akcji kontrolera. Token antysfałszowany pliku jest generowany przy użyciu niestandardowego atrybutu filtru i przekazywać do nagłówków HTTP klienta zamiast w treści żądania. Ponieważ metoda akcji przetwarza przekazane dane bezpośrednio, powiązanie modelu formularza jest wyłączone przez inny filtr niestandardowy. W ramach akcji zawartość formularza jest odczytywana przy użyciu `MultipartReader`, który odczytuje poszczególne `MultipartSection`, przetwarza plik lub przechowując zawartość odpowiednio do potrzeb. Po odczytaniu sekcji wieloczęściowej akcja wykonuje własne powiązanie modelu.
 
 Początkowa odpowiedź strony ładuje formularz i zapisuje w pliku cookie token antysfałszowany (za pośrednictwem atrybutu `GenerateAntiforgeryTokenCookieAttribute`). Ten atrybut używa wbudowanej [obsługi przed fałszowaniem](xref:security/anti-request-forgery) ASP.NET Core, aby ustawić plik cookie z tokenem żądania:
 
@@ -1143,9 +1147,9 @@ W przykładowej aplikacji `GenerateAntiforgeryTokenCookieAttribute` i `DisableFo
 
 [!code-csharp[](file-uploads/samples/2.x/SampleApp/Startup.cs?name=snippet_AddMvc&highlight=8-11,17-20)]
 
-Ponieważ powiązanie modelu nie odczytuje formularza, parametry, które są powiązane z formularza nie są powiązane (zapytania, trasy i nagłówki nadal pracują). Metoda akcji działa bezpośrednio z właściwością `Request`. `MultipartReader` jest używany do odczytywania każdej sekcji. Dane klucza/wartości są przechowywane w `KeyValueAccumulator`. Po odczytaniu sekcji wieloczęściowych zawartość `KeyValueAccumulator` służy do powiązania danych formularza z typem modelu.
+Ponieważ powiązanie modelu nie odczytuje formularza, parametry, które są powiązane z formularza nie są powiązane (zapytania, trasy i nagłówki nadal pracują). Metoda akcji działa bezpośrednio z właściwością `Request`. `MultipartReader` jest używany do odczytywania każdej sekcji. Dane klucza/wartości są przechowywane w `KeyValueAccumulator`. Po odczytaniu sekcji wieloczęściowych zawartość `KeyValueAccumulator` są używane do powiązania danych formularza z typem modelu.
 
-Pełna Metoda `StreamingController.UploadDatabase` do przesyłania strumieniowego do bazy danych z EF Core:
+Pełna `StreamingController.UploadDatabase` Metoda przesyłania strumieniowego do bazy danych z EF Core:
 
 [!code-csharp[](file-uploads/samples/2.x/SampleApp/Controllers/StreamingController.cs?name=snippet_UploadDatabase)]
 
@@ -1153,7 +1157,7 @@ Pełna Metoda `StreamingController.UploadDatabase` do przesyłania strumienioweg
 
 [!code-csharp[](file-uploads/samples/2.x/SampleApp/Utilities/MultipartRequestHelper.cs)]
 
-Pełna Metoda `StreamingController.UploadPhysical` do przesyłania strumieniowego do lokalizacji fizycznej:
+Pełna `StreamingController.UploadPhysical` Metoda przesyłania strumieniowego do lokalizacji fizycznej:
 
 [!code-csharp[](file-uploads/samples/2.x/SampleApp/Controllers/StreamingController.cs?name=snippet_UploadPhysical)]
 
@@ -1161,7 +1165,7 @@ W przykładowej aplikacji sprawdzanie poprawności jest obsługiwane przez `File
 
 ## <a name="validation"></a>Walidacja
 
-Klasa `FileHelpers` aplikacji przykładowej pokazuje kilka testów dla buforowanych <xref:Microsoft.AspNetCore.Http.IFormFile> i przesyłanych strumieniowo przekazywania plików. Aby przetwarzać <xref:Microsoft.AspNetCore.Http.IFormFile> buforowane przekazywanie plików w przykładowej aplikacji, zobacz `ProcessFormFile` metody w pliku *Utilities/FileHelpers. cs* . Aby można było przetwarzać pliki przesyłane strumieniowo, zobacz metodę `ProcessStreamedFile` w tym samym pliku.
+Klasa `FileHelpers` aplikacji przykładowej pokazuje kilka testów dla buforowanych <xref:Microsoft.AspNetCore.Http.IFormFile> i przesyłania strumieniowego plików. Aby przetwarzać <xref:Microsoft.AspNetCore.Http.IFormFile> buforowane operacje przekazywania plików w aplikacji przykładowej, zobacz `ProcessFormFile` metody w pliku *Utilities/FileHelpers. cs* . Aby przetwarzać pliki przesyłane strumieniowo, zobacz metodę `ProcessStreamedFile` w tym samym pliku.
 
 > [!WARNING]
 > Metody przetwarzania walidacji przedstawione w przykładowej aplikacji nie skanują zawartości przekazanych plików. W większości scenariuszy produkcyjnych do pliku jest używany interfejs API skanera wirusów/złośliwego oprogramowania przed udostępnieniem go użytkownikom lub innym systemom.
@@ -1282,7 +1286,7 @@ if (formFile.Length > _fileSizeLimit)
 
 ### <a name="match-name-attribute-value-to-parameter-name-of-post-method"></a>Dopasuj wartość atrybutu Name do nazwy parametru metody POST
 
-W formularzach innych niż Razor, które PUBLIKUJą dane formularza lub używają kodu JavaScript `FormData` bezpośrednio, nazwa określona w elemencie formularza lub `FormData` musi być zgodna z nazwą parametru w akcji kontrolera.
+W formularzach innych niż Razor, które PUBLIKUJą dane formularza lub używają `FormData` języka JavaScript bezpośrednio, nazwa określona w elemencie formularza lub `FormData` musi być zgodna z nazwą parametru w akcji kontrolera.
 
 W poniższym przykładzie:
 
@@ -1292,7 +1296,7 @@ W poniższym przykładzie:
   <input type="file" name="battlePlans" multiple>
   ```
 
-* W przypadku używania `FormData` w języku JavaScript nazwa jest ustawiona na wartość `battlePlans`:
+* W przypadku używania `FormData` w języku JavaScript nazwa jest ustawiana na wartość `battlePlans`:
 
   ```javascript
   var formData = new FormData();
@@ -1320,7 +1324,7 @@ Użyj zgodnej nazwy dla parametru C# metody (`battlePlans`):
 
 ### <a name="multipart-body-length-limit"></a>Limit długości treści wieloczęściowej
 
-<xref:Microsoft.AspNetCore.Http.Features.FormOptions.MultipartBodyLengthLimit> ustawia limit długości każdej wieloczęściowej treści. Sekcje formularza, które przekraczają ten limit, zgłaszają <xref:System.IO.InvalidDataException> podczas analizowania. Wartość domyślna to 134 217 728 (128 MB). Dostosuj limit przy użyciu ustawienia <xref:Microsoft.AspNetCore.Http.Features.FormOptions.MultipartBodyLengthLimit> w `Startup.ConfigureServices`:
+<xref:Microsoft.AspNetCore.Http.Features.FormOptions.MultipartBodyLengthLimit> ustawia limit długości każdej wieloczęściowej treści. Sekcje formularzy, które przekraczają ten limit, generują <xref:System.IO.InvalidDataException> podczas analizowania. Wartość domyślna to 134 217 728 (128 MB). Dostosuj limit przy użyciu ustawienia <xref:Microsoft.AspNetCore.Http.Features.FormOptions.MultipartBodyLengthLimit> w `Startup.ConfigureServices`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -1457,7 +1461,11 @@ Wystąpił błąd połączenia i połączenie z serwerem resetowania prawdopodob
 
 ### <a name="null-reference-exception-with-iformfile"></a>Wyjątek odwołania o wartości null z IFormFile
 
-Jeśli kontroler akceptuje przekazane pliki przy użyciu <xref:Microsoft.AspNetCore.Http.IFormFile>, ale wartość jest `null`, upewnij się, że w formularzu HTML określono wartość `enctype` `multipart/form-data`. Jeśli ten atrybut nie jest ustawiony dla elementu `<form>`, przekazywanie pliku nie wystąpi i wszystkie powiązane argumenty <xref:Microsoft.AspNetCore.Http.IFormFile> są `null`. Sprawdź również, czy [Nazwa przekazywania w postaci danych jest zgodna z nazewnictwem aplikacji](#match-name-attribute-value-to-parameter-name-of-post-method).
+Jeśli kontroler akceptuje przekazane pliki przy użyciu <xref:Microsoft.AspNetCore.Http.IFormFile> ale wartość jest `null`, upewnij się, że w formularzu HTML określono wartość `enctype` `multipart/form-data`. Jeśli ten atrybut nie jest ustawiony dla elementu `<form>`, przekazywanie pliku nie wystąpi i wszystkie powiązane argumenty <xref:Microsoft.AspNetCore.Http.IFormFile> są `null`. Sprawdź również, czy [Nazwa przekazywania w postaci danych jest zgodna z nazewnictwem aplikacji](#match-name-attribute-value-to-parameter-name-of-post-method).
+
+### <a name="stream-was-too-long"></a>Strumień był zbyt długi
+
+Przykłady w tym temacie polegają na <xref:System.IO.MemoryStream> do przechowywania zawartości przekazanego pliku. Limit rozmiaru `MemoryStream` jest `int.MaxValue`. Jeśli scenariusz przekazywania plików aplikacji wymaga przechowywania zawartości pliku o rozmiarze większym niż 50 MB, użyj alternatywnego podejścia, które nie polega na pojedynczym `MemoryStream` do przechowywania zawartości przekazanego pliku.
 
 ::: moniker-end
 

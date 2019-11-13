@@ -4,28 +4,31 @@ author: rick-anderson
 description: Dowiedz się więcej o nowych funkcjach w ASP.NET Core 3,0.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/31/2019
+ms.date: 11/12/2019
+no-loc:
+- Blazor
+- SignalR
 uid: aspnetcore-3.0
-ms.openlocfilehash: 8c53d8a9fa222ca40f26dc713ec3b70ddde76539
-ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
+ms.openlocfilehash: c3dde383507ec919f82b5268ddbf23911c3d24f8
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416121"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963119"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>Co nowego w ASP.NET Core 3,0
 
 W tym artykule przedstawiono najbardziej znaczące zmiany w ASP.NET Core 3,0 z linkami do odpowiedniej dokumentacji.
 
-## <a name="blazor"></a>Blazor
+## Blazor
 
-Blazor to nowa struktura w ASP.NET Core tworzenia interakcyjnego interfejsu użytkownika sieci Web po stronie klienta przy użyciu platformy .NET:
+Blazor to nowa struktura w ASP.NET Core do tworzenia interakcyjnego interfejsu użytkownika sieci Web po stronie klienta przy użyciu platformy .NET:
 
 * Utwórz rozbudowane interaktywne C# interfejsów użytkownika przy użyciu zamiast języka JavaScript.
 * Udostępnianie logiki aplikacji po stronie serwera i klienta zapisaną w środowisku .NET.
 * Renderuj interfejs użytkownika jako HTML i CSS, aby obsługiwał szeroką przeglądarkę, w tym przeglądarki dla urządzeń przenośnych.
 
-Scenariusze obsługiwane przez środowisko Blazor Framework:
+scenariusze obsługiwane przez środowisko Blazor Framework:
 
 * Składniki interfejsu użytkownika wielokrotnego użytku (składniki Razor)
 * Routing po stronie klienta
@@ -37,17 +40,17 @@ Scenariusze obsługiwane przez środowisko Blazor Framework:
 
 Aby uzyskać więcej informacji, zobacz <xref:blazor/index>.
 
-### <a name="blazor-server"></a>Serwer Blazor
+### <a name="opno-locblazor-server"></a>Serwer Blazor
 
-Blazor oddziela logikę renderowania składników od sposobu stosowania aktualizacji interfejsu użytkownika. Serwer Blazor zapewnia obsługę hostingu składników Razor na serwerze w aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika są obsługiwane przez połączenie sygnalizujące. Serwer Blazor jest obsługiwany w ASP.NET Core 3,0.
+Blazor oddziela logikę renderowania składników od sposobu stosowania aktualizacji interfejsu użytkownika. Serwer Blazor zapewnia obsługę hostowania składników Razor na serwerze w aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika są obsługiwane za pośrednictwem połączenia SignalR. Serwer Blazor jest obsługiwany w ASP.NET Core 3,0.
 
-### <a name="blazor-webassembly-preview"></a>Webassembly Blazor (wersja zapoznawcza)
+### <a name="opno-locblazor-webassembly-preview"></a>Blazor webassembly (wersja zapoznawcza)
 
-Aplikacje Blazor można również uruchamiać bezpośrednio w przeglądarce przy użyciu środowiska uruchomieniowego .NET opartego na zestawie. Zestaw webBlazor jest w wersji zapoznawczej i *nie* jest obsługiwany w ASP.NET Core 3,0. Blazor webassembly będzie obsługiwany w przyszłej wersji ASP.NET Core.
+aplikacje Blazor można również uruchamiać bezpośrednio w przeglądarce przy użyciu środowiska uruchomieniowego .NET opartego na zestawie. Blazor webassembly jest w wersji zapoznawczej i *nie* jest obsługiwana w ASP.NET Core 3,0. Blazor webassembly będzie obsługiwana w przyszłych wydaniach ASP.NET Core.
 
 ### <a name="razor-components"></a>Składniki Razor
 
-Aplikacje Blazor są kompilowane ze składników. Składniki to samodzielne fragmenty interfejsu użytkownika (UI), takie jak strona, okno dialogowe lub formularz. Składniki to normalne klasy .NET, które definiują logikę renderowania interfejsu użytkownika i obsługę zdarzeń po stronie klienta. Możesz tworzyć rozbudowane interaktywne aplikacje sieci Web bez języka JavaScript.
+aplikacje Blazor są kompilowane ze składników. Składniki to samodzielne fragmenty interfejsu użytkownika (UI), takie jak strona, okno dialogowe lub formularz. Składniki to normalne klasy .NET, które definiują logikę renderowania interfejsu użytkownika i obsługę zdarzeń po stronie klienta. Możesz tworzyć rozbudowane interaktywne aplikacje sieci Web bez języka JavaScript.
 
 Składniki w Blazor są zwykle tworzone przy użyciu składnia Razor, naturalnej mieszanki HTML i C#. Składniki Razor są podobne do widoków Razor Pages i MVC, w których oba używają Razor. W przeciwieństwie do stron i widoków, które są oparte na modelu odpowiedzi na żądanie, składniki są używane do obsługi kompozycji interfejsu użytkownika.
 
@@ -76,11 +79,11 @@ funkcje gRPC w ASP.NET Core 3,0 obejmują:
 
 Aby uzyskać więcej informacji, zobacz <xref:grpc/index>.
 
-## <a name="signalr"></a>SignalR
+## SignalR
 
-Instrukcje dotyczące migracji można znaleźć w temacie [Aktualizowanie kodu sygnalizującego](xref:migration/22-to-30#signalr) . Program sygnalizujący teraz używa `System.Text.Json` do serializacji/deserializacji komunikatów JSON. Aby uzyskać instrukcje dotyczące przywracania serializatora opartego na `Newtonsoft.Json`, zobacz [Switch to Newtonsoft. JSON](xref:migration/22-to-30#switch-to-newtonsoftjson) .
+Instrukcje dotyczące migracji można znaleźć w temacie [Update SignalR Code](xref:migration/22-to-30#signalr) . SignalR teraz używa `System.Text.Json` do serializacji/deserializacji komunikatów JSON. Aby uzyskać instrukcje dotyczące przywracania serializatora opartego na `Newtonsoft.Json`, zobacz [Switch to Newtonsoft. JSON](xref:migration/22-to-30#switch-to-newtonsoftjson) .
 
-W klientach JavaScript i .NET dla sygnalizującego dodano obsługę automatycznego ponownego połączenia. Domyślnie klient próbuje ponownie nawiązać połączenie, a następnie ponowić próbę po 2, 10 i 30 sekundach, jeśli jest to konieczne. Jeśli klient pomyślnie nawiąże połączenie, otrzymuje nowy identyfikator połączenia. Automatyczne ponowne łączenie jest zgodą:
+Na klientach JavaScript i .NET dla SignalRdodano obsługę automatycznego ponownego łączenia. Domyślnie klient próbuje ponownie nawiązać połączenie, a następnie ponowić próbę po 2, 10 i 30 sekundach, jeśli jest to konieczne. Jeśli klient pomyślnie nawiąże połączenie, otrzymuje nowy identyfikator połączenia. Automatyczne ponowne łączenie jest zgodą:
 
 ```javascript
 const connection = new signalR.HubConnectionBuilder()
@@ -105,7 +108,7 @@ Jeśli ponowne połączenie nie powiedzie się po ostatnim interwale ponownego p
 
 Podczas próby ponownego połączenia zaktualizuj interfejs użytkownika aplikacji, aby powiadomić użytkownika o tym, że trwa próba ponownego połączenia.
 
-Aby zapewnić informacje zwrotne interfejsu użytkownika w przypadku przerwania połączenia, interfejs API klienta sygnalizującego został rozszerzony w celu uwzględnienia następujących programów obsługi zdarzeń:
+Aby zapewnić informacje zwrotne interfejsu użytkownika w przypadku przerwania połączenia, interfejs API klienta SignalR został rozszerzony w celu uwzględnienia następujących programów obsługi zdarzeń:
 
 * `onreconnecting`: umożliwia deweloperom wyłączenie interfejsu użytkownika lub umożliwienie użytkownikom znajomości aplikacji w trybie offline.
 * `onreconnected`: daje deweloperom możliwość aktualizowania interfejsu użytkownika po jego nawiązaniu.
@@ -132,7 +135,7 @@ connection.onreconnected((connectionId) => {
 });
 ```
 
-Sygnał 3,0 i nowsze udostępnia zasób niestandardowy do programów obsługi autoryzacji, gdy metoda centrum wymaga autoryzacji. Zasób jest wystąpieniem `HubInvocationContext`. `HubInvocationContext` obejmuje:
+SignalR 3,0 i nowsze udostępniają niestandardowe zasoby dla programów obsługi autoryzacji, gdy metoda centrum wymaga autoryzacji. Zasób jest wystąpieniem `HubInvocationContext`. `HubInvocationContext` obejmuje:
 
 * `HubCallerContext`
 * Nazwa wywoływanej metody centrum.
@@ -222,7 +225,7 @@ services
     });
 ```
 
-Centra sygnałów używają [routingu punktu końcowego](xref:fundamentals/routing). Połączenie centrum sygnałów zostało wcześniej wykonane jawnie:
+SignalR Hub używają [routingu punktów końcowych](xref:fundamentals/routing). połączenie centrum SignalR zostało wcześniej wykonane jawnie:
 
 ```csharp
 app.UseSignalR(routes =>
@@ -245,7 +248,7 @@ app.UseRouting(routes =>
 });
 ```
 
-Centra sygnalizujące 3,0 mogą być kierowane za pośrednictwem routingu punktu końcowego. Za pomocą routingu punktów końcowych, zazwyczaj wszystkie Routing można skonfigurować w `UseRouting`:
+Centra SignalR 3,0 mogą być kierowane przez Routing punktów końcowych. Za pomocą routingu punktów końcowych, zazwyczaj wszystkie Routing można skonfigurować w `UseRouting`:
 
 ```csharp
 app.UseRouting(routes =>
@@ -255,7 +258,7 @@ app.UseRouting(routes =>
 });
 ```
 
-Dodano ASP.NET Core sygnalizujący 3,0:
+Dodano SignalR ASP.NET Core 3,0:
 
 Przesyłanie strumieniowe klient-serwer. W przypadku przesyłania strumieniowego klient-serwer metody po stronie serwera mogą przyjmować wystąpienia `IAsyncEnumerable<T>` lub `ChannelReader<T>`. W poniższym C# przykładzie metoda `UploadStream` w centrum otrzyma strumień ciągów od klienta:
 
@@ -286,7 +289,7 @@ async IAsyncEnumerable<string> clientStreamData()
 await connection.SendAsync("UploadStream", clientStreamData());
 ```
 
-Aplikacje klienckie języka JavaScript używają `Subject` sygnalizującego (lub [tematu RxJS](https://rxjs.dev/api/index/class/Subject)) dla argumentu `stream` z powyższej metody `UploadStream` Hub.
+Aplikacje klienckie JavaScript używają `Subject` SignalR (lub [tematu RxJS](https://rxjs.dev/api/index/class/Subject)) dla argumentu `stream` powyższej metody `UploadStream` Hub.
 
 ```javascript
 let subject = new signalR.Subject();
@@ -455,7 +458,7 @@ Aby uzyskać więcej informacji, zobacz <xref:fundamentals/routing#routing-basic
 
 ## <a name="health-checks"></a>Kontrole kondycji
 
-Kontrole kondycji korzystają z routingu punktu końcowego z hostem ogólnym. W `Startup.Configure` Wywołaj `MapHealthChecks` w konstruktorze punktów końcowych z adresem URL punktu końcowego lub ścieżką względną:
+Kontrole kondycji korzystają z routingu punktu końcowego z hostem ogólnym. W `Startup.Configure`Wywołaj `MapHealthChecks` na konstruktorze punktów końcowych z adresem URL punktu końcowego lub ścieżką względną:
 
 ```csharp
 app.UseEndpoints(endpoints =>

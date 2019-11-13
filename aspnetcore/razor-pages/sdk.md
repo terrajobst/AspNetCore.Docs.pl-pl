@@ -6,13 +6,15 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 08/23/2019
+no-loc:
+- Blazor
 uid: razor-pages/sdk
-ms.openlocfilehash: 606d2bdca3fa4fb1c81df73ac697d2175c3ab633
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: 2fbdf95d02d7918236981c7fee8ebcbedf5c55e1
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72334034"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963261"
 ---
 # <a name="aspnet-core-razor-sdk"></a>ASP.NET Core Razor SDK
 
@@ -20,7 +22,7 @@ Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="overview"></a>Omówienie
 
-@No__t-0 zawiera zestaw SDK programu MSBuild `Microsoft.NET.Sdk.Razor` (SDK Razor). Zestaw SDK Razor:
+[!INCLUDE[](~/includes/2.1-SDK.md)] zawiera `Microsoft.NET.Sdk.Razor` SDK MSBuild (Razor SDK). Zestaw SDK Razor:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -139,7 +141,7 @@ Zestaw SDK Razor definiuje dwa podstawowe elementy docelowe:
 
 ### <a name="runtime-compilation-of-razor-views"></a>Kompilacja widoków Razor dla środowiska uruchomieniowego
 
-* Domyślnie zestaw SDK Razor nie publikuje zestawów referencyjnych, które są wymagane do wykonania kompilacji środowiska uruchomieniowego. Powoduje to błędy kompilacji, gdy model aplikacji opiera się na przykładowej kompilacji środowiska uruchomieniowego @ no__t-0for, aplikacja używa widoków osadzonych lub zmian po opublikowaniu aplikacji. Ustaw wartość `CopyRefAssembliesToPublishDirectory` na `true`, aby kontynuować publikowanie zestawów odwołań.
+* Domyślnie zestaw SDK Razor nie publikuje zestawów referencyjnych, które są wymagane do wykonania kompilacji środowiska uruchomieniowego. Powoduje to błędy kompilacji, gdy model aplikacji opiera się na&mdash;kompilacji środowiska uruchomieniowego na przykład aplikacja korzysta z widoków osadzonych lub zmian po opublikowaniu aplikacji. Ustaw wartość `CopyRefAssembliesToPublishDirectory` na `true`, aby kontynuować publikowanie zestawów odwołań.
 
 * W przypadku aplikacji sieci Web upewnij się, że aplikacja jest ukierunkowana na zestaw SDK `Microsoft.NET.Sdk.Web`.
 

@@ -1,39 +1,41 @@
 ---
 title: Wywoływanie interfejsu API sieci Web z ASP.NET Core Blazor
 author: guardrex
-description: Dowiedz się, jak wywoływać interfejs API sieci Web z aplikacji Blazor przy użyciu pomocników JSON, w tym do tworzenia żądań wymiany zasobów między źródłami (CORS).
+description: Dowiedz się, jak wywoływać interfejs API sieci Web z aplikacji Blazor za pomocą pomocników JSON, w tym do tworzenia żądań wymiany zasobów między źródłami (CORS).
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
+no-loc:
+- Blazor
 uid: blazor/call-web-api
-ms.openlocfilehash: b08fdf5c2f9a523314b1744a33087eb64fa4c14a
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: b5c57317005d0072410542bad322458b1cb3f5ee
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390831"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73962723"
 ---
-# <a name="call-a-web-api-from-aspnet-core-blazor"></a>Wywoływanie interfejsu API sieci Web z ASP.NET Core Blazor
+# <a name="call-a-web-api-from-aspnet-core-opno-locblazor"></a>Wywoływanie interfejsu API sieci Web z ASP.NET Core Blazor
 
 [Luke Latham](https://github.com/guardrex), [Daniel Roth](https://github.com/danroth27)i [Juan de la Cruz](https://github.com/juandelacruz23)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Blazor aplikacje webassembly wywołują interfejsy API sieci Web przy użyciu wstępnie skonfigurowanej usługi `HttpClient`. Twórz żądania, które mogą obejmować opcje [interfejsu API pobierania](https://developer.mozilla.org/docs/Web/API/Fetch_API) języka JavaScript, za pomocą pomocników JSON Blazor lub z <xref:System.Net.Http.HttpRequestMessage>.
+Blazor aplikacje webassembly wywołują interfejsy API sieci Web przy użyciu wstępnie skonfigurowanej usługi `HttpClient`. Twórz żądania, które mogą obejmować opcje [interfejsu API pobierania](https://developer.mozilla.org/docs/Web/API/Fetch_API) języka JavaScript, przy użyciu Blazor pomocy JSON lub <xref:System.Net.Http.HttpRequestMessage>.
 
-Aplikacje serwera Blazor wywołują interfejsy API sieci Web przy użyciu wystąpień <xref:System.Net.Http.HttpClient> utworzonych zazwyczaj przy użyciu <xref:System.Net.Http.IHttpClientFactory>. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/http-requests>.
+Blazor aplikacje serwera wywołują interfejsy API sieci Web przy użyciu wystąpień <xref:System.Net.Http.HttpClient> zwykle utworzonych przy użyciu <xref:System.Net.Http.IHttpClientFactory>. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/http-requests>.
 
 [Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
 
-Przykłady Blazor webassembly można znaleźć w następujących składnikach w przykładowej aplikacji:
+Aby uzyskać Blazor przykładów zestawu webassembly, zobacz następujące składniki w przykładowej aplikacji:
 
 * Wywoływanie interfejsu API sieci Web (*strony/CallWebAPI. Razor*)
 * Tester żądania HTTP (*Components/HTTPRequestTester. Razor*)
 
 ## <a name="httpclient-and-json-helpers"></a>HttpClient i pomocnicy JSON
 
-W aplikacjach Blazor webassembly [HttpClient](xref:fundamentals/http-requests) jest dostępny jako usługa wstępnie skonfigurowana do wykonywania żądań z powrotem do serwera pochodzenia. Aby użyć `HttpClient` pomocników JSON, Dodaj odwołanie do pakietu do `Microsoft.AspNetCore.Blazor.HttpClient`. `HttpClient` i pomocników JSON są również używane do wywoływania punktów końcowych interfejsu API sieci Web innych firm. `HttpClient` jest implementowana przy użyciu [interfejsu API pobierania](https://developer.mozilla.org/docs/Web/API/Fetch_API) przeglądarki i podlega jego ograniczeniom, w tym wymuszania tych samych zasad pochodzenia.
+W Blazor aplikacje webassembly [HttpClient](xref:fundamentals/http-requests) jest dostępny jako usługa wstępnie skonfigurowana do wykonywania żądań z powrotem do serwera pochodzenia. Aby korzystać z pomocników JSON `HttpClient`, Dodaj odwołanie do pakietu do `Microsoft.AspNetCore.Blazor.HttpClient`. `HttpClient` i pomocników JSON są również używane do wywoływania punktów końcowych interfejsu API sieci Web innych firm. `HttpClient` jest implementowana przy użyciu [interfejsu API pobierania](https://developer.mozilla.org/docs/Web/API/Fetch_API) przeglądarki i podlega jego ograniczeniom, w tym wymuszania tych samych zasad pochodzenia.
 
 Adres podstawowy klienta jest ustawiany na adres serwera źródłowego. Wstrzyknąć wystąpienie `HttpClient` przy użyciu dyrektywy `@inject`:
 
@@ -61,7 +63,7 @@ Metody pomocnika JSON wysyłają żądania do identyfikatora URI (internetowego 
 
 * `GetJsonAsync` &ndash; wysyła żądanie HTTP GET i analizuje treść odpowiedzi JSON w celu utworzenia obiektu.
 
-  W poniższym kodzie, `_todoItems` są wyświetlane przez składnik. Metoda `GetTodoItems` jest wyzwalana, gdy składnik jest gotowy do renderowania ([OnInitializedAsync](xref:blazor/components#lifecycle-methods)). Pełny przykład można znaleźć w przykładowej aplikacji.
+  W poniższym kodzie `_todoItems` są wyświetlane przez składnik. Metoda `GetTodoItems` jest wyzwalana, gdy składnik jest gotowy do renderowania ([OnInitializedAsync](xref:blazor/components#lifecycle-methods)). Pełny przykład można znaleźć w przykładowej aplikacji.
 
   ```cshtml
   @using System.Net.Http
@@ -77,7 +79,7 @@ Metody pomocnika JSON wysyłają żądania do identyfikatora URI (internetowego 
 
 * `PostJsonAsync` &ndash; wysyła żądanie HTTP POST, w tym zawartość zakodowaną w formacie JSON, i analizuje treść odpowiedzi JSON w celu utworzenia obiektu.
 
-  W poniższym kodzie `_newItemName` jest dostarczany przez powiązany element składnika. Metoda `AddItem` jest wyzwalana przez wybranie elementu `<button>`. Pełny przykład można znaleźć w przykładowej aplikacji.
+  W poniższym kodzie `_newItemName` jest udostępniany przez powiązany element składnika. Metoda `AddItem` jest wyzwalana przez wybranie elementu `<button>`. Pełny przykład można znaleźć w przykładowej aplikacji.
 
   ```cshtml
   @using System.Net.Http
@@ -99,7 +101,7 @@ Metody pomocnika JSON wysyłają żądania do identyfikatora URI (internetowego 
 
 * `PutJsonAsync` &ndash; wysyła żądanie HTTP PUT, w tym zawartość zakodowaną w formacie JSON.
 
-  W poniższym kodzie wartości `_editItem` dla `Name` i `IsCompleted` są udostępniane przez powiązane elementy składnika. Element `Id` jest ustawiany, gdy element jest wybrany w innej części interfejsu użytkownika i wywoływana jest `EditItem`. Metoda `SaveItem` jest wyzwalana przez wybranie elementu Save `<button>`. Pełny przykład można znaleźć w przykładowej aplikacji.
+  W poniższym kodzie `_editItem` wartości dla `Name` i `IsCompleted` są udostępniane przez powiązane elementy składnika. Element `Id` jest ustawiany, gdy element jest wybrany w innej części interfejsu użytkownika i wywoływana jest `EditItem`. Metoda `SaveItem` jest wyzwalana przez wybranie elementu Save `<button>`. Pełny przykład można znaleźć w przykładowej aplikacji.
 
   ```cshtml
   @using System.Net.Http

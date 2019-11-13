@@ -4,14 +4,16 @@ author: mjrousos
 description: Wskazówki dotyczące zwiększania wydajności aplikacji ASP.NET Core i unikania typowych problemów z wydajnością.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 09/26/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: performance/performance-best-practices
-ms.openlocfilehash: 1cd4ca6fccfee674f46e87ba051e049f7daa5b66
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: 279bf352580e5e45fc005e800ee536871210409b
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799513"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963244"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core najlepszych rozwiązań dotyczących wydajności
 
@@ -75,7 +77,7 @@ Mając
 * **Należy rozważyć buforowanie** często używanych danych pobieranych z bazy danych lub usługi zdalnej w przypadku niewielkich nieaktualnych danych. W zależności od scenariusza użyj elementu [elemencie MemoryCache](xref:performance/caching/memory) lub [DistributedCache](xref:performance/caching/distributed). Aby uzyskać więcej informacji, zobacz <xref:performance/caching/response>.
 * **Minimalizacja** podróży sieci. Celem jest pobranie wymaganych danych w jednym wywołaniu, a nie w kilku wywołaniach.
 * Podczas uzyskiwania dostępu do danych w celach tylko do **odczytu używaj** [zapytań bez śledzenia](/ef/core/querying/tracking#no-tracking-queries) w Entity Framework Core. EF Core może zwrócić wyniki niewydajnego śledzenia zapytań.
-* **Przefiltruj** i Agreguj zapytania LINQ (na przykład `.Where`, `.Select` lub `.Sum`, aby filtrowanie było wykonywane przez bazę danych.
+* **Wykonaj** filtrowanie i agregowanie zapytań LINQ (na przykład przy użyciu instrukcji `.Where`, `.Select`lub `.Sum`), aby filtrowanie było wykonywane przez bazę danych.
 * **Należy wziąć pod** uwagę, że EF Core rozpoznaje niektórych operatorów zapytań na kliencie, co może prowadzić do niewydajnego wykonywania zapytań. Aby uzyskać więcej informacji, zobacz [problemy z wydajnością oceny klienta](/ef/core/querying/client-eval#client-evaluation-performance-issues).
 * **Nie** używaj zapytań projekcji w kolekcjach, co może spowodować wykonanie zapytań SQL "N + 1". Aby uzyskać więcej informacji, zobacz [Optymalizacja skorelowanych podzapytań](/ef/core/what-is-new/ef-core-2.1#optimization-of-correlated-subqueries).
 
@@ -90,11 +92,11 @@ Problemy z kwerendami można wykryć, przeglądając czas spędzony na dostępie
 
 ## <a name="pool-http-connections-with-httpclientfactory"></a>Połączenia HTTP puli z HttpClientFactory
 
-Chociaż [HttpClient](/dotnet/api/system.net.http.httpclient) implementuje interfejs `IDisposable`, jest przeznaczony do ponownego użycia. Zamknięte wystąpienia `HttpClient` pozostawiają gniazda otwarte w stanie `TIME_WAIT` przez krótki czas. Jeśli jest często używana ścieżka kodu, która tworzy i usuwa obiekty `HttpClient`, aplikacja może wyczerpać dostępne gniazda. [HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) został wprowadzony w ASP.NET Core 2,1 jako rozwiązanie tego problemu. Obsługuje buforowanie połączeń HTTP w celu zoptymalizowania wydajności i niezawodności.
+Chociaż [HttpClient](/dotnet/api/system.net.http.httpclient) implementuje interfejs `IDisposable`, jest przeznaczony do ponownego użycia. Zamknięte wystąpienia `HttpClient` pozostawiają gniazda otwarte w stanie `TIME_WAIT` przez krótki czas. Jeśli ścieżka kodu, która tworzy i usuwa `HttpClient` obiektów jest często używana, aplikacja może wyczerpać dostępne gniazda. [HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) został wprowadzony w ASP.NET Core 2,1 jako rozwiązanie tego problemu. Obsługuje buforowanie połączeń HTTP w celu zoptymalizowania wydajności i niezawodności.
 
 Mając
 
-* **Nie** Twórz ani nie usuwaj wystąpień `HttpClient`.
+* **Nie** Twórz ani nie usuwaj wystąpień `HttpClient` bezpośrednio.
 * **Użyj** [HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) , aby pobrać wystąpienia `HttpClient`. Aby uzyskać więcej informacji, zobacz [Używanie HttpClientFactory do implementowania odpornych żądań HTTP](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
 ## <a name="keep-common-code-paths-fast"></a>Szybkie śledzenie wspólnych ścieżek kodu
@@ -117,7 +119,7 @@ Mając
 
 * **Nie** czekaj na ukończenie długotrwałych zadań w ramach zwykłego przetwarzania żądań HTTP.
 * **Rozważ obsługę** długotrwałych żądań z usługami w [tle](xref:fundamentals/host/hosted-services) lub poza procesem przy użyciu [funkcji platformy Azure](/azure/azure-functions/). Zakończenie pracy poza procesem jest szczególnie przydatne w przypadku zadań intensywnie korzystających z procesora CPU.
-* **Użyj opcji** komunikacji w czasie rzeczywistym, takich jak [sygnalizujący](xref:signalr/introduction), aby komunikować się z klientami asynchronicznie.
+* **Użyj opcji** komunikacji w czasie rzeczywistym, takich jak [SignalR](xref:signalr/introduction), aby komunikować się z klientami asynchronicznie.
 
 ## <a name="minify-client-assets"></a>Zminifikować zasoby klienta
 
@@ -183,11 +185,11 @@ Poprzedni kod asynchronicznie deserializacji treści żądania do C# obiektu.
 
 ## <a name="prefer-readformasync-over-requestform"></a>Preferuj ReadFormAsync przez żądanie. formularz
 
-Użyj `HttpContext.Request.ReadFormAsync` zamiast `HttpContext.Request.Form`.
-`HttpContext.Request.Form` może być bezpiecznie odczytywane tylko z następującymi warunkami:
+Użyj `HttpContext.Request.ReadFormAsync`, a nie `HttpContext.Request.Form`.
+`HttpContext.Request.Form` mogą być bezpiecznie odczytywane tylko z następującymi warunkami:
 
-* Formularz został odczytany przez wywołanie `ReadFormAsync`, a
-* Wartość buforowanego formularza jest odczytywana przy użyciu `HttpContext.Request.Form`
+* Formularz został odczytany przez wywołanie `ReadFormAsync`i
+* Odczytywanie wartości formularza w pamięci podręcznej przy użyciu `HttpContext.Request.Form`
 
 **Nie wykonuj tej czynności:** Poniższy przykład używa `HttpContext.Request.Form`.  `HttpContext.Request.Form` używa [synchronizacji przez asynchroniczne](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#warning-sync-over-async
 ) i może prowadzić do zablokowania puli wątków.
@@ -225,7 +227,7 @@ W przypadku korzystania z serializatora/deserializatora, który obsługuje tylko
 > [!WARNING]
 > Jeśli żądanie jest duże, może prowadzić do niewystarczającej ilości pamięci (OOM). OOM może spowodować odmowę usługi.  Aby uzyskać więcej informacji, zobacz [unikanie odczytywania dużych treści żądań lub treści odpowiedzi do pamięci](#arlb) w tym dokumencie.
 
-ASP.NET Core 3,0 domyślnie używa <xref:System.Text.Json> dla serializacji JSON. <xref:System.Text.Json>:
+ASP.NET Core 3,0 używa <xref:System.Text.Json> domyślnie dla serializacji JSON. <xref:System.Text.Json>:
 
 * Odczytuje i zapisuje dane JSON asynchronicznie.
 * Jest zoptymalizowany pod kątem tekstu w formacie UTF-8.
@@ -233,24 +235,24 @@ ASP.NET Core 3,0 domyślnie używa <xref:System.Text.Json> dla serializacji JSON
 
 ## <a name="do-not-store-ihttpcontextaccessorhttpcontext-in-a-field"></a>Nie należy przechowywać IHttpContextAccessor. HttpContext w polu
 
-[IHttpContextAccessor. HttpContext](xref:Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext) zwraca `HttpContext` żądania aktywnego, gdy uzyskuje dostęp z wątku żądania. `IHttpContextAccessor.HttpContext` **nie** powinna być przechowywana w polu ani zmiennej.
+[IHttpContextAccessor. HttpContext](xref:Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext) zwraca `HttpContext` aktywnego żądania, gdy uzyskuje dostęp z wątku żądania. `IHttpContextAccessor.HttpContext` **nie** powinna być przechowywana w polu ani zmiennej.
 
 **Nie wykonuj tej czynności:** Poniższy przykład zapisuje `HttpContext` w polu, a następnie próbuje użyć go później.
 
 [!code-csharp[](performance-best-practices/samples/3.0/MyType.cs?name=snippet1)]
 
-Poprzedni kod często przechwytuje wartość null lub nieprawidłowy `HttpContext` w konstruktorze.
+Poprzedzający kod często przechwytuje wartość null lub nieprawidłowy `HttpContext` w konstruktorze.
 
 **Wykonaj następujące czynności:** Poniższy przykład:
 
 * Przechowuje <xref:Microsoft.AspNetCore.Http.IHttpContextAccessor> w polu.
-* Program używa pola `HttpContext` w poprawnym czasie i sprawdza, czy `null`.
+* Używa pola `HttpContext` w prawidłowym czasie i sprawdza, czy `null`.
 
 [!code-csharp[](performance-best-practices/samples/3.0/MyType.cs?name=snippet2)]
 
 ## <a name="do-not-access-httpcontext-from-multiple-threads"></a>Nie uzyskuj dostępu do obiektu HttpContext z wielu wątków
 
-`HttpContext` *nie* jest bezpieczny wątkowo. Dostęp do `HttpContext` z wielu wątków równolegle może spowodować niezdefiniowane zachowanie, takie jak zawieszenie, awarie i uszkodzenie danych.
+`HttpContext` *nie* jest bezpieczna wątkowo. Dostęp do `HttpContext` z wielu wątków równolegle może spowodować niezdefiniowane zachowanie, takie jak zawieszenie, awarie i uszkodzenie danych.
 
 **Nie wykonuj tej czynności:** Poniższy przykład tworzy trzy żądania równoległe i rejestruje ścieżkę żądania przychodzącego przed i po wychodzącym żądaniu HTTP. Ścieżka żądania jest dostępna z wielu wątków, potencjalnie równolegle.
 
@@ -262,9 +264,9 @@ Poprzedni kod często przechwytuje wartość null lub nieprawidłowy `HttpContex
 
 ## <a name="do-not-use-the-httpcontext-after-the-request-is-complete"></a>Nie używaj obiektu HttpContext po zakończeniu żądania
 
-wartość `HttpContext` jest prawidłowa tylko pod warunkiem, że w potoku ASP.NET Core istnieje aktywne żądanie HTTP. Cały potok ASP.NET Core jest asynchronicznym łańcuchem delegatów, które wykonują każde żądanie. Po zakończeniu `Task` z tego łańcucha `HttpContext` jest odtwarzany ponownie.
+`HttpContext` jest prawidłowy tylko pod warunkiem, że w potoku ASP.NET Core istnieje aktywne żądanie HTTP. Cały potok ASP.NET Core jest asynchronicznym łańcuchem delegatów, które wykonują każde żądanie. Po zakończeniu `Task` zwrócone z tego łańcucha `HttpContext` zostanie odtworzony.
 
-**Nie wykonuj tej czynności:** Poniższy przykład używa `async void`, co sprawia, że żądanie HTTP kończy się po osiągnięciu pierwszego `await`:
+**Nie wykonuj tej czynności:** W poniższym przykładzie zastosowano `async void`, które powoduje, że żądanie HTTP kończy się po osiągnięciu pierwszego `await`:
 
 * Jest to **zawsze** złe rozwiązanie w aplikacjach ASP.NET Core.
 * Uzyskuje dostęp do `HttpResponse` po zakończeniu żądania HTTP.
@@ -272,7 +274,7 @@ wartość `HttpContext` jest prawidłowa tylko pod warunkiem, że w potoku ASP.N
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/AsyncBadVoidController.cs?name=snippet1)]
 
-**Wykonaj następujące czynności:** Poniższy przykład zwraca `Task` do struktury, tak aby żądanie HTTP nie zostało ukończone, dopóki nie zostanie ukończona akcja.
+**Wykonaj następujące czynności:** Poniższy przykład zwraca `Task` do struktury, aby żądanie HTTP nie zostało ukończone do momentu zakończenia akcji.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/AsyncSecondController.cs?name=snippet1)]
 
@@ -305,7 +307,7 @@ Zadania w tle należy zaimplementować jako usługi hostowane. Aby uzyskać wię
 * Wprowadza <xref:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory> w celu utworzenia zakresu w tle elementu pracy. `IServiceScopeFactory` jest klasą pojedynczą.
 * Tworzy nowy zakres iniekcji zależności w wątku w tle.
 * Nie odwołuje się do żadnego z kontrolerów.
-* Nie Przechwytuj `ContosoDbContext` z żądania przychodzącego.
+* Nie przechwytuje `ContosoDbContext` z żądania przychodzącego.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetSecondController.cs?name=snippet2)]
 

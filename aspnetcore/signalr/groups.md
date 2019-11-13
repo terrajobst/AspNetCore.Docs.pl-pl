@@ -1,50 +1,52 @@
 ---
 title: Zarządzanie użytkownikami i grupami w SignalR
 author: bradygaster
-description: Omówienie platformy ASP.NET Core SignalR użytkowników i grup zarządzania.
+description: Omówienie ASP.NET Core SignalR zarządzanie użytkownikami i grupami.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 06/04/2018
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: signalr/groups
-ms.openlocfilehash: 180f8b4551eea39cc340bf1d250f4575cb5f71ed
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 59e90042ecbaf936602643bbdc3965e036426b26
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087434"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963809"
 ---
-# <a name="manage-users-and-groups-in-signalr"></a>Zarządzanie użytkownikami i grupami w SignalR
+# <a name="manage-users-and-groups-in-opno-locsignalr"></a>Zarządzanie użytkownikami i grupami w SignalR
 
-Przez [Brennan Conroy](https://github.com/BrennanConroy)
+Autor [Brennan Conroy](https://github.com/BrennanConroy)
 
-SignalR umożliwia wiadomości do wysłania do wszystkie połączenia skojarzone z określonym użytkownikiem, a także do nazwanych grup połączeń.
+SignalR umożliwia wysyłanie komunikatów do wszystkich połączeń skojarzonych z określonym użytkownikiem, a także do nazwanych grup połączeń.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/groups/sample/) [(jak pobrać)](xref:index#how-to-download-a-sample)
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/groups/sample/) [(jak pobrać)](xref:index#how-to-download-a-sample)
 
-## <a name="users-in-signalr"></a>Użytkownicy w SignalR
+## <a name="users-in-opno-locsignalr"></a>Użytkownicy w SignalR
 
-SignalR umożliwia wysyłanie komunikatów do wszystkich połączeń, skojarzone z określonym użytkownikiem. Domyślnie używa SignalR `ClaimTypes.NameIdentifier` z `ClaimsPrincipal` skojarzonych z tym połączeniem jako identyfikator użytkownika. Jeden użytkownik może mieć wiele połączeń aplikacji SignalR. Można na przykład połączenia użytkownika, na pulpicie, a także swojego telefonu. Każde urządzenie ma oddzielne połączenia SignalR, ale są one wszystkie skojarzone z tym użytkownikiem. Jeśli komunikat jest wysyłany do użytkownika, wszystkie połączenia skojarzone z tym użytkownikiem komunikat. Identyfikator użytkownika dla połączenia może zostać oceniony przez `Context.UserIdentifier` właściwości Centrum.
+SignalR umożliwia wysyłanie komunikatów do wszystkich połączeń skojarzonych z określonym użytkownikiem. Domyślnie SignalR używa `ClaimTypes.NameIdentifier` z `ClaimsPrincipal` skojarzonego z połączeniem jako identyfikatorem użytkownika. Pojedynczy użytkownik może mieć wiele połączeń z aplikacją SignalR. Na przykład użytkownik może być połączony na swoim komputerze, a także na telefonie. Każde urządzenie ma oddzielne połączenie SignalR, ale wszystkie są skojarzone z tym samym użytkownikiem. Jeśli wiadomość jest wysyłana do użytkownika, wszystkie połączenia skojarzone z tym użytkownikiem otrzymują komunikat. Do identyfikatora użytkownika dla połączenia można uzyskać dostęp za pomocą właściwości `Context.UserIdentifier` w centrum.
 
-Wyślij wiadomość do określonego użytkownika, przekazując identyfikator użytkownika, aby `User` działać w metodzie Centrum, jak pokazano w poniższym przykładzie:
+Wyślij wiadomość do określonego użytkownika, przekazując identyfikator użytkownika do funkcji `User` w metodzie centrum, jak pokazano w następującym przykładzie:
 
 > [!NOTE]
-> Identyfikator użytkownika jest rozróżniana wielkość liter.
+> W identyfikatorze użytkownika jest rozróżniana wielkość liter.
 
 [!code-csharp[Configure service](groups/sample/hubs/chathub.cs?range=29-32)]
 
-## <a name="groups-in-signalr"></a>Grupami w SignalR
+## <a name="groups-in-opno-locsignalr"></a>Grupy w SignalR
 
-Grupy to zbiór połączenia skojarzone z nazwą. Komunikaty mogą być wysyłane do wszystkich połączeń w grupie. Grupy są zalecanym sposobem wysyłania do połączenia lub wielu połączeń, ponieważ te grupy są zarządzane przez aplikację. Połączenie może należeć do wielu grup. Dzięki temu grupy idealne podobny aplikację do obsługi rozmów, gdzie każdego pomieszczenia mogą być reprezentowane jako grupa. Połączenia, które mogą być dodawane do lub usunięte z grup za pośrednictwem `AddToGroupAsync` i `RemoveFromGroupAsync` metody.
+Grupa jest kolekcją połączeń skojarzonych z nazwą. Komunikaty mogą być wysyłane do wszystkich połączeń w grupie. Grupy są zalecanym sposobem wysyłania do połączenia lub wielu połączeń, ponieważ grupy są zarządzane przez aplikację. Połączenie może być członkiem wielu grup. Sprawia to, że grupy są idealnym rozwiązaniem, takim jak aplikacja czatu, gdzie każde pomieszczenie może być reprezentowane jako Grupa. Połączenia mogą być dodawane lub usuwane z grup za pośrednictwem metod `AddToGroupAsync` i `RemoveFromGroupAsync`.
 
 [!code-csharp[Hub methods](groups/sample/hubs/chathub.cs?range=15-27)]
 
-Członkostwo w grupie nie są zachowywane podczas ponownego nawiązania połączenia. Musi ponownie dołączyć do grupy po ponownym nawiązaniu połączenia. Nie jest możliwe do zliczenia członkowie danej grupy, ponieważ te informacje nie są dostępne, jeśli aplikacja będzie skalowana na wielu serwerach.
+Członkostwo w grupie nie jest zachowywane po ponownym nawiązaniu połączenia. Połączenie musi ponownie dołączyć do grupy po jej ponownym ustanowieniu. Nie jest możliwe liczenie członków grupy, ponieważ te informacje są niedostępne, jeśli aplikacja jest skalowana na wielu serwerach.
 
-Aby chronić dostęp do zasobów podczas korzystania z grup, użyj [uwierzytelnianie i autoryzacja](xref:signalr/authn-and-authz) funkcji w programie ASP.NET Core. Tylko dodanie użytkowników do grupy, jeśli poświadczenia są prawidłowe dla tej grupy, komunikaty wysyłane do tej grupy zaczną się tylko dla autoryzowanych użytkowników. Jednak grupy nie są funkcją zabezpieczeń. Uwierzytelniania oświadczeń ma funkcje, których nie grupy, na przykład wygaśnięcia i odwoływania praw dostępu. Uprawnienia użytkownika, aby uzyskać dostęp do grupy jest odwołany, trzeba ręcznie wykryje to i usunąć je z niej.
+Aby chronić dostęp do zasobów przy użyciu grup, użyj funkcji [uwierzytelniania i autoryzacji](xref:signalr/authn-and-authz) w ASP.NET Core. W przypadku dodawania użytkowników do grupy tylko wtedy, gdy poświadczenia są prawidłowe dla tej grupy, wiadomości wysyłane do tej grupy będą przekazywane tylko autoryzowanym użytkownikom. Jednak grupy nie są funkcją zabezpieczeń. Oświadczenia uwierzytelniania mają funkcje, które nie są, takie jak wygaśnięcie i odwoływanie. Jeśli uprawnienie użytkownika do uzyskiwania dostępu do grupy zostało odwołane, musisz ręcznie wykryć ten element i usunąć go z grupy.
 
 > [!NOTE]
-> Nazwy grup jest rozróżniana wielkość liter.
+> W nazwach grup jest rozróżniana wielkość liter.
 
 ## <a name="related-resources"></a>Powiązane zasoby
 

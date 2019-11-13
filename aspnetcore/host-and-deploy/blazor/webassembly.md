@@ -1,26 +1,28 @@
 ---
 title: Hostowanie i wdrażanie ASP.NET Core Blazor webassembly
 author: guardrex
-description: Dowiedz się, jak hostować i wdrażać aplikację Blazor przy użyciu ASP.NET Core, usługi Content Delivery Networks (CDN), serwerów plików i stron usługi GitHub.
+description: Dowiedz się, jak hostować i wdrażać aplikację Blazor przy użyciu ASP.NET Core, sieci dostarczania zawartości (CDN), serwerów plików i stron usługi GitHub.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
+no-loc:
+- Blazor
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: 943dbb772d9a7bcb337012c126828d1ab4eb545c
-ms.sourcegitcommit: 383017d7060a6d58f6a79cf4d7335d5b4b6c5659
+ms.openlocfilehash: 0fcefc3f1e51beb7cc29aef6dd4f4b8557e61965
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72816062"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963631"
 ---
-# <a name="host-and-deploy-aspnet-core-blazor-webassembly"></a>Hostowanie i wdrażanie ASP.NET Core Blazor webassembly
+# <a name="host-and-deploy-aspnet-core-opno-locblazor-webassembly"></a>Hostowanie i wdrażanie ASP.NET Core Blazor webassembly
 
 [Luke Latham](https://github.com/guardrex), [Rainer Stropek](https://www.timecockpit.com)i [Daniel Roth](https://github.com/danroth27)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Z [modelem hostingu Blazor webassembly](xref:blazor/hosting-models#blazor-webassembly):
+Z [modelem hostinguBlazor webassembly](xref:blazor/hosting-models#blazor-webassembly):
 
 * Aplikacja Blazor, jej zależności i środowisko uruchomieniowe platformy .NET są pobierane do przeglądarki.
 * Aplikacja jest wykonywana bezpośrednio w wątku interfejsu użytkownika przeglądarki.
@@ -28,11 +30,11 @@ Z [modelem hostingu Blazor webassembly](xref:blazor/hosting-models#blazor-webass
 Obsługiwane są następujące strategie wdrażania:
 
 * Aplikacja Blazor jest obsługiwana przez aplikację ASP.NET Core. Ta strategia jest objęta [wdrożeniem hostowanym za pomocą ASP.NET Core](#hosted-deployment-with-aspnet-core) sekcji.
-* Aplikacja Blazor jest umieszczana na statycznym, hostingowym serwerze sieci Web lub usłudze, w której program .NET nie jest używany do obsługi aplikacji Blazor. Ta strategia została omówiona w sekcji [wdrażanie autonomiczne](#standalone-deployment) , która obejmuje informacje dotyczące hostingu aplikacji Blazor webassembly jako aplikacji PODRZĘDNEJ usług IIS.
+* Aplikacja Blazor jest umieszczana na statycznym, hostingowym serwerze sieci Web lub usłudze, w której program .NET nie jest używany do obsługi aplikacji Blazor. Ta strategia została omówiona w sekcji [wdrażanie autonomiczne](#standalone-deployment) , która zawiera informacje na temat hostowania aplikacji Blazor webassembly jako aplikacji podrzędnej IIS.
 
 ## <a name="rewrite-urls-for-correct-routing"></a>Ponownie Napisz adresy URL pod kątem prawidłowego routingu
 
-Żądania routingu dla składników strony w aplikacji Blazor webassembly nie są tak proste jak żądania routingu na serwerze Blazor, hostowanej aplikacji. Rozważmy aplikację webassembly Blazor z dwoma składnikami:
+Żądania routingu dla składników strony w Blazor aplikacji webassembly nie są tak proste jak żądania routingu na serwerze Blazor, hostowanej aplikacji. Weź pod uwagę Blazor aplikacji webassembly z dwoma składnikami:
 
 * *Główny. razor* &ndash; ładuje się w katalogu głównym aplikacji i zawiera link do składnika `About` (`href="About"`).
 * *Informacje o* składniku Razor &ndash; `About`.
@@ -42,13 +44,13 @@ Gdy zażądano dokumentu domyślnego aplikacji przy użyciu paska adresu przegl�
 1. Przeglądarka wykonuje żądanie.
 1. Zostanie zwrócona strona domyślna, która jest zwykle *index. html*.
 1. *index. html* Bootstrap aplikację.
-1. Ładowanie routera Blazor oraz renderowanie składnika Razor `Main`.
+1. Blazorładowania routera, a składnik Razor `Main` jest renderowany.
 
-Na stronie głównej wybranie linku do składnika `About` działa na kliencie, ponieważ router Blazor uniemożliwia przeglądarce żądanie w Internecie do `www.contoso.com` dla `About` i obsługuje wyrenderowany składnik `About`. Wszystkie żądania dotyczące wewnętrznych punktów końcowych *w aplikacji Blazor webassembly* działają w taki sam sposób: żądania nie wyzwalają żądań przeglądarki do zasobów hostowanych przez serwer w Internecie. Router obsługuje wewnętrznie żądania.
+Na stronie głównej wybranie linku do składnika `About` działa na kliencie, ponieważ router Blazor uniemożliwia przeglądarce żądanie w Internecie, aby `www.contoso.com` dla `About` i obsłużyć renderowany składnik `About`. Wszystkie żądania dotyczące wewnętrznych punktów końcowych *w aplikacji Blazor webassembly* działają w taki sam sposób: żądania nie wyzwalają żądań przeglądarki do zasobów hostowanych przez serwer w Internecie. Router obsługuje wewnętrznie żądania.
 
 Jeśli żądanie zostanie wykonane przy użyciu paska adresu przeglądarki dla `www.contoso.com/About`, żądanie kończy się niepowodzeniem. Ten zasób nie istnieje na hoście internetowym aplikacji, więc zwracana jest odpowiedź *404 — nie znaleziono* .
 
-Ponieważ przeglądarki wysyłają żądania do hostów internetowych dla stron po stronie klienta, serwery sieci Web i usługi hostingu muszą ponownie zapisywać wszystkie żądania dotyczące zasobów, które nie znajdują się fizycznie na serwerze, na stronie *index. html* . Po zwróceniu elementu *index. html* router Blazor aplikacji przejmuje i reaguje na prawidłowy zasób.
+Ponieważ przeglądarki wysyłają żądania do hostów internetowych dla stron po stronie klienta, serwery sieci Web i usługi hostingu muszą ponownie zapisywać wszystkie żądania dotyczące zasobów, które nie znajdują się fizycznie na serwerze, na stronie *index. html* . Gdy jest zwracany *plik index. html* , router Blazor aplikacji przejmuje i odpowiada przy użyciu poprawnego zasobu.
 
 Podczas wdrażania na serwerze IIS można użyć modułu ponownego zapisywania adresu URL z opublikowanym plikiem *Web. config* aplikacji. Aby uzyskać więcej informacji, zobacz sekcję [usług IIS](#iis) .
 
@@ -56,7 +58,7 @@ Podczas wdrażania na serwerze IIS można użyć modułu ponownego zapisywania a
 
 *Wdrożenie hostowane* służy do obsługi aplikacji Blazor webassembly w przeglądarkach z poziomu [aplikacji ASP.NET Core](xref:index) działającej na serwerze sieci Web.
 
-Aplikacja Blazor jest dołączana do aplikacji ASP.NET Core w publikowanym danych wyjściowych, dzięki czemu dwie aplikacje są wdrażane razem. Wymagany jest serwer sieci Web, który umożliwia hostowanie aplikacji ASP.NET Core. W przypadku wdrożenia hostowanego Visual Studio zawiera szablon projektu **aplikacji Blazor webassembly** (szablon `blazorwasm` w przypadku używania polecenia [dotnet New](/dotnet/core/tools/dotnet-new) ) z wybraną opcją **hostowaną** .
+Aplikacja Blazor jest dołączona do aplikacji ASP.NET Core w opublikowanych danych wyjściowych, dzięki czemu dwie aplikacje są wdrażane razem. Wymagany jest serwer sieci Web, który umożliwia hostowanie aplikacji ASP.NET Core. W przypadku wdrożenia hostowanego program Visual Studio zawiera szablon projektu **aplikacjiBlazor webassembly** (`blazorwasm` szablon w przypadku używania polecenia [dotnet New](/dotnet/core/tools/dotnet-new) ) z wybraną opcją **hostowaną** .
 
 Aby uzyskać więcej informacji na temat ASP.NET Core hostingu i wdrażania aplikacji, zobacz <xref:host-and-deploy/index>.
 
@@ -64,19 +66,19 @@ Aby uzyskać informacje na temat wdrażania do Azure App Service, zobacz <xref:t
 
 ## <a name="standalone-deployment"></a>Wdrożenie autonomiczne
 
-*Wdrożenie autonomiczne* obsługuje aplikację webassembly Blazor jako zestaw plików statycznych, które są żądane bezpośrednio przez klientów. Każdy statyczny serwer plików jest w stanie obsłużyć aplikację Blazor.
+*Wdrożenie autonomiczne* służy aplikacji Blazor webassembly jako zestawu plików statycznych, które są żądane bezpośrednio przez klientów. Każdy statyczny serwer plików jest w stanie obsłużyć Blazor aplikacji.
 
 Zasoby wdrażania autonomicznego są publikowane w folderze *bin/Release/{Target Framework}/Publish/{Assembly Name}/dist* .
 
 ### <a name="iis"></a>IIS
 
-Usługi IIS to obsługujący statyczny serwer plików dla aplikacji Blazor. Aby skonfigurować usługi IIS do hostowania Blazor, zobacz [Tworzenie statycznej witryny sieci Web w usługach IIS](/iis/manage/creating-websites/scenario-build-a-static-website-on-iis).
+Program IIS jest możliwym do obsługi statycznego serwera plików dla Blazor aplikacji. Aby skonfigurować usługi IIS do hostowania Blazor, zobacz [Tworzenie statycznej witryny sieci Web w usługach IIS](/iis/manage/creating-websites/scenario-build-a-static-website-on-iis).
 
 Opublikowane zasoby są tworzone w folderze */bin/Release/{Target Framework}/Publish* . Hostowanie zawartości folderu *publikowania* na serwerze sieci Web lub w usłudze hostingu.
 
 #### <a name="webconfig"></a>plik Web. config
 
-Po opublikowaniu projektu Blazor zostanie utworzony plik *Web. config* z następującą konfiguracją usług IIS:
+Po opublikowaniu Blazor projektu zostanie utworzony plik *Web. config* z następującą konfiguracją usług IIS:
 
 * Typy MIME są ustawiane dla następujących rozszerzeń plików:
   * *. dll* &ndash; `application/octet-stream`
@@ -111,7 +113,7 @@ Jeśli aplikacja autonomiczna jest hostowana jako podaplikacja usług IIS, wykon
 
 * Wyłącz procedurę obsługi ASP.NET Core dziedziczonego modułu.
 
-  Usuń program obsługi w pliku *Web. config* opublikowanym przez aplikację Blazor, dodając do pliku sekcję `<handlers>`:
+  Usuń program obsługi w opublikowanym pliku *Web. config* aplikacji Blazor, dodając do pliku sekcję `<handlers>`:
 
   ```xml
   <handlers>
@@ -150,7 +152,7 @@ Hosting pliku statycznego [usługi Azure Storage](/azure/storage/) umożliwia ho
 Gdy usługa BLOB jest włączona dla hostingu statycznej witryny sieci Web na koncie magazynu:
 
 * Ustaw **nazwę dokumentu indeksu** na `index.html`.
-* Ustaw **ścieżkę dokumentu błędu** na `index.html`. Składniki Razor i inne punkty końcowe inne niż pliki nie znajdują się w ścieżkach fizycznych w zawartości statycznej przechowywanej przez usługę BLOB. Po otrzymaniu żądania dla jednego z tych zasobów, który powinien zostać obsłużony przez router Blazor, błąd *404-nie znaleziono* przez usługę BLOB Service kieruje żądanie do **ścieżki dokumentu błędu**. Zwracany jest obiekt BLOB *index. html* , a router Blazor ładuje i przetwarza ścieżkę.
+* Ustaw **ścieżkę dokumentu błędu** na `index.html`. Składniki Razor i inne punkty końcowe inne niż pliki nie znajdują się w ścieżkach fizycznych w zawartości statycznej przechowywanej przez usługę BLOB. Po otrzymaniu żądania dla jednego z tych zasobów, który powinien być obsługiwany przez router Blazor, błąd *404-nie znaleziono* przez usługę BLOB Service kieruje żądanie do **ścieżki dokumentu błędu**. Zwracany jest obiekt BLOB *index. html* , a router Blazor ładuje i przetwarza ścieżkę.
 
 Aby uzyskać więcej informacji, zobacz [Obsługa statycznej witryny sieci Web w usłudze Azure Storage](/azure/storage/blobs/storage-blob-static-website).
 
@@ -176,7 +178,7 @@ Aby uzyskać więcej informacji na temat konfiguracji serwera sieci Web w środo
 
 ### <a name="nginx-in-docker"></a>Nginx w Docker
 
-Aby hostować Blazor w platformie Docker przy użyciu Nginx, skonfiguruj pliku dockerfile do korzystania z obrazu Nginx opartego na Alpine. Zaktualizuj pliku dockerfile, aby skopiować plik *Nginx. config* do kontenera.
+Aby hostować Blazor w programie Docker przy użyciu Nginx, skonfiguruj pliku dockerfile do korzystania z obrazu Nginx opartego na Alpine. Zaktualizuj pliku dockerfile, aby skopiować plik *Nginx. config* do kontenera.
 
 Dodaj jeden wiersz do pliku dockerfile, jak pokazano w następującym przykładzie:
 
@@ -188,7 +190,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 ### <a name="apache"></a>Apache
 
-Aby wdrożyć aplikację webassembly Blazor w programie CentOS 7 lub nowszym:
+Aby wdrożyć aplikację webassembly w programie Blazor CentOS 7 lub nowszym:
 
 1. Utwórz plik konfiguracji Apache. Poniższy przykład to uproszczony plik konfiguracji (*blazorapp. config*):
 

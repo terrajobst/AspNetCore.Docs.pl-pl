@@ -1,20 +1,23 @@
 ---
 title: Wprowadzenie do ASP.NET Core Blazor
 author: guardrex
-description: Poznaj ASP.NET Core Blazor, aby utworzyć interaktywny interfejs użytkownika sieci Web po stronie klienta przy użyciu platformy .NET w aplikacji ASP.NET Core.
+description: Eksploruj ASP.NET Core Blazor, sposób tworzenia interakcyjnego interfejsu użytkownika sieci Web po stronie klienta przy użyciu platformy .NET w aplikacji ASP.NET Core.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc, seoapril2019
-ms.date: 10/31/2019
+ms.date: 11/12/2019
+no-loc:
+- Blazor
+- SignalR
 uid: blazor/index
-ms.openlocfilehash: c2574c1250cf94e89dd5476b6174620d83546236
-ms.sourcegitcommit: 77c8be22d5e88dd710f42c739748869f198865dd
+ms.openlocfilehash: 8b656a7461c78475432722540ad628258cfe19c4
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73427026"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73962913"
 ---
-# <a name="introduction-to-aspnet-core-blazor"></a>Wprowadzenie do ASP.NET Core Blazor
+# <a name="introduction-to-aspnet-core-opno-locblazor"></a>Wprowadzenie do ASP.NET Core Blazor
 
 Autorzy [Daniel Roth](https://github.com/danroth27) i [Luke Latham](https://github.com/guardrex)
 
@@ -37,7 +40,7 @@ Korzystanie z programu .NET do tworzenia aplikacji sieci Web po stronie klienta 
 
 ## <a name="components"></a>Składniki
 
-Aplikacje Blazor są oparte na *składnikach*. Składnik w Blazor jest elementem interfejsu użytkownika, takim jak strona, okno dialogowe lub formularz wprowadzania danych.
+aplikacje Blazor są oparte na *składnikach*. Składnik w Blazor to element interfejsu użytkownika, taki jak strona, okno dialogowe lub formularz wprowadzania danych.
 
 Składniki to klasy .NET wbudowane w zestawy .NET, które:
 
@@ -101,23 +104,23 @@ Gdy ten składnik jest używany w aplikacji, funkcja IntelliSense w programie [V
 
 Składniki są renderowane w pamięci podręcznej Document Object Model (DOM) przeglądarki o nazwie *drzewo renderowania*, która jest używana do aktualizowania interfejsu użytkownika w elastyczny i wydajny sposób.
 
-## <a name="blazor-webassembly"></a>Zestaw WebAssembly Blazor
+## <a name="opno-locblazor-webassembly"></a>Blazor webassembly
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Blazor webassembly to jednostronicowa platforma aplikacji służąca do tworzenia interaktywnych aplikacji sieci Web po stronie klienta przy użyciu platformy .NET. Blazor webassembly używa otwartych standardów sieci Web bez wtyczek lub kodu transpilation i działa we wszystkich nowoczesnych przeglądarkach sieci Web, w tym w przeglądarkach dla urządzeń przenośnych.
+Blazor webassembly to jednostronicowa platforma aplikacji służąca do tworzenia interaktywnych aplikacji sieci Web po stronie klienta przy użyciu platformy .NET. Blazor webassembly używa otwartych standardów sieci Web bez wtyczek lub kodu transpilation i działa we wszystkich nowoczesnych przeglądarkach sieci Web, w tym w przeglądarkach mobilnych.
 
 Uruchamianie kodu platformy .NET wewnątrz przeglądarek sieci Web jest możliwe przez [zestaw webassembly](https://webassembly.org) (skrócony *wasm*). Webassembly to kompaktowy format kodu bajtowego zoptymalizowany pod kątem szybkiego pobierania i maksymalnej szybkości wykonywania. Webassembly to otwarty standard sieci Web, który jest obsługiwany w przeglądarkach sieci Web bez wtyczek.
 
 Kod webassembly może uzyskać dostęp do pełnej funkcjonalności przeglądarki za pośrednictwem języka JavaScript, nazywanego *współdziałaniem JavaScript* (lub *międzyoperacyjną JavaScript*). Kod .NET wykonywany za pośrednictwem webassembly w przeglądarce jest uruchamiany w piaskownicy języka JavaScript przeglądarki z ochroną, którą piaskownica zapewnia przed złośliwymi działaniami na komputerze klienckim.
 
-![Blazor webassembly uruchamia kod platformy .NET w przeglądarce z zestawem webassembly.](index/_static/blazor-webassembly.png)
+![[! OP. NO-LOC (Blazor)] zestaw webassembly uruchamia kod platformy .NET w przeglądarce z zestawem webassembly.](index/_static/blazor-webassembly.png)
 
-Gdy aplikacja webassembly Blazor jest skompilowana i uruchamiana w przeglądarce:
+Po skompilowaniu i uruchomieniu aplikacji Blazor webassembly w przeglądarce:
 
 * C#pliki kodu i pliki Razor są kompilowane do zestawów .NET.
 * Zestawy i środowisko uruchomieniowe platformy .NET są pobierane do przeglądarki.
-* Blazor webassembly ładowania początkowego środowiska uruchomieniowego platformy .NET i konfiguruje środowisko uruchomieniowe w celu załadowania zestawów dla aplikacji. Środowisko uruchomieniowe Blazor webassembly używa interfejsu JavaScript Interop do obsługi operacji manipulowania DOM i interfejsów API przeglądarki.
+* Blazor uruchamiania zestawu webassembly w środowisku uruchomieniowym platformy .NET i konfiguruje środowisko uruchomieniowe w celu załadowania zestawów dla aplikacji. Blazor środowisko uruchomieniowe webassembly używa interfejsu JavaScript Interop do obsługi operacji manipulowania DOM i interfejsów API przeglądarki.
 
 Rozmiar opublikowanej aplikacji, jej *rozmiaru ładunku*, jest krytycznym czynnikiem wydajności dla useability aplikacji. Pobieranie dużej aplikacji do przeglądarki zajmuje stosunkowo dużo czasu, co zmniejsza środowisko użytkownika. Blazor webassembly optymalizuje rozmiar ładunku, aby skrócić czas pobierania:
 
@@ -125,15 +128,15 @@ Rozmiar opublikowanej aplikacji, jej *rozmiaru ładunku*, jest krytycznym czynni
 * Odpowiedzi HTTP są kompresowane.
 * Środowisko uruchomieniowe platformy .NET i zestawy są buforowane w przeglądarce.
 
-## <a name="blazor-server"></a>Serwer Blazor
+## <a name="opno-locblazor-server"></a>Serwer Blazor
 
-Blazor oddziela logikę renderowania składników od sposobu stosowania aktualizacji interfejsu użytkownika. Serwer Blazor zapewnia obsługę hostingu składników Razor na serwerze w aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika są obsługiwane przez połączenie [sygnalizujące](xref:signalr/introduction) .
+Blazor oddziela logikę renderowania składników od sposobu stosowania aktualizacji interfejsu użytkownika. Serwer Blazor zapewnia obsługę hostowania składników Razor na serwerze w aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika są obsługiwane za pośrednictwem połączenia [SignalR](xref:signalr/introduction) .
 
 Środowisko uruchomieniowe obsługuje wysyłanie zdarzeń interfejsu użytkownika z przeglądarki do serwera i zastosowanie aktualizacji interfejsu użytkownika wysyłanych przez serwer z powrotem do przeglądarki po uruchomieniu składników programu.
 
-Połączenie używane przez serwer Blazor do komunikacji z przeglądarką jest również używane do obsługi wywołań międzyoperacyjnych języka JavaScript.
+Połączenie używane przez Blazor Server do komunikowania się z przeglądarką jest również używane do obsługi wywołań międzyoperacyjnych języka JavaScript.
 
-![Serwer Blazor uruchamia kod platformy .NET na serwerze i współdziała z Document Object Model na kliencie za pośrednictwem połączenia sygnalizującego](index/_static/blazor-server.png)
+![[! OP. Nie-LOC (Blazor)] serwer uruchamia kod platformy .NET na serwerze i współdziała z Document Object Model na kliencie za pośrednictwem [! OP. Nie-LOC (sygnalizujący)] połączenie](index/_static/blazor-server.png)
 
 ## <a name="javascript-interop"></a>Międzyoperacyjność w języku JavaScript
 
@@ -152,4 +155,4 @@ Interfejsy API, które nie mają zastosowania w przeglądarce sieci Web (na przy
 * [Przewodnik dla języka C#](/dotnet/csharp/)
 * <xref:mvc/views/razor>
 * [TEKST](https://www.w3.org/html/)
-* [Awesome Blazor](https://github.com/AdrienTorris/awesome-blazor) — linki społecznościowe
+* [Firma Awesome Blazor](https://github.com/AdrienTorris/awesome-blazor) linki społecznościowe

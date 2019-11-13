@@ -5,12 +5,12 @@ description: Dowiedz się, jak zdiagnozować problemy z lokalizacją w aplikacja
 ms.author: riande
 ms.date: 01/24/2019
 uid: fundamentals/troubleshoot-aspnet-core-localization
-ms.openlocfilehash: 98e06a92af0b6c045095ac803196bf4b1f25e5c5
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: 229e274a22e170d984a16d3b1ee64ebc38c4ef77
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72289010"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963332"
 ---
 # <a name="troubleshoot-aspnet-core-localization"></a>Rozwiązywanie problemów z lokalizacją ASP.NET Core
 
@@ -48,16 +48,16 @@ Typowe przyczyny nieznalezienia zasobów obejmują:
 
 - Nazwy zasobów są błędne w pliku `resx` lub w żądaniu lokalizatora.
 - Brak zasobu w `resx` dla niektórych języków, ale istnieje w innych.
-- Jeśli nadal występują problemy, sprawdź komunikaty dziennika lokalizacji (które znajdują się na poziomie dziennika `Debug`), aby uzyskać więcej informacji na temat brakujących zasobów.
+- Jeśli nadal występują problemy, sprawdź komunikaty dziennika lokalizacji (które znajdują się na poziomie `Debug` dziennika), aby uzyskać więcej informacji na temat brakujących zasobów.
 
-_**Wskazówka:** W przypadku korzystania z `CookieRequestCultureProvider` Sprawdź, czy pojedyncze cudzysłowy nie są używane z kulturami wewnątrz wartości pliku cookie lokalizacji. Na przykład `c='en-UK'|uic='en-US'` jest nieprawidłową wartością cookie, podczas gdy `c=en-UK|uic=en-US` jest prawidłowy._
+_**Wskazówka:** W przypadku korzystania z `CookieRequestCultureProvider`upewnij się, że pojedyncze cudzysłowy nie są używane z kulturami wewnątrz wartości pliku cookie lokalizacji. Na przykład `c='en-UK'|uic='en-US'` jest nieprawidłową wartością cookie, podczas gdy `c=en-UK|uic=en-US` jest prawidłowy._
 
 ## <a name="resources--class-libraries-issues"></a>Zasoby & problemy z bibliotekami klas
 
 ASP.NET Core domyślnie oferuje sposób zezwalania bibliotekom klas na Znajdowanie plików zasobów za pośrednictwem [ResourceLocationAttribute](/dotnet/api/microsoft.extensions.localization.resourcelocationattribute?view=aspnetcore-2.1).
 
 Typowe problemy związane z bibliotekami klas obejmują:
-- Brak `ResourceLocationAttribute` w bibliotece klas uniemożliwi odnajdywanie zasobów przez `ResourceManagerStringLocalizerFactory`.
+- Brak `ResourceLocationAttribute` w bibliotece klas uniemożliwi `ResourceManagerStringLocalizerFactory` odnajdywania zasobów.
 - Nazewnictwo plików zasobów. Aby uzyskać więcej informacji, zobacz sekcję [problemy związane z nazewnictwem plików zasobów](#resource-file-naming-issues) .
 - Zmiana głównej przestrzeni nazw biblioteki klas. Aby uzyskać więcej informacji, zobacz sekcję [problemy dotyczące głównej przestrzeni nazw](#root-namespace-issues) .
 
@@ -69,9 +69,9 @@ Klasa `RequestLocalizationOptions` ma trzech dostawców domyślnych:
 2. `CookieRequestCultureProvider`
 3. `AcceptLanguageHeaderRequestCultureProvider`
 
-[CustomRequestCultureProvider](/dotnet/api/microsoft.aspnetcore.localization.customrequestcultureprovider?view=aspnetcore-2.1) umożliwia dostosowanie sposobu, w jaki kultura lokalizacji jest udostępniana w aplikacji. @No__t-0 jest używany, gdy domyślny dostawca nie spełnia wymagań.
+[CustomRequestCultureProvider](/dotnet/api/microsoft.aspnetcore.localization.customrequestcultureprovider?view=aspnetcore-2.1) umożliwia dostosowanie sposobu, w jaki kultura lokalizacji jest udostępniana w aplikacji. `CustomRequestCultureProvider` jest używany, gdy dostawcy domyślnie nie spełniają Twoich wymagań.
 
-- Typowy powód niestandardowego dostawcy nie działa prawidłowo, ponieważ nie jest to pierwszy dostawca na liście `RequestCultureProviders`. Aby rozwiązać ten problem:
+- Typowy powód niestandardowy nie działa prawidłowo, ponieważ nie jest to pierwszy dostawca na liście `RequestCultureProviders`. Aby rozwiązać ten problem:
 
 - Wstaw dostawcę niestandardowego na pozycji 0 na liście `RequestCultureProviders` w następujący sposób:
 
@@ -101,6 +101,9 @@ options.AddInitialRequestCultureProvider(new CustomRequestCultureProvider(async 
 
 Gdy główna przestrzeń nazw zestawu różni się od nazwy zestawu, lokalizacja nie działa domyślnie. Aby uniknąć tego problemu, użyj [RootNamespace](/dotnet/api/microsoft.extensions.localization.rootnamespaceattribute?view=aspnetcore-2.1), który jest szczegółowo opisany [tutaj](xref:fundamentals/localization?view=aspnetcore-2.2#resource-file-naming)
 
+> [!WARNING]
+> Taka sytuacja może wystąpić, gdy nazwa projektu nie jest prawidłowym identyfikatorem platformy .NET. Na przykład `my-project-name.csproj` użyje głównej przestrzeni nazw, `my_project_name` i nazwa zestawu `my-project-name` prowadzący do tego błędu. 
+
 ## <a name="resources--build-action"></a>Akcja kompilacji & zasobów
 
-W przypadku używania plików zasobów do lokalizacji należy pamiętać, że mają one odpowiednią akcję kompilacji. Powinny to być **zasoby osadzone**, w przeciwnym razie `ResourceStringLocalizer` nie jest w stanie znaleźć tych zasobów.
+W przypadku używania plików zasobów do lokalizacji należy pamiętać, że mają one odpowiednią akcję kompilacji. Powinny to być **zasoby osadzone**, w przeciwnym razie `ResourceStringLocalizer` nie może znaleźć tych zasobów.

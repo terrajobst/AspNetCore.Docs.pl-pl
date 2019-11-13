@@ -1,24 +1,26 @@
 ---
-title: Obsługiwane platformy ASP.NET Core sygnalizujące
+title: Obsługiwane platformy ASP.NET Core SignalR
 author: bradygaster
-description: Dowiedz się więcej na temat obsługiwanych platform dla ASP.NET Core sygnalizującego.
+description: Poznaj obsługiwane platformy dla ASP.NET Core SignalR.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/01/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: signalr/supported-platforms
-ms.openlocfilehash: 1be7a307710e6e522c0088fd1ca01da11a13eda1
-ms.sourcegitcommit: 77c8be22d5e88dd710f42c739748869f198865dd
+ms.openlocfilehash: 86ba5b1aec230d78c1a0e1709187e129df6cb4cc
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73426972"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963730"
 ---
-# <a name="aspnet-core-signalr-supported-platforms"></a>Obsługiwane platformy ASP.NET Core sygnalizujące
+# <a name="aspnet-core-opno-locsignalr-supported-platforms"></a>Obsługiwane platformy ASP.NET Core SignalR
 
 ## <a name="server-system-requirements"></a>Wymagania systemowe serwera
 
-Program sygnalizujący dla ASP.NET Core obsługuje dowolną platformę serwera, którą ASP.NET Core obsługuje.
+SignalR dla ASP.NET Core obsługuje dowolną platformę serwera, która ASP.NET Core obsługiwana przez program.
 
 ## <a name="javascript-client"></a>Klient JavaScript
 
@@ -36,7 +38,7 @@ Program sygnalizujący dla ASP.NET Core obsługuje dowolną platformę serwera, 
 
 ## <a name="net-client"></a>Klient .NET
 
-[Klient platformy .NET](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR/) działa na dowolnej platformie obsługiwanej przez ASP.NET Core. Na przykład [Deweloperzy platformy Xamarin mogą używać sygnałów](https://github.com/aspnet/Announcements/issues/305) do kompilowania aplikacji dla systemu Android za pomocą platformy Xamarin. Android 8.4.0.1 i nowszych oraz aplikacji systemu iOS przy użyciu platformy Xamarin. iOS 11.14.0.4 i nowszych.
+[Klient platformy .NET](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR/) działa na dowolnej platformie obsługiwanej przez ASP.NET Core. Na przykład [Deweloperzy platformy Xamarin mogą używać SignalR](https://github.com/aspnet/Announcements/issues/305) do tworzenia aplikacji dla systemu Android za pomocą platformy Xamarin. Android 8.4.0.1 i nowszych oraz aplikacji systemu iOS przy użyciu platformy Xamarin. iOS 11.14.0.4 i nowszych.
 
 Jeśli na serwerze są uruchomione usługi IIS, transport gniazd internetowych wymaga usług IIS 8,0 lub nowszych w systemie Windows Server 2012 lub nowszym. Inne transporty są obsługiwane na wszystkich platformach.
 

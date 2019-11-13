@@ -6,15 +6,17 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
+no-loc:
+- Blazor
 uid: host-and-deploy/blazor/configure-linker
-ms.openlocfilehash: a7e59e63c163986c40155e230dc644028e78e5fd
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: b30669a7ca02c756fa10c8cf9973ef87e29e7bd4
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391447"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963616"
 ---
-# <a name="configure-the-linker-for-aspnet-core-blazor"></a>Skonfiguruj konsolidator dla ASP.NET Core Blazor
+# <a name="configure-the-linker-for-aspnet-core-opno-locblazor"></a>Skonfiguruj konsolidator dla ASP.NET Core Blazor
 
 Autor [Luke Latham](https://github.com/guardrex)
 

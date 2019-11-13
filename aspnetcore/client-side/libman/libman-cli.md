@@ -4,14 +4,16 @@ author: scottaddie
 description: Dowiedz się, jak używać interfejsu wiersza polecenia LibMan (CLI) w projekcie ASP.NET Core.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 08/30/2018
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: client-side/libman/libman-cli
-ms.openlocfilehash: cf61bab2f0c3fc33d293968b8ac380cb56958d29
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 8b2b1e45ab4685482554ac439b0276e0cf381609
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080617"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73962803"
 ---
 # <a name="use-the-libman-command-line-interface-cli-with-aspnet-core"></a>Korzystanie z interfejsu wiersza polecenia LibMan z ASP.NET Core
 
@@ -92,7 +94,7 @@ W poniższych sekcjach znajduje się opis dostępnych poleceń interfejsu wiersz
 
 ## <a name="initialize-libman-in-the-project"></a>Inicjuj LibMan w projekcie
 
-Polecenie `libman init` tworzy plik *Libman. JSON* , jeśli taki nie istnieje. Plik jest tworzony z domyślną zawartością szablonu elementu.
+`libman init` polecenie tworzy plik *Libman. JSON* , jeśli taki nie istnieje. Plik jest tworzony z domyślną zawartością szablonu elementu.
 
 ### <a name="synopsis"></a>Streszczenie
 
@@ -103,15 +105,15 @@ libman init [-h|--help]
 
 ### <a name="options"></a>Opcje
 
-Następujące opcje są dostępne dla `libman init` polecenia:
+Następujące opcje są dostępne dla polecenia `libman init`:
 
 * `-d|--default-destination <PATH>`
 
-  Ścieżka względna do bieżącego folderu. Pliki bibliotek są instalowane w tej lokalizacji, jeśli `destination` żadna właściwość nie jest zdefiniowana dla biblioteki w *Libman. JSON*. Wartość jest zapisywana `defaultDestination` w właściwości *Libman. JSON.* `<PATH>`
+  Ścieżka względna do bieżącego folderu. Pliki bibliotek są instalowane w tej lokalizacji, jeśli dla biblioteki w *Libman. JSON*nie zdefiniowano żadnej właściwości `destination`. Wartość `<PATH>` jest zapisywana na właściwości `defaultDestination` pliku *Libman. JSON*.
 
 * `-p|--default-provider <PROVIDER>`
 
-  Dostawca, który ma być używany, jeśli nie zdefiniowano żadnego dostawcy dla danej biblioteki. Wartość jest zapisywana `defaultProvider` w właściwości *Libman. JSON.* `<PROVIDER>` Zamień `<PROVIDER>` na jedną z następujących wartości:
+  Dostawca, który ma być używany, jeśli nie zdefiniowano żadnego dostawcy dla danej biblioteki. Wartość `<PROVIDER>` jest zapisywana na właściwości `defaultProvider` pliku *Libman. JSON*. Zastąp `<PROVIDER>` jedną z następujących wartości:
 
   [!INCLUDE [LibMan provider names](../../includes/libman-cli/provider-names.md)]
 
@@ -128,7 +130,7 @@ Aby utworzyć plik *Libman. JSON* w projekcie ASP.NET Core:
   libman init
   ```
 
-* Wpisz nazwę domyślnego dostawcy lub naciśnij przycisk `Enter` , aby użyć domyślnego dostawcy CDNJS. Prawidłowe wartości to:
+* Wpisz nazwę domyślnego dostawcy lub naciśnij `Enter`, aby użyć domyślnego dostawcy CDNJS. Prawidłowe wartości to:
 
   [!INCLUDE [LibMan provider names](../../includes/libman-cli/provider-names.md)]
 
@@ -146,7 +148,7 @@ Plik *Libman. JSON* zostanie dodany do katalogu głównego projektu z następuj�
 
 ## <a name="add-library-files"></a>Dodaj pliki biblioteki
 
-`libman install` Polecenie pobiera i instaluje pliki bibliotek w projekcie. Plik *Libman. JSON* zostanie dodany, jeśli taki nie istnieje. Plik *Libman. JSON* został zmodyfikowany w celu przechowywania szczegółów konfiguracji dla plików biblioteki.
+Polecenie `libman install` pobiera i instaluje pliki bibliotek w projekcie. Plik *Libman. JSON* zostanie dodany, jeśli taki nie istnieje. Plik *Libman. JSON* został zmodyfikowany w celu przechowywania szczegółów konfiguracji dla plików biblioteki.
 
 ### <a name="synopsis"></a>Streszczenie
 
@@ -163,23 +165,23 @@ Nazwa biblioteki do zainstalowania. Ta nazwa może zawierać notację numeru wer
 
 ### <a name="options"></a>Opcje
 
-Następujące opcje są dostępne dla `libman install` polecenia:
+Następujące opcje są dostępne dla polecenia `libman install`:
 
 * `-d|--destination <PATH>`
 
-  Lokalizacja, w której ma zostać zainstalowana Biblioteka. Jeśli nie zostanie określony, zostanie użyta domyślna lokalizacja. Jeśli żadna `defaultDestination` właściwość nie jest określona w pliku *Libman. JSON*, ta opcja jest wymagana.
+  Lokalizacja, w której ma zostać zainstalowana Biblioteka. Jeśli nie zostanie określony, zostanie użyta domyślna lokalizacja. Jeśli w pliku *Libman. JSON*nie określono właściwości `defaultDestination`, ta opcja jest wymagana.
 
 * `--files <FILE>`
 
-  Określ nazwę pliku, który ma zostać zainstalowany z biblioteki. Jeśli nie zostanie określony, wszystkie pliki z biblioteki są zainstalowane. Podaj jedną `--files` opcję dla każdego pliku, który ma zostać zainstalowany. Ścieżki względne są również obsługiwane. Na przykład: `--files dist/browser/signalr.js`.
+  Określ nazwę pliku, który ma zostać zainstalowany z biblioteki. Jeśli nie zostanie określony, wszystkie pliki z biblioteki są zainstalowane. Podaj jedną `--files` opcji na plik do zainstalowania. Ścieżki względne są również obsługiwane. Na przykład: `--files dist/browser/signalr.js`.
 
 * `-p|--provider <PROVIDER>`
 
-  Nazwa dostawcy do użycia podczas pozyskiwania biblioteki. Zamień `<PROVIDER>` na jedną z następujących wartości:
+  Nazwa dostawcy do użycia podczas pozyskiwania biblioteki. Zastąp `<PROVIDER>` jedną z następujących wartości:
   
   [!INCLUDE [LibMan provider names](../../includes/libman-cli/provider-names.md)]
 
-  Jeśli nie zostanie określony, `defaultProvider` zostanie użyta właściwość w *Libman. JSON* . Jeśli żadna `defaultProvider` właściwość nie jest określona w pliku *Libman. JSON*, ta opcja jest wymagana.
+  Jeśli nie zostanie określony, zostanie użyta Właściwość `defaultProvider` w pliku *Libman. JSON* . Jeśli w pliku *Libman. JSON*nie określono właściwości `defaultProvider`, ta opcja jest wymagana.
 
 [!INCLUDE [standard-cli-options](../../includes/libman-cli/standard-cli-options.md)]
 
@@ -219,7 +221,7 @@ Plik *Libman. JSON* jest podobny do następującego:
 }
 ```
 
-Aby zainstalować pliki *Calendar. js* i *Calendar. css* z pliku *C:\\temp\\contosoCalendar\\*  przy użyciu dostawcy systemu plików:
+Aby zainstalować pliki *Calendar. js* i *Calendar. css* z pliku *C:\\temp\\contosoCalendar\\* przy użyciu dostawcy systemu plików:
 
   ```console
   libman install C:\temp\contosoCalendar\ --provider filesystem --files calendar.js --files calendar.css
@@ -227,8 +229,8 @@ Aby zainstalować pliki *Calendar. js* i *Calendar. css* z pliku *C:\\temp\\cont
 
 Następujący monit pojawia się z dwóch powodów:
 
-* Plik *Libman. JSON* nie zawiera `defaultDestination` właściwości.
-* `libman install` Polecenie nie`-d|--destination` zawiera opcji.
+* Plik *Libman. JSON* nie zawiera właściwości `defaultDestination`.
+* Polecenie `libman install` nie zawiera opcji `-d|--destination`.
 
 ![Libman — polecenie instalacji — miejsce docelowe](_static/libman-install-destination.png)
 
@@ -261,11 +263,11 @@ Po zaakceptowaniu domyślnego miejsca docelowego plik *Libman. JSON* jest podobn
 
 ## <a name="restore-library-files"></a>Przywróć pliki biblioteki
 
-Polecenie instaluje pliki bibliotek zdefiniowane w *Libman. JSON.* `libman restore` Mają zastosowanie następujące zasady:
+`libman restore` polecenie instaluje pliki bibliotek zdefiniowane w *Libman. JSON*. Mają zastosowanie następujące zasady:
 
 * Jeśli w katalogu głównym projektu nie istnieje plik *Libman. JSON* , zwracany jest błąd.
-* Jeśli Biblioteka określa dostawcę, `defaultProvider` właściwość w *Libman. JSON* jest ignorowana.
-* Jeśli Biblioteka określa miejsce docelowe, `defaultDestination` właściwość w *Libman. JSON* jest ignorowana.
+* Jeśli Biblioteka określa dostawcę, właściwość `defaultProvider` w *Libman. JSON* jest ignorowana.
+* Jeśli Biblioteka określa miejsce docelowe, właściwość `defaultDestination` w *Libman. JSON* jest ignorowana.
 
 ### <a name="synopsis"></a>Streszczenie
 
@@ -276,7 +278,7 @@ libman restore [-h|--help]
 
 ### <a name="options"></a>Opcje
 
-Następujące opcje są dostępne dla `libman restore` polecenia:
+Następujące opcje są dostępne dla polecenia `libman restore`:
 
 [!INCLUDE [standard-cli-options](../../includes/libman-cli/standard-cli-options.md)]
 
@@ -290,7 +292,7 @@ libman restore
 
 ## <a name="delete-library-files"></a>Usuń pliki biblioteki
 
-`libman clean` Polecenie usuwa pliki biblioteki, które zostały wcześniej przywrócone za pośrednictwem LibMan. Foldery, które staną się puste po usunięciu tej operacji. Pliki biblioteki "skojarzone konfiguracje we `libraries` właściwości *Libman. JSON* nie są usuwane.
+Polecenie `libman clean` usuwa pliki bibliotek, które zostały wcześniej przywrócone za pośrednictwem LibMan. Foldery, które staną się puste po usunięciu tej operacji. Pliki biblioteki "skojarzone konfiguracje we właściwości `libraries` *Libman. JSON* nie są usuwane.
 
 ### <a name="synopsis"></a>Streszczenie
 
@@ -301,7 +303,7 @@ libman clean [-h|--help]
 
 ### <a name="options"></a>Opcje
 
-Następujące opcje są dostępne dla `libman clean` polecenia:
+Następujące opcje są dostępne dla polecenia `libman clean`:
 
 [!INCLUDE [standard-cli-options](../../includes/libman-cli/standard-cli-options.md)]
 
@@ -315,7 +317,7 @@ libman clean
 
 ## <a name="uninstall-library-files"></a>Odinstaluj pliki biblioteki
 
-`libman uninstall` Polecenie:
+`libman uninstall` polecenie:
 
 * Usuwa wszystkie pliki skojarzone z określoną biblioteką z lokalizacji docelowej w pliku *Libman. JSON*.
 * Usuwa skojarzoną konfigurację biblioteki z *Libman. JSON*.
@@ -342,7 +344,7 @@ Nazwa biblioteki do odinstalowania. Ta nazwa może zawierać notację numeru wer
 
 ### <a name="options"></a>Opcje
 
-Następujące opcje są dostępne dla `libman uninstall` polecenia:
+Następujące opcje są dostępne dla polecenia `libman uninstall`:
 
 [!INCLUDE [standard-cli-options](../../includes/libman-cli/standard-cli-options.md)]
 
@@ -362,7 +364,7 @@ Rozważmy następujący plik *Libman. JSON* :
   libman uninstall jquery@3.3.1
   ```
 
-* Aby odinstalować pliki Lodash zainstalowane za pośrednictwem `filesystem` dostawcy:
+* Aby odinstalować pliki Lodash zainstalowane za pośrednictwem dostawcy `filesystem`:
 
   ```console
   libman uninstall C:\temp\lodash\
@@ -370,7 +372,7 @@ Rozważmy następujący plik *Libman. JSON* :
 
 ## <a name="update-library-version"></a>Zaktualizuj wersję biblioteki
 
-`libman update` Polecenie aktualizuje bibliotekę zainstalowaną za pośrednictwem LibMan do określonej wersji.
+Polecenie `libman update` aktualizuje bibliotekę zainstalowaną za pośrednictwem LibMan do określonej wersji.
 
 Wystąpił błąd, gdy:
 
@@ -394,7 +396,7 @@ Nazwa biblioteki do zaktualizowania.
 
 ### <a name="options"></a>Opcje
 
-Następujące opcje są dostępne dla `libman update` polecenia:
+Następujące opcje są dostępne dla polecenia `libman update`:
 
 * `-pre`
 
@@ -428,7 +430,7 @@ Następujące opcje są dostępne dla `libman update` polecenia:
 
 ## <a name="manage-library-cache"></a>Zarządzaj pamięcią podręczną biblioteki
 
-`libman cache` Polecenie zarządza pamięcią podręczną biblioteki LibMan. `filesystem` Dostawca nie korzysta z pamięci podręcznej biblioteki.
+`libman cache` polecenie zarządza pamięcią podręczną biblioteki LibMan. Dostawca `filesystem` nie korzysta z pamięci podręcznej biblioteki.
 
 ### <a name="synopsis"></a>Streszczenie
 
@@ -442,13 +444,13 @@ libman cache [-h|--help]
 
 `PROVIDER`
 
-Używane tylko z `clean` poleceniem. Określa pamięć podręczną dostawcy do oczyszczenia. Prawidłowe wartości to:
+Używane tylko z `clean` polecenie. Określa pamięć podręczną dostawcy do oczyszczenia. Prawidłowe wartości to:
 
 [!INCLUDE [LibMan provider names](../../includes/libman-cli/provider-names.md)]
 
 ### <a name="options"></a>Opcje
 
-Następujące opcje są dostępne dla `libman cache` polecenia:
+Następujące opcje są dostępne dla polecenia `libman cache`:
 
 * `--files`
 
@@ -546,7 +548,7 @@ Następujące opcje są dostępne dla `libman cache` polecenia:
   libman cache clean cdnjs
   ```
 
-  Po opróżnieniu pamięci podręcznej `libman cache list` dostawcy CDNJS polecenie wyświetla następujące elementy:
+  Po opróżnieniu pamięci podręcznej dostawcy CDNJS polecenie `libman cache list` wyświetla następujące elementy:
 
   ```console
   Cache contents:
@@ -565,7 +567,7 @@ Następujące opcje są dostępne dla `libman cache` polecenia:
   libman cache clean
   ```
 
-  Po opróżnieniu wszystkich pamięci podręcznych `libman cache list` dostawcy polecenie wyświetla następujące elementy:
+  Po opróżnieniu wszystkich pamięci podręcznych dostawcy polecenie `libman cache list` wyświetla następujące elementy:
 
   ```console
   Cache contents:

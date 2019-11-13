@@ -5,14 +5,16 @@ description: Dowiedz się, jak rozpocząć pracę z usługą WebSockets w ASP.NE
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/10/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: fundamentals/websockets
-ms.openlocfilehash: 098e6826d6f7114baceb9578dc6d9883eb83f0aa
-ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.openlocfilehash: fc07d572116f8eea2b30ea6cf80324e5c66f994c
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72589706"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963169"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Obsługa obiektów WebSockets w ASP.NET Core
 
@@ -22,11 +24,11 @@ W tym artykule wyjaśniono, jak rozpocząć pracę z usługą WebSockets w ASP.N
 
 [Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/websockets/samples) ([jak pobrać](xref:index#how-to-download-a-sample)). [Jak uruchomić](#sample-app).
 
-## <a name="signalr"></a>SignalR
+## SignalR
 
-[ASP.NET Core sygnalizujący](xref:signalr/introduction) to biblioteka, która upraszcza Dodawanie funkcji sieci Web w czasie rzeczywistym do aplikacji. W miarę możliwości używa obiektów WebSockets.
+[ASP.NET Core SignalR](xref:signalr/introduction) to biblioteka, która upraszcza Dodawanie funkcji sieci Web w czasie rzeczywistym do aplikacji. W miarę możliwości używa obiektów WebSockets.
 
-W przypadku większości aplikacji zaleca się sygnalizowanie za pośrednictwem nieprzetworzonych gniazd WebSockets. Sygnalizujący zapewnia rezerwę transportową dla środowisk, w których usługi WebSockets są niedostępne. Udostępnia także prosty, zdalny model aplikacji. W większości scenariuszy sygnalizujący nie ma znaczącej niekorzystnej wydajności w porównaniu z korzystaniem z nieprzetworzonych gniazd WebSockets.
+W przypadku większości aplikacji zaleca się SignalR za pośrednictwem nieprzetworzonych gniazd WebSockets. SignalR zapewnia rezerwę transportową dla środowisk, w których usługi WebSockets są niedostępne. Udostępnia także prosty, zdalny model aplikacji. W większości przypadków SignalR nie ma znaczącej niekorzystnej wydajności w porównaniu z korzystaniem z nieprzetworzonych gniazd WebSockets.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

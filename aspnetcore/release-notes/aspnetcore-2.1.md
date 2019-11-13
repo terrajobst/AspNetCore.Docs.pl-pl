@@ -1,91 +1,93 @@
 ---
-title: Co nowego w programie ASP.NET Core 2.1
+title: Co nowego w ASP.NET Core 2,1
 author: isaac2004
-description: Dowiedz się więcej o nowych funkcjach w programie ASP.NET Core 2.1.
+description: Dowiedz się więcej o nowych funkcjach w ASP.NET Core 2,1.
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/30/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: aspnetcore-2.1
-ms.openlocfilehash: 359f961db768b9048427c8ab296ee3e035879408
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: a45ba44fb7911a21927a4a996c0d6fa9eb776357
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086403"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963179"
 ---
-# <a name="whats-new-in-aspnet-core-21"></a>Co nowego w programie ASP.NET Core 2.1
+# <a name="whats-new-in-aspnet-core-21"></a>Co nowego w ASP.NET Core 2,1
 
-W tym artykule przedstawiono najbardziej znaczące zmiany w programie ASP.NET Core 2.1 wraz z łączami do odpowiedniej dokumentacji.
+W tym artykule przedstawiono najbardziej znaczące zmiany w ASP.NET Core 2,1 z linkami do odpowiedniej dokumentacji.
 
-## <a name="signalr"></a>SignalR
+## SignalR
 
-SignalR został przepisany dla platformy ASP.NET Core 2.1. SignalR dla ASP.NET Core zawiera szereg ulepszeń:
+SignalR został ponownie zapisany dla ASP.NET Core 2,1. ASP.NET Core SignalR obejmuje kilka ulepszeń:
 
-* Uproszczony model skalowania w poziomie.
-* Nowy klient JavaScript bez zależności od jQuery.
-* Nowy kompaktowy protokół binarny oparty na MessagePack.
-* Informacje dotyczące obsługi niestandardowych protokołów.
+* Uproszczony model skalowalny w poziomie.
+* Nowy klient JavaScript bez zależności jQuery.
+* Nowy, kompaktowy protokół binarny oparty na MessagePack.
+* Obsługa niestandardowych protokołów.
 * Nowy model odpowiedzi przesyłania strumieniowego.
-* Obsługa klientów opartych bezpośrednio na WebSockets.
+* Obsługa klientów w oparciu o usługi WebSockets.
 
-Aby uzyskać więcej informacji, zobacz [biblioteki SignalR platformy ASP.NET Core](xref:signalr/introduction).
+Aby uzyskać więcej informacji, zobacz [ASP.NET Core SignalR](xref:signalr/introduction).
 
 ## <a name="razor-class-libraries"></a>Biblioteki klas Razor
 
-ASP.NET Core 2.1 ułatwia tworzenie i dołączanie interfejsu użytkownika opartego na składni Razor w bibliotece i udostępnianie go w wielu projektach. Nowy zestaw SDK Razor umożliwia kompilowanie plików Razor do projektów bibliotek klas, które mogą być umieszczone w pakietach NuGet. Widoki i strony w bibliotekach są automatycznie wykrywane i mogą być nadpisane w aplikacji. Dzięki integracji kompilacji Razor w kompilacji:
+ASP.NET Core 2,1 ułatwia tworzenie i dołączanie interfejsu użytkownika opartego na składni Razor w bibliotece i udostępnianie go w wielu projektach. Nowy zestaw Razor SDK umożliwia tworzenie plików Razor w projekcie biblioteki klas, który można spakować do pakietu NuGet. Widoki i strony w bibliotekach są automatycznie odnajdywane i mogą zostać zastąpione przez aplikację. Przez integrację kompilacji Razor z kompilacją:
 
-* Czas uruchamiania aplikacji jest znacznie krótszy.
-* Szybkie aktualizacje widoków i stron Razor w czasie wykonywania są nadal dostępne jako część przepływu pracy iteracyjnego programowania.
+* Czas uruchamiania aplikacji jest znacznie szybszy.
+* Szybkie aktualizacje widoków i stron Razor w czasie wykonywania są nadal dostępne jako część iteracyjnego przepływu pracy programistycznej.
 
-Aby uzyskać więcej informacji, zobacz [tworzenia interfejsu użytkownika do wielokrotnego użytku, używając projektu biblioteki klas Razor](xref:razor-pages/ui-class).
+Aby uzyskać więcej informacji, zobacz [Tworzenie interfejsu użytkownika wielokrotnego użytku przy użyciu projektu biblioteki klas Razor](xref:razor-pages/ui-class).
 
-## <a name="identity-ui-library--scaffolding"></a>Biblioteka interfejsów użytkownika tożsamości i tworzenia szkieletów
+## <a name="identity-ui-library--scaffolding"></a>Tworzenie szkieletu biblioteki interfejsu użytkownika tożsamości &
 
-Platforma ASP.NET Core 2.1 udostępnia mechanizm [tożsamości platformy ASP.NET Core](xref:security/authentication/identity) jako [bibliotekę klas Razor](xref:razor-pages/ui-class). Aplikacje, które używają mechanizmu tożsamości, mogą zastosować nowy generator szkieletu tożsamości, aby wybiórczo dodawać kod źródłowy, znajdujący się w bibliotece klas Razor tożsamości (RCL). Przydatne może być wygenerowanie kodu źródłowego, aby można było zmodyfikować kod i zmienić zachowanie. Na przykład można nakazać Generatorowi szkieletu wygenerowanie kodu używanego podczas rejestracji. Wygenerowany kod ma pierwszeństwo przed tym samym kodem w bibliotece RCL tożsamości.
+ASP.NET Core 2,1 zapewnia [ASP.NET Core tożsamość](xref:security/authentication/identity) jako [Biblioteka klas Razor](xref:razor-pages/ui-class). Aplikacje zawierające tożsamość mogą zastosować nowy szkielet tożsamości, aby wybiórczo dodać kod źródłowy znajdujący się w bibliotece klas Razor (RCL). Może być konieczne wygenerowanie kodu źródłowego, aby można było zmodyfikować kod i zmienić zachowanie. Na przykład możesz poinstruować szkielet, aby wygenerował kod używany w rejestracji. Wygenerowany kod ma pierwszeństwo przed tym samym kodem w RCL tożsamości.
 
-Aplikacje, które **nie** obejmują uwierzytelniania, mogą zastosować Generator szkieletu tożsamości, aby dodać pakiet RCL tożsamości. Masz możliwość wyboru kodu tożsamości do wygenerowania.
+Aplikacje, które **nie** obejmują uwierzytelniania, mogą zastosować szkielet tożsamości w celu dodania pakietu tożsamości RCL. Istnieje możliwość wybrania kodu tożsamości do wygenerowania.
 
-Aby uzyskać więcej informacji, zobacz [szkieletu tożsamość w projektach programu ASP.NET Core](xref:security/authentication/scaffold-identity).
+Aby uzyskać więcej informacji, zobacz [tożsamość szkieletu w projektach ASP.NET Core](xref:security/authentication/scaffold-identity).
 
 ## <a name="https"></a>HTTPS
 
-Aby lepiej skoncentrować się na zabezpieczeniach i prywatności, ważne jest włączenie protokołu HTTPS dla aplikacji sieci Web. Wymuszanie protokołu HTTPS staje się coraz bardziej rygorystyczne w sieci Web. Lokacje, które nie używają protokołu HTTPS, są uważane za niebezpieczne. Przeglądarki (Chromium, Mozilla) coraz częściej wymuszają, aby funkcje sieci Web były używane w bezpiecznym kontekście. [RODO](xref:security/gdpr) wymaga użycia protokołu HTTPS, aby chronić prywatność użytkowników. Użycie protokołu HTTPS w środowisku produkcyjnym jest krytyczne, natomiast w środowisku programistycznym może zapobiec problemom we wdrożeniu (takim jak niezabezpieczone linki). Platforma ASP.NET Core 2.1 zawiera szereg ulepszeń, które ułatwiają wykorzystanie protokołu HTTPS podczas programowania i konfigurowanie protokołu HTTPS w środowisku produkcyjnym. Aby uzyskać więcej informacji, zobacz [Wymuszanie protokołu HTTPS](xref:security/enforcing-ssl).
+Dzięki zwiększeniu poziomu zabezpieczeń i ochrony prywatności włączenie protokołu HTTPS dla aplikacji sieci Web jest ważne. Wymuszanie protokołu HTTPS staje się coraz bardziej rygorystyczne w sieci Web. Lokacje, które nie używają protokołu HTTPS, są uznawane za niezabezpieczone. Przeglądarki (chrom, Mozilla) zaczynają wymuszać, że funkcje sieci Web muszą być używane z bezpiecznego kontekstu. [Rodo](xref:security/gdpr) wymaga użycia protokołu HTTPS do ochrony prywatności użytkowników. Korzystanie z protokołu HTTPS w środowisku produkcyjnym ma krytyczne znaczenie, dzięki czemu korzystanie z protokołu HTTPS podczas programowania może pomóc w zapobieganiu problemom z wdrażaniem (na przykład niezabezpieczonych łączy). ASP.NET Core 2,1 zawiera szereg ulepszeń, które ułatwiają korzystanie z protokołu HTTPS w programowaniu i Konfigurowanie protokołu HTTPS w środowisku produkcyjnym. Aby uzyskać więcej informacji, zobacz [Wymuszanie protokołu HTTPS](xref:security/enforcing-ssl).
 
-### <a name="on-by-default"></a>Włączony domyślnie
+### <a name="on-by-default"></a>Domyślnie włączone
 
-W celu ułatwienia tworzenia bezpiecznej witryny sieci Web protokół HTTPS jest teraz włączony domyślnie. Począwszy od wersji 2.1 serwer Kestrel nasłuchuje na porcie `https://localhost:5001`, kiedy lokalny certyfikat programistyczny jest obecny. Certyfikat programistyczny jest tworzony:
+Aby ułatwić tworzenie bezpiecznych witryn internetowych, protokół HTTPS jest teraz domyślnie włączony. Począwszy od 2,1, Kestrel nasłuchuje na `https://localhost:5001`, gdy obecny jest lokalny certyfikat programistyczny. Tworzony jest certyfikat programistyczny:
 
-* Jako część zestawu .NET Core SDK pierwszego uruchomienia komputera, gdy używasz zestawu SDK po raz pierwszy.
-* Ręcznie przy użyciu nowego narzędzia `dev-certs`.
+* W ramach pierwszego uruchomienia zestaw .NET Core SDK, gdy zestaw SDK jest używany po raz pierwszy.
+* Ręczne korzystanie z nowego narzędzia `dev-certs`.
 
-Uruchom polecenie `dotnet dev-certs https --trust`, aby zaufać certyfikatowi.
+Uruchom `dotnet dev-certs https --trust`, aby zaufać certyfikatowi.
 
-### <a name="https-redirection-and-enforcement"></a>Przekierowania i wymuszenia protokołu HTTPS
+### <a name="https-redirection-and-enforcement"></a>Przekierowywanie i wymuszanie protokołu HTTPS
 
-Aplikacje internetowe zazwyczaj wymagają nasłuchiwania protokołów HTTP i HTTPS, ale następnie przekierowują cały ruchu HTTP na HTTPS. W wersji 2.1 zostało wprowadzone wyspecjalizowane oprogramowanie pośredniczące przekierowania protokołu HTTPS inteligentnie przekierowujące na podstawie obecności konfiguracji lub powiązanych portów serwera.
+Aplikacje sieci Web zazwyczaj muszą nasłuchiwać zarówno protokół HTTP, jak i HTTPS, a następnie przekierować cały ruch HTTP do protokołu HTTPS. W 2,1, wyspecjalizowane oprogramowanie pośredniczące do przekierowywania HTTPS, które inteligentnie przekierowuje się w oparciu o obecność konfiguracji lub powiązanych portów serwera.
 
-Korzystanie z protokołu HTTPS może być dodatkowo wymuszane za pomocą [protokołu HTTP Strict Transport Security (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts). HSTS powoduje, że przeglądarka zawsze uzyskuje dostęp do witryny za pośrednictwem protokołu HTTPS. Platforma ASP.NET Core 2.1 dodaje oprogramowanie pośredniczące HSTS, które obsługuje opcje dla maksymalnego wieku, poddomen i listy wstępnego ładowania HSTS.
+Korzystanie z protokołu HTTPS może być realizowane przy użyciu [protokołu HTTP Strict Transport Security Protocol (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts). HSTS instruuje przeglądarki, aby zawsze mogli uzyskać dostęp do witryny za pośrednictwem protokołu HTTPS. ASP.NET Core 2,1 dodaje oprogramowanie pośredniczące HSTS, które obsługuje opcje maksymalnego wieku, poddomen i listy wstępnego ładowania HSTS.
 
-### <a name="configuration-for-production"></a>Konfiguracja dla trybu produkcyjnego
+### <a name="configuration-for-production"></a>Konfiguracja dla środowiska produkcyjnego
 
-W środowisku produkcyjnym należy jawnie skonfigurować protokół HTTPS. W wersji 2.1 został dodany domyślny schemat konfiguracji dotyczący konfigurowania protokołu HTTPS dla serwera Kestrel. Aplikacje można skonfigurować do użycia:
+W środowisku produkcyjnym należy jawnie skonfigurować protokół HTTPS. W 2,1 został dodany domyślny schemat konfiguracji służący do konfigurowania protokołu HTTPS dla Kestrel. Aplikacje można skonfigurować do korzystania z:
 
-* Wielu punktów końcowych, w tym adresów URL. Aby uzyskać więcej informacji, zobacz [implementacji serwera sieci web Kestrel: Konfiguracja punktu końcowego](xref:fundamentals/servers/kestrel#endpoint-configuration).
-* Certyfikatu używanego do obsługi protokołu HTTPS z pliku na dysku lub z magazynu certyfikatów.
+* Wiele punktów końcowych, w tym adresów URL. Aby uzyskać więcej informacji, zobacz [Implementacja serwera sieci Web Kestrel: Konfiguracja punktu końcowego](xref:fundamentals/servers/kestrel#endpoint-configuration).
+* Certyfikat do użycia na potrzeby protokołu HTTPS z pliku znajdującego się na dysku lub z magazynu certyfikatów.
 
-## <a name="gdpr"></a>GDPR
+## <a name="gdpr"></a>Rodo
 
-Platforma ASP.NET Core udostępnia interfejsy API i szablony, które ułatwiają spełnienie niektórych wymagań [Ogólnego rozporządzenia o ochronie danych (RODO)](https://www.eugdpr.org/). Aby uzyskać więcej informacji, zobacz [Obsługa RODO w programie ASP.NET Core](xref:security/gdpr). W [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/gdpr/sample) pokazano sposób użycia umożliwiono przetestowanie większości punktów rozszerzenia i interfejsów API związanych z RODO, które dodano w szablonach ASP.NET Core 2.1.
+ASP.NET Core udostępnia interfejsy API i szablony, które pomagają spełnić niektóre wymagania dotyczące [ogólne rozporządzenie o ochronie danych UE (Rodo)](https://www.eugdpr.org/) . Aby uzyskać więcej informacji, zobacz [Obsługa Rodo w ASP.NET Core](xref:security/gdpr). [Przykładowa aplikacja](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/gdpr/sample) pokazuje, jak używać programu i umożliwia testowanie większości punktów rozszerzenia Rodo i interfejsów API dodanych do szablonów ASP.NET Core 2,1.
 
-## <a name="integration-tests"></a>Testy integracyjne
+## <a name="integration-tests"></a>Testy integracji
 
-Został wprowadzony nowy pakiet upraszczający tworzenie i wykonywanie testów. Pakiet [Microsoft.AspNetCore.Mvc.Testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing/) obsługuje następujące zadania:
+Wprowadzono nowy pakiet, który usprawnia tworzenie i wykonywanie testów. Pakiet [Microsoft. AspNetCore. MVC. test](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing/) obsługuje następujące zadania:
 
-* Kopiuje plik zależności (*\*.deps*) z przetestowanej aplikacji w projekcie testowym *bin* folderu.
-* Ustawia katalog główny zawartości na katalog główny projektu testowanej aplikacji, aby można było znaleźć pliki statyczne i strony/widoki podczas wykonywania testów.
-* Udostępnia klasę [WebApplicationFactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1), aby usprawnić uruchamianie testowanej aplikacji za pomocą [elementu TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver).
+* Kopiuje plik zależności ( *\*. deps*) z testowanej aplikacji do folderu *bin* projektu testowego.
+* Ustawia katalog główny zawartości dla elementu głównego projektu przetestowanej aplikacji, co umożliwia znalezienie plików statycznych i stron/widoków podczas wykonywania testów.
+* Udostępnia klasę [WebApplicationFactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) do usprawnienia uruchamiania przetestowanej aplikacji z [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver).
 
-Następujący test używa narzędzia [xUnit](https://xunit.github.io/) do sprawdzenia, czy strona indeksu ładuje się z pomyślnym kodem statusu i poprawnym nagłówkiem Content-Type:
+Poniższy test korzysta z [xUnit](https://xunit.github.io/) , aby sprawdzić, czy strona indeksu ładuje się z kodem stanu sukcesu i z prawidłowym nagłówkiem Content-Type:
 
 ```csharp
 public class BasicTests
@@ -112,38 +114,38 @@ public class BasicTests
 }
 ```
 
-Aby uzyskać więcej informacji, zobacz [testy integracji](xref:test/integration-tests) tematu.
+Aby uzyskać więcej informacji, zobacz temat [testy integracji](xref:test/integration-tests) .
 
 ## <a name="apicontroller-actionresultt"></a>[ApiController], ActionResult\<T >
 
-Platforma ASP.NET Core 2.1 dodaje nowe konwencje programowania, które ułatwiają tworzenie czystych i bardziej opisowych interfejsów API sieci Web. Dodano nowy typ `ActionResult<T>`, aby zwracać albo typ odpowiedzi albo inny wynik akcji (podobnie jak w przypadku IActionResult), ale nadal wskazywać typ odpowiedzi. Atrybut `[ApiController]` został również dodany jako sposób korzystania z konwencji i zachowań specyficznych dla interfejsu API sieci Web.
+ASP.NET Core 2,1 dodaje nowe konwencje programowania, które ułatwiają tworzenie czystych i opisowych interfejsów API sieci Web. `ActionResult<T>` jest nowym typem dodawanym w celu umożliwienia aplikacji zwrócenia typu odpowiedzi lub dowolnego innego wyniku działania (podobnego do IActionResult), przy czym wskazuje typ odpowiedzi. Atrybut `[ApiController]` został również dodany jako sposób, aby zrezygnować z Konwencji i zachowań specyficznych dla interfejsu API sieci Web.
 
-Aby uzyskać więcej informacji, zobacz [Tworzenie interfejsów API sieci Web za pomocą programu ASP.NET Core](xref:web-api/index).
+Aby uzyskać więcej informacji, zobacz [Tworzenie internetowych interfejsów API za pomocą ASP.NET Core](xref:web-api/index).
 
 ## <a name="ihttpclientfactory"></a>IHttpClientFactory
 
-Platforma ASP.NET Core 2.1 zawiera nową usługę `IHttpClientFactory`, która ułatwia konfigurowanie i używanie wystąpień `HttpClient` w aplikacjach. Klasa `HttpClient` ma już pojęcie delegowania programów obsługi, które można połączyć ze sobą dla wychodzących żądań HTTP. Fabryka:
+ASP.NET Core 2,1 obejmuje nową usługę `IHttpClientFactory`, która ułatwia konfigurowanie i używanie wystąpień `HttpClient` w aplikacjach. `HttpClient` już ma koncepcję delegowania programów obsługi, które mogą być połączone ze sobą w przypadku wychodzących żądań HTTP. Fabryka:
 
-* Sprawia, że rejestrowanie wystąpień `HttpClient` na klienta o nazwie bardziej intuicyjne.
-* Implementuje obsługi Polly, umożliwiająca Polly zasady służący do ponawiania, CircuitBreakers itp.
+* Sprawia, że rejestrowanie wystąpień `HttpClient` na nazwę klienta jest bardziej intuicyjne.
+* Implementuje procedurę obsługi Polly, która umożliwia używanie zasad Polly do ponawiania, CircuitBreakers itd.
 
-Aby uzyskać więcej informacji, zobacz [inicjowanie żądań HTTP](xref:fundamentals/http-requests).
+Aby uzyskać więcej informacji, zobacz [Inicjowanie żądań HTTP](xref:fundamentals/http-requests).
 
 ## <a name="kestrel-transport-configuration"></a>Konfiguracja transportu Kestrel
 
-W wersji platformy ASP.NET Core 2.1 transport domyślny serwera Kestrel nie jest już oparty na bibliotece libuv, ale na zarządzanych gniazdach. Aby uzyskać więcej informacji, zobacz [implementacji serwera sieci web Kestrel: Konfiguracja transportu](xref:fundamentals/servers/kestrel#transport-configuration).
+W wersji ASP.NET Core 2,1 Kestrel domyślny transport nie jest już oparty na Libuv, ale zamiast w oparciu o zarządzane gniazda. Aby uzyskać więcej informacji, zobacz [Kestrel Web Server implementation: transport Configuration](xref:fundamentals/servers/kestrel#transport-configuration).
 
-## <a name="generic-host-builder"></a>Ogólny konstruktor hosta
+## <a name="generic-host-builder"></a>Ogólny Konstruktor hosta
 
-Został wprowadzony ogólny konstruktor hosta (`HostBuilder`). Ten konstruktor może służyć do aplikacji, które nie przetwarzają żądań HTTP (Obsługa komunikatów, zadania w tle itp.).
+Wprowadzono ogólny Konstruktor hosta (`HostBuilder`). Tego konstruktora można używać w przypadku aplikacji, które nie przetwarzają żądań HTTP (wiadomości, zadań w tle itp.).
 
-Aby uzyskać więcej informacji, zobacz [Host ogólny .NET](xref:fundamentals/host/generic-host).
+Aby uzyskać więcej informacji, zobacz [host ogólny programu .NET](xref:fundamentals/host/generic-host).
 
 ## <a name="updated-spa-templates"></a>Zaktualizowane szablony SPA
 
-Szablony aplikacji jednostronicowej dla platform Angular, React i React z Redux zostały zaktualizowane, aby używać standardowych struktur projektów i systemów budowania dla każdej z platform.
+Szablony aplikacji jednostronicowych umożliwiające przeznaczenie, reagowanie i reagowanie na Redux są aktualizowane w taki sposób, aby korzystały ze standardowych struktur projektu i systemów kompilacji dla każdej struktury.
 
-Szablon platformy Angular jest oparty na interfejsie wiersza polecenia Angular, a szablony platformy React — na narzędziu`create-react-app`.
+Szablon kątowy jest oparty na kątowym interfejsie wiersza polecenia, a szablony reagowania opierają się na tworzeniu aplikacji.
 
 Aby uzyskać więcej informacji, zobacz:
 
@@ -151,28 +153,28 @@ Aby uzyskać więcej informacji, zobacz:
 * <xref:spa/react>
 * <xref:spa/react-with-redux>
 
-## <a name="razor-pages-search-for-razor-assets"></a>Wyszukiwanie zasobów Razor w stronach Razor
+## <a name="razor-pages-search-for-razor-assets"></a>Razor Pages Wyszukiwanie zasobów Razor
 
-W wersji 2.1 w programie Razor Pages wyszukiwanie zasobów Razor (na przykład układów i widoków częściowych) odbywa się w następujących katalogach w podanej kolejności:
+W 2,1 Razor Pages Wyszukiwanie zasobów Razor (takich jak układy i części) w następujących katalogach w podanej kolejności:
 
-1. Bieżący folder stron.
+1. Folder bieżące strony.
 1. */Pages/Shared/*
-1. */Views/Shared /*
+1. */Views/Shared/*
 
-## <a name="razor-pages-in-an-area"></a>Strony razor, w obszarze
+## <a name="razor-pages-in-an-area"></a>Razor Pages w obszarze
 
-Narzędzie Razor Pages obsługuje teraz [obszary](xref:mvc/controllers/areas). Aby zobaczyć przykład wykorzystania obszarów, należy utworzyć nową aplikację internetową Razor Pages z indywidualnymi kontami użytkowników. Aplikacja internetowa Razor Pages z indywidualnymi kontami użytkowników zawiera element */Areas/Identity/Pages*.
+Razor Pages teraz obsługiwać [obszary](xref:mvc/controllers/areas). Aby zobaczyć przykład obszarów, Utwórz nową aplikację sieci Web Razor Pages przy użyciu poszczególnych kont użytkowników. Aplikacja sieci Web Razor Pages z pojedynczymi kontami użytkowników zawiera */Areas/Identity/Pages*.
 
 ## <a name="mvc-compatibility-version"></a>Wersja zgodności MVC
 
-Metoda <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> umożliwia aplikacji włączenie wykorzystania lub rezygnację ze zmian zachowania wprowadzanych w programie ASP.NET Core MVC w wersji 2.1 lub nowszej, które potencjalnie mogą prowadzić do awarii.
+Metoda <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> pozwala aplikacji na zgodę lub rezygnację z ewentualnych zmian w zachowaniu, które wprowadzono w ASP.NET Core MVC 2,1 lub nowszych.
 
 Aby uzyskać więcej informacji, zobacz <xref:mvc/compatibility-version>.
 
-## <a name="migrate-from-20-to-21"></a>Migracja z wersji 2.0 do wersji 2.1
+## <a name="migrate-from-20-to-21"></a>Migrowanie z 2,0 do 2,1
 
-Zobacz [migracji z programu ASP.NET Core 2.0 i 2.1](xref:migration/20_21).
+Zobacz [Migrowanie z ASP.NET Core 2,0 do 2,1](xref:migration/20_21).
 
 ## <a name="additional-information"></a>Dodatkowe informacje
 
-Aby uzyskać pełną listę zmian, zobacz [platformy ASP.NET Core 2.1 — informacje o wersji](https://github.com/aspnet/Home/releases/tag/2.1.0).
+Aby uzyskać pełną listę zmian, zapoznaj się z [informacjami o wersji ASP.NET Core 2,1](https://github.com/aspnet/Home/releases/tag/2.1.0).

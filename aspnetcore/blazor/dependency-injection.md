@@ -1,20 +1,22 @@
 ---
-title: ASP.NET Core iniekcja zależności Blazor
+title: ASP.NET Core Blazor iniekcji zależności
 author: guardrex
 description: Zobacz, jak aplikacje Blazor mogą wstrzyknąć usługi do składników programu.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
+no-loc:
+- Blazor
 uid: blazor/dependency-injection
-ms.openlocfilehash: b548f0e50e1a60b74969e5bbee43860be9ba5a7f
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: a39d913636afc55ac9d831de923ba7ae8db1216b
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391141"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963077"
 ---
-# <a name="aspnet-core-blazor-dependency-injection"></a>ASP.NET Core iniekcja zależności Blazor
+# <a name="aspnet-core-opno-locblazor-dependency-injection"></a>ASP.NET Core Blazor iniekcji zależności
 
 Autor [Rainer Stropek](https://www.timecockpit.com)
 
@@ -22,7 +24,7 @@ Autor [Rainer Stropek](https://www.timecockpit.com)
 
 Blazor obsługuje [iniekcję zależności (di)](xref:fundamentals/dependency-injection). Aplikacje mogą używać wbudowanych usług, wprowadzając je do składników programu. Aplikacje mogą także definiować i rejestrować niestandardowe usługi i udostępniać je w całej aplikacji za pomocą funkcji DI.
 
-DI jest techniką uzyskiwania dostępu do usług skonfigurowanych w centralnej lokalizacji. Może to być przydatne w aplikacjach Blazor do:
+DI jest techniką uzyskiwania dostępu do usług skonfigurowanych w centralnej lokalizacji. Może to być przydatne w aplikacjach Blazor, aby:
 
 * Udostępnianie pojedynczego wystąpienia klasy usługi w wielu składnikach, znanej jako *pojedyncze usługi.*
 * Oddziel składniki od klas konkretnych usług za pomocą abstrakcji odwołań. Rozważmy na przykład interfejs `IDataAccess` w celu uzyskania dostępu do danych w aplikacji. Interfejs jest implementowany przez konkretną klasę `DataAccess` i zarejestrowana jako usługa w kontenerze usługi aplikacji. Gdy składnik używa elementu DI do otrzymania implementacji `IDataAccess`, składnik nie jest połączony z konkretnym typem. Implementacja może zostać zamieniony, być może dla implementacji makiety w testach jednostkowych.
@@ -33,9 +35,9 @@ Domyślne usługi są automatycznie dodawane do kolekcji usług aplikacji.
 
 | Usługa | Okres istnienia | Opis |
 | ------- | -------- | ----------- |
-| <xref:System.Net.Http.HttpClient> | pojedynczego | Zapewnia metody wysyłania żądań HTTP i odbierania odpowiedzi HTTP z zasobu identyfikowanego przez identyfikator URI. Należy zauważyć, że to wystąpienie `HttpClient` używa przeglądarki do obsługi ruchu HTTP w tle. [HttpClient. BaseAddress](xref:System.Net.Http.HttpClient.BaseAddress) jest automatycznie ustawiany na podstawowy prefiks identyfikatora URI aplikacji. Aby uzyskać więcej informacji, zobacz <xref:blazor/call-web-api>. |
-| `IJSRuntime` | pojedynczego | Reprezentuje wystąpienie środowiska uruchomieniowego JavaScript, w którym są wysyłane wywołania języka JavaScript. Aby uzyskać więcej informacji, zobacz <xref:blazor/javascript-interop>. |
-| `NavigationManager` | pojedynczego | Zawiera pomocników do pracy z identyfikatorami URI i stanem nawigacji. Aby uzyskać więcej informacji, zobacz [identyfikatory URI i pomocnika stanu nawigacji](xref:blazor/routing#uri-and-navigation-state-helpers). |
+| <xref:System.Net.Http.HttpClient> | Pojedynczego | Zapewnia metody wysyłania żądań HTTP i odbierania odpowiedzi HTTP z zasobu identyfikowanego przez identyfikator URI. Należy zauważyć, że to wystąpienie `HttpClient` używa przeglądarki do obsługi ruchu HTTP w tle. [HttpClient. BaseAddress](xref:System.Net.Http.HttpClient.BaseAddress) jest automatycznie ustawiany na podstawowy prefiks identyfikatora URI aplikacji. Aby uzyskać więcej informacji, zobacz <xref:blazor/call-web-api>. |
+| `IJSRuntime` | Pojedynczego | Reprezentuje wystąpienie środowiska uruchomieniowego JavaScript, w którym są wysyłane wywołania języka JavaScript. Aby uzyskać więcej informacji, zobacz <xref:blazor/javascript-interop>. |
+| `NavigationManager` | Pojedynczego | Zawiera pomocników do pracy z identyfikatorami URI i stanem nawigacji. Aby uzyskać więcej informacji, zobacz [identyfikatory URI i pomocnika stanu nawigacji](xref:blazor/routing#uri-and-navigation-state-helpers). |
 
 Niestandardowy dostawca usług nie dostarcza automatycznie usług domyślnych wymienionych w tabeli. W przypadku użycia niestandardowego dostawcy usług i wymagania usług wymienionych w tabeli należy dodać wymagane usługi do nowego dostawcy usług.
 
@@ -63,7 +65,7 @@ Usługi można skonfigurować przy użyciu okresów istnienia podanych w poniżs
 
 | Okres istnienia | Opis |
 | -------- | ----------- |
-| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Scoped*> | Aplikacje webassembly Blazor nie mają obecnie koncepcji DI Scopes. @no__t usługi zarejestrowane -0 zachowują się jak usługi `Singleton`. Jednak model hostingu serwera Blazor obsługuje okres istnienia `Scoped`. W aplikacjach Blazor Server Rejestracja usługi w zakresie jest objęta zakresem *połączenia*. Z tego powodu użycie usług objętych zakresem jest preferowane dla usług, które powinny być objęte zakresem bieżącego użytkownika, nawet jeśli bieżącym celem jest uruchomienie po stronie klienta w przeglądarce. |
+| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Scoped*> | Blazor aplikacje webassembly nie mają obecnie koncepcji DI Scopes. usługi zarejestrowane `Scoped`zachowują się jak usługi `Singleton` Services. Jednak model hostingu serwera Blazor obsługuje okres istnienia `Scoped`. W aplikacjach Blazor Server Rejestracja usługi w zakresie została objęta zakresem *połączenia*. Z tego powodu użycie usług objętych zakresem jest preferowane dla usług, które powinny być objęte zakresem bieżącego użytkownika, nawet jeśli bieżącym celem jest uruchomienie po stronie klienta w przeglądarce. |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Singleton*> | DI tworzy *pojedyncze wystąpienie* usługi. Wszystkie składniki wymagające usługi `Singleton` odbierają wystąpienie tej samej usługi. |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Transient*> | Za każdym razem, gdy składnik uzyskuje wystąpienie usługi `Transient` z kontenera usług, otrzymuje *nowe wystąpienie* usługi. |
 
@@ -71,7 +73,7 @@ System DI jest oparty na systemie DI w ASP.NET Core. Aby uzyskać więcej inform
 
 ## <a name="request-a-service-in-a-component"></a>Żądanie usługi w składniku
 
-Po dodaniu usług do kolekcji usług należy wstrzyknąć usługi do składników za pomocą dyrektywy [@no__t 1inject](xref:mvc/views/razor#inject) Razor. `@inject` ma dwa parametry:
+Po dodaniu usług do kolekcji usług należy wstrzyknąć usługi do składników za pomocą dyrektywy [wstrzykiwania Razor\@](xref:mvc/views/razor#inject) . `@inject` ma dwa parametry:
 
 * Wpisz &ndash; typ usługi do dodania.
 * Właściwość &ndash; nazwa właściwości otrzymującej wstrzykiwaną usługę App Service. Właściwość nie wymaga ręcznego tworzenia. Kompilator tworzy właściwość.
@@ -96,7 +98,7 @@ public class ComponentBase : IComponent
 }
 ```
 
-W składnikach pochodnych klasy bazowej dyrektywa `@inject` nie jest wymagana. @No__t-0 klasy podstawowej jest wystarczająca:
+W składnikach pochodnych klasy bazowej dyrektywa `@inject` nie jest wymagana. `InjectAttribute` klasy podstawowej jest wystarczająca:
 
 ```cshtml
 @page "/demo"
@@ -129,7 +131,7 @@ Wymagania wstępne dotyczące iniekcji konstruktora:
 
 ## <a name="utility-base-component-classes-to-manage-a-di-scope"></a>Klasy składników podstawowych narzędzi do zarządzania DI zakresem
 
-W przypadku aplikacji ASP.NET Core usługi o określonym zakresie są zwykle objęte zakresem bieżącego żądania. Po zakończeniu żądania wszystkie usługi w zakresie lub przejściowym są usuwane przez system DI. W aplikacjach serwera Blazor zakres żądań jest stosowany przez czas trwania połączenia klienta, co może spowodować, że usługi przejściowe i w zakresie są znacznie dłuższe niż oczekiwano.
+W przypadku aplikacji ASP.NET Core usługi o określonym zakresie są zwykle objęte zakresem bieżącego żądania. Po zakończeniu żądania wszystkie usługi w zakresie lub przejściowym są usuwane przez system DI. W Blazor aplikacji serwerowych zakres żądań jest stosowany przez czas trwania połączenia klienta, co może spowodować, że usługi przejściowe i objęte zakresem będą dużo dłużej niż oczekiwano.
 
 Aby ograniczyć zakres usług do okresu istnienia składnika, można użyć klas podstawowych `OwningComponentBase` i `OwningComponentBase<TService>`. Te klasy bazowe uwidaczniają Właściwość `ScopedServices` typu `IServiceProvider`, które rozwiązują usługi objęte zakresem czasu istnienia składnika. Aby utworzyć składnik, który dziedziczy z klasy podstawowej w Razor, użyj dyrektywy `@inherits`.
 

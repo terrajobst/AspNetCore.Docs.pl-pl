@@ -1,30 +1,32 @@
 ---
-title: Uwierzytelnianie i autoryzacja w usłudze ASP.NET Core sygnalizujący
+title: Uwierzytelnianie i autoryzacja w ASP.NET Core SignalR
 author: bradygaster
-description: Dowiedz się, jak używać uwierzytelniania i autoryzacji w usłudze ASP.NET Core sygnalizujący.
+description: Dowiedz się, jak używać uwierzytelniania i autoryzacji w ASP.NET Core SignalR.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 10/17/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: signalr/authn-and-authz
-ms.openlocfilehash: 258b6d92896d38b79116278abb7c70b6063e8131
-ms.sourcegitcommit: ce2bfb01f2cc7dd83f8a97da0689d232c71bcdc4
+ms.openlocfilehash: 5a1e15ef46a3f89af3fbd3d505e7bd340c46e672
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72531169"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963829"
 ---
-# <a name="authentication-and-authorization-in-aspnet-core-signalr"></a>Uwierzytelnianie i autoryzacja w usłudze ASP.NET Core sygnalizujący
+# <a name="authentication-and-authorization-in-aspnet-core-opno-locsignalr"></a>Uwierzytelnianie i autoryzacja w ASP.NET Core SignalR
 
 Według [Andrew Stanton-pielęgniarki](https://twitter.com/anurse)
 
 [Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/authn-and-authz/sample/) [(jak pobrać)](xref:index#how-to-download-a-sample)
 
-## <a name="authenticate-users-connecting-to-a-signalr-hub"></a>Uwierzytelnianie użytkowników łączących się z centrum sygnałów
+## <a name="authenticate-users-connecting-to-a-opno-locsignalr-hub"></a>Uwierzytelnianie użytkowników łączących się z centrum SignalR
 
-Program sygnalizujący może być używany z [uwierzytelnianiem ASP.NET Core](xref:security/authentication/identity) , aby skojarzyć użytkownika z każdym połączeniem. W centrum dane uwierzytelniania są dostępne z właściwości [`HubConnectionContext.User`](/dotnet/api/microsoft.aspnetcore.signalr.hubconnectioncontext.user) . Uwierzytelnianie umożliwia centrum wywoływanie metod we wszystkich połączeniach skojarzonych z użytkownikiem. Aby uzyskać więcej informacji, zobacz [Zarządzanie użytkownikami i grupami w programie sygnalizującym](xref:signalr/groups). Wiele połączeń może być skojarzonych z pojedynczym użytkownikiem.
+SignalR można używać z [uwierzytelnianiem ASP.NET Core](xref:security/authentication/identity) w celu skojarzenia użytkownika z każdym połączeniem. W centrum dane uwierzytelniania są dostępne z właściwości [`HubConnectionContext.User`](/dotnet/api/microsoft.aspnetcore.signalr.hubconnectioncontext.user) . Uwierzytelnianie umożliwia centrum wywoływanie metod we wszystkich połączeniach skojarzonych z użytkownikiem. Aby uzyskać więcej informacji, zobacz [Zarządzanie użytkownikami i grupami w SignalR](xref:signalr/groups). Wiele połączeń może być skojarzonych z pojedynczym użytkownikiem.
 
-Poniżej znajduje się przykład `Startup.Configure`, w którym jest używany program sygnalizujący i ASP.NET Core Authentication:
+Poniżej znajduje się przykład `Startup.Configure`, który używa uwierzytelniania SignalR i ASP.NET Core:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -74,13 +76,13 @@ public void Configure(IApplicationBuilder app)
 ```
 
 > [!NOTE]
-> Kolejność, w której zarejestrowano sygnał i ASP.NET Core uwierzytelniania oprogramowania pośredniczącego. Zawsze wywołuj `UseAuthentication` przed `UseSignalR`, tak aby program sygnalizujący miał użytkownika w `HttpContext`.
+> Kolejność, w której rejestruje się SignalR i ASP.NET Core uwierzytelniania oprogramowania pośredniczącego. Zawsze wywołuj `UseAuthentication` przed `UseSignalR`, aby SignalR użytkownika na `HttpContext`.
 
 ::: moniker-end
 
 ### <a name="cookie-authentication"></a>Uwierzytelnianie plików cookie
 
-W aplikacji opartej na przeglądarce uwierzytelnianie plików cookie umożliwia istniejące poświadczenia użytkownika w celu automatycznego przepływania do połączeń sygnałów. W przypadku korzystania z klienta przeglądarki nie jest wymagana dodatkowa konfiguracja. Jeśli użytkownik jest zalogowany do aplikacji, połączenie sygnalizujące automatycznie dziedziczy to uwierzytelnianie.
+W aplikacji opartej na przeglądarce uwierzytelnianie plików cookie umożliwia istniejące poświadczenia użytkownika w celu automatycznego przechodzenia do połączeń SignalR. W przypadku korzystania z klienta przeglądarki nie jest wymagana dodatkowa konfiguracja. Jeśli użytkownik jest zalogowany do aplikacji, połączenie SignalR automatycznie dziedziczy to uwierzytelnianie.
 
 Pliki cookie to specyficzny dla przeglądarki sposób wysyłania tokenów dostępu, ale Klienci niebędący przeglądarkami mogą je wysyłać. W przypadku korzystania z [klienta platformy .NET](xref:signalr/dotnet-client)Właściwość `Cookies` można skonfigurować w wywołaniu `.WithUrl`, aby zapewnić plik cookie. Jednak używanie uwierzytelniania plików cookie z poziomu klienta platformy .NET wymaga, aby aplikacja zapewniała interfejs API do wymiany danych uwierzytelniania dla plików cookie.
 
@@ -106,14 +108,14 @@ var connection = new HubConnectionBuilder()
 ```
 
 > [!NOTE]
-> Funkcja tokenu dostępu dostarczana jest wywoływana przed **każdym** żądaniem http wykonywanym przez sygnalizujący. Jeśli musisz odnowić token, aby zachować aktywne połączenie (ponieważ może ono wygasnąć podczas połączenia), zrób to w ramach tej funkcji i zwróć zaktualizowany token.
+> Funkcja tokenu dostępu dostarczana jest wywoływana przed **każdym** żądaniem http wykonywanym przez SignalR. Jeśli musisz odnowić token, aby zachować aktywne połączenie (ponieważ może ono wygasnąć podczas połączenia), zrób to w ramach tej funkcji i zwróć zaktualizowany token.
 
-W standardowym interfejsie API sieci Web tokeny okaziciela są wysyłane w nagłówku HTTP. Jednak sygnalizujący nie może ustawić tych nagłówków w przeglądarkach podczas korzystania z niektórych transportów. W przypadku korzystania z obiektów WebSockets i zdarzeń wysyłanych przez serwer token jest przekazywany jako parametr ciągu zapytania. Aby można było obsługiwać ten serwer na serwerze, wymagana jest dodatkowa konfiguracja:
+W standardowym interfejsie API sieci Web tokeny okaziciela są wysyłane w nagłówku HTTP. Jednak SignalR nie może ustawić tych nagłówków w przeglądarkach w przypadku korzystania z niektórych transportów. W przypadku korzystania z obiektów WebSockets i zdarzeń wysyłanych przez serwer token jest przekazywany jako parametr ciągu zapytania. Aby można było obsługiwać ten serwer na serwerze, wymagana jest dodatkowa konfiguracja:
 
 [!code-csharp[Configure Server to accept access token from Query String](authn-and-authz/sample/Startup.cs?name=snippet)]
 
 > [!NOTE]
-> Ciąg zapytania jest używany w przeglądarkach w przypadku nawiązywania połączenia z usługą WebSockets i zdarzeniami wysłanymi przez serwer z powodu ograniczeń interfejsu API przeglądarki. W przypadku korzystania z protokołu HTTPS wartości ciągu zapytania są zabezpieczane przez połączenie TLS. Jednak wiele serwerów rejestruje wartości ciągu zapytania. Aby uzyskać więcej informacji, zobacz [zagadnienia dotyczące zabezpieczeń w usłudze ASP.NET Core signaler](xref:signalr/security). System sygnalizujący używa nagłówków do przesyłania tokenów w środowiskach, które je obsługują (takich jak klienci .NET i Java).
+> Ciąg zapytania jest używany w przeglądarkach w przypadku nawiązywania połączenia z usługą WebSockets i zdarzeniami wysłanymi przez serwer z powodu ograniczeń interfejsu API przeglądarki. W przypadku korzystania z protokołu HTTPS wartości ciągu zapytania są zabezpieczane przez połączenie TLS. Jednak wiele serwerów rejestruje wartości ciągu zapytania. Aby uzyskać więcej informacji, zobacz [zagadnienia dotyczące zabezpieczeń w SignalRASP.NET Core ](xref:signalr/security). SignalR używa nagłówków do przesyłania tokenów w środowiskach, które je obsługują (takich jak klienci .NET i Java).
 
 ### <a name="cookies-vs-bearer-tokens"></a>Pliki cookie a tokeny okaziciela 
 
@@ -121,7 +123,7 @@ Pliki cookie są specyficzne dla przeglądarek. Wysyłanie ich z innych rodzajó
 
 ### <a name="windows-authentication"></a>Uwierzytelnianie systemu Windows
 
-Jeśli w aplikacji skonfigurowano [uwierzytelnianie systemu Windows](xref:security/authentication/windowsauth) , program sygnalizujący może użyć tej tożsamości do zabezpieczania centrów. Aby jednak wysyłać komunikaty do poszczególnych użytkowników, należy dodać niestandardowego dostawcę identyfikatora użytkownika. System uwierzytelniania systemu Windows nie zapewnia żądania "name identifier". Sygnalizujące używa tego żądania, aby określić nazwę użytkownika.
+Jeśli w aplikacji skonfigurowano [uwierzytelnianie systemu Windows](xref:security/authentication/windowsauth) , SignalR może używać tej tożsamości do zabezpieczania centrów. Aby jednak wysyłać komunikaty do poszczególnych użytkowników, należy dodać niestandardowego dostawcę identyfikatora użytkownika. System uwierzytelniania systemu Windows nie zapewnia żądania "name identifier". SignalR używa tego żądania, aby określić nazwę użytkownika.
 
 Dodaj nową klasę implementującą `IUserIdProvider` i pobierającą jedno z oświadczeń od użytkownika do użycia jako identyfikator. Aby na przykład użyć żądania "name" (nazwa użytkownika systemu Windows w formularzu `[Domain]\[Username]`), Utwórz następującą klasę:
 
@@ -159,7 +161,7 @@ Uwierzytelnianie systemu Windows jest obsługiwane tylko przez klienta przegląd
 
 ### <a name="use-claims-to-customize-identity-handling"></a>Używanie oświadczeń do dostosowywania obsługi tożsamości
 
-Aplikacja, która uwierzytelnia użytkowników, może dziedziczyć identyfikatory użytkowników z oświadczeń użytkowników. Aby określić, jak program sygnalizujący tworzy identyfikatory użytkowników, zaimplementuj `IUserIdProvider` i zarejestruj implementację.
+Aplikacja, która uwierzytelnia użytkowników, może dziedziczyć SignalR identyfikatorów użytkowników z oświadczeń użytkowników. Aby określić sposób, w jaki SignalR tworzy identyfikatory użytkowników, zaimplementuj `IUserIdProvider` i zarejestruj implementację.
 
 Przykładowy kod demonstruje, jak używać oświadczeń do wybierania adresu e-mail użytkownika jako właściwości identyfikującej. 
 
@@ -216,7 +218,7 @@ public class ChatHub : Hub
 
 ### <a name="use-authorization-handlers-to-customize-hub-method-authorization"></a>Używanie programów obsługi autoryzacji do dostosowywania autoryzacji metody centrum
 
-Sygnalizujący udostępnia zasób niestandardowy do obsługi autoryzacji, gdy metoda centrum wymaga autoryzacji. Zasób jest wystąpieniem `HubInvocationContext`. @No__t_0 zawiera `HubCallerContext`, nazwę wywoływanej metody centrum oraz argumenty metody centrum.
+SignalR udostępnia zasób niestandardowy do obsługi autoryzacji, gdy metoda centrum wymaga autoryzacji. Zasób jest wystąpieniem `HubInvocationContext`. `HubInvocationContext` zawiera `HubCallerContext`, nazwę wywoływanej metody centrum oraz argumenty metody centrum.
 
 Rozważmy przykład pokoju czatu umożliwiającego logowanie do wielu organizacji za pośrednictwem Azure Active Directory. Każda osoba mająca konto Microsoft może zalogować się do programu chat, ale tylko członkowie organizacji będącej właścicielem będą mogli uniemożliwić użytkownikom lub wyświetlać historie rozmów użytkowników. Ponadto możemy chcieć ograniczyć niektóre funkcje do określonych użytkowników. Korzystanie z zaktualizowanych funkcji w ASP.NET Core 3,0 jest to w całości możliwe. Zwróć uwagę, jak `DomainRestrictedRequirement` służy jako niestandardowy `IAuthorizationRequirement`. Po przekazaniu parametru zasobu `HubInvocationContext`, wewnętrzna logika może sprawdzić kontekst, w którym jest wywoływana centrum, i podjąć decyzje dotyczące umożliwienia użytkownikowi wykonywania poszczególnych metod centrów.
 

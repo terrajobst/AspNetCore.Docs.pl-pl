@@ -4,14 +4,16 @@ author: jamesnk
 description: Dowiedz się, jak gRPC porównuje z interfejsami API protokołu HTTP i jakie są zalecane scenariusze.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
-ms.date: 09/25/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: grpc/comparison
-ms.openlocfilehash: 52b057876481bd9be4f83d93b1f05081ed19660f
-ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.openlocfilehash: ceb24d656827548492a6fa326681922297fc481b
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72589973"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963658"
 ---
 # <a name="compare-grpc-services-with-http-apis"></a>Porównanie usług gRPC za pomocą interfejsów API protokołu HTTP
 
@@ -79,8 +81,8 @@ Propagowanie terminu i anulowania za pomocą podrzędnych wywołań gRPC ułatwi
 gRPC doskonale nadaje się do następujących scenariuszy:
 
 * **Mikrousługi** &ndash; gRPC zaprojektowano w celu uzyskania małych opóźnień i komunikacji o dużej przepływności. gRPC doskonale nadaje się do lekkich mikrousług, w których wydajność jest krytyczna.
-* **Komunikacja punkt-punkt w czasie rzeczywistym** &ndash; gRPC ma doskonałą obsługę transmisji dwukierunkowej. usługi gRPC umożliwiają wypychanie komunikatów w czasie rzeczywistym bez sondowania.
-* **Środowiska Polyglot** &ndash; gRPC narzędzia obsługują wszystkie popularne języki deweloperskie, co sprawia, że gRPC to dobry wybór w środowiskach wielojęzycznych.
+* **Komunikacja punkt-punkt w czasie rzeczywistym** &ndash; gRPC ma doskonałą obsługę przesyłania strumieniowego dwukierunkowego. usługi gRPC umożliwiają wypychanie komunikatów w czasie rzeczywistym bez sondowania.
+* **Środowiska Polyglot** &ndash; narzędzia gRPC obsługują wszystkie popularne języki deweloperskie, co sprawia, że gRPC to dobry wybór w środowiskach wielojęzycznych.
 * **Ograniczone środowiska sieciowe** &ndash; komunikaty gRPC są serializowane z protobuf, formatem uproszczonego komunikatu. Komunikat gRPC jest zawsze krótszy niż odpowiedni komunikat JSON.
 
 ## <a name="grpc-weaknesses"></a>słabe gRPC
@@ -106,8 +108,8 @@ Funkcje takie jak [odbicie serwera](https://github.com/grpc/grpc/blob/master/doc
 Inne struktury są zalecane w porównaniu z gRPC w następujących scenariuszach:
 
 * **Interfejsy API dostępne dla przeglądarki** &ndash; gRPC nie są w pełni obsługiwane w przeglądarce. gRPC — sieć Web może oferować pomoc techniczną przeglądarki, ale ma ograniczenia i wprowadza serwer proxy serwera.
-* **Emitowanie komunikacji** w czasie rzeczywistym &ndash; gRPC obsługuje komunikację w czasie rzeczywistym za pośrednictwem przesyłania strumieniowego, ale pojęcie rozgłaszania komunikatów do zarejestrowanych połączeń nie istnieje. Na przykład w scenariuszu pokoju rozmów, w którym nowe wiadomości czatu powinny być wysyłane do wszystkich klientów w pokoju rozmowy, każde wywołanie gRPC jest wymagane do narzucania strumieniowego przesyłania nowych komunikatów rozmowy do klienta. [Sygnalizujący](xref:signalr/introduction) jest przydatną strukturą dla tego scenariusza. Sygnalizujący ma koncepcję trwałych połączeń i wbudowaną obsługę rozgłaszania komunikatów.
-* **Komunikacja między procesami** &ndash; proces musi obsługiwać serwer HTTP/2, aby akceptować przychodzące wywołania gRPC. W przypadku systemu Windows [potoki](/dotnet/standard/io/pipe-operations) komunikacji między procesami to szybka i lekka Metoda komunikacji.
+* **Emitowanie komunikacji** w czasie rzeczywistym &ndash; gRPC obsługuje komunikację w czasie rzeczywistym za pośrednictwem przesyłania strumieniowego, ale pojęcie rozgłaszania komunikatów do zarejestrowanych połączeń nie istnieje. Na przykład w scenariuszu pokoju rozmów, w którym nowe wiadomości czatu powinny być wysyłane do wszystkich klientów w pokoju rozmowy, każde wywołanie gRPC jest wymagane do narzucania strumieniowego przesyłania nowych komunikatów rozmowy do klienta. [SignalR](xref:signalr/introduction) jest przydatną strukturą dla tego scenariusza. SignalR ma koncepcję trwałych połączeń i wbudowaną obsługę rozgłaszania komunikatów.
+* **Komunikacja między procesami** &ndash; proces musi obsługiwać serwer HTTP/2 w celu akceptowania przychodzących wywołań gRPC. W przypadku systemu Windows [potoki](/dotnet/standard/io/pipe-operations) komunikacji między procesami to szybka i lekka Metoda komunikacji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

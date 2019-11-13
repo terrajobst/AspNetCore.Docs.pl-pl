@@ -1,86 +1,88 @@
 ---
-title: Publikowanie platformy ASP.NET Core aplikacji SignalR w usłudze Azure App Service
+title: Opublikuj aplikację SignalR ASP.NET Core w Azure App Service
 author: bradygaster
-description: Dowiedz się, jak opublikować aplikację biblioteki SignalR platformy ASP.NET Core w usłudze Azure App Service.
+description: Dowiedz się, jak opublikować aplikację SignalR ASP.NET Core w Azure App Service.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 06/26/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: signalr/publish-to-azure-web-app
-ms.openlocfilehash: 87a9c93add373b24e3c473912cdbfcc00bbebf7e
-ms.sourcegitcommit: 9bb29f9ba6f0645ee8b9cabda07e3a5aa52cd659
+ms.openlocfilehash: d03a007ca883b3d0391b848e3e92c90469ee640a
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67406110"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963931"
 ---
-# <a name="publish-an-aspnet-core-signalr-app-to-azure-app-service"></a>Publikowanie platformy ASP.NET Core aplikacji SignalR w usłudze Azure App Service
+# <a name="publish-an-aspnet-core-opno-locsignalr-app-to-azure-app-service"></a>Opublikuj aplikację SignalR ASP.NET Core w Azure App Service
 
-Przez [Brady'ego Gastera](https://twitter.com/bradygaster)
+Autor [Brady gastera](https://twitter.com/bradygaster)
 
-[Usługa Azure App Service](/azure/app-service/app-service-web-overview) jest [przetwarzanie w chmurze firmy Microsoft](https://azure.microsoft.com/) usługa platformy do hostowania aplikacji sieci web, w tym platformy ASP.NET Core.
+[Azure App Service](/azure/app-service/app-service-web-overview) to usługa platformy [obliczeniowej w chmurze firmy Microsoft](https://azure.microsoft.com/) do hostowania aplikacji sieci web, w tym ASP.NET Core.
 
 > [!NOTE]
-> Ten artykuł odnosi się do publikowania aplikacji biblioteki SignalR platformy ASP.NET Core w programie Visual Studio. Aby uzyskać więcej informacji, zobacz [usługi SignalR platformy Azure](https://azure.microsoft.com/services/signalr-service).
+> Ten artykuł odnosi się do publikowania aplikacji ASP.NET Core SignalR z poziomu programu Visual Studio. Aby uzyskać więcej informacji, zobacz [SignalR Service for Azure](https://azure.microsoft.com/services/signalr-service).
 
 ## <a name="publish-the-app"></a>Publikowanie aplikacji
 
-W tym artykule opisano publikowania za pomocą narzędzi w programie Visual Studio. Visual Studio Code użytkownicy mogą używać [wiersza polecenia platformy Azure](/cli/azure) polecenia, aby opublikować aplikacje na platformie Azure. Aby uzyskać więcej informacji, zobacz [publikowanie aplikacji platformy ASP.NET Core na platformie Azure za pomocą narzędzia wiersza polecenia](/azure/app-service/app-service-web-get-started-dotnet).
+W tym artykule opisano Publikowanie przy użyciu narzędzi w programie Visual Studio. Visual Studio Code użytkownicy mogą używać poleceń [interfejsu wiersza polecenia platformy Azure](/cli/azure) do publikowania aplikacji na platformie Azure. Aby uzyskać więcej informacji, zobacz temat [publikowanie aplikacji ASP.NET Core na platformie Azure przy użyciu narzędzi wiersza polecenia](/azure/app-service/app-service-web-get-started-dotnet).
 
-1. Kliknij prawym przyciskiem myszy nad projektem w **Eksploratora rozwiązań** i wybierz **Publikuj**.
+1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Publikuj**.
 
-1. Upewnij się, że **usługi App Service** i **Utwórz nową** są zaznaczone w **wybierz lokalizację docelową publikowania** okna dialogowego.
+1. Upewnij się, że w oknie dialogowym **Wybieranie elementu docelowego publikowania** są wybrane **App Service** i **Utwórz nowe** .
 
-1. Wybierz **Utwórz profil** z **Publikuj** przycisk listy rozwijanej.
+1. Wybierz pozycję **Utwórz profil** na liście rozwijanej przycisk **Publikuj** .
 
-   Wprowadź informacje opisane w poniższej tabeli w **Tworzenie usługi App Service** okna dialogowego, a następnie wybierz **Utwórz**.
+   Wprowadź informacje opisane w poniższej tabeli w oknie dialogowym **tworzenie App Service** i wybierz pozycję **Utwórz**.
 
    | Element               | Opis |
    | ------------------ | ----------- |
    | **Nazwa**           | Unikatowa nazwa aplikacji. |
-   | **Subskrypcja**   | Subskrypcja platformy Azure przez aplikację. |
-   | **Grupa zasobów** | Grupa powiązane zasoby, do których należy aplikacja. |
-   | **Plan hostingu**   | Plan cenowy dla aplikacji sieci web. |
+   | **Ramach**   | Subskrypcja platformy Azure, której używa aplikacja. |
+   | **Grupa zasobów** | Grupa powiązanych zasobów, do której należy aplikacja. |
+   | **Plan hostingu**   | Plan cenowy dla aplikacji sieci Web. |
 
-1. Wybierz **usługi Azure SignalR Service** w **zależności** > **Dodaj** listy rozwijanej:
+1. Wybierz **usługę Azure SignalR** w obszarze **zależności** > **Dodaj** listę rozwijaną:
 
-   ![Obszar zależności przedstawiający Wybieranie usługi Azure SignalR Service na liście rozwijanej Dodaj](publish-to-azure-web-app/_static/signalr-service-dependency.png)
+   ![Obszar zależności pokazujący wybór platformy Azure [! OP. Usługa NO-LOC (Signaler)] na liście rozwijanej dodawania](publish-to-azure-web-app/_static/signalr-service-dependency.png)
 
-1. W **usługi Azure SignalR Service** okno dialogowe, wybierz opcję **Utwórz nowe wystąpienie usługi Azure SignalR Service**.
+1. W oknie dialogowym **usługa SignalR Azure** wybierz pozycję **Utwórz nowe wystąpienie usługi Azure SignalR** .
 
-1. Podaj **nazwa**, **grupy zasobów**, i **lokalizacji**. Wróć do **usługi Azure SignalR Service** okna dialogowego, a następnie wybierz **Dodaj**.
+1. Podaj **nazwę**, **grupę zasobów**i **lokalizację**. Wróć do okna dialogowego **usługi Azure SignalR** i wybierz pozycję **Dodaj**.
 
 Program Visual Studio wykonuje następujące zadania:
 
-* Tworzy profil publikowania zawierający ustawienia publikowania.
-* Tworzy *aplikacji sieci Web platformy Azure* przy użyciu podanych szczegółów.
+* Tworzy profil publikacji zawierający ustawienia publikowania.
+* Tworzy *aplikację internetową platformy Azure* z podanymi informacjami.
 * Publikuje aplikację.
-* Otworzy w przeglądarce, która ładuje aplikację sieci web.
+* Uruchamia przeglądarkę, która ładuje aplikację sieci Web.
 
-Format adresu URL aplikacji jest `{APP SERVICE NAME}.azurewebsites.net`. Na przykład aplikacji o nazwie `SignalRChatApp` ma adres URL z `https://signalrchatapp.azurewebsites.net`.
+Format adresu URL aplikacji jest `{APP SERVICE NAME}.azurewebsites.net`. Na przykład aplikacja o nazwie `SignalRChatApp` ma adres URL `https://signalrchatapp.azurewebsites.net`.
 
-Jeśli HTTP *502.2 — Zła brama* błąd występuje, gdy wdrażanie aplikacji, który jest przeznaczony dla wersji platformy .NET Core w wersji zapoznawczej, zobacz [wdrażanie platformy ASP.NET Core w wersji zapoznawczej w usłudze Azure App Service](xref:host-and-deploy/azure-apps/index#deploy-aspnet-core-preview-release-to-azure-app-service) go rozwiązać.
+502,2 Jeśli podczas wdrażania aplikacji przeznaczonej dla wersji zapoznawczej programu .NET Core wystąpi błąd *nieprawidłowej bramy* , zapoznaj się z artykułem [Wdróż ASP.NET Core wersja zapoznawcza, aby Azure App Service](xref:host-and-deploy/azure-apps/index#deploy-aspnet-core-preview-release-to-azure-app-service) rozwiązać ten problem.
 
-## <a name="configure-the-app-in-azure-app-service"></a>Skonfiguruj aplikację w usłudze Azure App Service
+## <a name="configure-the-app-in-azure-app-service"></a>Skonfiguruj aplikację w Azure App Service
 
 > [!NOTE]
-> *Ta sekcja dotyczy tylko aplikacji nie korzystających z usługi Azure SignalR Service.*
+> *Ta sekcja dotyczy tylko aplikacji, które nie korzystają z usługi Azure SignalR.*
 >
-> Jeśli aplikacja korzysta z usługi Azure SignalR Service, App Service nie wymaga konfiguracji koligacji Routing żądań aplikacji (ARR) i elementy Web Socket opisane w tej sekcji. Klienci łączą się ich gniazda sieci Web do usługi Azure SignalR Service, nie są bezpośrednio do aplikacji.
+> Jeśli aplikacja używa usługi Azure SignalR, App Service nie wymaga konfiguracji koligacji i sieci Web usługi Routing żądań aplikacji opisanych w tej sekcji. Klienci łączą swoje gniazda internetowe z usługą SignalR platformy Azure, nie bezpośrednio z aplikacją.
 
-W przypadku aplikacji hostowanych bez usługi Azure SignalR Service należy włączyć:
+W przypadku aplikacji hostowanych bez usługi Azure SignalR należy włączyć:
 
-* [Koligacja ARR](https://azure.github.io/AppService/2016/05/16/Disable-Session-affinity-cookie-(ARR-cookie)-for-Azure-web-apps.html) rozsyłanie żądań od użytkownika do tego samego wystąpienia usługi App Service. Ustawieniem domyślnym jest **na**.
-* [Web Sockets](xref:fundamentals/websockets) umożliwiające transport gniazda sieci Web do funkcji. Ustawieniem domyślnym jest **poza**.
+* [Koligacja ARR](https://azure.github.io/AppService/2016/05/16/Disable-Session-affinity-cookie-(ARR-cookie)-for-Azure-web-apps.html) do kierowania żądań od użytkownika z powrotem do tego samego wystąpienia App Service. Ustawieniem domyślnym jest **włączone**.
+* [Gniazda sieci Web](xref:fundamentals/websockets) , aby umożliwić transport gniazd sieci Web. Ustawienie domyślne jest **wyłączone**.
 
-1. W witrynie Azure portal przejdź do aplikacji sieci web w **App Services**.
-1. Otwórz **konfiguracji** > **ustawienia ogólne**.
-1. Ustaw **Web sockets** do **na**.
-1. Upewnij się, że **koligacja ARR** ustawiono **na**.
+1. W Azure Portal przejdź do aplikacji sieci Web w **App Services**.
+1. Otwórz > konfiguracja **Ustawienia ogólne**.
+1. Ustaw dla opcji **gniazda sieci Web** wartość **włączone**.
+1. Sprawdź, czy **koligacja ARR** jest ustawiona na wartość **włączone**.
 
-## <a name="app-service-plan-limits"></a>Limity planu usługi App Service
+## <a name="app-service-plan-limits"></a>Limity planu App Service
 
-Gniazda sieci Web i innych rodzajów transportu są ograniczone oparte na planie usługi App Service wybrane. Aby uzyskać więcej informacji, zobacz *usług Azure Cloud Services ogranicza* i *limity usługi App Service* sekcje [subskrypcji platformy Azure i limity, przydziały i ograniczenia](/azure/azure-subscription-service-limits#app-service-limits) artykuł.
+Gniazda sieci Web i inne transporty są ograniczone w zależności od wybranego planu App Service. Aby uzyskać więcej informacji, zapoznaj się z sekcją *limity Cloud Services platformy Azure* i *App Service limity* dotyczące [subskrypcji, limitów, przydziałów i ograniczeń usługi](/azure/azure-subscription-service-limits#app-service-limits) Azure.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
@@ -88,5 +90,5 @@ Gniazda sieci Web i innych rodzajów transportu są ograniczone oparte na planie
 * <xref:signalr/introduction>
 * <xref:host-and-deploy/index>
 * <xref:tutorials/publish-to-azure-webapp-using-vs>
-* [Publikowanie aplikacji platformy ASP.NET Core na platformie Azure za pomocą narzędzia wiersza polecenia](/azure/app-service/app-service-web-get-started-dotnet)
+* [Publikowanie aplikacji ASP.NET Core na platformie Azure przy użyciu narzędzi wiersza polecenia](/azure/app-service/app-service-web-get-started-dotnet)
 * [Hostowanie i wdrażanie aplikacji ASP.NET Core w wersji zapoznawczej na platformie Azure](xref:host-and-deploy/azure-apps/index#deploy-aspnet-core-preview-release-to-azure-app-service)

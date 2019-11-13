@@ -6,13 +6,15 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 09/23/2019
+no-loc:
+- Blazor
 uid: blazor/class-libraries
-ms.openlocfilehash: 2e042b43c6db24e0ecac727be100575fe1275e17
-ms.sourcegitcommit: 6d26ab647ede4f8e57465e29b03be5cb130fc872
+ms.openlocfilehash: d4cc4124c9dc28ed6da0923b919919df4965f89f
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71999774"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73962711"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>ASP.NET Core biblioteki klas składników Razor
 
@@ -33,7 +35,7 @@ Postępuj zgodnie ze wskazówkami w artykule <xref:blazor/get-started>, aby skon
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Utwórz nowy projekt.
-1. Wybierz **bibliotekę klas Razor**. Wybierz opcję **Dalej**.
+1. Wybierz **bibliotekę klas Razor**. Wybierz pozycję **dalej**.
 1. W oknie dialogowym **Tworzenie nowej biblioteki klas Razor** wybierz pozycję **Utwórz**.
 1. Podaj nazwę projektu w polu **Nazwa projektu** lub zaakceptuj nazwę domyślną projektu. W przykładach w tym temacie użyto nazwy projektu `MyComponentLib1`. Wybierz pozycję **Utwórz**.
 1. Dodaj RCL do rozwiązania:
@@ -41,8 +43,8 @@ Postępuj zgodnie ze wskazówkami w artykule <xref:blazor/get-started>, aby skon
    1. Przejdź do pliku projektu RCL.
    1. Wybierz plik projektu RCL ( *. csproj*).
 1. Dodaj odwołanie RCL z aplikacji:
-   1. Kliknij prawym przyciskiem myszy projekt aplikacji. Wybierz pozycję **dodaj** > **odwołanie**.
-   1. Wybierz projekt RCL. Kliknij przycisk **OK**.
+   1. Kliknij prawym przyciskiem myszy projekt aplikacji. Wybierz pozycję dodaj **odwołanie** > .
+   1. Wybierz projekt RCL. Wybierz **przycisk OK**.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
@@ -65,9 +67,9 @@ Postępuj zgodnie ze wskazówkami w artykule <xref:blazor/get-started>, aby skon
 Aby można było korzystać ze składników zdefiniowanych w bibliotece w innym projekcie, należy użyć jednej z następujących metod:
 
 * Użyj pełnej nazwy typu z przestrzeni nazw.
-* Użyj składni [\@Using](xref:mvc/views/razor#using) Razor. Poszczególne składniki można dodawać według nazwy.
+* Użyj\@składnicy [za pomocą](xref:mvc/views/razor#using) dyrektywy. Poszczególne składniki można dodawać według nazwy.
 
-W poniższych przykładach `MyComponentLib1` jest biblioteką składników zawierającą składnik `SalesReport`.
+W poniższych przykładach `MyComponentLib1` jest biblioteka składników zawierająca składnik `SalesReport`.
 
 Do składnika `SalesReport` można odwoływać się za pomocą jego pełnej nazwy typu z przestrzenią nazw:
 

@@ -4,14 +4,16 @@ author: rick-anderson
 description: Dowiedz się więcej o nowych funkcjach w ASP.NET Core 2,2.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: aspnetcore-2.2
-ms.openlocfilehash: 88a202d85c4d4ed7a395dba78feea29ef4637732
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: fca653158c95e7c1a11f25f4076830fe3e7e93ae
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975708"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963135"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>Co nowego w ASP.NET Core 2,2
 
@@ -25,11 +27,11 @@ Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
 * <xref:web-api/advanced/analyzers>
 * <xref:web-api/advanced/conventions>
-* [ASP.NET Core 2.2.0-zestawu: OpenAPI & analizatory](https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/)
+* [ASP.NET Core 2.2.0-zestawu: OpenAPI analizatory &](https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/)
 
 ## <a name="problem-details-support"></a>Pomoc techniczna dotycząca problemów
 
-Wprowadzono `ProblemDetails`ASP.NET Core 2,1 na podstawie specyfikacji [RFC 7807](https://tools.ietf.org/html/rfc7807) w celu przeprowadzenia szczegółów błędu z odpowiedzi HTTP. W 2,2 `ProblemDetails` jest to standardowa odpowiedź dla kodów błędów klienta w kontrolerach przypisanych `ApiControllerAttribute`do. Zwrócenie kodu stanu błędu klienta (4xx) `ProblemDetails` zwróci teraz treść. `IActionResult` Wynik zawiera również identyfikator korelacji, który może służyć do skorelowania błędów przy użyciu dzienników żądań. W przypadku błędów klienta `ProducesResponseType` program domyślnie używa `ProblemDetails` jako typu odpowiedzi. Jest to udokumentowane w danych wyjściowych OpenAPI/Swagger wygenerowanych przy użyciu NSwag lub Swashbuckle. AspNetCore.
+ASP.NET Core 2,1 wprowadzono `ProblemDetails`na podstawie specyfikacji [RFC 7807](https://tools.ietf.org/html/rfc7807) w celu przeprowadzenia szczegółów błędu z odpowiedzi HTTP. W 2,2 `ProblemDetails` jest standardową odpowiedzią dla kodów błędów klienta w kontrolerach z atrybutem `ApiControllerAttribute`. `IActionResult` zwracająca kod stanu błędu klienta (4xx) teraz zwraca treść `ProblemDetails`. Wynik zawiera również identyfikator korelacji, który może służyć do skorelowania błędów przy użyciu dzienników żądań. W przypadku błędów klienta `ProducesResponseType` domyślne użycie `ProblemDetails` jako typu odpowiedzi. Jest to udokumentowane w danych wyjściowych OpenAPI/Swagger wygenerowanych przy użyciu NSwag lub Swashbuckle. AspNetCore.
 
 ## <a name="endpoint-routing"></a>Routing punktów końcowych
 
@@ -63,7 +65,7 @@ Aby uzyskać więcej informacji, zobacz [Obsługa protokołu HTTP/2](xref:fundam
 
 ## <a name="kestrel-configuration"></a>Konfiguracja Kestrel
 
-We wcześniejszych wersjach ASP.NET Core opcje Kestrel są konfigurowane przez wywołanie `UseKestrel`. W 2,2 opcje Kestrel są konfigurowane przez wywołanie `ConfigureKestrel` na konstruktorze hosta. Ta zmiana rozwiązuje problem z kolejnością `IServer` rejestracji na potrzeby hostingu w procesie. Aby uzyskać więcej informacji, zobacz następujące zasoby:
+We wcześniejszych wersjach ASP.NET Core opcje Kestrel są konfigurowane przez wywołanie `UseKestrel`. W 2,2 opcje Kestrel są konfigurowane przez wywołanie `ConfigureKestrel` w konstruktorze hosta. Ta zmiana rozwiązuje problem z kolejnością rejestracji `IServer` na potrzeby hostingu w procesie. Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
 * [Eliminowanie konfliktu Iisurl](https://github.com/aspnet/KestrelHttpServer/issues/2760)
 * [Konfigurowanie opcji serwera Kestrel za pomocą ConfigureKestrel](xref:fundamentals/servers/kestrel?view=aspnetcore-2.2#how-to-use-kestrel-in-aspnet-core-apps)
@@ -74,15 +76,15 @@ W starszych wersjach ASP.NET Core usługi IIS pełnią funkcję zwrotnego serwer
 
 Aby uzyskać więcej informacji, zobacz [hosting w procesie dla usług IIS](xref:host-and-deploy/aspnet-core-module?view=aspnetcore-2.2#in-process-hosting-model).
 
-## <a name="signalr-java-client"></a>Klient Java sygnalizujący
+## <a name="opno-locsignalr-java-client"></a>Klient Java SignalR
 
-ASP.NET Core 2,2 wprowadza klienta Java dla sygnalizującego. Ten klient obsługuje łączenie z serwerem sygnałów ASP.NET Core z kodu Java, w tym aplikacji dla systemu Android.
+ASP.NET Core 2,2 wprowadza klienta Java dla SignalR. Ten klient obsługuje łączenie z serwerem ASP.NET Core SignalR z poziomu kodu Java, w tym aplikacji dla systemu Android.
 
-Aby uzyskać więcej informacji, zobacz [ASP.NET Core sygnalizujący klienta Java](https://docs.microsoft.com/aspnet/core/signalr/java-client?view=aspnetcore-2.2).
+Aby uzyskać więcej informacji, zobacz [ASP.NET Core SignalR klienta Java](https://docs.microsoft.com/aspnet/core/signalr/java-client?view=aspnetcore-2.2).
 
 ## <a name="cors-improvements"></a>Ulepszenia funkcji CORS
 
-We wcześniejszych wersjach ASP.NET Core oprogramowanie `Accept`CORS umożliwia `Accept-Language` `Content-Language` `Origin` wysyłanie nagłówków niezależnie od wartości skonfigurowanych w `CorsPolicy.Headers`. W 2,2, dopasowanie zasad oprogramowania CORS jest możliwe tylko wtedy, gdy nagłówki wysyłane `Access-Control-Request-Headers` dokładnie pasują do nagłówków określonych w. `WithHeaders`
+We wcześniejszych wersjach ASP.NET Core oprogramowanie do obsługi mechanizmu CORS umożliwia wysyłanie nagłówków `Accept`, `Accept-Language`, `Content-Language`i `Origin` niezależnie od wartości skonfigurowanych w `CorsPolicy.Headers`. W przypadku 2,2 dopasowanie zasad oprogramowania do mechanizmu CORS jest możliwe tylko wtedy, gdy nagłówki wysyłane w `Access-Control-Request-Headers` dokładnie pasują do nagłówków określonych w `WithHeaders`.
 
 Aby uzyskać więcej informacji, zobacz [oprogramowanie pośredniczące CORS](xref:security/cors?view=aspnetcore-2.2#set-the-allowed-request-headers).
 
@@ -100,13 +102,13 @@ Szablony projektu sieci Web ASP.NET Core zostały zaktualizowane do [Bootstrap 4
 
 ## <a name="validation-performance"></a>Wydajność walidacji
 
-System sprawdzania poprawności MVC został zaprojektowany do rozszerzalności i elastyczności, co pozwala na określenie na podstawie żądania, którego moduł sprawdzania poprawności ma zastosowanie do danego modelu. Jest to doskonałe rozwiązanie w przypadku tworzenia złożonych dostawców weryfikacji. Jednak w najbardziej typowym przypadku aplikacja używa tylko wbudowanych modułów sprawdzania poprawności i nie wymaga tej dodatkowej elastyczności. Wbudowane moduły sprawdzania poprawności obejmują adnotacje, takie jak [Required] i [StringLength], i `IValidatableObject`.
+System sprawdzania poprawności MVC został zaprojektowany do rozszerzalności i elastyczności, co pozwala na określenie na podstawie żądania, którego moduł sprawdzania poprawności ma zastosowanie do danego modelu. Jest to doskonałe rozwiązanie w przypadku tworzenia złożonych dostawców weryfikacji. Jednak w najbardziej typowym przypadku aplikacja używa tylko wbudowanych modułów sprawdzania poprawności i nie wymaga tej dodatkowej elastyczności. Wbudowane moduły sprawdzania poprawności obejmują adnotacje, takie jak [Required] i [StringLength] i `IValidatableObject`.
 
-W ASP.NET Core 2,2, MVC może skrócić do krótkiego obwodu, jeśli określa, że dany wykres modelu nie wymaga weryfikacji. Pomijanie sprawdzania poprawności skutkuje znaczącymi ulepszeniami podczas weryfikowania modeli, które nie mogą lub nie mają żadnych modułów walidacji. Obejmuje to takie obiekty jak kolekcje elementów pierwotnych (takich jak `byte[]`, `string[]`, `Dictionary<string, string>`) lub złożone wykresy obiektów bez wielu modułów sprawdzania poprawności.
+W ASP.NET Core 2,2, MVC może skrócić do krótkiego obwodu, jeśli określa, że dany wykres modelu nie wymaga weryfikacji. Pomijanie sprawdzania poprawności skutkuje znaczącymi ulepszeniami podczas weryfikowania modeli, które nie mogą lub nie mają żadnych modułów walidacji. Obejmuje to takie obiekty jak kolekcje pierwotne (takie jak `byte[]`, `string[]`, `Dictionary<string, string>`) lub złożone wykresy obiektów bez wielu modułów sprawdzania poprawności.
 
 ## <a name="http-client-performance"></a>Wydajność klienta HTTP
 
-W ASP.NET Core 2,2 wydajność `SocketsHttpHandler` została ulepszona przez zmniejszenie rywalizacji o blokadę puli połączeń. W przypadku aplikacji, które tworzą wiele wychodzących żądań HTTP, takich jak architektury mikrousług, zwiększa się przepływność. W obszarze obciążenie `HttpClient` można ulepszyć przepływność przez nawet 60% w systemie Linux i 20% systemu Windows.
+W ASP.NET Core 2,2 wydajność `SocketsHttpHandler` została ulepszona przez zmniejszenie rywalizacji o blokowanie puli połączeń. W przypadku aplikacji, które tworzą wiele wychodzących żądań HTTP, takich jak architektury mikrousług, zwiększa się przepływność. W obszarze obciążenie `HttpClient` przepływność można ulepszyć o 60% w systemie Linux i 20% systemu Windows.
 
 Aby uzyskać więcej informacji, zobacz [żądanie ściągnięcia, które dokonało tego ulepszenia](https://github.com/dotnet/corefx/pull/32568).
 

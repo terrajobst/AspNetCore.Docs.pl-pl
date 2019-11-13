@@ -6,15 +6,17 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
+no-loc:
+- Blazor
 uid: blazor/debug
-ms.openlocfilehash: 9fc3f1d2dd7dc79d2ba3d64bff6e0f92ac2cf6dc
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: 3096ad9b3a6904804f239d61f374adcd4d851978
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391180"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963145"
 ---
-# <a name="debug-aspnet-core-blazor"></a>Debuguj ASP.NET Core Blazor
+# <a name="debug-aspnet-core-opno-locblazor"></a>Debuguj ASP.NET Core Blazor
 
 [Daniel Roth](https://github.com/danroth27)
 
@@ -49,14 +51,14 @@ Debugowanie wymaga jednej z następujących przeglądarek:
 
 ## <a name="procedure"></a>Procedura
 
-1. Uruchom aplikację webassembly Blazor w konfiguracji `Debug`. Przekaż opcję `--configuration Debug` do polecenia [Run dotnet](/dotnet/core/tools/dotnet-run) : `dotnet run --configuration Debug`.
+1. Uruchom aplikację Blazor webassembly w `Debug` Configuration. Przekaż opcję `--configuration Debug` do polecenia [Run dotnet](/dotnet/core/tools/dotnet-run) : `dotnet run --configuration Debug`.
 1. Uzyskaj dostęp do aplikacji w przeglądarce.
 1. Umieść fokus klawiatury w aplikacji, a nie na panelu Narzędzia deweloperskie. Po zainicjowaniu debugowania można zamknąć panel Narzędzia deweloperskie.
-1. Wybierz następujący skrót klawiaturowy dotyczący Blazor:
+1. Wybierz następujący Blazorskrót klawiaturowy:
    * `Shift+Alt+D` w systemie Windows/Linux
    * `Shift+Cmd+D` w macOS
 1. Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie, aby ponownie uruchomić przeglądarkę z włączonym debugowaniem zdalnym.
-1. Ponownie wybierz następujący skrót klawiaturowy dotyczący Blazor, aby rozpocząć sesję debugowania:
+1. Ponownie wybierz następujący skrót klawiaturowy dla Blazor, aby rozpocząć sesję debugowania:
    * `Shift+Alt+D` w systemie Windows/Linux
    * `Shift+Cmd+D` w macOS
 
@@ -68,11 +70,11 @@ Jeśli debugowanie zdalne jest wyłączone, **nie można odnaleźć strony błę
 
 Gdy program Chrome jest uruchomiony z włączonym debugowaniem zdalnym, skrót klawiaturowy debugowania otwiera nową kartę debugera. Po chwili na karcie **źródła** zostanie wyświetlona lista zestawów .NET w aplikacji. Rozwiń każdy zestaw i Znajdź plik *. cs*/ *.* pliki źródłowe Razor dostępne do debugowania. Ustaw punkty przerwania, przełącz się z powrotem do karty aplikacji, a punkty przerwania są trafień, gdy kod jest wykonywany. Po trafieniu punktu przerwania pojedynczy krok (`F10`) za pomocą kodu lub wznowienia kodu (`F8`) normalnie.
 
-Blazor udostępnia serwer proxy debugowania, który implementuje [Protokół Chrome devtools](https://chromedevtools.github.io/devtools-protocol/) i rozszerza protokół z. Informacje specyficzne dla sieci. Gdy skrót klawiaturowy debugowania zostanie naciśnięty, Blazor punkty Chrome DevTools na serwerze proxy. Serwer proxy nawiązuje połączenie z oknem przeglądarki, które próbujesz debugować (w związku z tym trzeba włączyć debugowanie zdalne).
+Blazor udostępnia serwer proxy debugowania, który implementuje [Protokół Chrome devtools](https://chromedevtools.github.io/devtools-protocol/) i rozszerza protokół z. Informacje specyficzne dla sieci. Podczas naciskania skrótu klawiaturowego, Blazor wskazywał DevTools na serwerze proxy. Serwer proxy nawiązuje połączenie z oknem przeglądarki, które próbujesz debugować (w związku z tym trzeba włączyć debugowanie zdalne).
 
 ## <a name="browser-source-maps"></a>Mapy źródeł przeglądarki
 
-Mapy źródeł przeglądarki umożliwiają przeglądarce mapowanie skompilowanych plików z powrotem do ich oryginalnych plików źródłowych i są często używane do debugowania po stronie klienta. Jednak Blazor nie jest obecnie mapowany C# bezpośrednio na język JavaScript/WASM. Zamiast tego Blazor wykonuje interpretację IL w przeglądarce, dlatego mapy źródłowe nie są istotne.
+Mapy źródeł przeglądarki umożliwiają przeglądarce mapowanie skompilowanych plików z powrotem do ich oryginalnych plików źródłowych i są często używane do debugowania po stronie klienta. Jednak Blazor nie są obecnie mapowane C# bezpośrednio do języka JavaScript/WASM. Zamiast tego Blazor wykonuje interpretację IL w przeglądarce, dlatego mapy źródłowe nie są istotne.
 
 ## <a name="troubleshooting-tip"></a>Porady dotyczące rozwiązywania problemów
 

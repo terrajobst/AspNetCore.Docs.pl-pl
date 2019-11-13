@@ -1,20 +1,22 @@
 ---
 title: Tworzenie pierwszej aplikacji Blazor
 author: guardrex
-description: Tworzenie aplikacji Blazor krok po kroku.
+description: Kompiluj aplikację Blazor krok po kroku.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/31/2019
+no-loc:
+- Blazor
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: cc7caa1ee01e0282024895ab35c5b9933b1504d0
-ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
+ms.openlocfilehash: 646e14060b88fc2a0fefc2f7a5ebb1c15ac39b79
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416177"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963709"
 ---
-# <a name="build-your-first-blazor-app"></a>Tworzenie pierwszej aplikacji Blazor
+# <a name="build-your-first-opno-locblazor-app"></a>Tworzenie pierwszej aplikacji Blazor
 
 Autorzy [Daniel Roth](https://github.com/danroth27) i [Luke Latham](https://github.com/guardrex)
 
@@ -28,7 +30,7 @@ Postępuj zgodnie ze wskazówkami w artykule <xref:blazor/get-started>, aby utwo
 
 1. Przejdź do każdej z trzech stron aplikacji w folderze *Pages* : Home, Counter i Fetch Data. Te strony są implementowane przez pliki składników Razor *index. Razor*, *Counter. Razor*i *FetchData. Razor*.
 
-1. Na stronie licznik wybierz przycisk **kliknij** , aby zwiększyć licznik bez odświeżania strony. Zwiększenie licznika na stronie sieci Web zwykle wymaga pisania kodu JavaScript. W przypadku Blazor można pisać C# zamiast tego.
+1. Na stronie licznik wybierz przycisk **kliknij** , aby zwiększyć licznik bez odświeżania strony. Zwiększenie licznika na stronie sieci Web zwykle wymaga pisania kodu JavaScript. W przypadku Blazormożna pisać C# zamiast tego.
 
 1. Sprawdzanie implementacji składnika `Counter` w pliku *Counter. Razor* .
 
@@ -59,7 +61,7 @@ Uwzględnij składnik w innym składniku przy użyciu składni języka HTML.
 
 1. Dodaj składnik `Counter` do składnika `Index` aplikacji, dodając element `<Counter />` do składnika `Index` (*index. Razor*).
 
-   Jeśli używasz zestawu webBlazor dla tego środowiska, składnik `SurveyPrompt` jest używany przez składnik `Index`. Zastąp element `<SurveyPrompt>` elementem `<Counter />`. Jeśli używasz aplikacji serwera Blazor dla tego środowiska, Dodaj element `<Counter />` do składnika `Index`:
+   Jeśli używasz Blazor webassembly dla tego środowiska, składnik `SurveyPrompt` jest używany przez składnik `Index`. Zastąp element `<SurveyPrompt>` elementem `<Counter />`. Jeśli używasz aplikacji serwera Blazor dla tego środowiska, Dodaj element `<Counter />` do składnika `Index`:
 
    *Pages/index. Razor*:
 
@@ -99,9 +101,9 @@ Dyrektywa `@page` w górnej części pliku *Counter. Razor* określa, że skład
 
 ## <a name="dependency-injection"></a>Wstrzykiwanie zależności
 
-### <a name="blazor-server-experience"></a>Środowisko serwera Blazor
+### <a name="opno-locblazor-server-experience"></a>środowisko serwera Blazor
 
-W przypadku korzystania z aplikacji serwera Blazor usługa `WeatherForecastService` jest zarejestrowana jako [Pojedyncza](xref:fundamentals/dependency-injection#service-lifetimes) w `Startup.ConfigureServices`. Wystąpienie usługi jest dostępne w całej aplikacji za pośrednictwem [iniekcji zależności (di)](xref:fundamentals/dependency-injection):
+W przypadku korzystania z aplikacji Blazor Server usługa `WeatherForecastService` zostanie zarejestrowana jako [Pojedyncza](xref:fundamentals/dependency-injection#service-lifetimes) w `Startup.ConfigureServices`. Wystąpienie usługi jest dostępne w całej aplikacji za pośrednictwem [iniekcji zależności (di)](xref:fundamentals/dependency-injection):
 
 [!code-csharp[](build-your-first-blazor-app/samples_snapshot/3.x/Startup.cs?highlight=5)]
 
@@ -115,9 +117,9 @@ Składnik `FetchData` używa wstrzykniętej usługi jako `ForecastService`, aby 
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
 
-### <a name="blazor-webassembly-experience"></a>Środowisko webassembly Blazor
+### <a name="opno-locblazor-webassembly-experience"></a>Blazor środowisko webassembly
 
-W przypadku korzystania z aplikacji Blazor webassembly `HttpClient` jest wstrzykiwana w celu uzyskania danych prognozy pogody z pliku *Pogoda. JSON* w folderze *wwwroot/Sample-Data* .
+W przypadku pracy z aplikacją Blazor webassembly `HttpClient` jest wstrzykiwana w celu uzyskania danych prognozy pogody z pliku *Pogoda. JSON* w folderze *wwwroot/Sample-Data* .
 
 *Strony/FetchData. Razor*:
 
