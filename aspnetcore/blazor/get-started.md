@@ -1,32 +1,34 @@
 ---
 title: Wprowadzenie do ASP.NET Core Blazor
 author: guardrex
-description: Rozpocznij pracę z usługą Blazor, tworząc aplikację Blazor przy użyciu wybranych przez siebie narzędzi.
+description: Rozpocznij pracę z Blazor, tworząc aplikację Blazor za pomocą wybranego przez siebie narzędzia.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 11/07/2019
+no-loc:
+- Blazor
 uid: blazor/get-started
-ms.openlocfilehash: b5043c7e4549800c1ab49bc37dd8f3568975d4aa
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: 9b4aee0be30568f098c756e9ab4cb5298e9a049b
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799228"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963009"
 ---
-# <a name="get-started-with-aspnet-core-blazor"></a>Wprowadzenie do ASP.NET Core Blazor
+# <a name="get-started-with-aspnet-core-opno-locblazor"></a>Wprowadzenie do ASP.NET Core Blazor
 
 Autorzy [Daniel Roth](https://github.com/danroth27) i [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Rozpocznij pracę z usługą Blazor:
+Rozpocznij pracę z Blazor:
 
 ::: moniker range=">= aspnetcore-3.1"
 
 1. Zainstaluj [zestaw SDK programu .NET Core 3,1 (wersja zapoznawcza](https://dotnet.microsoft.com/download/dotnet-core/3.1)).
 
-1. Zainstaluj szablon [Webassembly Blazor](xref:blazor/hosting-models#blazor-webassembly) , uruchamiając następujące polecenie w powłoce poleceń. Pakiet [Microsoft. AspNetCore. Blazor. Templates](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.Templates/) ma wersję zapoznawczą, podczas gdy Blazor webassembly jest w wersji zapoznawczej.
+1. Zainstaluj szablon [Blazor webassembly](xref:blazor/hosting-models#blazor-webassembly) , uruchamiając następujące polecenie w powłoce poleceń. [Microsoft. AspNetCore.Blazor. Pakiet szablonów](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.Templates/) ma wersję zapoznawczą, a Blazor webassembly jest w wersji zapoznawczej.
 
    ```dotnetcli
    dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.1.0-preview2.19528.8
@@ -40,16 +42,16 @@ Rozpocznij pracę z usługą Blazor:
 
    2 \. Utwórz nowy projekt.
 
-   3 \. Wybierz pozycję **aplikacja Blazor**. Wybierz pozycję **dalej**.
+   3 \. Wybierz pozycję **Blazor aplikacji**. Wybierz pozycję **dalej**.
 
    4 \. Podaj nazwę projektu w polu **Nazwa projektu** lub zaakceptuj nazwę domyślną projektu. Potwierdź, że wpis **lokalizacji** jest poprawny lub podaj lokalizację dla projektu. Wybierz pozycję **Utwórz**.
 
-   5 \. Aby zapoznać się z Blazor webassembly, wybierz szablon **aplikacji Blazor webassembly** . Dla środowiska serwera Blazor wybierz szablon **aplikacji Blazor Server** . Wybierz pozycję **Utwórz**. Aby uzyskać informacje na temat dwóch modeli hostingu Blazor, *Blazor Server* i *Blazor webassembly*, zobacz <xref:blazor/hosting-models>.
+   5 \. W przypadku Blazor środowiska webassembly wybierz szablon **aplikacjiBlazor webassembly** . W przypadku środowiska Blazor Server wybierz szablon **aplikacjaBlazor Server** . Wybierz pozycję **Utwórz**. Aby uzyskać informacje na temat dwóch Blazor modeli hostingu, *Blazor Server* i *Blazor webassembly*, zobacz <xref:blazor/hosting-models>.
 
    6 \. Naciśnij klawisz **Ctrl** , +**F5** , aby uruchomić aplikację.
 
    > [!NOTE]
-   > Jeśli zainstalowano rozszerzenie Blazor programu Visual Studio dla starszej wersji zapoznawczej programu ASP.NET Core Blazor (wersja zapoznawcza 6 lub wcześniejsza), można odinstalować rozszerzenie. Instalowanie szablonów Blazor w powłoce poleceń jest teraz wystarczające do poszycia szablonów w programie Visual Studio.
+   > Jeśli zainstalowano rozszerzenie programu Blazor Visual Studio dla starszej wersji zapoznawczej ASP.NET Core Blazor (wersja zapoznawcza 6 lub wcześniejsza), można odinstalować rozszerzenie. Instalowanie szablonów Blazor w powłoce poleceń jest teraz wystarczające do poszycia szablonów w programie Visual Studio.
 
    # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -57,25 +59,25 @@ Rozpocznij pracę z usługą Blazor:
 
    2 \. Zainstaluj najnowsze [ C# rozszerzenie programu Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
-   3 \. W przypadku środowiska webassembly Blazor wykonaj następujące polecenie w powłoce poleceń:
+   3 \. W przypadku Blazor środowiska webassembly wykonaj następujące polecenie w powłoce poleceń:
 
       ```dotnetcli
       dotnet new blazorwasm -o WebApplication1
       ```
 
-      W przypadku środowiska serwera Blazor wykonaj następujące polecenie w powłoce poleceń:
+      W przypadku środowiska Blazor Server wykonaj następujące polecenie w powłoce poleceń:
 
       ```dotnetcli
       dotnet new blazorserver -o WebApplication1
       ```
 
-      Aby uzyskać informacje na temat dwóch modeli hostingu Blazor, *Blazor Server* i *Blazor webassembly*, zobacz <xref:blazor/hosting-models>.
+      Aby uzyskać informacje na temat dwóch Blazor modeli hostingu, *Blazor Server* i *Blazor webassembly*, zobacz <xref:blazor/hosting-models>.
 
    4 \. Otwórz folder *WebApplication1* w Visual Studio Code.
 
-   5 \. W przypadku projektu serwera Blazor, IDE żąda dodania zasobów do kompilowania i debugowania projektu. Wybierz pozycję **tak**.
+   5 \. Dla projektu serwera Blazor, żądania IDE, które umożliwiają dodanie zasobów do kompilowania i debugowania projektu. Wybierz pozycję **tak**.
 
-   6 \. W przypadku korzystania z aplikacji serwera Blazor należy uruchomić aplikację przy użyciu debugera Visual Studio Code. Jeśli używasz aplikacji Blazor webassembly, wykonaj `dotnet run` z folderu projektu aplikacji.
+   6 \. Jeśli używasz aplikacji serwera Blazor, uruchom aplikację przy użyciu debugera Visual Studio Code. Jeśli używasz aplikacji Blazor webassembly, wykonaj `dotnet run` z folderu projektu aplikacji.
 
    7 \. W przeglądarce przejdź do `https://localhost:5001`.
 
@@ -101,7 +103,7 @@ Rozpocznij pracę z usługą Blazor:
 
    # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
 
-   W przypadku środowiska webassembly Blazor wykonaj następujące polecenia w powłoce poleceń:
+   W przypadku Blazor środowiska webassembly wykonaj następujące polecenia w powłoce poleceń:
 
    ```dotnetcli
    dotnet new blazorwasm -o WebApplication1
@@ -109,7 +111,7 @@ Rozpocznij pracę z usługą Blazor:
    dotnet run
    ```
 
-   W przypadku środowiska serwera Blazor należy wykonać następujące polecenia w powłoce poleceń:
+   W przypadku środowiska Blazor Server wykonaj następujące polecenia w powłoce poleceń:
 
    ```dotnetcli
    dotnet new blazorserver -o WebApplication1
@@ -117,7 +119,7 @@ Rozpocznij pracę z usługą Blazor:
    dotnet run
    ```
 
-   Aby uzyskać informacje na temat dwóch modeli hostingu Blazor, *Blazor Server* i *Blazor webassembly*, zobacz <xref:blazor/hosting-models>.
+   Aby uzyskać informacje na temat dwóch Blazor modeli hostingu, *Blazor Server* i *Blazor webassembly*, zobacz <xref:blazor/hosting-models>.
 
    W przeglądarce przejdź do `https://localhost:5001`.
 
@@ -141,20 +143,20 @@ Rozpocznij pracę z usługą Blazor:
 
    1 \. Zainstaluj najnowszą wersję [programu Visual Studio](https://visualstudio.com/vs/) , korzystając z obciążeń **ASP.NET i Web Development** .
 
-   2 \. Opcjonalnie zainstaluj [program Visual Studio 16,4 w wersji zapoznawczej 2 lub nowszej](https://visualstudio.microsoft.com/vs/preview/) przy użyciu obciążeń **ASP.NET i Web Development** dla tworzenia aplikacji Blazor webassembly.
+   2 \. Opcjonalnie zainstaluj [program Visual Studio 16,4 w wersji zapoznawczej 2 lub nowszej](https://visualstudio.microsoft.com/vs/preview/) przy użyciu obciążeń **ASP.NET i Web Development** Blazor dla tworzenia aplikacji webassembly.
 
    3 \. Utwórz nowy projekt.
 
-   4 \. Wybierz pozycję **aplikacja Blazor**. Wybierz pozycję **dalej**.
+   4 \. Wybierz pozycję **Blazor aplikacji**. Wybierz pozycję **dalej**.
 
    5 \. Podaj nazwę projektu w polu **Nazwa projektu** lub zaakceptuj nazwę domyślną projektu. Potwierdź, że wpis **lokalizacji** jest poprawny lub podaj lokalizację dla projektu. Wybierz pozycję **Utwórz**.
 
-   6 \. Aby zapoznać się z Blazor webassembly, wybierz szablon **aplikacji Blazor webassembly** . Dla środowiska serwera Blazor wybierz szablon **aplikacji Blazor Server** . Wybierz pozycję **Utwórz**. Aby uzyskać informacje na temat dwóch modeli hostingu Blazor, *Blazor Server* i *Blazor webassembly*, zobacz <xref:blazor/hosting-models>.
+   6 \. W przypadku Blazor środowiska webassembly wybierz szablon **aplikacjiBlazor webassembly** . W przypadku środowiska Blazor Server wybierz szablon **aplikacjaBlazor Server** . Wybierz pozycję **Utwórz**. Aby uzyskać informacje na temat dwóch Blazor modeli hostingu, *Blazor Server* i *Blazor webassembly*, zobacz <xref:blazor/hosting-models>.
 
    7 \. Naciśnij klawisz **F5** , aby uruchomić aplikację.
 
    > [!NOTE]
-   > Jeśli zainstalowano rozszerzenie Blazor programu Visual Studio dla starszej wersji zapoznawczej programu ASP.NET Core Blazor (wersja zapoznawcza 6 lub wcześniejsza), można odinstalować rozszerzenie. Instalowanie szablonów Blazor w powłoce poleceń jest teraz wystarczające do poszycia szablonów w programie Visual Studio.
+   > Jeśli zainstalowano rozszerzenie programu Blazor Visual Studio dla starszej wersji zapoznawczej ASP.NET Core Blazor (wersja zapoznawcza 6 lub wcześniejsza), można odinstalować rozszerzenie. Instalowanie szablonów Blazor w powłoce poleceń jest teraz wystarczające do poszycia szablonów w programie Visual Studio.
 
    # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -162,25 +164,25 @@ Rozpocznij pracę z usługą Blazor:
 
    2 \. Zainstaluj najnowsze [ C# rozszerzenie programu Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
-   3 \. W przypadku środowiska webassembly Blazor wykonaj następujące polecenie w powłoce poleceń:
+   3 \. W przypadku Blazor środowiska webassembly wykonaj następujące polecenie w powłoce poleceń:
 
       ```dotnetcli
       dotnet new blazorwasm -o WebApplication1
       ```
 
-      W przypadku środowiska serwera Blazor wykonaj następujące polecenie w powłoce poleceń:
+      W przypadku środowiska Blazor Server wykonaj następujące polecenie w powłoce poleceń:
 
       ```dotnetcli
       dotnet new blazorserver -o WebApplication1
       ```
 
-      Aby uzyskać informacje na temat dwóch modeli hostingu Blazor, *Blazor Server* i *Blazor webassembly*, zobacz <xref:blazor/hosting-models>.
+      Aby uzyskać informacje na temat dwóch Blazor modeli hostingu, *Blazor Server* i *Blazor webassembly*, zobacz <xref:blazor/hosting-models>.
 
    4 \. Otwórz folder *WebApplication1* w Visual Studio Code.
 
-   5 \. W przypadku projektu serwera Blazor, IDE żąda dodania zasobów do kompilowania i debugowania projektu. Wybierz pozycję **tak**.
+   5 \. Dla projektu serwera Blazor, żądania IDE, które umożliwiają dodanie zasobów do kompilowania i debugowania projektu. Wybierz pozycję **tak**.
 
-   6 \. W przypadku korzystania z aplikacji serwera Blazor należy uruchomić aplikację przy użyciu debugera Visual Studio Code. Jeśli używasz aplikacji Blazor webassembly, wykonaj `dotnet run` z folderu projektu aplikacji.
+   6 \. Jeśli używasz aplikacji serwera Blazor, uruchom aplikację przy użyciu debugera Visual Studio Code. Jeśli używasz aplikacji Blazor webassembly, wykonaj `dotnet run` z folderu projektu aplikacji.
 
    7 \. W przeglądarce przejdź do `https://localhost:5001`.
 
@@ -206,7 +208,7 @@ Rozpocznij pracę z usługą Blazor:
 
    # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
 
-   W przypadku środowiska webassembly Blazor wykonaj następujące polecenia w powłoce poleceń:
+   W przypadku Blazor środowiska webassembly wykonaj następujące polecenia w powłoce poleceń:
 
    ```dotnetcli
    dotnet new blazorwasm -o WebApplication1
@@ -214,7 +216,7 @@ Rozpocznij pracę z usługą Blazor:
    dotnet run
    ```
 
-   W przypadku środowiska serwera Blazor należy wykonać następujące polecenia w powłoce poleceń:
+   W przypadku środowiska Blazor Server wykonaj następujące polecenia w powłoce poleceń:
 
    ```dotnetcli
    dotnet new blazorserver -o WebApplication1
@@ -222,7 +224,7 @@ Rozpocznij pracę z usługą Blazor:
    dotnet run
    ```
 
-   Aby uzyskać informacje na temat dwóch modeli hostingu Blazor, *Blazor Server* i *Blazor webassembly*, zobacz <xref:blazor/hosting-models>.
+   Aby uzyskać informacje na temat dwóch Blazor modeli hostingu, *Blazor Server* i *Blazor webassembly*, zobacz <xref:blazor/hosting-models>.
 
    W przeglądarce przejdź do `https://localhost:5001`.
 
@@ -242,7 +244,7 @@ Na stronie licznik wybierz przycisk **kliknij** , aby zwiększyć licznik bez od
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Counter1.razor?highlight=7,12-15)]
 
-Żądanie `/counter` w przeglądarce, zgodnie z definicją w dyrektywie `@page` u góry, powoduje, że składnik `Counter` będzie renderować jego zawartość. Składniki są renderowane w postaci reprezentacji drzewa renderowania, która może być następnie używana do aktualizowania interfejsu użytkownika w elastyczny i wydajny sposób.
+Żądanie `/counter` w przeglądarce, zgodnie z dyrektywą `@page` w górnej części, powoduje, że składnik `Counter` renderuje jego zawartość. Składniki są renderowane w postaci reprezentacji drzewa renderowania, która może być następnie używana do aktualizowania interfejsu użytkownika w elastyczny i wydajny sposób.
 
 Za każdym razem, gdy zostanie wybrany przycisk **kliknij mnie** :
 
@@ -253,7 +255,7 @@ Za każdym razem, gdy zostanie wybrany przycisk **kliknij mnie** :
 
 Środowisko uruchomieniowe porównuje nową zawartość z poprzednią zawartością i stosuje tylko zmienioną zawartość do Document Object Model (DOM).
 
-Dodaj składnik do innego składnika przy użyciu składni języka HTML. Na przykład Dodaj składnik `Counter` do strony głównej aplikacji, dodając element `<Counter />` do składnika `Index`.
+Dodaj składnik do innego składnika przy użyciu składni języka HTML. Na przykład Dodaj składnik `Counter` do strony głównej aplikacji przez dodanie elementu `<Counter />` do składnika `Index`.
 
 *Pages/index. Razor*:
 
@@ -276,7 +278,7 @@ Określ `IncrementAmount` w elemencie `<Counter>` składnika `Index` przy użyci
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Index2.razor?highlight=7)]
 
-Uruchom aplikację. Składnik `Index` ma swój własny licznik, który zwiększa się o dziesięć za każdym razem, gdy jest zaznaczony przycisk **kliknij mnie** . Składnik `Counter` (*Counter. Razor*) w `/counter` kontynuuje zwiększanie o jeden.
+Uruchom aplikację. Składnik `Index` ma swój własny licznik, który zwiększa się o dziesięć za każdym razem, gdy jest zaznaczony przycisk **kliknij mnie** . Składnik `Counter` (*Counter. Razor*) w `/counter` nadal zwiększa się o jeden.
 
 ## <a name="next-steps"></a>Następne kroki
 
