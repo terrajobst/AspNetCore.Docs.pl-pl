@@ -1,20 +1,20 @@
 ---
-title: 'Samouczek: Wprowadzenie do Razor Pages w ASP.NET Core'
+title: 'Samouczek: wprowadzenie do Razor Pages w ASP.NET Core'
 author: rick-anderson
 description: W tej serii samouczków pokazano, jak używać Razor Pages w ASP.NET Core. Dowiedz się, jak utworzyć model, wygenerować kod dla stron Razor, użyć Entity Framework Core i SQL Server na potrzeby dostępu do danych, dodać funkcję wyszukiwania, dodać sprawdzanie poprawności danych wejściowych i użyć migracji w celu zaktualizowania modelu.
 ms.author: riande
-ms.date: 07/25/2019
+ms.date: 11/12/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 0cc00cb85b6054752417b82c783cfd4c306aeda5
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: a8381dee05f267077a29999f3d8bbe6327c2b863
+ms.sourcegitcommit: 231780c8d7848943e5e9fd55e93f437f7e5a371d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082575"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116149"
 ---
-# <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Samouczek: Wprowadzenie do Razor Pages w ASP.NET Core
+# <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Samouczek: wprowadzenie do Razor Pages w ASP.NET Core
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 Jest to pierwszy samouczek dotyczący serii, który uczy się podstaw tworzenia aplikacji sieci Web Razor Pages ASP.NET Core.
@@ -46,7 +46,7 @@ Na końcu tego samouczka będziesz mieć działającą Razor Pagesową aplikacj�
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-3.0.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-3.0.md)]
 
@@ -56,11 +56,11 @@ Na końcu tego samouczka będziesz mieć działającą Razor Pagesową aplikacj�
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* W programie Visual Studio **pliku** menu, wybierz opcję **New** > **projektu**.
+* Z menu **plik** programu Visual Studio wybierz pozycję **Nowy** **projekt**>.
 * Utwórz nową aplikację sieci Web ASP.NET Core a następnie wybierz pozycję **dalej**.
-  ![Nowa aplikacja sieci Web ASP.NET Core](razor-pages-start/_static/np_2.1.png)
+  ![nową aplikację sieci Web ASP.NET Core](razor-pages-start/_static/np_2.1.png)
 * Nazwij projekt **RazorPagesMovie**. Ważne jest, aby nazwa projektu *RazorPagesMovie* , tak aby przestrzenie nazw były zgodne podczas kopiowania i wklejania kodu.
-  ![Nowa aplikacja sieci Web ASP.NET Core](razor-pages-start/_static/config.png)
+  ![nową aplikację sieci Web ASP.NET Core](razor-pages-start/_static/config.png)
 
 * Wybierz pozycję **ASP.NET Core 3,0** na liście rozwijanej, **aplikacji sieci Web**, a następnie wybierz pozycję **Utwórz**.
 
@@ -83,22 +83,22 @@ Na końcu tego samouczka będziesz mieć działającą Razor Pagesową aplikacj�
   code -r RazorPagesMovie
   ```
 
-  * Polecenie tworzy nowy projekt Razor Pages w folderze RazorPagesMovie. `dotnet new`
-  * Polecenie otwiera folder RazorPagesMovie w bieżącym wystąpieniu Visual Studio Code. `code`
+  * `dotnet new` polecenie tworzy nowy projekt Razor Pages w folderze *RazorPagesMovie*
+  * `code` polecenie otwiera folder *RazorPagesMovie* w bieżącym wystąpieniu Visual Studio Code.
 
-* Gdy ikona płomienia OmniSharp na pasku stanu zmieni kolor na zielony, w **oknie dialogowym zostanie wyświetlony monit o podanie wymaganych zasobów do skompilowania i debugowania z elementu "RazorPagesMovie". Dodać je?** Wybierz pozycję **tak**.
+* Gdy ikona płomienia OmniSharp na pasku stanu zmieni kolor na zielony, w oknie dialogowym zostanie wyświetlony monit **o podanie wymaganych zasobów do skompilowania i debugowania z elementu "RazorPagesMovie". Dodać je?** Wybierz pozycję **tak**.
 
   Katalog *. programu vscode* , zawierający pliki *Launch. JSON* i *Tasks. JSON* , jest dodawany do katalogu głównego projektu.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 * Wybierz pozycję **plik** > **nowe rozwiązanie**.
 
-![Nowe rozwiązanie w systemie macOS](../first-mvc-app/start-mvc/_static/new_project_vsmac.png)
+![macOS nowe rozwiązanie](../first-mvc-app/start-mvc/_static/new_project_vsmac.png)
 
-* Wybierz pozycję > **aplikacja** > internetowa> aplikacji .NET Core.
+* Wybierz pozycję **aplikacja** **sieci > Web** > **.NET Core** > **dalej**.
 
-  ![okno dialogowe z systemem macOS nowego projektu](razor-pages-start/_static/webapp.png)
+  ![okno dialogowe nowego projektu macOS](razor-pages-start/_static/webapp.png)
 
 * W oknie dialogowym **Konfigurowanie nowego interfejsu API sieci Web ASP.NET Core** Ustaw platformę **docelową** na **.NET Core 3,0**.
 
@@ -119,34 +119,7 @@ W programie Visual Studio wybierz pozycję **plik > Otwórz**, a następnie wybi
 
 ## <a name="run-the-app"></a>Uruchamianie aplikacji
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
-* Naciśnij klawisze CTRL + F5, aby uruchomić bez debugera.
-
-  [!INCLUDE[](~/includes/trustCertVS.md)]
-
-  Program Visual Studio jest uruchamiany [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) i uruchomi aplikację. Na pasku adresu są `localhost:port#` wyświetlane inne elementy, `example.com`takie jak. Wynika `localhost` to z tego, że jest standardową nazwą hosta dla komputera lokalnego. Host lokalny obsługuje tylko żądania sieci Web z komputera lokalnego. Gdy program Visual Studio tworzy projekt sieci Web, dla serwera sieci Web jest używany port losowy.
- 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
-  [!INCLUDE[](~/includes/trustCertVSC.md)]
-
-* Naciśnij **klawisze CTRL + F5** , aby uruchomić bez debugera.
-
-  Visual Studio Code uruchamia [Kestrel](xref:fundamentals/servers/kestrel), uruchamia przeglądarkę i nawiguje do `http://localhost:5001`. Na pasku adresu są `localhost:port#` wyświetlane inne elementy, `example.com`takie jak. Wynika `localhost` to z tego, że jest standardową nazwą hosta dla komputera lokalnego. Host lokalny obsługuje tylko żądania sieci Web z komputera lokalnego.
-
-  
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
-
-  [!INCLUDE[](~/includes/trustCertMac.md)]
-
-* Naciśnij klawisze **Alt-cmd-Enter** , aby uruchomić bez debugera. Alternatywnie przejdź do paska menu i przejdź do pozycji Uruchom > Uruchom bez debugowania.
-
-  Program Visual Studio uruchamia [Kestrel](xref:fundamentals/servers/kestrel), uruchamia przeglądarkę i przechodzi do `http://localhost:5001`.
-
-<!-- End of VS tabs -->
-
----
+  [!INCLUDE[](~/includes/run-the-app.md)]
 
 ## <a name="examine-the-project-files"></a>Sprawdzanie plików projektu
 
@@ -165,7 +138,7 @@ Pliki pomocnicze mają nazwy zaczynające się od znaku podkreślenia. Na przyk�
 
 Zawiera pliki statyczne, takie jak pliki HTML, pliki JavaScript i pliki CSS. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/static-files>.
 
-### <a name="appsettingsjson"></a>appSettings.json
+### <a name="appsettingsjson"></a>appSettings. JSON
 
 Zawiera dane konfiguracyjne, takie jak parametry połączenia. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/index>.
 
@@ -219,7 +192,7 @@ Na końcu tego samouczka będziesz mieć działającą Razor Pagesową aplikacj�
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-2.2.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-2.2.md)]
 
@@ -229,7 +202,7 @@ Na końcu tego samouczka będziesz mieć działającą Razor Pagesową aplikacj�
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* W programie Visual Studio **pliku** menu, wybierz opcję **New** > **projektu**.
+* Z menu **plik** programu Visual Studio wybierz pozycję **Nowy** **projekt**>.
 
 * Utwórz nową aplikację sieci Web ASP.NET Core a następnie wybierz pozycję **dalej**.
 
@@ -260,14 +233,14 @@ Na końcu tego samouczka będziesz mieć działającą Razor Pagesową aplikacj�
   code -r RazorPagesMovie
   ```
 
-  * Polecenie tworzy nowy projekt Razor Pages w folderze RazorPagesMovie. `dotnet new`
-  * Polecenie otwiera folder RazorPagesMovie w bieżącym wystąpieniu Visual Studio Code. `code`
+  * `dotnet new` polecenie tworzy nowy projekt Razor Pages w folderze *RazorPagesMovie*
+  * `code` polecenie otwiera folder *RazorPagesMovie* w bieżącym wystąpieniu Visual Studio Code.
 
-* Gdy ikona płomienia OmniSharp na pasku stanu zmieni kolor na zielony, w **oknie dialogowym zostanie wyświetlony monit o podanie wymaganych zasobów do skompilowania i debugowania z elementu "RazorPagesMovie". Dodać je?** Wybierz pozycję **tak**.
+* Gdy ikona płomienia OmniSharp na pasku stanu zmieni kolor na zielony, w oknie dialogowym zostanie wyświetlony monit **o podanie wymaganych zasobów do skompilowania i debugowania z elementu "RazorPagesMovie". Dodać je?** Wybierz pozycję **tak**.
 
   Katalog *. programu vscode* , zawierający pliki *Launch. JSON* i *Tasks. JSON* , jest dodawany do katalogu głównego projektu.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 W terminalu uruchom następujące polecenie:
 
@@ -295,7 +268,7 @@ W programie Visual Studio wybierz pozycję **plik > Otwórz**, a następnie wybi
 
   [!INCLUDE[](~/includes/trustCertVS.md)]
 
-  Program Visual Studio jest uruchamiany [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) i uruchomi aplikację. Na pasku adresu są `localhost:port#` wyświetlane inne elementy, `example.com`takie jak. Wynika `localhost` to z tego, że jest standardową nazwą hosta dla komputera lokalnego. Host lokalny obsługuje tylko żądania sieci Web z komputera lokalnego. Gdy program Visual Studio tworzy projekt sieci Web, dla serwera sieci Web jest używany port losowy.
+  Program Visual Studio jest uruchamiany [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) i uruchomi aplikację. Na pasku adresu są wyświetlane `localhost:port#`, a nie takie jak `example.com`. Wynika to z faktu, że `localhost` jest standardową nazwą hosta dla komputera lokalnego. Host lokalny obsługuje tylko żądania sieci Web z komputera lokalnego. Gdy program Visual Studio tworzy projekt sieci Web, dla serwera sieci Web jest używany port losowy.
 
 * Na stronie głównej aplikacji wybierz pozycję **Akceptuj** , aby wyrazić zgodę na śledzenie.
 
@@ -313,7 +286,7 @@ W programie Visual Studio wybierz pozycję **plik > Otwórz**, a następnie wybi
 
 * Naciśnij **klawisze CTRL + F5** , aby uruchomić bez debugera.
 
-  Visual Studio Code uruchamia [Kestrel](xref:fundamentals/servers/kestrel), uruchamia przeglądarkę i nawiguje do `http://localhost:5001`. Na pasku adresu są `localhost:port#` wyświetlane inne elementy, `example.com`takie jak. Wynika `localhost` to z tego, że jest standardową nazwą hosta dla komputera lokalnego. Host lokalny obsługuje tylko żądania sieci Web z komputera lokalnego.
+  Visual Studio Code uruchamia [Kestrel](xref:fundamentals/servers/kestrel), uruchamia przeglądarkę i przechodzi do `http://localhost:5001`. Na pasku adresu są wyświetlane `localhost:port#`, a nie takie jak `example.com`. Jest to spowodowane tym, że `localhost` jest standardową nazwą hosta dla komputera lokalnego. Host lokalny obsługuje tylko żądania sieci Web z komputera lokalnego.
 
 * Na stronie głównej aplikacji wybierz pozycję **Akceptuj** , aby wyrazić zgodę na śledzenie.
 
@@ -325,7 +298,7 @@ W programie Visual Studio wybierz pozycję **plik > Otwórz**, a następnie wybi
 
   ![Strona główna lub indeks](razor-pages-start/_static/home2.2.png)
   
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
   [!INCLUDE[](~/includes/trustCertMac.md)]
 
@@ -364,7 +337,7 @@ Pliki pomocnicze mają nazwy zaczynające się od znaku podkreślenia. Na przyk�
 
 Zawiera pliki statyczne, takie jak pliki HTML, pliki JavaScript i pliki CSS. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/static-files>.
 
-### <a name="appsettingsjson"></a>appSettings.json
+### <a name="appsettingsjson"></a>appSettings. JSON
 
 Zawiera dane konfiguracyjne, takie jak parametry połączenia. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/index>.
 

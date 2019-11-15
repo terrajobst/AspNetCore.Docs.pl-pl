@@ -2,16 +2,15 @@
 title: Tworzenie klienta i serwera platformy .NET Core gRPC w ASP.NET Core
 author: juntaoluo
 description: W tym samouczku pokazano, jak utworzyć usługę gRPC i klienta gRPC na ASP.NET Core. Dowiedz się, jak utworzyć projekt usługi gRPC, edytować plik PROTO i dodać wywołanie przesyłania strumieniowego dupleksu.
-monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 10/10/2019
+ms.date: 11/12/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 0da5a4cf0d9cc15fee6417d143cfc9e9f1e4509c
-ms.sourcegitcommit: 9e85c2562df5e108d7933635c830297f484bb775
+ms.openlocfilehash: e5373d9abb9a770132e756843dbd15534dbe3356
+ms.sourcegitcommit: 231780c8d7848943e5e9fd55e93f437f7e5a371d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73463061"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116098"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Samouczek: Tworzenie gRPC klienta i serwera w ASP.NET Core
 
@@ -72,8 +71,8 @@ W tym samouczku przedstawiono następujące instrukcje:
   code -r GrpcGreeter
   ```
 
-  * Polecenie `dotnet new` tworzy nową usługę gRPC w folderze *GrpcGreeter* .
-  * Polecenie `code` otwiera folder *GrpcGreeter* w nowym wystąpieniu Visual Studio Code.
+  * `dotnet new` polecenie tworzy nową usługę gRPC w folderze *GrpcGreeter* .
+  * `code` polecenie otwiera folder *GrpcGreeter* w nowym wystąpieniu Visual Studio Code.
 
   Zostanie wyświetlone okno dialogowe z **wymaganymi zasobami do kompilowania i debugowania brakuje w "GrpcGreeter". Dodać je?**
 * Wybierz pozycję **tak**.
@@ -97,21 +96,7 @@ W programie Visual Studio wybierz pozycję **plik** > **Otwórz**, a następnie 
 
 ### <a name="run-the-service"></a>Uruchamianie usługi
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
-* Naciśnij `Ctrl+F5`, aby uruchomić usługę gRPC bez debugera.
-
-  Program Visual Studio uruchamia usługę w wierszu polecenia.
-
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
-* Uruchom gRPC Greeter projektu *GrpcGreeter* z wiersza polecenia przy użyciu `dotnet run`.
-
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
-
-* Uruchom gRPC Greeter projektu *GrpcGreeter* z wiersza polecenia przy użyciu `dotnet run`.
-
----
+  [!INCLUDE[](~/includes/run-the-app.md)]
 
 Dzienniki pokazują, że usługa nasłuchuje na `https://localhost:5001`.
 
@@ -170,7 +155,7 @@ Projekt klienta gRPC wymaga następujących pakietów:
 
 * [GRPC .NET. Client](https://www.nuget.org/packages/Grpc.Net.Client), który zawiera klienta .NET Core.
 * [Google. protobuf](https://www.nuget.org/packages/Google.Protobuf/), który zawiera interfejsy API komunikatów protobuf C#dla.
-* [GRPC. Tools](https://www.nuget.org/packages/Grpc.Tools/), która zawiera C# obsługę narzędzi dla plików protobuf. Pakiet narzędzi nie jest wymagany w czasie wykonywania, więc zależność jest oznaczona za pomocą `PrivateAssets="All"`.
+* [GRPC. Tools](https://www.nuget.org/packages/Grpc.Tools/), która zawiera C# obsługę narzędzi dla plików protobuf. Pakiet narzędzi nie jest wymagany w czasie wykonywania, dlatego zależność jest oznaczona za pomocą `PrivateAssets="All"`.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -231,7 +216,7 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 
   # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
-  Kliknij prawym przyciskiem myszy projekt i wybierz polecenie **narzędzia** > **Edytuj plik**.
+  Kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **narzędzia** > **Edytuj plik**.
 
   ---
 
@@ -260,7 +245,7 @@ Klient Greeter jest tworzony przez:
 
 [!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=3-5)]
 
-Klient Greeter wywołuje metodę asynchroniczną `SayHello`. Zostanie wyświetlony wynik wywołania `SayHello`:
+Klient Greeter wywołuje metodę `SayHello` asynchronicznej. Zostanie wyświetlony wynik wywołania `SayHello`:
 
 [!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=6-8)]
 
@@ -313,7 +298,7 @@ info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
 ```
 
 > [!NOTE]
-> Kod w tym artykule wymaga certyfikatu programistycznego HTTPS ASP.NET Core do zabezpieczenia usługi gRPC. Jeśli klient kończy się niepowodzeniem z komunikatem `The remote certificate is invalid according to the validation procedure.`, certyfikat programistyczny nie jest zaufany. Aby uzyskać instrukcje dotyczące rozwiązania tego problemu, zobacz temat [ASP.NET Core ufanie certyfikatowi Deweloperskiemu protokołu HTTPS w systemie Windows i macOS](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos).
+> Kod w tym artykule wymaga certyfikatu programistycznego HTTPS ASP.NET Core do zabezpieczenia usługi gRPC. Jeśli klient nie powiedzie się z komunikatem `The remote certificate is invalid according to the validation procedure.`, certyfikat programistyczny nie jest zaufany. Aby uzyskać instrukcje dotyczące rozwiązania tego problemu, zobacz temat [ASP.NET Core ufanie certyfikatowi Deweloperskiemu protokołu HTTPS w systemie Windows i macOS](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos).
 
 [!INCLUDE[](~/includes/gRPCazure.md)]
 
