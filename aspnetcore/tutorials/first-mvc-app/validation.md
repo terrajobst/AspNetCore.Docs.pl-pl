@@ -14,7 +14,7 @@ ms.locfileid: "72334074"
 ---
 # <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Dodawanie walidacji do aplikacji ASP.NET Core MVC
 
-Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tej sekcji:
 
@@ -51,7 +51,7 @@ Możesz zastanawiać się, jak został wygenerowany interfejs użytkownika weryf
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Controllers/MoviesController.cs?name=snippetCreate)]
 
-Pierwszy (HTTP GET) `Create` Metoda akcji wyświetla początkowy formularz tworzenia. Druga wersja (`[HttpPost]`) obsługuje wpis w formularzu. Druga metoda `Create` (wersja `[HttpPost]`) wywołuje `ModelState.IsValid`, aby sprawdzić, czy film ma błędy walidacji. Wywołanie tej metody szacuje wszystkie atrybuty walidacji, które zostały zastosowane do obiektu. Jeśli obiekt ma błędy walidacji, Metoda `Create` spowoduje ponowne wyświetlenie formularza. Jeśli nie ma żadnych błędów, Metoda zapisuje nowy film w bazie danych. W naszym przykładzie filmu nie jest on ogłaszany na serwerze, gdy na stronie klienta wykryto błędy walidacji. Druga metoda `Create` nigdy nie jest wywoływana, jeśli występują błędy walidacji po stronie klienta. W przypadku wyłączenia języka JavaScript w przeglądarce sprawdzanie poprawności klienta jest wyłączone i można przetestować metodę POST protokołu HTTP `Create` `ModelState.IsValid` wykryć błędy walidacji.
+W pierwszej metodzie akcji `Create` (HTTP GET) jest wyświetlany początkowy formularz tworzenia. Druga wersja (`[HttpPost]`) obsługuje wpis w formularzu. Druga metoda `Create` (wersja `[HttpPost]`) `ModelState.IsValid`, aby sprawdzić, czy film ma błędy walidacji. Wywołanie tej metody szacuje wszystkie atrybuty walidacji, które zostały zastosowane do obiektu. Jeśli obiekt ma błędy walidacji, Metoda `Create` ponowne wyświetli formularz. Jeśli nie ma żadnych błędów, Metoda zapisuje nowy film w bazie danych. W naszym przykładzie filmu nie jest on ogłaszany na serwerze, gdy na stronie klienta wykryto błędy walidacji. Druga metoda `Create` nie jest nigdy wywoływana, gdy występują błędy walidacji po stronie klienta. W przypadku wyłączenia języka JavaScript w przeglądarce sprawdzanie poprawności klienta jest wyłączone i można testować metodę `Create` POST protokołu HTTP `ModelState.IsValid` wykrywania błędów walidacji.
 
 Można ustawić punkt przerwania w metodzie `[HttpPost] Create` i sprawdzić, czy metoda nie jest nigdy wywoływana, podczas walidacji po stronie klienta nie będą przesyłane dane formularza po wykryciu błędów walidacji. Jeśli wyłączysz JavaScript w przeglądarce, a następnie prześlesz formularz z błędami, zostanie osiągnięty punkt przerwania. Nadal będziesz mieć pełną weryfikację bez języka JavaScript. 
 
@@ -81,22 +81,22 @@ W przypadku konieczności zmiany logiki walidacji można to zrobić w dokładnie
 
 ## <a name="using-datatype-attributes"></a>Używanie atrybutów DataType
 
-Otwórz plik *Movie.cs* i zapoznaj się z klasą `Movie`. Przestrzeń nazw `System.ComponentModel.DataAnnotations` zawiera atrybuty formatowania oprócz wbudowanego zestawu atrybutów walidacji. Zastosowano już wartość wyliczenia `DataType` do daty wydania i do pól cen. Poniższy kod przedstawia właściwości `ReleaseDate` i `Price` z odpowiednim atrybutem `DataType`.
+Otwórz plik *Movie.cs* i zapoznaj się z klasą `Movie`. Przestrzeń nazw `System.ComponentModel.DataAnnotations` zawiera atrybuty formatowania oprócz wbudowanego zestawu atrybutów walidacji. W dacie wydania i w polach cen została już zastosowana wartość wyliczenia `DataType`. Poniższy kod pokazuje `ReleaseDate` i `Price` właściwości z odpowiednim atrybutem `DataType`.
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
 
-Atrybuty `DataType` udostępniają wskazówki dla aparatu widoku, aby sformatować dane (i dostarczyć elementy/atrybuty, takie jak `<a>` dla adresu URL i `<a href="mailto:EmailAddress.com">` dla poczty e-mail. Aby sprawdzić format danych, można użyć atrybutu `RegularExpression`. Atrybut `DataType` służy do określania typu danych, który jest bardziej szczegółowy niż typ wewnętrzny bazy danych, nie są atrybutami walidacji. W tym przypadku chcemy tylko śledzić datę, a nie godzinę. Wyliczenie `DataType` zawiera wiele typów danych, takich jak data, godzina, numer telefonu, waluta, EmailAddress i inne. Atrybut `DataType` może również umożliwić aplikacji automatyczne udostępnianie funkcji specyficznych dla typu. Na przykład można utworzyć link `mailto:` dla `DataType.EmailAddress`, a dla `DataType.Date` w przeglądarkach, które obsługują HTML5, można dostarczyć selektor dat. Atrybuty `DataType` emitują HTML 5 `data-` (wymawiane kreski danych), które mogą zrozumieć przeglądarki HTML 5. Atrybuty `DataType` **nie zapewniają żadnej** walidacji.
+Atrybuty `DataType` zawierają tylko wskazówki dla aparatu widoku, aby sformatować dane (i dostarczyć elementy/atrybuty, takie jak `<a>` dla adresu URL i `<a href="mailto:EmailAddress.com">` dla poczty e-mail. Możesz użyć atrybutu `RegularExpression`, aby sprawdzić poprawność formatu danych. Atrybut `DataType` służy do określania typu danych, który jest bardziej szczegółowy niż typ wewnętrzny bazy danych, nie są atrybutami walidacji. W tym przypadku chcemy tylko śledzić datę, a nie godzinę. Wyliczenie `DataType` zapewnia wiele typów danych, takich jak data, godzina, numer telefonu, waluta, EmailAddress i inne. Atrybut `DataType` może również umożliwić aplikacji automatyczne udostępnianie funkcji specyficznych dla typu. Na przykład można utworzyć link `mailto:` dla `DataType.EmailAddress`i można dostarczyć selektor daty dla `DataType.Date` w przeglądarkach obsługujących HTML5. Atrybuty `DataType` emitują `data-` HTML 5 (wymawiane kreski danych), które mogą zrozumieć przeglądarki HTML 5. Atrybuty `DataType` **nie zapewniają żadnych** weryfikacji.
 
-`DataType.Date` nie określa formatu wyświetlanej daty. Domyślnie pole dane jest wyświetlane zgodnie z domyślnymi formatami na podstawie @no__t serwera-0.
+`DataType.Date` nie określa formatu wyświetlanej daty. Domyślnie pole dane jest wyświetlane zgodnie z domyślnymi formatami opartymi na `CultureInfo`serwera.
 
-Atrybut `DisplayFormat` służy do jawnego określenia formatu daty:
+Atrybut `DisplayFormat` jest używany do jawnego określania formatu daty:
 
 ```csharp
 [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 public DateTime ReleaseDate { get; set; }
 ```
 
-Ustawienie `ApplyFormatInEditMode` Określa, że formatowanie powinno być również stosowane, gdy wartość jest wyświetlana w polu tekstowym do edycji. (Możesz nie chcieć, aby w przypadku niektórych pól — na przykład w przypadku wartości walutowych, prawdopodobnie nie chcesz, aby symbol waluty był widoczny w polu tekstowym do edycji).
+Ustawienie `ApplyFormatInEditMode` określa, że formatowanie powinno być również stosowane, gdy wartość jest wyświetlana w polu tekstowym do edycji. (Możesz nie chcieć, aby w przypadku niektórych pól — na przykład w przypadku wartości walutowych, prawdopodobnie nie chcesz, aby symbol waluty był widoczny w polu tekstowym do edycji).
 
 Możesz użyć atrybutu `DisplayFormat` przez samego siebie, ale zazwyczaj dobrym pomysłem jest użycie atrybutu `DataType`. Atrybut `DataType` przekazuje semantykę danych w przeciwieństwie do sposobu renderowania na ekranie i zapewnia następujące korzyści, których nie można uzyskać za pomocą DisplayFormat:
 
@@ -104,20 +104,20 @@ Możesz użyć atrybutu `DisplayFormat` przez samego siebie, ale zazwyczaj dobry
 
 * Domyślnie przeglądarka będzie renderować dane przy użyciu poprawnego formatu na podstawie ustawień regionalnych.
 
-* Atrybut `DataType` umożliwia użycie MVC w celu wybrania odpowiedniego szablonu pola w celu renderowania danych (`DisplayFormat`, jeśli jest używany przez siebie, używa szablonu ciągu).
+* Atrybut `DataType` umożliwia wybranie odpowiedniego szablonu pola w celu renderowania danych (`DisplayFormat`, jeśli jest używany przez siebie za pomocą szablonu ciągu).
 
 > [!NOTE]
 > Walidacja jQuery nie działa z atrybutem `Range` i `DateTime`. Na przykład poniższy kod zawsze będzie wyświetlał błąd walidacji po stronie klienta, nawet wtedy, gdy data jest w określonym zakresie:
 >
 > `[Range(typeof(DateTime), "1/1/1966", "1/1/2020")]`
 
-Należy wyłączyć sprawdzanie poprawności daty jQuery, aby użyć atrybutu `Range` z `DateTime`. Ogólnie rzecz biorąc, nie jest dobrym sposobem kompilowania dat stałych w modelach, dlatego przy użyciu atrybutu `Range` i `DateTime` nie jest to zalecane.
+Należy wyłączyć sprawdzanie poprawności daty jQuery, aby użyć atrybutu `Range` z `DateTime`. Ogólnie rzecz biorąc, nie jest dobrym sposobem kompilowania dat stałych w modelach, dlatego przy użyciu `Range` atrybutu i `DateTime` jest niezalecane.
 
 Poniższy kod ilustruje łączenie atrybutów w jednym wierszu:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
-W następnej części serii analizujemy aplikację i wprowadzamy kilka ulepszeń automatycznie generowanych metod `Details` i `Delete`.
+W następnej części serii analizujemy aplikację i wprowadzamy kilka ulepszeń automatycznie generowanych `Details` i `Delete`.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

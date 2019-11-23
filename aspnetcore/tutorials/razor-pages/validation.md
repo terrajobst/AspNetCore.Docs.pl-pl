@@ -15,7 +15,7 @@ ms.locfileid: "72334219"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Dodawanie walidacji do ASP.NET Core stronie Razor
 
-Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tej sekcji logika walidacji jest dodawana do modelu `Movie`. Reguły sprawdzania poprawności są wymuszane za każdym razem, gdy użytkownik tworzy lub edytuje film.
 
@@ -32,7 +32,7 @@ Pomoc techniczna dotycząca walidacji świadczona przez Razor Pages i Entity Fra
 
 Przestrzeń nazw DataAnnotations zawiera zestaw wbudowanych atrybutów walidacji, które są stosowane deklaratywnie do klasy lub właściwości. Adnotacje DataAnnotation zawierają również atrybuty formatowania, takie jak `DataType`, które pomagają w formatowaniu i nie zapewniają weryfikacji.
 
-Zaktualizuj klasę `Movie`, aby skorzystać z wbudowanych atrybutów `Required`, `StringLength`, `RegularExpression` i `Range`.
+Zaktualizuj klasę `Movie`, aby skorzystać z wbudowanych atrybutów `Required`, `StringLength`, `RegularExpression`i `Range`.
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Models/MovieDateRatingDA.cs?name=snippet1)]
 
@@ -44,14 +44,14 @@ Atrybuty walidacji określają zachowanie, które chcesz wymusić na właściwo�
   * Należy używać tylko liter.
   * Pierwsza litera musi być wielką literą. Odstępy, cyfry i znaki specjalne są niedozwolone.
 
-* Klasyfikacja `RegularExpression` ":
+* `RegularExpression` "Rating":
 
   * Wymaga, aby pierwszy znak był wielką literą.
   * Zezwala na znaki specjalne i cyfry w kolejnych odstępach. "PG-13" jest prawidłowy dla oceny, ale kończy się niepowodzeniem dla "gatunku".
 
 * Atrybut `Range` ogranicza wartość do określonego zakresu.
 * Atrybut `StringLength` pozwala ustawić maksymalną długość właściwości ciągu i opcjonalnie jej długość minimalną.
-* Typy wartości (takie jak `decimal`, `int`, `float`, `DateTime`) są z założenia wymagane i nie potrzebują atrybutu `[Required]`.
+* Typy wartości (takie jak `decimal`, `int`, `float``DateTime`) są z natury wymagane i nie potrzebują atrybutu `[Required]`.
 
 Automatyczne Wymuszanie reguł sprawdzania poprawności przez ASP.NET Core pomaga zwiększyć niezawodność aplikacji. Gwarantuje to również, że nie można zapomnieć, aby zweryfikować coś i przypadkowo umożliwić niewłaściwe dane w bazie danych.
 
@@ -82,7 +82,7 @@ Gdy język JavaScript jest wyłączony w przeglądarce, przesłanie formularza z
 Opcjonalna, testowa weryfikacja po stronie serwera:
 
 * Wyłącz język JavaScript w przeglądarce. Język JavaScript można wyłączyć przy użyciu narzędzi deweloperskich w przeglądarce. Jeśli nie możesz wyłączyć języka JavaScript w przeglądarce, wypróbuj inną przeglądarkę.
-* Ustaw punkt przerwania w metodzie `OnPostAsync` strony Tworzenie lub edytowanie.
+* Ustaw punkt przerwania w metodzie `OnPostAsync` strony tworzenia lub edycji.
 * Prześlij formularz z nieprawidłowymi danymi.
 * Sprawdź, czy stan modelu jest nieprawidłowy:
 
@@ -109,28 +109,28 @@ Zapoznaj się z klasą `Movie`. Przestrzeń nazw `System.ComponentModel.DataAnno
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
 
-Atrybuty `DataType` udostępniają wskazówki dla aparatu widoku do formatowania danych (i dostarczają atrybuty, takie jak `<a>` dla adresu URL i `<a href="mailto:EmailAddress.com">` dla poczty e-mail). Użyj atrybutu `RegularExpression`, aby sprawdzić poprawność formatu danych. Atrybut `DataType` służy do określania typu danych, który jest bardziej szczegółowy niż typ wewnętrzny bazy danych. atrybuty `DataType` nie są atrybutymi walidacji. W przykładowej aplikacji tylko data jest wyświetlana bez czasu.
+Atrybuty `DataType` zawierają tylko wskazówki dla aparatu widoku do formatowania danych (i dostarczają atrybuty, takie jak `<a>` dla adresu URL i `<a href="mailto:EmailAddress.com">` wiadomości e-mail). Użyj atrybutu `RegularExpression`, aby sprawdzić poprawność formatu danych. Atrybut `DataType` służy do określania typu danych, który jest bardziej szczegółowy niż typ wewnętrzny bazy danych. atrybuty `DataType` nie są atrybutami walidacji. W przykładowej aplikacji tylko data jest wyświetlana bez czasu.
 
-Wyliczenie `DataType` zawiera wiele typów danych, takich jak data, godzina, numer telefonu, waluta, EmailAddress i inne. Atrybut `DataType` może również umożliwić aplikacji automatyczne udostępnianie funkcji specyficznych dla typu. Na przykład można utworzyć link `mailto:` dla `DataType.EmailAddress`. Można podać selektor daty dla `DataType.Date` w przeglądarkach, które obsługują HTML5. Atrybuty `DataType` emitują kod HTML 5 `data-` (wymawiane kreski danych), które wykorzystują przeglądarki HTML 5. Atrybuty `DataType` **nie zapewniają żadnej** walidacji.
+Wyliczenie `DataType` zapewnia wiele typów danych, takich jak data, godzina, numer telefonu, waluta, EmailAddress i inne. Atrybut `DataType` może również umożliwić aplikacji automatyczne udostępnianie funkcji specyficznych dla typu. Na przykład dla `DataType.EmailAddress`można utworzyć łącze `mailto:`. Można podać selektor daty dla `DataType.Date` w przeglądarkach, które obsługują HTML5. Atrybuty `DataType` emitują `data-` HTML 5 (wymawiane kreski danych), których używają przeglądarki HTML 5. Atrybuty `DataType` **nie zapewniają żadnych** weryfikacji.
 
-`DataType.Date` nie określa formatu wyświetlanej daty. Domyślnie pole dane jest wyświetlane zgodnie z domyślnymi formatami na podstawie @no__t serwera-0.
+`DataType.Date` nie określa formatu wyświetlanej daty. Domyślnie pole dane jest wyświetlane zgodnie z domyślnymi formatami opartymi na `CultureInfo`serwera.
 
-Adnotacja danych `[Column(TypeName = "decimal(18, 2)")]` jest wymagana, aby Entity Framework Core prawidłowo mapować `Price` na walutę w bazie danych. Aby uzyskać więcej informacji, zobacz [typy danych](/ef/core/modeling/relational/data-types).
+`[Column(TypeName = "decimal(18, 2)")]` adnotacji danych jest wymagana, aby Entity Framework Core prawidłowo mapować `Price` do waluty w bazie danych. Aby uzyskać więcej informacji, zobacz [typy danych](/ef/core/modeling/relational/data-types).
 
-Atrybut `DisplayFormat` służy do jawnego określenia formatu daty:
+Atrybut `DisplayFormat` jest używany do jawnego określania formatu daty:
 
 ```csharp
 [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 public DateTime ReleaseDate { get; set; }
 ```
 
-Ustawienie `ApplyFormatInEditMode` Określa, że formatowanie ma być stosowane, gdy wartość jest wyświetlana do edycji. Takie zachowanie może nie być konieczne w przypadku niektórych pól. Na przykład w przypadku wartości walut prawdopodobnie nie potrzebujesz symbolu waluty w interfejsie użytkownika edycji.
+Ustawienie `ApplyFormatInEditMode` określa, że formatowanie ma być stosowane, gdy wartość jest wyświetlana do edycji. Takie zachowanie może nie być konieczne w przypadku niektórych pól. Na przykład w przypadku wartości walut prawdopodobnie nie potrzebujesz symbolu waluty w interfejsie użytkownika edycji.
 
 Atrybut `DisplayFormat` może być używany przez siebie, ale zazwyczaj dobrym pomysłem jest użycie atrybutu `DataType`. Atrybut `DataType` przekazuje semantykę danych w przeciwieństwie do sposobu renderowania na ekranie i zapewnia następujące korzyści, których nie można uzyskać za pomocą DisplayFormat:
 
 * Przeglądarka może włączać funkcje HTML5 (na przykład w celu wyświetlania kontrolki kalendarza, symbolu waluty właściwej dla ustawień regionalnych, linków e-mail itp.).
 * Domyślnie przeglądarka będzie renderować dane przy użyciu poprawnego formatu na podstawie ustawień regionalnych.
-* Atrybut `DataType` może umożliwić platformie ASP.NET Core wybór odpowiedniego szablonu pola w celu renderowania danych. @No__t-0, jeśli używany przez siebie używa szablonu ciągu.
+* Atrybut `DataType` może umożliwić platformie ASP.NET Core wybór odpowiedniego szablonu pola w celu renderowania danych. `DisplayFormat`, jeśli są używane przez siebie, używa szablonu ciągu.
 
 Uwaga: Walidacja jQuery nie działa z atrybutem `Range` i `DateTime`. Na przykład poniższy kod zawsze będzie wyświetlał błąd walidacji po stronie klienta, nawet wtedy, gdy data jest w określonym zakresie:
 
@@ -138,7 +138,7 @@ Uwaga: Walidacja jQuery nie działa z atrybutem `Range` i `DateTime`. Na przykł
 [Range(typeof(DateTime), "1/1/1966", "1/1/2020")]
    ```
 
-Ogólnie rzecz biorąc, nie jest dobrym sposobem kompilowania dat stałych w modelach, dlatego przy użyciu atrybutu `Range` i `DateTime` nie jest to zalecane.
+Ogólnie rzecz biorąc, nie jest dobrym sposobem kompilowania dat stałych w modelach, dlatego przy użyciu `Range` atrybutu i `DateTime` jest niezalecane.
 
 Poniższy kod ilustruje łączenie atrybutów w jednym wierszu:
 
@@ -148,7 +148,7 @@ Poniższy kod ilustruje łączenie atrybutów w jednym wierszu:
 
 ### <a name="apply-migrations"></a>Zastosuj migracje
 
-Adnotacje zastosowane do klasy zmieniają schemat. Przykładowo adnotacje zastosowane do pola `Title`:
+Adnotacje zastosowane do klasy zmieniają schemat. Na przykład, do pola `Title` są stosowane adnotacje:
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Models/MovieDateRatingDA.cs?name=snippet11)]
 
@@ -174,7 +174,7 @@ CREATE TABLE [dbo].[Movie] (
 Powyższe zmiany schematu nie powodują wygenerowania wyjątku przez EF. Należy jednak utworzyć migrację, aby schemat był spójny z modelem.
 
 W menu **Narzędzia** wybierz kolejno pozycje **menedżer pakietów NuGet > konsola Menedżera pakietów**.
-W obszarze PMC wprowadź następujące polecenia:
+W konsoli zarządzania Pakietami wprowadź następujące polecenia:
 
 ```powershell
 Add-Migration New_DataAnnotations

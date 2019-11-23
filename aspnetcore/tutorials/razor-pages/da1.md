@@ -14,7 +14,7 @@ ms.locfileid: "72334112"
 ---
 # <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>Aktualizowanie wygenerowanych stron w aplikacji ASP.NET Core
 
-Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -28,7 +28,7 @@ Otwórz plik *models/Movie. cs* i Dodaj wyróżnione wiersze wyświetlane w nast
 
 [!code-csharp[Main](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Models/MovieDateFixed.cs?name=snippet_1&highlight=3,12,17)]
 
-Adnotacja danych `[Column(TypeName = "decimal(18, 2)")]` umożliwia Entity Framework Core prawidłowe mapowanie `Price` na walutę w bazie danych. Aby uzyskać więcej informacji, zobacz [typy danych](/ef/core/modeling/relational/data-types).
+`[Column(TypeName = "decimal(18, 2)")]` adnotacji danych umożliwia Entity Framework Core prawidłowe mapowanie `Price` na walutę w bazie danych. Aby uzyskać więcej informacji, zobacz [typy danych](/ef/core/modeling/relational/data-types).
 
 [Adnotacje DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) zostały omówione w następnym samouczku. Atrybut [Display](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) określa, co ma być wyświetlane dla nazwy pola (w tym przypadku "Data wydania" zamiast "ReleaseDate"). Atrybut [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) określa typ danych (Data), więc informacje o czasie przechowywane w polu nie są wyświetlane.
 
@@ -40,7 +40,7 @@ Linki **Edytuj**, **szczegóły**i **Usuń** są generowane przez [pomocnika tag
 
 [!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=16-18&range=32-)]
 
-[Pomocnicy tagów](xref:mvc/views/tag-helpers/intro) umożliwiają uczestniczenie kodu po stronie serwera w tworzeniu i renderowaniu elementów HTML w plikach Razor. W poprzednim kodzie `AnchorTagHelper` dynamicznie generuje wartość atrybutu HTML `href` ze strony Razor (trasa jest względna), `asp-page` i identyfikator trasy (`asp-route-id`). Aby uzyskać więcej informacji, zobacz [generowanie adresów URL na stronach](xref:razor-pages/index#url-generation-for-pages) .
+[Pomocnicy tagów](xref:mvc/views/tag-helpers/intro) umożliwiają uczestniczenie kodu po stronie serwera w tworzeniu i renderowaniu elementów HTML w plikach Razor. W poprzednim kodzie `AnchorTagHelper` dynamicznie generuje wartość atrybutu `href` HTML ze strony Razor (trasa jest względna), `asp-page`i identyfikator trasy (`asp-route-id`). Aby uzyskać więcej informacji, zobacz [generowanie adresów URL na stronach](xref:razor-pages/index#url-generation-for-pages) .
 
 Użyj **widoku źródła** z ulubionej przeglądarki, aby sprawdzić wygenerowane znaczniki. Poniżej przedstawiono część wygenerowanego kodu HTML:
 
@@ -52,7 +52,7 @@ Użyj **widoku źródła** z ulubionej przeglądarki, aby sprawdzić wygenerowan
 </td>
 ```
 
-Linki dynamicznie generowane są przekazywane do identyfikatora filmu z ciągiem zapytania (na przykład `?id=1` w `https://localhost:5001/Movies/Details?id=1`).
+Dynamicznie generowane linki przekażą identyfikator filmu z ciągiem zapytania (na przykład `?id=1` w `https://localhost:5001/Movies/Details?id=1`).
 
 ### <a name="add-route-template"></a>Dodawanie szablonu trasy
 
@@ -74,11 +74,11 @@ Zaktualizuj Razor Pages edycji, szczegółów i usuwania, aby użyć szablonu tr
 
 Aby przetestować zachowanie `@page "{id:int?}"`:
 
-* Ustaw dyrektywę Page na stronie */filmy/details. cshtml* na `@page "{id:int?}"`.
+* Ustaw dyrektywę Page na stronie */Films/details. cshtml* na `@page "{id:int?}"`.
 * Ustaw punkt przerwania w `public async Task<IActionResult> OnGetAsync(int? id)` (w obszarze *strony/filmy/szczegóły. cshtml. cs*).
-* Przejdź do `https://localhost:5001/Movies/Details/`.
+* Przejdź do adresu `https://localhost:5001/Movies/Details/`.
 
-Z dyrektywą `@page "{id:int}"` punkt przerwania nigdy nie trafi. Aparat routingu zwraca protokół HTTP 404. Przy użyciu `@page "{id:int?}"` Metoda `OnGetAsync` zwraca `NotFound` (HTTP 404).
+Za pomocą dyrektywy `@page "{id:int}"` punkt przerwania nigdy nie trafi. Aparat routingu zwraca protokół HTTP 404. Przy użyciu `@page "{id:int?}"`Metoda `OnGetAsync` zwraca `NotFound` (HTTP 404).
 
 ### <a name="review-concurrency-exception-handling"></a>Przejrzyj obsługę wyjątków współbieżności
 
@@ -106,7 +106,7 @@ Przejrzyj *stronę/filmy/plik Edit. cshtml. cs* :
 Gdy żądanie HTTP GET zostanie wysłane do strony filmy/Edycja (na przykład `http://localhost:5000/Movies/Edit/2`):
 
 * Metoda `OnGetAsync` pobiera film z bazy danych i zwraca metodę `Page`.
-* Metoda `Page` renderuje stronę */filmy/edytowanie. cshtml* Razor. Plik *Pages/Movies/Edit. cshtml* zawiera dyrektywę modelową (`@model RazorPagesMovie.Pages.Movies.EditModel`), która sprawia, że model filmu jest dostępny na stronie.
+* Metoda `Page` renderuje stronę */filmy/edytowanie. cshtml* Razor. Plik *Pages/Movies/Edit. cshtml* zawiera dyrektywę model (`@model RazorPagesMovie.Pages.Movies.EditModel`), która sprawia, że model filmu jest dostępny na stronie.
 * Zostanie wyświetlony formularz edycji z wartościami z filmu.
 
 Po opublikowaniu strony filmy/Edycja:
@@ -121,7 +121,7 @@ Po opublikowaniu strony filmy/Edycja:
 * Jeśli wystąpią błędy w stanie modelu (na przykład `ReleaseDate` nie można przekonwertować na datę), formularz jest ponownie wyświetlany z przesłanymi wartościami.
 * Jeśli nie ma żadnych błędów modelu, film zostanie zapisany.
 
-Metody GET protokołu HTTP na stronach index, Create i DELETE Razor są zgodne z podobnym wzorcem. Metoda POST protokołu HTTP `OnPostAsync` na stronie Tworzenie Razor jest zgodna z podobnym wzorcem do metody `OnPostAsync` na stronie Edytuj Razor.
+Metody GET protokołu HTTP na stronach index, Create i DELETE Razor są zgodne z podobnym wzorcem. Metoda `OnPostAsync` POST protokołu HTTP na stronie Tworzenie Razor następuje po podobnym wzorcu do metody `OnPostAsync` na stronie Edytuj Razor.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
@@ -143,7 +143,7 @@ Otwórz plik *models/Movie. cs* i Dodaj wyróżnione wiersze wyświetlane w nast
 
 [!code-csharp[Main](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateFixed.cs?name=snippet_1&highlight=3,12,17)]
 
-Adnotacja danych `[Column(TypeName = "decimal(18, 2)")]` umożliwia Entity Framework Core prawidłowe mapowanie `Price` na walutę w bazie danych. Aby uzyskać więcej informacji, zobacz [typy danych](/ef/core/modeling/relational/data-types).
+`[Column(TypeName = "decimal(18, 2)")]` adnotacji danych umożliwia Entity Framework Core prawidłowe mapowanie `Price` na walutę w bazie danych. Aby uzyskać więcej informacji, zobacz [typy danych](/ef/core/modeling/relational/data-types).
 
 [Adnotacje DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) zostały omówione w następnym samouczku. Atrybut [Display](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) określa, co ma być wyświetlane dla nazwy pola (w tym przypadku "Data wydania" zamiast "ReleaseDate"). Atrybut [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) określa typ danych (Data), więc informacje o czasie przechowywane w polu nie są wyświetlane.
 
@@ -155,7 +155,7 @@ Linki **Edytuj**, **szczegóły**i **Usuń** są generowane przez [pomocnika tag
 
 [!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=16-18&range=32-)]
 
-[Pomocnicy tagów](xref:mvc/views/tag-helpers/intro) umożliwiają uczestniczenie kodu po stronie serwera w tworzeniu i renderowaniu elementów HTML w plikach Razor. W poprzednim kodzie `AnchorTagHelper` dynamicznie generuje wartość atrybutu HTML `href` ze strony Razor (trasa jest względna), `asp-page` i identyfikator trasy (`asp-route-id`). Aby uzyskać więcej informacji, zobacz [generowanie adresów URL na stronach](xref:razor-pages/index#url-generation-for-pages) .
+[Pomocnicy tagów](xref:mvc/views/tag-helpers/intro) umożliwiają uczestniczenie kodu po stronie serwera w tworzeniu i renderowaniu elementów HTML w plikach Razor. W poprzednim kodzie `AnchorTagHelper` dynamicznie generuje wartość atrybutu `href` HTML ze strony Razor (trasa jest względna), `asp-page`i identyfikator trasy (`asp-route-id`). Aby uzyskać więcej informacji, zobacz [generowanie adresów URL na stronach](xref:razor-pages/index#url-generation-for-pages) .
 
 Użyj **widoku źródła** z ulubionej przeglądarki, aby sprawdzić wygenerowane znaczniki. Poniżej przedstawiono część wygenerowanego kodu HTML:
 
@@ -167,7 +167,7 @@ Użyj **widoku źródła** z ulubionej przeglądarki, aby sprawdzić wygenerowan
 </td>
 ```
 
-Linki dynamicznie generowane są przekazywane do identyfikatora filmu z ciągiem zapytania (na przykład `?id=1` w `https://localhost:5001/Movies/Details?id=1`).
+Dynamicznie generowane linki przekażą identyfikator filmu z ciągiem zapytania (na przykład `?id=1` w `https://localhost:5001/Movies/Details?id=1`).
 
 Zaktualizuj Razor Pages edycji, szczegółów i usuwania, aby użyć szablonu trasy "{ID: int}". Zmień dyrektywę Page dla każdej z tych stron z `@page` na `@page "{id:int}"`. Uruchom aplikację, a następnie Wyświetl źródło. Wygenerowany kod HTML dodaje identyfikator do części ścieżki adresu URL:
 
@@ -187,11 +187,11 @@ Zaktualizuj Razor Pages edycji, szczegółów i usuwania, aby użyć szablonu tr
 
 Aby przetestować zachowanie `@page "{id:int?}"`:
 
-* Ustaw dyrektywę Page na stronie */filmy/details. cshtml* na `@page "{id:int?}"`.
+* Ustaw dyrektywę Page na stronie */Films/details. cshtml* na `@page "{id:int?}"`.
 * Ustaw punkt przerwania w `public async Task<IActionResult> OnGetAsync(int? id)` (w obszarze *strony/filmy/szczegóły. cshtml. cs*).
-* Przejdź do `https://localhost:5001/Movies/Details/`.
+* Przejdź do adresu `https://localhost:5001/Movies/Details/`.
 
-Z dyrektywą `@page "{id:int}"` punkt przerwania nigdy nie trafi. Aparat routingu zwraca protokół HTTP 404. Przy użyciu `@page "{id:int?}"` Metoda `OnGetAsync` zwraca `NotFound` (HTTP 404).
+Za pomocą dyrektywy `@page "{id:int}"` punkt przerwania nigdy nie trafi. Aparat routingu zwraca protokół HTTP 404. Przy użyciu `@page "{id:int?}"`Metoda `OnGetAsync` zwraca `NotFound` (HTTP 404).
 
 ### <a name="review-concurrency-exception-handling"></a>Przejrzyj obsługę wyjątków współbieżności
 
@@ -219,7 +219,7 @@ Przejrzyj *stronę/filmy/plik Edit. cshtml. cs* :
 Gdy żądanie HTTP GET zostanie wysłane do strony filmy/Edycja (na przykład `http://localhost:5000/Movies/Edit/2`):
 
 * Metoda `OnGetAsync` pobiera film z bazy danych i zwraca metodę `Page`. 
-* Metoda `Page` renderuje stronę */filmy/edytowanie. cshtml* Razor. Plik *Pages/Movies/Edit. cshtml* zawiera dyrektywę modelową (`@model RazorPagesMovie.Pages.Movies.EditModel`), która sprawia, że model filmu jest dostępny na stronie.
+* Metoda `Page` renderuje stronę */filmy/edytowanie. cshtml* Razor. Plik *Pages/Movies/Edit. cshtml* zawiera dyrektywę model (`@model RazorPagesMovie.Pages.Movies.EditModel`), która sprawia, że model filmu jest dostępny na stronie.
 * Zostanie wyświetlony formularz edycji z wartościami z filmu.
 
 Po opublikowaniu strony filmy/Edycja:
@@ -234,7 +234,7 @@ Po opublikowaniu strony filmy/Edycja:
 * Jeśli wystąpią błędy w stanie modelu (na przykład `ReleaseDate` nie można przekonwertować na datę), formularz zostanie wyświetlony z przesłanymi wartościami.
 * Jeśli nie ma żadnych błędów modelu, film zostanie zapisany.
 
-Metody GET protokołu HTTP na stronach index, Create i DELETE Razor są zgodne z podobnym wzorcem. Metoda POST protokołu HTTP `OnPostAsync` na stronie Tworzenie Razor jest zgodna z podobnym wzorcem do metody `OnPostAsync` na stronie Edytuj Razor.
+Metody GET protokołu HTTP na stronach index, Create i DELETE Razor są zgodne z podobnym wzorcem. Metoda `OnPostAsync` POST protokołu HTTP na stronie Tworzenie Razor następuje po podobnym wzorcu do metody `OnPostAsync` na stronie Edytuj Razor.
 
 W następnym samouczku zostanie dodane Wyszukiwanie.
 

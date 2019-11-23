@@ -15,7 +15,7 @@ ms.locfileid: "72822385"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>Dodaj nowe pole do strony Razor w ASP.NET Core
 
-Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -41,7 +41,7 @@ Otwórz plik *models/Movie. cs* i Dodaj `Rating` Właściwość:
 
 Skompiluj aplikację.
 
-Edycja *stron/filmów/index. cshtml*i Dodawanie `Rating` pola:
+Edycja *stron/filmów/index. cshtml*i dodawanie pola `Rating`:
 
 <a name="addrat"></a>
 
@@ -49,7 +49,7 @@ Edycja *stron/filmów/index. cshtml*i Dodawanie `Rating` pola:
 
 Aktualizowanie następujących stron:
 
-* Dodaj pole `Rating` do stron usuwania i szczegółów.
+* Dodaj pole `Rating` do stron usuwanie i szczegóły.
 * Zaktualizuj element [Create. cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Create.cshtml) przy użyciu pola `Rating`.
 * Dodaj pole `Rating` do strony Edycja.
 
@@ -57,7 +57,7 @@ Aplikacja nie będzie działała, dopóki baza danych nie zostanie zaktualizowan
 
 `SqlException: Invalid column name 'Rating'.`
 
-Wyjątek `SqlException` jest spowodowany przez zaktualizowaną klasę filmów, która różni się od schematu tabeli filmów bazy danych. (W tabeli bazy danych nie ma kolumny `Rating`).
+Wyjątek `SqlException` jest spowodowany przez zaktualizowaną klasę filmu inną niż schemat tabeli filmów bazy danych. (Brak kolumny `Rating` w tabeli bazy danych).
 
 Istnieje kilka metod rozpoznawania błędu:
 
@@ -84,16 +84,16 @@ Skompiluj rozwiązanie.
 ### <a name="add-a-migration-for-the-rating-field"></a>Dodawanie migracji dla pola oceny
 
 W menu **Narzędzia** wybierz kolejno pozycje **menedżer pakietów NuGet > konsola Menedżera pakietów**.
-W obszarze PMC wprowadź następujące polecenia:
+W konsoli zarządzania Pakietami wprowadź następujące polecenia:
 
 ```powershell
 Add-Migration Rating
 Update-Database
 ```
 
-Polecenie `Add-Migration` informuje platformę, aby:
+`Add-Migration` polecenie instruuje platformę, aby:
 
-* Porównaj model `Movie` ze schematem bazy danych `Movie`.
+* Porównaj model `Movie` ze schematem `Movie` DB.
 * Utwórz kod, aby zmigrować schemat bazy danych do nowego modelu.
 
 Nazwa "Rating" jest arbitralna i jest używana do nazwy pliku migracji. Warto użyć zrozumiałej nazwy dla pliku migracji.
@@ -109,7 +109,7 @@ Innym rozwiązaniem jest usunięcie bazy danych i użycie migracji w celu ponown
 * Wybierz bazę danych w SSOX.
 * Kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz pozycję *Usuń*.
 * Zaznacz pole wyboru **Zamknij istniejące połączenia**.
-* Wybierz **przycisk OK**.
+* Wybierz **OK**.
 * W obszarze [PMC](xref:tutorials/razor-pages/new-field#pmc)zaktualizuj bazę danych:
 
   ```powershell
@@ -132,7 +132,7 @@ dotnet ef database update
 
 ---
 
-Uruchom aplikację i sprawdź, czy możesz tworzyć/edytować/wyświetlać filmy z polem `Rating`. Jeśli baza danych nie jest zainicjowana, ustaw punkt przerwania w metodzie `SeedData.Initialize`.
+Uruchom aplikację i sprawdź, czy można tworzyć/edytować/wyświetlać filmy z polem `Rating`. Jeśli baza danych nie jest zainicjowana, ustaw punkt przerwania w metodzie `SeedData.Initialize`.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
@@ -168,21 +168,21 @@ Otwórz plik *models/Movie. cs* i Dodaj `Rating` Właściwość:
 
 Skompiluj aplikację.
 
-Edycja *stron/filmów/index. cshtml*i Dodawanie `Rating` pola:
+Edycja *stron/filmów/index. cshtml*i dodawanie pola `Rating`:
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/IndexRating.cshtml?highlight=40-42,61-63)]
 
 Aktualizowanie następujących stron:
 
-* Dodaj pole `Rating` do stron usuwania i szczegółów.
+* Dodaj pole `Rating` do stron usuwanie i szczegóły.
 * Zaktualizuj element [Create. cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Create.cshtml) przy użyciu pola `Rating`.
 * Dodaj pole `Rating` do strony Edycja.
 
-Aplikacja nie będzie działała, dopóki baza danych nie zostanie zaktualizowana w celu uwzględnienia nowego pola. Jeśli Uruchom teraz, aplikacja zgłosi `SqlException`:
+Aplikacja nie będzie działała, dopóki baza danych nie zostanie zaktualizowana w celu uwzględnienia nowego pola. Jeśli uruchomisz teraz, aplikacja zgłosi `SqlException`:
 
 `SqlException: Invalid column name 'Rating'.`
 
-Ten błąd jest spowodowany przez zaktualizowaną klasę filmu inną niż schemat tabeli filmów bazy danych. (W tabeli bazy danych nie ma kolumny `Rating`).
+Ten błąd jest spowodowany przez zaktualizowaną klasę filmu inną niż schemat tabeli filmów bazy danych. (Brak kolumny `Rating` w tabeli bazy danych).
 
 Istnieje kilka metod rozpoznawania błędu:
 
@@ -209,21 +209,21 @@ Skompiluj rozwiązanie.
 ### <a name="add-a-migration-for-the-rating-field"></a>Dodawanie migracji dla pola oceny
 
 W menu **Narzędzia** wybierz kolejno pozycje **menedżer pakietów NuGet > konsola Menedżera pakietów**.
-W obszarze PMC wprowadź następujące polecenia:
+W konsoli zarządzania Pakietami wprowadź następujące polecenia:
 
 ```powershell
 Add-Migration Rating
 Update-Database
 ```
 
-Polecenie `Add-Migration` informuje platformę, aby:
+`Add-Migration` polecenie instruuje platformę, aby:
 
-* Porównaj model `Movie` ze schematem bazy danych `Movie`.
+* Porównaj model `Movie` ze schematem `Movie` DB.
 * Utwórz kod, aby zmigrować schemat bazy danych do nowego modelu.
 
 Nazwa "Rating" jest arbitralna i jest używana do nazwy pliku migracji. Warto użyć zrozumiałej nazwy dla pliku migracji.
 
-Polecenie `Update-Database` informuje strukturę o konieczności zastosowania zmian schematu w bazie danych.
+Polecenie `Update-Database` informuje platformę, aby zastosować zmiany schematu do bazy danych programu.
 
 <a name="ssox"></a>
 
@@ -234,7 +234,7 @@ Innym rozwiązaniem jest usunięcie bazy danych i użycie migracji w celu ponown
 * Wybierz bazę danych w SSOX.
 * Kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz pozycję *Usuń*.
 * Zaznacz pole wyboru **Zamknij istniejące połączenia**.
-* Wybierz **przycisk OK**.
+* Wybierz **OK**.
 * W obszarze [PMC](xref:tutorials/razor-pages/new-field#pmc)zaktualizuj bazę danych:
 
   ```powershell
@@ -255,7 +255,7 @@ dotnet ef database update
 
 ---
 
-Uruchom aplikację i sprawdź, czy możesz tworzyć/edytować/wyświetlać filmy z polem `Rating`. Jeśli baza danych nie jest zainicjowana, ustaw punkt przerwania w metodzie `SeedData.Initialize`.
+Uruchom aplikację i sprawdź, czy można tworzyć/edytować/wyświetlać filmy z polem `Rating`. Jeśli baza danych nie jest zainicjowana, ustaw punkt przerwania w metodzie `SeedData.Initialize`.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

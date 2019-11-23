@@ -3,7 +3,7 @@
 Przykładowa aplikacja pokazuje, jak:
 
 * Uzyskaj imię i nazwisko użytkownika od firmy Google i Zapisz oświadczenia dotyczące nazw za pomocą wartości dostarczonych przez firmę Google.
-* Zapisz token dostępu Google w @no__t użytkownika — 0.
+* Zapisz token dostępu Google w `AuthenticationProperties`użytkownika.
 
 Aby skorzystać z przykładowej aplikacji:
 

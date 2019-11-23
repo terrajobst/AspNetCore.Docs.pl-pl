@@ -63,7 +63,7 @@ Skopiuj aplikację ASP.NET Core na serwer przy użyciu narzędzia, które integr
 > [!NOTE]
 > W obszarze scenariusza wdrożenia produkcyjnego przepływ pracy ciągłej integracji wykonuje zadania publikowania aplikacji i kopiowania zasobów na serwer.
 
-Przetestuj aplikację:
+Testowanie aplikacji:
 
 1. W wierszu polecenia Uruchom aplikację: `dotnet <app_assembly>.dll`.
 1. W przeglądarce przejdź do `http://<serveraddress>:<port>`, aby sprawdzić, czy aplikacja działa lokalnie w systemie Linux.
@@ -104,7 +104,7 @@ services.Configure<ForwardedHeadersOptions>(options =>
 });
 ```
 
-Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/proxy-load-balancer>.
+Aby uzyskać więcej informacji, zobacz temat <xref:host-and-deploy/proxy-load-balancer>.
 
 ### <a name="install-nginx"></a>Zainstaluj Nginx
 
@@ -155,7 +155,7 @@ server {
 W przypadku powyższego pliku konfiguracji i domyślnego serwera Nginx akceptuje publiczny ruch na porcie 80 z nagłówkiem hosta `example.com` lub `*.example.com`. Żądania niepasujące do tych hostów nie zostaną przekazane do Kestrel. Nginx przekazuje pasujące żądania do Kestrel w `http://localhost:5000`. Zobacz [, jak Nginx przetwarza żądanie,](https://nginx.org/docs/http/request_processing.html) Aby uzyskać więcej informacji. Aby zmienić adres IP/port Kestrel, zobacz [Kestrel: Konfiguracja punktu końcowego](xref:fundamentals/servers/kestrel#endpoint-configuration).
 
 > [!WARNING]
-> Nie można określić odpowiedniej [dyrektywy nazwa_serwera](https://nginx.org/docs/http/server_names.html) , aby uwidocznić aplikację pod kątem luk w zabezpieczeniach. Powiązanie symboli wieloznacznych w poddomenie (na przykład `*.example.com`) nie ma znaczenia dla tego zagrożenia bezpieczeństwa, jeśli kontrolujesz całą domenę nadrzędną (w przeciwieństwie do `*.com`, która jest narażona). Aby uzyskać więcej informacji, zobacz [sekcję rfc7230-5,4](https://tools.ietf.org/html/rfc7230#section-5.4) .
+> Niepowodzenie określenia odpowiedniej [dyrektywy server_name](https://nginx.org/docs/http/server_names.html) uwidacznia aplikację pod kątem luk w zabezpieczeniach. Powiązanie symboli wieloznacznych w poddomenie (na przykład `*.example.com`) nie ma znaczenia dla tego zagrożenia bezpieczeństwa, jeśli kontrolujesz całą domenę nadrzędną (w przeciwieństwie do `*.com`, która jest narażona). Zobacz [rfc7230 sekcji-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) Aby uzyskać więcej informacji.
 
 Po nawiązaniu konfiguracji Nginx Uruchom `sudo nginx -t`, aby sprawdzić składnię plików konfiguracji. Jeśli test pliku konfiguracji zakończy się pomyślnie, Wymuś Nginx, aby pobrać zmiany przez uruchomienie `sudo nginx -s reload`.
 
@@ -211,7 +211,7 @@ Użyj `TimeoutStopSec`, aby skonfigurować czas oczekiwania na wyłączenie apli
 TimeoutStopSec=90
 ```
 
-W systemie Linux istnieje system plików z uwzględnieniem wielkości liter. Ustawienie ASPNETCORE_ENVIRONMENT na "Product" skutkuje wyszukiwaniem pliku konfiguracji *appSettings. Production. JSON*, a nie *appSettings. produkcja. JSON*.
+W systemie Linux istnieje system plików z uwzględnieniem wielkości liter. Ustawienie ASPNETCORE_ENVIRONMENT do "produkcji" spowoduje wyszukiwanie pliku konfiguracji *appSettings. Production. JSON*, a nie *appSettings. produkcja. JSON*.
 
 Niektóre wartości (na przykład parametry połączenia SQL) muszą zostać zmienione dla dostawców konfiguracji, aby odczytywać zmienne środowiskowe. Użyj poniższego polecenia, aby wygenerować poprawną wartość ucieczki do użycia w pliku konfiguracji:
 
@@ -272,13 +272,13 @@ sudo journalctl -fu kestrel-helloapp.service --since "2016-10-18" --until "2016-
 
 ## <a name="data-protection"></a>Ochrona danych
 
-[ASP.NET Core stosu ochrony danych](xref:security/data-protection/introduction) jest używany przez kilka ASP.NET Core [middlewares](xref:fundamentals/middleware/index), w tym uwierzytelnianie pośredniczące uwierzytelniania (np. Oprogramowanie pośredniczące plików cookie) i ochrona za żądania między lokacjami (CSRF). Nawet jeśli interfejsy API ochrony danych nie są wywoływane przez kod użytkownika, należy skonfigurować ochronę danych w celu utworzenia trwałego [magazynu kluczy](xref:security/data-protection/implementation/key-management)kryptograficznych. Jeśli ochrona danych nie jest skonfigurowana, klucze są przechowywane w pamięci i usuwane po ponownym uruchomieniu aplikacji.
+[ASP.NET Core stosu ochrony danych](xref:security/data-protection/introduction) jest używany przez kilka ASP.NET Core [middlewares](xref:fundamentals/middleware/index), w tym uwierzytelnianie pośredniczące uwierzytelniania (np. Oprogramowanie pośredniczące plików cookie) i ochrona za żądania między lokacjami (CSRF). Nawet jeśli interfejsy API ochrony danych nie są wywoływane przez kod użytkownika, należy skonfigurować ochronę danych w celu utworzenia trwałego [magazynu kluczy](xref:security/data-protection/implementation/key-management)kryptograficznych. Jeśli nie jest skonfigurowana ochrona danych, klucze są przechowywane w pamięci i odrzucone po ponownym uruchomieniu aplikacji.
 
-Jeśli pierścień kluczy jest przechowywany w pamięci po ponownym uruchomieniu aplikacji:
+Jeśli pierścień klucz jest przechowywany w pamięci, po ponownym uruchomieniu aplikacji:
 
-* Wszystkie tokeny uwierzytelniania na podstawie plików cookie są unieważnione.
-* Użytkownicy muszą ponownie zalogować się przy następnym żądaniu.
-* Nie można już odszyfrować żadnych danych chronionych za pomocą dzwonka klucza. Może to obejmować [tokeny CSRF](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration) [ASP.NET Core i pliki cookie MVC TempData](xref:fundamentals/app-state#tempdata).
+* Wszystkie tokeny na podstawie plików cookie uwierzytelniania są unieważniane.
+* Użytkownicy muszą ponownie zaloguj się na ich następnego żądania.
+* Wszystkie dane chronione za pomocą pierścień klucz może już nie mogły być odszyfrowane. Może to obejmować [tokenów CSRF](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration) i [plików cookie programu ASP.NET Core MVC TempData](xref:fundamentals/app-state#tempdata).
 
 Aby skonfigurować ochronę danych w celu utrwalenia i szyfrowania pierścienia kluczy, zobacz:
 
@@ -303,7 +303,7 @@ Ustawienia domyślne serwera proxy zwykle ograniczają pola nagłówka żądania
 
 Moduły zabezpieczeń systemu Linux (LSM) to struktura, która jest częścią jądra systemu Linux od systemu Linux 2,6. LSM obsługuje różne implementacje modułów zabezpieczeń. [AppArmor](https://wiki.ubuntu.com/AppArmor) to LSM, który implementuje obowiązkowy System Access Control, który umożliwia confining programu z ograniczonym zestawem zasobów. Upewnij się, że AppArmor jest włączona i prawidłowo skonfigurowana.
 
-### <a name="configure-the-firewall"></a>Konfigurowanie zapory
+### <a name="configure-the-firewall"></a>Konfiguracja zapory
 
 Zamknij wszystkie porty zewnętrzne, które nie są używane. Nieskomplikowana Zapora (UFW) zapewnia fronton dla `iptables` przez udostępnienie interfejsu wiersza polecenia w celu skonfigurowania zapory.
 
@@ -326,7 +326,7 @@ sudo ufw enable
 
 #### <a name="change-the-nginx-response-name"></a>Zmień nazwę odpowiedzi Nginx
 
-Edytuj *src/http/ngx_http_header_filter_module. c*:
+Edit *src/http/ngx_http_header_filter_module.c*:
 
 ```
 static char ngx_http_server_string[] = "Server: Web Server" CRLF;

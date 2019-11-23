@@ -18,9 +18,9 @@ ms.locfileid: "72259401"
 
 W poprzednim samouczku zostały obsłużone wyjątki współbieżności. W tym samouczku pokazano, jak zaimplementować dziedziczenie w modelu danych.
 
-W programowaniu zorientowanym obiektowo można użyć dziedziczenia, aby ułatwić ponowne użycie kodu. W tym samouczku zmienisz klasy `Instructor` i `Student`, aby pochodzą z klasy bazowej `Person`, która zawiera właściwości, takie jak `LastName`, które są wspólne dla instruktorów i studentów. Nie dodasz ani nie zmienisz żadnych stron sieci Web, ale zmienisz część kodu, a zmiany zostaną automatycznie odzwierciedlone w bazie danych.
+W programowaniu zorientowanym obiektowo można użyć dziedziczenia, aby ułatwić ponowne użycie kodu. W tym samouczku zmienisz klasy `Instructor` i `Student` tak, aby znajdowały się one w `Person` klasie bazowej, która zawiera właściwości, takie jak `LastName`, które są wspólne dla instruktorów i studentów. Nie dodasz ani nie zmienisz żadnych stron sieci Web, ale zmienisz część kodu, a zmiany zostaną automatycznie odzwierciedlone w bazie danych.
 
-W tym samouczku zostaną wykonane następujące czynności:
+W tym samouczku przedstawiono następujące instrukcje:
 
 > [!div class="checklist"]
 > * Dziedziczenie mapowania do bazy danych
@@ -40,7 +40,7 @@ Klasy `Instructor` i `Student` w modelu danych szkolnych mają kilka właściwo�
 
 ![Klasy uczniów i instruktorów](inheritance/_static/no-inheritance.png)
 
-Załóżmy, że chcesz wyeliminować nadmiarowy kod dla właściwości, które są współużytkowane przez jednostki `Instructor` i `Student`. Lub chcesz napisać usługę, która może formatować nazwy bez Caring, niezależnie od tego, czy nazwa pochodzi od instruktora, czy studenta. Można utworzyć klasę bazową `Person`, która zawiera tylko te właściwości udostępnione, a następnie uczynić klasy `Instructor` i `Student` dziedziczone z tej klasy bazowej, jak pokazano na poniższej ilustracji:
+Załóżmy, że chcesz wyeliminować nadmiarowy kod dla właściwości, które są współużytkowane przez `Instructor` i `Student` jednostek. Lub chcesz napisać usługę, która może formatować nazwy bez Caring, niezależnie od tego, czy nazwa pochodzi od instruktora, czy studenta. Można utworzyć `Person` klasę bazową, która zawiera tylko te właściwości udostępnione, a następnie uczynić klasy `Instructor` i `Student` dziedziczone z tej klasy bazowej, jak pokazano na poniższej ilustracji:
 
 ![Klasy uczniów i instruktorów wyprowadzane z klasy Person](inheritance/_static/inheritance.png)
 
@@ -60,7 +60,7 @@ Jeszcze kolejną opcją jest zamapowanie wszystkich typów nieabstrakcyjnych na 
 
 Wzorce TPHa i dziedziczenia zapewniają lepszą wydajność niż wzorce dziedziczenia TPT, ponieważ wzorce TPT mogą powodować złożone zapytania sprzężenia.
 
-W tym samouczku pokazano, jak wdrożyć dziedziczenie TPH. TPH jest jedynym wzorcem dziedziczenia obsługiwanym przez Entity Framework Core.  Co należy zrobić, aby utworzyć klasę `Person`, Zmień klasy `Instructor` i `Student`, aby pochodne od `Person` dodać nową klasę do `DbContext` i utworzyć migrację.
+W tym samouczku pokazano, jak wdrożyć dziedziczenie TPH. TPH jest jedynym wzorcem dziedziczenia obsługiwanym przez Entity Framework Core.  To, co robisz, jest utworzenie klasy `Person`, zmiana klas `Instructor` i `Student` na pochodny od `Person`, dodanie nowej klasy do `DbContext`i utworzenie migracji.
 
 > [!TIP]
 > Rozważ zapisanie kopii projektu przed wprowadzeniem następujących zmian.  Jeśli wystąpią problemy i trzeba zacząć od nowa, będzie łatwiej zacząć od zapisanego projektu zamiast odwracania kroków wykonanych dla tego samouczka lub powrotu do początku całej serii.
@@ -99,7 +99,7 @@ dotnet ef migrations add Inheritance
 
 Nie uruchamiaj jeszcze polecenia `database update`. To polecenie spowoduje utratę danych, ponieważ spowoduje porzucenie tabeli instruktora i zmianę nazwy tabeli uczniów na osobę. Musisz podać niestandardowy kod, aby zachować istniejące dane.
 
-Otwórz przystawkę *migracje/\<timestamp > _Inheritance. cs* i Zastąp metodę `Up` następującym kodem:
+Otwórz okno *migracji/\<sygnatura czasowa > _Inheritance. cs* i Zastąp metodę `Up` następującym kodem:
 
 [!code-csharp[](intro/samples/cu/Migrations/20170216215525_Inheritance.cs?name=snippet_Up)]
 
@@ -125,16 +125,16 @@ Ten kod obejmuje następujące zadania aktualizacji bazy danych:
 
 (Jeśli jako typ klucza podstawowego użyto identyfikatora GUID zamiast Integer, wartości klucza podstawowego studenta nie będą musiały ulec zmianie, a niektóre z tych kroków mogły zostać pominięte).
 
-Uruchom polecenie `database update`:
+Uruchom `database update` polecenie:
 
 ```dotnetcli
 dotnet ef database update
 ```
 
-(W systemie produkcyjnym należy wprowadzić odpowiednie zmiany w metodzie `Down` na wypadek, gdyby kiedykolwiek było to możliwe, aby wrócić do poprzedniej wersji bazy danych. W tym samouczku nie będziesz używać metody `Down`.)
+(W systemie produkcyjnym można wprowadzać odpowiednie zmiany w metodzie `Down` na wypadek, gdyby kiedykolwiek było użyć tego programu w celu powrotu do poprzedniej wersji bazy danych. W tym samouczku nie będziesz używać metody `Down`.)
 
 > [!NOTE]
-> Podczas wprowadzania zmian schematu w bazie danych, która ma istniejące dane, można uzyskać inne błędy. W przypadku wystąpienia błędów migracji, których nie można rozwiązać, można zmienić nazwę bazy danych w parametrach połączenia lub usunąć bazę danych. W przypadku nowej bazy danych nie ma żadnych danych do migracji, a polecenie Update-Database może być gotowe do ukończenia bez błędów. Aby usunąć bazę danych, należy użyć SSOX-0 interfejsu wiersza polecenia @no__t programu.
+> Podczas wprowadzania zmian schematu w bazie danych, która ma istniejące dane, można uzyskać inne błędy. W przypadku wystąpienia błędów migracji, których nie można rozwiązać, można zmienić nazwę bazy danych w parametrach połączenia lub usunąć bazę danych. W przypadku nowej bazy danych nie ma żadnych danych do migracji, a polecenie Update-Database może być gotowe do ukończenia bez błędów. Aby usunąć bazę danych, użyj SSOX lub uruchom polecenie interfejsu wiersza polecenia `database drop`.
 
 ## <a name="test-the-implementation"></a>Testowanie implementacji
 
@@ -148,17 +148,17 @@ Kliknij prawym przyciskiem myszy tabelę osoba, a następnie kliknij polecenie *
 
 ![Tabela osób w SSOX — dane tabeli](inheritance/_static/ssox-person-data.png)
 
-## <a name="get-the-code"></a>Uzyskaj kod
+## <a name="get-the-code"></a>Pobierz kod
 
 [Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Aby uzyskać więcej informacji na temat dziedziczenia w Entity Framework Core, zobacz [dziedziczenie](/ef/core/modeling/inheritance).
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku zostaną wykonane następujące czynności:
+W tym samouczku przedstawiono następujące instrukcje:
 
 > [!div class="checklist"]
 > * Mapowane dziedziczenie do bazy danych

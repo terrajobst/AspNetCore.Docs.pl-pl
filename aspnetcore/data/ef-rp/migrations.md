@@ -22,7 +22,7 @@ Autorzy [Dykstra](https://github.com/tdykstra), [Jan P Kowalski](https://twitter
 
 W tym samouczku przedstawiono funkcję migracji EF Core na potrzeby zarządzania zmianami modelu danych.
 
-Po opracowaniu nowej aplikacji model danych zmienia się często. Za każdym razem, gdy model ulegnie zmianie, model nie jest zsynchronizowany z bazą danych. Ta seria samouczków została uruchomiona przez skonfigurowanie Entity Framework, aby utworzyć bazę danych, jeśli nie istnieje. Za każdym razem, gdy model danych ulegnie zmianie, należy usunąć bazę danych. Przy następnym uruchomieniu aplikacji wywołanie `EnsureCreated` ponownie tworzy bazę danych w celu dopasowania do nowego modelu danych. Następnie Klasa `DbInitializer` zostanie uruchomiona w celu wypełniania nowej bazy danych.
+Po opracowaniu nowej aplikacji model danych zmienia się często. Za każdym razem, gdy model ulegnie zmianie, model nie jest zsynchronizowany z bazą danych. Ta seria samouczków została uruchomiona przez skonfigurowanie Entity Framework, aby utworzyć bazę danych, jeśli nie istnieje. Za każdym razem, gdy model danych ulegnie zmianie, należy usunąć bazę danych. Przy następnym uruchomieniu aplikacji wywołanie `EnsureCreated` ponownie utworzy bazę danych w celu dopasowania jej do nowego modelu danych. Następnie Klasa `DbInitializer` uruchamia się w celu wypełniania nowej bazy danych.
 
 Takie podejście do utrzymywania synchronizacji bazy danych z modelem danych działa prawidłowo, dopóki aplikacja nie zostanie wdrożona w środowisku produkcyjnym. Gdy aplikacja działa w środowisku produkcyjnym, zazwyczaj przechowuje dane, które muszą zostać zachowane. Aplikacja nie może rozpocząć pracy z testową bazą danych przy każdej zmianie (na przykład dodanie nowej kolumny). Funkcja migracji EF Core rozwiązuje ten problem przez włączenie EF Core do zaktualizowania schematu bazy danych zamiast tworzenia nowej bazy danych.
 
@@ -82,14 +82,14 @@ dotnet ef database update
 
 ## <a name="up-and-down-methods"></a>Metody w górę i w dół
 
-EF Core `migrations add` polecenie wygenerowało kod, aby utworzyć bazę danych. Ten kod migracji znajduje się w plikach *migrations @ no__t-1timestamp > _InitialCreate. cs* . Metoda `Up` klasy `InitialCreate` tworzy tabele bazy danych, które odpowiadają zestawom jednostek modelu danych. Metoda `Down` usuwa je, jak pokazano w następującym przykładzie:
+EF Core `migrations add` kod wygenerowany przez polecenie, aby utworzyć bazę danych. Ten kod migracji znajduje się w pliku *migrations\<timestamp > _InitialCreate. cs* . Metoda `Up` klasy `InitialCreate` tworzy tabele bazy danych, które odpowiadają zestawom jednostek modelu danych. Metoda `Down` usuwa je, jak pokazano w następującym przykładzie:
 
 [!code-csharp[](intro/samples/cu30/Migrations/20190731193522_InitialCreate.cs)]
 
 Poprzedni kod jest przeznaczony dla początkowej migracji. Kod:
 
 * Zostało wygenerowane przez polecenie `migrations add InitialCreate`. 
-* Jest wykonywany przez polecenie `database update`.
+* Jest wykonywane przez polecenie `database update`.
 * Tworzy bazę danych dla modelu danych określonego przez klasę kontekstu bazy danych.
 
 Parametr name migracji ("InitialCreate" w przykładzie) jest używany jako nazwa pliku. Nazwa migracji może być dowolną prawidłową nazwą pliku. Najlepiej wybrać słowo lub frazę, która podsumowuje zawartość wykonywaną podczas migracji. Na przykład migracja dodana do tabeli działu może być nazywana "adddepartments".
@@ -106,7 +106,7 @@ Migracja tworzy *migawkę* bieżącego modelu danych w *migracji/SchoolContextMo
 
 Ponieważ plik migawek śledzi stan modelu danych, nie można usunąć migracji, usuwając plik `<timestamp>_<migrationname>.cs`. Aby wykonać kopię zapasową najnowszej migracji, należy użyć polecenia `migrations remove`. To polecenie usuwa migrację i gwarantuje, że migawka zostanie prawidłowo zresetowana. Aby uzyskać więcej informacji, zobacz [migracja programu dotnet EF Usuń](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove).
 
-## <a name="remove-ensurecreated"></a>Usuń EnsureCreated
+## <a name="remove-ensurecreated"></a>Remove EnsureCreated
 
 Ta seria samouczków została uruchomiona przy użyciu `EnsureCreated`. `EnsureCreated` nie tworzy tabeli historii migracji i dlatego nie można jej używać z migracjami. Jest ona przeznaczona do testowania lub szybkiego tworzenia prototypów, w których baza danych została porzucona i wielokrotnie utworzona.
 
@@ -121,7 +121,7 @@ Uruchom aplikację i sprawdź, czy baza danych została zainicjowana.
 
 ## <a name="applying-migrations-in-production"></a>Stosowanie migracji w środowisku produkcyjnym
 
-Zalecamy, aby aplikacje produkcyjne **nie** wywoływały [bazy danych. Przeprowadź migrację](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) podczas uruchamiania aplikacji. nie należy wywoływać `Migrate` z aplikacji wdrożonej w farmie serwerów. Jeśli aplikacja jest skalowana w poziomie wielu wystąpień serwera, trudno jest upewnić się, że aktualizacje schematu bazy danych nie występują z wielu serwerów lub powodują konflikt z dostępem do odczytu i zapisu.
+Zalecamy, aby aplikacje produkcyjne **nie** wywoływały [bazy danych. Przeprowadź migrację](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) podczas uruchamiania aplikacji. `Migrate` nie należy wywoływać z aplikacji wdrożonej w farmie serwerów. Jeśli aplikacja jest skalowana w poziomie wielu wystąpień serwera, trudno jest upewnić się, że aktualizacje schematu bazy danych nie występują z wielu serwerów lub powodują konflikt z dostępem do odczytu i zapisu.
 
 Migracja bazy danych powinna odbywać się w ramach wdrożenia i w sposób kontrolowany. Podejścia do migracji produkcyjnej bazy danych obejmują:
 
@@ -140,17 +140,18 @@ Login failed for user 'user name'.
 
 Rozwiązaniem może być uruchomienie `dotnet ef database update` w wierszu polecenia.
 
-### <a name="additional-resources"></a>Zasoby dodatkowe
+### <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Interfejs wiersza polecenia EF Core](/ef/core/miscellaneous/cli/dotnet).
-* [Konsola Menedżera pakietów (Visual Studio)](/ef/core/miscellaneous/cli/powershell)
+* [Konsola menedżera pakietów (Visual Studio)](/ef/core/miscellaneous/cli/powershell)
 
 ## <a name="next-steps"></a>Następne kroki
 
 Następny samouczek kompiluje model danych, dodając właściwości jednostki i nowe jednostki.
 
 > [!div class="step-by-step"]
-> [Poprzedni samouczek](xref:data/ef-rp/sort-filter-page)@no__t — 1[następny samouczek](xref:data/ef-rp/complex-data-model)
+> [Poprzedni samouczek](xref:data/ef-rp/sort-filter-page)
+> [następnego samouczka](xref:data/ef-rp/complex-data-model)
 
 ::: moniker-end
 
@@ -219,11 +220,11 @@ dotnet ef database update
 
 ### <a name="examine-the-up-and-down-methods"></a>Sprawdzanie metod w górę i w dół
 
-EF Core `migrations add` polecenie wygenerowało kod, aby utworzyć bazę danych. Ten kod migracji znajduje się w plikach *migrations @ no__t-1timestamp > _InitialCreate. cs* . Metoda `Up` klasy `InitialCreate` tworzy tabele baz danych odpowiadające zestawom jednostek modelu danych. Metoda `Down` usuwa je, jak pokazano w następującym przykładzie:
+EF Core `migrations add` wygenerowany kod, aby utworzyć bazę danych. Ten kod migracji znajduje się w pliku *migrations\<timestamp > _InitialCreate. cs* . Metoda `Up` klasy `InitialCreate` tworzy tabele bazy danych, które odpowiadają zestawom jednostek modelu dane. Metoda `Down` usuwa je, jak pokazano w następującym przykładzie:
 
 [!code-csharp[](intro/samples/cu21/Migrations/20180626224812_InitialCreate.cs?range=7-24,77-88)]
 
-Migracja wywołuje metodę `Up` w celu zaimplementowania zmian modelu danych dla migracji. Po wprowadzeniu polecenia w celu wycofania aktualizacji migracja wywołuje metodę `Down`.
+Migracja wywołuje metodę `Up`, aby zaimplementować zmiany modelu danych dla migracji. Po wprowadzeniu polecenia w celu wycofania aktualizacji migracja wywołuje metodę `Down`.
 
 Poprzedni kod jest przeznaczony dla początkowej migracji. Ten kod został utworzony, gdy polecenie `migrations add InitialCreate` zostało uruchomione. Parametr name migracji ("InitialCreate" w przykładzie) jest używany jako nazwa pliku. Nazwa migracji może być dowolną prawidłową nazwą pliku. Najlepiej wybrać słowo lub frazę, która podsumowuje zawartość wykonywaną podczas migracji. Na przykład migracja dodana do tabeli działu może być nazywana "adddepartments".
 
@@ -277,13 +278,13 @@ Uruchom aplikację i sprawdź, czy baza danych została zainicjowana.
 
 ### <a name="inspect-the-database"></a>Inspekcja bazy danych
 
-Użyj **Eksplorator obiektów SQL Server** , aby sprawdzić bazę danych. Zwróć uwagę na dodanie tabeli `__EFMigrationsHistory`. Tabela `__EFMigrationsHistory` śledzi, które migracje zostały zastosowane do bazy danych. Wyświetlanie danych w tabeli `__EFMigrationsHistory` wyświetla jeden wiersz dla pierwszej migracji. Ostatni dziennik w poprzednim przykładzie danych wyjściowych interfejsu wiersza polecenia przedstawia instrukcję INSERT, która tworzy ten wiersz.
+Użyj **Eksplorator obiektów SQL Server** , aby sprawdzić bazę danych. Zwróć uwagę na dodanie tabeli `__EFMigrationsHistory`. Tabela `__EFMigrationsHistory` śledzi, które migracje zostały zastosowane do bazy danych. Wyświetl dane w tabeli `__EFMigrationsHistory`, wyświetlając jeden wiersz dla pierwszej migracji. Ostatni dziennik w poprzednim przykładzie danych wyjściowych interfejsu wiersza polecenia przedstawia instrukcję INSERT, która tworzy ten wiersz.
 
 Uruchom aplikację i sprawdź, czy wszystko działa.
 
 ## <a name="applying-migrations-in-production"></a>Stosowanie migracji w środowisku produkcyjnym
 
-Zalecamy, aby aplikacje produkcyjne **nie** wywoływały metody [Database. migruje](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) podczas uruchamiania aplikacji. nie należy wywoływać `Migrate` z aplikacji w farmie serwerów. Na przykład jeśli aplikacja została wdrożona w chmurze przy użyciu skalowania w poziomie (uruchomiono wiele wystąpień aplikacji).
+Zalecamy, aby aplikacje produkcyjne **nie** wywoływały metody [Database. migruje](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) podczas uruchamiania aplikacji. `Migrate` nie należy wywoływać z aplikacji w farmie serwerów. Na przykład jeśli aplikacja została wdrożona w chmurze przy użyciu skalowania w poziomie (uruchomiono wiele wystąpień aplikacji).
 
 Migracja bazy danych powinna odbywać się w ramach wdrożenia i w sposób kontrolowany. Podejścia do migracji produkcyjnej bazy danych obejmują:
 
@@ -305,19 +306,19 @@ The login failed.
 Login failed for user 'user name'.
 ```
 
-Rozwiązanie: uruchamianie `dotnet ef database update`
+Rozwiązanie: Uruchom `dotnet ef database update`
 
-### <a name="additional-resources"></a>Zasoby dodatkowe
+### <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Wersja tego samouczka usługi YouTube](https://www.youtube.com/watch?v=OWSUuMLKTJo)
 * [Interfejs wiersza polecenia platformy .NET Core](/ef/core/miscellaneous/cli/dotnet).
-* [Konsola Menedżera pakietów (Visual Studio)](/ef/core/miscellaneous/cli/powershell)
+* [Konsola menedżera pakietów (Visual Studio)](/ef/core/miscellaneous/cli/powershell)
 
 
 
 > [!div class="step-by-step"]
 > [Poprzedni](xref:data/ef-rp/sort-filter-page)
-> [dalej](xref:data/ef-rp/complex-data-model)
+> [Następny](xref:data/ef-rp/complex-data-model)
 
 ::: moniker-end
 

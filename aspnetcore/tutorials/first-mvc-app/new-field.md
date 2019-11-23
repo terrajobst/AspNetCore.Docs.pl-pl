@@ -29,7 +29,7 @@ Gdy Code First EF jest używany do automatycznego tworzenia bazy danych, Code Fi
 
 ## <a name="add-a-rating-property-to-the-movie-model"></a>Dodawanie właściwości oceny do modelu filmu
 
-Dodaj właściwość do *modeli/filmów. cs:* `Rating`
+Dodawanie właściwości `Rating` do *modeli/filmów. cs*:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Models/MovieDateRating.cs?highlight=13&name=snippet)]
 
@@ -51,19 +51,19 @@ Polecenie ⌘ + B
 
 ------
 
-Ponieważ dodano nowe pole do `Movie` klasy, należy zaktualizować białe listy powiązań, aby ta nowa właściwość została uwzględniona. W *programie MoviesController.cs*zaktualizuj `[Bind]` `Create` atrybut dla obu metod i `Edit` , aby uwzględnić `Rating` Właściwość:
+Ponieważ dodano nowe pole do klasy `Movie`, należy zaktualizować białe listy powiązań, aby ta nowa właściwość została uwzględniona. W *MoviesController.cs*, zaktualizuj atrybut `[Bind]` dla `Create` i `Edit` metody akcji, aby uwzględnić Właściwość `Rating`:
 
 ```csharp
 [Bind("Id,Title,ReleaseDate,Genre,Price,Rating")]
    ```
 
-Aktualizowanie szablonów widoku w celu wyświetlania, tworzenia i edytowania nowej `Rating` właściwości w widoku przeglądarki.
+Aktualizowanie szablonów widoku w celu wyświetlania, tworzenia i edytowania nowej właściwości `Rating` w widoku przeglądarki.
 
-Edytuj plik */views/Movies/index.cshtml* i Dodaj `Rating` pole:
+Edytuj plik */views/Movies/index.cshtml* i dodaj pole `Rating`:
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexGenreRating.cshtml?highlight=16,38&range=24-64)]
 
-Zaktualizuj */views/Movies/Create.cshtml* z `Rating` polem.
+Zaktualizuj */views/Movies/Create.cshtml* za pomocą pola `Rating`.
 
 # <a name="visual-studio--visual-studio-for-mactabvisual-studiovisual-studio-mac"></a>[Visual Studio/Visual Studio dla komputerów Mac](#tab/visual-studio+visual-studio-mac)
 
@@ -79,15 +79,15 @@ Możesz skopiować/wkleić poprzednią "grupę formularzy" i pozwól, aby funkcj
 
 Zaktualizuj pozostałe szablony.
 
-`SeedData` Zaktualizuj klasę, aby zapewnić wartość nowej kolumny. Poniżej przedstawiono przykładową zmianę, ale trzeba wprowadzić tę zmianę dla każdej z nich `new Movie`.
+Zaktualizuj klasę `SeedData`, aby zapewnić wartość nowej kolumny. Poniżej przedstawiono przykładową zmianę, ale trzeba wprowadzić tę zmianę dla każdego `new Movie`.
 
 [!code-csharp[](start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
 
-Aplikacja nie będzie działała, dopóki baza danych nie zostanie zaktualizowana w celu uwzględnienia nowego pola. Jeśli jest teraz uruchomiona, zgłaszane są następujące `SqlException` elementy:
+Aplikacja nie będzie działała, dopóki baza danych nie zostanie zaktualizowana w celu uwzględnienia nowego pola. Jeśli jest teraz uruchomiona, zostanie zgłoszony następujący `SqlException`:
 
 `SqlException: Invalid column name 'Rating'.`
 
-Ten błąd występuje, ponieważ zaktualizowana Klasa modelu filmu jest inna niż schemat tabeli filmów istniejącej bazy danych. (Brak `Rating` kolumn w tabeli bazy danych).
+Ten błąd występuje, ponieważ zaktualizowana Klasa modelu filmu jest inna niż schemat tabeli filmów istniejącej bazy danych. (Brak kolumny `Rating` w tabeli bazy danych).
 
 Istnieje kilka metod rozpoznawania błędu:
 
@@ -112,11 +112,11 @@ Add-Migration Rating
 Update-Database
 ```
 
-Polecenie informuje platformę migracji, aby przeanalizować `Movie` bieżący model z bieżącym `Movie` schematem bazy danych i utworzyć wymagany kod w celu przeprowadzenia migracji bazy danych do nowego modelu. `Add-Migration`
+`Add-Migration` polecenie instruuje platformę migracji, aby przeanalizować bieżący model `Movie` z bieżącym schematem `Movie` DB i utworzyć wymagany kod w celu przeprowadzenia migracji bazy danych do nowego modelu.
 
 Nazwa "Rating" jest arbitralna i jest używana do nazwy pliku migracji. Warto użyć zrozumiałej nazwy dla pliku migracji.
 
-Jeśli wszystkie rekordy w bazie danych zostaną usunięte, metoda Initialize będzie wypełniać bazę danych i zawierać `Rating` pole.
+Jeśli wszystkie rekordy w bazie danych zostaną usunięte, metoda Initialize będzie wypełniać bazę danych i zawierać pole `Rating`.
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
@@ -131,7 +131,7 @@ dotnet ef database update
 ---
 <!-- End of VS tabs -->
 
-Uruchom aplikację i sprawdź, czy można tworzyć/edytować/wyświetlać filmy z `Rating` polem. Należy dodać `Rating` pole `Edit`do szablonów, `Details`i `Delete` .
+Uruchom aplikację i sprawdź, czy można tworzyć/edytować/wyświetlać filmy z polem `Rating`. Należy dodać pole `Rating` do szablonów widoków `Edit`, `Details`i `Delete`.
 
 > [!div class="step-by-step"]
 > [Poprzedni](search.md)

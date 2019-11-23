@@ -29,19 +29,19 @@ Te informacje mogą być ważne w przetwarzaniu żądań, na przykład w przekie
 
 Zgodnie z Konwencją serwery proxy przesyłają dalej informacje w nagłówkach HTTP.
 
-| nagłówek | Opis |
+| Nagłówek | Opis |
 | ------ | ----------- |
 | X-Forwarded-For | Zawiera informacje o kliencie, który zainicjował żądanie i kolejne serwery proxy w łańcuchu serwerów proxy. Ten parametr może zawierać adresy IP (i opcjonalnie numery portów). W łańcuchu serwerów proxy pierwszy parametr wskazuje klienta, na którym żądanie zostało po raz pierwszy wykonane. Kolejne identyfikatory serwerów proxy są następujące. Ostatni serwer proxy w łańcuchu nie znajduje się na liście parametrów. Adres IP ostatniego serwera proxy i opcjonalnie numer portu są dostępne jako zdalny adres IP w warstwie transportowej. |
 | X-Forwarded-Proto | Wartość schematu inicjującego (HTTP/HTTPS). Ta wartość może być również listą schematów, jeśli żądanie przełączyło wiele serwerów proxy. |
 | X-Forwarded-Host | Oryginalna wartość pola nagłówka hosta. Zazwyczaj proxy nie modyfikują nagłówka hosta. Zobacz [Poradnik zabezpieczeń firmy Microsoft CVE-2018-0787](https://github.com/aspnet/Announcements/issues/295) , aby uzyskać informacje na temat luki w zabezpieczeniach dotyczącej podniesienia uprawnień, która ma wpływ na systemy, w których serwer proxy nie weryfikuje ani nie ogranicza nagłówków hosta do znanych prawidłowych wartości. |
 
-Przekazane nagłówki — oprogramowanie pośredniczące, z pakietu [Microsoft. AspNetCore. HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) , odczytuje te nagłówki i wypełnia odpowiednie pola w <xref:Microsoft.AspNetCore.Http.HttpContext>.
+Przekazane nagłówki — oprogramowanie pośredniczące, z pakietu [Microsoft. AspNetCore. HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) , odczytuje te nagłówki i wypełnia pola skojarzone w <xref:Microsoft.AspNetCore.Http.HttpContext>.
 
 Aktualizacje oprogramowania pośredniczącego:
 
-* [HttpContext. Connection. RemoteIpAddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress) &ndash; ustawiony przy użyciu wartości nagłówka `X-Forwarded-For`. Ustawienia dodatkowe mają wpływ na sposób, w jaki oprogramowanie pośredniczące ustawia `RemoteIpAddress`. Aby uzyskać szczegółowe informacje, zobacz [Opcje oprogramowania pośredniczącego z przekazanymi nagłówkami](#forwarded-headers-middleware-options).
-* Element [HttpContext. Request. schema](xref:Microsoft.AspNetCore.Http.HttpRequest.Scheme) &ndash; ustawiony przy użyciu wartości nagłówka `X-Forwarded-Proto`.
-* Element [HttpContext. Request. Host](xref:Microsoft.AspNetCore.Http.HttpRequest.Host) &ndash; ustawiony przy użyciu wartości nagłówka `X-Forwarded-Host`.
+* Element [HttpContext. Connection. RemoteIpAddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress) &ndash; ustawiany przy użyciu wartości nagłówka `X-Forwarded-For`. Ustawienia dodatkowe mają wpływ na sposób, w jaki oprogramowanie pośredniczące ustawia `RemoteIpAddress`. Aby uzyskać szczegółowe informacje, zobacz [Opcje oprogramowania pośredniczącego z przekazanymi nagłówkami](#forwarded-headers-middleware-options).
+* Element [HttpContext. Request. schema](xref:Microsoft.AspNetCore.Http.HttpRequest.Scheme) &ndash; ustawiany przy użyciu wartości nagłówka `X-Forwarded-Proto`.
+* [Właściwość HttpContext. Request. Host](xref:Microsoft.AspNetCore.Http.HttpRequest.Host) &ndash; ustawiona przy użyciu wartości nagłówka `X-Forwarded-Host`.
 
 Można skonfigurować przekierowane nagłówki — [domyślne ustawienia](#forwarded-headers-middleware-options) oprogramowania. Ustawienia domyślne to:
 
@@ -49,17 +49,17 @@ Można skonfigurować przekierowane nagłówki — [domyślne ustawienia](#forwa
 * Tylko adresy sprzężenia zwrotnego są konfigurowane dla znanych serwerów proxy i znanych sieci.
 * Przekazane nagłówki mają nazwę `X-Forwarded-For` i `X-Forwarded-Proto`.
 
-Nie wszystkie urządzenia sieciowe Dodaj nagłówki `X-Forwarded-For` i `X-Forwarded-Proto` bez dodatkowej konfiguracji. Zapoznaj się ze wskazówkami producenta urządzenia, jeśli żądania proxy nie zawierają tych nagłówków podczas uzyskiwania dostępu do aplikacji. Jeśli urządzenie używa innych nazw nagłówków niż `X-Forwarded-For` i `X-Forwarded-Proto`, ustaw opcje <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedForHeaderName> i <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedProtoHeaderName>, aby odpowiadały nazwom nagłówków używanym przez urządzenie. Aby uzyskać więcej informacji, zobacz Opcje i konfiguracja [przekierowanych nagłówków](#forwarded-headers-middleware-options) [dla serwera proxy, który używa innych nazw nagłówków](#configuration-for-a-proxy-that-uses-different-header-names).
+Nie wszystkie urządzenia sieciowe Dodaj nagłówki `X-Forwarded-For` i `X-Forwarded-Proto` bez dodatkowej konfiguracji. Zapoznaj się ze wskazówkami producenta urządzenia, jeśli żądania proxy nie zawierają tych nagłówków podczas uzyskiwania dostępu do aplikacji. Jeśli urządzenie używa innych nazw nagłówka niż `X-Forwarded-For` i `X-Forwarded-Proto`, ustaw opcje <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedForHeaderName> i <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedProtoHeaderName>, aby były zgodne z nazwami nagłówków używanymi przez urządzenie. Aby uzyskać więcej informacji, zobacz Opcje i konfiguracja [przekierowanych nagłówków](#forwarded-headers-middleware-options) [dla serwera proxy, który używa innych nazw nagłówków](#configuration-for-a-proxy-that-uses-different-header-names).
 
 ## <a name="iisiis-express-and-aspnet-core-module"></a>Usługi IIS/IIS Express i moduł ASP.NET Core
 
-Przekazane nagłówki — oprogramowanie pośredniczące jest domyślnie włączone przez [oprogramowanie pośredniczące integracji usług IIS](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) , gdy aplikacja jest hostowana [poza procesem](xref:host-and-deploy/iis/index#out-of-process-hosting-model) usług iis i modułem ASP.NET Core. Przekierowane nagłówki oprogramowania są aktywowane do uruchomienia najpierw w potoku pośredniczącym z ograniczoną konfiguracją specyficzną dla modułu ASP.NET Core z powodu obaw zaufania z przekierowanymi nagłówkami (na przykład [fałszowanie adresów IP](https://www.iplocation.net/ip-spoofing)). Oprogramowanie pośredniczące jest skonfigurowane do przesyłania dalej nagłówków `X-Forwarded-For` i `X-Forwarded-Proto` i jest ograniczone do jednego serwera proxy hosta lokalnego. Jeśli wymagana jest dodatkowa konfiguracja, zapoznaj się z [opcjami przekierowanych nagłówków](#forwarded-headers-middleware-options).
+Przekazane nagłówki — oprogramowanie pośredniczące jest domyślnie włączone przez [oprogramowanie pośredniczące integracji usług IIS](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) , gdy aplikacja jest hostowana [poza procesem](xref:host-and-deploy/iis/index#out-of-process-hosting-model) usług iis i modułem ASP.NET Core. Przekierowane nagłówki oprogramowania są aktywowane do uruchomienia najpierw w potoku pośredniczącym z ograniczoną konfiguracją specyficzną dla modułu ASP.NET Core z powodu obaw zaufania z przekierowanymi nagłówkami (na przykład [fałszowanie adresów IP](https://www.iplocation.net/ip-spoofing)). Oprogramowanie pośredniczące jest skonfigurowane do przesyłania dalej `X-Forwarded-For` i `X-Forwarded-Proto` nagłówków i jest ograniczone do jednego serwera proxy hosta lokalnego. Jeśli wymagana jest dodatkowa konfiguracja, zapoznaj się z [opcjami przekierowanych nagłówków](#forwarded-headers-middleware-options).
 
 ## <a name="other-proxy-server-and-load-balancer-scenarios"></a>Inne scenariusze serwera proxy i modułu równoważenia obciążenia
 
-Poza użyciem [integracji usług IIS](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) podczas hostingu [poza procesem](xref:host-and-deploy/iis/index#out-of-process-hosting-model), przekazane nagłówki nie są domyślnie włączone. Przesyłane nagłówki muszą być włączone, aby aplikacja mogła przetworzyć przekazane nagłówki przy użyciu <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*>. Po włączeniu oprogramowania pośredniczącego, jeśli żadne <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> nie są określone dla oprogramowania pośredniczącego, domyślnie [ForwardedHeadersOptions. ForwardedHeaders](xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHeaders) to [ForwardedHeaders. None](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders).
+Poza użyciem [integracji usług IIS](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) podczas hostingu [poza procesem](xref:host-and-deploy/iis/index#out-of-process-hosting-model), przekazane nagłówki nie są domyślnie włączone. Aby aplikacja mogła przetworzyć przekazane nagłówki za pomocą <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*>, należy włączyć oprogramowanie pośredniczące przesyłane dalej. Po włączeniu oprogramowania pośredniczącego, jeśli żadne <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> nie są określone dla oprogramowania pośredniczącego, domyślne [ForwardedHeadersOptions. ForwardedHeaders](xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHeaders) to [ForwardedHeaders. None](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders).
 
-Skonfiguruj oprogramowanie pośredniczące przy użyciu <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions>, aby przekazywać nagłówki `X-Forwarded-For` i `X-Forwarded-Proto` w `Startup.ConfigureServices`. Wywołaj metodę <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> w `Startup.Configure` przed wywołaniem innego oprogramowania pośredniczącego:
+Skonfiguruj oprogramowanie pośredniczące przy użyciu <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> do przesyłania dalej `X-Forwarded-For` i `X-Forwarded-Proto` nagłówków w `Startup.ConfigureServices`. Wywołaj metodę <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> w `Startup.Configure` przed wywołaniem innego oprogramowania pośredniczącego:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -98,17 +98,17 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ## <a name="nginx-configuration"></a>Konfiguracja Nginx
 
-Aby przesłać nagłówki `X-Forwarded-For` i `X-Forwarded-Proto`, zobacz <xref:host-and-deploy/linux-nginx#configure-nginx>. Aby uzyskać więcej informacji, zobacz @no__t 0NGINX: Przy użyciu przekazanego nagłówka @ no__t-0.
+Aby przesłać dalej nagłówki `X-Forwarded-For` i `X-Forwarded-Proto`, zobacz <xref:host-and-deploy/linux-nginx#configure-nginx>. Aby uzyskać więcej informacji, zobacz [Nginx: Using](https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/)The Forwarded header.
 
 ## <a name="apache-configuration"></a>Konfiguracja Apache
 
-`X-Forwarded-For` jest automatycznie dodawany (zobacz [Apache module mod_proxy: Nagłówki żądań zwrotnego serwera proxy @ no__t-0). Aby uzyskać informacje na temat przekazywania `X-Forwarded-Proto` nagłówka, zobacz <xref:host-and-deploy/linux-apache#configure-apache>.
+`X-Forwarded-For` jest automatycznie dodawany (zobacz [Apache Module mod_proxy: nagłówki żądań zwrotnego serwera proxy](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#x-headers)). Aby uzyskać informacje na temat przesyłania dalej nagłówka `X-Forwarded-Proto`, zobacz <xref:host-and-deploy/linux-apache#configure-apache>.
 
 ## <a name="forwarded-headers-middleware-options"></a>Przekazane nagłówki — Opcje oprogramowania pośredniczącego
 
-<xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> kontroluje zachowanie programów pośredniczących z przekazanymi nagłówkami. Poniższy przykład zmienia wartości domyślne:
+<xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> kontrolować zachowanie oprogramowania pośredniczącego z przekazanymi nagłówkami. Poniższy przykład zmienia wartości domyślne:
 
-* Ogranicz liczbę wpisów w nagłówkach przesyłanych dalej do `2`.
+* Ogranicz liczbę wpisów w nagłówkach przekazanych do `2`.
 * Dodaj znany adres serwera proxy `127.0.10.1`.
 * Zmień nazwę przekazanego nagłówka z domyślnego `X-Forwarded-For` na `X-Forwarded-For-My-Custom-Header-Name`.
 
@@ -123,14 +123,14 @@ services.Configure<ForwardedHeadersOptions>(options =>
 
 | Opcja | Opis |
 | ------ | ----------- |
-| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.AllowedHosts> | Ogranicza hosty przez nagłówek `X-Forwarded-Host` do dostarczonych wartości.<ul><li>Wartości są porównywane przy użyciu liczby porządkowej-ignorowanie wielkości liter.</li><li>Numery portów muszą być wykluczone.</li><li>Jeśli lista jest pusta, dozwolone są wszystkie hosty.</li><li>Symbol wieloznaczny najwyższego poziomu `*` zezwala na wszystkie niepuste hosty.</li><li>Symbole wielodomenowe są dozwolone, ale nie są zgodne z domeną główną. Na przykład `*.contoso.com` pasuje do poddomeny `foo.contoso.com`, ale nie do domeny głównej `contoso.com`.</li><li>Nazwy hostów Unicode są dozwolone, ale są konwertowane na [formacie Punycode](https://tools.ietf.org/html/rfc3492) w celu dopasowania.</li><li>[Adresy IPv6](https://tools.ietf.org/html/rfc4291) muszą zawierać nawiasy graniczne i być w [formacie konwencjonalnym](https://tools.ietf.org/html/rfc4291#section-2.2) (na przykład `[ABCD:EF01:2345:6789:ABCD:EF01:2345:6789]`). Adresy IPv6 nie są specjalne, aby sprawdzać równość logiczną między różnymi formatami i nie są wykonywane żadne znaki.</li><li>Nieograniczenie dozwolonych hostów może pozwolić atakującemu na sfałszowanie linków wygenerowanych przez usługę.</li></ul>Wartość domyślna to puste `IList<string>`. |
+| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.AllowedHosts> | Ogranicza hosty według nagłówka `X-Forwarded-Host` do dostarczonych wartości.<ul><li>Wartości są porównywane przy użyciu liczby porządkowej-ignorowanie wielkości liter.</li><li>Numery portów muszą być wykluczone.</li><li>Jeśli lista jest pusta, dozwolone są wszystkie hosty.</li><li>Symbol wieloznaczny najwyższego poziomu `*` zezwala na wszystkie niepuste hosty.</li><li>Symbole wielodomenowe są dozwolone, ale nie są zgodne z domeną główną. Na przykład `*.contoso.com` pasuje do `foo.contoso.com` poddomeny, ale nie `contoso.com`domeny głównej.</li><li>Nazwy hostów Unicode są dozwolone, ale są konwertowane na [formacie Punycode](https://tools.ietf.org/html/rfc3492) w celu dopasowania.</li><li>[Adresy IPv6](https://tools.ietf.org/html/rfc4291) muszą zawierać nawiasy ograniczające i być w [formacie konwencjonalnym](https://tools.ietf.org/html/rfc4291#section-2.2) (na przykład `[ABCD:EF01:2345:6789:ABCD:EF01:2345:6789]`). Adresy IPv6 nie są specjalne, aby sprawdzać równość logiczną między różnymi formatami i nie są wykonywane żadne znaki.</li><li>Nieograniczenie dozwolonych hostów może pozwolić atakującemu na sfałszowanie linków wygenerowanych przez usługę.</li></ul>Wartość domyślna to puste `IList<string>`. |
 | <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedForHeaderName> | Użyj nagłówka określonego przez tę właściwość zamiast elementu określonego przez [ForwardedHeadersDefaults. XForwardedForHeaderName](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeadersDefaults.XForwardedForHeaderName). Ta opcja jest używana, gdy serwer proxy/usługa przesyłania dalej nie używa nagłówka `X-Forwarded-For`, ale używa innego nagłówka do przekazywania informacji.<br><br>Wartość domyślna to `X-Forwarded-For`. |
 | <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHeaders> | Określa, które usługi przesyłania dalej powinny być przetwarzane. Zobacz [Wyliczenie ForwardedHeaders](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders) dla listy pól, które mają zastosowanie. Typowe wartości przypisane do tej właściwości są `ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto`.<br><br>Wartość domyślna to [ForwardedHeaders. None](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders). |
 | <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHostHeaderName> | Użyj nagłówka określonego przez tę właściwość zamiast elementu określonego przez [ForwardedHeadersDefaults. XForwardedHostHeaderName](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeadersDefaults.XForwardedHostHeaderName). Ta opcja jest używana, gdy serwer proxy/usługa przesyłania dalej nie używa nagłówka `X-Forwarded-Host`, ale używa innego nagłówka do przekazywania informacji.<br><br>Wartość domyślna to `X-Forwarded-Host`. |
 | <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedProtoHeaderName> | Użyj nagłówka określonego przez tę właściwość zamiast elementu określonego przez [ForwardedHeadersDefaults. XForwardedProtoHeaderName](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeadersDefaults.XForwardedProtoHeaderName). Ta opcja jest używana, gdy serwer proxy/usługa przesyłania dalej nie używa nagłówka `X-Forwarded-Proto`, ale używa innego nagłówka do przekazywania informacji.<br><br>Wartość domyślna to `X-Forwarded-Proto`. |
-| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardLimit> | Ogranicza liczbę wpisów w nagłówkach, które są przetwarzane. Ustaw wartość `null`, aby wyłączyć limit, ale należy to zrobić tylko wtedy, gdy skonfigurowano `KnownProxies` lub `KnownNetworks`. Ustawienie wartości innej niż `null` jest gwarancją (ale nie gwarancją) do ochrony przed błędami skonfigurowanymi serwerami proxy i złośliwymi żądaniami odbieranymi z kanałów bocznych w sieci.<br><br>Przekierowane nagłówki przetwarzają nagłówki w odwrotnej kolejności od prawej do lewej. Jeśli zostanie użyta wartość domyślna (`1`), jest przetwarzana tylko wartość po prawej stronie z nagłówków, chyba że zostanie zwiększona wartość `ForwardLimit`.<br><br>Wartość domyślna to `1`. |
-| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownNetworks> | Zakresy adresów znanych sieci, z których mają być akceptowane przekazane nagłówki. Podaj zakresy adresów IP przy użyciu notacji międzydomenowego routingu bezklasowego (CIDR).<br><br>Jeśli serwer korzysta z gniazd z dwoma trybami, adresy IPv4 są dostarczane w formacie IPv6 (na przykład `10.0.0.1` w protokole IPv4 przedstawionym w protokole IPv6 jako `::ffff:10.0.0.1`). Zobacz [IPAddress. MapToIPv6](xref:System.Net.IPAddress.MapToIPv6*). Sprawdź, czy ten format jest wymagany, przeglądając element [HttpContext. Connection. RemoteIpAddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress*). Aby uzyskać więcej informacji, zobacz sekcję [Konfiguracja adresu IPv4 reprezentowanego jako adres IPv6](#configuration-for-an-ipv4-address-represented-as-an-ipv6-address) .<br><br>Wartość domyślna to `IList` @ no__t-1 @ no__t-2 > zawierający pojedynczy wpis dla `IPAddress.Loopback`. |
-| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownProxies> | Adresy znanych serwerów proxy, z których mają być akceptowane przekazane nagłówki. Użyj `KnownProxies`, aby określić dokładne dopasowania adresów IP.<br><br>Jeśli serwer korzysta z gniazd z dwoma trybami, adresy IPv4 są dostarczane w formacie IPv6 (na przykład `10.0.0.1` w protokole IPv4 przedstawionym w protokole IPv6 jako `::ffff:10.0.0.1`). Zobacz [IPAddress. MapToIPv6](xref:System.Net.IPAddress.MapToIPv6*). Sprawdź, czy ten format jest wymagany, przeglądając element [HttpContext. Connection. RemoteIpAddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress*). Aby uzyskać więcej informacji, zobacz sekcję [Konfiguracja adresu IPv4 reprezentowanego jako adres IPv6](#configuration-for-an-ipv4-address-represented-as-an-ipv6-address) .<br><br>Wartość domyślna to `IList` @ no__t-1 @ no__t-2 > zawierający pojedynczy wpis dla `IPAddress.IPv6Loopback`. |
+| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardLimit> | Ogranicza liczbę wpisów w nagłówkach, które są przetwarzane. Ustaw wartość `null`, aby wyłączyć limit, ale należy to zrobić tylko w przypadku skonfigurowania `KnownProxies` lub `KnownNetworks`. Ustawienie wartości innej niż`null` jest środkiem ostrożności (ale nie gwarancją) do ochrony przed błędami skonfigurowanymi serwerami proxy i złośliwymi żądaniami przychodzącymi z kanałów bocznych w sieci.<br><br>Przekierowane nagłówki przetwarzają nagłówki w odwrotnej kolejności od prawej do lewej. Jeśli zostanie użyta wartość domyślna (`1`), tylko wartość po prawej stronie z nagłówków zostanie przetworzona, chyba że zostanie zwiększona wartość `ForwardLimit`.<br><br>Wartość domyślna to `1`. |
+| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownNetworks> | Zakresy adresów znanych sieci, z których mają być akceptowane przekazane nagłówki. Podaj zakresy adresów IP przy użyciu notacji międzydomenowego routingu bezklasowego (CIDR).<br><br>Jeśli serwer używa gniazd z dwoma trybami, adresy IPv4 są dostarczane w formacie IPv6 (na przykład `10.0.0.1` w protokole IPv4 przedstawionym w protokole IPv6 jako `::ffff:10.0.0.1`). Zobacz [IPAddress. MapToIPv6](xref:System.Net.IPAddress.MapToIPv6*). Sprawdź, czy ten format jest wymagany, przeglądając element [HttpContext. Connection. RemoteIpAddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress*). Aby uzyskać więcej informacji, zobacz sekcję [Konfiguracja adresu IPv4 reprezentowanego jako adres IPv6](#configuration-for-an-ipv4-address-represented-as-an-ipv6-address) .<br><br>Wartość domyślna to `IList`\<<xref:Microsoft.AspNetCore.HttpOverrides.IPNetwork>> zawierający pojedynczy wpis dla `IPAddress.Loopback`. |
+| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownProxies> | Adresy znanych serwerów proxy, z których mają być akceptowane przekazane nagłówki. Użyj `KnownProxies`, aby określić dokładne dopasowania adresów IP.<br><br>Jeśli serwer używa gniazd z dwoma trybami, adresy IPv4 są dostarczane w formacie IPv6 (na przykład `10.0.0.1` w protokole IPv4 przedstawionym w protokole IPv6 jako `::ffff:10.0.0.1`). Zobacz [IPAddress. MapToIPv6](xref:System.Net.IPAddress.MapToIPv6*). Sprawdź, czy ten format jest wymagany, przeglądając element [HttpContext. Connection. RemoteIpAddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress*). Aby uzyskać więcej informacji, zobacz sekcję [Konfiguracja adresu IPv4 reprezentowanego jako adres IPv6](#configuration-for-an-ipv4-address-represented-as-an-ipv6-address) .<br><br>Wartość domyślna to `IList`\<<xref:System.Net.IPAddress>> zawierający pojedynczy wpis dla `IPAddress.IPv6Loopback`. |
 | <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.OriginalForHeaderName> | Użyj nagłówka określonego przez tę właściwość zamiast elementu określonego przez [ForwardedHeadersDefaults. XOriginalForHeaderName](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeadersDefaults.XOriginalForHeaderName).<br><br>Wartość domyślna to `X-Original-For`. |
 | <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.OriginalHostHeaderName> | Użyj nagłówka określonego przez tę właściwość zamiast elementu określonego przez [ForwardedHeadersDefaults. XOriginalHostHeaderName](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeadersDefaults.XOriginalHostHeaderName).<br><br>Wartość domyślna to `X-Original-Host`. |
 | <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.OriginalProtoHeaderName> | Użyj nagłówka określonego przez tę właściwość zamiast elementu określonego przez [ForwardedHeadersDefaults. XOriginalProtoHeaderName](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeadersDefaults.XOriginalProtoHeaderName).<br><br>Wartość domyślna to `X-Original-Proto`. |
@@ -156,7 +156,7 @@ Ten kod można wyłączyć za pomocą zmiennej środowiskowej lub innego ustawie
 
 Niektóre serwery proxy przechodzą ze ścieżki bez zmian, ale z ścieżką bazową aplikacji, która powinna zostać usunięta, aby Routing działał prawidłowo. Oprogramowanie pośredniczące [UsePathBaseExtensions. UsePathBase](xref:Microsoft.AspNetCore.Builder.UsePathBaseExtensions.UsePathBase*) dzieli ścieżkę na [HttpRequest. Path](xref:Microsoft.AspNetCore.Http.HttpRequest.Path) i ścieżkę bazową aplikacji na [HttpRequest. PathBase](xref:Microsoft.AspNetCore.Http.HttpRequest.PathBase).
 
-Jeśli `/foo` to ścieżka podstawowa aplikacji dla ścieżki serwera proxy przesłanej jako `/foo/api/1`, oprogramowanie pośredniczące ustawia `Request.PathBase` do `/foo` i `Request.Path` do `/api/1` za pomocą następującego polecenia:
+Jeśli `/foo` jest ścieżką podstawową aplikacji dla ścieżki serwera proxy przesłanej jako `/foo/api/1`, oprogramowanie pośredniczące ustawia `Request.PathBase` do `/foo` i `Request.Path` `/api/1` przy użyciu następującego polecenia:
 
 ```csharp
 app.UsePathBase("/foo");
@@ -190,7 +190,7 @@ app.Use((context, next) =>
 
 ### <a name="configuration-for-a-proxy-that-uses-different-header-names"></a>Konfiguracja serwera proxy, który używa innych nazw nagłówków
 
-Jeśli serwer proxy nie używa nagłówków o nazwach `X-Forwarded-For` i `X-Forwarded-Proto` do przesyłania dalej informacji o adresie/porcie i źródłowym serwerze proxy, ustaw opcje <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedForHeaderName> i <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedProtoHeaderName>, aby odpowiadały nazwom nagłówków używanym przez serwer proxy:
+Jeśli serwer proxy nie używa nagłówków o nazwie `X-Forwarded-For` i `X-Forwarded-Proto` do przesyłania dalej informacji o adresie/porcie i źródłowym serwerze proxy, ustaw opcje <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedForHeaderName> i <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedProtoHeaderName> w taki sposób, aby były zgodne z nazwami nagłówków używanymi przez serwer proxy:
 
 ```csharp
 services.Configure<ForwardedHeadersOptions>(options =>
@@ -209,9 +209,9 @@ W poniższym przykładzie adres sieciowy, który dostarcza przekazane nagłówki
 Adres IPv4: `10.11.12.1/8`
 
 Przekonwertowany adres IPv6: `::ffff:10.11.12.1`  
-Długość przekonwertowanego prefiksu: 104
+Konwertowana długość prefiksu: 104
 
-Możesz również podać adres w formacie szesnastkowym (`10.11.12.1` reprezentowane w protokole IPv6 jako `::ffff:0a0b:0c01`). Podczas konwertowania adresu IPv4 na IPv6 należy dodać 96 do długości prefiksu CIDR (`8` w przykładzie), aby uwzględnić dodatkowy prefiks IPv6 `::ffff:` (8 + 96 = 104). 
+Możesz również podać adres w formacie szesnastkowym (`10.11.12.1` reprezentowane w protokole IPv6 jako `::ffff:0a0b:0c01`). Podczas konwertowania adresu IPv4 na IPv6 należy dodać 96 do długości prefiksu CIDR (`8` w przykładzie), aby uwzględnić dodatkowy prefiks `::ffff:` IPv6 (8 + 96 = 104). 
 
 ```csharp
 // To access IPNetwork and IPAddress, add the following namespaces:
@@ -228,9 +228,9 @@ services.Configure<ForwardedHeadersOptions>(options =>
 
 ## <a name="forward-the-scheme-for-linux-and-non-iis-reverse-proxies"></a>Prześlij dalej schemat dla serwera proxy zwrotnego z systemem Linux i innym niż IIS
 
-Aplikacje, które wywołują <xref:Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions.UseHttpsRedirection*> i <xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*> przełączają lokację do pętli nieskończonej, jeśli zostały wdrożone w App Service Linux systemu Azure, maszynie wirtualnej platformy Azure z systemem Linux lub za jakimkolwiek innym zwrotnym serwerem proxy niż usługi IIS. Protokół TLS jest zakończony przez zwrotny serwer proxy, a Kestrel nie wie o poprawnym schemacie żądania. Uwierzytelnianie OAuth i OIDC w tej konfiguracji również nie powiedzie się, ponieważ generują one nieprawidłowe przekierowania. <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> dodaje i konfiguruje przekierowane nagłówki, które są uruchamiane w ramach usług IIS, ale nie ma żadnej zgodnej konfiguracji automatycznej dla systemu Linux (Integracja Apache lub nginx).
+Aplikacje, które wywołują <xref:Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions.UseHttpsRedirection*> i <xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*> przełączają lokację do pętli nieskończonej, jeśli są wdrożone w ramach systemu Azure App Service Linux, maszyny wirtualnej systemu Linux (VM) lub za jakimkolwiek innym zwrotnym serwerem proxy niż usługi IIS. Protokół TLS jest zakończony przez zwrotny serwer proxy, a Kestrel nie wie o poprawnym schemacie żądania. Uwierzytelnianie OAuth i OIDC w tej konfiguracji również nie powiedzie się, ponieważ generują one nieprawidłowe przekierowania. <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> dodaje i konfiguruje przekierowane nagłówki oprogramowania pośredniczącego, gdy działa za usługi IIS, ale nie ma żadnej zgodnej konfiguracji automatycznej dla systemu Linux (Integracja Apache lub nginx).
 
-Aby przesłać dalej schemat z serwera proxy w scenariuszach innych niż usługi IIS, Dodaj i skonfiguruj przekazane nagłówki pośredniczące. W `Startup.ConfigureServices` użyj następującego kodu:
+Aby przesłać dalej schemat z serwera proxy w scenariuszach innych niż usługi IIS, Dodaj i skonfiguruj przekazane nagłówki pośredniczące. W `Startup.ConfigureServices`Użyj następującego kodu:
 
 ```csharp
 // using Microsoft.AspNetCore.HttpOverrides;
@@ -260,14 +260,14 @@ if (string.Equals(
 
 Aby skonfigurować Azure App Service na potrzeby przekazywania certyfikatów, zobacz [Konfigurowanie uwierzytelniania wzajemnego TLS dla Azure App Service](/azure/app-service/app-service-web-configure-tls-mutual-auth). Poniższe wskazówki dotyczą konfigurowania aplikacji ASP.NET Core.
 
-W `Startup.Configure` Dodaj następujący kod przed wywołaniem do `app.UseAuthentication();`:
+W `Startup.Configure`Dodaj następujący kod przed wywołaniem do `app.UseAuthentication();`:
 
 ```csharp
 app.UseCertificateForwarding();
 ```
 
 
-Skonfiguruj oprogramowanie pośredniczące do przekazywania certyfikatów, aby określić nazwę nagłówka używaną przez platformę Azure. W `Startup.ConfigureServices` Dodaj następujący kod, aby skonfigurować nagłówek, z którego oprogramowanie pośredniczące kompiluje certyfikat:
+Skonfiguruj oprogramowanie pośredniczące do przekazywania certyfikatów, aby określić nazwę nagłówka używaną przez platformę Azure. W `Startup.ConfigureServices`Dodaj następujący kod, aby skonfigurować nagłówek, z którego oprogramowanie pośredniczące kompiluje certyfikat:
 
 ```csharp
 services.AddCertificateForwarding(options =>
@@ -276,13 +276,13 @@ services.AddCertificateForwarding(options =>
 
 ### <a name="other-web-proxies"></a>Inne serwery proxy sieci Web
 
-Jeśli używany jest serwer proxy, który nie jest programem IIS lub Azure App Service routingu żądań aplikacji (ARR), skonfiguruj serwer proxy do przesyłania dalej certyfikatu otrzymanego w nagłówku HTTP. W `Startup.Configure` Dodaj następujący kod przed wywołaniem do `app.UseAuthentication();`:
+Jeśli używany jest serwer proxy, który nie jest programem IIS lub Azure App Service routingu żądań aplikacji (ARR), skonfiguruj serwer proxy do przesyłania dalej certyfikatu otrzymanego w nagłówku HTTP. W `Startup.Configure`Dodaj następujący kod przed wywołaniem do `app.UseAuthentication();`:
 
 ```csharp
 app.UseCertificateForwarding();
 ```
 
-Skonfiguruj oprogramowanie pośredniczące do przesyłania dalej certyfikatów, aby określić nazwę nagłówka. W `Startup.ConfigureServices` Dodaj następujący kod, aby skonfigurować nagłówek, z którego oprogramowanie pośredniczące kompiluje certyfikat:
+Skonfiguruj oprogramowanie pośredniczące do przesyłania dalej certyfikatów, aby określić nazwę nagłówka. W `Startup.ConfigureServices`Dodaj następujący kod, aby skonfigurować nagłówek, z którego oprogramowanie pośredniczące kompiluje certyfikat:
 
 ```csharp
 services.AddCertificateForwarding(options =>
@@ -371,7 +371,7 @@ app.Use(async (context, next) =>
 });
 ```
 
-Podczas przetwarzania wartości `X-Forwarded-{For|Proto|Host}` są przenoszone do `X-Original-{For|Proto|Host}`. Jeśli w danym nagłówku znajduje się wiele wartości, przekierowane nagłówki przetwarzają nagłówki w odwrotnej kolejności od prawej do lewej. Wartość domyślna `ForwardLimit` to `1` (jeden), więc jest przetwarzana tylko najwyższego poziomu z nagłówków, chyba że zostanie zwiększona wartość `ForwardLimit`.
+Podczas przetwarzania `X-Forwarded-{For|Proto|Host}` wartości są przenoszone do `X-Original-{For|Proto|Host}`. Jeśli w danym nagłówku znajduje się wiele wartości, przekierowane nagłówki przetwarzają nagłówki w odwrotnej kolejności od prawej do lewej. Domyślny `ForwardLimit` jest `1` (jeden), więc przetwarzana jest tylko wartość po prawej stronie z nagłówków, chyba że zostanie zwiększona wartość `ForwardLimit`.
 
 Oryginalny zdalny adres IP żądania musi być zgodny z wpisem na listach `KnownProxies` lub `KnownNetworks` przed przetworzeniem przekierowanych nagłówków. To ogranicza fałszowanie nagłówków przez nieakceptowanie usług przesyłania dalej z niezaufanych serwerów proxy. Po wykryciu nieznanego serwera proxy rejestrowanie wskazuje adres serwera proxy:
 
@@ -379,7 +379,7 @@ Oryginalny zdalny adres IP żądania musi być zgodny z wpisem na listach `Known
 September 20th 2018, 15:49:44.168 Unknown proxy: 10.0.0.100:54321
 ```
 
-W poprzednim przykładzie 10.0.0.100 jest serwerem proxy. Jeśli serwer jest zaufanym serwerem proxy, Dodaj adres IP serwera, aby `KnownProxies` (lub dodać zaufaną sieć do `KnownNetworks`) w `Startup.ConfigureServices`. Aby uzyskać więcej informacji, zobacz sekcję [Opcje oprogramowania pośredniczącego z przekazaniem nagłówków](#forwarded-headers-middleware-options) .
+W poprzednim przykładzie 10.0.0.100 jest serwerem proxy. Jeśli serwer jest zaufanym serwerem proxy, Dodaj adres IP serwera do `KnownProxies` (lub Dodaj zaufaną sieć do `KnownNetworks`) w `Startup.ConfigureServices`. Aby uzyskać więcej informacji, zobacz sekcję [Opcje oprogramowania pośredniczącego z przekazaniem nagłówków](#forwarded-headers-middleware-options) .
 
 ```csharp
 services.Configure<ForwardedHeadersOptions>(options =>
@@ -394,4 +394,4 @@ services.Configure<ForwardedHeadersOptions>(options =>
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * <xref:host-and-deploy/web-farm>
-* @no__t — Poradnik zabezpieczeń 0Microsoft CVE-2018-0787: ASP.NET Core podniesienia uprawnień do poziomu uprawnień @ no__t-0
+* [Poradnik zabezpieczeń firmy Microsoft CVE-2018-0787: ASP.NET Core podniesienia poziomu uprawnień](https://github.com/aspnet/Announcements/issues/295)

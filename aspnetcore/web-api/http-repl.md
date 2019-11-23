@@ -29,10 +29,10 @@ Obsługiwane są następujące [czasowniki http](https://github.com/microsoft/ap
 * [USUNIĘTY](#test-http-delete-requests)
 * [GET](#test-http-get-requests)
 * [MTP](#test-http-head-requests)
-* [OPCJE](#test-http-options-requests)
+* [Opcje](#test-http-options-requests)
 * [WYSŁANA](#test-http-patch-requests)
 * [POST](#test-http-post-requests)
-* [UBRANI](#test-http-put-requests)
+* [Ubrani](#test-http-put-requests)
 
 Aby wykonać te czynności, [Wyświetl lub Pobierz przykładowy ASP.NET Core internetowy interfejs API](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/http-repl/samples) ([jak pobrać](xref:index#how-to-download-a-sample)).
 
@@ -50,7 +50,7 @@ dotnet tool install -g Microsoft.dotnet-httprepl
 
 [Narzędzie globalne platformy .NET Core](/dotnet/core/tools/global-tools#install-a-global-tool) jest instalowane z pakietu NuGet [Microsoft. dotnet-httprepl](https://www.nuget.org/packages/Microsoft.dotnet-httprepl) .
 
-## <a name="usage"></a>Sposób użycia
+## <a name="usage"></a>Użycie
 
 Po pomyślnej instalacji narzędzia Uruchom następujące polecenie, aby uruchomić REPL HTTP:
 
@@ -134,7 +134,7 @@ Połącz się z interfejsem API sieci Web, uruchamiając następujące polecenie
 httprepl <ROOT URI>
 ```
 
-`<ROOT URI>` to podstawowy identyfikator URI dla internetowego interfejsu API. Na przykład:
+`<ROOT URI>` jest podstawowym identyfikatorem URI dla internetowego interfejsu API. Na przykład:
 
 ```console
 httprepl https://localhost:5001
@@ -188,7 +188,7 @@ https://localhost:5001/~
 
 Powyższe dane wyjściowe wskazują, że dostępne są dwa kontrolery: `Fruits` i `People`. Oba kontrolery obsługują bez parametrów operacje GET i POST HTTP.
 
-Przechodzenie do określonego kontrolera ujawnia więcej szczegółów. Na przykład następujące dane wyjściowe polecenia pokazują kontroler `Fruits` obsługuje również operacje GET, PUT i DELETE protokołu HTTP. Każda z tych operacji oczekuje parametru `id` w marszrucie:
+Przechodzenie do określonego kontrolera ujawnia więcej szczegółów. Na przykład następujące dane wyjściowe polecenia pokazują kontroler `Fruits` obsługują również operacje GET, PUT i DELETE protokołu HTTP. Każda z tych operacji oczekuje `id` parametru w marszrucie:
 
 ```console
 https://localhost:5001/fruits~ ls
@@ -213,7 +213,7 @@ Aby przejść do innego punktu końcowego w internetowym interfejsie API, urucho
 https://localhost:5001/~ cd people
 ```
 
-W ścieżce następującego polecenia `cd` jest rozróżniana wielkość liter. Wyświetlany jest następujący format danych wyjściowych:
+W ścieżce następującego polecenia `cd` nie jest rozróżniana wielkość liter. Wyświetlany jest następujący format danych wyjściowych:
 
 ```console
 /people    [get|post]
@@ -235,7 +235,7 @@ Domyślne [kolory](#set-color-preferences) REPL http można dostosować. Ponadto
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-*% USERPROFILE% @no__t -1. httpreplprefs*
+*% USERPROFILE%\\. httpreplprefs*
 
 ---
 
@@ -274,10 +274,10 @@ Można używać tylko [dozwolonych kolorów](https://github.com/aspnet/HttpRepl/
 
 Jeśli określone klucze kolorów nie są ustawione, brane są więcej kluczy ogólnych. Aby zademonstrować to zachowanie rezerwowe, należy wziąć pod uwagę następujący przykład:
 
-* Jeśli `colors.json.name` nie ma wartości, zostanie użyta `colors.json.string`.
-* Jeśli `colors.json.string` nie ma wartości, zostanie użyta `colors.json.literal`.
-* Jeśli `colors.json.literal` nie ma wartości, zostanie użyta `colors.json`. 
-* Jeśli `colors.json` nie ma wartości, zostanie użyty domyślny kolor tekstu powłoki poleceń (`AllowedColors.None`).
+* Jeśli `colors.json.name` nie ma wartości, używana jest `colors.json.string`.
+* Jeśli `colors.json.string` nie ma wartości, używana jest `colors.json.literal`.
+* Jeśli `colors.json.literal` nie ma wartości, używana jest `colors.json`. 
+* Jeśli `colors.json` nie ma wartości, używany jest domyślny kolor tekstu powłoki poleceń (`AllowedColors.None`).
 
 ### <a name="set-indentation-size"></a>Ustaw rozmiar wcięcia
 
@@ -333,7 +333,7 @@ Domyślnie REPL HTTP nie ma edytora tekstu skonfigurowanego do użycia. Aby prze
 pref set editor.command.default "<EXECUTABLE>"
 ```
 
-W poprzednim poleceniu `<EXECUTABLE>` to pełna ścieżka do pliku wykonywalnego edytora tekstu. Na przykład uruchom następujące polecenie, aby ustawić Visual Studio Code jako domyślny edytor tekstu:
+W poprzednim poleceniu `<EXECUTABLE>` jest pełną ścieżką do pliku wykonywalnego edytora tekstu. Na przykład uruchom następujące polecenie, aby ustawić Visual Studio Code jako domyślny edytor tekstu:
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
@@ -392,7 +392,7 @@ Parametr trasy, jeśli istnieje, oczekiwany przez skojarzoną metodę akcji kont
 
 ### <a name="options"></a>Opcje
 
-Dla polecenia `get` dostępne są następujące opcje:
+Następujące opcje są dostępne dla polecenia `get`:
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
@@ -400,7 +400,7 @@ Dla polecenia `get` dostępne są następujące opcje:
 
 Aby wydać żądanie HTTP GET:
 
-1. Uruchom polecenie `get` w punkcie końcowym, który go obsługuje:
+1. Uruchom `get` polecenie w punkcie końcowym, który go obsługuje:
 
     ```console
     https://localhost:5001/people~ get
@@ -434,7 +434,7 @@ Aby wydać żądanie HTTP GET:
     https://localhost:5001/people~
     ```
 
-1. Pobierz konkretny rekord przez przekazanie parametru do `get` polecenia:
+1. Pobierz konkretny rekord, przekazując parametr do polecenia `get`:
 
     ```console
     https://localhost:5001/people~ get 2
@@ -484,13 +484,13 @@ Parametr trasy, jeśli istnieje, oczekiwany przez skojarzoną metodę akcji kont
 
 Aby wydać żądanie HTTP POST:
 
-1. Uruchom polecenie `post` w punkcie końcowym, który go obsługuje:
+1. Uruchom `post` polecenie w punkcie końcowym, który go obsługuje:
 
     ```console
     https://localhost:5001/people~ post -h Content-Type=application/json
     ```
 
-    W poprzednim poleceniu nagłówek żądania HTTP `Content-Type` jest ustawiony jako wskazujący typ nośnika treści żądania JSON. Domyślny edytor tekstu otwiera plik *. tmp* z szablonem JSON reprezentującym treść żądania HTTP. Na przykład:
+    W poprzednim poleceniu w nagłówku żądania HTTP `Content-Type` jest ustawiona wartość wskazująca typ nośnika treści żądania JSON. Domyślny edytor tekstu otwiera plik *. tmp* z szablonem JSON reprezentującym treść żądania HTTP. Na przykład:
 
     ```json
     {
@@ -554,7 +554,7 @@ Parametr trasy, jeśli istnieje, oczekiwany przez skojarzoną metodę akcji kont
 
 Aby wydać żądanie HTTP PUT:
 
-1. *Opcjonalne*: Uruchom polecenie `get`, aby wyświetlić dane przed zmodyfikowaniem:
+1. *Opcjonalnie*: Uruchom `get` polecenie, aby wyświetlić dane przed zmodyfikowaniem:
 
     ```console
     https://localhost:5001/fruits~ get
@@ -585,7 +585,7 @@ Aby wydać żądanie HTTP PUT:
     https://localhost:5001/fruits~ put 2 -h Content-Type=application/json
     ```
 
-    W poprzednim poleceniu nagłówek żądania HTTP `Content-Type` jest ustawiony jako wskazujący typ nośnika treści żądania JSON. Domyślny edytor tekstu otwiera plik *. tmp* z szablonem JSON reprezentującym treść żądania HTTP. Na przykład:
+    W poprzednim poleceniu w nagłówku żądania HTTP `Content-Type` jest ustawiona wartość wskazująca typ nośnika treści żądania JSON. Domyślny edytor tekstu otwiera plik *. tmp* z szablonem JSON reprezentującym treść żądania HTTP. Na przykład:
 
     ```json
     {
@@ -615,7 +615,7 @@ Aby wydać żądanie HTTP PUT:
     Server: Kestrel
     ```
 
-1. *Opcjonalne*: Wydaj polecenie `get`, aby zobaczyć modyfikacje. Na przykład, jeśli wpisano "wiśnię" w edytorze tekstu, `get` zwróci następujące wartości:
+1. *Opcjonalnie*: wydaj polecenie `get`, aby zobaczyć modyfikacje. Na przykład po wpisaniu "wiśni" w edytorze tekstów `get` zwraca następujące elementy:
 
     ```console
     https://localhost:5001/fruits~ get
@@ -666,7 +666,7 @@ Parametr trasy, jeśli istnieje, oczekiwany przez skojarzoną metodę akcji kont
 
 Aby wydać żądanie HTTP DELETE:
 
-1. *Opcjonalne*: Uruchom polecenie `get`, aby wyświetlić dane przed zmodyfikowaniem:
+1. *Opcjonalnie*: Uruchom `get` polecenie, aby wyświetlić dane przed zmodyfikowaniem:
 
     ```console
     https://localhost:5001/fruits~ get
@@ -705,7 +705,7 @@ Aby wydać żądanie HTTP DELETE:
     Server: Kestrel
     ```
 
-1. *Opcjonalne*: Wydaj polecenie `get`, aby zobaczyć modyfikacje. W tym przykładzie `get` zwraca następujące elementy:
+1. *Opcjonalnie*: wydaj polecenie `get`, aby zobaczyć modyfikacje. W tym przykładzie `get` zwraca następujące elementy:
 
     ```console
     https://localhost:5001/fruits~ get
@@ -850,7 +850,7 @@ Aby uzyskać dostęp do punktu końcowego hostowanego na platformie Azure lub u�
     httprepl https://management.azure.com
     ```
 
-1. Ustaw nagłówek żądania HTTP `Authorization`:
+1. Ustaw `Authorization` nagłówek żądania HTTP:
 
     ```console
     https://management.azure.com/> set header Authorization "bearer <ACCESS TOKEN>"
@@ -950,7 +950,7 @@ https://localhost:5001/people~ echo off
 Request echoing is off
 ```
 
-## <a name="run-a-script"></a>Uruchamianie skryptu
+## <a name="run-a-script"></a>Uruchom skrypt
 
 Jeśli często wykonujesz ten sam zestaw poleceń HTTP REPL, Rozważ przechowywanie ich w pliku tekstowym. Polecenia w pliku mają taki sam formularz jak te wykonywane ręcznie w wierszu polecenia. Polecenia mogą być wykonywane w sposób wsadowy za pomocą polecenia `run`. Na przykład:
 
@@ -964,7 +964,7 @@ Jeśli często wykonujesz ten sam zestaw poleceń HTTP REPL, Rozważ przechowywa
     get 1
     ```
 
-1. Wykonaj polecenie `run`, przekazując w ścieżce pliku tekstowego. Na przykład:
+1. Wykonaj `run` polecenie, przekazując w ścieżce pliku tekstowego. Na przykład:
 
     ```console
     https://localhost:5001/~ run C:\http-repl-scripts\people-script.txt

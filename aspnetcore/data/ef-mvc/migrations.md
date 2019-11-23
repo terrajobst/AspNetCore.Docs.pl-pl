@@ -18,7 +18,7 @@ ms.locfileid: "72259407"
 
 W tym samouczku Zacznij korzystać z funkcji migracji EF Core, aby zarządzać zmianami modelu danych. W kolejnych samouczkach dodasz więcej migracji w miarę zmieniania modelu danych.
 
-W tym samouczku zostaną wykonane następujące czynności:
+W tym samouczku przedstawiono następujące instrukcje:
 
 > [!div class="checklist"]
 > * Więcej informacji na temat migracji
@@ -90,11 +90,11 @@ Jeśli zostanie wyświetlony komunikat o błędzie "*nie można uzyskać dostęp
 
 ## <a name="examine-up-and-down-methods"></a>Sprawdzanie metod w górę i w dół
 
-Po wykonaniu polecenia `migrations add` Dr wygenerowała kod, który spowoduje utworzenie bazy danych od podstaw. Ten kod znajduje się w folderze *migrations* w pliku o nazwie *\<timestamp > _InitialCreate. cs*. Metoda `Up` klasy `InitialCreate` tworzy tabele bazy danych odpowiadające zestawom jednostek modelu danych, a metoda `Down` usuwa je, jak pokazano w poniższym przykładzie.
+Po wykonaniu polecenia `migrations add` EF wygenerował kod, który spowoduje utworzenie bazy danych od podstaw. Ten kod znajduje się w folderze *migrations* , w pliku o nazwie *\<timestamp > _InitialCreate. cs*. Metoda `Up` klasy `InitialCreate` tworzy tabele bazy danych, które odpowiadają zestawom jednostek modelu danych, a metoda `Down` usuwa je, jak pokazano w poniższym przykładzie.
 
 [!code-csharp[](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
 
-Migracja wywołuje metodę `Up` w celu zaimplementowania zmian modelu danych dla migracji. Po wprowadzeniu polecenia w celu wycofania aktualizacji migracja wywołuje metodę `Down`.
+Migracja wywołuje metodę `Up`, aby zaimplementować zmiany modelu danych dla migracji. Po wprowadzeniu polecenia w celu wycofania aktualizacji migracja wywołuje metodę `Down`.
 
 Ten kod jest przeznaczony dla początkowej migracji, która została utworzona po wprowadzeniu polecenia `migrations add InitialCreate`. Parametr name migracji ("InitialCreate" w przykładzie) jest używany jako nazwa pliku i może być dowolnie wybrany. Najlepiej wybrać słowo lub frazę, która podsumowuje zawartość wykonywaną podczas migracji. Można na przykład nazwać migrację do nowszej wersji "adddepartments".
 
@@ -116,7 +116,7 @@ W oknie wiersza polecenia wprowadź następujące polecenie, aby utworzyć bazę
 dotnet ef database update
 ```
 
-Dane wyjściowe polecenia są podobne do `migrations add` polecenia, z tą różnicą, że są wyświetlane dzienniki poleceń SQL, które konfigurują bazę danych. Większość dzienników zostanie pominiętych w następujących przykładowych danych wyjściowych. Jeśli wolisz, aby nie wyświetlać tego poziomu szczegółów w komunikatach dziennika, możesz zmienić poziom dziennika w *appSettings. Plik Development. JSON* . Aby uzyskać więcej informacji, zobacz <xref:fundamentals/logging/index>.
+Dane wyjściowe polecenia są podobne do polecenia `migrations add`, z tą różnicą, że są wyświetlane dzienniki poleceń SQL, które konfigurują bazę danych. Większość dzienników zostanie pominiętych w następujących przykładowych danych wyjściowych. Jeśli wolisz, aby nie wyświetlać tego poziomu szczegółów w komunikatach dziennika, możesz zmienić poziom dziennika w *appSettings. Plik Development. JSON* . Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/logging/index>.
 
 ```text
 info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
@@ -147,7 +147,7 @@ info: Microsoft.EntityFrameworkCore.Database.Command[20101]
 Done.
 ```
 
-Użyj **Eksplorator obiektów SQL Server** , aby sprawdzić bazę danych zgodnie z pierwszym samouczkiem.  Zwróć uwagę na dodanie tabeli \_ @ no__t-1EFMigrationsHistory, która śledzi, które migracje zostały zastosowane do bazy danych. Wyświetl dane w tej tabeli i po pierwszej migracji zobaczysz jeden wiersz. (Ostatni dziennik w poprzednim przykładzie danych wyjściowych interfejsu wiersza polecenia przedstawia instrukcję INSERT, która tworzy ten wiersz).
+Użyj **Eksplorator obiektów SQL Server** , aby sprawdzić bazę danych zgodnie z pierwszym samouczkiem.  Zobaczysz dodanie tabeli \_\_EFMigrationsHistory, która śledzi, które migracje zostały zastosowane do bazy danych. Wyświetl dane w tej tabeli i po pierwszej migracji zobaczysz jeden wiersz. (Ostatni dziennik w poprzednim przykładzie danych wyjściowych interfejsu wiersza polecenia przedstawia instrukcję INSERT, która tworzy ten wiersz).
 
 Uruchom aplikację, aby upewnić się, że wszystko nadal działa tak samo jak wcześniej.
 
@@ -161,19 +161,19 @@ Narzędzia EF do zarządzania migracjami są dostępne z poleceń interfejs wier
 
 Polecenia EF dla poleceń PMC znajdują się w pakiecie [Microsoft. EntityFrameworkCore. Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools) . Ten pakiet jest zawarty w [pakiecie Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app), dlatego nie trzeba dodawać odwołania do pakietu, jeśli aplikacja zawiera odwołanie do pakietu dla `Microsoft.AspNetCore.App`.
 
-**Ważne:** To nie jest ten sam pakiet, który jest instalowany dla interfejsu wiersza polecenia, edytując plik *csproj* . Nazwa tego elementu zostanie zakończona w `Tools`, w przeciwieństwie do nazwy pakietu interfejsu wiersza polecenia, która jest zakończona w `Tools.DotNet`.
+**Ważne:** To nie jest ten sam pakiet, który jest instalowany dla interfejsu wiersza polecenia, edytując plik *csproj* . Nazwa tego elementu zostanie zakończona w `Tools`, w przeciwieństwie do nazwy pakietu interfejsu wiersza polecenia kończącej się w `Tools.DotNet`.
 
 Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia, zobacz [interfejs wiersza polecenia platformy .NET Core](/ef/core/miscellaneous/cli/dotnet).
 
 Aby uzyskać więcej informacji na temat poleceń PMC, zobacz [konsola Menedżera pakietów (Visual Studio)](/ef/core/miscellaneous/cli/powershell).
 
-## <a name="get-the-code"></a>Uzyskaj kod
+## <a name="get-the-code"></a>Pobierz kod
 
 [Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-step"></a>Następny krok
 
-W tym samouczku zostaną wykonane następujące czynności:
+W tym samouczku przedstawiono następujące instrukcje:
 
 > [!div class="checklist"]
 > * Zapoznaj się z migracjami

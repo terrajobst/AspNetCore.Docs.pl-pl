@@ -15,7 +15,7 @@ ms.locfileid: "73034031"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor Pages EF Core w ASP.NET Core — model danych-5 z 8
 
-Autorzy [Dykstra](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Tom Dykstra](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE [about the series](~/includes/RP-EF/intro.md)]
 
@@ -30,7 +30,7 @@ Ukończony model danych przedstawiono na poniższej ilustracji:
 
 ![Diagram jednostek](complex-data-model/_static/diagram.png)
 
-## <a name="the-student-entity"></a>Jednostka ucznia
+## <a name="the-student-entity"></a>Jednostki dla uczniów
 
 ![Jednostka ucznia](complex-data-model/_static/student-entity.png)
 
@@ -49,7 +49,7 @@ Poprzedni kod dodaje właściwość `FullName` i dodaje następujące atrybuty d
 
 ### <a name="the-fullname-calculated-property"></a>Właściwość obliczeniowa FullName
 
-`FullName` to właściwość obliczeniowa zwracająca wartość utworzoną przez połączenie dwóch innych właściwości. nie można ustawić `FullName`, dlatego ma tylko metodę dostępu get. W bazie danych nie została utworzona kolumna `FullName`.
+`FullName` jest właściwością obliczaną, która zwraca wartość utworzoną przez połączenie dwóch innych właściwości. nie można ustawić `FullName`, więc ma tylko metodę dostępu get. Nie utworzono kolumny `FullName` w bazie danych.
 
 ### <a name="the-datatype-attribute"></a>Atrybut DataType
 
@@ -61,10 +61,10 @@ W przypadku dat rejestracji uczniów wszystkie strony wyświetlają teraz godzin
 
 Atrybut [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) określa typ danych, który jest bardziej szczegółowy niż typ wewnętrzny bazy danych. W tym przypadku należy wyświetlić tylko datę, a nie datę i godzinę. [Wyliczenie DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) zawiera wiele typów danych, takich jak data, godzina, numer telefonu, waluta, EmailAddress itp. Atrybut `DataType` może również umożliwić aplikacji automatyczne udostępnianie funkcji specyficznych dla typu. Na przykład:
 
-* Łącze `mailto:` jest tworzone automatycznie dla `DataType.EmailAddress`.
+* `mailto:` link jest tworzony automatycznie dla `DataType.EmailAddress`.
 * Selektor daty jest dostępny dla `DataType.Date` w większości przeglądarek.
 
-Atrybut `DataType` emituje kod HTML 5 `data-` (wymawiane kreski danych). Atrybuty `DataType` nie zapewniają walidacji.
+Atrybut `DataType` emituje `data-` HTML 5 (wymawiane kreski danych). Atrybuty `DataType` nie zapewniają walidacji.
 
 ### <a name="the-displayformat-attribute"></a>Atrybut DisplayFormat
 
@@ -74,7 +74,7 @@ Atrybut `DataType` emituje kod HTML 5 `data-` (wymawiane kreski danych). Atrybut
 
 `DataType.Date` nie określa formatu wyświetlanej daty. Domyślnie pole Date jest wyświetlane zgodnie z domyślnymi formatami opartymi na [CultureInfo](xref:fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support)serwera.
 
-Atrybut `DisplayFormat` służy do jawnego określenia formatu daty. Ustawienie `ApplyFormatInEditMode` Określa, że formatowanie powinno być również stosowane do interfejsu użytkownika edytowania. Niektóre pola nie powinny używać `ApplyFormatInEditMode`. Na przykład symbol waluty zazwyczaj nie powinien być wyświetlany w polu tekstowym Edycja.
+Atrybut `DisplayFormat` jest używany do jawnego określania formatu daty. Ustawienie `ApplyFormatInEditMode` określa, że formatowanie powinno być również stosowane do interfejsu użytkownika edytowania. Niektóre pola nie powinny używać `ApplyFormatInEditMode`. Na przykład symbol waluty zazwyczaj nie powinien być wyświetlany w polu tekstowym Edycja.
 
 Atrybut `DisplayFormat` może być używany przez siebie. Zwykle dobrym pomysłem jest użycie atrybutu `DataType` z atrybutem `DisplayFormat`. Atrybut `DataType` przekazuje semantykę danych w przeciwieństwie do sposobu renderowania na ekranie. Atrybut `DataType` zapewnia następujące korzyści, które nie są dostępne w `DisplayFormat`:
 
@@ -91,9 +91,9 @@ Aby uzyskać więcej informacji, zobacz [dokumentację pomocnika tagów\<input >
 
 Można określić reguły walidacji danych i komunikaty o błędach walidacji z atrybutami. Atrybut [StringLength](/dotnet/api/system.componentmodel.dataannotations.stringlengthattribute?view=netframework-4.7.1) określa minimalną i maksymalną długość znaków, które są dozwolone w polu danych. Kod pokazuje limity nazw do nie więcej niż 50 znaków. Przykład określający, że minimalna długość ciągu jest pokazywana w [dalszej](#the-required-attribute)części.
 
-Atrybut `StringLength` umożliwia również weryfikację po stronie klienta i serwera. Wartość minimalna nie ma wpływu na schemat bazy danych.
+Atrybut `StringLength` zapewnia również weryfikację po stronie klienta i serwera. Wartość minimalna nie ma wpływu na schemat bazy danych.
 
-Atrybut `StringLength` uniemożliwia użytkownikowi wprowadzanie białych znaków w nazwie. Atrybut [RegularExpression](/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=netframework-4.7.1) może służyć do stosowania ograniczeń do danych wejściowych. Na przykład poniższy kod wymaga, aby pierwszy znak był wielką literą, a pozostałe znaki są alfabetyczne:
+Atrybut `StringLength` nie uniemożliwia użytkownikowi wprowadzania białych znaków w nazwie. Atrybut [RegularExpression](/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=netframework-4.7.1) może służyć do stosowania ograniczeń do danych wejściowych. Na przykład poniższy kod wymaga, aby pierwszy znak był wielką literą, a pozostałe znaki są alfabetyczne:
 
 ```csharp
 [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
@@ -109,7 +109,7 @@ Na powyższym obrazie przedstawiono schemat tabeli `Student`. Pola nazw mają ty
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-W narzędziu SQLite Sprawdź definicje kolumn tabeli `Student`. Pola nazw mają typ `Text`. Zwróć uwagę, że pole First Name jest wywoływane `FirstMidName`. W następnej sekcji zmienisz nazwę tej kolumny na `FirstName`.
+W narzędziu SQLite Sprawdź definicje kolumn tabeli `Student`. Pola nazw mają typ `Text`. Zwróć uwagę, że pole first name ma nazwę `FirstMidName`. W następnej sekcji zmienisz nazwę tej kolumny na `FirstName`.
 
 ---
 
@@ -122,9 +122,9 @@ public string FirstMidName { get; set; }
 
 Atrybuty mogą kontrolować sposób mapowania klas i właściwości do bazy danych. W modelu `Student` atrybut `Column` jest używany do mapowania nazwy właściwości `FirstMidName` na "FirstName" w bazie danych.
 
-Po utworzeniu bazy danych nazwy właściwości w modelu są używane dla nazw kolumn (z wyjątkiem sytuacji, gdy jest używany atrybut `Column`). Model `Student` używa `FirstMidName` dla pola pierwszej nazwy, ponieważ pole może zawierać również nazwę środkową.
+Po utworzeniu bazy danych nazwy właściwości w modelu są używane dla nazw kolumn (z wyjątkiem sytuacji, gdy atrybut `Column` jest używany). Model `Student` używa `FirstMidName` dla pola pierwszej nazwy, ponieważ pole może zawierać również nazwę środkową.
 
-`[Column]` atrybutu `Student.FirstMidName` w modelu danych mapuje do kolumny `FirstName` tabeli `Student`. Dodanie atrybutu `Column` zmienia model do `SchoolContext`. Model wykonujący kopię zapasową `SchoolContext` nie jest już zgodny z bazą danych. Niezgodność zostanie rozwiązany przez dodanie migracji w dalszej części tego samouczka.
+`[Column]` atrybutu `Student.FirstMidName` w modelu danych mapuje do kolumny `FirstName` tabeli `Student`. Dodanie atrybutu `Column` powoduje zmianę modelu z kopią zapasową `SchoolContext`. Model wykonujący kopię zapasową `SchoolContext` nie jest już zgodny z bazą danych. Niezgodność zostanie rozwiązany przez dodanie migracji w dalszej części tego samouczka.
 
 ### <a name="the-required-attribute"></a>Wymagany atrybut
 
@@ -132,7 +132,7 @@ Po utworzeniu bazy danych nazwy właściwości w modelu są używane dla nazw ko
 [Required]
 ```
 
-Atrybut `Required` powoduje, że pola nazwy są wymagane. Atrybut `Required` nie jest wymagany dla typów niedopuszczających wartości null, takich jak typy wartości (na przykład `DateTime`, `int` i `double`). Typy, które nie mogą mieć wartości null, są automatycznie traktowane jako pola wymagane.
+Atrybut `Required` powoduje, że pola nazwy są wymagane. Atrybut `Required` nie jest wymagany dla typów niedopuszczających wartości null, takich jak typy wartości (na przykład `DateTime`, `int`i `double`). Typy, które nie mogą mieć wartości null, są automatycznie traktowane jako pola wymagane.
 
 Atrybut `Required` musi być używany z `MinimumLength`, aby można było wymusić `MinimumLength`.
 
@@ -143,7 +143,7 @@ Atrybut `Required` musi być używany z `MinimumLength`, aby można było wymusi
 public string LastName { get; set; }
 ```
 
-`MinimumLength` i `Required` zezwalają na sprawdzanie poprawności. Użyj atrybutu `RegularExpression` w celu zapewnienia pełnej kontroli nad ciągiem.
+`MinimumLength` i `Required` Zezwalaj na odstępy, aby spełnić kryteria weryfikacji. Użyj atrybutu `RegularExpression`, aby uzyskać pełną kontrolę nad ciągiem.
 
 ### <a name="the-display-attribute"></a>Atrybut wyświetlania
 
@@ -151,7 +151,7 @@ public string LastName { get; set; }
 [Display(Name = "Last Name")]
 ```
 
-Atrybut `Display` Określa, że podpis pól tekstowych powinien mieć wartość "imię i nazwisko", "nazwisko", "pełna nazwa" i "Data rejestracji". Domyślne podpisy nie zawierają spacji dzielących wyrazy, na przykład "LastName".
+Atrybut `Display` określa, że podpis pól tekstowych powinien mieć wartość "imię i nazwisko", "nazwisko", "imię i nazwisko" oraz "Data rejestracji". Domyślne podpisy nie zawierają spacji dzielących wyrazy, na przykład "LastName".
 
 ### <a name="create-a-migration"></a>Tworzenie migracji
 
@@ -238,7 +238,7 @@ Utwórz *modele/instruktor. cs* przy użyciu następującego kodu:
 
 [!code-csharp[](intro/samples/cu30/Models/Instructor.cs)]
 
-Wiele atrybutów może znajdować się w jednym wierszu. Atrybuty `HireDate` można napisać w następujący sposób:
+Wiele atrybutów może znajdować się w jednym wierszu. Atrybuty `HireDate` mogą być zapisywane w następujący sposób:
 
 ```csharp
 [DataType(DataType.Date),Display(Name = "Hire Date"),DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
@@ -248,13 +248,13 @@ Wiele atrybutów może znajdować się w jednym wierszu. Atrybuty `HireDate` mo�
 
 Właściwości `CourseAssignments` i `OfficeAssignment` są właściwościami nawigacji.
 
-Instruktor może uczyć się dowolnej liczby kursów, więc `CourseAssignments` jest definiowana jako kolekcja.
+Instruktor może uczyć się dowolnej liczby kursów, dlatego `CourseAssignments` jest zdefiniowany jako kolekcja.
 
 ```csharp
 public ICollection<CourseAssignment> CourseAssignments { get; set; }
 ```
 
-Instruktor może mieć co najwyżej jedną Biuro, więc Właściwość `OfficeAssignment` zawiera jedną jednostkę `OfficeAssignment`. `OfficeAssignment` ma wartość null, jeśli nie przypisano pakietu Office.
+Instruktor może mieć co najwyżej jeden pakiet Office, więc Właściwość `OfficeAssignment` zawiera jedną jednostkę `OfficeAssignment`. `OfficeAssignment` ma wartość null, jeśli nie przypisano pakietu Office.
 
 ```csharp
 public OfficeAssignment OfficeAssignment { get; set; }
@@ -274,7 +274,7 @@ Atrybut `[Key]` jest używany do identyfikowania właściwości jako klucza pods
 
 Istnieje relacja jeden do zera między jednostkami `Instructor` i `OfficeAssignment`. Przypisanie pakietu Office istnieje tylko w odniesieniu do instruktora, do którego jest przypisane. `OfficeAssignment` klucz podstawowy jest również jego kluczem obcym (FK) do jednostki `Instructor`.
 
-EF Core nie może automatycznie rozpoznać `InstructorID` jako klucza PK `OfficeAssignment`, ponieważ `InstructorID` nie jest zgodna z konwencją nazewnictwa ID lub classnameID. W związku z tym atrybut `Key` służy do identyfikowania `InstructorID` jako klucz podstawowy:
+EF Core nie może automatycznie rozpoznać `InstructorID` jako klucza podstawowego dla `OfficeAssignment`, ponieważ `InstructorID` nie jest zgodna z konwencją nazewnictwa ID lub classnameID. W związku z tym, atrybut `Key` jest używany do identyfikowania `InstructorID` jako klucz podstawowy:
 
 ```csharp
 [Key]
@@ -287,9 +287,9 @@ Domyślnie EF Core traktuje klucz jako wygenerowane poza bazą danych, ponieważ
 
 Właściwość nawigacji `Instructor.OfficeAssignment` może mieć wartość null, ponieważ nie może istnieć wiersz `OfficeAssignment` dla danego instruktora. Instruktor może nie mieć przypisania pakietu Office.
 
-Właściwość nawigacji `OfficeAssignment.Instructor` zawsze będzie mieć jednostkę instruktora, ponieważ klucz obcy `InstructorID` typ to `int`, typ wartości niedopuszczający wartości null. Przypisanie pakietu Office nie może istnieć bez instruktora.
+Właściwość nawigacji `OfficeAssignment.Instructor` będzie zawsze mieć jednostkę instruktora, ponieważ typ `InstructorID` klucza obcego to `int`, typ wartości niedopuszczający wartości null. Przypisanie pakietu Office nie może istnieć bez instruktora.
 
-Gdy jednostka `Instructor` ma powiązaną jednostkę `OfficeAssignment`, każda jednostka ma odwołanie do drugiej z nich we właściwości nawigacji.
+Gdy jednostka `Instructor` ma pokrewną jednostkę `OfficeAssignment`, każda jednostka ma odwołanie do drugiej z nich we właściwości nawigacji.
 
 ## <a name="the-course-entity"></a>Jednostka kursu
 
@@ -299,12 +299,12 @@ Aktualizuj *modele/kurs. cs* przy użyciu następującego kodu:
 
 [!code-csharp[](intro/samples/cu30/Models/Course.cs?highlight=2,10,13,16,19,21,23)]
 
-Jednostka `Course` ma właściwość klucza obcego (FK) `DepartmentID`. `DepartmentID` wskazuje pokrewną jednostkę `Department`. Jednostka `Course` ma właściwość nawigacji `Department`.
+Jednostka `Course` ma `DepartmentID`właściwość klucza obcego (obcy). `DepartmentID` punkty do powiązanej jednostki `Department`. Jednostka `Course` ma `Department` właściwość nawigacji.
 
 EF Core nie wymaga właściwości klucza obcego dla modelu danych, gdy model ma właściwość nawigacji dla powiązanej jednostki. EF Core automatycznie tworzy FKs w bazie danych wszędzie tam, gdzie są one zbędne. EF Core tworzy [Właściwości cienia](/ef/core/modeling/shadow-properties) dla automatycznie utworzonych FKs. Jednak jawne dołączenie klucza obcego w modelu danych może spowodować uproszczenie i wydajniejsze aktualizacje. Rozważmy na przykład model, w którym Właściwość FK `DepartmentID` *nie* jest uwzględniona. Gdy jednostka kursu jest pobierana do edycji:
 
 * Właściwość `Department` ma wartość null, jeśli nie została jawnie załadowana.
-* Aby zaktualizować jednostkę kursu, należy najpierw pobrać jednostkę `Department`.
+* Aby zaktualizować jednostkę kursu, najpierw należy pobrać jednostkę `Department`.
 
 Gdy właściwość FK `DepartmentID` jest uwzględniona w modelu danych, nie ma potrzeby pobierania jednostki `Department` przed aktualizacją.
 
@@ -326,14 +326,14 @@ Atrybut `DatabaseGenerated` może być również używany do generowania wartoś
 
 Właściwości klucza obcego (FK) i właściwości nawigacji w jednostce `Course` odzwierciedlają następujące relacje:
 
-Kurs jest przypisywany do jednego działu, więc istnieje `DepartmentID` FK i właściwość nawigacji `Department`.
+Kurs jest przypisywany do jednego działu, dlatego istnieje `DepartmentID` FK i `Department` właściwość nawigacji.
 
 ```csharp
 public int DepartmentID { get; set; }
 public Department Department { get; set; }
 ```
 
-Kurs może mieć dowolną liczbę uczniów zarejestrowanych w nim, więc właściwość nawigacji `Enrollments` jest kolekcją:
+W kursie może być zarejestrowana dowolna liczba uczniów, więc właściwość nawigacji `Enrollments` jest kolekcją:
 
 ```csharp
 public ICollection<Enrollment> Enrollments { get; set; }
@@ -345,7 +345,7 @@ Kurs może być nauczany przez wiele instruktorów, więc właściwość nawigac
 public ICollection<CourseAssignment> CourseAssignments { get; set; }
 ```
 
-`CourseAssignment` zostało wyjaśnione [później](#many-to-many-relationships).
+`CourseAssignment` został wyjaśniony [później](#many-to-many-relationships).
 
 ## <a name="the-department-entity"></a>Jednostka działu
 
@@ -357,14 +357,14 @@ Utwórz *modele/dział. cs* przy użyciu następującego kodu:
 
 ### <a name="the-column-attribute"></a>Atrybut Column
 
-Poprzednio atrybut `Column` został użyty do zmiany mapowania nazw kolumn. W kodzie jednostki `Department` atrybut `Column` jest używany do zmiany mapowania typu danych SQL. Kolumna `Budget` jest definiowana przy użyciu SQL Server typie pieniędzy w bazie danych:
+Wcześniej atrybut `Column` został użyty do zmiany mapowania nazw kolumn. W kodzie dla jednostki `Department` atrybut `Column` służy do zmiany mapowania typu danych SQL. Kolumna `Budget` jest definiowana przy użyciu SQL Server typie pieniędzy w bazie danych:
 
 ```csharp
 [Column(TypeName="money")]
 public decimal Budget { get; set; }
 ```
 
-Mapowanie kolumn zazwyczaj nie jest wymagane. EF Core wybiera odpowiedni SQL Server typ danych na podstawie typu CLR dla właściwości. Typ CLR `decimal` mapuje na typ SQL Server `decimal`. `Budget` jest dla waluty, a typ danych walutowych jest bardziej odpowiedni dla waluty.
+Mapowanie kolumn zazwyczaj nie jest wymagane. EF Core wybiera odpowiedni SQL Server typ danych na podstawie typu CLR dla właściwości. Typ `decimal` CLR mapuje do typu `decimal` SQL Server. `Budget` jest dla waluty, a typ danych walutowych jest bardziej odpowiedni dla waluty.
 
 ### <a name="foreign-key-and-navigation-properties"></a>Właściwości klucza obcego i nawigacji
 
@@ -399,7 +399,7 @@ Na przykład jeśli właściwość `Department.InstructorID` została zdefiniowa
      .OnDelete(DeleteBehavior.Restrict)
   ```
 
-## <a name="the-enrollment-entity"></a>Jednostka rejestracji
+## <a name="the-enrollment-entity"></a>Jednostki rejestracji
 
 Rekord rejestracji jest wykonywany przez jednego ucznia.
 
@@ -413,14 +413,14 @@ Aktualizuj *modele/rejestrację. cs* przy użyciu następującego kodu:
 
 Właściwości klucza obcego i właściwości nawigacji odzwierciedlają następujące relacje:
 
-Rekord rejestracji jest przeznaczony dla jednego kursu, więc istnieje właściwość `CourseID` obcego i właściwość nawigacji `Course`:
+Rekord rejestracji jest przeznaczony dla jednego kursu, dlatego istnieje właściwość `CourseID` obcego i właściwość nawigacji `Course`:
 
 ```csharp
 public int CourseID { get; set; }
 public Course Course { get; set; }
 ```
 
-Rekord rejestracji jest przeznaczony dla jednego ucznia, więc istnieje właściwość `StudentID` obcego i właściwość nawigacji `Student`:
+Rekord rejestracji jest przeznaczony dla jednego ucznia, dlatego istnieje właściwość `StudentID` obcego i właściwość nawigacji `Student`:
 
 ```csharp
 public int StudentID { get; set; }
@@ -429,7 +429,7 @@ public Student Student { get; set; }
 
 ## <a name="many-to-many-relationships"></a>Relacje wiele do wielu
 
-Istnieje relacja wiele-do-wielu między jednostkami `Student` i `Course`. Jednostka `Enrollment` pełni rolę tabeli sprzężenia wiele-do-wielu *z ładunkiem* w bazie danych. "Z ładunkiem" oznacza, że tabela `Enrollment` zawiera dodatkowe dane oprócz FKs dla sprzężonych tabel (w tym przypadku klucz podstawowy i `Grade`).
+Istnieje relacja wiele-do-wielu między jednostkami `Student` i `Course`. Jednostka `Enrollment` działa jako tabela sprzężeń wiele-do-wielu *z ładunkiem* w bazie danych. "Z ładunkiem" oznacza, że tabela `Enrollment` zawiera dodatkowe dane oprócz FKs dla sprzężonych tabel (w tym przypadku klucz podstawowy i `Grade`).
 
 Na poniższej ilustracji pokazano, jak wyglądają te relacje w diagramie jednostek. (Ten diagram został wygenerowany przy użyciu [narzędzi EF PowerShell](https://marketplace.visualstudio.com/items?itemName=ErikEJ.EntityFramework6PowerToolsCommunityEdition) dla programu EF 6. x. Tworzenie diagramu nie jest częścią samouczka.
 
@@ -437,7 +437,7 @@ Na poniższej ilustracji pokazano, jak wyglądają te relacje w diagramie jednos
 
 Każda linia relacji ma 1 na jednym końcu i gwiazdkę (*) na drugim, wskazując relację jeden do wielu.
 
-Jeśli tabela `Enrollment` nie zawiera informacji o klasie, musi zawierać tylko te dwa FKs (`CourseID` i `StudentID`). Tabela sprzężenia wiele-do-wielu bez ładunku jest czasami nazywana tabelą sprzężenia czystego (PJT).
+Jeśli tabela `Enrollment` nie zawiera informacji o klasie, musi zawierać tylko dwa FKs (`CourseID` i `StudentID`). Tabela sprzężenia wiele-do-wielu bez ładunku jest czasami nazywana tabelą sprzężenia czystego (PJT).
 
 Jednostki `Instructor` i `Course` mają relację wiele-do-wielu przy użyciu czystej tabeli sprzężenia.
 
@@ -455,13 +455,13 @@ Relacja "instruktora" do wielu kursów wymaga tabeli sprzężenia, a jednostka d
 
 ![M:M instruktora do kursu](complex-data-model/_static/courseassignment.png)
 
-Często należy nazwać jednostkę sprzężenia `EntityName1EntityName2`. Na przykład tabela sprzężenia "instruktor-kursy" przy użyciu tego wzorca byłaby `CourseInstructor`. Zalecamy jednak użycie nazwy opisującej relację.
+Nazwa jednostki sprzężenia jest wspólna dla `EntityName1EntityName2`. Na przykład tabela sprzężenia "instruktor do kursu" przy użyciu tego wzorca byłaby `CourseInstructor`. Zalecamy jednak użycie nazwy opisującej relację.
 
-Modele danych rozpoczynają się od siebie i rosną. Tabele sprzężenia bez ładunku (PJTs) często są rozwijane w celu uwzględnienia ładunku. Rozpoczynając od nazwy obiektu opisowego, nie trzeba zmieniać nazwy po zmianie tabeli sprzężeń. Najlepiej, aby jednostka sprzężenia miała własną nazwę naturalną (prawdopodobnie jednowyrazową) w domenie biznesowej. Na przykład książki i klienci mogą być połączone z jednostką sprzężenia o nazwie ratings. Dla instruktora "wiele do wielu", `CourseAssignment` jest preferowana względem `CourseInstructor`.
+Modele danych rozpoczynają się od siebie i rosną. Tabele sprzężenia bez ładunku (PJTs) często są rozwijane w celu uwzględnienia ładunku. Rozpoczynając od nazwy obiektu opisowego, nie trzeba zmieniać nazwy po zmianie tabeli sprzężeń. Najlepiej, aby jednostka sprzężenia miała własną nazwę naturalną (prawdopodobnie jednowyrazową) w domenie biznesowej. Na przykład książki i klienci mogą być połączone z jednostką sprzężenia o nazwie ratings. Dla instruktora "wiele do wielu", `CourseAssignment` jest preferowana przez `CourseInstructor`.
 
 ### <a name="composite-key"></a>Klucz złożony
 
-Dwie FKs w `CourseAssignment` (`InstructorID` i `CourseID`) jednoznacznie identyfikują każdy wiersz tabeli `CourseAssignment`. `CourseAssignment` nie wymaga dedykowanego klucza PK. Właściwości `InstructorID` i `CourseID` działają jako złożony klucz podstawowy. Jedynym sposobem określenia złożonego PKs do EF Core jest *interfejs API Fluent*. W następnej sekcji przedstawiono sposób konfigurowania złożonego klucza podstawowego.
+Dwa FKs w `CourseAssignment` (`InstructorID` i `CourseID`) jednoznacznie identyfikują każdy wiersz tabeli `CourseAssignment`. `CourseAssignment` nie wymaga dedykowanego klucza podstawowego. Właściwości `InstructorID` i `CourseID` są funkcją złożonego klucza podstawowego. Jedynym sposobem określenia złożonego PKs do EF Core jest *interfejs API Fluent*. W następnej sekcji przedstawiono sposób konfigurowania złożonego klucza podstawowego.
 
 Klucz złożony gwarantuje, że:
 
@@ -469,10 +469,10 @@ Klucz złożony gwarantuje, że:
 * Dla jednego instruktora są dozwolone wiele wierszy.
 * Wiele wierszy nie jest dozwolonych dla tego samego instruktora i kursu.
 
-Jednostka sprzężenia `Enrollment` definiuje własny klucz podstawowy, więc możliwe jest duplikowanie tego sortowania. Aby uniknąć takich duplikatów:
+Jednostka `Enrollment` Join definiuje własny klucz podstawowy, więc możliwe jest duplikowanie tego sortowania. Aby uniknąć takich duplikatów:
 
 * Dodaj unikatowy indeks do pól klucza obcego lub
-* Skonfiguruj `Enrollment` z podstawowym kluczem złożonym podobnym do `CourseAssignment`. Aby uzyskać więcej informacji, zobacz [indeksy](/ef/core/modeling/indexes).
+* Skonfiguruj `Enrollment` przy użyciu podstawowego klucza złożonego podobnego do `CourseAssignment`. Aby uzyskać więcej informacji, zobacz [indeksy](/ef/core/modeling/indexes).
 
 ## <a name="update-the-database-context"></a>Aktualizowanie kontekstu bazy danych
 
@@ -480,7 +480,7 @@ Zaktualizuj *dane/SchoolContext. cs* przy użyciu następującego kodu:
 
 [!code-csharp[](intro/samples/cu30/Data/SchoolContext.cs?highlight=15-18,25-31)]
 
-Poprzedni kod dodaje nowe jednostki i konfiguruje złożony klucz podstawowy jednostki `CourseAssignment`.
+Poprzedni kod dodaje nowe jednostki i konfiguruje złożonego klucza podstawowego jednostki `CourseAssignment`.
 
 ## <a name="fluent-api-alternative-to-attributes"></a>Alternatywny interfejs API Fluent dla atrybutów
 
@@ -524,13 +524,13 @@ Na powyższym diagramie przedstawiono:
 * Linia relacji "jeden do zera" (od 1 do 0.. 1) między jednostkami `Instructor` i `OfficeAssignment`.
 * Linia relacji zero-lub-jeden-do-wielu (0.. 1 do *) między jednostkami `Instructor` i `Department`.
 
-## <a name="seed-the-database"></a>Wypełnianie bazy danych
+## <a name="seed-the-database"></a>Inicjowanie bazy danych
 
 Zaktualizuj kod w *danych/Dbinitializeer. cs*:
 
 [!code-csharp[](intro/samples/cu30/Data/DbInitializer.cs)]
 
-Poprzedni kod zawiera dane inicjatora dla nowych jednostek. Większość tego kodu tworzy nowe obiekty Entity i ładuje przykładowe dane. Przykładowe dane służą do testowania. Zobacz `Enrollments` i `CourseAssignments`, aby poznać przykłady tabel sprzężenia wiele-do-wielu.
+Poprzedni kod zawiera dane inicjatora dla nowych jednostek. Większość tego kodu tworzy nowe obiekty Entity i ładuje przykładowe dane. Przykładowe dane służą do testowania. Zobacz `Enrollments` i `CourseAssignments`, aby zapoznać się z przykładami tabel sprzężenia wiele-do-wielu.
 
 ## <a name="add-a-migration"></a>Dodawanie migracji
 
@@ -563,7 +563,7 @@ W następnej sekcji opisano, co należy zrobić, aby uzyskać informacje o tym b
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-W przypadku dodania migracji i uruchomienia `database update` polecenia zostanie utworzony następujący błąd:
+W przypadku dodania migracji i uruchomienia polecenia `database update` zostanie utworzony następujący błąd:
 
 ```text
 SQLite does not support this migration operation ('DropForeignKeyOperation').
@@ -632,7 +632,7 @@ Uruchom aplikację. Uruchomienie aplikacji uruchamia metodę `DbInitializer.Init
 Otwórz bazę danych w programie SSOX:
 
 * Jeśli SSOX został wcześniej otwarty, kliknij przycisk **Odśwież** .
-* Rozwiń węzeł **tabele** . Zostaną wyświetlone utworzone tabele.
+* Rozwiń **tabel** węzła. Zostaną wyświetlone utworzone tabele.
 
   ![Tabele w SSOX](complex-data-model/_static/ssox-tables.png)
 
@@ -664,9 +664,9 @@ Plik *{timestamp} _ComplexDataModel. cs* zawiera następujący kod:
 
 [!code-csharp[](intro/samples/cu30snapshots/5-complex/Migrations/ComplexDataModel.cs?name=snippet_DepartmentID)]
 
-Poprzedni kod dodaje niedopuszczający wartości null `DepartmentID` klucza obcego do tabeli `Course`. Baza danych z poprzedniego samouczka zawiera wiersze w `Course`, aby nie można było zaktualizować tabeli za pomocą migracji.
+Poprzedni kod dodaje `DepartmentID` obcy niedopuszczający wartości null do tabeli `Course`. Baza danych z poprzedniego samouczka zawiera wiersze w `Course`, w związku z czym nie można zaktualizować tabeli za pomocą migracji.
 
-Aby migracja `ComplexDataModel` była współdziałać z istniejącymi danymi:
+Aby migracja `ComplexDataModel` działała z istniejącymi danymi:
 
 * Zmień kod, aby nadać nowej kolumnie (`DepartmentID`) wartość domyślną.
 * Utwórz fałszywy Departament o nazwie "Temp", który ma pełnić rolę działu domyślnego.
@@ -684,12 +684,12 @@ Dodaj następujący wyróżniony kod. Nowy kod przechodzi po bloku `.CreateTable
 
 [!code-csharp[](intro/samples/cu30snapshots/5-complex/Migrations/ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=23-31)]
 
-Po powyższym zmianach istniejące wiersze `Course` będą powiązane z działem "Temp" po uruchomieniu metody `ComplexDataModel.Up`.
+Po powyższym zmianach istniejące `Course` wiersze będą powiązane z działem "Temp" po uruchomieniu metody `ComplexDataModel.Up`.
 
 Sposób obsługi pokazanej tutaj sytuacji jest uproszczony dla tego samouczka. Aplikacja produkcyjna:
 
-* Dołącz kod lub skrypty, aby dodać wiersze `Department` i powiązane wiersze `Course` do nowych wierszy `Department`.
-* Nie używaj działu "Temp" ani wartości domyślnej dla `Course.DepartmentID`.
+* Dołącz kod lub skrypty, aby dodać `Department` wiersze i powiązane wiersze `Course` do nowych wierszy `Department`.
+* Nie należy używać działu "Temp" ani wartości domyślnej dla `Course.DepartmentID`.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -699,7 +699,7 @@ Sposób obsługi pokazanej tutaj sytuacji jest uproszczony dla tego samouczka. A
   Update-Database
   ```
 
-Ponieważ metoda `DbInitializer.Initialize` jest zaprojektowana tak, aby działała tylko z pustą bazą danych, należy usunąć wszystkie wiersze z tabeli uczniów i kursów za pomocą SSOX. (Usuwanie kaskadowe zajmie tabelę rejestracji).
+Ponieważ metoda `DbInitializer.Initialize` została zaprojektowana tak, aby działała tylko z pustą bazą danych, należy usunąć wszystkie wiersze z tabeli uczniów i kursów za pomocą SSOX. (Usuwanie kaskadowe zajmie tabelę rejestracji).
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -751,20 +751,20 @@ Aktualizuj *modele/uczniów. cs* przy użyciu następującego wyróżnionego kod
 
 Atrybut [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) określa typ danych, który jest bardziej szczegółowy niż typ wewnętrzny bazy danych. W tym przypadku należy wyświetlić tylko datę, a nie datę i godzinę. [Wyliczenie DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) zawiera wiele typów danych, takich jak data, godzina, numer telefonu, waluta, EmailAddress itp. Atrybut `DataType` może również umożliwić aplikacji automatyczne udostępnianie funkcji specyficznych dla typu. Na przykład:
 
-* Łącze `mailto:` jest tworzone automatycznie dla `DataType.EmailAddress`.
+* `mailto:` link jest tworzony automatycznie dla `DataType.EmailAddress`.
 * Selektor daty jest dostępny dla `DataType.Date` w większości przeglądarek.
 
-Atrybut `DataType` emituje kod HTML 5 `data-` (wymawiane kreski danych) używane przez przeglądarki HTML 5. Atrybuty `DataType` nie zapewniają walidacji.
+Atrybut `DataType` emituje `data-` HTML 5 (wymawiane kreski danych), których używają przeglądarki HTML 5. Atrybuty `DataType` nie zapewniają walidacji.
 
 `DataType.Date` nie określa formatu wyświetlanej daty. Domyślnie pole Date jest wyświetlane zgodnie z domyślnymi formatami opartymi na [CultureInfo](xref:fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support)serwera.
 
-Atrybut `DisplayFormat` służy do jawnego określenia formatu daty:
+Atrybut `DisplayFormat` jest używany do jawnego określania formatu daty:
 
 ```csharp
 [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 ```
 
-Ustawienie `ApplyFormatInEditMode` Określa, że formatowanie powinno być również stosowane do interfejsu użytkownika edytowania. Niektóre pola nie powinny używać `ApplyFormatInEditMode`. Na przykład symbol waluty zazwyczaj nie powinien być wyświetlany w polu tekstowym Edycja.
+Ustawienie `ApplyFormatInEditMode` określa, że formatowanie powinno być również stosowane do interfejsu użytkownika edytowania. Niektóre pola nie powinny używać `ApplyFormatInEditMode`. Na przykład symbol waluty zazwyczaj nie powinien być wyświetlany w polu tekstowym Edycja.
 
 Atrybut `DisplayFormat` może być używany przez siebie. Zwykle dobrym pomysłem jest użycie atrybutu `DataType` z atrybutem `DisplayFormat`. Atrybut `DataType` przekazuje semantykę danych w przeciwieństwie do sposobu renderowania na ekranie. Atrybut `DataType` zapewnia następujące korzyści, które nie są dostępne w `DisplayFormat`:
 
@@ -773,19 +773,19 @@ Atrybut `DisplayFormat` może być używany przez siebie. Zwykle dobrym pomysłe
 
 Aby uzyskać więcej informacji, zobacz [dokumentację pomocnika tagów\<input >](xref:mvc/views/working-with-forms#the-input-tag-helper).
 
-Uruchom aplikację. Przejdź do strony indeksu uczniów. Czasy nie są już wyświetlane. Każdy widok korzystający z modelu `Student` Wyświetla datę bez czasu.
+Uruchom aplikację. Przejdź do strony indeksu uczniów. Czasy nie są już wyświetlane. Każdy widok, który używa modelu `Student` wyświetla datę bez czasu.
 
 ![Strona indeksu uczniów pokazująca daty bez czasu](complex-data-model/_static/dates-no-times.png)
 
 ### <a name="the-stringlength-attribute"></a>Atrybut StringLength
 
-Można określić reguły walidacji danych i komunikaty o błędach walidacji z atrybutami. Atrybut [StringLength](/dotnet/api/system.componentmodel.dataannotations.stringlengthattribute?view=netframework-4.7.1) określa minimalną i maksymalną długość znaków, które są dozwolone w polu danych. Atrybut `StringLength` umożliwia również weryfikację po stronie klienta i serwera. Wartość minimalna nie ma wpływu na schemat bazy danych.
+Można określić reguły walidacji danych i komunikaty o błędach walidacji z atrybutami. Atrybut [StringLength](/dotnet/api/system.componentmodel.dataannotations.stringlengthattribute?view=netframework-4.7.1) określa minimalną i maksymalną długość znaków, które są dozwolone w polu danych. Atrybut `StringLength` zapewnia również weryfikację po stronie klienta i serwera. Wartość minimalna nie ma wpływu na schemat bazy danych.
 
 Zaktualizuj model `Student` przy użyciu następującego kodu:
 
 [!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
 
-Poprzedni kod ogranicza nazwy do nie więcej niż 50 znaków. Atrybut `StringLength` uniemożliwia użytkownikowi wprowadzanie białych znaków w nazwie. Atrybut [RegularExpression](/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=netframework-4.7.1) służy do stosowania ograniczeń do danych wejściowych. Na przykład poniższy kod wymaga, aby pierwszy znak był wielką literą, a pozostałe znaki są alfabetyczne:
+Poprzedni kod ogranicza nazwy do nie więcej niż 50 znaków. Atrybut `StringLength` nie uniemożliwia użytkownikowi wprowadzania białych znaków w nazwie. Atrybut [RegularExpression](/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=netframework-4.7.1) służy do stosowania ograniczeń do danych wejściowych. Na przykład poniższy kod wymaga, aby pierwszy znak był wielką literą, a pozostałe znaki są alfabetyczne:
 
 ```csharp
 [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
@@ -803,13 +803,13 @@ W **Eksplorator obiektów SQL Server** (SSOX) Otwórz projektanta tabeli ucznió
 
 ![Tabela studentów w SSOX przed migracją](complex-data-model/_static/ssox-before-migration.png)
 
-Na powyższym obrazie przedstawiono schemat tabeli `Student`. Pola nazw mają typ `nvarchar(MAX)` ponieważ migracja nie została uruchomiona w bazie danych. Po uruchomieniu migracji w dalszej części tego samouczka pola nazwy stają się `nvarchar(50)`.
+Na powyższym obrazie przedstawiono schemat tabeli `Student`. Pola nazw mają `nvarchar(MAX)` typu, ponieważ nie uruchomiono migracji w bazie danych. Po uruchomieniu migracji w dalszej części tego samouczka pola nazwy stają się `nvarchar(50)`.
 
 ### <a name="the-column-attribute"></a>Atrybut Column
 
 Atrybuty mogą kontrolować sposób mapowania klas i właściwości do bazy danych. W tej sekcji atrybut `Column` jest używany do mapowania nazwy właściwości `FirstMidName` na "FirstName" w bazie danych.
 
-Po utworzeniu bazy danych nazwy właściwości w modelu są używane dla nazw kolumn (z wyjątkiem sytuacji, gdy jest używany atrybut `Column`).
+Po utworzeniu bazy danych nazwy właściwości w modelu są używane dla nazw kolumn (z wyjątkiem sytuacji, gdy atrybut `Column` jest używany).
 
 Model `Student` używa `FirstMidName` dla pola pierwszej nazwy, ponieważ pole może zawierać również nazwę środkową.
 
@@ -819,7 +819,7 @@ Zaktualizuj plik *student.cs* za pomocą następującego wyróżnionego kodu:
 
 Po powyższej zmianie `Student.FirstMidName` w aplikacji jest mapowany do kolumny `FirstName` tabeli `Student`.
 
-Dodanie atrybutu `Column` zmienia model do `SchoolContext`. Model wykonujący kopię zapasową `SchoolContext` nie jest już zgodny z bazą danych. Jeśli aplikacja jest uruchamiana przed zastosowaniem migracji, generowany jest następujący wyjątek:
+Dodanie atrybutu `Column` powoduje zmianę modelu z kopią zapasową `SchoolContext`. Model wykonujący kopię zapasową `SchoolContext` nie jest już zgodny z bazą danych. Jeśli aplikacja jest uruchamiana przed zastosowaniem migracji, generowany jest następujący wyjątek:
 
 ```SQL
 SqlException: Invalid column name 'FirstName'.
@@ -876,9 +876,9 @@ Aktualizuj *modele/uczniów. cs* przy użyciu następującego kodu:
 
 ### <a name="the-required-attribute"></a>Wymagany atrybut
 
-Atrybut `Required` powoduje, że pola nazwy są wymagane. Atrybut `Required` nie jest wymagany dla typów niedopuszczających wartości null, takich jak typy wartości (`DateTime`, `int`, `double` itd.). Typy, które nie mogą mieć wartości null, są automatycznie traktowane jako pola wymagane.
+Atrybut `Required` powoduje, że pola nazwy są wymagane. Atrybut `Required` nie jest wymagany dla typów niedopuszczających wartości null, takich jak typy wartości (`DateTime`, `int`, `double`itp.). Typy, które nie mogą mieć wartości null, są automatycznie traktowane jako pola wymagane.
 
-Atrybut `Required` może zostać zastąpiony parametrem o minimalnej długości w atrybucie `StringLength`:
+Atrybut `Required` może zostać zastąpiony parametrem minimalnej długości w atrybucie `StringLength`:
 
 ```csharp
 [Display(Name = "Last Name")]
@@ -888,11 +888,11 @@ public string LastName { get; set; }
 
 ### <a name="the-display-attribute"></a>Atrybut wyświetlania
 
-Atrybut `Display` Określa, że podpis pól tekstowych powinien mieć wartość "imię i nazwisko", "nazwisko", "pełna nazwa" i "Data rejestracji". Domyślne podpisy nie zawierają spacji dzielących wyrazy, na przykład "LastName".
+Atrybut `Display` określa, że podpis pól tekstowych powinien mieć wartość "imię i nazwisko", "nazwisko", "imię i nazwisko" oraz "Data rejestracji". Domyślne podpisy nie zawierają spacji dzielących wyrazy, na przykład "LastName".
 
 ### <a name="the-fullname-calculated-property"></a>Właściwość obliczeniowa FullName
 
-`FullName` to właściwość obliczeniowa zwracająca wartość utworzoną przez połączenie dwóch innych właściwości. nie można ustawić `FullName`, ma tylko metodę dostępu get. W bazie danych nie została utworzona kolumna `FullName`.
+`FullName` jest właściwością obliczaną, która zwraca wartość utworzoną przez połączenie dwóch innych właściwości. nie można ustawić `FullName`, ma tylko metodę dostępu get. Nie utworzono kolumny `FullName` w bazie danych.
 
 ## <a name="create-the-instructor-entity"></a>Tworzenie jednostki instruktora
 
@@ -902,7 +902,7 @@ Utwórz *modele/instruktor. cs* przy użyciu następującego kodu:
 
 [!code-csharp[](intro/samples/cu21/Models/Instructor.cs)]
 
-Wiele atrybutów może znajdować się w jednym wierszu. Atrybuty `HireDate` można napisać w następujący sposób:
+Wiele atrybutów może znajdować się w jednym wierszu. Atrybuty `HireDate` mogą być zapisywane w następujący sposób:
 
 ```csharp
 [DataType(DataType.Date),Display(Name = "Hire Date"),DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
@@ -912,7 +912,7 @@ Wiele atrybutów może znajdować się w jednym wierszu. Atrybuty `HireDate` mo�
 
 Właściwości `CourseAssignments` i `OfficeAssignment` są właściwościami nawigacji.
 
-Instruktor może uczyć się dowolnej liczby kursów, więc `CourseAssignments` jest definiowana jako kolekcja.
+Instruktor może uczyć się dowolnej liczby kursów, dlatego `CourseAssignments` jest zdefiniowany jako kolekcja.
 
 ```csharp
 public ICollection<CourseAssignment> CourseAssignments { get; set; }
@@ -928,7 +928,7 @@ Typy właściwości nawigacji obejmują:
 * `List<T>`
 * `HashSet<T>`
 
-Jeśli określono `ICollection<T>`, domyślnie EF Core tworzy kolekcję `HashSet<T>`.
+Jeśli `ICollection<T>` jest określony, EF Core domyślnie tworzy kolekcję `HashSet<T>`.
 
 Jednostka `CourseAssignment` została omówiona w sekcji dotyczącej relacji wiele-do-wielu.
 
@@ -950,11 +950,11 @@ Utwórz *modele/OfficeAssignment. cs* przy użyciu następującego kodu:
 
 Atrybut `[Key]` jest używany do identyfikowania właściwości jako klucza podstawowego (PK), gdy nazwa właściwości jest inna niż classnameID lub ID.
 
-Istnieje relacja jeden do zera między jednostkami `Instructor` i `OfficeAssignment`. Przypisanie pakietu Office istnieje tylko w odniesieniu do instruktora, do którego jest przypisane. `OfficeAssignment` klucz podstawowy jest również jego kluczem obcym (FK) do jednostki `Instructor`. EF Core nie może automatycznie rozpoznać `InstructorID` jako klucz podstawowy `OfficeAssignment`, ponieważ:
+Istnieje relacja jeden do zera między jednostkami `Instructor` i `OfficeAssignment`. Przypisanie pakietu Office istnieje tylko w odniesieniu do instruktora, do którego jest przypisane. `OfficeAssignment` klucz podstawowy jest również jego kluczem obcym (FK) do jednostki `Instructor`. EF Core nie może automatycznie rozpoznać `InstructorID` jako klucz podstawowy `OfficeAssignment` ponieważ:
 
 * `InstructorID` nie jest zgodna z konwencją nazewnictwa ID lub classnameID.
 
-W związku z tym atrybut `Key` służy do identyfikowania `InstructorID` jako klucz podstawowy:
+W związku z tym, atrybut `Key` jest używany do identyfikowania `InstructorID` jako klucz podstawowy:
 
 ```csharp
 [Key]
@@ -970,12 +970,12 @@ Właściwość nawigacji `OfficeAssignment` dla jednostki `Instructor` ma warto�
 * Typy odwołań (takie jak klasy są dopuszczające wartość null).
 * Instruktor może nie mieć przypisania pakietu Office.
 
-Jednostka `OfficeAssignment` ma właściwość nawigacji `Instructor`, która nie dopuszcza wartości null, ponieważ:
+Jednostka `OfficeAssignment` ma właściwość nawigacji `Instructor` niedopuszczające wartości null, ponieważ:
 
 * `InstructorID` nie dopuszcza wartości null.
 * Przypisanie pakietu Office nie może istnieć bez instruktora.
 
-Gdy jednostka `Instructor` ma powiązaną jednostkę `OfficeAssignment`, każda jednostka ma odwołanie do drugiej z nich we właściwości nawigacji.
+Gdy jednostka `Instructor` ma pokrewną jednostkę `OfficeAssignment`, każda jednostka ma odwołanie do drugiej z nich we właściwości nawigacji.
 
 Atrybut `[Required]` można zastosować do właściwości nawigacji `Instructor`:
 
@@ -984,7 +984,7 @@ Atrybut `[Required]` można zastosować do właściwości nawigacji `Instructor`
 public Instructor Instructor { get; set; }
 ```
 
-Poprzedni kod określa, że musi być pokrewnym instruktorem. Poprzedzający kod jest niezbędny, ponieważ klucz obcy `InstructorID` (który jest również kluczem PK) nie dopuszcza wartości null.
+Poprzedni kod określa, że musi być pokrewnym instruktorem. Poprzedzający kod jest niezbędny, ponieważ `InstructorID` klucz obcy (który jest również kluczem PK) nie dopuszcza wartości null.
 
 ## <a name="modify-the-course-entity"></a>Modyfikowanie jednostki kursu
 
@@ -994,14 +994,14 @@ Aktualizuj *modele/kurs. cs* przy użyciu następującego kodu:
 
 [!code-csharp[](intro/samples/cu21/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
 
-Jednostka `Course` ma właściwość klucza obcego (FK) `DepartmentID`. `DepartmentID` wskazuje pokrewną jednostkę `Department`. Jednostka `Course` ma właściwość nawigacji `Department`.
+Jednostka `Course` ma `DepartmentID`właściwość klucza obcego (obcy). `DepartmentID` punkty do powiązanej jednostki `Department`. Jednostka `Course` ma `Department` właściwość nawigacji.
 
 EF Core nie wymaga właściwości FK dla modelu danych, gdy model ma właściwość nawigacji dla powiązanej jednostki.
 
 EF Core automatycznie tworzy FKs w bazie danych wszędzie tam, gdzie są one zbędne. EF Core tworzy [Właściwości cienia](/ef/core/modeling/shadow-properties) dla automatycznie utworzonych FKs. Posiadanie klucza obcego w modelu danych może sprawiać, że aktualizacje są prostsze i wydajniejsze. Rozważmy na przykład model, w którym Właściwość FK `DepartmentID` *nie* jest uwzględniona. Gdy jednostka kursu jest pobierana do edycji:
 
 * Jednostka `Department` ma wartość null, jeśli nie została jawnie załadowana.
-* Aby zaktualizować jednostkę kursu, należy najpierw pobrać jednostkę `Department`.
+* Aby zaktualizować jednostkę kursu, najpierw należy pobrać jednostkę `Department`.
 
 Gdy właściwość FK `DepartmentID` jest uwzględniona w modelu danych, nie ma potrzeby pobierania jednostki `Department` przed aktualizacją.
 
@@ -1023,14 +1023,14 @@ Atrybut `DatabaseGenerated` może być również używany do generowania wartoś
 
 Właściwości klucza obcego (FK) i właściwości nawigacji w jednostce `Course` odzwierciedlają następujące relacje:
 
-Kurs jest przypisywany do jednego działu, więc istnieje `DepartmentID` FK i właściwość nawigacji `Department`.
+Kurs jest przypisywany do jednego działu, dlatego istnieje `DepartmentID` FK i `Department` właściwość nawigacji.
 
 ```csharp
 public int DepartmentID { get; set; }
 public Department Department { get; set; }
 ```
 
-Kurs może mieć dowolną liczbę uczniów zarejestrowanych w nim, więc właściwość nawigacji `Enrollments` jest kolekcją:
+W kursie może być zarejestrowana dowolna liczba uczniów, więc właściwość nawigacji `Enrollments` jest kolekcją:
 
 ```csharp
 public ICollection<Enrollment> Enrollments { get; set; }
@@ -1042,7 +1042,7 @@ Kurs może być nauczany przez wiele instruktorów, więc właściwość nawigac
 public ICollection<CourseAssignment> CourseAssignments { get; set; }
 ```
 
-`CourseAssignment` zostało wyjaśnione [później](#many-to-many-relationships).
+`CourseAssignment` został wyjaśniony [później](#many-to-many-relationships).
 
 ## <a name="create-the-department-entity"></a>Tworzenie jednostki działu
 
@@ -1054,14 +1054,14 @@ Utwórz *modele/dział. cs* przy użyciu następującego kodu:
 
 ### <a name="the-column-attribute"></a>Atrybut Column
 
-Poprzednio atrybut `Column` został użyty do zmiany mapowania nazw kolumn. W kodzie jednostki `Department` atrybut `Column` jest używany do zmiany mapowania typu danych SQL. Kolumna `Budget` jest definiowana przy użyciu SQL Server typie pieniędzy w bazie danych:
+Wcześniej atrybut `Column` został użyty do zmiany mapowania nazw kolumn. W kodzie dla jednostki `Department` atrybut `Column` służy do zmiany mapowania typu danych SQL. Kolumna `Budget` jest definiowana przy użyciu SQL Server typu pieniędzy w bazie danych:
 
 ```csharp
 [Column(TypeName="money")]
 public decimal Budget { get; set; }
 ```
 
-Mapowanie kolumn zazwyczaj nie jest wymagane. EF Core zwykle wybiera odpowiedni SQL Server typ danych oparty na typie CLR właściwości. Typ CLR `decimal` mapuje na typ SQL Server `decimal`. `Budget` jest dla waluty, a typ danych walutowych jest bardziej odpowiedni dla waluty.
+Mapowanie kolumn zazwyczaj nie jest wymagane. EF Core zwykle wybiera odpowiedni SQL Server typ danych oparty na typie CLR właściwości. Typ `decimal` CLR mapuje do typu `decimal` SQL Server. `Budget` jest dla waluty, a typ danych walutowych jest bardziej odpowiedni dla waluty.
 
 ### <a name="foreign-key-and-navigation-properties"></a>Właściwości klucza obcego i nawigacji
 
@@ -1087,7 +1087,7 @@ public ICollection<Course> Courses { get; set; }
 
 Uwaga: według Konwencji EF Core umożliwia usuwanie kaskadowe dla FKs niedopuszczających wartości null oraz relacji wiele-do-wielu. Kaskadowe usuwanie może spowodować cykliczne reguły usuwania kaskadowego. Cykliczne reguły usuwania kaskadowego powodują wyjątek podczas dodawania migracji.
 
-Na przykład jeśli właściwość `Department.InstructorID` została zdefiniowana jako niedopuszczający wartości null:
+Na przykład, jeśli właściwość `Department.InstructorID` została zdefiniowana jako niedopuszczający wartości null:
 
 * EF Core konfiguruje regułę usuwania kaskadowego w celu usunięcia działu po usunięciu instruktora.
 * Usunięcie działu po usunięciu instruktora nie jest zamierzonym zachowaniem.
@@ -1116,14 +1116,14 @@ Aktualizuj *modele/rejestrację. cs* przy użyciu następującego kodu:
 
 Właściwości klucza obcego i właściwości nawigacji odzwierciedlają następujące relacje:
 
-Rekord rejestracji jest przeznaczony dla jednego kursu, więc istnieje właściwość `CourseID` obcego i właściwość nawigacji `Course`:
+Rekord rejestracji jest przeznaczony dla jednego kursu, dlatego istnieje właściwość `CourseID` obcego i właściwość nawigacji `Course`:
 
 ```csharp
 public int CourseID { get; set; }
 public Course Course { get; set; }
 ```
 
-Rekord rejestracji jest przeznaczony dla jednego ucznia, więc istnieje właściwość `StudentID` obcego i właściwość nawigacji `Student`:
+Rekord rejestracji jest przeznaczony dla jednego ucznia, dlatego istnieje właściwość `StudentID` obcego i właściwość nawigacji `Student`:
 
 ```csharp
 public int StudentID { get; set; }
@@ -1132,7 +1132,7 @@ public Student Student { get; set; }
 
 ## <a name="many-to-many-relationships"></a>Relacje wiele do wielu
 
-Istnieje relacja wiele-do-wielu między jednostkami `Student` i `Course`. Jednostka `Enrollment` pełni rolę tabeli sprzężenia wiele-do-wielu *z ładunkiem* w bazie danych. "Z ładunkiem" oznacza, że tabela `Enrollment` zawiera dodatkowe dane oprócz FKs dla sprzężonych tabel (w tym przypadku klucz podstawowy i `Grade`).
+Istnieje relacja wiele-do-wielu między jednostkami `Student` i `Course`. Jednostka `Enrollment` działa jako tabela sprzężeń wiele-do-wielu *z ładunkiem* w bazie danych. "Z ładunkiem" oznacza, że tabela `Enrollment` zawiera dodatkowe dane oprócz FKs dla sprzężonych tabel (w tym przypadku klucz podstawowy i `Grade`).
 
 Na poniższej ilustracji pokazano, jak wyglądają te relacje w diagramie jednostek. (Ten diagram został wygenerowany przy użyciu [narzędzi EF PowerShell](https://marketplace.visualstudio.com/items?itemName=ErikEJ.EntityFramework6PowerToolsCommunityEdition) dla programu EF 6. x. Tworzenie diagramu nie jest częścią samouczka.
 
@@ -1140,7 +1140,7 @@ Na poniższej ilustracji pokazano, jak wyglądają te relacje w diagramie jednos
 
 Każda linia relacji ma 1 na jednym końcu i gwiazdkę (*) na drugim, wskazując relację jeden do wielu.
 
-Jeśli tabela `Enrollment` nie zawiera informacji o klasie, musi zawierać tylko te dwa FKs (`CourseID` i `StudentID`). Tabela sprzężenia wiele-do-wielu bez ładunku jest czasami nazywana tabelą sprzężenia czystego (PJT).
+Jeśli tabela `Enrollment` nie zawiera informacji o klasie, musi zawierać tylko dwa FKs (`CourseID` i `StudentID`). Tabela sprzężenia wiele-do-wielu bez ładunku jest czasami nazywana tabelą sprzężenia czystego (PJT).
 
 Jednostki `Instructor` i `Course` mają relację wiele-do-wielu przy użyciu czystej tabeli sprzężenia.
 
@@ -1163,13 +1163,13 @@ Utwórz *modele/CourseAssignment. cs* przy użyciu następującego kodu:
 * Wymaga tabeli sprzężenia, która musi być reprezentowana przez zestaw jednostek.
 * Jest czystym tabelą sprzężenia (tabela bez ładunku).
 
-Często należy nazwać jednostkę sprzężenia `EntityName1EntityName2`. Na przykład tabela sprzężenia "instruktor-kursy" przy użyciu tego wzorca jest `CourseInstructor`. Zalecamy jednak użycie nazwy opisującej relację.
+Nazwa jednostki sprzężenia jest wspólna dla `EntityName1EntityName2`. Na przykład tabela sprzężenia "instruktor do kursu" przy użyciu tego wzorca jest `CourseInstructor`. Zalecamy jednak użycie nazwy opisującej relację.
 
-Modele danych rozpoczynają się od siebie i rosną. Sprzężenia bez ładunku (PJTs) często są rozwijane w celu uwzględnienia ładunku. Rozpoczynając od nazwy obiektu opisowego, nie trzeba zmieniać nazwy po zmianie tabeli sprzężeń. Najlepiej, aby jednostka sprzężenia miała własną nazwę naturalną (prawdopodobnie jednowyrazową) w domenie biznesowej. Na przykład książki i klienci mogą być połączone z jednostką sprzężenia o nazwie ratings. Dla instruktora "wiele do wielu", `CourseAssignment` jest preferowana względem `CourseInstructor`.
+Modele danych rozpoczynają się od siebie i rosną. Sprzężenia bez ładunku (PJTs) często są rozwijane w celu uwzględnienia ładunku. Rozpoczynając od nazwy obiektu opisowego, nie trzeba zmieniać nazwy po zmianie tabeli sprzężeń. Najlepiej, aby jednostka sprzężenia miała własną nazwę naturalną (prawdopodobnie jednowyrazową) w domenie biznesowej. Na przykład książki i klienci mogą być połączone z jednostką sprzężenia o nazwie ratings. Dla instruktora "wiele do wielu", `CourseAssignment` jest preferowana przez `CourseInstructor`.
 
 ### <a name="composite-key"></a>Klucz złożony
 
-FKs nie dopuszcza wartości null. Dwie FKs w `CourseAssignment` (`InstructorID` i `CourseID`) jednoznacznie identyfikują każdy wiersz tabeli `CourseAssignment`. `CourseAssignment` nie wymaga dedykowanego klucza PK. Właściwości `InstructorID` i `CourseID` działają jako złożony klucz podstawowy. Jedynym sposobem określenia złożonego PKs do EF Core jest *interfejs API Fluent*. W następnej sekcji przedstawiono sposób konfigurowania złożonego klucza podstawowego.
+FKs nie dopuszcza wartości null. Dwa FKs w `CourseAssignment` (`InstructorID` i `CourseID`) jednoznacznie identyfikują każdy wiersz tabeli `CourseAssignment`. `CourseAssignment` nie wymaga dedykowanego klucza podstawowego. Właściwości `InstructorID` i `CourseID` są funkcją złożonego klucza podstawowego. Jedynym sposobem określenia złożonego PKs do EF Core jest *interfejs API Fluent*. W następnej sekcji przedstawiono sposób konfigurowania złożonego klucza podstawowego.
 
 Klucz złożony gwarantuje:
 
@@ -1177,10 +1177,10 @@ Klucz złożony gwarantuje:
 * Dla jednego instruktora są dozwolone wiele wierszy.
 * Wiele wierszy dla tego samego instruktora i kursu jest niedozwolonych.
 
-Jednostka sprzężenia `Enrollment` definiuje własny klucz podstawowy, więc możliwe jest duplikowanie tego sortowania. Aby uniknąć takich duplikatów:
+Jednostka `Enrollment` Join definiuje własny klucz podstawowy, więc możliwe jest duplikowanie tego sortowania. Aby uniknąć takich duplikatów:
 
 * Dodaj unikatowy indeks do pól klucza obcego lub
-* Skonfiguruj `Enrollment` z podstawowym kluczem złożonym podobnym do `CourseAssignment`. Aby uzyskać więcej informacji, zobacz [indeksy](/ef/core/modeling/indexes).
+* Skonfiguruj `Enrollment` przy użyciu podstawowego klucza złożonego podobnego do `CourseAssignment`. Aby uzyskać więcej informacji, zobacz [indeksy](/ef/core/modeling/indexes).
 
 ## <a name="update-the-db-context"></a>Aktualizowanie kontekstu bazy danych
 
@@ -1188,7 +1188,7 @@ Dodaj następujący wyróżniony kod do *danych/SchoolContext. cs*:
 
 [!code-csharp[](intro/samples/cu21/Data/SchoolContext.cs?name=snippet_BeforeInheritance&highlight=15-18,25-31)]
 
-Poprzedni kod dodaje nowe jednostki i konfiguruje złożony klucz podstawowy jednostki `CourseAssignment`.
+Poprzedni kod dodaje nowe jednostki i konfiguruje złożonego klucza podstawowego jednostki `CourseAssignment`.
 
 ## <a name="fluent-api-alternative-to-attributes"></a>Alternatywny interfejs API Fluent dla atrybutów
 
@@ -1238,7 +1238,7 @@ Zaktualizuj kod w *danych/Dbinitializeer. cs*:
 
 [!code-csharp[](intro/samples/cu21/Data/DbInitializer.cs?name=snippet_Final)]
 
-Poprzedni kod zawiera dane inicjatora dla nowych jednostek. Większość tego kodu tworzy nowe obiekty Entity i ładuje przykładowe dane. Przykładowe dane służą do testowania. Zobacz `Enrollments` i `CourseAssignments`, aby poznać przykłady tabel sprzężenia wiele-do-wielu.
+Poprzedni kod zawiera dane inicjatora dla nowych jednostek. Większość tego kodu tworzy nowe obiekty Entity i ładuje przykładowe dane. Przykładowe dane służą do testowania. Zobacz `Enrollments` i `CourseAssignments`, aby zapoznać się z przykładami tabel sprzężenia wiele-do-wielu.
 
 ## <a name="add-a-migration"></a>Dodawanie migracji
 
@@ -1315,7 +1315,7 @@ Uruchom aplikację. Uruchomienie aplikacji uruchamia metodę `DbInitializer.Init
 Otwórz bazę danych w programie SSOX:
 
 * Jeśli SSOX został wcześniej otwarty, kliknij przycisk **Odśwież** .
-* Rozwiń węzeł **tabele** . Zostaną wyświetlone utworzone tabele.
+* Rozwiń **tabel** węzła. Zostaną wyświetlone utworzone tabele.
 
 ![Tabele w SSOX](complex-data-model/_static/ssox-tables.png)
 
@@ -1338,16 +1338,16 @@ Plik *{timestamp} _ComplexDataModel. cs* zawiera następujący kod:
 
 [!code-csharp[](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_DepartmentID)]
 
-Poprzedni kod dodaje niedopuszczający wartości null `DepartmentID` klucza obcego do tabeli `Course`. Baza danych z poprzedniego samouczka zawiera wiersze w `Course`, aby nie można było zaktualizować tabeli za pomocą migracji.
+Poprzedni kod dodaje `DepartmentID` obcy niedopuszczający wartości null do tabeli `Course`. Baza danych z poprzedniego samouczka zawiera wiersze w `Course`, w związku z czym nie można zaktualizować tabeli za pomocą migracji.
 
-Aby migracja `ComplexDataModel` była współdziałać z istniejącymi danymi:
+Aby migracja `ComplexDataModel` działała z istniejącymi danymi:
 
 * Zmień kod, aby nadać nowej kolumnie (`DepartmentID`) wartość domyślną.
 * Utwórz fałszywy Departament o nazwie "Temp", który ma pełnić rolę działu domyślnego.
 
 #### <a name="fix-the-foreign-key-constraints"></a>Popraw ograniczenia klucza obcego
 
-Zaktualizuj klasy `ComplexDataModel` `Up` Metoda:
+Zaktualizuj klasy `ComplexDataModel` `Up` metody:
 
 * Otwórz plik *{timestamp} _ComplexDataModel. cs* .
 * Dodaj komentarz do wiersza kodu, który dodaje kolumnę `DepartmentID` do tabeli `Course`.
@@ -1358,12 +1358,12 @@ Dodaj następujący wyróżniony kod. Nowy kod przechodzi po bloku `.CreateTable
 
 [!code-csharp[](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
 
-Po powyższym zmianach istniejące wiersze `Course` będą powiązane z działem "Temp" po uruchomieniu metody `ComplexDataModel` `Up`.
+Po powyższym zmianach istniejące `Course` wiersze będą powiązane z działem "Temp" po uruchomieniu metody `ComplexDataModel` `Up`.
 
 Aplikacja produkcyjna:
 
-* Dołącz kod lub skrypty, aby dodać wiersze `Department` i powiązane wiersze `Course` do nowych wierszy `Department`.
-* Nie używaj działu "Temp" ani wartości domyślnej dla `Course.DepartmentID`.
+* Dołącz kod lub skrypty, aby dodać `Department` wiersze i powiązane wiersze `Course` do nowych wierszy `Department`.
+* Nie należy używać działu "Temp" ani wartości domyślnej dla `Course.DepartmentID`.
 
 Następny samouczek obejmuje powiązane dane.
 
