@@ -95,7 +95,7 @@ Aby uzyskać więcej informacji na temat hosta, zobacz [hosta](xref:fundamentals
 
 Metoda <xref:Microsoft.AspNetCore.Hosting.StartupBase.ConfigureServices*> jest:
 
-* Opcjonalny.
+* Opcjonalna.
 * Wywoływane przez hosta przed metodą `Configure`, aby skonfigurować usługi aplikacji.
 * Gdzie są ustawiane [Opcje konfiguracji](xref:fundamentals/configuration/index) zgodnie z Konwencją.
 

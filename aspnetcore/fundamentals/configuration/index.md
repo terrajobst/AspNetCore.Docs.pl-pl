@@ -16,11 +16,11 @@ ms.locfileid: "73634075"
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguracja w ASP.NET Core
 
-Autor [Luke Latham](https://github.com/guardrex)
+Przez [Luke Latham](https://github.com/guardrex)
 
 Konfiguracja aplikacji w ASP.NET Core jest oparta na parach klucz-wartość określonych przez *dostawców konfiguracji*. Dostawcy konfiguracji odczytują dane konfiguracji do par klucz-wartość z różnych źródeł konfiguracji:
 
-* Azure Key Vault
+* Usługa Azure Key Vault
 * Konfiguracja aplikacji platformy Azure
 * Argumenty wiersza polecenia
 * Dostawcy niestandardowi (instalowani lub utworzony)
@@ -49,11 +49,11 @@ using Microsoft.Extensions.Configuration;
 
 *Wzorzec opcji* jest rozszerzeniem pojęć konfiguracyjnych opisanych w tym temacie. Opcje używają klas do reprezentowania grup powiązanych ustawień. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/options>.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="host-versus-app-configuration"></a>Host a konfiguracja aplikacji
 
-Przed skonfigurowaniem i uruchomieniem aplikacji *host* zostanie skonfigurowany i uruchomiony. Host jest odpowiedzialny za uruchamianie aplikacji i zarządzanie okresem istnienia. Zarówno aplikacja, jak i Host są konfigurowane przy użyciu dostawców konfiguracji opisanych w tym temacie. Klucz konfiguracji hosta — pary wartości są również uwzględnione w konfiguracji aplikacji. Aby uzyskać więcej informacji na temat tego, jak dostawcy konfiguracji są używani podczas kompilowania hosta i jak źródła konfiguracji wpływają na konfigurację hosta, zobacz <xref:fundamentals/index#host>.
+Przed skonfigurowaniem i uruchomieniem aplikacji *host* zostanie skonfigurowany i uruchomiony. Host jest odpowiedzialny za zarządzanie uruchamiania i czasu życia aplikacji. Zarówno aplikacja, jak i Host są konfigurowane przy użyciu dostawców konfiguracji opisanych w tym temacie. Klucz konfiguracji hosta — pary wartości są również uwzględnione w konfiguracji aplikacji. Aby uzyskać więcej informacji na temat tego, jak dostawcy konfiguracji są używani podczas kompilowania hosta i jak źródła konfiguracji wpływają na konfigurację hosta, zobacz <xref:fundamentals/index#host>.
 
 ## <a name="default-configuration"></a>Konfiguracja domyślna
 
@@ -187,13 +187,13 @@ Wartości konfiguracyjne przyjmują następujące konwencje:
 * Wartości są ciągami.
 * Wartości null nie można przechowywać w konfiguracji ani powiązana z obiektami.
 
-## <a name="providers"></a>udostępnia
+## <a name="providers"></a>Dostawcy
 
 W poniższej tabeli przedstawiono dostawców konfiguracji dostępnych do ASP.NET Core aplikacji.
 
-| Dostawcy | Zapewnia konfigurację z &hellip; |
+| Provider | Zapewnia konfigurację z&hellip; |
 | -------- | ----------------------------------- |
-| [Dostawca konfiguracji Azure Key Vault](xref:security/key-vault-configuration) (tematy dotyczące*zabezpieczeń* ) | Azure Key Vault |
+| [Dostawca konfiguracji Azure Key Vault](xref:security/key-vault-configuration) (tematy dotyczące*zabezpieczeń* ) | Usługa Azure Key Vault |
 | [Dostawca konfiguracji aplikacji platformy Azure](/azure/azure-app-configuration/quickstart-aspnet-core-app) (dokumentacja platformy Azure) | Konfiguracja aplikacji platformy Azure |
 | [Dostawca konfiguracji wiersza polecenia](#command-line-configuration-provider) | Parametry wiersza polecenia |
 | [Niestandardowy dostawca konfiguracji](#custom-configuration-provider) | Źródło niestandardowe |
@@ -374,7 +374,7 @@ dotnet run CommandLineKey1= CommandLineKey2=value2
 
 ### <a name="switch-mappings"></a>Mapowanie przełączników
 
-Mapowania przełączników Zezwalaj na logikę zamiany nazwy klucza. Podczas ręcznego kompilowania konfiguracji za pomocą <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> można dostarczyć słownik przemieszczeń przełączeń do metody <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*>.
+Mapowania przełączników Zezwalaj na logikę zamiany nazwy klucza. Podczas ręcznego kompilowania konfiguracji za pomocą <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>można dostarczyć słownik przemieszczeń przełączeń do metody <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*>.
 
 Gdy jest używany słownik mapowania przełączników, słownik jest sprawdzany dla klucza, który pasuje do klucza dostarczonego przez argument wiersza polecenia. Jeśli klucz wiersza polecenia zostanie znaleziony w słowniku, wartość słownika (wymiana klucza) zostanie przeniesiona z powrotem, aby ustawić parę klucz-wartość w konfiguracji aplikacji. Mapowanie przełącznika jest wymagane dla każdego klucza wiersza polecenia poprzedzonego jedną kreską (`-`).
 
@@ -407,7 +407,7 @@ W przypadku aplikacji korzystających z mapowań przełączników wywołanie `Cr
 
 Po utworzeniu słownika mapowań przełączników zawiera dane przedstawione w poniższej tabeli.
 
-| Key       | Wartość             |
+| Klucz       | Wartość             |
 | --------- | ----------------- |
 | `-CLKey1` | `CommandLineKey1` |
 | `-CLKey2` | `CommandLineKey2` |
@@ -420,7 +420,7 @@ dotnet run -CLKey1=value1 -CLKey2=value2
 
 Po uruchomieniu poprzedniego polecenia Konfiguracja zawiera wartości pokazane w poniższej tabeli.
 
-| Key               | Wartość    |
+| Klucz               | Wartość    |
 | ----------------- | -------- |
 | `CommandLineKey1` | `value1` |
 | `CommandLineKey2` | `value2` |
@@ -503,7 +503,7 @@ Podczas tworzenia konstruktora hostów Konfiguracja hosta jest zapewniana przez 
 
 Interfejs API konfiguracji ma specjalne reguły przetwarzania dla czterech zmiennych środowiskowych parametrów połączenia związanych z konfigurowaniem parametrów połączenia platformy Azure dla środowiska aplikacji. Zmienne środowiskowe z prefiksami podanymi w tabeli są ładowane do aplikacji, jeśli nie podano prefiksu do `AddEnvironmentVariables`.
 
-| Prefiks parametrów połączenia | Dostawcy |
+| Prefiks parametrów połączenia | Provider |
 | ------------------------ | -------- |
 | `CUSTOMCONNSTR_` | Dostawca niestandardowy |
 | `MYSQLCONNSTR_` | [MySQL](https://www.mysql.com/) |
@@ -518,9 +518,9 @@ Gdy zmienna środowiskowa zostanie odnaleziona i załadowana do konfiguracji z d
 | Klucz zmiennej środowiskowej | Przekonwertowany klucz konfiguracji | Wpis konfiguracji dostawcy                                                    |
 | ------------------------ | --------------------------- | ------------------------------------------------------------------------------- |
 | `CUSTOMCONNSTR_<KEY>`    | `ConnectionStrings:<KEY>`   | Wpis konfiguracji nie został utworzony.                                                |
-| `MYSQLCONNSTR_<KEY>`     | `ConnectionStrings:<KEY>`   | Klucz: `ConnectionStrings:<KEY>_ProviderName`:<br>Wartość: `MySql.Data.MySqlClient` |
-| `SQLAZURECONNSTR_<KEY>`  | `ConnectionStrings:<KEY>`   | Klucz: `ConnectionStrings:<KEY>_ProviderName`:<br>Wartość: `System.Data.SqlClient`  |
-| `SQLCONNSTR_<KEY>`       | `ConnectionStrings:<KEY>`   | Klucz: `ConnectionStrings:<KEY>_ProviderName`:<br>Wartość: `System.Data.SqlClient`  |
+| `MYSQLCONNSTR_<KEY>`     | `ConnectionStrings:<KEY>`   | Klucz: `ConnectionStrings:<KEY>_ProviderName`:<br>Wartość:`MySql.Data.MySqlClient` |
+| `SQLAZURECONNSTR_<KEY>`  | `ConnectionStrings:<KEY>`   | Klucz: `ConnectionStrings:<KEY>_ProviderName`:<br>Wartość:`System.Data.SqlClient`  |
+| `SQLCONNSTR_<KEY>`       | `ConnectionStrings:<KEY>`   | Klucz: `ConnectionStrings:<KEY>_ProviderName`:<br>Wartość:`System.Data.SqlClient`  |
 
 ## <a name="file-configuration-provider"></a>Dostawca konfiguracji plików
 
@@ -623,7 +623,7 @@ Przykładowa aplikacja korzysta z statycznej metody wygodnej `CreateDefaultBuild
 1. Uruchom przykładową aplikację. Otwórz w przeglądarce aplikację w `http://localhost:5000`.
 1. Zwróć uwagę, że dane wyjściowe zawierają pary klucz-wartość dla konfiguracji pokazanej w tabeli w zależności od środowiska. Klucze konfiguracji rejestrowania używają dwukropka (`:`) jako separatora hierarchicznego.
 
-| Key                        | Wartość programistyczna | Wartość produkcyjna |
+| Klucz                        | Wartość programistyczna | Wartość produkcyjna |
 | -------------------------- | :---------------: | :--------------: |
 | Rejestrowanie: LogLevel: system    | Informacje       | Informacje      |
 | Rejestrowanie: LogLevel: Microsoft | Informacje       | Informacje      |
@@ -773,7 +773,7 @@ Słownik jest używany z wywołaniem `AddInMemoryCollection`, aby zapewnić konf
 
 ## <a name="getvalue"></a>GetValue
 
-[ConfigurationBinder. GetValue \<T >](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) wyodrębnia jedną wartość z konfiguracji z określonym kluczem i konwertuje ją na określony typ niekolekcje. Przeciążenie akceptuje wartość domyślną.
+[ConfigurationBinder. GetValue\<t >](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) wyodrębnia jedną wartość z konfiguracji z określonym kluczem i konwertuje ją na określony typ niekolekcje. Przeciążenie akceptuje wartość domyślną.
 
 Poniższy przykład:
 
@@ -858,7 +858,7 @@ var configSection = _config.GetSection("section2:subsection0");
 
 Gdy `GetSection` zwraca pasującą sekcję, <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Value> nie jest wypełnione. <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Key> i <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Path> są zwracane, gdy istnieje sekcja.
 
-### <a name="getchildren"></a>GetChildren —
+### <a name="getchildren"></a>GetChildren
 
 Wywołanie [iConfiguration. GetChildren](xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*) w `section2` uzyskuje `IEnumerable<IConfigurationSection>` obejmujący:
 
@@ -871,7 +871,7 @@ var configSection = _config.GetSection("section2");
 var children = configSection.GetChildren();
 ```
 
-### <a name="exists"></a>Istniejący
+### <a name="exists"></a>Exists
 
 Użyj [ConfigurationExtensions. istnieje](xref:Microsoft.Extensions.Configuration.ConfigurationExtensions.Exists*) , aby określić, czy istnieje sekcja konfiguracji:
 
@@ -917,14 +917,14 @@ Sekcja `starship` pliku *Starship. JSON* tworzy konfigurację, gdy aplikacja Prz
 
 Tworzone są następujące pary klucz-wartość konfiguracji:
 
-| Key                   | Wartość                                             |
+| Klucz                   | Wartość                                             |
 | --------------------- | ------------------------------------------------- |
 | Starship: Nazwa         | USS Enterprise                                    |
 | Starship: Rejestr     | NCC-1701                                          |
 | Starship: Klasa        | Skład                                      |
 | Starship: Długość       | 304,8                                             |
-| Starship: prowizja | False                                             |
-| handlowych             | Najważniejsze obrazy Corp.  https://www.paramount.com |
+| Starship: prowizja | Fałsz                                             |
+| handlowych             | Najważniejsze obrazy Corp. https://www.paramount.com |
 
 Przykładowa aplikacja wywołuje `GetSection` z kluczem `starship`. Pary klucz-wartość `starship` są odizolowane. Metoda `Bind` jest wywoływana w podsekcji przekazującej w wystąpieniu klasy `Starship`. Po powiązaniu wartości wystąpień wystąpienie jest przypisywane do właściwości w celu renderowania:
 
@@ -980,7 +980,7 @@ _config.GetSection("tvshow").Bind(tvShow);
 TvShow = tvShow;
 ```
 
-[ConfigurationBinder. Get \<T >](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) tworzy powiązania i zwraca określony typ. `Get<T>` jest wygodniejszy niż korzystanie z `Bind`. Poniższy kod pokazuje, jak używać `Get<T>` w poprzednim przykładzie, co umożliwia bezpośrednie przypisanie wystąpienia powiązanego do właściwości używanej do renderowania:
+[ConfigurationBinder. Get\<t >](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) tworzy powiązania i zwraca określony typ. `Get<T>` jest wygodniejszy niż korzystanie z `Bind`. Poniższy kod pokazuje, jak używać `Get<T>` w poprzednim przykładzie, co umożliwia bezpośrednie przypisanie wystąpienia powiązanego do właściwości używanej do renderowania:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -1007,7 +1007,7 @@ TvShow = tvShow;
 
 Należy wziąć pod uwagę klucze konfiguracji i wartości podane w poniższej tabeli.
 
-| Key             | Wartość  |
+| Klucz             | Wartość  |
 | :-------------: | :----: |
 | Tablica: wpisy: 0 | value0 |
 | Tablica: wpisy: 1 | sekwencj |
@@ -1052,7 +1052,7 @@ var arrayExample = new ArrayExample();
 _config.GetSection("array").Bind(arrayExample);
 ```
 
-[ConfigurationBinder. Get \<T](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) można również użyć składni >, co powoduje zwiększenie kodu kompaktowego:
+[ConfigurationBinder. Get\<t >](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) można również użyć składni, co spowoduje zwiększenie kodu kompaktowego:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -1078,9 +1078,9 @@ Obiekt powiązany, wystąpienie `ArrayExample`, otrzymuje dane tablicy z konfigu
 
 Indeks &num;3 w obiekcie powiązanym zawiera dane konfiguracyjne `array:4` klucza konfiguracji i jego wartość `value4`. Gdy dane konfiguracji zawierające tablicę są powiązane, indeksy tablic w kluczach konfiguracji są używane tylko do iteracji danych konfiguracji podczas tworzenia obiektu. Wartości null nie można zachować w danych konfiguracyjnych, a wpis o wartości null nie jest tworzony w obiekcie powiązanym, gdy tablica w kluczach konfiguracji pomija jeden lub więcej indeksów.
 
-Brakujący element konfiguracji dla indeksu &num;3 można dostarczyć przed powiązaniem do wystąpienia `ArrayExample` przez dowolnego dostawcę konfiguracji, który generuje poprawną parę klucz-wartość w konfiguracji. Jeśli przykład zawiera dodatkowego dostawcę konfiguracji JSON z brakującą parą klucz-wartość, `ArrayExample.Entries` pasuje do kompletnej tablicy konfiguracji:
+Brakujący element konfiguracji dla indeksu &num;3 można dostarczyć przed powiązaniem do wystąpienia `ArrayExample` przez dowolnego dostawcę konfiguracji, który wygeneruje poprawną parę klucz-wartość w konfiguracji. Jeśli przykład zawiera dodatkowego dostawcę konfiguracji JSON z brakującą parą klucz-wartość, `ArrayExample.Entries` pasuje do kompletnej tablicy konfiguracji:
 
-*missing_value. JSON*:
+*missing_value.json*:
 
 ```json
 {
@@ -1097,11 +1097,11 @@ config.AddJsonFile(
 
 Para klucz-wartość pokazana w tabeli jest ładowana do konfiguracji.
 
-| Key             | Wartość  |
+| Klucz             | Wartość  |
 | :-------------: | :----: |
 | Tablica: wpisy: 3 | Wartość3 |
 
-Jeśli wystąpienie klasy `ArrayExample` jest powiązane, gdy dostawca konfiguracji JSON zawiera wpis dla &num;3 indeksu, tablica `ArrayExample.Entries` zawiera wartość.
+Jeśli wystąpienie klasy `ArrayExample` jest powiązane, gdy dostawca konfiguracji JSON zawiera wpis dla indeksu &num;3, tablica `ArrayExample.Entries` zawiera wartość.
 
 | Indeks `ArrayExample.Entries` | Wartość `ArrayExample.Entries` |
 | :--------------------------: | :--------------------------: |
@@ -1130,12 +1130,12 @@ Jeśli plik JSON zawiera tablicę, klucze konfiguracji są tworzone dla element�
 
 Dostawca konfiguracji JSON odczytuje dane konfiguracji do następujących par klucz-wartość:
 
-| Key                     | Wartość  |
+| Klucz                     | Wartość  |
 | ----------------------- | :----: |
 | json_array: klucz          | wartośća |
-| json_array: podsekcja: 0 | Wartośćb |
-| json_array: podsekcja: 1 | valueC |
-| json_array: podsekcja: 2 | Znajdując |
+| json_array:subsection:0 | Wartośćb |
+| json_array:subsection:1 | valueC |
+| json_array:subsection:2 | Znajdując |
 
 W przykładowej aplikacji jest dostępna następująca Klasa POCO z powiązaniem par klucz-wartość konfiguracji:
 
@@ -1151,7 +1151,7 @@ W przykładowej aplikacji jest dostępna następująca Klasa POCO z powiązaniem
 
 ::: moniker-end
 
-Po powiązaniu `JsonArrayExample.Key` utrzymuje `valueA` wartości. Wartości podsekcji są przechowywane we właściwości tablicy POCO `Subsection`.
+Po powiązaniu `JsonArrayExample.Key` utrzymuje `valueA`wartości. Wartości podsekcji są przechowywane we właściwości tablicy POCO `Subsection`.
 
 | Indeks `JsonArrayExample.Subsection` | Wartość `JsonArrayExample.Subsection` |
 | :---------------------------------: | :---------------------------------: |

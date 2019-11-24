@@ -22,7 +22,7 @@ ASP.NET Core obsługuje wzorzec projektowania oprogramowania dla iniekcji zależ
 
 Aby uzyskać więcej informacji specyficznych dla iniekcji zależności w kontrolerach MVC, zobacz <xref:mvc/controllers/dependency-injection>.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="overview-of-dependency-injection"></a>Przegląd iniekcji zależności
 
@@ -186,20 +186,20 @@ Metoda `Startup.ConfigureServices` jest odpowiedzialna za Definiowanie usług, z
 
 | Typ usługi | Okres istnienia |
 | ------------ | -------- |
-| <xref:Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory?displayProperty=fullName> | Administracyjnej |
-| `IHostApplicationLifetime` | pojedynczego |
-| `IWebHostEnvironment` | pojedynczego |
-| <xref:Microsoft.AspNetCore.Hosting.IStartup?displayProperty=fullName> | pojedynczego |
-| <xref:Microsoft.AspNetCore.Hosting.IStartupFilter?displayProperty=fullName> | Administracyjnej |
-| <xref:Microsoft.AspNetCore.Hosting.Server.IServer?displayProperty=fullName> | pojedynczego |
-| <xref:Microsoft.AspNetCore.Http.IHttpContextFactory?displayProperty=fullName> | Administracyjnej |
-| <xref:Microsoft.Extensions.Logging.ILogger`1?displayProperty=fullName> | pojedynczego |
-| <xref:Microsoft.Extensions.Logging.ILoggerFactory?displayProperty=fullName> | pojedynczego |
-| <xref:Microsoft.Extensions.ObjectPool.ObjectPoolProvider?displayProperty=fullName> | pojedynczego |
-| <xref:Microsoft.Extensions.Options.IConfigureOptions`1?displayProperty=fullName> | Administracyjnej |
-| <xref:Microsoft.Extensions.Options.IOptions`1?displayProperty=fullName> | pojedynczego |
-| <xref:System.Diagnostics.DiagnosticSource?displayProperty=fullName> | pojedynczego |
-| <xref:System.Diagnostics.DiagnosticListener?displayProperty=fullName> | pojedynczego |
+| <xref:Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory?displayProperty=fullName> | Przejściowe |
+| `IHostApplicationLifetime` | Pojedynczego |
+| `IWebHostEnvironment` | Pojedynczego |
+| <xref:Microsoft.AspNetCore.Hosting.IStartup?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.AspNetCore.Hosting.IStartupFilter?displayProperty=fullName> | Przejściowe |
+| <xref:Microsoft.AspNetCore.Hosting.Server.IServer?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.AspNetCore.Http.IHttpContextFactory?displayProperty=fullName> | Przejściowe |
+| <xref:Microsoft.Extensions.Logging.ILogger`1?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.Extensions.Logging.ILoggerFactory?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.Extensions.ObjectPool.ObjectPoolProvider?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.Extensions.Options.IConfigureOptions`1?displayProperty=fullName> | Przejściowe |
+| <xref:Microsoft.Extensions.Options.IOptions`1?displayProperty=fullName> | Pojedynczego |
+| <xref:System.Diagnostics.DiagnosticSource?displayProperty=fullName> | Pojedynczego |
+| <xref:System.Diagnostics.DiagnosticListener?displayProperty=fullName> | Pojedynczego |
 
 ::: moniker-end
 
@@ -207,26 +207,26 @@ Metoda `Startup.ConfigureServices` jest odpowiedzialna za Definiowanie usług, z
 
 | Typ usługi | Okres istnienia |
 | ------------ | -------- |
-| <xref:Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory?displayProperty=fullName> | Administracyjnej |
-| <xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime?displayProperty=fullName> | pojedynczego |
-| <xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment?displayProperty=fullName> | pojedynczego |
-| <xref:Microsoft.AspNetCore.Hosting.IStartup?displayProperty=fullName> | pojedynczego |
-| <xref:Microsoft.AspNetCore.Hosting.IStartupFilter?displayProperty=fullName> | Administracyjnej |
-| <xref:Microsoft.AspNetCore.Hosting.Server.IServer?displayProperty=fullName> | pojedynczego |
-| <xref:Microsoft.AspNetCore.Http.IHttpContextFactory?displayProperty=fullName> | Administracyjnej |
-| <xref:Microsoft.Extensions.Logging.ILogger`1?displayProperty=fullName> | pojedynczego |
-| <xref:Microsoft.Extensions.Logging.ILoggerFactory?displayProperty=fullName> | pojedynczego |
-| <xref:Microsoft.Extensions.ObjectPool.ObjectPoolProvider?displayProperty=fullName> | pojedynczego |
-| <xref:Microsoft.Extensions.Options.IConfigureOptions`1?displayProperty=fullName> | Administracyjnej |
-| <xref:Microsoft.Extensions.Options.IOptions`1?displayProperty=fullName> | pojedynczego |
-| <xref:System.Diagnostics.DiagnosticSource?displayProperty=fullName> | pojedynczego |
-| <xref:System.Diagnostics.DiagnosticListener?displayProperty=fullName> | pojedynczego |
+| <xref:Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory?displayProperty=fullName> | Przejściowe |
+| <xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.AspNetCore.Hosting.IStartup?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.AspNetCore.Hosting.IStartupFilter?displayProperty=fullName> | Przejściowe |
+| <xref:Microsoft.AspNetCore.Hosting.Server.IServer?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.AspNetCore.Http.IHttpContextFactory?displayProperty=fullName> | Przejściowe |
+| <xref:Microsoft.Extensions.Logging.ILogger`1?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.Extensions.Logging.ILoggerFactory?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.Extensions.ObjectPool.ObjectPoolProvider?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.Extensions.Options.IConfigureOptions`1?displayProperty=fullName> | Przejściowe |
+| <xref:Microsoft.Extensions.Options.IOptions`1?displayProperty=fullName> | Pojedynczego |
+| <xref:System.Diagnostics.DiagnosticSource?displayProperty=fullName> | Pojedynczego |
+| <xref:System.Diagnostics.DiagnosticListener?displayProperty=fullName> | Pojedynczego |
 
 ::: moniker-end
 
 ## <a name="register-additional-services-with-extension-methods"></a>Rejestrowanie dodatkowych usług przy użyciu metod rozszerzających
 
-Gdy dostępna jest Metoda rozszerzenia kolekcji usług w celu zarejestrowania usługi (i zależnych od niej usług, jeśli jest to wymagane), Konwencja ma używać pojedynczej metody rozszerzenia `Add{SERVICE_NAME}`, aby zarejestrować wszystkie usługi wymagane przez tę usługę. Poniższy kod stanowi przykład dodawania dodatkowych usług do kontenera przy użyciu metod rozszerzających [AddDbContext \<TContext >](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext) i <xref:Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions.AddIdentityCore*>:
+Gdy dostępna jest Metoda rozszerzenia kolekcji usług w celu zarejestrowania usługi (i zależnych od niej usług, jeśli jest to wymagane), Konwencja ma używać pojedynczej metody rozszerzenia `Add{SERVICE_NAME}`, aby zarejestrować wszystkie usługi wymagane przez tę usługę. Poniższy kod stanowi przykład dodawania dodatkowych usług do kontenera przy użyciu metod rozszerzających [AddDbContext\<TContext >](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext) i <xref:Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions.AddIdentityCore*>:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -250,7 +250,7 @@ Aby uzyskać więcej informacji, zapoznaj się z klasą <xref:Microsoft.Extensio
 
 Wybierz odpowiedni okres istnienia dla każdej zarejestrowanej usługi. Usługi ASP.NET Core można skonfigurować przy użyciu następujących okresów istnienia:
 
-### <a name="transient"></a>Administracyjnej
+### <a name="transient"></a>Przejściowe
 
 Przejściowe usługi okresu istnienia (<xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddTransient*>) są tworzone za każdym razem, gdy zażądają one kontenera usług. Ten okres istnienia działa najlepiej w przypadku lekkich i bezstanowych usług.
 
@@ -261,7 +261,7 @@ Usługi okresu istnienia w zakresie (<xref:Microsoft.Extensions.DependencyInject
 > [!WARNING]
 > W przypadku korzystania z usługi w zakresie w oprogramowaniu pośredniczącym należy wstrzyknąć usługę do metody `Invoke` lub `InvokeAsync`. Nie wprowadzaj przez iniekcję konstruktora, ponieważ wymusza ona zachowanie usługi jako pojedynczej. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/middleware/write#per-request-middleware-dependencies>.
 
-### <a name="singleton"></a>pojedynczego
+### <a name="singleton"></a>Pojedynczego
 
 Pojedyncze usługi okresu istnienia (<xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton*>) są tworzone podczas pierwszego żądania (lub po uruchomieniu `Startup.ConfigureServices`, a wystąpienie jest określone przy rejestracji usługi). Każde kolejne żądanie używa tego samego wystąpienia. Jeśli aplikacja wymaga pojedynczych zachowań, zaleca się, aby można było zarządzać okresem istnienia usługi przez kontener usługi. Nie Wdrażaj wzorca projektu singleton i podaj kod użytkownika, aby zarządzać okresem istnienia obiektu w klasie.
 
@@ -272,7 +272,7 @@ Pojedyncze usługi okresu istnienia (<xref:Microsoft.Extensions.DependencyInject
 
 Metody rozszerzenia rejestracji usług oferują przeciążenia, które są przydatne w określonych scenariuszach.
 
-| Metoda | Automatyczne<br>object<br>myśl | Wielokrotne<br>implementacje | Przekaż argumenty |
+| Metoda | Automatyczne<br>object<br>myśl | Wiele<br>implementacje | Przekaż argumenty |
 | ------ | :-----------------------------: | :-------------------------: | :-------: |
 | `Add{LIFETIME}<{SERVICE}, {IMPLEMENTATION}>()`<br>Przykład:<br>`services.AddSingleton<IMyDep, MyDep>();` | Tak | Tak | Nie |
 | `Add{LIFETIME}<{SERVICE}>(sp => new {IMPLEMENTATION})`<br>Przykłady:<br>`services.AddSingleton<IMyDep>(sp => new MyDep());`<br>`services.AddSingleton<IMyDep>(sp => new MyDep("A string!"));` | Tak | Tak | Tak |
@@ -330,7 +330,7 @@ Gdy usługi są rozpoznawane przez `ActivatorUtilities`, iniekcja konstruktora w
 
 ## <a name="entity-framework-contexts"></a>Konteksty Entity Framework
 
-Konteksty Entity Framework są zazwyczaj dodawane do kontenera usługi przy użyciu [okresu istnienia zakresu](#service-lifetimes) , ponieważ operacje bazy danych aplikacji sieci Web są zwykle ograniczone do żądania klienta. Domyślny okres istnienia jest objęty zakresem, jeśli okres istnienia nie jest określony przez [AddDbContext \<TContext >](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext) Przeciążenie podczas rejestrowania kontekstu bazy danych. Usługi danego okresu istnienia nie powinny używać kontekstu bazy danych z krótszym okresem istnienia niż usługa.
+Konteksty Entity Framework są zazwyczaj dodawane do kontenera usługi przy użyciu [okresu istnienia zakresu](#service-lifetimes) , ponieważ operacje bazy danych aplikacji sieci Web są zwykle ograniczone do żądania klienta. Domyślny okres istnienia jest objęty zakresem, jeśli okres istnienia nie jest określony przez [AddDbContext\<TContext >](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext) Przeciążenie podczas rejestrowania kontekstu bazy danych. Usługi danego okresu istnienia nie powinny używać kontekstu bazy danych z krótszym okresem istnienia niż usługa.
 
 ## <a name="lifetime-and-registration-options"></a>Opcje okresu istnienia i rejestracji
 
@@ -380,7 +380,7 @@ Zarejestrowano `OperationService`, który zależy od poszczególnych typów `Ope
 
 ::: moniker-end
 
-W `Startup.ConfigureServices` każdy typ jest dodawany do kontenera zgodnie z jego nazwanym okresem istnienia:
+W `Startup.ConfigureServices`każdy typ jest dodawany do kontenera zgodnie z jego nazwanym okresem istnienia:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -628,9 +628,9 @@ Za pomocą aplikacji ASP.NET Core można używać następujących kontenerów in
 
 Twórz bezpieczne dla wątków usługi pojedyncze. Jeśli usługa singleton ma zależność od przejściowej usługi, usługa przejściowa może również wymagać bezpieczeństwa wątku, w zależności od tego, w jaki sposób jest używana przez pojedyncze.
 
-Metoda fabryki pojedynczej usługi, taka jak drugi argument dla [AddSingleton \<TService > (IServiceCollection, Func \<IServiceProvider, TService >)](xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton*), nie musi być bezpieczna wątkowo. Podobnie jak w przypadku konstruktora typu (`static`), gwarantowane jest wywoływanie jednokrotne przez pojedynczy wątek.
+Metoda fabryki pojedynczej usługi, taka jak drugi argument dla [AddSingleton\<TService > (IServiceCollection, Func\<IServiceProvider, TService >)](xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton*), nie musi być bezpieczna wątkowo. Podobnie jak w przypadku konstruktora typu (`static`), gwarantowane jest wywoływanie jednokrotne przez pojedynczy wątek.
 
-## <a name="recommendations"></a>Mając
+## <a name="recommendations"></a>Zalecenia
 
 * Rozpoznawanie usług `async/await` i `Task` nie jest obsługiwane. C#nie obsługuje konstruktorów asynchronicznych; w związku z tym zalecany wzorzec polega na użyciu metod asynchronicznych po synchronicznym rozpoznaniu usługi.
 
@@ -681,7 +681,7 @@ Metoda fabryki pojedynczej usługi, taka jak drugi argument dla [AddSingleton \<
 
 * Unikaj dostępu statycznego do `HttpContext` (na przykład [IHttpContextAccessor. HttpContext](xref:Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext)).
 
-Podobnie jak w przypadku wszystkich zestawów zaleceń, mogą wystąpić sytuacje, w których ignorowanie zalecenia jest wymagane. Wyjątkami są rzadkie &mdash;mostly specjalne przypadki w ramach samej struktury.
+Podobnie jak w przypadku wszystkich zestawów zaleceń, mogą wystąpić sytuacje, w których ignorowanie zalecenia jest wymagane. Wyjątki są rzadkimi&mdash;w większości specjalnych przypadków w ramach samej struktury.
 
 DI jest *alternatywą* dla wzorców dostępu do obiektów static/Global. Możesz nie być w stanie korzystać z zalet programu DI w przypadku jego mieszania z dostępem do obiektów statycznych.
 

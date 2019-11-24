@@ -24,7 +24,7 @@ Dodaj parametry połączenia do pliku *appSettings. JSON* , jak pokazano w nast�
 
 <a name="reg"></a>
 
-### <a name="register-the-database-context"></a>Rejestrowanie kontekstu bazy danych
+### <a name="register-the-database-context"></a>Zarejestruj kontekst bazy danych
 
 Dodaj następujące instrukcje `using` w górnej części *Startup.cs*:
 
@@ -57,7 +57,7 @@ Pakiet `Microsoft.VisualStudio.Web.CodeGeneration.Design` jest wymagany do tworz
 
 <a name="reg"></a>
 
-### <a name="register-the-database-context"></a>Rejestrowanie kontekstu bazy danych
+### <a name="register-the-database-context"></a>Zarejestruj kontekst bazy danych
 
 Dodaj następujące instrukcje `using` w górnej części *Startup.cs*:
 
