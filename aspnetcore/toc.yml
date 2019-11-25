@@ -381,14 +381,20 @@
               uid: mvc/views/tag-helpers/builtin-th/environment-tag-helper
             - name: Formularz
               href: 'mvc/views/working-with-forms.md#the-form-tag-helper'
+            - name: Akcja formularza
+              href: 'mvc/views/working-with-forms.md#the-form-action-tag-helper'
             - name: Obraz
               uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
             - name: Dane wejściowe
               href: 'mvc/views/working-with-forms.md#the-input-tag-helper'
             - name: Etykieta
               href: 'mvc/views/working-with-forms.md#the-label-tag-helper'
+            - name: Łącze
+              uid: mvc/views/tag-helpers/builtin-th/link-tag-helper
             - name: Częściowe
               uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
+            - name: Skrypt
+              uid: mvc/views/tag-helpers/builtin-th/script-tag-helper
             - name: Wybierz
               href: 'mvc/views/working-with-forms.md#the-select-tag-helper'
             - name: Obszar tekstu
