@@ -4,14 +4,14 @@ author: blowdart
 description: Dowiedz się, jak skonfigurować uwierzytelnianie certyfikatów w ASP.NET Core dla usług IIS i HTTP. sys.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: bdorrans
-ms.date: 11/07/2019
+ms.date: 11/14/2019
 uid: security/authentication/certauth
-ms.openlocfilehash: 0062bc0d7688ebcc67f8240da7166d89493f6639
-ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
+ms.openlocfilehash: 2ed3e88adf3bdb7528f47492b6eb5792f99f20d8
+ms.sourcegitcommit: f91d322f790123d41ec3271fa084ae20ed9f89a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73897035"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155004"
 ---
 # <a name="configure-certificate-authentication-in-aspnet-core"></a>Konfigurowanie uwierzytelniania certyfikatów w ASP.NET Core
 
@@ -204,6 +204,9 @@ public static IHostBuilder CreateHostBuilder(string[] args)
                 });
 }
 ```
+
+> [!NOTE]
+> Punkty końcowe utworzone przez wywołanie <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> **przed** wywołaniem <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ConfigureHttpsDefaults*> nie będą miały zastosowania wartości domyślnych.
 
 ### <a name="iis"></a>IIS
 

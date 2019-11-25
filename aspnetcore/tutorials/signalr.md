@@ -4,16 +4,16 @@ author: bradygaster
 description: W tym samouczku utworzysz aplikację czatu korzystającą SignalRASP.NET Core.
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 11/21/2019
 no-loc:
 - SignalR
 uid: tutorials/signalr
-ms.openlocfilehash: ac727ed0517a8b30fd8194c010576fdd74a5950a
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 55ebdbfa4556deca74a6cdf0638307425cd1a01a
+ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74052853"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74317500"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-opno-locsignalr"></a>Samouczek: Rozpoczynanie pracy z ASP.NET Core SignalR
 
@@ -22,7 +22,7 @@ ms.locfileid: "74052853"
 Ten samouczek uczy się podstaw tworzenia aplikacji w czasie rzeczywistym przy użyciu SignalR. Dowiesz się, jak:
 
 > [!div class="checklist"]
-> * Utwórz projekt sieci Web.
+> * Utwórz projekt sieci web.
 > * Dodaj SignalRą bibliotekę kliencką.
 > * Utwórz centrum SignalR.
 > * Skonfiguruj projekt do użycia SignalR.
@@ -93,7 +93,7 @@ Biblioteka SignalR Server jest dołączona do udostępnionej struktury ASP.NET C
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-* W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Dodaj** > **biblioteki po stronie klienta**.
+* W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Dodaj** > **bibliotekę po stronie klienta**.
 
 * W oknie dialogowym **Dodawanie biblioteki po stronie klienta** dla **dostawcy** wybierz pozycję **unpkg**.
 
@@ -195,7 +195,7 @@ Serwer SignalR musi być skonfigurowany do przekazywania żądań SignalR do Sig
 
   [!code-cshtml[Index](signalr/sample-snapshot/3.x/Index.cshtml)]
 
-  Poprzedni kod:
+  Powyższy kod:
 
   * Tworzy pola tekstowe dla nazwy i tekstu komunikatu oraz przycisk Prześlij.
   * Tworzy listę z `id="messagesList"` do wyświetlania komunikatów odebranych z centrum SignalR.
@@ -205,7 +205,7 @@ Serwer SignalR musi być skonfigurowany do przekazywania żądań SignalR do Sig
 
   [!code-javascript[chat](signalr/sample-snapshot/3.x/chat.js)]
 
-  Poprzedni kod:
+  Powyższy kod:
 
   * Tworzy i uruchamia połączenie.
   * Dodaje do przycisku Prześlij procedurę obsługi, która wysyła komunikaty do centrum.
@@ -256,7 +256,7 @@ Serwer SignalR musi być skonfigurowany do przekazywania żądań SignalR do Sig
 Ten samouczek uczy się podstaw tworzenia aplikacji w czasie rzeczywistym przy użyciu SignalR. Dowiesz się, jak: 
 
 > [!div class="checklist"]  
-> * Utwórz projekt sieci Web.   
+> * Utwórz projekt sieci web.   
 > * Dodaj SignalRą bibliotekę kliencką.   
 > * Utwórz centrum SignalR. 
 > * Skonfiguruj projekt do użycia SignalR. 
@@ -279,7 +279,7 @@ Na końcu będziesz mieć działającą aplikację czatu: ![[! OP. NO-LOC (Signa
 
 --- 
 
-## <a name="create-a-web-project"></a>Tworzenie projektu sieci Web 
+## <a name="create-a-web-project"></a>Tworzenie projektu sieci web 
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)  
 
@@ -312,7 +312,7 @@ Na końcu będziesz mieć działającą aplikację czatu: ![[! OP. NO-LOC (Signa
 
 * Wybierz pozycję **.NET Core > app > ASP.NET Core Web App** (nie wybieraj **ASP.NET Core Web App (MVC)** ).  
 
-* Wybierz pozycję **dalej**.  
+* Wybierz opcję **Dalej**.  
 
 * Nazwij projekt *SignalRChat*, a następnie wybierz pozycję **Utwórz**.   
 
@@ -324,11 +324,11 @@ Biblioteka SignalR Server jest dołączona do `Microsoft.AspNetCore.App` pakietu
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)  
 
-* W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Dodaj** > **biblioteki po stronie klienta**.  
+* W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Dodaj** > **bibliotekę po stronie klienta**.  
 
 * W oknie dialogowym **Dodawanie biblioteki po stronie klienta** dla **dostawcy** wybierz pozycję **unpkg**. 
 
-* W obszarze **Biblioteka**wprowadź wartość `@aspnet/signalr@1` i wybierz najnowszą wersję, która nie jest zapoznawcza. 
+* W obszarze **Biblioteka**wprowadź `@microsoft/signalr@3`i wybierz najnowszą wersję, która nie jest w wersji zapoznawczej.  
 
   ![Okno dialogowe Dodawanie biblioteki po stronie klienta — wybór biblioteki](signalr/_static/2.x/libman1.png)   
 
@@ -351,7 +351,7 @@ Biblioteka SignalR Server jest dołączona do `Microsoft.AspNetCore.App` pakietu
 * Uruchom następujące polecenie, aby uzyskać SignalR bibliotekę kliencką przy użyciu LibMan. Może być konieczne odczekanie kilku sekund przed wyświetleniem danych wyjściowych. 
 
   ```console    
-  libman install @aspnet/signalr -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js    
+  libman install @microsoft/signalr -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js 
   ```   
 
   Parametry określają następujące opcje: 
@@ -364,7 +364,7 @@ Biblioteka SignalR Server jest dołączona do `Microsoft.AspNetCore.App` pakietu
   ```console    
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk   
   wwwroot/lib/signalr/dist/browser/signalr.min.js written to disk   
-  Installed library "@aspnet/signalr@1.0.3" to "wwwroot/lib/signalr"    
+  Installed library "@microsoft/signalr@3.0.1" to "wwwroot/lib/signalr" 
   ```   
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)   
@@ -380,7 +380,7 @@ Biblioteka SignalR Server jest dołączona do `Microsoft.AspNetCore.App` pakietu
 * Uruchom następujące polecenie, aby uzyskać SignalR bibliotekę kliencką przy użyciu LibMan.    
 
   ```console    
-  libman install @aspnet/signalr -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js    
+  libman install @microsoft/signalr -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js 
   ```   
 
   Parametry określają następujące opcje: 
@@ -393,7 +393,7 @@ Biblioteka SignalR Server jest dołączona do `Microsoft.AspNetCore.App` pakietu
   ```console    
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk   
   wwwroot/lib/signalr/dist/browser/signalr.min.js written to disk   
-  Installed library "@aspnet/signalr@1.0.3" to "wwwroot/lib/signalr"    
+  Installed library "@microsoft/signalr@3.x.x" to "wwwroot/lib/signalr" 
   ```   
 
 --- 
@@ -428,7 +428,7 @@ Serwer SignalR musi być skonfigurowany do przekazywania żądań SignalR do Sig
 
   [!code-cshtml[Index](signalr/sample-snapshot/2.x/Index.cshtml)]   
 
-  Poprzedni kod:   
+  Powyższy kod:   
 
   * Tworzy pola tekstowe dla nazwy i tekstu komunikatu oraz przycisk Prześlij.  
   * Tworzy listę z `id="messagesList"` do wyświetlania komunikatów odebranych z centrum SignalR.   
@@ -438,7 +438,7 @@ Serwer SignalR musi być skonfigurowany do przekazywania żądań SignalR do Sig
 
   [!code-javascript[Index](signalr/sample-snapshot/2.x/chat.js)]    
 
-  Poprzedni kod:   
+  Powyższy kod:   
 
   * Tworzy i uruchamia połączenie.    
   * Dodaje do przycisku Prześlij procedurę obsługi, która wysyła komunikaty do centrum. 
@@ -454,17 +454,17 @@ Serwer SignalR musi być skonfigurowany do przekazywania żądań SignalR do Sig
 
 * W zintegrowanym terminalu uruchom następujące polecenie:    
 
-  ```dotnetcli  
-  dotnet run -p SignalRChat.csproj  
-  ```   
+  ```dotnetcli
+  dotnet run -p SignalRChat.csproj
+  ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)   
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
-* Z menu wybierz polecenie **uruchom > Uruchom bez debugowania**.  
+* Z menu wybierz polecenie **uruchom > Uruchom bez debugowania**.
 
---- 
+---
 
-* Skopiuj adres URL z paska adresu, Otwórz inne wystąpienie przeglądarki lub kartę, a następnie wklej adres URL na pasku adresu.    
+* Skopiuj adres URL z paska adresu, Otwórz inne wystąpienie przeglądarki lub kartę, a następnie wklej adres URL na pasku adresu.
 
 * Wybierz opcję przeglądarka, wprowadź nazwę i komunikat, a następnie wybierz przycisk **Wyślij wiadomość** .  
 

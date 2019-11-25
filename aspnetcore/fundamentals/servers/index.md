@@ -7,22 +7,22 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/07/2019
 uid: fundamentals/servers/index
-ms.openlocfilehash: e542dd4506eb77f949c0c87bea3044397bbb1b8f
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: d46793ef54c99fe609b5983c5a658fb7b20032fa
+ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799406"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74289062"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementacje serwera sieci Web w ASP.NET Core
 
 Autorzy [Dykstra](https://github.com/tdykstra), [Steve Kowalski](https://ardalis.com/), [Stephen](https://twitter.com/halter73), i [Krzysztof Ross](https://github.com/Tratcher)
 
-Aplikacja ASP.NET Core jest uruchamiana z użyciem implementacji serwera HTTP w procesie. Implementacja serwera nasłuchuje żądań HTTP i umieszcza je w aplikacji jako zestaw [funkcji żądania](xref:fundamentals/request-features) składających się na <xref:Microsoft.AspNetCore.Http.HttpContext>.
+Aplikacja ASP.NET Core jest uruchamiana z użyciem implementacji serwera HTTP w procesie. Implementacja serwera nasłuchuje żądań HTTP i umieszcza je w aplikacji jako zestaw [funkcji żądania](xref:fundamentals/request-features) złożonych do <xref:Microsoft.AspNetCore.Http.HttpContext>.
 
 ## <a name="kestrel"></a>Kestrel
 
-Kestrel to domyślny serwer sieci Web uwzględniony w szablonach projektu ASP.NET Core.
+Kestrel to domyślny serwer sieci Web określony przez szablony projektu ASP.NET Core.
 
 Użyj Kestrel:
 
@@ -70,7 +70,7 @@ Aby uzyskać więcej informacji i wskazówki dotyczące konfiguracji, zobacz nas
 
 ASP.NET Core jest dostarczany z [serwerem Kestrel](xref:fundamentals/servers/kestrel), który jest domyślnym serwerem HTTP dla wielu platform.
 
-# <a name="linuxtablinux"></a>[System](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ASP.NET Core jest dostarczany z [serwerem Kestrel](xref:fundamentals/servers/kestrel), który jest domyślnym serwerem HTTP dla wielu platform.
 
@@ -110,7 +110,7 @@ Aby uzyskać wskazówki dotyczące konfiguracji modułu usług IIS i ASP.NET Cor
 
 ASP.NET Core jest dostarczany z [serwerem Kestrel](xref:fundamentals/servers/kestrel), który jest domyślnym serwerem HTTP dla wielu platform.
 
-# <a name="linuxtablinux"></a>[System](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ASP.NET Core jest dostarczany z [serwerem Kestrel](xref:fundamentals/servers/kestrel), który jest domyślnym serwerem HTTP dla wielu platform.
 
@@ -146,19 +146,19 @@ Aby uzyskać wskazówki dotyczące konfiguracji protokołu HTTP. sys, zobacz <xr
 
 ## <a name="custom-servers"></a>Serwery niestandardowe
 
-Jeśli wbudowane serwery nie spełniają wymagań aplikacji, można utworzyć niestandardową implementację serwera. W [przewodniku Otwórz interfejs sieci Web dla platformy .NET (Owin)](xref:fundamentals/owin) przedstawiono sposób pisania implementacji <xref:Microsoft.AspNetCore.Hosting.Server.IServer> opartych na [nowin](https://github.com/Bobris/Nowin). Tylko interfejsy funkcji używane przez aplikację wymagają implementacji, ale minimalna <xref:Microsoft.AspNetCore.Http.Features.IHttpRequestFeature> i <xref:Microsoft.AspNetCore.Http.Features.IHttpResponseFeature> muszą być obsługiwane.
+Jeśli wbudowane serwery nie spełniają wymagań aplikacji, można utworzyć niestandardową implementację serwera. W [przewodniku otwierania interfejsu sieci Web dla platformy .NET (Owin)](xref:fundamentals/owin) przedstawiono sposób pisania implementacji <xref:Microsoft.AspNetCore.Hosting.Server.IServer> opartej na [nowin](https://github.com/Bobris/Nowin). Tylko interfejsy funkcji używane przez aplikację wymagają implementacji, ale co najmniej <xref:Microsoft.AspNetCore.Http.Features.IHttpRequestFeature> i <xref:Microsoft.AspNetCore.Http.Features.IHttpResponseFeature> muszą być obsługiwane.
 
 ## <a name="server-startup"></a>Uruchamianie serwera
 
 Serwer jest uruchamiany po uruchomieniu aplikacji zintegrowanego środowiska programistycznego (IDE) lub edytora:
 
-* Profile uruchamiania [programu Visual Studio](https://visualstudio.microsoft.com) &ndash; mogą służyć do uruchamiania aplikacji i serwera przy użyciu [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview)/[ASP.NET Core modułu](xref:host-and-deploy/aspnet-core-module) lub konsoli programu.
-* [Visual Studio Code](https://code.visualstudio.com/) &ndash; aplikacja i serwer są uruchamiane przez [omnisharp](https://github.com/OmniSharp/omnisharp-vscode), która aktywuje debuger CoreCLR.
+* Profile uruchamiania [programu Visual Studio](https://visualstudio.microsoft.com) &ndash; mogą służyć do uruchamiania aplikacji i serwera z [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview)/[ASP.NET Core Module](xref:host-and-deploy/aspnet-core-module) lub konsolą programu.
+* [Visual Studio Code](https://code.visualstudio.com/) &ndash; aplikacja i serwer są uruchamiane przez [omnisharp](https://github.com/OmniSharp/omnisharp-vscode), które uaktywnia debuger CoreCLR.
 * [Visual Studio dla komputerów Mac](https://visualstudio.microsoft.com/vs/mac/) &ndash; aplikacja i serwer są uruchamiane przez [debuger trybu miękkiego mono](https://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/).
 
-Podczas uruchamiania aplikacji z poziomu wiersza polecenia w folderze projektu, [uruchomienie dotnet](/dotnet/core/tools/dotnet-run) uruchamia aplikację i serwer (tylko KESTREL i http. sys). Konfiguracja jest określona przez opcję `-c|--configuration`, która jest ustawiona na `Debug` (wartość domyślna) lub `Release`.
+Podczas uruchamiania aplikacji z poziomu wiersza polecenia w folderze projektu, [uruchomienie dotnet](/dotnet/core/tools/dotnet-run) uruchamia aplikację i serwer (tylko KESTREL i http. sys). Konfiguracja jest określana za pomocą opcji `-c|--configuration`, która jest ustawiona na `Debug` (wartość domyślna) lub `Release`.
 
-Plik *profilu launchsettings. JSON* zapewnia konfigurację podczas uruchamiania aplikacji przy użyciu `dotnet run` lub debugera wbudowanego w narzędzia, takie jak Visual Studio. Jeśli w pliku *profilu launchsettings. JSON* istnieją profile uruchamiania, użyj opcji `--launch-profile {PROFILE NAME}` z`dotnet run` polecenie lub wybierz profil w programie Visual Studio. Aby uzyskać więcej informacji, [](/dotnet/core/tools/dotnet-run) zobacz [pakietem rozkładu dotnet i .NET Core](/dotnet/core/build/distribution-packaging).
+Plik *profilu launchsettings. JSON* zapewnia konfigurację podczas uruchamiania aplikacji przy użyciu `dotnet run` lub debugera wbudowanego w narzędzia, takie jak Visual Studio. Jeśli w pliku *profilu launchsettings. JSON* istnieją profile uruchamiania, użyj opcji `--launch-profile {PROFILE NAME}` z `dotnet run` polecenie lub wybierz profil w programie Visual Studio. Aby uzyskać więcej informacji, [](/dotnet/core/tools/dotnet-run) zobacz [pakietem rozkładu dotnet i .NET Core](/dotnet/core/build/distribution-packaging).
 
 ## <a name="http2-support"></a>Obsługa protokołu HTTP/2
 
@@ -176,10 +176,10 @@ Plik *profilu launchsettings. JSON* zapewnia konfigurację podczas uruchamiania 
   * Windows Server 2016/Windows 10 lub nowszy
   * Struktura docelowa: nie dotyczy wdrożeń HTTP. sys.
 * [Usługi IIS (w procesie)](xref:host-and-deploy/iis/index#http2-support)
-  * Windows Server 2016/Windows 10 lub nowszy; Program IIS 10 lub nowszy
+  * Windows Server 2016 i Windows 10 lub nowszym; Usługi IIS 10 lub nowszym
   * Platforma docelowa: .NET Core 2,2 lub nowszy
 * [Usługi IIS (pozaprocesowe)](xref:host-and-deploy/iis/index#http2-support)
-  * Windows Server 2016/Windows 10 lub nowszy; Program IIS 10 lub nowszy
+  * Windows Server 2016 i Windows 10 lub nowszym; Usługi IIS 10 lub nowszym
   * Połączenia z serwerem granicznym dostępnym publicznie korzystają z protokołu HTTP/2, ale połączenie zwrotne serwera proxy z Kestrel korzysta z protokołu HTTP/1.1.
   * Struktura docelowa: nie dotyczy wdrożeń pozaprocesowych usług IIS.
 
@@ -193,7 +193,7 @@ Plik *profilu launchsettings. JSON* zapewnia konfigurację podczas uruchamiania 
   * Windows Server 2016/Windows 10 lub nowszy
   * Struktura docelowa: nie dotyczy wdrożeń HTTP. sys.
 * [Usługi IIS (pozaprocesowe)](xref:host-and-deploy/iis/index#http2-support)
-  * Windows Server 2016/Windows 10 lub nowszy; Program IIS 10 lub nowszy
+  * Windows Server 2016 i Windows 10 lub nowszym; Usługi IIS 10 lub nowszym
   * Połączenia z serwerem granicznym dostępnym publicznie korzystają z protokołu HTTP/2, ale połączenie zwrotne serwera proxy z Kestrel korzysta z protokołu HTTP/1.1.
   * Struktura docelowa: nie dotyczy wdrożeń pozaprocesowych usług IIS.
 

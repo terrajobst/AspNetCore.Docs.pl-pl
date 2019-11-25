@@ -9,12 +9,12 @@ ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: signalr/redis-backplane
-ms.openlocfilehash: 379d46fcaabb8eb0d04e521a5ad698229f947b7c
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 0461fc6a212ba78111bc2054cca74951721c5820
+ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963918"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74289035"
 ---
 # <a name="set-up-a-redis-backplane-for-aspnet-core-opno-locsignalr-scale-out"></a>Konfigurowanie planu Redis dla ASP.NET Core SignalR skalowanie w poziomie
 
@@ -37,8 +37,7 @@ W tym artykule wyjaśniono SignalRaspekty dotyczące konfigurowania serwera [Red
 
 ::: moniker range="= aspnetcore-2.1"
 
-* W aplikacji SignalR Zainstaluj pakiet NuGet `Microsoft.AspNetCore.SignalR.Redis`. (Istnieje również pakiet `Microsoft.AspNetCore.SignalR.StackExchangeRedis`, ale jest on przeznaczony dla ASP.NET Core 2,2 i nowszych).
-
+* W aplikacji SignalR Zainstaluj pakiet NuGet `Microsoft.AspNetCore.SignalR.Redis`.
 * W metodzie `Startup.ConfigureServices` Wywołaj `AddRedis` po `AddSignalR`:
 
   ```csharp
@@ -62,19 +61,54 @@ W tym artykule wyjaśniono SignalRaspekty dotyczące konfigurowania serwera [Red
 
 ::: moniker-end
 
-::: moniker range="> aspnetcore-2.1"
+::: moniker range="= aspnetcore-2.2"
 
 * W aplikacji SignalR Zainstaluj jeden z następujących pakietów NuGet:
 
   * `Microsoft.AspNetCore.SignalR.StackExchangeRedis` — zależy od StackExchange. Redis 2. X.X. Jest to zalecany pakiet dla ASP.NET Core 2,2 i nowszych.
-  * `Microsoft.AspNetCore.SignalR.Redis` — zależy od StackExchange. Redis 1. X.X. Ten pakiet nie będzie wysyłany w ASP.NET Core 3,0.
+  * `Microsoft.AspNetCore.SignalR.Redis` — zależy od StackExchange. Redis 1. X.X. Ten pakiet nie jest uwzględniony w ASP.NET Core 3,0 i nowszych.
 
-* W metodzie `Startup.ConfigureServices` Wywołaj `AddStackExchangeRedis` po `AddSignalR`:
+* W metodzie `Startup.ConfigureServices` Wywołaj <xref:Microsoft.Extensions.DependencyInjection.StackExchangeRedisDependencyInjectionExtensions.AddStackExchangeRedis*>:
 
   ```csharp
   services.AddSignalR().AddStackExchangeRedis("<your_Redis_connection_string>");
   ```
 
+ Korzystając z `Microsoft.AspNetCore.SignalR.Redis`, wywołaj <xref:Microsoft.Extensions.DependencyInjection.RedisDependencyInjectionExtensions.AddRedis*>.
+
+* Skonfiguruj opcje zgodnie z wymaganiami:
+ 
+  Większość opcji można ustawić w parametrach połączenia lub w obiekcie [ConfigurationOptions](https://stackexchange.github.io/StackExchange.Redis/Configuration#configuration-options) . Opcje określone w `ConfigurationOptions` przesłaniają te ustawienia w parametrach połączenia.
+
+  Poniższy przykład pokazuje, jak ustawić opcje w obiekcie `ConfigurationOptions`. Ten przykład dodaje prefiks kanału, dzięki czemu wiele aplikacji może współużytkować to samo wystąpienie Redis, co zostało wyjaśnione w poniższym kroku.
+
+  ```csharp
+  services.AddSignalR()
+    .AddStackExchangeRedis(connectionString, options => {
+        options.Configuration.ChannelPrefix = "MyApp";
+    });
+  ```
+
+ Korzystając z `Microsoft.AspNetCore.SignalR.Redis`, wywołaj <xref:Microsoft.Extensions.DependencyInjection.RedisDependencyInjectionExtensions.AddRedis*>.
+
+  W powyższym kodzie, `options.Configuration` jest inicjowany z dowolnego rodzaju określono w parametrach połączenia.
+
+  Informacje o opcjach Redis można znaleźć w [dokumentacji stackexchange Redis](https://stackexchange.github.io/StackExchange.Redis/Configuration.html).
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+* W aplikacji SignalR zainstaluj następujący pakiet NuGet:
+
+  * `Microsoft.AspNetCore.SignalR.StackExchangeRedis`
+  
+* W metodzie `Startup.ConfigureServices` Wywołaj <xref:Microsoft.Extensions.DependencyInjection.StackExchangeRedisDependencyInjectionExtensions.AddStackExchangeRedis*>:
+
+  ```csharp
+  services.AddSignalR().AddStackExchangeRedis("<your_Redis_connection_string>");
+  ```
+  
 * Skonfiguruj opcje zgodnie z wymaganiami:
  
   Większość opcji można ustawić w parametrach połączenia lub w obiekcie [ConfigurationOptions](https://stackexchange.github.io/StackExchange.Redis/Configuration#configuration-options) . Opcje określone w `ConfigurationOptions` przesłaniają te ustawienia w parametrach połączenia.
@@ -100,7 +134,7 @@ W tym artykule wyjaśniono SignalRaspekty dotyczące konfigurowania serwera [Red
 
 * Skonfiguruj oprogramowanie do równoważenia obciążenia farmy serwerów dla sesji programu Sticky Notes. Oto kilka przykładów dokumentacji dotyczącej tego, jak to zrobić:
 
-  * [SERWERZE](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing)
+  * [IIS](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing)
   * [HAProxy](https://www.haproxy.com/blog/load-balancing-affinity-persistence-sticky-sessions-what-you-need-to-know/)
   * [Nginx](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/#sticky)
   * [pfSense](https://www.netgate.com/docs/pfsense/loadbalancing/inbound-load-balancing.html#sticky-connections)
@@ -190,7 +224,7 @@ services.AddSignalR()
 
 [Redis klastrowanie](https://redis.io/topics/cluster-spec) to metoda osiągania wysokiej dostępności przy użyciu wielu serwerów Redis. Klastrowanie nie jest oficjalnie obsługiwane, ale może zadziałało.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji, zobacz następujące zasoby:
 

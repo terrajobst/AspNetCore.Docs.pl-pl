@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak działa powiązanie modelu w ASP.NET Core i jak dostosować jego zachowanie.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: riande
-ms.date: 05/31/2019
+ms.date: 11/15/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: aeb2da7e11df1eab5a17e2ae0a3971420c9383b4
-ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
+ms.openlocfilehash: a025419a5b4d2c2e3e5c5a7850df281ddd3164ea
+ms.sourcegitcommit: f91d322f790123d41ec3271fa084ae20ed9f89a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73190595"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155042"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Powiązanie modelu w ASP.NET Core
 
@@ -40,7 +40,7 @@ A aplikacja odbiera żądanie przy użyciu tego adresu URL:
 http://contoso.com/api/pets/2?DogsOnly=true
 ```
 
-Powiązanie modelu przebiega mimo wykonania następujących kroków przez system routingu wybiera metodę akcji:
+Powiązanie modelu przechodzi przez następujące kroki, gdy system routingu wybierze metodę akcji:
 
 * Znajduje pierwszy parametr `GetByID`, liczbą całkowitą o nazwie `id`.
 * Wyszukuje dostępne źródła w żądaniu HTTP i odnajduje `id` = "2" w temacie dane trasy.
@@ -324,7 +324,7 @@ Dla celów, które są kolekcjami typów prostych, powiązanie modelu wyszukuje 
 
 ## <a name="dictionaries"></a>słownik
 
-Dla `Dictionary` obiektów docelowych powiązanie modelu szuka dopasowań do *parameter_name* lub *property_name*. Jeśli dopasowanie nie zostanie znalezione, szuka jednego z obsługiwanych formatów bez prefiksu. Na przykład:
+Dla `Dictionary` obiektów docelowych powiązanie modelu wyszukuje dopasowania do *parameter_name* lub *property_name*. Jeśli dopasowanie nie zostanie znalezione, szuka jednego z obsługiwanych formatów bez prefiksu. Na przykład:
 
 * Załóżmy, że parametr docelowy jest `Dictionary<int, string>` o nazwie `selectedCourses`:
 

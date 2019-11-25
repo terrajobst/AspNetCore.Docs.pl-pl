@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/11/2018
 uid: fundamentals/httpcontext
-ms.openlocfilehash: 888adf6d61e6968127385952e65f942e86b7eb63
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: 0bf40f9cd2554f5ba01ccc06001fa4f1940d51a5
+ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72288968"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74289049"
 ---
 # <a name="access-httpcontext-in-aspnet-core"></a>Dostęp do obiektu HttpContext w ASP.NET Core
 
-ASP.NET Core aplikacje uzyskują dostęp do `HttpContext` za pomocą interfejsu [IHttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor) i jego domyślnej implementacji [HttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.httpcontextaccessor). Jest to konieczne tylko w przypadku korzystania z `IHttpContextAccessor`, gdy potrzebny jest dostęp do `HttpContext` w ramach usługi.
+ASP.NET Core aplikacje uzyskują dostęp do `HttpContext` za pomocą interfejsu [IHttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor) oraz jego domyślnej implementacji [HttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.httpcontextaccessor). Należy używać `IHttpContextAccessor` tylko wtedy, gdy potrzebujesz dostępu do `HttpContext` wewnątrz usługi.
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -39,7 +39,7 @@ public class AboutModel : PageModel
 
 ## <a name="use-httpcontext-from-a-razor-view"></a>Używanie elementu HttpContext z widoku Razor
 
-Widoki Razor uwidaczniają `HttpContext` bezpośrednio za pośrednictwem właściwości [RazorPage. Context](/dotnet/api/microsoft.aspnetcore.mvc.razor.razorpage.context#Microsoft_AspNetCore_Mvc_Razor_RazorPage_Context) w widoku. Poniższy przykład pobiera bieżącą nazwę użytkownika w aplikacji intranetowej przy użyciu uwierzytelniania systemu Windows:
+Widoki Razor uwidaczniają `HttpContext` bezpośrednio przez właściwość [RazorPage. Context](/dotnet/api/microsoft.aspnetcore.mvc.razor.razorpage.context#Microsoft_AspNetCore_Mvc_Razor_RazorPage_Context) w widoku. Poniższy przykład pobiera bieżącą nazwę użytkownika w aplikacji intranetowej przy użyciu uwierzytelniania systemu Windows:
 
 ```cshtml
 @{
@@ -80,7 +80,7 @@ public class MyCustomMiddleware
 
 ## <a name="use-httpcontext-from-custom-components"></a>Używanie obiektu HttpContext ze składników niestandardowych
 
-W przypadku innych platform i składników niestandardowych, które wymagają dostępu do `HttpContext` Zalecanym podejściem jest zarejestrowanie zależności przy użyciu wbudowanego kontenera [iniekcji zależności](xref:fundamentals/dependency-injection) . Kontener iniekcji zależności dostarcza `IHttpContextAccessor` do dowolnych klas, które deklarują ją jako zależność w konstruktorach.
+W przypadku innych platform i składników niestandardowych, które wymagają dostępu do `HttpContext`, zalecana metoda polega na zarejestrowaniu zależności przy użyciu wbudowanego kontenera [iniekcji zależności](xref:fundamentals/dependency-injection) . Kontener iniekcji zależności dostarcza `IHttpContextAccessor` do wszystkich klas, które deklarują ją jako zależność w konstruktorach.
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -111,7 +111,7 @@ public void ConfigureServices(IServiceCollection services)
 
 W poniższym przykładzie:
 
-* `UserRepository` deklaruje zależność od `IHttpContextAccessor`.
+* `UserRepository` deklaruje swoją zależność od `IHttpContextAccessor`.
 * Zależność jest dostarczana, gdy iniekcja zależności rozpoznaje łańcuch zależności i tworzy wystąpienie `UserRepository`.
 
 ```csharp
@@ -134,12 +134,12 @@ public class UserRepository : IUserRepository
 
 ## <a name="httpcontext-access-from-a-background-thread"></a>Dostęp do obiektu HttpContext z wątku w tle
 
-`HttpContext` nie jest bezpieczny wątkowo. Odczyt lub zapis właściwości `HttpContext` poza przetwarzaniem żądania może spowodować `NullReferenceException`.
+`HttpContext` nie jest bezpieczna wątkowo. Odczytanie lub zapisanie właściwości `HttpContext` poza przetwarzaniem żądania może spowodować `NullReferenceException`.
 
 > [!NOTE]
-> Użycie `HttpContext` poza przetwarzaniem żądania często powoduje `NullReferenceException`. Jeśli aplikacja generuje sporadyczne @no__t 0s, przejrzyj fragmenty kodu, które rozpoczynają przetwarzanie w tle, lub Kontynuuj przetwarzanie po zakończeniu żądania. Poszukaj błędów, takich jak Definiowanie metody kontrolera jako `async void`.
+> Użycie `HttpContext` poza przetwarzaniem żądania często powoduje `NullReferenceException`. Jeśli aplikacja generuje sporadyczne `NullReferenceException`s, zapoznaj się z częścią kodu, który rozpoczyna przetwarzanie w tle, lub Kontynuuj przetwarzanie po zakończeniu żądania. Poszukaj błędów, takich jak Definiowanie metody kontrolera jako `async void`.
 
-Aby bezpiecznie wykonać prace w tle z `HttpContext` danych:
+Aby bezpiecznie wykonywać prace w tle za pomocą `HttpContext` danych:
 
 * Skopiuj wymagane dane podczas przetwarzania żądania.
 * Przekaż skopiowane dane do zadania w tle.
@@ -147,9 +147,9 @@ Aby bezpiecznie wykonać prace w tle z `HttpContext` danych:
 Aby uniknąć niebezpiecznego kodu, nigdy nie przekazuj `HttpContext` do metody, która działa w tle — Przekaż wymagane dane.
 
 ```csharp
-public class EmailController
+public class EmailController : Controller
 {
-    public ActionResult SendEmail(string email)
+    public IActionResult SendEmail(string email)
     {
         var correlationId = HttpContext.Request.Headers["x-correlation-id"].ToString();
 

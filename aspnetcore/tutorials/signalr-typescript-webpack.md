@@ -4,16 +4,16 @@ author: ssougnez
 description: W tym samouczku skonfigurujesz pakiet WebPack do tworzenia pakietów i kompilowania ASP.NET Core SignalR aplikacji sieci Web, której klient został zapisany w języku TypeScript.
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 11/21/2019
 no-loc:
 - SignalR
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: 759584f432807689ba194c86046364552fce1a45
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: a7c99c9e79647995886aec5b3a91584fd2f24451
+ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73964015"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74317486"
 ---
 # <a name="use-aspnet-core-opno-locsignalr-with-typescript-and-webpack"></a>Korzystanie z ASP.NET Core SignalR z użyciem języka TypeScript i pakietu WebPack
 
@@ -30,7 +30,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > * Skonfiguruj serwer SignalR
 > * Włącz komunikację między klientem a serwerem
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -198,10 +198,10 @@ W aplikacji jest obecnie wyświetlany prosty formularz służący do wysyłania 
 1. Wykonaj następujące polecenie w katalogu głównym projektu:
 
     ```console
-    npm install @aspnet/signalr
+    npm install @microsoft/signalr
     ```
 
-    Poprzednie polecenie instaluje [SignalR klienta języka TypeScript](https://www.npmjs.com/package/@aspnet/signalr), który umożliwia klientowi wysyłanie komunikatów do serwera programu.
+    Poprzednie polecenie instaluje [SignalR klienta języka TypeScript](https://www.npmjs.com/package/@microsoft/signalr), który umożliwia klientowi wysyłanie komunikatów do serwera programu.
 
 1. Dodaj wyróżniony kod do pliku *src/index. TS* :
 
@@ -274,13 +274,13 @@ Upewnij się, że aplikacja działa z następującymi krokami.
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * [Program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) z **ASP.NET i programowaniem aplikacji sieci Web**
-* [Zestaw .NET Core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download/all)
+* [.NET core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download/all)
 * [Node. js](https://nodejs.org/) z [npm](https://www.npmjs.com/)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
-* [Zestaw .NET Core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download/all)
+* [.NET core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download/all)
 * [C#dla Visual Studio Code w wersji 1.17.1 lub nowszej](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * [Node. js](https://nodejs.org/) z [npm](https://www.npmjs.com/)
 
@@ -433,10 +433,10 @@ W aplikacji jest obecnie wyświetlany prosty formularz służący do wysyłania 
 1. Wykonaj następujące polecenie w katalogu głównym projektu:
 
     ```console
-    npm install @aspnet/signalr
+    npm install @microsoft/signalr
     ```
 
-    Poprzednie polecenie instaluje [SignalR klienta języka TypeScript](https://www.npmjs.com/package/@aspnet/signalr), który umożliwia klientowi wysyłanie komunikatów do serwera programu.
+    Poprzednie polecenie instaluje [SignalR klienta języka TypeScript](https://www.npmjs.com/package/@microsoft/signalr), który umożliwia klientowi wysyłanie komunikatów do serwera programu.
 
 1. Dodaj wyróżniony kod do pliku *src/index. TS* :
 

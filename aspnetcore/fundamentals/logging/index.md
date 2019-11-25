@@ -5,14 +5,14 @@ description: Dowiedz się, jak używać struktury rejestrowania dostarczonej prz
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/13/2019
+ms.date: 11/19/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: eda5c9c0372e47f5670cf097b5db80ec227bcb47
-ms.sourcegitcommit: 231780c8d7848943e5e9fd55e93f437f7e5a371d
+ms.openlocfilehash: b23e64077290f0f613e904651e4bb640fcbba95d
+ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74115955"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74289090"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Rejestrowanie w programie .NET Core i ASP.NET Core
 
@@ -28,7 +28,7 @@ Rejestrowanie kodu dla aplikacji bez hosta ogólnego różni się w sposób, w j
 
 ::: moniker-end
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="add-providers"></a>Dodaj dostawców
 
@@ -311,8 +311,6 @@ Konfiguracja dostawcy rejestrowania jest świadczona przez co najmniej jednego d
 
 Na przykład konfiguracja rejestrowania jest ogólnie dostępna w sekcji `Logging` plików ustawień aplikacji. Poniższy przykład pokazuje zawartość typowej wartości *appSettings. Plik Development. JSON* :
 
-::: moniker range=">= aspnetcore-2.1"
-
 ```json
 {
   "Logging": {
@@ -337,7 +335,7 @@ Inne właściwości w obszarze `Logging` określają dostawców rejestrowania. P
 
 Jeśli w `Logging.{providername}.LogLevel`są określone poziomy, zastępują one wszystko ustawione w `Logging.LogLevel`.
 
-::: moniker-end
+Interfejs API rejestrowania nie zawiera scenariusza zmiany poziomów rejestrowania, gdy aplikacja jest uruchomiona. Niektórzy dostawcy konfiguracji mogą jednak ponownie ładować konfigurację, która zacznie natychmiastowo wpływać na konfigurację rejestrowania. Na przykład [dostawca konfiguracji plików](xref:fundamentals/configuration/index#file-configuration-provider), który jest dodawany przez `CreateDefaultBuilder` do odczytu plików ustawień, domyślnie ponownie ładuje konfigurację rejestrowania. Jeśli konfiguracja zostanie zmieniona w kodzie w czasie, gdy aplikacja jest uruchomiona, aplikacja może wywołać [IConfigurationRoot. reload](xref:Microsoft.Extensions.Configuration.IConfigurationRoot.Reload*) , aby zaktualizować konfigurację rejestrowania aplikacji.
 
 Informacje o implementowaniu dostawców konfiguracji znajdują się w temacie <xref:fundamentals/configuration/index>.
 
@@ -706,7 +704,7 @@ Aby pominąć wszystkie dzienniki, określ `LogLevel.None` jako minimalny poziom
 
 ### <a name="create-filter-rules-in-configuration"></a>Utwórz reguły filtru w konfiguracji
 
-Kod szablonu projektu wywołuje `CreateDefaultBuilder`, aby skonfigurować rejestrowanie dla konsoli i dostawców debugowania. Metoda `CreateDefaultBuilder` konfiguruje rejestrowanie, aby wyszukać konfigurację w sekcji `Logging`, jak wyjaśniono [wcześniej w tym artykule](#configuration).
+Kod szablonu projektu wywołuje `CreateDefaultBuilder`, aby skonfigurować rejestrowanie dla dostawców konsoli, debugowania i EventSource (ASP.NET Core 2,2 lub nowszych). Metoda `CreateDefaultBuilder` konfiguruje rejestrowanie, aby wyszukać konfigurację w sekcji `Logging`, jak wyjaśniono [wcześniej w tym artykule](#configuration).
 
 Dane konfiguracyjne określają minimalne poziomy dziennika według dostawcy i kategorii, jak w poniższym przykładzie:
 
@@ -746,12 +744,12 @@ Druga `AddFilter` określa dostawcę debugowania za pomocą nazwy typu. Pierwszy
 
 Dane konfiguracji i kod `AddFilter` przedstawiony w powyższych przykładach tworzą reguły przedstawione w poniższej tabeli. Pierwsze sześć pochodzi z przykładu konfiguracji, a ostatnie dwa pochodzą z przykładu kodu.
 
-| Wartość liczbowa | Dostawcy      | Kategorie zaczynające się od...          | Minimalny poziom rejestrowania |
+| Wartość liczbowa | Dostawca      | Kategorie zaczynające się od...          | Minimalny poziom rejestrowania |
 | :----: | ------------- | --------------------------------------- | ----------------- |
 | 1      | Debugowanie         | Wszystkie kategorie                          | Informacje       |
-| 2      | Konsola       | Microsoft. AspNetCore. MVC. Razor. Internal | Ostrzeżenie           |
-| 3      | Konsola       | Microsoft. AspNetCore. MVC. Razor. Razor    | Debugowanie             |
-| 4      | Konsola       | Microsoft. AspNetCore. MVC. Razor          | Błąd             |
+| 2      | Konsola       | Microsoft.AspNetCore.Mvc.Razor.Internal | Ostrzeżenie           |
+| 3      | Konsola       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debugowanie             |
+| 4      | Konsola       | Microsoft.AspNetCore.Mvc.Razor          | Błąd             |
 | 5      | Konsola       | Wszystkie kategorie                          | Informacje       |
 | 6      | Wszyscy dostawcy | Wszystkie kategorie                          | Debugowanie             |
 | 7      | Wszyscy dostawcy | System                                  | Debugowanie             |
@@ -826,15 +824,15 @@ Poniżej przedstawiono niektóre kategorie używane przez ASP.NET Core i Entity 
 
 | Kategoria                            | Uwagi |
 | ----------------------------------- | ----- |
-| Microsoft. AspNetCore                | Ogólna Diagnostyka ASP.NET Core. |
-| Microsoft. AspNetCore. dataprotection | Które klucze zostały wzięte pod uwagę, znaleziono i użyte. |
-| Microsoft. AspNetCore. HostFiltering  | Dozwolone hosty. |
-| Microsoft. AspNetCore. hosting        | Jak długo trwa wykonywanie żądań HTTP i czas ich uruchomienia. Które hostowanie zestawów uruchamiania zostało załadowane. |
-| Microsoft. AspNetCore. MVC            | Diagnostyka MVC i Razor. Powiązanie modelu, wykonywanie filtru, kompilacja widoku, wybór akcji. |
-| Microsoft. AspNetCore. Routing        | Informacje o trasie. |
-| Microsoft. AspNetCore. Server         | Reagowanie na uruchamianie, zatrzymywanie i utrzymywanie aktywności. Informacje o certyfikacie HTTPS. |
-| Microsoft. AspNetCore. StaticFiles    | Obsługiwane pliki. |
-| Microsoft. EntityFrameworkCore       | Ogólna Diagnostyka Entity Framework Core. Aktywność i Konfiguracja bazy danych, wykrywanie zmian, migracje. |
+| Microsoft.AspNetCore                | Ogólna Diagnostyka ASP.NET Core. |
+| Microsoft.AspNetCore.DataProtection | Które klucze zostały wzięte pod uwagę, znaleziono i użyte. |
+| Microsoft.AspNetCore.HostFiltering  | Dozwolone hosty. |
+| Microsoft.AspNetCore.Hosting        | Jak długo trwa wykonywanie żądań HTTP i czas ich uruchomienia. Które hostowanie zestawów uruchamiania zostało załadowane. |
+| Microsoft.AspNetCore.Mvc            | Diagnostyka MVC i Razor. Powiązanie modelu, wykonywanie filtru, kompilacja widoku, wybór akcji. |
+| Microsoft.AspNetCore.Routing        | Informacje o trasie. |
+| Microsoft.AspNetCore.Server         | Reagowanie na uruchamianie, zatrzymywanie i utrzymywanie aktywności. Informacje o certyfikacie HTTPS. |
+| Microsoft.AspNetCore.StaticFiles    | Obsługiwane pliki. |
+| Microsoft.EntityFrameworkCore       | Ogólna Diagnostyka Entity Framework Core. Aktywność i Konfiguracja bazy danych, wykrywanie zmian, migracje. |
 
 ## <a name="log-scopes"></a>Zakresy dziennika
 
@@ -891,9 +889,9 @@ warn: TodoApiSample.Controllers.TodoController[4000]
 ASP.NET Core dostarcza następujących dostawców:
 
 * [Console](#console-provider)
-* [Rozpocząć](#debug-provider)
+* [Debugowanie](#debug-provider)
 * [EventSource](#event-source-provider)
-* [Elemencie](#windows-eventlog-provider)
+* [EventLog](#windows-eventlog-provider)
 * [TraceSource](#tracesource-provider)
 * [AzureAppServicesFile](#azure-app-service-provider)
 * [AzureAppServicesBlob](#azure-app-service-provider)
@@ -991,7 +989,7 @@ Użyj narzędzi śledzenia dotnet, aby zebrać ślad z aplikacji:
 
    Na platformach innych niż Windows Dodaj opcję `-f speedscope`, aby zmienić format wyjściowego pliku śledzenia na `speedscope`.
 
-   | Kodu | Opis |
+   | Słowo kluczowe | Opis |
    | :-----: | ----------- |
    | 1       | Rejestruj meta zdarzenia dotyczące `LoggingEventSource`. Nie rejestruje zdarzeń z `ILogger`). |
    | 2       | Włącza `Message` zdarzenie, gdy zostanie wywołane `ILogger.Log()`. Zawiera informacje w sposób programistyczny (nie sformatowany). |
@@ -1081,7 +1079,7 @@ Pakiet dostawcy nie jest uwzględniony w udostępnionej infrastrukturze. Aby uż
 
 ::: moniker-end
 
-::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+::: moniker range="< aspnetcore-3.0"
 
 Pakiet dostawcy nie jest uwzględniony w [pakiecie Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app). Podczas określania wartości docelowej .NET Framework lub odwoływania się do `Microsoft.AspNetCore.App` pakietu, Dodaj pakiet dostawcy do projektu. 
 
@@ -1130,7 +1128,7 @@ Aby skonfigurować przesyłanie strumieniowe dzienników Azure:
 
 * Przejdź do strony **dzienników App Service** ze strony portalu aplikacji.
 * Ustaw **Rejestrowanie aplikacji (system plików)** na **włączone**.
-* Wybierz **poziom**dziennika.
+* Wybierz **poziom**dziennika. To ustawienie dotyczy tylko przesyłania strumieniowego dzienników platformy Azure, a nie innych dostawców rejestrowania w aplikacji.
 
 Przejdź do strony **strumień dziennika** , aby wyświetlić komunikaty aplikacji. Są one rejestrowane przez aplikację za pomocą interfejsu `ILogger`.
 

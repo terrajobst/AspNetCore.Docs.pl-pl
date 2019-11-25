@@ -6,12 +6,12 @@ description: Odkryj atrybuty pomocnika tagów ASP.NET Core i rolę, jaką każdy
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: mvc/views/tag-helpers/builtin-th/script-tag-helper
-ms.openlocfilehash: 5f2fb8a45048804afa8aff2989cd53489e45a33b
-ms.sourcegitcommit: fae6f0e253f9d62d8f39de5884d2ba2b4b2a6050
+ms.openlocfilehash: c3d9148bd62dcc045873cc3a72884ae458349d70
+ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71256499"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74317118"
 ---
 # <a name="script-tag-helper-in-aspnet-core"></a>Pomocnik tagu skryptu w ASP.NET Core
 
@@ -23,43 +23,28 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Pomocnik tagu skryptu pozwala określić sieć CDN dla pliku skryptu i rezerwę, gdy sieć CDN nie jest dostępna. Pomocnik tagów skryptu zapewnia wydajność sieci CDN z niezawodną obsługą hostingu lokalnego.
 
-Poniższy znacznik Razor pokazuje `script` element pliku układu utworzony za pomocą szablonu aplikacji sieci Web ASP.NET Core:
+Poniższy znacznik Razor pokazuje `script` element z rezerwą:
 
-[!code-html[](link-tag-helper/sample/_Layout.cshtml?name=snippet2)]
-
-Poniżej przedstawiono podobne do renderowanego kodu HTML z poprzedniego kodu (w środowisku nieprogramistycznym):
-
-[!code-csharp[](link-tag-helper/sample/HtmlPage2.html)]
-
-W poprzednim kodzie pomocnik tagów skryptu wygenerował drugi element skryptu ( `<script>  (window.jQuery || document.write(`), który `window.jQuery`testuje. Jeśli `window.jQuery` nie zostanie znaleziona `document.write(` , uruchamia i tworzy skrypt 
+```HTML
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+        asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+        asp-fallback-test="window.jQuery"
+        crossorigin="anonymous"
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+</script>
+```
 
 ## <a name="commonly-used-script-tag-helper-attributes"></a>Atrybuty pomocnika często używanych tagów skryptu
 
 Zobacz [pomocnik tagów skryptów](xref:Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper) dla wszystkich atrybutów pomocnika tagów skryptu, właściwości i metod.
 
-### <a name="href"></a>{1&gt;href&lt;1}
+### <a name="asp-fallback-test"></a>ASP — test Fallback
 
-Preferowany adres połączonego zasobu. Adres jest przekazaniem do wygenerowanego kodu HTML we wszystkich przypadkach.
+Metoda skryptu zdefiniowana w podstawowym skrypcie do użycia dla testu powrotu. Aby uzyskać więcej informacji, zobacz <xref:Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper.FallbackTestExpression>.
 
-### <a name="asp-fallback-href"></a>ASP-Fallback-href
+### <a name="asp-fallback-src"></a>ASP — Fallback-src
 
-Adres URL arkusza stylów CSS, do którego ma nastąpić powrót w przypadku niepowodzenia podstawowego adresu URL.
-
-### <a name="asp-fallback-test-class"></a>ASP-Fallback-test-Klasa
-
-Nazwa klasy zdefiniowana w arkuszu stylów do użycia w teście Fallback. Aby uzyskać więcej informacji, zobacz <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestClass>.
-
-### <a name="asp-fallback-test-property"></a>ASP-Fallback-test-Property
-
-Nazwa właściwości CSS do użycia w teście Fallback. Aby uzyskać więcej informacji, zobacz <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestProperty>.
-
-### <a name="asp-fallback-test-value"></a>ASP — wartość testowa
-
-Wartość właściwości CSS do użycia dla testu powrotu. Aby uzyskać więcej informacji, zobacz <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestValue>.
-
-### <a name="asp-fallback-test-value"></a>ASP — wartość testowa
-
-Wartość właściwości CSS do użycia dla testu powrotu. Aby uzyskać więcej informacji, zobacz<xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestValue>
+Adres URL tagu skryptu, do którego ma zostać nastąpi powrót w przypadku niepowodzenia pierwszego planu. Aby uzyskać więcej informacji, zobacz <xref:Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper.FallbackSrc>.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

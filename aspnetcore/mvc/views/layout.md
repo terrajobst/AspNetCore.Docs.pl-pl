@@ -5,12 +5,12 @@ description: Dowiedz się, jak używać typowych układów, udostępniać dyrekt
 ms.author: riande
 ms.date: 07/30/2019
 uid: mvc/views/layout
-ms.openlocfilehash: 9a7b8003b24329f6e9cbd349ee47f6844b7c5f6d
-ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
+ms.openlocfilehash: 3ba2f459ca2b04a3001e261acab26880b6582500
+ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70238033"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74288997"
 ---
 # <a name="layout-in-aspnet-core"></a>Układ w ASP.NET Core
 
@@ -22,7 +22,7 @@ Strony i widoki często udostępniają wizualizacje i programistyczne elementy. 
 * Dyrektywy udostępniania.
 * Uruchom wspólny kod przed renderowaniem stron lub widoków.
 
-W tym dokumencie omówiono układy dla dwóch różnych metod ASP.NET Core MVC: Razor Pages i kontrolery z widokami. W tym temacie różnice są minimalne:
+W tym dokumencie omówiono układy dla dwóch różnych metod ASP.NET Core MVC: Razor Pages i controllers z widokami. W tym temacie różnice są minimalne:
 
 * Razor Pages znajdują się w folderze *Pages* .
 * Kontrolery z widokami używają folderu *widoki* dla widoków.
@@ -41,7 +41,7 @@ Zgodnie z Konwencją domyślny układ aplikacji ASP.NET Core ma nazwę *_Layout.
 
   ![Folder stron w Eksplorator rozwiązań](layout/_static/rp-web-project-views.png)
 
-* Kontroler z widokami: *Widoki/Shared/_Layout. cshtml*
+* Kontroler z widokami: *widoki/Shared/_Layout. cshtml*
 
   ![Folder widoków w Eksplorator rozwiązań](layout/_static/mvc-web-project-views.png)
 
@@ -53,37 +53,37 @@ Poniższy kod przedstawia plik układu dla szablonu utworzonego za pomocą kontr
 
 ## <a name="specifying-a-layout"></a>Określanie układu
 
-Widoki Razor mają `Layout` właściwość. Poszczególne widoki określają układ, ustawiając tę właściwość:
+Widoki Razor mają właściwość `Layout`. Poszczególne widoki określają układ, ustawiając tę właściwość:
 
 [!code-cshtml[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
 
-Określony układ może używać pełnej ścieżki (na przykład */Pages/Shared/_Layout.cshtml* lub */views/Shared/_Layout.cshtml*) lub częściowej nazwy (przykład: `_Layout`). Po podaniu częściowej nazwy aparat widoku Razor wyszukuje plik układu przy użyciu standardowego procesu odnajdywania. Folder, w którym istnieje metoda obsługi (lub kontroler), jest wyszukiwany jako pierwszy, a następnie folder *udostępniony* . Ten proces odnajdywania jest identyczny z procesem używanym do odnajdywania [widoków częściowych](xref:mvc/views/partial#partial-view-discovery).
+Określony układ może używać pełnej ścieżki (na przykład */Pages/Shared/_Layout. cshtml* lub */views/Shared/_Layout. cshtml*) lub częściowej nazwy (przykład: `_Layout`). Po podaniu częściowej nazwy aparat widoku Razor wyszukuje plik układu przy użyciu standardowego procesu odnajdywania. Folder, w którym istnieje metoda obsługi (lub kontroler), jest wyszukiwany jako pierwszy, a następnie folder *udostępniony* . Ten proces odnajdywania jest identyczny z procesem używanym do odnajdywania [widoków częściowych](xref:mvc/views/partial#partial-view-discovery).
 
-Domyślnie każdy układ musi wywoływać `RenderBody`. W każdym miejscu, `RenderBody` w którym jest umieszczane wywołanie, zawartość widoku będzie renderowana.
+Domyślnie każdy układ musi wywoływać `RenderBody`. Niezależnie od tego, gdzie jest umieszczane wywołanie `RenderBody`, zawartość widoku będzie renderowana.
 
 <a name="layout-sections-label"></a>
 <!-- https://stackoverflow.com/questions/23327578 -->
 ### <a name="sections"></a>Sekcje
 
-Układ może opcjonalnie odwoływać się do co najmniej jednej *sekcji*, `RenderSection`wywołując. Sekcje umożliwiają organizowanie miejsca, w którym należy umieścić pewne elementy strony. Każde wywołanie programu `RenderSection` może określać, czy ta sekcja jest wymagana czy opcjonalna:
+Układ może opcjonalnie odwoływać się do co najmniej jednej *sekcji*, wywołując `RenderSection`. Sekcje umożliwiają organizowanie miejsca, w którym należy umieścić pewne elementy strony. Każde wywołanie `RenderSection` może określić, czy ta sekcja jest wymagana czy opcjonalna:
+
+```html
+<script type="text/javascript" src="~/scripts/global.js"></script>
+
+@RenderSection("Scripts", required: false)
+```
+
+Jeśli wymagana sekcja nie zostanie znaleziona, zostanie zgłoszony wyjątek. Poszczególne widoki określają zawartość, która ma być renderowana w sekcji przy użyciu składnia Razor `@section`. Jeśli strona lub widok definiuje sekcję, musi być renderowana (lub wystąpił błąd).
+
+Przykład `@section` definicji w widoku Razor Pages:
 
 ```html
 @section Scripts {
-    @RenderSection("Scripts", required: false)
+     <script type="text/javascript" src="~/scripts/main.js"></script>
 }
 ```
 
-Jeśli wymagana sekcja nie zostanie znaleziona, zostanie zgłoszony wyjątek. Poszczególne widoki określają zawartość, która ma być renderowana w sekcji przy `@section` użyciu składnia Razor. Jeśli strona lub widok definiuje sekcję, musi być renderowana (lub wystąpił błąd).
-
-Przykładowa `@section` Definicja w widoku Razor Pages:
-
-```html
-@section Scripts {
-     <script type="text/javascript" src="/scripts/main.js"></script>
-}
-```
-
-W powyższym kodzie *skrypt/Main. js* zostanie dodany do `scripts` sekcji na stronie lub w widoku. Inne strony lub widoki w tej samej aplikacji mogą nie wymagać tego skryptu i nie będą mogły definiować sekcji skryptów.
+W powyższym kodzie *skrypt/Main. js* zostanie dodany do sekcji `scripts` na stronie lub w widoku. Inne strony lub widoki w tej samej aplikacji mogą nie wymagać tego skryptu i nie będą mogły definiować sekcji skryptów.
 
 W poniższym znaczniku jest używana [pomocnik tagów częściowej](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper) do renderowania *_ValidationScriptsPartial. cshtml*:
 
@@ -101,7 +101,7 @@ Sekcje zdefiniowane w stronie lub widoku są dostępne tylko na stronie natychmi
 
 Domyślnie treść i wszystkie sekcje na stronie zawartości muszą być renderowane na stronie układu. Aparat widoku Razor wymusza to przez śledzenie, czy treść i każda z nich zostały renderowane.
 
-Aby nakazać aparatowi widoku ignorowanie treści lub sekcji, wywołaj `IgnoreBody` metody `IgnoreSection` i.
+Aby nakazać aparatowi widoku ignorowanie treści lub sekcji, wywołaj metody `IgnoreBody` i `IgnoreSection`.
 
 Treść i Każda sekcja na stronie Razor muszą być renderowane lub ignorowane.
 
@@ -109,7 +109,7 @@ Treść i Każda sekcja na stronie Razor muszą być renderowane lub ignorowane.
 
 ## <a name="importing-shared-directives"></a>Importowanie wspólnych dyrektyw
 
-Widoki i strony mogą używać dyrektyw Razor do importowania przestrzeni nazw i używania [iniekcji zależności](dependency-injection.md). Dyrektywy udostępnione przez wiele widoków można określić we wspólnym pliku *_ViewImports. cshtml* . `_ViewImports` Plik obsługuje następujące dyrektywy:
+Widoki i strony mogą używać dyrektyw Razor do importowania przestrzeni nazw i używania [iniekcji zależności](dependency-injection.md). Dyrektywy udostępnione przez wiele widoków można określić we wspólnym pliku *_ViewImports. cshtml* . Plik `_ViewImports` obsługuje następujące dyrektywy:
 
 * `@addTagHelper`
 * `@removeTagHelper`
@@ -121,26 +121,26 @@ Widoki i strony mogą używać dyrektyw Razor do importowania przestrzeni nazw i
 
 Plik nie obsługuje innych funkcji Razor, takich jak definicje funkcji i sekcji.
 
-Przykładowy `_ViewImports.cshtml` plik:
+Przykładowy plik `_ViewImports.cshtml`:
 
 [!code-cshtml[](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
 
-Plik *_ViewImports. cshtml* dla aplikacji ASP.NET Core MVC jest zwykle umieszczany w folderze *stron* (lub *widoków*). Plik *_ViewImports. cshtml* można umieścić w dowolnym folderze, w takim przypadku tylko do stron lub widoków w tym folderze i jego podfolderach. `_ViewImports`pliki są przetwarzane, rozpoczynając od poziomu głównego, a następnie dla każdego folderu, który zaczyna się do lokalizacji strony lub widoku. `_ViewImports`ustawienia określone na poziomie głównym mogą zostać zastąpione na poziomie folderu.
+Plik *_ViewImports. cshtml* dla aplikacji ASP.NET Core MVC zazwyczaj znajduje się w folderze *stron* (lub *widoków*). Plik *_ViewImports. cshtml* można umieścić w dowolnym folderze. w takim przypadku zostanie on zastosowany tylko do stron lub widoków w tym folderze i jego podfolderach. Pliki `_ViewImports` są przetwarzane, rozpoczynając od poziomu głównego, a następnie dla każdego folderu, który zaczyna się do lokalizacji strony lub widoku. Ustawienia `_ViewImports` określone na poziomie głównym mogą zostać zastąpione na poziomie folderu.
 
 Załóżmy na przykład, że:
 
 * Plik *_ViewImports. cshtml* poziomu głównego zawiera `@model MyModel1` i `@addTagHelper *, MyTagHelper1`.
-* Plik *_ViewImports. cshtml* z podfolderem `@model MyModel2` zawiera `@addTagHelper *, MyTagHelper2`i.
+* Podfolder _ViewImports plik *. cshtml* zawiera `@model MyModel2` i `@addTagHelper *, MyTagHelper2`.
 
-Strony i widoki w podfolderze będą miały dostęp do pomocników tagów i `MyModel2` modelu.
+Strony i widoki w podfolderze będą miały dostęp do obu pomocników tagów i modelu `MyModel2`.
 
 Jeśli w hierarchii plików znaleziono wiele plików *_ViewImports. cshtml* , połączone zachowanie dyrektyw jest następujące:
 
-* `@addTagHelper`, `@removeTagHelper`: wszystkie uruchomienia, w kolejności
+* `@addTagHelper`, `@removeTagHelper`: wszystkie przebiegi, w kolejności
 * `@tagHelperPrefix`: najbliższy jeden do widoku przesłania wszystkie inne
 * `@model`: najbliższy jeden do widoku przesłania wszystkie inne
 * `@inherits`: najbliższy jeden do widoku przesłania wszystkie inne
-* `@using`: wszystkie są uwzględnione; duplikaty są ignorowane
+* `@using`: wszystkie są uwzględniane; duplikaty są ignorowane
 * `@inject`: dla każdej właściwości najbliższy jeden do widoku przesłania wszystkie inne osoby o tej samej nazwie właściwości
 
 <a name="viewstart"></a>

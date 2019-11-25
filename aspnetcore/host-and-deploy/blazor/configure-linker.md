@@ -5,24 +5,24 @@ description: Dowiedz się, jak kontrolować konsolidator języka pośredniego (I
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 11/21/2019
 no-loc:
 - Blazor
 uid: host-and-deploy/blazor/configure-linker
-ms.openlocfilehash: b30669a7ca02c756fa10c8cf9973ef87e29e7bd4
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 0bc987d72d2f684b1ecbd4a883e9a09fac7c801e
+ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963616"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74317293"
 ---
 # <a name="configure-the-linker-for-aspnet-core-opno-locblazor"></a>Skonfiguruj konsolidator dla ASP.NET Core Blazor
 
-Autor [Luke Latham](https://github.com/guardrex)
+Przez [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Blazor wykonuje konsolidację [języka pośredniego (IL)](/dotnet/standard/managed-code#intermediate-language--execution) podczas kompilacji wydania, aby usunąć niepotrzebny kod IL z zestawów wyjściowych aplikacji.
+Blazor wykonuje konsolidację [języka pośredniego (IL)](/dotnet/standard/managed-code#intermediate-language--execution) podczas kompilacji, aby usunąć niepotrzebny kod IL z zestawów wyjściowych aplikacji.
 
 Łączenie zestawu sterującego przy użyciu jednej z następujących metod:
 
@@ -31,7 +31,7 @@ Blazor wykonuje konsolidację [języka pośredniego (IL)](/dotnet/standard/manag
 
 ## <a name="disable-linking-with-a-msbuild-property"></a>Wyłącz łączenie z właściwością programu MSBuild
 
-Konsolidacja jest włączona domyślnie w trybie wydania, gdy aplikacja jest skompilowana, co obejmuje publikowanie. Aby wyłączyć łączenie dla wszystkich zestawów, ustaw właściwość programu MSBuild `BlazorLinkOnBuild` na `false` w pliku projektu:
+Konsolidacja jest domyślnie włączona po skompilowaniu aplikacji, która obejmuje publikowanie. Aby wyłączyć łączenie dla wszystkich zestawów, ustaw właściwość `BlazorLinkOnBuild` MSBuild na `false` w pliku projektu:
 
 ```xml
 <PropertyGroup>
@@ -82,3 +82,29 @@ Kontroluj łączenie dla poszczególnych zestawów, dostarczając plik konfigura
 ```
 
 Aby uzyskać więcej informacji, zobacz [Il konsolidator: Składnia deskryptora XML](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor).
+
+### <a name="configure-the-linker-for-internationalization"></a>Konfigurowanie konsolidatora dla celów wielojęzycznych
+
+Domyślnie konfiguracja konsolidatora Blazordla Blazor aplikacji webassembly umożliwia rozłączenie informacji o danych wielojęzycznych z wyjątkiem lokalizacji lokalnych jawnie żądanych. Usunięcie tych zestawów minimalizuje rozmiar aplikacji.
+
+Aby kontrolować, które zestawy I18N są zachowywane, ustaw właściwość `<MonoLinkerI18NAssemblies>` MSBuild w pliku projektu:
+
+```xml
+<PropertyGroup>
+  <MonoLinkerI18NAssemblies>{all|none|REGION1,REGION2,...}</MonoLinkerI18NAssemblies>
+</PropertyGroup>
+```
+
+| Wartość regionu     | Zestaw regionów mono    |
+| ---------------- | ----------------------- |
+| `all`            | Uwzględnione wszystkie zestawy |
+| `cjk`            | *I18N. CJK. dll*          |
+| `mideast`        | *I18N. Środkowy wschód. dll*      |
+| `none` (wartość domyślna) | Brak                    |
+| `other`          | *I18N. Inne. dll*        |
+| `rare`           | *I18N. Rzadki. dll*         |
+| `west`           | *I18N. Zachodni. dll*         |
+
+Użyj przecinka, aby rozdzielić wiele wartości (na przykład `mideast,west`).
+
+Aby uzyskać więcej informacji, zobacz [i18n: Pnetlib — dane międzynarodowe Framework libary (repozytorium usługi GitHub/mono)](https://github.com/mono/mono/tree/master/mcs/class/I18N).

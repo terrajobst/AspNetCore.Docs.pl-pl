@@ -5,26 +5,28 @@ description: Dowiedz się, jak tworzyć i używać składników Razor, w tym jak
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/21/2019
+ms.date: 11/21/2019
+no-loc:
+- Blazor
 uid: blazor/components
-ms.openlocfilehash: 8c228b168cdbd58928ef3f57ff26bc86e8dfc1ba
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: 267a6f5aa96feeecc280238abbef86949750b07e
+ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033983"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74317213"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
 Autorzy [Luke Latham](https://github.com/guardrex) i [Daniel Roth](https://github.com/danroth27)
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
-Aplikacje Blazor są kompilowane przy użyciu *składników*programu. Składnik jest niezależnym fragmentem interfejsu użytkownika (UI), takim jak strona, okno dialogowe lub formularz. Składnik zawiera znaczniki HTML i logikę przetwarzania wymagane do iniekcji danych lub reagowania na zdarzenia interfejsu użytkownika. Składniki są elastyczne i lekkie. Mogą być zagnieżdżane, ponownie używane i udostępniane między projektami.
+aplikacje Blazor są kompilowane przy użyciu *składników*programu. Składnik jest niezależnym fragmentem interfejsu użytkownika (UI), takim jak strona, okno dialogowe lub formularz. Składnik zawiera znaczniki HTML i logikę przetwarzania wymagane do iniekcji danych lub reagowania na zdarzenia interfejsu użytkownika. Składniki są elastyczne i lekkie. Mogą być zagnieżdżane, ponownie używane i udostępniane między projektami.
 
 ## <a name="component-classes"></a>Klasy składników
 
-Składniki są zaimplementowane w plikach składników [Razor](xref:mvc/views/razor) ( *. Razor*) przy użyciu kombinacji C# i znaczników HTML. Składnik w Blazor jest formalnie określany jako *składnik Razor*.
+Składniki są zaimplementowane w plikach składników [Razor](xref:mvc/views/razor) ( *. Razor*) przy użyciu kombinacji C# i znaczników HTML. Składnik Blazor jest formalnie określany jako *składnik Razor*.
 
 Nazwa składnika musi rozpoczynać się wielką literą. Na przykład *MyCoolComponent. Razor* jest prawidłowy, a *MyCoolComponent. Razor* jest nieprawidłowy.
 
@@ -33,9 +35,9 @@ Interfejs użytkownika dla składnika jest definiowany przy użyciu języka HTML
 Elementy członkowskie klasy składnika są zdefiniowane w bloku `@code`. W bloku `@code` stan składnika (właściwości, pola) jest określany przy użyciu metod obsługi zdarzeń lub definiowania innej logiki składnika. Dozwolony jest więcej niż jeden blok `@code`.
 
 > [!NOTE]
-> W poprzednich wersjach ASP.NET Core 3,0 bloki `@functions` zostały użyte do tego samego celu co `@code` bloków w składnikach Razor. bloki `@functions` nadal działają w składnikach Razor, ale zalecamy użycie bloku `@code` w ASP.NET Core 3,0 w wersji zapoznawczej 6 lub nowszej.
+> We wcześniejszych wersjach ASP.NET Core 3,0 bloki `@functions` były używane do tego samego celu co `@code` bloków w składnikach Razor. bloki `@functions` nadal działają w składnikach Razor, ale zalecamy używanie bloku `@code` w ASP.NET Core 3,0 w wersji zapoznawczej 6 lub nowszej.
 
-Składowe składnika mogą być używane jako część logiki renderowania składnika przy użyciu C# wyrażeń, które zaczynają się od `@`. Na przykład C# pole jest renderowane przez utworzenie prefiksu `@` do nazwy pola. Poniższy przykład szacuje i renderuje:
+Składowe składnika mogą być używane jako część logiki renderowania składnika przy użyciu C# wyrażeń, które zaczynają się od `@`. Na przykład C# pole jest renderowane przez utworzenie prefiksu `@` na nazwę pola. Poniższy przykład szacuje i renderuje:
 
 * `_headingFontStyle` wartość właściwości CSS dla `font-style`.
 * `_headingText` do zawartości elementu `<h1>`.
@@ -49,9 +51,9 @@ Składowe składnika mogą być używane jako część logiki renderowania skła
 }
 ```
 
-Po pierwszym wyrenderowaniu składnika składnik generuje jego drzewo renderowania w odpowiedzi na zdarzenia. Blazor następnie porównuje nowe drzewo renderowania z poprzednią i zastosuje wszelkie modyfikacje Document Object Model przeglądarki (DOM).
+Po pierwszym wyrenderowaniu składnika składnik generuje jego drzewo renderowania w odpowiedzi na zdarzenia. Blazor następnie porównuje nowe drzewo renderowania z poprzednią i zastosuje wszelkie modyfikacje Document Object Model (DOM) przeglądarki.
 
-Składniki są zwykłymi C# klasami i mogą być umieszczane w dowolnym miejscu w projekcie. Składniki, które generują strony sieci Web, zwykle znajdują się w folderze *strony* . Składniki niestronicowe są często umieszczane w folderze *udostępnionym* lub w folderze niestandardowym dodanym do projektu. Aby użyć folderu niestandardowego, należy dodać przestrzeń nazw folderu niestandardowego do składnika nadrzędnego lub do pliku *_Imports. Razor* aplikacji. Na przykład następująca przestrzeń nazw sprawia, że składniki w folderze *Components* są dostępne, gdy główna przestrzeń nazw aplikacji jest `WebApplication`:
+Składniki są zwykłymi C# klasami i mogą być umieszczane w dowolnym miejscu w projekcie. Składniki, które generują strony sieci Web, zwykle znajdują się w folderze *strony* . Składniki niestronicowe są często umieszczane w folderze *udostępnionym* lub w folderze niestandardowym dodanym do projektu. Aby użyć folderu niestandardowego, należy dodać przestrzeń nazw folderu niestandardowego do składnika nadrzędnego lub pliku *_Imports. Razor* aplikacji. Na przykład następująca przestrzeń nazw sprawia, że składniki w folderze *Components* są dostępne, gdy główna przestrzeń nazw aplikacji jest `WebApplication`:
 
 ```cshtml
 @using WebApplication.Components
@@ -61,17 +63,60 @@ Składniki są zwykłymi C# klasami i mogą być umieszczane w dowolnym miejscu 
 
 Używaj składników z istniejącymi aplikacjami Razor Pages i MVC. Nie ma potrzeby ponownego zapisywania istniejących stron lub widoków w celu używania składników Razor. Gdy strona lub widok są renderowane, składniki są wstępnie renderowane w tym samym czasie.
 
-Aby renderować składnik ze strony lub widoku, użyj metody pomocnika HTML `RenderComponentAsync<TComponent>`:
+::: moniker range=">= aspnetcore-3.1"
+
+Aby renderować składnik ze strony lub widoku, użyj pomocnika tagów `Component`:
 
 ```cshtml
-<div id="MyComponent">
-    @(await Html.RenderComponentAsync<MyComponent>(RenderMode.ServerPrerendered))
-</div>
+<component type="typeof(Counter)" render-mode="ServerPrerendered" 
+    param-IncrementAmount="10" />
 ```
+
+`RenderMode` określa, czy składnik:
+
+* Jest wstępnie renderowany na stronie.
+* Jest renderowany jako statyczny kod HTML na stronie lub zawiera informacje niezbędne do uruchomienia Blazor aplikacji z poziomu agenta użytkownika.
+
+| `RenderMode`        | Opis |
+| ------------------- | ----------- |
+| `ServerPrerendered` | Renderuje składnik do statycznego kodu HTML i zawiera znacznik dla aplikacji serwera Blazor. Po uruchomieniu agenta użytkownika ten znacznik jest używany do uruchamiania aplikacji Blazor. |
+| `Server`            | Renderuje znacznik dla aplikacji serwera Blazor. Dane wyjściowe ze składnika nie są uwzględniane. Po uruchomieniu agenta użytkownika ten znacznik jest używany do uruchamiania aplikacji Blazor. |
+| `Static`            | Renderuje składnik do statycznego kodu HTML. |
 
 Podczas gdy strony i widoki mogą korzystać ze składników, wartość nie jest równa "true". Składniki nie mogą używać scenariuszy dotyczących widoków i stron, takich jak częściowe widoki i sekcje. Aby użyć logiki z widoku częściowego w składniku, należy rozłożyć logikę widoku częściowego na składnik.
 
-Aby uzyskać więcej informacji na temat sposobu renderowania składników i zarządzania stanem składnika w aplikacjach serwera Blazor, zobacz artykuł <xref:blazor/hosting-models>.
+Renderowanie składników serwera ze statyczną stroną HTML nie jest obsługiwane.
+
+Aby uzyskać więcej informacji na temat sposobu renderowania składników, stanu składnika i pomocnika tagów `Component`, zobacz <xref:blazor/hosting-models>.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.1"
+
+Aby renderować składnik ze strony lub widoku, użyj metody pomocnika HTML `RenderComponentAsync<TComponent>`:
+
+```cshtml
+@(await Html.RenderComponentAsync<MyComponent>(RenderMode.ServerPrerendered))
+```
+
+`RenderMode` określa, czy składnik:
+
+* Jest wstępnie renderowany na stronie.
+* Jest renderowany jako statyczny kod HTML na stronie lub zawiera informacje niezbędne do uruchomienia Blazor aplikacji z poziomu agenta użytkownika.
+
+| `RenderMode`        | Opis |
+| ------------------- | ----------- |
+| `ServerPrerendered` | Renderuje składnik do statycznego kodu HTML i zawiera znacznik dla aplikacji serwera Blazor. Po uruchomieniu agenta użytkownika ten znacznik jest używany do uruchamiania aplikacji Blazor. Parametry nie są obsługiwane. |
+| `Server`            | Renderuje znacznik dla aplikacji serwera Blazor. Dane wyjściowe ze składnika nie są uwzględniane. Po uruchomieniu agenta użytkownika ten znacznik jest używany do uruchamiania aplikacji Blazor. Parametry nie są obsługiwane. |
+| `Static`            | Renderuje składnik do statycznego kodu HTML. Parametry są obsługiwane. |
+
+Podczas gdy strony i widoki mogą korzystać ze składników, wartość nie jest równa "true". Składniki nie mogą używać scenariuszy dotyczących widoków i stron, takich jak częściowe widoki i sekcje. Aby użyć logiki z widoku częściowego w składniku, należy rozłożyć logikę widoku częściowego na składnik.
+
+Renderowanie składników serwera ze statyczną stroną HTML nie jest obsługiwane.
+
+Aby uzyskać więcej informacji na temat sposobu renderowania składników, stanu składnika i pomocnika języka HTML `RenderComponentAsync`, zobacz <xref:blazor/hosting-models>.
+
+::: moniker-end
 
 ## <a name="use-components"></a>Używanie składników
 
@@ -107,16 +152,16 @@ W poniższym przykładzie `ParentComponent` ustawia wartość właściwości `Ti
 
 Składniki mogą ustawiać zawartość innego składnika. Składnik Assigner zawiera zawartość między tagami, które określają składnik do odbioru.
 
-W poniższym przykładzie `ChildComponent` ma właściwość `ChildContent`, która reprezentuje `RenderFragment`, która reprezentuje segment interfejsu użytkownika do renderowania. Wartość `ChildContent` jest umieszczana w znacznikach składnika, w którym powinna być renderowana zawartość. Wartość `ChildContent` jest odbierana ze składnika nadrzędnego i renderowane w ramach `panel-body` panelu uruchamiania.
+W poniższym przykładzie `ChildComponent` ma właściwość `ChildContent`, która reprezentuje `RenderFragment`, która reprezentuje segment interfejsu użytkownika do renderowania. Wartość `ChildContent` jest umieszczana w znacznikach składnika, w którym powinna być renderowana zawartość. Wartość `ChildContent` jest odbierana ze składnika nadrzędnego i renderowany w `panel-body`panelu uruchamiania.
 
 *Składniki/ChildComponent. Razor*:
 
 [!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/ChildComponent.razor?highlight=3,14-15)]
 
 > [!NOTE]
-> Właściwość otrzymująca zawartość `RenderFragment` musi mieć nazwę `ChildContent` według Konwencji.
+> Właściwość, która otrzymuje `RenderFragment` zawartość, musi mieć nazwę `ChildContent` według Konwencji.
 
-Następujące `ParentComponent` może zapewnić zawartość do renderowania `ChildComponent` przez umieszczenie zawartości wewnątrz tagów `<ChildComponent>`.
+Poniższe `ParentComponent` mogą zapewnić zawartość do renderowania `ChildComponent`, umieszczając zawartość wewnątrz tagów `<ChildComponent>`.
 
 *Strony/ParentComponent. Razor*:
 
@@ -124,9 +169,9 @@ Następujące `ParentComponent` może zapewnić zawartość do renderowania `Chi
 
 ## <a name="attribute-splatting-and-arbitrary-parameters"></a>Korzystając atrybutów i dowolne parametry
 
-Składniki mogą przechwytywać i renderować dodatkowe atrybuty oprócz zadeklarowanych parametrów składnika. Dodatkowe atrybuty mogą być przechwytywane w słowniku, a następnie *splatted* na element, gdy składnik jest renderowany przy użyciu dyrektywy Razor [@attributes](xref:mvc/views/razor#attributes) . Ten scenariusz jest przydatny podczas definiowania składnika, który generuje element znaczników, który obsługuje różne dostosowania. Na przykład można żmudnym definiować atrybuty oddzielnie dla `<input>`, które obsługuje wiele parametrów.
+Składniki mogą przechwytywać i renderować dodatkowe atrybuty oprócz zadeklarowanych parametrów składnika. Dodatkowe atrybuty mogą być przechwytywane w słowniku, a następnie *splatted* na element, gdy składnik jest renderowany przy użyciu dyrektywy [@attributes](xref:mvc/views/razor#attributes) Razor. Ten scenariusz jest przydatny podczas definiowania składnika, który generuje element znaczników, który obsługuje różne dostosowania. Na przykład można żmudnym definiować atrybuty oddzielnie dla `<input>`, które obsługują wiele parametrów.
 
-W poniższym przykładzie pierwszy element `<input>` (`id="useIndividualParams"`) używa poszczególnych parametrów składnika, podczas gdy drugi element `<input>` (`id="useAttributesDict"`) używa atrybutu korzystając:
+W poniższym przykładzie pierwszy element `<input>` (`id="useIndividualParams"`) używa pojedynczych parametrów składnika, podczas gdy drugi `<input>` elementu (`id="useAttributesDict"`) używa atrybutu korzystając:
 
 ```cshtml
 <input id="useIndividualParams"
@@ -163,9 +208,9 @@ W poniższym przykładzie pierwszy element `<input>` (`id="useIndividualParams"`
 }
 ```
 
-Typ parametru musi implementować `IEnumerable<KeyValuePair<string, object>>` z kluczami ciągu. Użycie `IReadOnlyDictionary<string, object>` jest również opcją w tym scenariuszu.
+Typ parametru musi implementować `IEnumerable<KeyValuePair<string, object>>` za pomocą kluczy ciągu. Używanie `IReadOnlyDictionary<string, object>` jest również opcją w tym scenariuszu.
 
-Renderowane elementy `<input>` używające obu metod są identyczne:
+Renderowane `<input>` elementy używające obu metod są identyczne:
 
 ```html
 <input id="useIndividualParams"
@@ -190,7 +235,7 @@ Aby zaakceptować dowolne atrybuty, zdefiniuj parametr składnika przy użyciu a
 }
 ```
 
-Właściwość `CaptureUnmatchedValues` na `[Parameter]` umożliwia dopasowanie parametru do wszystkich atrybutów, które nie są zgodne z żadnym innym parametrem. Składnik może definiować tylko jeden parametr z `CaptureUnmatchedValues`. Typ właściwości używany z `CaptureUnmatchedValues` musi być możliwy do przypisania z `Dictionary<string, object>` z kluczami ciągu. w tym scenariuszu są również opcje `IEnumerable<KeyValuePair<string, object>>` lub `IReadOnlyDictionary<string, object>`.
+Właściwość `CaptureUnmatchedValues` na `[Parameter]` umożliwia dopasowanie parametru do wszystkich atrybutów, które nie są zgodne z żadnym innym parametrem. Składnik może definiować tylko jeden parametr z `CaptureUnmatchedValues`. Typ właściwości używany z `CaptureUnmatchedValues` musi być możliwy do przypisania z `Dictionary<string, object>` z kluczami ciągu. w tym scenariuszu są również dostępne opcje `IEnumerable<KeyValuePair<string, object>>` lub `IReadOnlyDictionary<string, object>`.
 
 Pozycja `@attributes` odnosząca się do pozycji atrybutów elementu jest ważna. Gdy `@attributes` są splatted na elemencie, atrybuty są przetwarzane od prawej do lewej (Ostatnia do). Rozważmy następujący przykład składnika, który zużywa składnik `Child`:
 
@@ -266,9 +311,9 @@ Używanie `@bind` z właściwością `CurrentValue` (`<input @bind="CurrentValue
 }
 ```
 
-Gdy składnik jest renderowany, `value` elementu wejściowego pochodzi z właściwości `CurrentValue`. Gdy użytkownik wpisze w polu tekstowym i zmieni fokus elementu, zdarzenie `onchange` jest wyzwalane, a właściwość `CurrentValue` jest ustawiona na wartość zmieniona. W rzeczywistości generowanie kodu jest bardziej skomplikowane, ponieważ `@bind` obsługuje przypadki, w których są wykonywane konwersje typów. W zasadzie, `@bind` kojarzy bieżącą wartość wyrażenia z atrybutem `value` i obsługuje zmiany przy użyciu zarejestrowanej procedury obsługi.
+Gdy składnik jest renderowany, `value` elementu wejściowego pochodzi z właściwości `CurrentValue`. Gdy użytkownik wpisze w polu tekstowym i zmieni fokus elementu, zdarzenie `onchange` jest wyzwalane, a właściwość `CurrentValue` jest ustawiona na wartość zmieniona. W rzeczywistości generowanie kodu jest bardziej skomplikowane, ponieważ `@bind` obsługuje przypadki, w których są wykonywane konwersje typów. W zasadzie `@bind` kojarzy bieżącą wartość wyrażenia z atrybutem `value` i obsługuje zmiany przy użyciu zarejestrowanej procedury obsługi.
 
-Oprócz obsługi zdarzeń `onchange` z składnią `@bind`, właściwość lub pole można powiązać przy użyciu innych zdarzeń, określając atrybut [@bind-value](xref:mvc/views/razor#bind) z `event` parametr ([@bind-value:event](xref:mvc/views/razor#bind)). Poniższy przykład wiąże Właściwość `CurrentValue` dla zdarzenia `oninput`:
+Oprócz obsługi zdarzeń `onchange` ze składnią `@bind`, właściwość lub pole można powiązać przy użyciu innych zdarzeń, określając atrybut [@bind-value](xref:mvc/views/razor#bind) z `event` parametrem ([@bind-value:event](xref:mvc/views/razor#bind)). Poniższy przykład wiąże `CurrentValue` właściwość dla zdarzenia `oninput`:
 
 ```cshtml
 <input @bind-value="CurrentValue" @bind-value:event="oninput" />
@@ -278,7 +323,7 @@ Oprócz obsługi zdarzeń `onchange` z składnią `@bind`, właściwość lub po
 }
 ```
 
-W przeciwieństwie do `onchange`, która jest wyzwalana, gdy element utraci fokus, `oninput` wyzwalane, gdy wartość pola tekstowego ulegnie zmianie.
+W przeciwieństwie do `onchange`, które jest wyzwalane, gdy element utraci fokus, `oninput` uruchamiany, gdy wartość pola tekstowego ulegnie zmianie.
 
 **Wartości niemożliwy do przeanalizowania**
 
@@ -296,23 +341,23 @@ Rozważmy następujący scenariusz:
       public int MyProperty { get; set; } = 123;
   }
   ```
-* Użytkownik aktualizuje wartość elementu, tak aby `123.45` na stronie i zmienia fokus elementu.
+* Użytkownik aktualizuje wartość elementu do `123.45` na stronie i zmienia fokus elementu.
 
-W poprzednim scenariuszu wartość elementu jest przywracana do `123`. Gdy wartość `123.45` jest odrzucana na korzyść oryginalnej wartości `123`, użytkownik rozumie, że ich wartość nie została zaakceptowana.
+W poprzednim scenariuszu wartość elementu jest przywracana do `123`. Gdy wartość `123.45` zostanie odrzucona na korzyść oryginalnej wartości `123`, użytkownik rozumie, że ich wartość nie została zaakceptowana.
 
-Domyślnie powiązanie dotyczy zdarzenia `onchange` elementu (`@bind="{PROPERTY OR FIELD}"`). Użyj `@bind-value="{PROPERTY OR FIELD}" @bind-value:event={EVENT}`, aby ustawić inne zdarzenie. W przypadku zdarzenia `oninput` (`@bind-value:event="oninput"`) rewersja następuje po naciśnięciu klawisza, które wprowadza niemożliwy do przeanalizowania wartość. Podczas określania wartości docelowej zdarzenia `oninput` przy użyciu typu powiązanego z `int` użytkownik nie będzie wpisywać znaku `.`. Znak `.` jest natychmiast usuwany, więc użytkownik otrzymuje natychmiastową opinię, że dozwolone są tylko liczby całkowite. Istnieją scenariusze, w których przywrócenie wartości na `oninput` zdarzenia nie jest idealne, na przykład wtedy, gdy użytkownik powinien mieć możliwość wyczyszczenia niemożliwej do przeanalizowania wartości `<input>`. Alternatywy obejmują:
+Domyślnie powiązanie dotyczy zdarzenia `onchange` elementu (`@bind="{PROPERTY OR FIELD}"`). Użyj `@bind-value="{PROPERTY OR FIELD}" @bind-value:event={EVENT}`, aby ustawić inne zdarzenie. W przypadku zdarzenia `oninput` (`@bind-value:event="oninput"`) następuje rewersja po naciśnięciu klawisza, które wprowadza niemożliwy do przeanalizowania wartość. Podczas określania wartości docelowej zdarzenia `oninput` przy użyciu typu powiązanego z `int`użytkownik nie będzie wpisywać znaku `.`. Znak `.` zostanie natychmiast usunięty, więc użytkownik otrzymuje natychmiastową opinię, że dozwolone są tylko liczby całkowite. Istnieją scenariusze, w których przywrócenie wartości w zdarzeniu `oninput` nie jest idealne, na przykład wtedy, gdy użytkownik powinien mieć możliwość wyczyszczenia wartości `<input>` niemożliwej do przeanalizowania. Alternatywy obejmują:
 
-* Nie używaj zdarzenia `oninput`. Użyj domyślnego zdarzenia `onchange` (`@bind="{PROPERTY OR FIELD}"`), gdzie nieprawidłowa wartość nie jest przywracana, dopóki element nie utraci fokusu.
-* Powiąż z typem dopuszczającym wartość null, na przykład `int?` lub `string`, i podaj logikę niestandardową do obsługi nieprawidłowych wpisów.
+* Nie używaj zdarzenia `oninput`. Użyj domyślnego zdarzenia `onchange` (`@bind="{PROPERTY OR FIELD}"`), w którym niedozwolona wartość nie zostanie przywrócona, dopóki element nie utraci fokusu.
+* Powiąż z typem dopuszczającym wartość null, takim jak `int?` lub `string`, i podaj logikę niestandardową do obsługi nieprawidłowych wpisów.
 * Użyj [składnika walidacji formularza](xref:blazor/forms-validation), takiego jak `InputNumber` lub `InputDate`. Składniki walidacji formularza mają wbudowaną obsługę zarządzania nieprawidłowymi danymi wejściowymi. Składniki walidacji formularza:
   * Zezwalaj użytkownikowi na dostarczenie nieprawidłowych danych wejściowych i otrzymywanie błędów walidacji w skojarzonym `EditContext`.
   * Wyświetlaj błędy walidacji w interfejsie użytkownika bez zakłócania wprowadzania dodatkowych danych przez użytkownika.
 
 **Globalizacja**
 
-wartości `@bind` są formatowane do wyświetlania i analizowane przy użyciu reguł bieżącej kultury.
+wartości `@bind` są sformatowane do wyświetlania i analizowane przy użyciu reguł bieżącej kultury.
 
-Dostęp do bieżącej kultury można uzyskać z właściwości <xref:System.Globalization.CultureInfo.CurrentCulture?displayProperty=fullName>.
+Dostęp do bieżącej kultury można uzyskać ze właściwości <xref:System.Globalization.CultureInfo.CurrentCulture?displayProperty=fullName>.
 
 [CultureInfo. InvariantCulture](xref:System.Globalization.CultureInfo.InvariantCulture) jest używany dla następujących typów pól (`<input type="{TYPE}" />`):
 
@@ -331,7 +376,7 @@ Następujące typy pól mają określone wymagania dotyczące formatowania i nie
 * `month`
 * `week`
 
-`@bind` obsługuje parametr `@bind:culture`, aby zapewnić <xref:System.Globalization.CultureInfo?displayProperty=fullName> do analizowania i formatowania wartości. Określanie kultury nie jest zalecane w przypadku używania typów pól `date` i `number`. `date` i `number` mają wbudowaną obsługę Blazor, która udostępnia wymaganą kulturę.
+`@bind` obsługuje parametr `@bind:culture`, aby zapewnić <xref:System.Globalization.CultureInfo?displayProperty=fullName> do analizy i formatowania wartości. Określanie kultury nie jest zalecane w przypadku używania typów pól `date` i `number`. `date` i `number` mają wbudowaną obsługę Blazor, która udostępnia wymaganą kulturę.
 
 Aby uzyskać informacje na temat sposobu ustawiania kultury użytkownika, zobacz sekcję [Lokalizacja](#localization) .
 
@@ -348,7 +393,7 @@ Powiązanie danych działa z ciągami formatu <xref:System.DateTime> przy użyci
 }
 ```
 
-W powyższym kodzie typ pola `<input>` (`type`) ma wartość domyślną `text`. `@bind:format` jest obsługiwana w celu powiązania następujących typów .NET:
+W powyższym kodzie, typ pola `<input>` elementu (`type`) domyślnie `text`. `@bind:format` jest obsługiwana w celu powiązania następujących typów .NET:
 
 * <xref:System.DateTime?displayProperty=fullName>
 * <xref:System.DateTime?displayProperty=fullName>?
@@ -363,7 +408,7 @@ Określanie formatu dla typu pola `date` nie jest zalecane, ponieważ Blazor ma 
 
 Powiązanie rozpoznaje parametry składnika, gdzie `@bind-{property}` może powiązać wartość właściwości między składnikami.
 
-Następujący składnik podrzędny (`ChildComponent`) ma parametr składnika `Year` i wywołanie zwrotne `YearChanged`:
+Poniższy składnik podrzędny (`ChildComponent`) ma parametr składnika `Year` i wywołanie zwrotne `YearChanged`:
 
 ```cshtml
 <h2>Child Component</h2>
@@ -379,7 +424,7 @@ Następujący składnik podrzędny (`ChildComponent`) ma parametr składnika `Ye
 }
 ```
 
-`EventCallback<T>` zostało wyjaśnione w sekcji [EventCallback](#eventcallback) .
+`EventCallback<T>` wyjaśniono w sekcji [EventCallback](#eventcallback) .
 
 Poniższy składnik nadrzędny używa `ChildComponent` i wiąże parametr `ParentYear` z elementu nadrzędnego z parametrem `Year` w składniku podrzędnym:
 
@@ -407,7 +452,7 @@ Poniższy składnik nadrzędny używa `ChildComponent` i wiąże parametr `Paren
 }
 ```
 
-Załadowanie `ParentComponent` daje następujące znaczniki:
+Załadowanie `ParentComponent` powoduje utworzenie następującej adjustacji:
 
 ```html
 <h1>Parent Component</h1>
@@ -419,7 +464,7 @@ Załadowanie `ParentComponent` daje następujące znaczniki:
 <p>Year: 1978</p>
 ```
 
-Jeśli wartość właściwości `ParentYear` zostanie zmieniona przez wybranie przycisku w `ParentComponent`, zostanie zaktualizowana właściwość `Year` `ChildComponent`. Nowa wartość `Year` jest renderowana w interfejsie użytkownika podczas ponownego renderowania `ParentComponent`:
+Jeśli wartość właściwości `ParentYear` zostanie zmieniona przez wybranie przycisku w `ParentComponent`, zostanie zaktualizowana właściwość `Year` `ChildComponent`. Nowa wartość `Year` jest renderowana w interfejsie użytkownika podczas renderowania `ParentComponent`:
 
 ```html
 <h1>Parent Component</h1>
@@ -447,7 +492,7 @@ Ogólnie rzecz biorąc, właściwość może być powiązana z odpowiednią obs�
 
 ## <a name="event-handling"></a>Obsługa zdarzeń
 
-Składniki Razor zapewniają funkcje obsługi zdarzeń. Dla atrybutu elementu HTML o nazwie `on{event}` (na przykład `onclick` i `onsubmit`) z wartością typu delegata składniki Razor traktują wartość atrybutu jako procedurę obsługi zdarzeń. Nazwa atrybutu jest zawsze sformatowana [@on {Event}](xref:mvc/views/razor#onevent).
+Składniki Razor zapewniają funkcje obsługi zdarzeń. Dla atrybutu elementu HTML o nazwie `on{EVENT}` (na przykład `onclick` i `onsubmit`) z wartością typu delegata składniki Razor traktują wartość atrybutu jako procedurę obsługi zdarzeń. Nazwa atrybutu jest zawsze sformatowana [@on{Event}](xref:mvc/views/razor#onevent).
 
 Poniższy kod wywołuje metodę `UpdateHeading`, gdy przycisk zostanie wybrany w interfejsie użytkownika:
 
@@ -498,21 +543,22 @@ W poniższym przykładzie `UpdateHeading` jest wywoływana asynchronicznie po wy
 
 W przypadku niektórych zdarzeń dozwolone są typy argumentów zdarzeń. Jeśli dostęp do jednego z tych typów zdarzeń nie jest konieczny, nie jest to wymagane w wywołaniu metody.
 
-W poniższej tabeli przedstawiono obsługiwane `EventArgs`.
+Obsługiwane `EventArgs` przedstawiono w poniższej tabeli.
 
-| Zdarzenie | Class |
-| ----- | ----- |
-| Schowek        | `ClipboardEventArgs` |
-| Przeciągnąć             | `DragEventArgs` &ndash; `DataTransfer` i `DataTransferItem` trzymaj przeciągane dane elementu. |
-| Błąd            | `ErrorEventArgs` |
-| Fokus            | `FocusEventArgs` &ndash; nie obejmuje obsługi `relatedTarget`. |
-| Zmiana `<input>` | `ChangeEventArgs` |
-| Klawiatura         | `KeyboardEventArgs` |
-| Wskaźnik            | `MouseEventArgs` |
-| Wskaźnik myszy    | `PointerEventArgs` |
-| Kółko myszy      | `WheelEventArgs` |
-| Postęp         | `ProgressEventArgs` |
-| Dotyk            | `TouchEventArgs` &ndash; `TouchPoint` reprezentuje pojedynczy punkt kontaktu na urządzeniu dotykowym. |
+| Wydarzenie            | Klasa                | Zdarzenia i uwagi dotyczące modelu DOM |
+| ---------------- | -------------------- | -------------------- |
+| Schowek        | `ClipboardEventArgs` | `oncut`, `oncopy`, `onpaste` |
+| Przeciągnij             | `DragEventArgs`      | `ondrag`, `ondragstart`, `ondragenter`, `ondragleave`, `ondragover`, `ondrop`, `ondragend`<br><br>`DataTransfer` i `DataTransferItem` przechowywać przeciągane dane elementu. |
+| Błąd            | `ErrorEventArgs`     | `onerror` |
+| Wydarzenie            | `EventArgs`          | *Ogólne*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Schowek*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Dane wejściowe*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart`, `onsubmit`<br><br>*Multimedialny*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
+| Fokus            | `FocusEventArgs`     | `onfocus`, `onblur`, `onfocusin`, `onfocusout`<br><br>Nie obejmuje obsługi `relatedTarget`. |
+| Dane wejściowe            | `ChangeEventArgs`    | `onchange`, `oninput` |
+| Klawiatury         | `KeyboardEventArgs`  | `onkeydown`, `onkeypress`, `onkeyup` |
+| Wskaźnik            | `MouseEventArgs`     | `onclick`, `oncontextmenu`, `ondblclick`, `onmousedown`, `onmouseup`, `onmouseover`, `onmousemove`, `onmouseout` |
+| Wskaźnik myszy    | `PointerEventArgs`   | `onpointerdown`, `onpointerup`, `onpointercancel`, `onpointermove`, `onpointerover`, `onpointerout`, `onpointerenter`, `onpointerleave`, `ongotpointercapture`, `onlostpointercapture` |
+| Kółko myszy      | `WheelEventArgs`     | `onwheel`, `onmousewheel` |
+| Postęp         | `ProgressEventArgs`  | `onabort`, `onload`, `onloadend`, `onloadstart`, `onprogress`, `ontimeout` |
+| Dotyk            | `TouchEventArgs`     | `ontouchstart`, `ontouchend`, `ontouchmove`, `ontouchenter`, `ontouchleave`, `ontouchcancel`<br><br>`TouchPoint` reprezentuje pojedynczy punkt kontaktu na urządzeniu dotykowym. |
 
 Aby uzyskać informacje o zachowaniu właściwości i obsłudze zdarzeń zdarzeń w powyższej tabeli, zobacz [klasy EventArgs w źródle odwołań (gałąź ASPNET/AspNetCore Release/3.0)](https://github.com/aspnet/AspNetCore/tree/release/3.0/src/Components/Web/src/Web).
 
@@ -524,7 +570,7 @@ Wyrażenia lambda mogą być również używane:
 <button @onclick="@(e => Console.WriteLine("Hello, world!"))">Say hello</button>
 ```
 
-Często wygodnie jest blisko dodatkowych wartości, na przykład podczas iteracji na zestawie elementów. Poniższy przykład tworzy trzy przyciski, z których każdy wywołuje `UpdateHeading` przekazanie argumentu zdarzenia (`MouseEventArgs`) i jego numeru przycisku (`buttonNumber`), gdy jest wybrany w interfejsie użytkownika:
+Często wygodnie jest blisko dodatkowych wartości, na przykład podczas iteracji na zestawie elementów. Poniższy przykład tworzy trzy przyciski, z których każdy wywołuje `UpdateHeading` przekazywaniem argumentu zdarzenia (`MouseEventArgs`) i numerem przycisku (`buttonNumber`), po wybraniu w interfejsie użytkownika:
 
 ```cshtml
 <h2>@message</h2>
@@ -551,13 +597,13 @@ Często wygodnie jest blisko dodatkowych wartości, na przykład podczas iteracj
 ```
 
 > [!NOTE]
-> **Nie** używaj zmiennej loop (`i`) w pętli `for` bezpośrednio w wyrażeniu lambda. W przeciwnym razie ta sama zmienna jest używana przez wszystkie wyrażenia lambda, które powodują, że wartość `i` będzie taka sama we wszystkich lambdach. Zawsze Przechwytuj wartość w zmiennej lokalnej (`buttonNumber` w poprzednim przykładzie), a następnie użyj jej.
+> **Nie** używaj zmiennej loop (`i`) w pętli `for` bezpośrednio w wyrażeniu lambda. W przeciwnym razie ta sama zmienna jest używana przez wszystkie wyrażenia lambda, co sprawia, że wartość `i`być taka sama we wszystkich lambdach. Zawsze Przechwytuj wartość w zmiennej lokalnej (`buttonNumber` w poprzednim przykładzie), a następnie użyj jej.
 
 ### <a name="eventcallback"></a>EventCallback
 
-Typowym scenariuszem ze składnikami zagnieżdżonymi jest zamiar uruchamiania metody składnika nadrzędnego, gdy występuje zdarzenie składnika podrzędnego &mdash;for przykład, gdy zdarzenie `onclick` wystąpi w elemencie podrzędnym. Aby uwidocznić zdarzenia między składnikami, użyj `EventCallback`. Składnik nadrzędny może przypisać metodę wywołania zwrotnego do `EventCallback` składnika podrzędnego.
+Typowym scenariuszem ze składnikami zagnieżdżonymi jest potrzeba uruchomienia metody składnika nadrzędnego w przypadku wystąpienia zdarzenia podrzędnego składnika&mdash;na przykład gdy zdarzenie `onclick` wystąpi w elemencie podrzędnym. Aby uwidocznić zdarzenia między składnikami, użyj `EventCallback`. Składnik nadrzędny może przypisać metodę wywołania zwrotnego do `EventCallback`składnika podrzędnego.
 
-`ChildComponent` w przykładowej aplikacji pokazuje, jak program obsługi `onclick` przycisku został skonfigurowany tak, aby otrzymać delegata `EventCallback` z `ParentComponent`próbki. W `EventCallback` jest wpisana wartość `MouseEventArgs`, która jest odpowiednia dla zdarzenia `onclick` z urządzenia peryferyjnego:
+`ChildComponent` w przykładowej aplikacji pokazuje, jak program obsługi `onclick` przycisku został skonfigurowany tak, aby otrzymać delegata `EventCallback` z `ParentComponent`próbki. `EventCallback` jest wpisana z `MouseEventArgs`, która jest odpowiednia dla zdarzenia `onclick` z urządzenia peryferyjnego:
 
 [!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/ChildComponent.razor?highlight=5-7,17-18)]
 
@@ -567,10 +613,10 @@ Typowym scenariuszem ze składnikami zagnieżdżonymi jest zamiar uruchamiania m
 
 Gdy przycisk zostanie wybrany w `ChildComponent`:
 
-* Metoda `ShowMessage` `ParentComponent` jest wywoływana. `messageText` jest aktualizowany i wyświetlany w `ParentComponent`.
-* Wywołanie `StateHasChanged` nie jest wymagane w metodzie wywołania zwrotnego (`ShowMessage`). `StateHasChanged` jest automatycznie wywoływana w celu odwzorowania `ParentComponent`, podobnie jak zdarzenia podrzędne wyzwalają ponowne renderowanie w obsłudze zdarzeń, które są wykonywane w ramach elementu podrzędnego.
+* Metoda `ShowMessage` `ParentComponent`jest wywoływana. `messageText` jest aktualizowany i wyświetlany w `ParentComponent`.
+* Wywołanie `StateHasChanged` nie jest wymagane w metodzie wywołania zwrotnego (`ShowMessage`). `StateHasChanged` jest automatycznie wywoływana w celu odrenderowania `ParentComponent`, podobnie jak zdarzenia podrzędne wyzwalają ponowne renderowanie składnika w obsłudze zdarzeń, które są wykonywane w ramach elementu podrzędnego.
 
-`EventCallback` i `EventCallback<T>` Zezwalaj na asynchroniczne Delegaty. `EventCallback<T>` jest silnie wpisana i wymaga określonego typu argumentu. `EventCallback` jest słabo wpisywany i zezwala na dowolny typ argumentu.
+`EventCallback` i `EventCallback<T>` Zezwalaj na asynchroniczne Delegaty. `EventCallback<T>` jest silnie wpisana i wymaga określonego typu argumentu. `EventCallback` jest słabo wpisywany i dopuszcza każdy typ argumentu.
 
 ```cshtml
 <p><b>@messageText</b></p>
@@ -585,21 +631,91 @@ Gdy przycisk zostanie wybrany w `ChildComponent`:
 }
 ```
 
-Wywołaj `EventCallback` lub `EventCallback<T>` z `InvokeAsync` i czeka na <xref:System.Threading.Tasks.Task>:
+Wywołaj `EventCallback` lub `EventCallback<T>` z `InvokeAsync` i oczekują na <xref:System.Threading.Tasks.Task>:
 
 ```csharp
 await callback.InvokeAsync(arg);
 ```
 
-Użyj `EventCallback` i `EventCallback<T>` w przypadku obsługi zdarzeń i parametrów składnika wiązania.
+Użyj `EventCallback` i `EventCallback<T>` do obsługi zdarzeń i parametrów składnika powiązania.
 
-Preferuj silnie wpisaną `EventCallback<T>` over `EventCallback`. `EventCallback<T>` zapewnia lepszą opinię o błędach dla użytkowników składnika. Podobnie jak w przypadku innych programów obsługi zdarzeń interfejsu użytkownika, określenie parametru zdarzenia jest opcjonalne. Użyj `EventCallback` w przypadku braku wartości przekazywania do wywołania zwrotnego.
+Preferuj silnie wpisaną `EventCallback<T>` przez `EventCallback`. `EventCallback<T>` zapewnia lepszą opinię o błędach dla użytkowników składnika. Podobnie jak w przypadku innych programów obsługi zdarzeń interfejsu użytkownika, określenie parametru zdarzenia jest opcjonalne. Użyj `EventCallback`, gdy nie zostanie przeniesiona wartość do wywołania zwrotnego.
+
+::: moniker range=">= aspnetcore-3.1"
+
+### <a name="prevent-default-actions"></a>Zapobiegaj akcjom domyślnym
+
+Użyj [@on{Event}:p](xref:mvc/views/razor#oneventpreventdefault) atrybucie dyrektywy reventdefault, aby zapobiec domyślnej akcji dla zdarzenia.
+
+Po wybraniu klucza na urządzeniu wejściowym, gdy fokus elementu znajduje się w polu tekstowym, przeglądarka zwykle wyświetla znak klucza w polu tekstowym. W poniższym przykładzie zachowanie domyślne jest blokowane przez określenie atrybutu dyrektywy `@onkeypress:preventDefault`. Licznik przyrostu i klucz **+** nie są przechwytywane do wartości elementu `<input>`:
+
+```cshtml
+<input value="@_count" @onkeypress="KeyHandler" @onkeypress:preventDefault />
+
+@code {
+    private int _count = 0;
+
+    private void KeyHandler(KeyboardEventArgs e)
+    {
+        if (e.Key == "+")
+        {
+            _count++;
+        }
+    }
+}
+```
+
+Określanie atrybutu `@on{EVENT}:preventDefault` bez wartości jest równoważne z `@on{EVENT}:preventDefault="true"`.
+
+Wartość atrybutu może również być wyrażeniem. W poniższym przykładzie `_shouldPreventDefault` jest polem `bool` ustawionym na `true` lub `false`:
+
+```cshtml
+<input @onkeypress:preventDefault="_shouldPreventDefault" />
+```
+
+Procedura obsługi zdarzeń nie jest wymagana, aby zapobiec akcji domyślnej. Procedury obsługi zdarzeń i zapobiegania domyślnym scenariuszom akcji mogą być używane niezależnie.
+
+### <a name="stop-event-propagation"></a>Zatrzymaj propagację zdarzeń
+
+Aby zatrzymać propagację zdarzeń, Użyj atrybutu dyrektywy [@on{Event}: stopPropagation](xref:mvc/views/razor#oneventstoppropagation) .
+
+W poniższym przykładzie, zaznaczając pole wyboru, Zapobiegaj kliknięciu zdarzeń z drugiego elementu podrzędnego `<div>` od propagowania do `<div>`nadrzędnego:
+
+```cshtml
+<label>
+    <input @bind="_stopPropagation" type="checkbox" />
+    Stop Propagation
+</label>
+
+<div @onclick="OnSelectParentDiv">
+    <h3>Parent div</h3>
+
+    <div @onclick="OnSelectChildDiv">
+        Child div that doesn't stop propagation when selected.
+    </div>
+
+    <div @onclick="OnSelectChildDiv" @onclick:stopPropagation="_stopPropagation">
+        Child div that stops propagation when selected.
+    </div>
+</div>
+
+@code {
+    private bool _stopPropagation = false;
+
+    private void OnSelectParentDiv() => 
+        Console.WriteLine($"The parent div was selected. {DateTime.Now}");
+    private void OnSelectChildDiv() => 
+        Console.WriteLine($"A child div was selected. {DateTime.Now}");
+}
+```
+
+::: moniker-end
 
 ## <a name="chained-bind"></a>Powiązanie łańcuchowe
 
 Typowy scenariusz polega na łańcuchu parametru powiązanego z danymi do elementu strony w danych wyjściowych składnika. Ten scenariusz jest nazywany *powiązaniem łańcuchowym* , ponieważ wiele poziomów powiązań występuje jednocześnie.
 
-Nie można zaimplementować powiązania łańcuchowego ze składnią `@bind` w elemencie strony. Program obsługi zdarzeń i wartość muszą być określone osobno. Składnik nadrzędny może jednak używać składni `@bind` z parametrem składnika.
+Nie można zaimplementować powiązania łańcuchowego z składnią `@bind` w elemencie strony. Program obsługi zdarzeń i wartość muszą być określone osobno. Składnik nadrzędny, jednak może używać składni `@bind`ej z parametrem składnika.
 
 Następujący składnik `PasswordField` (*PasswordField. Razor*):
 
@@ -654,7 +770,7 @@ Składnik `PasswordField` jest używany w innym składniku:
 Aby przeprowadzić sprawdzenia lub błędy pułapki dla hasła w poprzednim przykładzie:
 
 * Utwórz pole zapasowe dla `Password` (`password` w poniższym przykładowym kodzie).
-* Wykonaj testy lub błędy pułapek w metodzie ustawiającej `Password`.
+* Wykonaj testy lub błędy pułapki w metodzie ustawiającej `Password`.
 
 Poniższy przykład przedstawia natychmiastową opinię dla użytkownika, jeśli w wartości hasła jest używana spacja:
 
@@ -735,19 +851,19 @@ Odwołania do składników zapewniają sposób odwoływania się do wystąpienia
 }
 ```
 
-Gdy składnik jest renderowany, pole `loginDialog` jest wypełniane wystąpieniem składnika podrzędnego `MyLoginDialog`. Następnie można wywołać metody .NET w wystąpieniu składnika.
+Gdy składnik jest renderowany, pole `loginDialog` jest wypełniane za pomocą `MyLoginDialog` podrzędnego wystąpienia składnika. Następnie można wywołać metody .NET w wystąpieniu składnika.
 
 > [!IMPORTANT]
 > Zmienna `loginDialog` jest wypełniana tylko po wyrenderowaniu składnika, a jego wyjście zawiera element `MyLoginDialog`. Do tego momentu nie ma niczego do odwołania. Aby manipulować odwołaniami do składników po zakończeniu renderowania składnika, należy użyć [metody OnAfterRenderAsync lub OnAfterRender](#lifecycle-methods).
 
-Podczas przechwytywania odwołań do składników użycie podobnej składni do [przechwytywania odwołań do elementów](xref:blazor/javascript-interop#capture-references-to-elements)nie jest funkcją [międzyoperacyjności języka JavaScript](xref:blazor/javascript-interop) . Odwołania do składników nie są przesyłane do kodu JavaScript, &mdash;they są używane tylko w kodzie platformy .NET.
+Podczas przechwytywania odwołań do składników użycie podobnej składni do [przechwytywania odwołań do elementów](xref:blazor/javascript-interop#capture-references-to-elements)nie jest funkcją [międzyoperacyjności języka JavaScript](xref:blazor/javascript-interop) . Odwołania do składników nie są przesyłane do kodu JavaScript,&mdash;są używane tylko w kodzie platformy .NET.
 
 > [!NOTE]
 > **Nie** należy używać odwołań do składników do mutacji stanu składników podrzędnych. Zamiast tego należy używać zwykłych parametrów deklaratywnych do przekazywania danych do składników podrzędnych. Użycie normalnych parametrów deklaratywnych powoduje, że składniki podrzędne, które automatycznie uruchamiają się w prawidłowym czasie.
 
 ## <a name="invoke-component-methods-externally-to-update-state"></a>Wywołaj metody składnika zewnętrznie, aby zaktualizować stan
 
-Blazor używa `SynchronizationContext` w celu wymuszenia pojedynczego wątku logicznego wykonywania. Metody cyklu życia składnika i wszystkie wywołania zwrotne zdarzeń wywoływane przez Blazor są wykonywane na tym `SynchronizationContext`. W przypadku zdarzenia składnika należy zaktualizować w oparciu o zdarzenie zewnętrzne, takie jak czasomierz lub inne powiadomienia, użyj metody `InvokeAsync`, która będzie wysyłana do `SynchronizationContext` Blazor.
+Blazor używa `SynchronizationContext` w celu wymuszenia pojedynczego wątku logicznego wykonywania. W tym `SynchronizationContext`są wykonywane metody cyklu życia składnika i wszystkie wywołania zwrotne zdarzeń, które są wywoływane przez Blazor. W przypadku zdarzenia składnika należy zaktualizować na podstawie zdarzenia zewnętrznego, takiego jak czasomierz lub inne powiadomienia, użyj metody `InvokeAsync`, która będzie wysyłana do `SynchronizationContext`Blazor.
 
 Rozważmy na przykład *usługę powiadamiania* , która może powiadomić dowolny składnik nasłuchujący zaktualizowanego stanu:
 
@@ -767,7 +883,7 @@ public class NotifierService
 }
 ```
 
-Użycie `NotifierService` w celu zaktualizowania składnika:
+Użycie `NotifierService` do zaktualizowania składnika:
 
 ```cshtml
 @page "/"
@@ -800,11 +916,11 @@ Użycie `NotifierService` w celu zaktualizowania składnika:
 }
 ```
 
-W poprzednim przykładzie `NotifierService` wywołuje metodę `OnNotify` składnika, poza Blazor `SynchronizationContext`. `InvokeAsync` służy do przełączania do poprawnego kontekstu i renderowania kolejki.
+W poprzednim przykładzie `NotifierService` wywołuje metodę `OnNotify` składnika poza `SynchronizationContext`Blazor. `InvokeAsync` jest używany do przełączania do poprawnego kontekstu i renderowania kolejki.
 
-## <a name="use-key-to-control-the-preservation-of-elements-and-components"></a>Używanie \@key do kontrolowania zachowywania elementów i składników
+## <a name="use-key-to-control-the-preservation-of-elements-and-components"></a>Użyj klucza \@, aby kontrolować zachowywanie elementów i składników
 
-Podczas renderowania listy elementów lub składników oraz elementów lub składników, które następnie zmieniają się, algorytm diff Blazor musi zdecydować, które z poprzednich elementów lub składników mogą być zachowywane i jak obiekty modelu powinny być mapowane na nie. Zwykle ten proces jest automatyczny i można go zignorować, ale istnieją przypadki, w których może być konieczne sterowanie procesem.
+Podczas renderowania listy elementów lub składników oraz elementów lub składników, które następnie zmieniają się, algorytm różnicowania Blazormusi zdecydować, które z poprzednich elementów lub składników mogą być zachowywane i jak obiekty modelu powinny być mapowane na nie. Zwykle ten proces jest automatyczny i można go zignorować, ale istnieją przypadki, w których może być konieczne sterowanie procesem.
 
 Rozważmy następujący przykład:
 
@@ -820,7 +936,7 @@ Rozważmy następujący przykład:
 }
 ```
 
-Zawartość kolekcji `People` może ulec zmianie z wstawionymi, usuniętymi lub z ponownymi zamówieniami. Gdy składnik jest przerenderowany, składnik `<DetailsEditor>` może ulec zmianie, aby otrzymywać różne wartości parametrów `Details`. Może to spowodować bardziej złożone odwzorowanie niż oczekiwano. W niektórych przypadkach odzyskanie może prowadzić do zauważalnych różnic w zachowaniu, takich jak brak fokusu elementu.
+Zawartość kolekcji `People` może ulec zmianie z wstawionymi, usuniętymi lub z ponownymi zamówieniami. Gdy składnik jest przerenderowany, składnik `<DetailsEditor>` może zmienić, aby otrzymywać różne `Details` wartości parametrów. Może to spowodować bardziej złożone odwzorowanie niż oczekiwano. W niektórych przypadkach odzyskanie może prowadzić do zauważalnych różnic w zachowaniu, takich jak brak fokusu elementu.
 
 Proces mapowania można kontrolować przy użyciu atrybutu dyrektywy `@key`. `@key` powoduje, że algorytm różnicowania gwarantuje zachowywanie elementów lub składników na podstawie wartości klucza:
 
@@ -836,22 +952,22 @@ Proces mapowania można kontrolować przy użyciu atrybutu dyrektywy `@key`. `@k
 }
 ```
 
-W przypadku zmiany kolekcji `People` algorytm różnicowy zachowuje skojarzenie między wystąpieniami `<DetailsEditor>` i wystąpieniami `person`:
+W przypadku zmiany kolekcji `People`, algorytm różnicowania zachowuje skojarzenie między wystąpieniami `<DetailsEditor>` i wystąpieniami `person`:
 
 * Jeśli `Person` zostanie usunięty z listy `People`, tylko odpowiednie wystąpienie `<DetailsEditor>` zostanie usunięte z interfejsu użytkownika. Inne wystąpienia pozostaną bez zmian.
 * Jeśli na liście zostanie wstawiony `Person`, jedno nowe wystąpienie `<DetailsEditor>` zostanie wstawione do odpowiedniego położenia. Inne wystąpienia pozostaną bez zmian.
 * W przypadku ponownego uporządkowania wpisów `Person` odpowiednie wystąpienia `<DetailsEditor>` są zachowywane i uporządkowane w interfejsie użytkownika.
 
-W niektórych scenariuszach użycie `@key` minimalizuje złożoność ponownego renderowania i pozwala uniknąć potencjalnych problemów związanych ze stanem częściowej zmiany modelu DOM, na przykład na pozycji fokus.
+W niektórych scenariuszach użycie `@key` minimalizuje złożoność operacji renderowania i pozwala uniknąć potencjalnych problemów związanych z zmianami stanowymi modelu DOM, takich jak pozycja fokusu.
 
 > [!IMPORTANT]
 > Klucze są lokalne dla każdego elementu kontenera lub składnika. Klucze nie są porównywane globalnie w całym dokumencie.
 
-### <a name="when-to-use-key"></a>Kiedy używać \@key
+### <a name="when-to-use-key"></a>Kiedy używać klucza \@
 
-Zwykle warto używać `@key` za każdym razem, gdy lista jest renderowana (na przykład w bloku `@foreach`), a odpowiednia wartość istnieje do zdefiniowania `@key`.
+Zazwyczaj warto używać `@key` zawsze, gdy lista jest renderowana (na przykład w bloku `@foreach`), a odpowiednia wartość istnieje do zdefiniowania `@key`.
 
-Można również użyć `@key`, aby uniemożliwić Blazor z zachowaniem poddrzewa elementu lub składnika, gdy zmieniany jest obiekt:
+Można również użyć `@key`, aby uniemożliwić Blazor zachowywania poddrzewa elementu lub składnika, gdy zmieniany jest obiekt:
 
 ```cshtml
 <div @key="currentPerson">
@@ -859,26 +975,26 @@ Można również użyć `@key`, aby uniemożliwić Blazor z zachowaniem poddrzew
 </div>
 ```
 
-W przypadku zmiany `@currentPerson` dyrektywa `@key` wymusza Blazor, aby odrzucić całą `<div>` i jej elementy podrzędne, a następnie ponownie skompilować poddrzewo w interfejsie użytkownika za pomocą nowych elementów i składników. Może to być przydatne, jeśli zachodzi konieczność zagwarantowania, że stan interfejsu użytkownika nie jest zachowywany w przypadku zmiany `@currentPerson`.
+W przypadku zmiany `@currentPerson` dyrektywa `@key` wymusza Blazor odrzucania całego `<div>` i jego obiektów podrzędnych i ponownej kompilacji poddrzewa w interfejsie użytkownika z nowymi elementami i składnikami. Może to być przydatne, jeśli zachodzi konieczność zagwarantowania, że stan interfejsu użytkownika nie jest zachowywany po zmianie `@currentPerson`.
 
-### <a name="when-not-to-use-key"></a>Kiedy nie używać \@key
+### <a name="when-not-to-use-key"></a>Kiedy nie używać klucza \@
 
-W przypadku różnicowania z `@key` występuje koszt wydajności. Koszt wydajności nie jest duży, ale należy określić tylko `@key` w przypadku kontrolowania reguły zachowywania elementu lub składnika.
+Różnica między `@key`ami jest kosztem wydajności. Koszt wydajności nie jest duży, ale Określ `@key` tylko wtedy, gdy kontrolowanie reguł utrwalania elementów i składników korzyści dla aplikacji.
 
 Nawet jeśli `@key` nie jest używany, Blazor zachowuje elementy podrzędne i wystąpienia składników tak dużo, jak to możliwe. Jedyną zaletą korzystania z `@key` jest kontrola nad *sposobem* , w jaki wystąpienia modelu są mapowane na zachowane wystąpienia składników, zamiast algorytmu różnicowego, wybierając mapowanie.
 
-### <a name="what-values-to-use-for-key"></a>Wartości, które mają być używane dla \@key
+### <a name="what-values-to-use-for-key"></a>Wartości, które mają być używane dla klucza \@
 
-Ogólnie rzecz biorąc warto podać jeden z następujących rodzajów wartości dla `@key`:
+Ogólnie rzecz biorąc, warto podać jeden z następujących rodzajów wartości dla `@key`:
 
-* Wystąpienia obiektów modelu (na przykład wystąpienie `Person`, jak w poprzednim przykładzie). Zapewnia to zachowywanie na podstawie równości odwołań do obiektów.
-* Unikatowe identyfikatory (na przykład wartości klucza podstawowego typu `int`, `string` lub `Guid`).
+* Wystąpienia obiektów modelu (na przykład wystąpienie `Person` jak w poprzednim przykładzie). Zapewnia to zachowywanie na podstawie równości odwołań do obiektów.
+* Unikatowe identyfikatory (na przykład wartości klucza podstawowego typu `int`, `string`lub `Guid`).
 
 Upewnij się, że wartości używane dla `@key` nie kolidują. Jeśli w tym samym elemencie nadrzędnym zostaną wykryte wartości powodujące konflikt, Blazor zgłasza wyjątek, ponieważ nie może on w sposób jednoznaczny mapować starych elementów lub składników na nowe elementy lub składniki. Używaj tylko odrębnych wartości, takich jak wystąpienia obiektów lub wartości klucza podstawowego.
 
 ## <a name="lifecycle-methods"></a>Metody cyklu życia
 
-`OnInitializedAsync` i `OnInitialized` wykonaj kod w celu zainicjowania składnika. Aby wykonać operację asynchroniczną, należy użyć słowa kluczowego `OnInitializedAsync` i `await` dla operacji:
+`OnInitializedAsync` i `OnInitialized` wykonywania kodu w celu zainicjowania składnika. Aby wykonać operację asynchroniczną, użyj `OnInitializedAsync` i słowa kluczowego `await` w operacji:
 
 ```csharp
 protected override async Task OnInitializedAsync()
@@ -888,9 +1004,9 @@ protected override async Task OnInitializedAsync()
 ```
 
 > [!NOTE]
-> Asynchroniczne działanie podczas inicjowania składnika musi wystąpić podczas zdarzenia cyklu życia `OnInitializedAsync`.
+> Asynchroniczne działanie podczas inicjowania składnika musi wystąpić w trakcie `OnInitializedAsync`go zdarzenia cyklu życia.
 
-W przypadku operacji synchronicznych należy używać `OnInitialized`:
+W przypadku operacji synchronicznej Użyj `OnInitialized`:
 
 ```csharp
 protected override void OnInitialized()
@@ -899,7 +1015,7 @@ protected override void OnInitialized()
 }
 ```
 
-`OnParametersSetAsync` i `OnParametersSet` są wywoływane, gdy składnik otrzymał parametry z jego elementu nadrzędnego, a wartości są przypisywane do właściwości. Te metody są wykonywane po zainicjowaniu składnika i za każdym razem, gdy składnik jest renderowany:
+`OnParametersSetAsync` i `OnParametersSet` są wywoływane, gdy składnik otrzymał parametry z jego elementu nadrzędnego, a wartości są przypisywane do właściwości. Te metody są wykonywane po zainicjowaniu składnika i za każdym razem, gdy składnik nadrzędny jest renderowany:
 
 ```csharp
 protected override async Task OnParametersSetAsync()
@@ -909,7 +1025,7 @@ protected override async Task OnParametersSetAsync()
 ```
 
 > [!NOTE]
-> Działanie asynchroniczne, gdy stosowane są parametry i wartości właściwości, muszą wystąpić podczas zdarzenia cyklu życia `OnParametersSetAsync`.
+> Asynchroniczne działanie, gdy stosowane są parametry i wartości właściwości w trakcie `OnParametersSetAsync`go zdarzenia cyklu życia.
 
 ```csharp
 protected override void OnParametersSet()
@@ -920,11 +1036,11 @@ protected override void OnParametersSet()
 
 `OnAfterRenderAsync` i `OnAfterRender` są wywoływane po zakończeniu renderowania składnika. Odwołania do elementów i składników są wypełniane w tym momencie. Ten etap służy do wykonywania dodatkowych kroków inicjowania przy użyciu renderowanej zawartości, takiej jak aktywacja bibliotek języka JavaScript innych firm, które działają na renderowanych elementach DOM.
 
-`OnAfterRender` *nie jest wywoływana podczas wstępnego renderowania na serwerze.*
+`OnAfterRender` *nie jest wywoływana podczas renderowania na serwerze.*
 
-Parametr `firstRender` dla `OnAfterRenderAsync` i `OnAfterRender` to:
+`firstRender` parametr `OnAfterRenderAsync` i `OnAfterRender` to:
 
-* Ustaw na `true` podczas pierwszego wywołania wystąpienia składnika.
+* Ustawiana na `true` podczas pierwszego wywołania wystąpienia składnika.
 * Zapewnia, że operacja inicjowania jest wykonywana tylko raz.
 
 ```csharp
@@ -952,9 +1068,9 @@ protected override void OnAfterRender(bool firstRender)
 
 ### <a name="handle-incomplete-async-actions-at-render"></a>Obsługuj niekompletne akcje asynchroniczne podczas renderowania
 
-Akcje asynchroniczne wykonane w zdarzeniach cyklu życia mogą nie zostać zakończone przed renderowaniem składnika. Obiekty mogą być `null` lub uzupełniane z danymi podczas wykonywania metody cyklu życia. Zapewnianie logiki renderowania w celu potwierdzenia, że obiekty są inicjowane. Renderowanie zastępczych elementów interfejsu użytkownika (na przykład komunikatów ładowania), gdy obiekty są `null`.
+Akcje asynchroniczne wykonane w zdarzeniach cyklu życia mogą nie zostać zakończone przed renderowaniem składnika. Obiekty mogą być `null` lub uzupełniane z danymi podczas wykonywania metody cyklu życia. Zapewnianie logiki renderowania w celu potwierdzenia, że obiekty są inicjowane. Renderowanie zastępczych elementów interfejsu użytkownika (na przykład komunikatów ładowania) podczas `null`obiektów.
 
-W składniku `FetchData` szablonów Blazor `OnInitializedAsync` jest zastępowany do asynchronicznie odbierania danych prognozy (`forecasts`). Gdy `forecasts` jest `null`, zostanie wyświetlony komunikat ładowania użytkownika. Po zakończeniu `Task` przez `OnInitializedAsync` składnik zostanie przerenderowany ze zaktualizowanym stanem.
+W `FetchData` składniku szablonów Blazor `OnInitializedAsync` został zastąpiony asynchronicznie odbierania danych prognozy (`forecasts`). Gdy `forecasts` jest `null`, zostanie wyświetlony komunikat ładowania użytkownika. Po `Task` zwrócone przez `OnInitializedAsync` zostanie wykonane, składnik zostanie przerenderowany ze zaktualizowanym stanem.
 
 *Strony/FetchData. Razor*:
 
@@ -962,7 +1078,7 @@ W składniku `FetchData` szablonów Blazor `OnInitializedAsync` jest zastępowan
 
 ### <a name="execute-code-before-parameters-are-set"></a>Wykonaj kod przed ustawieniem parametrów
 
-`SetParameters` można przesłonić w celu wykonania kodu przed ustawieniem parametrów:
+`SetParameters` można zastąpić, aby wykonać kod przed ustawieniem parametrów:
 
 ```csharp
 public override void SetParameters(ParameterView parameters)
@@ -977,7 +1093,7 @@ Jeśli `base.SetParameters` nie zostanie wywołana, kod niestandardowy może int
 
 ### <a name="suppress-refreshing-of-the-ui"></a>Pomiń odświeżanie interfejsu użytkownika
 
-`ShouldRender` można zastąpić, aby pominąć odświeżanie interfejsu użytkownika. Jeśli implementacja zwróci wartość `true`, interfejs użytkownika zostanie odświeżony. Nawet jeśli `ShouldRender` jest zastępowany, składnik jest zawsze początkowo renderowany.
+`ShouldRender` można zastąpić, aby pominąć odświeżanie interfejsu użytkownika. Jeśli implementacja zwraca `true`, interfejs użytkownika zostanie odświeżony. Nawet jeśli `ShouldRender` jest zastępowana, składnik jest zawsze początkowo renderowany.
 
 ```csharp
 protected override bool ShouldRender()
@@ -1013,7 +1129,7 @@ Jeśli składnik implementuje <xref:System.IDisposable>, [Metoda Dispose](/dotne
 
 Routing w Blazor jest realizowany przez dostarczenie szablonu trasy do każdego dostępnego składnika w aplikacji.
 
-Gdy plik Razor z dyrektywą `@page` jest kompilowany, wygenerowana Klasa otrzymuje <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> określający szablon trasy. W czasie wykonywania router szuka klas składników o `RouteAttribute` i renderuje, w zależności od tego, który składnik ma szablon trasy zgodny z żądanym adresem URL.
+Po skompilowaniu pliku Razor z dyrektywą `@page`, wygenerowana Klasa otrzymuje <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> określania szablonu trasy. W czasie wykonywania router szuka klas składników przy użyciu `RouteAttribute` i renderuje niezależnie składnik ma szablon trasy pasujący do żądanego adresu URL.
 
 Do składnika można zastosować wiele szablonów tras. Poniższy składnik odpowiada na żądania `/BlazorRoute` i `/DifferentBlazorRoute`:
 
@@ -1021,7 +1137,7 @@ Do składnika można zastosować wiele szablonów tras. Poniższy składnik odpo
 
 ## <a name="route-parameters"></a>Parametry trasy
 
-Składniki mogą odbierać parametry trasy z szablonu trasy dostarczonego w dyrektywie `@page`. Router używa parametrów trasy, aby wypełnić odpowiednie parametry składnika.
+Składniki mogą odbierać parametry tras z szablonu trasy dostarczonego w dyrektywie `@page`. Router używa parametrów trasy, aby wypełnić odpowiednie parametry składnika.
 
 *Składnik parametru trasy*:
 
@@ -1134,13 +1250,13 @@ Klasa bazowa powinna pochodzić od `ComponentBase`.
 
 Przestrzeń nazw składnika utworzone przy użyciu Razor jest oparta na (w kolejności priorytetu):
 
-* oznaczenie [@namespace](xref:mvc/views/razor#namespace) w znaczniku pliku Razor (*razor*) (`@namespace BlazorSample.MyNamespace`).
+* Wyznaczanie [@namespace](xref:mvc/views/razor#namespace) w znaczniku pliku*Razor (`@namespace BlazorSample.MyNamespace`* ).
 * `RootNamespace` projektu w pliku projektu (`<RootNamespace>BlazorSample</RootNamespace>`).
-* Nazwa projektu, pobrana z nazwy pliku projektu ( *. csproj*) i ścieżka z katalogu głównego projektu do składnika. Na przykład struktura rozpoznaje *{Project root}/Pages/index.Razor* (*BlazorSample. csproj*) do przestrzeni nazw `BlazorSample.Pages`. Składniki przestrzegają C# reguł powiązań nazw. W tym przykładzie składnik `Index` obejmuje wszystkie składniki:
+* Nazwa projektu, pobrana z nazwy pliku projektu ( *. csproj*) i ścieżka z katalogu głównego projektu do składnika. Na przykład struktura rozpoznaje *{Project root}/Pages/index.Razor* (*BlazorSample. csproj*) do przestrzeni nazw `BlazorSample.Pages`. Składniki przestrzegają C# reguł powiązań nazw. Dla składnika `Index` w tym przykładzie składniki należące do zakresu są wszystkich składników:
   * W tym samym folderze *strony*.
   * Składniki w katalogu głównym projektu, które nie określają jawnie innej przestrzeni nazw.
 
-Składniki zdefiniowane w innej przestrzeni nazw są wprowadzane do zakresu przy użyciu dyrektywy [@using](xref:mvc/views/razor#using) tabeli Razor.
+Składniki zdefiniowane w innej przestrzeni nazw są wprowadzane do zakresu za pomocą dyrektywy [@using](xref:mvc/views/razor#using) Razor.
 
 Jeśli inny składnik, `NavMenu.razor`, istnieje w *BlazorSample/Shared/* folder, składnik może być używany w `Index.razor` z następującą instrukcją `@using`:
 
@@ -1163,15 +1279,15 @@ This is the Index page.
 > [!NOTE]
 > Kwalifikacja `global::` nie jest obsługiwana.
 >
-> Importowanie składników z nieobsługiwanymi instrukcjami `using` (na przykład `@using Foo = Bar`) nie jest obsługiwane.
+> Importowanie składników za pomocą instrukcji `using` z aliasami (na przykład `@using Foo = Bar`) nie jest obsługiwane.
 >
-> Częściowo kwalifikowane nazwy nie są obsługiwane. Na przykład dodawanie `@using BlazorSample` i odwoływanie się do `NavMenu.razor` z `<Shared.NavMenu></Shared.NavMenu>` nie jest obsługiwane.
+> Częściowo kwalifikowane nazwy nie są obsługiwane. Na przykład dodawanie `@using BlazorSample` i odwoływanie się do `NavMenu.razor` za pomocą `<Shared.NavMenu></Shared.NavMenu>` nie jest obsługiwane.
 
 ## <a name="conditional-html-element-attributes"></a>Warunkowe atrybuty elementu HTML
 
 Atrybuty elementu HTML są warunkowo renderowane na podstawie wartości .NET. Jeśli wartość jest `false` lub `null`, atrybut nie jest renderowany. Jeśli wartość jest `true`, atrybut jest renderowany jako zminimalizowany.
 
-W poniższym przykładzie `IsCompleted` Określa, czy `checked` jest renderowany w znacznikach elementu:
+W poniższym przykładzie `IsCompleted` określa, czy `checked` jest renderowany w znacznikach elementu:
 
 ```cshtml
 <input type="checkbox" checked="@IsCompleted" />
@@ -1197,16 +1313,16 @@ Jeśli `IsCompleted` jest `false`, pole wyboru jest renderowane jako:
 Aby uzyskać więcej informacji, zobacz <xref:mvc/views/razor>.
 
 > [!WARNING]
-> Niektóre atrybuty HTML, takie jak [Aria](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/button_role#Toggle_buttons), nie działają prawidłowo, gdy typem .net jest `bool`. W tych przypadkach należy użyć typu `string` zamiast `bool`.
+> Niektóre atrybuty HTML, takie jak [Aria](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/button_role#Toggle_buttons), nie działają prawidłowo, gdy typem .net jest `bool`. W tych przypadkach Użyj typu `string` zamiast `bool`.
 
 ## <a name="raw-html"></a>Nieprzetworzony kod HTML
 
-Ciągi są zwykle renderowane przy użyciu węzłów tekstowych DOM, co oznacza, że wszystkie znaczniki, które mogą zawierać, są ignorowane i traktowane jako tekst literału. Aby renderować nieprzetworzony kod HTML, zawiń zawartość HTML w wartości `MarkupString`. Wartość jest analizowana jako plik HTML lub SVG i wstawiona do modelu DOM.
+Ciągi są zwykle renderowane przy użyciu węzłów tekstowych DOM, co oznacza, że wszystkie znaczniki, które mogą zawierać, są ignorowane i traktowane jako tekst literału. Aby renderować nieprzetworzony kod HTML, zawiń zawartość HTML w `MarkupString` wartość. Wartość jest analizowana jako plik HTML lub SVG i wstawiona do modelu DOM.
 
 > [!WARNING]
 > Renderowanie nieprzetworzonego kodu HTML zbudowanego z dowolnego niezaufanego źródła stanowi **zagrożenie bezpieczeństwa** i należy je unikać!
 
-W poniższym przykładzie pokazano, jak za pomocą typu `MarkupString` dodać blok statycznej zawartości HTML do renderowanego danych wyjściowych składnika:
+Poniższy przykład ilustruje użycie typu `MarkupString`, aby dodać blok statycznej zawartości HTML do renderowanego danych wyjściowych składnika:
 
 ```html
 @((MarkupString)myMarkup)
@@ -1249,7 +1365,7 @@ W przypadku korzystania z składnika z szablonem parametry szablonu można okre�
 
 ### <a name="template-context-parameters"></a>Parametry kontekstu szablonu
 
-Argumenty składnika typu `RenderFragment<T>` przekazane jako elementy mają niejawny parametr o nazwie `context` (na przykład z poprzedniego przykładu kodu, `@context.PetId`), ale można zmienić nazwę parametru przy użyciu atrybutu `Context` elementu podrzędnego. W poniższym przykładzie atrybut `RowTemplate` elementu `Context` określa `pet`:
+Argumenty składnika typu `RenderFragment<T>` przekazane jako elementy mają niejawny parametr o nazwie `context` (na przykład z poprzedniego przykładu kodu, `@context.PetId`), ale można zmienić nazwę parametru przy użyciu atrybutu `Context` elementu podrzędnego. W poniższym przykładzie atrybut `Context` elementu `RowTemplate` określa `pet` parametr:
 
 ```cshtml
 <TableTemplate Items="pets">
@@ -1264,7 +1380,7 @@ Argumenty składnika typu `RenderFragment<T>` przekazane jako elementy mają nie
 </TableTemplate>
 ```
 
-Alternatywnie można określić atrybut `Context` dla elementu składnika. Określony atrybut `Context` ma zastosowanie do wszystkich parametrów określonego szablonu. Może to być przydatne, jeśli chcesz określić nazwę parametru zawartości dla niejawnej zawartości podrzędnej (bez żadnego elementu podrzędnego otoki). W poniższym przykładzie atrybut `Context` występuje w elemencie `TableTemplate` i ma zastosowanie do wszystkich parametrów szablonu:
+Alternatywnie można określić atrybut `Context` dla elementu składnika. Określony atrybut `Context` ma zastosowanie do wszystkich parametrów określonego szablonu. Może to być przydatne, jeśli chcesz określić nazwę parametru zawartości dla niejawnej zawartości podrzędnej (bez żadnego elementu podrzędnego otoki). W poniższym przykładzie atrybut `Context` pojawia się na elemencie `TableTemplate` i ma zastosowanie do wszystkich parametrów szablonu:
 
 ```cshtml
 <TableTemplate Items="pets" Context="pet">
@@ -1281,7 +1397,7 @@ Alternatywnie można określić atrybut `Context` dla elementu składnika. Okre�
 
 ### <a name="generic-typed-components"></a>Składniki typu rodzajowego
 
-Składniki z szablonami są często wpisywane ogólnie. Na przykład ogólny składnik `ListViewTemplate` może służyć do renderowania wartości `IEnumerable<T>`. Aby zdefiniować składnik ogólny, użyj dyrektywy [@typeparam](xref:mvc/views/razor#typeparam) , aby określić parametry typu:
+Składniki z szablonami są często wpisywane ogólnie. Na przykład ogólny składnik `ListViewTemplate` może służyć do renderowania `IEnumerable<T>` wartości. Aby zdefiniować składnik ogólny, użyj dyrektywy [@typeparam](xref:mvc/views/razor#typeparam) , aby określić parametry typu:
 
 [!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/ListViewTemplate.razor)]
 
@@ -1324,7 +1440,7 @@ public class ThemeInfo
 
 Składnik nadrzędny może zapewnić kaskadową wartość przy użyciu składnika wartości kaskadowych. Składnik `CascadingValue` zawija poddrzewo hierarchii składników i dostarcza jedną wartość do wszystkich składników w tym poddrzewie.
 
-Przykładowo aplikacja Przykładowa określa informacje o motywie (`ThemeInfo`) w jednej z układów aplikacji jako parametr kaskadowy dla wszystkich składników, które tworzą treść układu właściwości `@Body`. `ButtonClass` przypisuje wartość `btn-success` w składniku układu. Każdy składnik podrzędny może wykorzystać tę właściwość za pomocą obiektu kaskadowego `ThemeInfo`.
+Przykładowo aplikacja Przykładowa określa informacje o motywie (`ThemeInfo`) w jednej z układów aplikacji jako parametr kaskadowy dla wszystkich składników, które tworzą treść układu właściwości `@Body`. `ButtonClass` ma przypisaną wartość `btn-success` w składniku układu. Każdy składnik podrzędny może wykorzystać tę właściwość za pomocą obiektu kaskadowego `ThemeInfo`.
 
 składnik `CascadingValuesParametersLayout`:
 
@@ -1354,7 +1470,7 @@ składnik `CascadingValuesParametersLayout`:
 
 Aby korzystać z wartości kaskadowych, składniki deklarują kaskadowe parametry przy użyciu atrybutu `[CascadingParameter]`. Wartości kaskadowe są powiązane z parametrami kaskadowymi według typu.
 
-W przykładowej aplikacji składnik `CascadingValuesParametersTheme` wiąże wartość kaskadową `ThemeInfo` z parametrem kaskadowym. Parametr służy do ustawiania klasy CSS dla jednego z przycisków wyświetlanych przez składnik.
+W przykładowej aplikacji składnik `CascadingValuesParametersTheme` wiąże `ThemeInfo` wartość kaskadową z parametrem kaskadowym. Parametr służy do ustawiania klasy CSS dla jednego z przycisków wyświetlanych przez składnik.
 
 składnik `CascadingValuesParametersTheme`:
 
@@ -1392,7 +1508,7 @@ składnik `CascadingValuesParametersTheme`:
 }
 ```
 
-Aby przetworzyć kaskadowo wiele wartości tego samego typu w ramach tego samego poddrzewa, podaj unikatowy ciąg `Name` dla każdego składnika `CascadingValue` i odpowiadającego `CascadingParameter`. W poniższym przykładzie dwa składniki `CascadingValue` mają kaskadowo różne wystąpienia `MyCascadingType` według nazwy:
+Aby przetworzyć kaskadowo wiele wartości tego samego typu w ramach tego samego poddrzewa, podaj unikatowy ciąg `Name` do każdego składnika `CascadingValue` i odpowiadający mu `CascadingParameter`. W poniższym przykładzie dwa składniki `CascadingValue` są kaskadowo różne wystąpienia `MyCascadingType` według nazwy:
 
 ```cshtml
 <CascadingValue Value=@ParentCascadeParameter1 Name="CascadeParam1">
@@ -1429,21 +1545,21 @@ W składniku potomnym, kaskadowe parametry odbierają swoje wartości z odpowied
 
 Parametry kaskadowe umożliwiają również współdziałanie składników w hierarchii składników. Rozważmy na przykład następujący przykład *TabSet* w aplikacji przykładowej.
 
-Przykładowa aplikacja ma interfejs `ITab` z kartami implementującymi:
+Przykładowa aplikacja ma interfejs `ITab`, w którym znajdują się karty implementacji:
 
 [!code-csharp[](common/samples/3.x/BlazorWebAssemblySample/UIInterfaces/ITab.cs)]
 
-Składnik `CascadingValuesParametersTabSet` używa składnika `TabSet`, który zawiera kilka składników `Tab`:
+Składnik `CascadingValuesParametersTabSet` używa składnika `TabSet`, który zawiera kilka `Tab` składników:
 
 [!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/CascadingValuesParametersTabSet.razor?name=snippet_TabSet)]
 
-Podrzędne składniki `Tab` nie są jawnie przenoszone jako parametry do `TabSet`. Zamiast tego składniki podrzędne `Tab` są częścią zawartości podrzędnej `TabSet`. Jednak `TabSet` nadal musi wiedzieć o każdym składniku `Tab`, aby można było renderować nagłówki i aktywną kartę. Aby umożliwić tę koordynację bez konieczności stosowania dodatkowego kodu, składnik `TabSet` *może stanowić wartość kaskadową* , która następnie jest wybierana przez składniki potomne `Tab`.
+Podrzędne składniki `Tab` nie są jawnie przenoszone jako parametry do `TabSet`. Zamiast tego podrzędne składniki `Tab` są częścią zawartości podrzędnej `TabSet`. Jednak `TabSet` nadal muszą znać każdy składnik `Tab`, aby można było renderować nagłówki i aktywną kartę. Aby umożliwić tę koordynację bez konieczności stosowania dodatkowego kodu, składnik `TabSet` *może sam określić jako wartość kaskadową* , która jest następnie pobierana przez składniki `Tab` potomnych.
 
 składnik `TabSet`:
 
 [!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/TabSet.razor)]
 
-Składniki potomne `Tab` przechwytują zawierający `TabSet` jako parametr kaskadowy, więc składniki `Tab` dodają siebie do `TabSet` i koordynują, na której karcie jest aktywna.
+Składniki `Tab` potomne przechwytują `TabSet` zawierający jako parametr kaskadowy, więc składniki `Tab` dodają same do `TabSet` i koordynują, na której karcie jest aktywna.
 
 składnik `Tab`:
 
@@ -1486,12 +1602,12 @@ Renderowane dane wyjściowe poprzedniego kodu:
 
 ## <a name="manual-rendertreebuilder-logic"></a>Ręczna logika RenderTreeBuilder
 
-`Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder` oferuje metody manipulowania składnikami i elementami, w tym ręczne Kompilowanie C# składników w kodzie.
+`Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder` udostępnia metody manipulowania składnikami i elementami, w tym ręczne Kompilowanie C# składników w kodzie.
 
 > [!NOTE]
 > Użycie `RenderTreeBuilder` do tworzenia składników jest zaawansowanym scenariuszem. Nieprawidłowo sformułowany składnik (na przykład niezamknięty tag znacznika) może spowodować niezdefiniowane zachowanie.
 
-Rozważmy następujący składnik `PetDetails`, który można ręcznie utworzyć w innym składniku:
+Rozważmy następujący składnik `PetDetails`, który można utworzyć ręcznie w innym składniku:
 
 ```cshtml
 <h2>Pet Details Component</h2>
@@ -1505,7 +1621,7 @@ Rozważmy następujący składnik `PetDetails`, który można ręcznie utworzyć
 }
 ```
 
-W poniższym przykładzie pętla w metodzie `CreateComponent` generuje trzy składniki `PetDetails`. W przypadku wywoływania `RenderTreeBuilder` metod tworzenia składników (`OpenComponent` i `AddAttribute`) numery sekwencji są numerami wierszy kodu źródłowego. Algorytm Blazor różnica polega na numerach sekwencji odpowiadających odrębnym wierszom kodu, a nie odrębnym wywoływaniu wywołań. Podczas tworzenia składnika przy użyciu metod `RenderTreeBuilder` umieszczaj argumenty dla numerów sekwencji. **Użycie obliczenia lub licznika do wygenerowania numeru sekwencji może prowadzić do niskiej wydajności.** Aby uzyskać więcej informacji, zobacz sekcję [numery sekwencji powiązane z numerami wierszy kodu i kolejnością niewykonania](#sequence-numbers-relate-to-code-line-numbers-and-not-execution-order) .
+W poniższym przykładzie pętla w metodzie `CreateComponent` generuje trzy składniki `PetDetails`. Podczas wywoływania `RenderTreeBuilder` metod tworzenia składników (`OpenComponent` i `AddAttribute`) numery sekwencji są numerami wierszy kodu źródłowego. Algorytm Blazor różnic polega na numerach sekwencji odpowiadających odrębnym wierszom kodu, nieodrębnym wywołaniu wywołań. Podczas tworzenia składnika przy użyciu metod `RenderTreeBuilder` umieszczaj argumenty dla numerów sekwencji. **Użycie obliczenia lub licznika do wygenerowania numeru sekwencji może prowadzić do niskiej wydajności.** Aby uzyskać więcej informacji, zobacz sekcję [numery sekwencji powiązane z numerami wierszy kodu i kolejnością niewykonania](#sequence-numbers-relate-to-code-line-numbers-and-not-execution-order) .
 
 składnik `BuiltContent`:
 
@@ -1544,7 +1660,7 @@ składnik `BuiltContent`:
 
 ### <a name="sequence-numbers-relate-to-code-line-numbers-and-not-execution-order"></a>Numery sekwencji odnoszą się do numerów wierszy kodu, a nie kolejności wykonywania
 
-Pliki Blazor `.razor` są zawsze kompilowane. Jest to znakomita korzyść dla `.razor`, ponieważ krok kompilacji może służyć do iniekcji informacji, które zwiększają wydajność aplikacji w czasie wykonywania.
+Pliki `.razor` Blazor są zawsze kompilowane. Jest to znakomita korzyść dla `.razor`, ponieważ krok Kompiluj może służyć do iniekcji informacji, które zwiększają wydajność aplikacji w czasie wykonywania.
 
 Najważniejszym przykładem tych ulepszeń są *numery sekwencji*. Numery sekwencji wskazują na środowisko uruchomieniowe, które pochodzą z różnych i uporządkowanych wierszy kodu. Środowisko uruchomieniowe używa tych informacji do generowania wydajnych różnic drzewa w czasie liniowym, które są znacznie szybsze niż zwykle jest to możliwe dla algorytmu różnicowego drzewa ogólnego.
 
@@ -1572,18 +1688,18 @@ builder.AddContent(1, "Second");
 
 Gdy kod jest wykonywany po raz pierwszy, jeśli `someFlag` jest `true`, Konstruktor odbiera:
 
-| Sequence | Typ      | Dane   |
+| Sekwencja | Typ      | Dane   |
 | :------: | --------- | :----: |
-| 0        | Węzeł tekstu | Pierwszego  |
+| 0        | Węzeł tekstu | pierwszego  |
 | 1        | Węzeł tekstu | Sekunda |
 
-Załóżmy, że `someFlag` zmieni się `false`, a znaczniki są renderowane ponownie. Tym razem Konstruktor odbiera:
+Załóżmy, że `someFlag` `false`, a znaczniki są renderowane ponownie. Tym razem Konstruktor odbiera:
 
-| Sequence | Typ       | Dane   |
+| Sekwencja | Typ       | Dane   |
 | :------: | ---------- | :----: |
 | 1        | Węzeł tekstu  | Sekunda |
 
-Gdy środowisko uruchomieniowe wykonuje różnicowe, zobaczy, że element w sekwencji `0` został usunięty, więc generuje następujący skrypt uproszczonej *edycji*:
+Gdy środowisko uruchomieniowe wykonuje różnicę, zobaczy, że element w sekwencji `0` został usunięty, więc generuje następujący skrypt uproszczonej *edycji*:
 
 * Usuń pierwszy węzeł tekstu.
 
@@ -1604,14 +1720,14 @@ builder.AddContent(seq++, "Second");
 
 Teraz pierwsze dane wyjściowe to:
 
-| Sequence | Typ      | Dane   |
+| Sekwencja | Typ      | Dane   |
 | :------: | --------- | :----: |
-| 0        | Węzeł tekstu | Pierwszego  |
+| 0        | Węzeł tekstu | pierwszego  |
 | 1        | Węzeł tekstu | Sekunda |
 
 Ten wynik jest identyczny z poprzednim przypadkiem, dlatego nie istnieją żadne negatywne problemy. `someFlag` jest `false` podczas drugiego renderowania, a dane wyjściowe:
 
-| Sequence | Typ      | Dane   |
+| Sekwencja | Typ      | Dane   |
 | :------: | --------- | ------ |
 | 0        | Węzeł tekstu | Sekunda |
 
@@ -1620,7 +1736,7 @@ Tym razem algorytm diff widzi, że pojawiły się *dwie* zmiany, a algorytm gene
 * Zmień wartość pierwszego węzła tekstowego na `Second`.
 * Usuń drugi węzeł tekstu.
 
-Generowanie numerów sekwencji utraciło wszystkie przydatne informacje o tym, gdzie w oryginalnym kodzie znajdują się gałęzie `if/else` i pętle. Wynikiem tego jest różnica **dwa razy** , tak długo, jak wcześniej.
+Generowanie numerów sekwencji utraciło wszystkie przydatne informacje o tym, gdzie `if/else` gałęzie i pętle były obecne w oryginalnym kodzie. Wynikiem tego jest różnica **dwa razy** , tak długo, jak wcześniej.
 
 Jest to prosty przykład. W bardziej realistycznych przypadkach ze złożonymi i głęboko zagnieżdżonymi strukturami, szczególnie w przypadku pętli, koszt wydajności jest bardziej poważny. Zamiast natychmiastowego identyfikowania, które bloki lub gałęzie pętli zostały wstawione lub usunięte, algorytm różnicowy musi reprezentować się w drzewach renderowania i zwykle tworzyć dużo dłużej edytowane skrypty, ponieważ nie są w nim poinformowani o sposobie starych i nowych struktur odnoszą się do siebie nawzajem.
 
@@ -1628,13 +1744,13 @@ Jest to prosty przykład. W bardziej realistycznych przypadkach ze złożonymi i
 
 * Wydajność aplikacji ma wpływ na to, że numery sekwencji są generowane dynamicznie.
 * Struktura nie może automatycznie tworzyć własnych numerów sekwencji w czasie wykonywania, ponieważ niezbędne informacje nie istnieją, chyba że są przechwytywane w czasie kompilacji.
-* Nie zapisuj długich bloków ręcznie zaimplementowane logiki `RenderTreeBuilder`. Preferuj `.razor` plików i Zezwalaj kompilatorowi na zaradzenie sobie z kolejnymi numerami. Jeśli nie możesz uniknąć ręcznej logiki `RenderTreeBuilder`, Podziel długie bloki kodu na mniejsze fragmenty opakowane w `OpenRegion` / `CloseRegion` wywołania. Każdy region ma własne oddzielne miejsce numerów sekwencyjnych, więc można uruchomić ponownie od zera (lub dowolnego innego numeru) w każdym regionie.
+* Nie zapisuj długich bloków ręcznie zaimplementowanej logiki `RenderTreeBuilder`. Preferuj `.razor` pliki i Zezwalaj kompilatorowi na zaradzenie sobie z kolejnymi numerami. Jeśli nie możesz uniknąć ręcznej logiki `RenderTreeBuilder`, Podziel długie bloki kodu na mniejsze fragmenty opakowane w `OpenRegion`/`CloseRegion` wywołania. Każdy region ma własne oddzielne miejsce numerów sekwencyjnych, więc można uruchomić ponownie od zera (lub dowolnego innego numeru) w każdym regionie.
 * Jeśli numery sekwencji są stałee, algorytm diff wymaga tylko zwiększenia wartości sekwencji. Początkowa wartość i przerwy są nieistotne. Jedną z wiarygodnych opcji jest użycie numeru wiersza kodu jako numeru sekwencyjnego lub rozpoczęcie od zera i zwiększenie według wartości lub setek (lub dowolnego preferowanego interwału). 
-* Blazor używa numerów sekwencji, podczas gdy inne struktury interfejsu użytkownika porównujące drzewa nie są używane. Różnica jest znacznie szybsza, gdy są używane numery sekwencji, a Blazor ma zalety kroku kompilacji, który zajmuje się automatycznie numerami sekwencyjnymi dla deweloperów tworzących pliki `.razor`.
+* Blazor używa numerów sekwencji, podczas gdy inne struktury interfejsu użytkownika rozróżniania drzewa nie są używane. Różnica jest znacznie szybsza, gdy są używane numery sekwencji, a Blazor ma zalety kroku kompilacji, który zajmuje się automatycznie numerami sekwencyjnymi dla deweloperów tworzących pliki *. Razor* .
 
 ## <a name="localization"></a>Lokalizacja
 
-Aplikacje serwera Blazor są zlokalizowane przy użyciu [oprogramowania pośredniczącego](xref:fundamentals/localization#localization-middleware). Oprogramowanie pośredniczące wybiera odpowiednią kulturę dla użytkowników żądających zasobów z aplikacji.
+aplikacje serwera Blazor są zlokalizowane przy użyciu [oprogramowania pośredniczącego](xref:fundamentals/localization#localization-middleware). Oprogramowanie pośredniczące wybiera odpowiednią kulturę dla użytkowników żądających zasobów z aplikacji.
 
 Kulturę można ustawić przy użyciu jednej z następujących metod:
 
@@ -1643,9 +1759,13 @@ Kulturę można ustawić przy użyciu jednej z następujących metod:
 
 Aby uzyskać więcej informacji i przykładów, zobacz <xref:fundamentals/localization>.
 
+### <a name="configure-the-linker-for-internationalization-opno-locblazor-webassembly"></a>Konfigurowanie konsolidatora do użytku wieloplikowego (Blazor webassembly)
+
+Domyślnie konfiguracja konsolidatora Blazordla Blazor aplikacji webassembly umożliwia rozłączenie informacji o danych wielojęzycznych z wyjątkiem lokalizacji lokalnych jawnie żądanych. Aby uzyskać więcej informacji i wskazówek dotyczących kontrolowania zachowania konsolidatora, zobacz <xref:host-and-deploy/blazor/configure-linker#configure-the-linker-for-internationalization>.
+
 ### <a name="cookies"></a>Cookie
 
-Plik cookie kultury lokalizacji może utrzymywać kulturę użytkownika. Plik cookie jest tworzony przez metodę `OnGet` strony hosta aplikacji (*strony/host. cshtml. cs*). Oprogramowanie pośredniczące lokalizacji odczytuje plik cookie na kolejnych żądaniach, aby ustawić kulturę użytkownika. 
+Plik cookie kultury lokalizacji może utrzymywać kulturę użytkownika. Plik cookie jest tworzony przez metodę `OnGet` strony hosta aplikacji (*strony/hosta. cshtml. cs*). Oprogramowanie pośredniczące lokalizacji odczytuje plik cookie na kolejnych żądaniach, aby ustawić kulturę użytkownika. 
 
 Użycie pliku cookie zapewnia, że połączenie z użyciem protokołu WebSocket może prawidłowo propagować kulturę. Jeśli schematy lokalizacji są oparte na ścieżce URL lub ciągu zapytania, schemat może nie być w stanie współdziałać z usługą WebSockets, więc nie będzie można zachować kultury. W związku z tym zalecanym podejściem jest użycie pliku cookie kultury lokalizacji.
 
@@ -1673,13 +1793,13 @@ Lokalizacja jest obsługiwana w aplikacji:
 1. Przeglądarka wysyła początkowe żądanie HTTP do aplikacji.
 1. Kultura jest przypisana przez oprogramowanie pośredniczące lokalizacji.
 1. Metoda `OnGet` w *_Host. cshtml. cs* utrzymuje kulturę w pliku cookie jako część odpowiedzi.
-1. Przeglądarka otwiera połączenie WebSocket, aby utworzyć interaktywną sesję serwera Blazor.
+1. Przeglądarka otwiera połączenie WebSocket, aby utworzyć interakcyjną sesję serwera Blazor.
 1. Oprogramowanie pośredniczące lokalizacji odczytuje plik cookie i przypisuje kulturę.
-1. Sesja serwera Blazor jest rozpoczynana z poprawną kulturą.
+1. Sesja serwera Blazor rozpoczyna się od poprawnej kultury.
 
-## <a name="provide-ui-to-choose-the-culture"></a>Podaj interfejs użytkownika, aby wybrać kulturę
+### <a name="provide-ui-to-choose-the-culture"></a>Podaj interfejs użytkownika, aby wybrać kulturę
 
-Aby zapewnić interfejs użytkownika, aby umożliwić użytkownikowi wybranie kultury, zalecane jest *podejście oparte na przekierowaniu* . Ten proces jest podobny do tego, co się dzieje w aplikacji sieci Web, gdy użytkownik próbuje uzyskać dostęp do bezpiecznego zasobu &mdash;the użytkownik zostanie przekierowany do strony logowania, a następnie przekierowany z powrotem do oryginalnego zasobu. 
+Aby zapewnić interfejs użytkownika, aby umożliwić użytkownikowi wybranie kultury, zalecane jest *podejście oparte na przekierowaniu* . Ten proces jest podobny do tego, co się dzieje w aplikacji sieci Web, gdy użytkownik próbuje uzyskać dostęp do bezpiecznego zasobu&mdash;użytkownik zostanie przekierowany do strony logowania, a następnie przekierowany z powrotem do oryginalnego zasobu. 
 
 Aplikacja utrzymuje wybraną kulturę użytkownika za pośrednictwem przekierowania do kontrolera. Kontroler ustawia wybraną kulturę użytkownika na plik cookie i przekierowuje użytkownika z powrotem do oryginalnego identyfikatora URI.
 
@@ -1705,7 +1825,7 @@ public class CultureController : Controller
 ```
 
 > [!WARNING]
-> Użyj wyniku działania `LocalRedirect`, aby zapobiec atakom typu Open redirect. Aby uzyskać więcej informacji, zobacz <xref:security/preventing-open-redirects>.
+> Użyj wyniku działania `LocalRedirect`, aby zapobiec atakom typu "Open redirect". Aby uzyskać więcej informacji, zobacz <xref:security/preventing-open-redirects>.
 
 Poniższy składnik przedstawia przykład sposobu wykonywania wstępnego przekierowania, gdy użytkownik wybierze kulturę:
 
@@ -1736,25 +1856,25 @@ Poniższy składnik przedstawia przykład sposobu wykonywania wstępnego przekie
 }
 ```
 
-### <a name="use-net-localization-scenarios-in-blazor-apps"></a>Korzystanie z scenariuszy lokalizacji platformy .NET w aplikacjach Blazor
+### <a name="use-net-localization-scenarios-in-opno-locblazor-apps"></a>Korzystanie z scenariuszy lokalizacji platformy .NET w aplikacjach Blazor
 
 W aplikacjach Blazor dostępne są następujące scenariusze dotyczące lokalizacji i globalizacji platformy .NET:
 
 * . System zasobów netto
 * Formatowanie liczb i dat specyficznych dla kultury
 
-Funkcja `@bind` wykonuje globalizację opartą na bieżącej kulturze użytkownika. Aby uzyskać więcej informacji, zobacz sekcję [powiązanie danych](#data-binding) .
+Funkcja `@bind` Blazorwykonuje globalizację opartą na bieżącej kulturze użytkownika. Aby uzyskać więcej informacji, zobacz sekcję [powiązanie danych](#data-binding) .
 
 Obecnie obsługiwane są ograniczone zestawy ASP.NET Core scenariuszy lokalizacji:
 
 * `IStringLocalizer<>` *jest obsługiwana* w aplikacjach Blazor.
-* `IHtmlLocalizer<>`, `IViewLocalizer<>` i lokalizacji adnotacji danych są ASP.NET Core scenariusze MVC i **nie są obsługiwane** w aplikacjach Blazor.
+* Lokalizacja `IHtmlLocalizer<>`, `IViewLocalizer<>`i adnotacji danych są ASP.NET Core scenariusze MVC i **nie są obsługiwane** w aplikacjach Blazor.
 
 Aby uzyskać więcej informacji, zobacz <xref:fundamentals/localization>.
 
 ## <a name="scalable-vector-graphics-svg-images"></a>Skalowalne obrazy wektorowe (SVG)
 
-Ponieważ Blazor renderuje HTML, obrazy obsługiwane przez przeglądarkę, w tym obrazy rastrowych grafiki wektorowej (*SVG),* są obsługiwane za pośrednictwem znacznika `<img>`:
+Ponieważ Blazor renderuje HTML, obrazy obsługiwane przez przeglądarkę, w tym obrazy*SVG (Scalable*Vector Graphics), są obsługiwane za pośrednictwem tagu `<img>`:
 
 ```html
 <img alt="Example image" src="some-image.svg" />
@@ -1768,8 +1888,8 @@ Podobnie Obrazy SVG są obsługiwane w regułach CSS pliku arkusza stylów (*CSS
 }
 ```
 
-Jednak wbudowane znaczniki SVG nie są obsługiwane we wszystkich scenariuszach. Jeśli umieścisz tag `<svg>` bezpośrednio w pliku składnika ( *. Razor*), podstawowe renderowanie obrazu jest obsługiwane, ale wiele scenariuszy zaawansowanych nie jest jeszcze obsługiwanych. Na przykład Tagi `<use>` nie są obecnie przestrzegane i nie można używać `@bind` w przypadku niektórych tagów SVG. Oczekujemy, że te ograniczenia są opisane w przyszłej wersji.
+Jednak wbudowane znaczniki SVG nie są obsługiwane we wszystkich scenariuszach. Jeśli umieścisz tag `<svg>` bezpośrednio w pliku składnika ( *. Razor*), podstawowe renderowanie obrazu jest obsługiwane, ale wiele scenariuszy zaawansowanych nie jest jeszcze obsługiwanych. Na przykład Tagi `<use>` nie są obecnie przestrzegane i `@bind` nie mogą być używane w przypadku niektórych tagów SVG. Oczekujemy, że te ograniczenia są opisane w przyszłej wersji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* <xref:security/blazor/server> &ndash; zawiera wskazówki dotyczące tworzenia aplikacji serwera Blazor, które muszą będą konkurować o z wyczerpaniem zasobów.
+* <xref:security/blazor/server> &ndash; zawiera wskazówki dotyczące tworzenia aplikacji Blazor Server, które muszą będą konkurować o z wyczerpaniem zasobów.
