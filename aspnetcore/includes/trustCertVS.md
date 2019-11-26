@@ -8,4 +8,4 @@ Wyświetlane jest następujące okno dialogowe:
 
 ![Okno dialogowe ostrzeżenia o zabezpieczeniach](~/getting-started/_static/cert.png)
 
-Wybierz **Tak**, jeśli zgadzasz się ufać certyfikatowi programistycznemu.
+Wybierz opcję **tak** , jeśli zgadzasz się ufać certyfikatowi Deweloperskiemu.

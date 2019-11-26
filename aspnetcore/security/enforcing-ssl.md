@@ -15,7 +15,7 @@ ms.locfileid: "74317370"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Wymuszanie protokołu HTTPS w ASP.NET Core
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tym dokumencie przedstawiono sposób:
 
@@ -383,7 +383,7 @@ Powyższe polecenia rozwiązują większość problemów z zaufaniem do przeglą
 ### <a name="docker---certificate-not-trusted"></a>Zaufać certyfikatowi platformy Docker
 
 * Usuń folder *C:\Users\{User} \AppData\Roaming\ASP.NET\Https* .
-* Wyczyść rozwiązanie. Usuń *bin* i *obj* folderów.
+* Wyczyść rozwiązanie. Usuń foldery *bin* i *obj* .
 * Uruchom ponownie narzędzie programistyczne. Na przykład Visual Studio, Visual Studio Code lub Visual Studio dla komputerów Mac.
 
 ### <a name="windows---certificate-not-trusted"></a>Windows-certyfikat niezaufany

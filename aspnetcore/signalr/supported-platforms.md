@@ -26,7 +26,7 @@ SignalR dla ASP.NET Core obsługuje dowolną platformę serwera, która ASP.NET 
 
 [Klient JavaScript](xref:signalr/javascript-client) działa w NodeJS 8 i nowszych wersjach oraz w następujących przeglądarkach:
 
-| Przeglądarka                         | Wersja         |
+| Browser                         | Wersja         |
 | ------------------------------- | --------------- |
 | Microsoft Edge                  | Bieżąca&dagger; |
 | Mozilla Firefox                 | Bieżąca&dagger; |

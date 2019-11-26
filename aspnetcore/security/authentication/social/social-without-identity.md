@@ -27,7 +27,7 @@ Ten przykład używa [uwierzytelniania Google](xref:security/authentication/goog
 * [Uwierzytelnianie przy użyciu usługi Twitter](xref:security/authentication/twitter-logins)
 * [Inni dostawcy](xref:security/authentication/otherlogins)
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W metodzie `ConfigureServices` Skonfiguruj schematy uwierzytelniania aplikacji przy użyciu metod <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*>, <xref:Microsoft.Extensions.DependencyInjection.CookieExtensions.AddCookie*>i <xref:Microsoft.Extensions.DependencyInjection.GoogleExtensions.AddGoogle*>:
 
@@ -82,7 +82,7 @@ Ten przykład używa [uwierzytelniania Google](xref:security/authentication/goog
 * [Uwierzytelnianie przy użyciu usługi Twitter](xref:security/authentication/twitter-logins)
 * [Inni dostawcy](xref:security/authentication/otherlogins)
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W metodzie `ConfigureServices` Skonfiguruj schematy uwierzytelniania aplikacji przy użyciu metod `AddAuthentication`, `AddCookie`i `AddGoogle`:
 

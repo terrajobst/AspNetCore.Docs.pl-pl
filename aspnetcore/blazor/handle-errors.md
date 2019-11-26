@@ -89,9 +89,9 @@ W środowisku produkcyjnym nie Renderuj komunikatów wyjątków struktury ani ś
 
 ## <a name="log-errors-with-a-persistent-provider"></a>Rejestrowanie błędów przez dostawcę trwałego
 
-Jeśli wystąpi nieobsługiwany wyjątek, wyjątek jest rejestrowany w celu <xref:Microsoft.Extensions.Logging.ILogger> wystąpień skonfigurowanych w kontenerze usługi. Domyślnie aplikacje Blazor rejestrować w danych wyjściowych konsoli za pomocą dostawcy rejestrowania konsoli. Należy rozważyć logowanie do bardziej trwałej lokalizacji z dostawcą, który zarządza rozmiarem dziennika i rotacją dzienników. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/logging/index>.
+Jeśli wystąpi nieobsługiwany wyjątek, wyjątek jest rejestrowany w celu <xref:Microsoft.Extensions.Logging.ILogger> wystąpień skonfigurowanych w kontenerze usługi. Domyślnie aplikacje Blazor rejestrować w danych wyjściowych konsoli za pomocą dostawcy rejestrowania konsoli. Należy rozważyć logowanie do bardziej trwałej lokalizacji z dostawcą, który zarządza rozmiarem dziennika i rotacją dzienników. Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/logging/index>.
 
-Podczas opracowywania, Blazor zwykle wysyła pełne szczegóły wyjątków do konsoli przeglądarki w celu ułatwienia debugowania. W środowisku produkcyjnym szczegółowe błędy w konsoli przeglądarki są domyślnie wyłączone, co oznacza, że błędy nie są wysyłane do klientów, ale wszystkie szczegóły wyjątku nadal są rejestrowane po stronie serwera. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/error-handling>.
+Podczas opracowywania, Blazor zwykle wysyła pełne szczegóły wyjątków do konsoli przeglądarki w celu ułatwienia debugowania. W środowisku produkcyjnym szczegółowe błędy w konsoli przeglądarki są domyślnie wyłączone, co oznacza, że błędy nie są wysyłane do klientów, ale wszystkie szczegóły wyjątku nadal są rejestrowane po stronie serwera. Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/error-handling>.
 
 Należy zdecydować, które zdarzenia mają być rejestrowane, oraz poziom ważności zarejestrowanych zdarzeń. Nieszkodliwi użytkownicy mogą być w stanie wyzwolić błędy w sposób celowy. Na przykład nie należy rejestrować zdarzenia z błędu, gdzie w adresie URL składnika, który zawiera szczegóły produktu, jest podano nieznanego `ProductId`. Nie wszystkie błędy powinny być traktowane jako zdarzenia o wysokiej ważności do rejestrowania.
 
@@ -192,7 +192,7 @@ Podobnie kod JavaScript może inicjować wywołania metod .NET wskazywanych prze
 
 Istnieje możliwość użycia kodu obsługi błędów po stronie .NET lub stronie JavaScript wywołania metody.
 
-Aby uzyskać więcej informacji, zobacz <xref:blazor/javascript-interop>.
+Aby uzyskać więcej informacji, zobacz temat <xref:blazor/javascript-interop>.
 
 ### <a name="circuit-handlers"></a>Programy obsługi obwodu
 
@@ -277,7 +277,7 @@ Aby uniknąć nieskończonych wzorców rekursji, należy się upewnić, że kod 
 
 ### <a name="custom-render-tree-logic"></a>Logika drzewa renderowania niestandardowego
 
-Większość Blazor składników jest implementowana jako pliki *Razor* i są kompilowane do tworzenia logiki, która działa na `RenderTreeBuilder` w celu renderowania danych wyjściowych. Deweloper może ręcznie zaimplementować logikę `RenderTreeBuilder` przy użyciu C# kodu proceduralnego. Aby uzyskać więcej informacji, zobacz <xref:blazor/components#manual-rendertreebuilder-logic>.
+Większość Blazor składników jest implementowana jako pliki *Razor* i są kompilowane do tworzenia logiki, która działa na `RenderTreeBuilder` w celu renderowania danych wyjściowych. Deweloper może ręcznie zaimplementować logikę `RenderTreeBuilder` przy użyciu C# kodu proceduralnego. Aby uzyskać więcej informacji, zobacz temat <xref:blazor/components#manual-rendertreebuilder-logic>.
 
 > [!WARNING]
 > Korzystanie z logiki konstruktora drzewa renderowania ręcznego jest uznawane za zaawansowane i niebezpieczne scenariusze, które nie są zalecane do ogólnego tworzenia składników.

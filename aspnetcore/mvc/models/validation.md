@@ -368,7 +368,7 @@ Inne opcje wyłączenia weryfikacji po stronie klienta:
 * Dodaj komentarz do odwołania do `_ValidationScriptsPartial` we wszystkich plikach *. cshtml* .
 * Usuń zawartość pliku *Pages\Shared\_ValidationScriptsPartial. cshtml* .
 
-Poprzednie podejście nie zapobiega weryfikacji po stronie klienta w bibliotece klas Razor ASP.NET Core Identity. Aby uzyskać więcej informacji, zobacz <xref:security/authentication/scaffold-identity>.
+Poprzednie podejście nie zapobiega weryfikacji po stronie klienta w bibliotece klas Razor ASP.NET Core Identity. Aby uzyskać więcej informacji, zobacz temat <xref:security/authentication/scaffold-identity>.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

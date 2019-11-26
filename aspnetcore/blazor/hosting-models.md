@@ -125,7 +125,7 @@ Opóźnienie interfejsu użytkownika to czas od zainicjowanej akcji do momentu z
 
 W przypadku aplikacji biznesowych, która jest ograniczona do prywatnej sieci firmowej, wpływ na postrzeganie opóźnień przez użytkownika z powodu opóźnienia sieci jest zwykle niezauważalny. W przypadku aplikacji wdrożonej za pośrednictwem Internetu opóźnienie może być zauważalne dla użytkowników, szczególnie w przypadku, gdy użytkownicy są szeroko rozproszona geograficznie.
 
-Użycie pamięci może również przyczynić się do opóźnienia aplikacji. Zwiększone użycie pamięci powoduje częste zbieranie elementów bezużytecznych lub stronicowanie pamięci na dysku, co zmniejsza wydajność aplikacji i w związku z tym zwiększa opóźnienia interfejsu użytkownika. Aby uzyskać więcej informacji, zobacz <xref:security/blazor/server>.
+Użycie pamięci może również przyczynić się do opóźnienia aplikacji. Zwiększone użycie pamięci powoduje częste zbieranie elementów bezużytecznych lub stronicowanie pamięci na dysku, co zmniejsza wydajność aplikacji i w związku z tym zwiększa opóźnienia interfejsu użytkownika. Aby uzyskać więcej informacji, zobacz temat <xref:security/blazor/server>.
 
 aplikacje serwera Blazor powinny być zoptymalizowane w celu zminimalizowania opóźnień interfejsu użytkownika przez zmniejszenie opóźnienia sieci i użycie pamięci. Aby uzyskać podejście do mierzenia opóźnień sieci, zobacz <xref:host-and-deploy/blazor/server#measure-network-latency>. Aby uzyskać więcej informacji na temat SignalR i Blazor, zobacz:
 
@@ -140,7 +140,7 @@ aplikacje serwera Blazor wymagają aktywnego połączenia SignalR z serwerem. Je
 
 Aplikacja serwera Blazor jest przedstawiona w odpowiedzi na pierwsze żądanie klienta, która konfiguruje stan interfejsu użytkownika na serwerze. Gdy klient próbuje utworzyć połączenie SignalR, klient musi ponownie nawiązać połączenie z tym samym serwerem. aplikacje serwera Blazor, które używają więcej niż jednego serwera wewnętrznej bazy danych, powinny implementować *sesje programu sticky* SignalR dla połączeń.
 
-Zalecamy korzystanie z [usługi Azure SignalR](/azure/azure-signalr) dla aplikacji Blazor Server. Usługa umożliwia skalowanie aplikacji serwera Blazor do dużej liczby jednoczesnych połączeń SignalR. Sesje programu Sticky Notes są włączone dla usługi Azure SignalR przez ustawienie opcji `ServerStickyMode` lub wartości konfiguracji usługi na `Required`. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/blazor/server#signalr-configuration>.
+Zalecamy korzystanie z [usługi Azure SignalR](/azure/azure-signalr) dla aplikacji Blazor Server. Usługa umożliwia skalowanie aplikacji serwera Blazor do dużej liczby jednoczesnych połączeń SignalR. Sesje programu Sticky Notes są włączone dla usługi Azure SignalR przez ustawienie opcji `ServerStickyMode` lub wartości konfiguracji usługi na `Required`. Aby uzyskać więcej informacji, zobacz temat <xref:host-and-deploy/blazor/server#signalr-configuration>.
 
 W przypadku korzystania z usług IIS sesje programu Sticky są włączane przy użyciu routingu żądań aplikacji. Aby uzyskać więcej informacji, zobacz [równoważenie obciążenia HTTP przy użyciu routingu żądań aplikacji](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing).
 

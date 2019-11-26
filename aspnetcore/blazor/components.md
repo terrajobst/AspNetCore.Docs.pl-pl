@@ -20,7 +20,7 @@ ms.locfileid: "74317213"
 
 Autorzy [Luke Latham](https://github.com/guardrex) i [Daniel Roth](https://github.com/danroth27)
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 aplikacje Blazor są kompilowane przy użyciu *składników*programu. Składnik jest niezależnym fragmentem interfejsu użytkownika (UI), takim jak strona, okno dialogowe lub formularz. Składnik zawiera znaczniki HTML i logikę przetwarzania wymagane do iniekcji danych lub reagowania na zdarzenia interfejsu użytkownika. Składniki są elastyczne i lekkie. Mogą być zagnieżdżane, ponownie używane i udostępniane między projektami.
 
@@ -550,15 +550,15 @@ Obsługiwane `EventArgs` przedstawiono w poniższej tabeli.
 | Schowek        | `ClipboardEventArgs` | `oncut`, `oncopy`, `onpaste` |
 | Przeciągnij             | `DragEventArgs`      | `ondrag`, `ondragstart`, `ondragenter`, `ondragleave`, `ondragover`, `ondrop`, `ondragend`<br><br>`DataTransfer` i `DataTransferItem` przechowywać przeciągane dane elementu. |
 | Błąd            | `ErrorEventArgs`     | `onerror` |
-| Wydarzenie            | `EventArgs`          | *Ogólne*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Schowek*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Dane wejściowe*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart`, `onsubmit`<br><br>*Multimedialny*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
-| Fokus            | `FocusEventArgs`     | `onfocus`, `onblur`, `onfocusin`, `onfocusout`<br><br>Nie obejmuje obsługi `relatedTarget`. |
+| Wydarzenie            | `EventArgs`          | *Ogólne*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Schowek*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Dane wejściowe*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart``onsubmit`<br><br>*Multimedialny*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
+| Fokus            | `FocusEventArgs`     | `onfocus`, `onblur`, `onfocusin``onfocusout`<br><br>Nie obejmuje obsługi `relatedTarget`. |
 | Dane wejściowe            | `ChangeEventArgs`    | `onchange`, `oninput` |
 | Klawiatury         | `KeyboardEventArgs`  | `onkeydown`, `onkeypress`, `onkeyup` |
 | Wskaźnik            | `MouseEventArgs`     | `onclick`, `oncontextmenu`, `ondblclick`, `onmousedown`, `onmouseup`, `onmouseover`, `onmousemove`, `onmouseout` |
 | Wskaźnik myszy    | `PointerEventArgs`   | `onpointerdown`, `onpointerup`, `onpointercancel`, `onpointermove`, `onpointerover`, `onpointerout`, `onpointerenter`, `onpointerleave`, `ongotpointercapture`, `onlostpointercapture` |
 | Kółko myszy      | `WheelEventArgs`     | `onwheel`, `onmousewheel` |
-| Postęp         | `ProgressEventArgs`  | `onabort`, `onload`, `onloadend`, `onloadstart`, `onprogress`, `ontimeout` |
-| Dotyk            | `TouchEventArgs`     | `ontouchstart`, `ontouchend`, `ontouchmove`, `ontouchenter`, `ontouchleave`, `ontouchcancel`<br><br>`TouchPoint` reprezentuje pojedynczy punkt kontaktu na urządzeniu dotykowym. |
+| Postęp         | `ProgressEventArgs`  | `onabort`, `onload`, `onloadend`, `onloadstart`, `onprogress``ontimeout` |
+| Dotyk            | `TouchEventArgs`     | `ontouchstart`, `ontouchend`, `ontouchmove`, `ontouchenter`, `ontouchleave``ontouchcancel`<br><br>`TouchPoint` reprezentuje pojedynczy punkt kontaktu na urządzeniu dotykowym. |
 
 Aby uzyskać informacje o zachowaniu właściwości i obsłudze zdarzeń zdarzeń w powyższej tabeli, zobacz [klasy EventArgs w źródle odwołań (gałąź ASPNET/AspNetCore Release/3.0)](https://github.com/aspnet/AspNetCore/tree/release/3.0/src/Components/Web/src/Web).
 
@@ -1310,7 +1310,7 @@ Jeśli `IsCompleted` jest `false`, pole wyboru jest renderowane jako:
 <input type="checkbox" />
 ```
 
-Aby uzyskać więcej informacji, zobacz <xref:mvc/views/razor>.
+Aby uzyskać więcej informacji, zobacz temat <xref:mvc/views/razor>.
 
 > [!WARNING]
 > Niektóre atrybuty HTML, takie jak [Aria](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/button_role#Toggle_buttons), nie działają prawidłowo, gdy typem .net jest `bool`. W tych przypadkach Użyj typu `string` zamiast `bool`.
@@ -1688,14 +1688,14 @@ builder.AddContent(1, "Second");
 
 Gdy kod jest wykonywany po raz pierwszy, jeśli `someFlag` jest `true`, Konstruktor odbiera:
 
-| Sekwencja | Typ      | Dane   |
+| Sekwencja | Type      | Dane   |
 | :------: | --------- | :----: |
 | 0        | Węzeł tekstu | pierwszego  |
 | 1        | Węzeł tekstu | Sekunda |
 
 Załóżmy, że `someFlag` `false`, a znaczniki są renderowane ponownie. Tym razem Konstruktor odbiera:
 
-| Sekwencja | Typ       | Dane   |
+| Sekwencja | Type       | Dane   |
 | :------: | ---------- | :----: |
 | 1        | Węzeł tekstu  | Sekunda |
 
@@ -1720,14 +1720,14 @@ builder.AddContent(seq++, "Second");
 
 Teraz pierwsze dane wyjściowe to:
 
-| Sekwencja | Typ      | Dane   |
+| Sekwencja | Type      | Dane   |
 | :------: | --------- | :----: |
 | 0        | Węzeł tekstu | pierwszego  |
 | 1        | Węzeł tekstu | Sekunda |
 
 Ten wynik jest identyczny z poprzednim przypadkiem, dlatego nie istnieją żadne negatywne problemy. `someFlag` jest `false` podczas drugiego renderowania, a dane wyjściowe:
 
-| Sekwencja | Typ      | Dane   |
+| Sekwencja | Type      | Dane   |
 | :------: | --------- | ------ |
 | 0        | Węzeł tekstu | Sekunda |
 
@@ -1825,7 +1825,7 @@ public class CultureController : Controller
 ```
 
 > [!WARNING]
-> Użyj wyniku działania `LocalRedirect`, aby zapobiec atakom typu "Open redirect". Aby uzyskać więcej informacji, zobacz <xref:security/preventing-open-redirects>.
+> Użyj wyniku działania `LocalRedirect`, aby zapobiec atakom typu "Open redirect". Aby uzyskać więcej informacji, zobacz temat <xref:security/preventing-open-redirects>.
 
 Poniższy składnik przedstawia przykład sposobu wykonywania wstępnego przekierowania, gdy użytkownik wybierze kulturę:
 
@@ -1870,7 +1870,7 @@ Obecnie obsługiwane są ograniczone zestawy ASP.NET Core scenariuszy lokalizacj
 * `IStringLocalizer<>` *jest obsługiwana* w aplikacjach Blazor.
 * Lokalizacja `IHtmlLocalizer<>`, `IViewLocalizer<>`i adnotacji danych są ASP.NET Core scenariusze MVC i **nie są obsługiwane** w aplikacjach Blazor.
 
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/localization>.
+Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/localization>.
 
 ## <a name="scalable-vector-graphics-svg-images"></a>Skalowalne obrazy wektorowe (SVG)
 

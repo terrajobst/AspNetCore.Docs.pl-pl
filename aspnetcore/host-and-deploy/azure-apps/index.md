@@ -1,7 +1,7 @@
 ---
-title: Deploy ASP.NET Core apps to Azure App Service
+title: Wdróż aplikacje ASP.NET Core w Azure App Service
 author: bradygaster
-description: This article contains links to Azure host and deploy resources.
+description: Ten artykuł zawiera linki do hosta platformy Azure i wdrażania zasobów.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
@@ -14,288 +14,288 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74478767"
 ---
-# <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Deploy ASP.NET Core apps to Azure App Service
+# <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Wdróż aplikacje ASP.NET Core w Azure App Service
 
-[Azure App Service](https://azure.microsoft.com/services/app-service/) is a [Microsoft cloud computing platform service](https://azure.microsoft.com/) for hosting web apps, including ASP.NET Core.
+[Azure App Service](https://azure.microsoft.com/services/app-service/) to [usługa platformy obliczeniowej w chmurze firmy Microsoft](https://azure.microsoft.com/) do hostowania aplikacji sieci web, w tym ASP.NET Core.
 
-## <a name="useful-resources"></a>Useful resources
+## <a name="useful-resources"></a>Przydatne zasoby
 
-[App Service Documentation](/azure/app-service/) is the home for Azure Apps documentation, tutorials, samples, how-to guides, and other resources. Two notable tutorials that pertain to hosting ASP.NET Core apps are:
+[Dokumentacja App Service](/azure/app-service/) jest domem dla dokumentacji usługi Azure Apps, samouczków, przykładów, przewodników i innych zasobów. Dwa istotne samouczki odnoszące się do hostingu aplikacji ASP.NET Core są następujące:
 
-[Create an ASP.NET Core web app in Azure](/azure/app-service/app-service-web-get-started-dotnet)  
-Use Visual Studio to create and deploy an ASP.NET Core web app to Azure App Service on Windows.
+[Tworzenie aplikacji sieci Web ASP.NET Core na platformie Azure](/azure/app-service/app-service-web-get-started-dotnet)  
+Użyj programu Visual Studio, aby utworzyć i wdrożyć aplikację sieci Web ASP.NET Core do Azure App Service w systemie Windows.
 
-[Create an ASP.NET Core app in App Service on Linux](/azure/app-service/containers/quickstart-dotnetcore)  
-Use the command line to create and deploy an ASP.NET Core web app to Azure App Service on Linux.
+[Tworzenie aplikacji ASP.NET Core w usłudze App Service w systemie Linux](/azure/app-service/containers/quickstart-dotnetcore)  
+Użyj wiersza polecenia, aby utworzyć i wdrożyć aplikację sieci Web ASP.NET Core do Azure App Service w systemie Linux.
 
-See the [ASP.NET Core on App Service Dashboard](https://aspnetcoreon.azurewebsites.net/) for the version of ASP.NET Core available on Azure App service.
+Zapoznaj się z wersją ASP.NET Core dostępną w usłudze Azure App Service, [ASP.NET Core na pulpicie nawigacyjnym app Service](https://aspnetcoreon.azurewebsites.net/) .
 
-Subscribe to the [App Service Announcements](https://github.com/Azure/app-service-announcements/) repository and monitor the issues. The App Service team regularly posts announcements and scenarios arriving in App Service.
+Zasubskrybuj repozytorium [App Service Anonsy](https://github.com/Azure/app-service-announcements/) i monitoruj problemy. Zespół App Service regularnie ogłasza anonse i scenariusze docierające do App Service.
 
-The following articles are available in ASP.NET Core documentation:
+Następujące artykuły są dostępne w dokumentacji ASP.NET Core:
 
 <xref:tutorials/publish-to-azure-webapp-using-vs>  
-Learn how to publish an ASP.NET Core app to Azure App Service using Visual Studio.
+Dowiedz się, jak opublikować aplikację ASP.NET Core w usłudze Azure App Service przy użyciu programu Visual Studio.
 
 <xref:host-and-deploy/azure-apps/azure-continuous-deployment>  
-Learn how to create an ASP.NET Core web app using Visual Studio and deploy it to Azure App Service using Git for continuous deployment.
+Dowiedz się, jak utworzyć aplikację internetową ASP.NET Core przy użyciu programu Visual Studio i wdrożyć ją do Azure App Service przy użyciu narzędzia Git do ciągłego wdrażania.
 
-[Create your first pipeline](/azure/devops/pipelines/get-started-yaml)  
-Set up a CI build for an ASP.NET Core app, then create a continuous deployment release to Azure App Service.
+[Tworzenie pierwszego potoku](/azure/devops/pipelines/get-started-yaml)  
+Skonfiguruj kompilację CI dla aplikacji ASP.NET Core, a następnie Utwórz wersję ciągłego wdrażania do Azure App Service.
 
-[Azure Web App sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)  
-Discover Azure App Service runtime execution limitations enforced by the Azure Apps platform.
+[Piaskownica aplikacji sieci Web platformy Azure](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)  
+Odkryj ograniczenia wykonywania w środowisku uruchomieniowym Azure App Service wymuszane przez platformę Azure Apps.
 
 <xref:test/troubleshoot>  
-Understand and troubleshoot warnings and errors with ASP.NET Core projects.
+Zrozumienie i rozwiązywanie problemów z ostrzeżeniami i błędami w projektach ASP.NET Core.
 
-## <a name="application-configuration"></a>Application configuration
+## <a name="application-configuration"></a>Konfiguracja aplikacji
 
 ### <a name="platform"></a>Platforma
 
-The platform architecture (x86/x64) of an App Services app is set in the app's settings in the Azure Portal for apps that are hosted on an A-series compute (Basic) or higher hosting tier. Confirm that the app's publish settings (for example, in the Visual Studio [publish profile (.pubxml)](xref:host-and-deploy/visual-studio-publish-profiles)) match the setting in the app's service configuration in the Azure Portal.
+Architektura platformy (x86/x64) aplikacji App Services jest ustawiana w ustawieniach aplikacji w witrynie Azure Portal dla aplikacji hostowanych w warstwie obliczeniowej serii A (podstawowa) lub wyższej. Upewnij się, że ustawienia publikowania aplikacji (na przykład w profilu publikacji programu Visual Studio [(. pubxml)](xref:host-and-deploy/visual-studio-publish-profiles)) są zgodne z ustawieniami w konfiguracji usługi aplikacji w witrynie Azure Portal.
 
 ::: moniker range=">= aspnetcore-2.2"
 
-Runtimes for 64-bit (x64) and 32-bit (x86) apps are present on Azure App Service. The [.NET Core SDK](/dotnet/core/sdk) available on App Service is 32-bit, but you can deploy 64-bit apps built locally using the [Kudu](https://github.com/projectkudu/kudu/wiki) console or the publish process in Visual Studio. For more information, see the [Publish and deploy the app](#publish-and-deploy-the-app) section.
+W Azure App Service są obecne środowiska uruchomieniowe dla aplikacji 64-bitowych (x64) i 32-bitowych (x86). [Zestaw .NET Core SDK](/dotnet/core/sdk) dostępne w App Service to 32-bitowe, ale można wdrożyć aplikacje 64-bitowe utworzone lokalnie za pomocą konsoli [kudu](https://github.com/projectkudu/kudu/wiki) lub procesu publikowania w programie Visual Studio. Aby uzyskać więcej informacji, zobacz sekcję [Publikowanie i wdrażanie aplikacji](#publish-and-deploy-the-app) .
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
-For apps with native dependencies, runtimes for 32-bit (x86) apps are present on Azure App Service. The [.NET Core SDK](/dotnet/core/sdk) available on App Service is 32-bit.
+W przypadku aplikacji z natywnymi zależnościami w Azure App Service są obecne środowiska uruchomieniowe dla 32-bitowych (x86) aplikacji. [Zestaw .NET Core SDK](/dotnet/core/sdk) dostępne w App Service to 32-bitowe.
 
 ::: moniker-end
 
-For more information on .NET Core framework components and distribution methods, such as information on the .NET Core runtime and the .NET Core SDK, see [About .NET Core: Composition](/dotnet/core/about#composition).
+Aby uzyskać więcej informacji na temat składników .NET Core i metod dystrybucji, takich jak informacje na temat środowiska uruchomieniowego .NET Core i zestaw .NET Core SDK, zobacz [Informacje o kompozycji platformy .NET Core:](/dotnet/core/about#composition).
 
 ### <a name="packages"></a>Pakiety
 
-Include the following NuGet packages to provide automatic logging features for apps deployed to Azure App Service:
+Dołącz następujące pakiety NuGet, aby udostępnić funkcje automatycznego rejestrowania dla aplikacji wdrożonych w Azure App Service:
 
-* [Microsoft.AspNetCore.AzureAppServices.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServices.HostingStartup/) uses [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration) to provide ASP.NET Core light-up integration with Azure App Service. The added logging features are provided by the `Microsoft.AspNetCore.AzureAppServicesIntegration` package.
-* [Microsoft.AspNetCore.AzureAppServicesIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServicesIntegration/) executes [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) to add Azure App Service diagnostics logging providers in the `Microsoft.Extensions.Logging.AzureAppServices` package.
-* [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/) provides logger implementations to support Azure App Service diagnostics logs and log streaming features.
+* [Microsoft. AspNetCore. AzureAppServices. HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServices.HostingStartup/) używa [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration) , aby zapewnić ASP.NET Coreą integrację z Azure App Service. Dodane funkcje rejestrowania są udostępniane przez pakiet `Microsoft.AspNetCore.AzureAppServicesIntegration`.
+* [Microsoft. AspNetCore. AzureAppServicesIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServicesIntegration/) wykonuje [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) , aby dodać Azure App Service dostawców rejestrowania diagnostyki w pakiecie `Microsoft.Extensions.Logging.AzureAppServices`.
+* [Microsoft. Extensions. Logging. AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/) udostępnia implementacje rejestratorów umożliwiające obsługę dzienników diagnostyki Azure App Service i funkcji przesyłania strumieniowego dzienników.
 
-The preceding packages aren't available from the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app). Apps that target .NET Framework or reference the `Microsoft.AspNetCore.App` metapackage must explicitly reference the individual packages in the app's project file.
+Poprzednie pakiety nie są dostępne w [pakiecie Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app). Aplikacje, które są przeznaczone do .NET Framework lub odwołują się do pakietu `Microsoft.AspNetCore.App`, muszą jawnie odwoływać się do poszczególnych pakietów w pliku projektu aplikacji.
 
-## <a name="override-app-configuration-using-the-azure-portal"></a>Override app configuration using the Azure Portal
+## <a name="override-app-configuration-using-the-azure-portal"></a>Przesłoń konfigurację aplikacji przy użyciu witryny Azure Portal
 
-App settings in the Azure Portal permit you to set environment variables for the app. Environment variables can be consumed by the [Environment Variables Configuration Provider](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
+Ustawienia aplikacji w witrynie Azure Portal umożliwiają ustawianie zmiennych środowiskowych dla aplikacji. Zmienne środowiskowe mogą być używane przez [dostawcę konfiguracji zmiennych środowiskowych](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
 
-When an app setting is created or modified in the Azure Portal and the **Save** button is selected, the Azure App is restarted. The environment variable is available to the app after the service restarts.
+Po utworzeniu lub zmodyfikowaniu ustawienia aplikacji w witrynie Azure Portal i wybraniu przycisku **Zapisz** aplikacja platformy Azure zostanie uruchomiona ponownie. Zmienna środowiskowa jest dostępna dla aplikacji po ponownym uruchomieniu usługi.
 
 ::: moniker range=">= aspnetcore-3.0"
 
-When an app uses the [Generic Host](xref:fundamentals/host/generic-host), environment variables aren't loaded into an app's configuration by default and the configuration provider must be added by the developer. The developer determines the environment variable prefix when the configuration provider is added. For more information, see <xref:fundamentals/host/generic-host> and the [Environment Variables Configuration Provider](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
+Gdy aplikacja korzysta z [hosta ogólnego](xref:fundamentals/host/generic-host), zmienne środowiskowe nie są domyślnie ładowane do konfiguracji aplikacji, a dostawca konfiguracji musi zostać dodany przez dewelopera. Deweloper Określa prefiks zmiennej środowiskowej podczas dodawania dostawcy konfiguracji. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host> i [dostawca konfiguracji zmiennych środowiskowych](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-When an app builds the host using [WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), environment variables that configure the host use the `ASPNETCORE_` prefix. For more information, see <xref:fundamentals/host/web-host> and the [Environment Variables Configuration Provider](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
+Gdy aplikacja kompiluje hosta za pomocą elementu [webhost. CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), zmienne środowiskowe, które konfigurują hosta, używają prefiksu `ASPNETCORE_`. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/web-host> i [dostawca konfiguracji zmiennych środowiskowych](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
 
 ::: moniker-end
 
-## <a name="proxy-server-and-load-balancer-scenarios"></a>Proxy server and load balancer scenarios
+## <a name="proxy-server-and-load-balancer-scenarios"></a>Serwer proxy i scenariuszy usługi równoważenia obciążenia
 
-The [IIS Integration Middleware](xref:host-and-deploy/iis/index#enable-the-iisintegration-components), which configures Forwarded Headers Middleware when hosting [out-of-process](xref:host-and-deploy/iis/index#out-of-process-hosting-model), and the ASP.NET Core Module are configured to forward the scheme (HTTP/HTTPS) and the remote IP address where the request originated. Additional configuration might be required for apps hosted behind additional proxy servers and load balancers. For more information, see [Configure ASP.NET Core to work with proxy servers and load balancers](xref:host-and-deploy/proxy-load-balancer).
+[Oprogramowanie pośredniczące integracji usług IIS](xref:host-and-deploy/iis/index#enable-the-iisintegration-components), które konfiguruje przekierowane nagłówki oprogramowania pośredniczącego podczas hostingu [poza procesem](xref:host-and-deploy/iis/index#out-of-process-hosting-model), a moduł ASP.NET Core jest skonfigurowany do przesyłania dalej schematu (http/https) i zdalnego adresu IP, z którego pochodzi żądanie. Dodatkowa konfiguracja może być wymagane dla aplikacji hostowanych za serwery proxy dodatkowe i moduły równoważenia obciążenia. Aby uzyskać więcej informacji, zobacz [konfigurowanie ASP.NET Core do pracy z serwerami proxy i usługami równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer).
 
-## <a name="monitoring-and-logging"></a>Monitoring and logging
+## <a name="monitoring-and-logging"></a>Monitorowanie i rejestrowanie
 
 ::: moniker range=">= aspnetcore-3.0"
 
-ASP.NET Core apps deployed to App Service automatically receive an App Service extension, **ASP.NET Core Logging Integration**. The extension enables logging integration for ASP.NET Core apps on Azure App Service.
+ASP.NET Core aplikacje wdrożone do App Service automatycznie otrzymują rozszerzenie App Service **ASP.NET Core integrację rejestrowania**. Rozszerzenie włącza integrację rejestrowania dla aplikacji ASP.NET Core w Azure App Service.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-ASP.NET Core apps deployed to App Service automatically receive an App Service extension, **ASP.NET Core Logging Extensions**. The extension enables logging integration for ASP.NET Core apps on Azure App Service.
+ASP.NET Core aplikacje wdrożone do App Service automatycznie otrzymują rozszerzenia App Service **ASP.NET Core rejestrowania rozszerzeń**. Rozszerzenie włącza integrację rejestrowania dla aplikacji ASP.NET Core w Azure App Service.
 
 ::: moniker-end
 
-For monitoring, logging, and troubleshooting information, see the following articles:
+Informacje o monitorowaniu, rejestrowaniu i rozwiązywaniu problemów znajdują się w następujących artykułach:
 
-[Monitor apps in Azure App Service](/azure/app-service/web-sites-monitor)  
-Learn how to review quotas and metrics for apps and App Service plans.
+[Monitorowanie aplikacji w Azure App Service](/azure/app-service/web-sites-monitor)  
+Dowiedz się, jak przeglądać limity przydziału i metryki dla aplikacji i planów App Service.
 
-[Enable diagnostics logging for apps in Azure App Service](/azure/app-service/web-sites-enable-diagnostic-log)  
-Discover how to enable and access diagnostic logging for HTTP status codes, failed requests, and web server activity.
+[Włączanie rejestrowania diagnostycznego dla aplikacji w Azure App Service](/azure/app-service/web-sites-enable-diagnostic-log)  
+Odkryj, jak włączyć i uzyskać dostęp do rejestrowania diagnostycznego dla kodów stanu HTTP, żądań zakończonych niepowodzeniem i aktywności serwera sieci Web.
 
 <xref:fundamentals/error-handling>  
-Understand common approaches to handling errors in ASP.NET Core apps.
+Poznaj typowe podejścia do obsługi błędów w aplikacjach ASP.NET Core.
 
 <xref:test/troubleshoot-azure-iis>  
-Learn how to diagnose issues with Azure App Service deployments with ASP.NET Core apps.
+Dowiedz się, jak zdiagnozować problemy z wdrożeniami Azure App Service przy użyciu aplikacji ASP.NET Core.
 
 <xref:host-and-deploy/azure-iis-errors-reference>  
-See the common deployment configuration errors for apps hosted by Azure App Service/IIS with troubleshooting advice.
+Zapoznaj się z informacjami o typowych problemach z konfiguracją wdrażania dla aplikacji hostowanych przez Azure App Service/usług IIS.
 
-## <a name="data-protection-key-ring-and-deployment-slots"></a>Data Protection key ring and deployment slots
+## <a name="data-protection-key-ring-and-deployment-slots"></a>Pierścień i miejsca wdrożenia klucza ochrony danych
 
-[Data Protection keys](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management) are persisted to the *%HOME%\ASP.NET\DataProtection-Keys* folder. This folder is backed by network storage and is synchronized across all machines hosting the app. Keys aren't protected at rest. This folder supplies the key ring to all instances of an app in a single deployment slot. Separate deployment slots, such as Staging and Production, don't share a key ring.
+[Klucze ochrony danych](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management) są utrwalane w folderze *%Home%\ASP.NET\DataProtection-Keys* . Ten folder jest obsługiwany przez magazyn sieciowy i synchronizowany na wszystkich komputerach obsługujących aplikację. Klucze nie są chronione w stanie spoczynku. Ten folder dostarcza pierścień kluczy do wszystkich wystąpień aplikacji w jednym miejscu wdrożenia. Oddzielne miejsca wdrożenia, takie jak przygotowanie i środowisko produkcyjne, nie dzielą się z kluczem.
 
-When swapping between deployment slots, any system using data protection won't be able to decrypt stored data using the key ring inside the previous slot. ASP.NET Cookie Middleware uses data protection to protect its cookies. This leads to users being signed out of an app that uses the standard ASP.NET Cookie Middleware. For a slot-independent key ring solution, use an external key ring provider, such as:
+W przypadku wymiany między miejscami wdrożenia każdy system korzystający z ochrony danych nie będzie w stanie odszyfrować przechowywanych danych przy użyciu dzwonka klucza w poprzednim gnieździe. Oprogramowanie pośredniczące ASP.NET plików cookie używa ochrony danych do ochrony plików cookie. Prowadzi to do użytkowników wylogowanych z aplikacji korzystającej ze standardowego oprogramowania ASP.NET cookie. W przypadku rozwiązania z niezależnym dzwonkiem, należy użyć zewnętrznego dostawcy usługi Key dystynktywnego, takiego jak:
 
 * Azure Blob Storage
-* Azure Key Vault
-* SQL store
-* Redis cache
+* Usługa Azure Key Vault
+* Sklep SQL
+* Pamięć podręczna Redis
 
-Aby uzyskać więcej informacji, zobacz <xref:security/data-protection/implementation/key-storage-providers>.
+Aby uzyskać więcej informacji, zobacz temat <xref:security/data-protection/implementation/key-storage-providers>.
 <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>
 
-## <a name="deploy-aspnet-core-30-to-azure-app-service"></a>Deploy ASP.NET Core 3.0 to Azure App Service
+## <a name="deploy-aspnet-core-30-to-azure-app-service"></a>Wdróż ASP.NET Core 3,0 do Azure App Service
 
-ASP.NET Core 3.0 is supported on Azure App Service. To deploy a preview release of a .NET Core version later than .NET Core 3.0, use one of the following techniques. These approaches are also used when the runtime is available but the SDK hasn't been installed on Azure App Service.
+ASP.NET Core 3,0 jest obsługiwane w Azure App Service. Aby wdrożyć wersję zapoznawczą programu .NET Core w wersji nowszej niż .NET Core 3,0, użyj jednej z następujących metod. Te podejścia są również używane, gdy środowisko uruchomieniowe jest dostępne, ale zestaw SDK nie został zainstalowany na Azure App Service.
 
-* [Specify the .NET Core SDK Version using Azure Pipelines](#specify-the-net-core-sdk-version-using-azure-pipelines)
-* [Deploy a self-contained preview app](#deploy-a-self-contained-preview-app).
-* [Use Docker with Web Apps for containers](#use-docker-with-web-apps-for-containers).
-* [Install the preview site extension](#install-the-preview-site-extension).
+* [Określ wersję zestaw .NET Core SDK przy użyciu Azure Pipelines](#specify-the-net-core-sdk-version-using-azure-pipelines)
+* [Wdróż samodzielną aplikację w wersji zapoznawczej](#deploy-a-self-contained-preview-app).
+* [Użyj platformy Docker z Web Apps dla kontenerów](#use-docker-with-web-apps-for-containers).
+* [Zainstaluj rozszerzenie witryny w wersji zapoznawczej](#install-the-preview-site-extension).
 
-### <a name="specify-the-net-core-sdk-version-using-azure-pipelines"></a>Specify the .NET Core SDK Version using Azure Pipelines
+### <a name="specify-the-net-core-sdk-version-using-azure-pipelines"></a>Określ wersję zestaw .NET Core SDK przy użyciu Azure Pipelines
 
-Use [Azure App Service CI/CD scenarios](/azure/app-service/deploy-continuous-deployment) to set up a continuous integration build with Azure DevOps. After the Azure DevOps build is created, optionally configure the build to use a specific SDK version. 
+Użyj [Azure App Service scenariuszy Ci/CD](/azure/app-service/deploy-continuous-deployment) , aby skonfigurować kompilację ciągłej integracji za pomocą usługi Azure DevOps. Po utworzeniu kompilacji usługi Azure DevOps, opcjonalnie Skonfiguruj kompilację do korzystania z określonej wersji zestawu SDK. 
 
-#### <a name="specify-the-net-core-sdk-version"></a>Specify the .NET Core SDK version
+#### <a name="specify-the-net-core-sdk-version"></a>Określ wersję zestaw .NET Core SDK
 
-When using the App Service deployment center to create an Azure DevOps build, the default build pipeline includes steps for `Restore`, `Build`, `Test`, and `Publish`. To specify the SDK version, select the **Add (+)** button in the Agent job list to add a new step. Search for **.NET Core SDK** in the search bar. 
+Korzystając z centrum wdrażania App Service, aby utworzyć kompilację usługi Azure DevOps, domyślny potok kompilacji zawiera kroki dla `Restore`, `Build`, `Test`i `Publish`. Aby określić wersję zestawu SDK, wybierz przycisk **Dodaj (+)** na liście zadań agenta, aby dodać nowy krok. Wyszukaj **zestaw .NET Core SDK** na pasku wyszukiwania. 
 
-![Add the .NET Core SDK step](index/add-sdk-step.png)
+![Dodaj krok zestaw .NET Core SDK](index/add-sdk-step.png)
 
-Move the step into the first position in the build so that the steps following it use the specified version of the .NET Core SDK. Specify the version of the .NET Core SDK. In this example, the SDK is set to `3.0.100`.
+Przenieś krok do pierwszej pozycji w kompilacji, aby wykonać kroki opisane w tej wersji zestaw .NET Core SDK. Określ wersję zestaw .NET Core SDK. W tym przykładzie zestaw SDK jest ustawiony na `3.0.100`.
 
-![Completed SDK step](index/sdk-step-first-place.png)
+![Ukończony krok zestawu SDK](index/sdk-step-first-place.png)
 
-To publish a [self-contained deployment (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd), configure SCD in the `Publish` step and provide the [Runtime Identifier (RID)](/dotnet/core/rid-catalog).
+Aby opublikować [wdrożenie samodzielne (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd), skonfiguruj SCD w kroku `Publish` i podaj [Identyfikator czasu wykonywania (RID)](/dotnet/core/rid-catalog).
 
-![Self-contained publish](index/self-contained.png)
+![Samodzielna publikacja](index/self-contained.png)
 
-### <a name="deploy-a-self-contained-preview-app"></a>Deploy a self-contained preview app
+### <a name="deploy-a-self-contained-preview-app"></a>Wdrażanie samodzielnej aplikacji w wersji zapoznawczej
 
-A [self-contained deployment (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) that targets a preview runtime carries the preview runtime in the deployment.
+[Wdrożenie samodzielne (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) , które jest przeznaczone dla środowiska uruchomieniowego w wersji zapoznawczej, przenosi środowisko uruchomieniowe w wersji zapoznawczej w ramach wdrożenia.
 
-When deploying a self-contained app:
+Podczas wdrażania aplikacji samodzielnej:
 
-* The site in Azure App Service doesn't require the [preview site extension](#install-the-preview-site-extension).
-* The app must be published following a different approach than when publishing for a [framework-dependent deployment (FDD)](/dotnet/core/deploying#framework-dependent-deployments-fdd).
+* Lokacja w Azure App Service nie wymaga [rozszerzenia witryny w wersji zapoznawczej](#install-the-preview-site-extension).
+* Aplikacja musi zostać opublikowana przy użyciu innego podejścia niż w przypadku publikowania dla [wdrożenia zależnego od platformy (FDD)](/dotnet/core/deploying#framework-dependent-deployments-fdd).
 
-Follow the guidance in the [Deploy the app self-contained](#deploy-the-app-self-contained) section.
+Postępuj zgodnie ze wskazówkami [zawartymi w sekcji Wdróż aplikację samodzielną](#deploy-the-app-self-contained) .
 
-### <a name="use-docker-with-web-apps-for-containers"></a>Use Docker with Web Apps for containers
+### <a name="use-docker-with-web-apps-for-containers"></a>Korzystanie z platformy Docker z Web Apps dla kontenerów
 
-The [Docker Hub](https://hub.docker.com/r/microsoft/aspnetcore/) contains the latest preview Docker images. The images can be used as a base image. Use the image and deploy to Web Apps for Containers normally.
+[Centrum platformy Docker](https://hub.docker.com/r/microsoft/aspnetcore/) zawiera najnowsze obrazy platformy Docker w wersji zapoznawczej. Obrazy mogą być używane jako obraz podstawowy. Użyj obrazu i Wdróż go w celu zapewnienia normalnej Web Apps kontenerów.
 
-### <a name="install-the-preview-site-extension"></a>Install the preview site extension
+### <a name="install-the-preview-site-extension"></a>Zainstaluj rozszerzenie witryny w wersji zapoznawczej
 
-If a problem occurs using the preview site extension, open an [aspnet/AspNetCore issue](https://github.com/aspnet/AspNetCore/issues).
+Jeśli wystąpi problem przy użyciu rozszerzenia witryny w wersji zapoznawczej, Otwórz [problem ASPNET/AspNetCore](https://github.com/aspnet/AspNetCore/issues).
 
-1. From the Azure Portal, navigate to the App Service.
-1. Select the web app.
-1. Type "ex" in the search box to filter for "Extensions" or scroll down the list of management tools.
-1. Select **Extensions**.
-1. Select **Add**.
-1. Select the **ASP.NET Core {X.Y} ({x64|x86}) Runtime** extension from the list, where `{X.Y}` is the ASP.NET Core preview version and `{x64|x86}` specifies the platform.
-1. Select **OK** to accept the legal terms.
-1. Select **OK** to install the extension.
+1. W witrynie Azure Portal przejdź do App Service.
+1. Wybierz aplikację sieci Web.
+1. Wpisz "ex" w polu wyszukiwania, aby odfiltrować "rozszerzenia", lub przewiń w dół listy narzędzi do zarządzania.
+1. Wybierz pozycję **rozszerzenia**.
+1. Wybierz pozycję **Dodaj**.
+1. Wybierz rozszerzenie **środowiska uruchomieniowego ASP.NET Core {X. Y} ({x64 | x86})** z listy, gdzie `{X.Y}` jest wersją ASP.NET Core wersji zapoznawczej i `{x64|x86}` Określa platformę.
+1. Wybierz **przycisk OK** , aby zaakceptować postanowienia prawne.
+1. Wybierz **przycisk OK** , aby zainstalować rozszerzenie.
 
-When the operation completes, the latest .NET Core preview is installed. Verify the installation:
+Po zakończeniu operacji zostanie zainstalowana najnowsza wersja programu .NET Core Preview. Sprawdź instalację:
 
-1. Select **Advanced Tools**.
-1. Select **Go** in **Advanced Tools**.
-1. Select the **Debug console** > **PowerShell** menu item.
-1. At the PowerShell prompt, execute the following command. Substitute the ASP.NET Core runtime version for `{X.Y}` and the platform for `{PLATFORM}` in the command:
+1. Wybierz pozycję **Narzędzia zaawansowane**.
+1. Wybierz pozycję **Przejdź** do **zaawansowanych narzędzi**.
+1. Zaznacz element menu **Debuguj konsolę** > **PowerShell** .
+1. W wierszu polecenia programu PowerShell wykonaj następujące polecenie. Zastąp ASP.NET Core wersję środowiska uruchomieniowego `{X.Y}` i platformę dla `{PLATFORM}` w poleceniu:
 
    ```powershell
    Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.{PLATFORM}\
    ```
 
-   The command returns `True` when the x64 preview runtime is installed.
+   Polecenie zwraca `True` po zainstalowaniu środowiska uruchomieniowego x64 w wersji zapoznawczej.
 
 > [!NOTE]
-> The platform architecture (x86/x64) of an App Services app is set in the app's settings in the Azure Portal for apps that are hosted on an A-series compute (Basic) or higher hosting tier. Confirm that the app's publish settings (for example, in the Visual Studio [publish profile (.pubxml)](xref:host-and-deploy/visual-studio-publish-profiles)) match the setting in the app's service configuration in the Azure portal.
+> Architektura platformy (x86/x64) aplikacji App Services jest ustawiana w ustawieniach aplikacji w witrynie Azure Portal dla aplikacji hostowanych w warstwie obliczeniowej serii A (podstawowa) lub wyższej. Upewnij się, że ustawienia publikowania aplikacji (na przykład w profilu publikacji programu Visual Studio [(. pubxml)](xref:host-and-deploy/visual-studio-publish-profiles)) są zgodne z ustawieniami w konfiguracji usługi aplikacji w Azure Portal.
 >
-> If the app is run in in-process mode and the platform architecture is configured for 64-bit (x64), the ASP.NET Core Module uses the 64-bit preview runtime, if present. Install the **ASP.NET Core {X.Y} (x64) Runtime** extension using the Azure Portal.
+> Jeśli aplikacja jest uruchamiana w trybie w procesie i architektura platformy jest skonfigurowana pod kątem 64-bitowej (x64), moduł ASP.NET Core używa 64-bitowego środowiska uruchomieniowego w wersji zapoznawczej, jeśli jest obecny. Zainstaluj rozszerzenie **uruchomieniowe ASP.NET Core {X. Y} (x64)** przy użyciu witryny Azure Portal.
 >
-> After installing the x64 preview runtime, run the following command in the Azure Kudu PowerShell command window to verify the installation. Substitute the ASP.NET Core runtime version for `{X.Y}` in the following command:
+> Po zainstalowaniu środowiska uruchomieniowego w wersji zapoznawczej x64 Uruchom następujące polecenie w oknie poleceń programu PowerShell platformy Azure kudu, aby zweryfikować instalację. Zastąp ASP.NET Core wersję środowiska uruchomieniowego `{X.Y}` w następującym poleceniu:
 >
 > ```powershell
 > Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x64\
 > ```
 >
-> The command returns `True` when the x64 preview runtime is installed.
+> Polecenie zwraca `True` po zainstalowaniu środowiska uruchomieniowego x64 w wersji zapoznawczej.
 
 > [!NOTE]
-> **ASP.NET Core Extensions** enables additional functionality for ASP.NET Core on Azure App Services, such as enabling Azure logging. The extension is installed automatically when deploying from Visual Studio. If the extension isn't installed, install it for the app.
+> **Rozszerzenia ASP.NET Core** umożliwiają korzystanie z dodatkowych funkcji ASP.NET Core na platformie Azure App Services, takich jak Włączanie rejestrowania na platformie Azure. Rozszerzenie jest instalowane automatycznie podczas wdrażania z programu Visual Studio. Jeśli rozszerzenie nie jest zainstalowane, zainstaluj je dla aplikacji.
 
-**Use the preview site extension with an ARM template**
+**Używanie rozszerzenia witryny w wersji zapoznawczej z szablonem ARM**
 
-If an ARM template is used to create and deploy apps, the `siteextensions` resource type can be used to add the site extension to a web app. Na przykład:
+Jeśli szablon ARM jest używany do tworzenia i wdrażania aplikacji, można użyć typu zasobu `siteextensions`, aby dodać rozszerzenie witryny do aplikacji sieci Web. Na przykład:
 
 [!code-json[](index/sample/arm.json?highlight=2)]
 
-## <a name="publish-and-deploy-the-app"></a>Publish and deploy the app
+## <a name="publish-and-deploy-the-app"></a>Publikowanie i wdrażanie aplikacji
 
 ::: moniker range=">= aspnetcore-2.2"
 
-For a 64-bit deployment:
+W przypadku wdrożenia 64-bitowego:
 
-* Use a 64-bit .NET Core SDK to build a 64-bit app.
-* Set the **Platform** to **64 Bit** in the App Service's **Configuration** > **General settings**. The app must use a Basic or higher service plan to enable the choice of platform bitness.
+* Aby utworzyć aplikację 64-bitową, użyj 64-bitowej zestaw .NET Core SDK.
+* Ustaw **platformę** na **64 bit** w App Service **konfiguracji** > **Ustawienia ogólne**. Aby umożliwić wybór liczby bitów platformy, aplikacja musi korzystać z planu usługi w warstwie Podstawowa lub wyższa.
 
 ::: moniker-end
 
-### <a name="deploy-the-app-framework-dependent"></a>Deploy the app framework-dependent
+### <a name="deploy-the-app-framework-dependent"></a>Wdróż aplikację zależną od platformy
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-1. Select **Build** > **Publish {Application Name}** from the Visual Studio toolbar or right-click the project in **Solution Explorer** and select **Publish**.
-1. In the **Pick a publish target** dialog, confirm that **App Service** is selected.
-1. Select **Advanced**. The **Publish** dialog opens.
-1. In the **Publish** dialog:
-   * Confirm that the **Release** configuration is selected.
-   * Open the **Deployment Mode** drop-down list and select **Framework-Dependent**.
-   * Select **Portable** as the **Target Runtime**.
-   * If you need to remove additional files upon deployment, open **File Publish Options** and select the check box to remove additional files at the destination.
-   * Select **Save**.
-1. Create a new site or update an existing site by following the remaining prompts of the publish wizard.
+1. Wybierz pozycję **kompilacja** > **Opublikuj {nazwa aplikacji}** na pasku narzędzi programu Visual Studio lub kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Publikuj**.
+1. W oknie dialogowym **Wybieranie elementu docelowego publikowania** upewnij się, że **App Service** jest zaznaczone.
+1. Wybierz pozycję **Zaawansowane**. Zostanie otwarte okno dialogowe **Publikowanie** .
+1. W oknie dialogowym **publikowania** :
+   * Upewnij się, że wybrano konfigurację **wydania** .
+   * Otwórz listę rozwijaną **tryb wdrażania** i wybierz pozycję **zależne od struktury**.
+   * Wybierz **przenośne** jako **docelowe środowisko uruchomieniowe**.
+   * Jeśli konieczne jest usunięcie dodatkowych plików po wdrożeniu, Otwórz **Opcje publikowania plików** i zaznacz pole wyboru w celu usunięcia dodatkowych plików w miejscu docelowym.
+   * Wybierz pozycję **Zapisz**.
+1. Utwórz nową lokację lub zaktualizuj istniejącą witrynę, postępując zgodnie z pozostałymi instrukcjami Kreatora publikacji.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
 
-1. In the project file, don't specify a [Runtime Identifier (RID)](/dotnet/core/rid-catalog).
+1. W pliku projektu nie określaj [identyfikatora środowiska uruchomieniowego (RID)](/dotnet/core/rid-catalog).
 
-1. From a command shell, publish the app in Release configuration with the [dotnet publish](/dotnet/core/tools/dotnet-publish) command. In the following example, the app is published as a framework-dependent app:
+1. W powłoce poleceń Opublikuj aplikację w konfiguracji wydania przy użyciu polecenia [dotnet Publish](/dotnet/core/tools/dotnet-publish) . W poniższym przykładzie aplikacja jest publikowana jako aplikacja zależna od platformy:
 
    ```console
    dotnet publish --configuration Release
    ```
 
-1. Move the contents of the *bin/Release/{TARGET FRAMEWORK}/publish* directory to the site in App Service. If dragging the *publish* folder contents from your local hard drive or network share directly to App Service in the [Kudu](https://github.com/projectkudu/kudu/wiki) console, drag the files to the `D:\home\site\wwwroot` folder in the Kudu console.
+1. Przenieś zawartość katalogu *bin/Release/{Target Framework}/Publish* do lokacji programu w App Service. Jeśli przeciągasz zawartość folderu *publikowania* z lokalnego dysku twardego lub udziału sieciowego bezpośrednio do App Service w konsoli [kudu](https://github.com/projectkudu/kudu/wiki) , przeciągnij pliki do folderu `D:\home\site\wwwroot` w konsoli kudu.
 
 ---
 
-### <a name="deploy-the-app-self-contained"></a>Deploy the app self-contained
+### <a name="deploy-the-app-self-contained"></a>Wdróż aplikację samodzielną
 
-Use Visual Studio or the command-line interface (CLI) tools for a [self-contained deployment (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
+Użyj programu Visual Studio lub narzędzi interfejsu wiersza polecenia (CLI) dla samodzielnego [wdrożenia (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-1. Select **Build** > **Publish {Application Name}** from the Visual Studio toolbar or right-click the project in **Solution Explorer** and select **Publish**.
-1. In the **Pick a publish target** dialog, confirm that **App Service** is selected.
-1. Select **Advanced**. The **Publish** dialog opens.
-1. In the **Publish** dialog:
-   * Confirm that the **Release** configuration is selected.
-   * Open the **Deployment Mode** drop-down list and select **Self-Contained**.
-   * Select the target runtime from the **Target Runtime** drop-down list. Wartość domyślna to `win-x86`.
-   * If you need to remove additional files upon deployment, open **File Publish Options** and select the check box to remove additional files at the destination.
-   * Select **Save**.
-1. Create a new site or update an existing site by following the remaining prompts of the publish wizard.
+1. Wybierz pozycję **kompilacja** > **Opublikuj {nazwa aplikacji}** na pasku narzędzi programu Visual Studio lub kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Publikuj**.
+1. W oknie dialogowym **Wybieranie elementu docelowego publikowania** upewnij się, że **App Service** jest zaznaczone.
+1. Wybierz pozycję **Zaawansowane**. Zostanie otwarte okno dialogowe **Publikowanie** .
+1. W oknie dialogowym **publikowania** :
+   * Upewnij się, że wybrano konfigurację **wydania** .
+   * Otwórz listę rozwijaną **tryb wdrażania** i wybierz pozycję **samodzielny**.
+   * Wybierz docelowe środowisko uruchomieniowe z listy rozwijanej **docelowy środowisko uruchomieniowe** . Wartość domyślna to `win-x86`.
+   * Jeśli konieczne jest usunięcie dodatkowych plików po wdrożeniu, Otwórz **Opcje publikowania plików** i zaznacz pole wyboru w celu usunięcia dodatkowych plików w miejscu docelowym.
+   * Wybierz pozycję **Zapisz**.
+1. Utwórz nową lokację lub zaktualizuj istniejącą witrynę, postępując zgodnie z pozostałymi instrukcjami Kreatora publikacji.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
 
-1. In the project file, specify one or more [Runtime Identifiers (RIDs)](/dotnet/core/rid-catalog). Use `<RuntimeIdentifier>` (singular) for a single RID, or use `<RuntimeIdentifiers>` (plural) to provide a semicolon-delimited list of RIDs. In the following example, the `win-x86` RID is specified:
+1. W pliku projektu Określ jeden lub więcej [identyfikatorów środowiska uruchomieniowego (RID)](/dotnet/core/rid-catalog). Użyj `<RuntimeIdentifier>` (pojedyncze) dla pojedynczego identyfikatora RID lub użyj `<RuntimeIdentifiers>` (plural), aby podać listę identyfikatorów RID rozdzielonych średnikami. W poniższym przykładzie określono `win-x86` RID:
 
    ```xml
    <PropertyGroup>
@@ -304,35 +304,35 @@ Use Visual Studio or the command-line interface (CLI) tools for a [self-containe
    </PropertyGroup>
    ```
 
-1. From a command shell, publish the app in Release configuration for the host's runtime with the [dotnet publish](/dotnet/core/tools/dotnet-publish) command. In the following example, the app is published for the `win-x86` RID. The RID supplied to the `--runtime` option must be provided in the `<RuntimeIdentifier>` (or `<RuntimeIdentifiers>`) property in the project file.
+1. W powłoce poleceń Opublikuj aplikację w konfiguracji wydania dla środowiska uruchomieniowego hosta za pomocą polecenia [dotnet Publish](/dotnet/core/tools/dotnet-publish) . W poniższym przykładzie aplikacja została opublikowana dla `win-x86` RID. Identyfikator RID dostarczony do opcji `--runtime` musi być podany we właściwości `<RuntimeIdentifier>` (lub `<RuntimeIdentifiers>`) w pliku projektu.
 
    ```console
    dotnet publish --configuration Release --runtime win-x86 --self-contained
    ```
 
-1. Move the contents of the *bin/Release/{TARGET FRAMEWORK}/{RUNTIME IDENTIFIER}/publish* directory to the site in App Service. If dragging the *publish* folder contents from your local hard drive or network share directly to App Service in the Kudu console, drag the files to the `D:\home\site\wwwroot` folder in the Kudu console.
+1. Przenieś zawartość katalogu *bin/Release/{Target Framework}/{Runtime identyfikator}/Publish* do lokacji w App Service. Jeśli przeciągasz zawartość folderu *publikowania* z lokalnego dysku twardego lub udziału sieciowego bezpośrednio do App Service w konsoli kudu, przeciągnij pliki do folderu `D:\home\site\wwwroot` w konsoli kudu.
 
 ---
 
-## <a name="protocol-settings-https"></a>Protocol settings (HTTPS)
+## <a name="protocol-settings-https"></a>Ustawienia protokołu (HTTPS)
 
-Secure protocol bindings allow you specify a certificate to use when responding to requests over HTTPS. Binding requires a valid private certificate ( *.pfx*) issued for the specific hostname. For more information, see [Tutorial: Bind an existing custom SSL certificate to Azure App Service](/azure/app-service/app-service-web-tutorial-custom-ssl).
+Bezpieczne powiązania protokołów pozwalają określić certyfikat, który ma być używany podczas odpowiadania na żądania za pośrednictwem protokołu HTTPS. Powiązanie wymaga prawidłowego certyfikatu prywatnego (*PFX*) dla określonej nazwy hosta. Aby uzyskać więcej informacji, zobacz [Samouczek: powiązanie istniejącego niestandardowego certyfikatu protokołu SSL z Azure App Service](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 ## <a name="transform-webconfig"></a>Przekształcanie pliku web.config
 
-If you need to transform *web.config* on publish (for example, set environment variables based on the configuration, profile, or environment), see <xref:host-and-deploy/iis/transform-webconfig>.
+Jeśli musisz przekształcić *plik Web. config* przy publikowaniu (na przykład ustawić zmienne środowiskowe na podstawie konfiguracji, profilu lub środowiska), zobacz <xref:host-and-deploy/iis/transform-webconfig>.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [App Service overview](/azure/app-service/app-service-web-overview)
-* [Azure App Service: The Best Place to Host your .NET Apps (55-minute overview video)](https://channel9.msdn.com/events/dotnetConf/2017/T222)
-* [Azure Friday: Azure App Service Diagnostic and Troubleshooting Experience (12-minute video)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)
-* [Azure App Service diagnostics overview](/azure/app-service/app-service-diagnostics)
+* [Przegląd App Service](/azure/app-service/app-service-web-overview)
+* [Azure App Service: najlepsze miejsce do hostowania aplikacji .NET (wideo z omówieniem 55 minut)](https://channel9.msdn.com/events/dotnetConf/2017/T222)
+* [Piątek Azure: Azure App Service środowisko diagnostyczne i rozwiązywania problemów (wideo 12-minutowy)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)
+* [Omówienie diagnostyki Azure App Service](/azure/app-service/app-service-diagnostics)
 * <xref:host-and-deploy/web-farm>
 
-Azure App Service on Windows Server uses [Internet Information Services (IIS)](https://www.iis.net/). The following topics pertain to the underlying IIS technology:
+Azure App Service w systemie Windows Server używa [Internet Information Services (IIS)](https://www.iis.net/). Poniższe tematy dotyczą podstawowej technologii usług IIS:
 
 * <xref:host-and-deploy/iis/index>
 * <xref:host-and-deploy/aspnet-core-module>
 * <xref:host-and-deploy/iis/modules>
-* [Windows Server - IT administrator content for current and previous releases](/windows-server/windows-server-versions)
+* [System Windows Server — zawartość administratora IT dla bieżących i poprzednich wersji](/windows-server/windows-server-versions)

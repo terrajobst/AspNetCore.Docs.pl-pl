@@ -19,7 +19,7 @@ ms.locfileid: "74317500"
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Ten samouczek uczy się podstaw tworzenia aplikacji w czasie rzeczywistym przy użyciu SignalR. Dowiesz się, jak:
+Ten samouczek uczy się podstaw tworzenia aplikacji w czasie rzeczywistym przy użyciu SignalR. Omawiane kwestie:
 
 > [!div class="checklist"]
 > * Utwórz projekt sieci web.
@@ -253,7 +253,7 @@ Serwer SignalR musi być skonfigurowany do przekazywania żądań SignalR do Sig
 
 ::: moniker range="< aspnetcore-3.0"
 
-Ten samouczek uczy się podstaw tworzenia aplikacji w czasie rzeczywistym przy użyciu SignalR. Dowiesz się, jak: 
+Ten samouczek uczy się podstaw tworzenia aplikacji w czasie rzeczywistym przy użyciu SignalR. Omawiane kwestie: 
 
 > [!div class="checklist"]  
 > * Utwórz projekt sieci web.   
@@ -312,7 +312,7 @@ Na końcu będziesz mieć działającą aplikację czatu: ![[! OP. NO-LOC (Signa
 
 * Wybierz pozycję **.NET Core > app > ASP.NET Core Web App** (nie wybieraj **ASP.NET Core Web App (MVC)** ).  
 
-* Wybierz opcję **Dalej**.  
+* Wybierz pozycję **dalej**.  
 
 * Nazwij projekt *SignalRChat*, a następnie wybierz pozycję **Utwórz**.   
 

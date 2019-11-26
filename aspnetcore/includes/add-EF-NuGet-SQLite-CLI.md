@@ -1,4 +1,4 @@
-Run the following .NET Core CLI commands:
+Uruchom następujące polecenia interfejs wiersza polecenia platformy .NET Core:
 
 ```dotnetcli
 dotnet tool install --global dotnet-ef
@@ -9,11 +9,11 @@ dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 ```
 
-The preceding commands add:
+Powyższe polecenia powodują dodanie:
 
-* The [aspnet-codegenerator scaffolding tool](xref:fundamentals/tools/dotnet-aspnet-codegenerator).
-* The Entity Framework Core Tools for the .NET Core CLI.
-* The EF Core SQLite provider, which installs the EF Core package as a dependency.
-* Packages needed for scaffolding: `Microsoft.VisualStudio.Web.CodeGeneration.Design` and `Microsoft.EntityFrameworkCore.SqlServer`.
+* Narzędzie do tworzenia [szkieletu ASPNET-CodeGenerator](xref:fundamentals/tools/dotnet-aspnet-codegenerator).
+* Entity Framework Core narzędzia dla interfejs wiersza polecenia platformy .NET Core.
+* EF Core dostawca oprogramowania SQLite, który instaluje pakiet EF Core jako zależność.
+* Pakiety wymagające tworzenia szkieletów: `Microsoft.VisualStudio.Web.CodeGeneration.Design` i `Microsoft.EntityFrameworkCore.SqlServer`.
 
-For guidance on multiple environment configuration that permits an app to configure its database contexts by environment, see <xref:fundamentals/environments#environment-based-startup-class-and-methods>.
+Aby uzyskać wskazówki dotyczące wielu konfiguracji środowiska, które umożliwiają aplikacji skonfigurowanie kontekstów bazy danych według środowiska, zobacz <xref:fundamentals/environments#environment-based-startup-class-and-methods>.
