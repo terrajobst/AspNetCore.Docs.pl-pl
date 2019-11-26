@@ -1,195 +1,220 @@
 ---
-title: Powiązanie modelu w ASP.NET Core
+title: Model Binding in ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, jak działa powiązanie modelu w ASP.NET Core i jak dostosować jego zachowanie.
+description: Learn how model binding in ASP.NET Core works and how to customize its behavior.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: riande
-ms.date: 11/15/2019
+ms.date: 11/21/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: a025419a5b4d2c2e3e5c5a7850df281ddd3164ea
-ms.sourcegitcommit: f91d322f790123d41ec3271fa084ae20ed9f89a6
+ms.openlocfilehash: 823d92c279454fc6c744eebbecf4268412774eba
+ms.sourcegitcommit: a104ba258ae7c0b3ee7c6fa7eaea1ddeb8b6eb73
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155042"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74478710"
 ---
-# <a name="model-binding-in-aspnet-core"></a>Powiązanie modelu w ASP.NET Core
+# <a name="model-binding-in-aspnet-core"></a>Model Binding in ASP.NET Core
 
-W tym artykule wyjaśniono, co to jest powiązanie modelu, jak to działa i jak dostosować jego zachowanie.
+This article explains what model binding is, how it works, and how to customize its behavior.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/model-binding/samples) ([jak pobrać](xref:index#how-to-download-a-sample)).
+[View or download sample code](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/model-binding/samples) ([how to download](xref:index#how-to-download-a-sample)).
 
-## <a name="what-is-model-binding"></a>Co to jest powiązanie modelu
+## <a name="what-is-model-binding"></a>What is Model binding
 
-Kontrolery i strony Razor współpracują z danymi, które pochodzą z żądań HTTP. Na przykład dane trasy mogą dostarczyć klucz rekordu, a pola ogłoszone formularza mogą podawać wartości właściwości modelu. Pisanie kodu w celu pobrania każdej z tych wartości i przekonwertowania ich z ciągów na typy .NET byłoby żmudnym i podatne na błędy. Powiązanie modelu automatyzuje ten proces. System powiązań modelu:
+Controllers and Razor pages work with data that comes from HTTP requests. For example, route data may provide a record key, and posted form fields may provide values for the properties of the model. Writing code to retrieve each of these values and convert them from strings to .NET types would be tedious and error-prone. Model binding automates this process. The model binding system:
 
-* Pobiera dane z różnych źródeł, takich jak dane tras, pola formularzy i ciągi zapytań.
-* Dostarcza dane do kontrolerów i stron Razor w parametrach metod i właściwościach publicznych.
-* Konwertuje dane ciągu na typy .NET.
-* Aktualizuje właściwości typów złożonych.
+* Retrieves data from various sources such as route data, form fields, and query strings.
+* Provides the data to controllers and Razor pages in method parameters and public properties.
+* Converts string data to .NET types.
+* Updates properties of complex types.
 
 ## <a name="example"></a>Przykład
 
-Załóżmy, że masz następującą metodę działania:
+Suppose you have the following action method:
 
 [!code-csharp[](model-binding/samples/2.x/Controllers/PetsController.cs?name=snippet_DogsOnly)]
 
-A aplikacja odbiera żądanie przy użyciu tego adresu URL:
+And the app receives a request with this URL:
 
 ```
 http://contoso.com/api/pets/2?DogsOnly=true
 ```
 
-Powiązanie modelu przechodzi przez następujące kroki, gdy system routingu wybierze metodę akcji:
+Model binding goes through the following steps after the routing system selects the action method:
 
-* Znajduje pierwszy parametr `GetByID`, liczbą całkowitą o nazwie `id`.
-* Wyszukuje dostępne źródła w żądaniu HTTP i odnajduje `id` = "2" w temacie dane trasy.
-* Konwertuje ciąg "2" na liczbę całkowitą 2.
-* Znajduje następny parametr `GetByID`, wartość logiczna o nazwie `dogsOnly`.
-* Wyszukuje źródła i wyszukuje ciąg "DogsOnly = true" w ciągu zapytania. W dopasowaniu nazw nie jest rozróżniana wielkość liter.
-* Konwertuje ciąg "true" na wartość logiczną `true`.
+* Finds the first parameter of `GetByID`, an integer named `id`.
+* Looks through the available sources in the HTTP request and finds `id` = "2" in route data.
+* Converts the string "2" into integer 2.
+* Finds the next parameter of `GetByID`, a boolean named `dogsOnly`.
+* Looks through the sources and finds "DogsOnly=true" in the query string. Name matching is not case-sensitive.
+* Converts the string "true" into boolean `true`.
 
-Struktura następnie wywołuje metodę `GetById`, przekazując wartość 2 dla parametru `id` i `true` dla parametru `dogsOnly`.
+The framework then calls the `GetById` method, passing in 2 for the `id` parameter, and `true` for the `dogsOnly` parameter.
 
-W poprzednim przykładzie elementy docelowe powiązań modelu to parametry metody, które są typami prostymi. Elementy docelowe mogą być również właściwościami typu złożonego. Po pomyślnym powiązaniu każdej właściwości [Walidacja modelu](xref:mvc/models/validation) jest wykonywana dla tej właściwości. Rekord danych powiązanych z modelem oraz wszelkie błędy powiązań lub walidacji są przechowywane w [ControllerBase. ModelState](xref:Microsoft.AspNetCore.Mvc.ControllerBase.ModelState) lub [PageModel. ModelState](xref:Microsoft.AspNetCore.Mvc.ControllerBase.ModelState). Aby dowiedzieć się, czy ten proces zakończył się pomyślnie, aplikacja sprawdza flagę [ModelState. IsValid](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid) .
+In the preceding example, the model binding targets are method parameters that are simple types. Targets may also be the properties of a complex type. After each property is successfully bound, [model validation](xref:mvc/models/validation) occurs for that property. The record of what data is bound to the model, and any binding or validation errors, is stored in [ControllerBase.ModelState](xref:Microsoft.AspNetCore.Mvc.ControllerBase.ModelState) or [PageModel.ModelState](xref:Microsoft.AspNetCore.Mvc.ControllerBase.ModelState). To find out if this process was successful, the app checks the [ModelState.IsValid](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid) flag.
 
 ## <a name="targets"></a>Obiekty docelowe
 
-Powiązanie modelu próbuje znaleźć wartości dla następujących rodzajów obiektów docelowych:
+Model binding tries to find values for the following kinds of targets:
 
-* Parametry metody akcji kontrolera, do której jest kierowane żądanie.
-* Parametry metody obsługi Razor Pages, do której jest kierowane żądanie. 
-* Właściwości publiczne kontrolera lub klasy `PageModel`, jeśli określono przez atrybuty.
+* Parameters of the controller action method that a request is routed to.
+* Parameters of the Razor Pages handler method that a request is routed to. 
+* Public properties of a controller or `PageModel` class, if specified by attributes.
 
-### <a name="bindproperty-attribute"></a>[BindProperty] — atrybut
+### <a name="bindproperty-attribute"></a>[BindProperty] attribute
 
-Można zastosować do właściwości publicznej kontrolera lub klasy `PageModel`, aby spowodować powiązanie modelu z celem tej właściwości:
+Can be applied to a public property of a controller or `PageModel` class to cause model binding to target that property:
 
 [!code-csharp[](model-binding/samples/2.x/Pages/Instructors/Edit.cshtml.cs?name=snippet_BindProperty&highlight=7-8)]
 
-### <a name="bindpropertiesattribute"></a>[BindProperties] — atrybut
+### <a name="bindpropertiesattribute"></a>[BindProperties] attribute
 
-Dostępne w ASP.NET Core 2,1 i nowszych.  Można zastosować do kontrolera lub klasy `PageModel`, aby poinstruować model powiązania do wszystkich właściwości publicznych klasy:
+Available in ASP.NET Core 2.1 and later.  Can be applied to a controller or `PageModel` class to tell model binding to target all public properties of the class:
 
 [!code-csharp[](model-binding/samples/2.x/Pages/Instructors/Create.cshtml.cs?name=snippet_BindProperties&highlight=1-2)]
 
-### <a name="model-binding-for-http-get-requests"></a>Powiązanie modelu dla żądań HTTP GET
+### <a name="model-binding-for-http-get-requests"></a>Model binding for HTTP GET requests
 
-Domyślnie właściwości nie są powiązane z żądaniami HTTP GET. Zazwyczaj wszystkie potrzebne do żądania GET są parametrem identyfikatora rekordu. Identyfikator rekordu służy do wyszukiwania elementu w bazie danych. W związku z tym nie ma potrzeby powiązania właściwości, która przechowuje wystąpienie modelu. W scenariuszach, w których właściwości są powiązane z żądaniami GET, ustaw właściwość `SupportsGet` na `true`:
+By default, properties are not bound for HTTP GET requests. Typically, all you need for a GET request is a record ID parameter. The record ID is used to look up the item in the database. Therefore, there is no need to bind a property that holds an instance of the model. In scenarios where you do want properties bound to data from GET requests, set the `SupportsGet` property to `true`:
 
 [!code-csharp[](model-binding/samples/2.x/Pages/Instructors/Index.cshtml.cs?name=snippet_SupportsGet)]
 
-## <a name="sources"></a>Źródeł
+## <a name="sources"></a>Sources
 
-Domyślnie powiązanie modelu pobiera dane w postaci par klucz-wartość z następujących źródeł w żądaniu HTTP:
+By default, model binding gets data in the form of key-value pairs from the following sources in an HTTP request:
 
-1. Pola formularza 
-1. Treść żądania (dla [kontrolerów, które mają atrybut [ApiController]](xref:web-api/index#binding-source-parameter-inference)).
-1. Dane trasy
-1. Parametry ciągu zapytania
-1. Przekazane pliki 
+1. Form fields
+1. The request body (For [controllers that have the [ApiController] attribute](xref:web-api/index#binding-source-parameter-inference).)
+1. Route data
+1. Query string parameters
+1. Uploaded files
 
-Dla każdego parametru lub właściwości docelowej źródła są skanowane w kolejności wskazanej na tej liście. Istnieje kilka wyjątków:
+For each target parameter or property, the sources are scanned in the order indicated in the preceding list. There are a few exceptions:
 
-* Dane trasy i wartości ciągu zapytania są używane tylko dla typów prostych.
-* Przekazane pliki są powiązane tylko z typami docelowymi, które implementują `IFormFile` lub `IEnumerable<IFormFile>`.
+* Route data and query string values are used only for simple types.
+* Uploaded files are bound only to target types that implement `IFormFile` or `IEnumerable<IFormFile>`.
 
-Jeśli domyślne zachowanie nie daje odpowiednich wyników, można użyć jednego z następujących atrybutów, aby określić źródło do użycia dla danego elementu docelowego. 
+If the default source is not correct, use one of the following attributes to specify the source:
 
-* [[FromQuery]](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute) — pobiera wartości z ciągu zapytania. 
-* [[FromRoute]](xref:Microsoft.AspNetCore.Mvc.FromRouteAttribute) — pobiera wartości z danych trasy.
-* [[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute) — pobiera wartości ze opublikowanych pól formularza.
-* [[FromBody]](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute) — pobiera wartości z treści żądania.
-* [[FromHeader]](xref:Microsoft.AspNetCore.Mvc.FromHeaderAttribute) — pobiera wartości z nagłówków HTTP.
+* [[FromQuery]](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute) - Gets values from the query string. 
+* [[FromRoute]](xref:Microsoft.AspNetCore.Mvc.FromRouteAttribute) - Gets values from route data.
+* [[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute) - Gets values from posted form fields.
+* [[FromBody]](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute) - Gets values from the request body.
+* [[FromHeader]](xref:Microsoft.AspNetCore.Mvc.FromHeaderAttribute) - Gets values from HTTP headers.
 
-Następujące atrybuty:
+These attributes:
 
-* Są dodawane do właściwości modelu pojedynczo (nie do klasy modelu), jak w poniższym przykładzie:
+* Are added to model properties individually (not to the model class), as in the following example:
 
   [!code-csharp[](model-binding/samples/2.x/Models/Instructor.cs?name=snippet_FromQuery&highlight=5-6)]
 
-* Opcjonalnie Zaakceptuj wartość nazwy modelu w konstruktorze. Ta opcja jest dostępna w przypadku, gdy nazwa właściwości nie jest zgodna z wartością w żądaniu. Na przykład wartość w żądaniu może być nagłówkiem z łącznikiem w nazwie, jak w poniższym przykładzie:
+* Optionally accept a model name value in the constructor. This option is provided in case the property name doesn't match the value in the request. For instance, the value in the request might be a header with a hyphen in its name, as in the following example:
 
   [!code-csharp[](model-binding/samples/2.x/Pages/Instructors/Index.cshtml.cs?name=snippet_FromHeader)]
 
-### <a name="frombody-attribute"></a>[FromBody] — atrybut
+### <a name="frombody-attribute"></a>[FromBody] attribute
 
-Dane treści żądania są analizowane przy użyciu wejściowych elementów formatujących specyficznych dla typu zawartości żądania. Dane wejściowe są wyjaśnione [w dalszej części tego artykułu](#input-formatters).
+Apply the `[FromBody]` attribute to a parameter to populate its properties from the body of an HTTP request. The ASP.NET Core runtime delegates the responsibility of reading the body to an input formatter. Input formatters are explained [later in this article](#input-formatters).
 
-Nie stosuj `[FromBody]` do więcej niż jednego parametru na metodę akcji. Środowisko uruchomieniowe ASP.NET Core deleguje odpowiedzialność za odczyt strumienia żądania do wejściowego programu formatującego. Gdy strumień żądania jest odczytywany, nie jest już dostępny do ponownego odczytywania dla powiązań innych `[FromBody]` parametrów.
+When `[FromBody]` is applied to a complex type parameter, any binding source attributes applied to its properties are ignored. For example, the following `Create` action specifies that its `pet` parameter is populated from the body:
 
-### <a name="additional-sources"></a>Dodatkowe źródła
+```csharp
+public ActionResult<Pet> Create([FromBody] Pet pet)
+```
 
-Dane źródłowe są dostarczane do systemu powiązań modelu przez *dostawców wartości*. Można napisać i zarejestrować dostawców wartości niestandardowych, którzy pobierają dane dla powiązania modelu z innych źródeł. Możesz na przykład potrzebować danych z plików cookie lub stanu sesji. Aby pobrać dane z nowego źródła:
+The `Pet` class specifies that its `Breed` property is populated from a query string parameter:
 
-* Utwórz klasę, która implementuje `IValueProvider`.
-* Utwórz klasę, która implementuje `IValueProviderFactory`.
-* Zarejestruj klasę fabryki w `Startup.ConfigureServices`.
+```csharp
+public class Pet
+{
+    public string Name { get; set; }
 
-Przykładowa aplikacja zawiera [dostawcę wartości](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/CookieValueProvider.cs) i przykład [fabryki](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/CookieValueProviderFactory.cs) , który pobiera wartości z plików cookie. Oto kod rejestracyjny w `Startup.ConfigureServices`:
+    [FromQuery] // Attribute is ignored.
+    public string Breed { get; set; }
+}
+```
+
+In the preceding example:
+
+* The `[FromQuery]` attribute is ignored.
+* The `Breed` property is not populated from a query string parameter. 
+
+Input formatters read only the body and don't understand binding source attributes. If a suitable value is found in the body, that value is used to populate the `Breed` property.
+
+Don't apply `[FromBody]` to more than one parameter per action method. Once the request stream is read by an input formatter, it's no longer available to be read again for binding other `[FromBody]` parameters.
+
+### <a name="additional-sources"></a>Additional sources
+
+Source data is provided to the model binding system by *value providers*. You can write and register custom value providers that get data for model binding from other sources. For example, you might want data from cookies or session state. To get data from a new source:
+
+* Create a class that implements `IValueProvider`.
+* Create a class that implements `IValueProviderFactory`.
+* Register the factory class in `Startup.ConfigureServices`.
+
+The sample app includes a [value provider](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/CookieValueProvider.cs) and [factory](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/CookieValueProviderFactory.cs) example that gets values from cookies. Here's the registration code in `Startup.ConfigureServices`:
 
 [!code-csharp[](model-binding/samples/2.x/Startup.cs?name=snippet_ValueProvider&highlight=3)]
 
-Pokazany kod umieszcza niestandardowego dostawcę wartości po wszystkich wbudowanych dostawcach wartości.  Aby najpierw utworzyć ten element na liście, wywołaj `Insert(0, new CookieValueProviderFactory())`, a nie `Add`.
+The code shown puts the custom value provider after all the built-in value providers.  To make it the first in the list, call `Insert(0, new CookieValueProviderFactory())` instead of `Add`.
 
-## <a name="no-source-for-a-model-property"></a>Brak źródła dla właściwości modelu
+## <a name="no-source-for-a-model-property"></a>No source for a model property
 
-Domyślnie błąd stanu modelu nie jest tworzony, jeśli dla właściwości modelu nie znaleziono żadnej wartości. Właściwość jest ustawiona na null lub wartość domyślną:
+By default, a model state error isn't created if no value is found for a model property. The property is set to null or a default value:
 
-* Dla typów prostych dopuszczających wartość null są ustawiane `null`.
-* Typy wartości, które nie są dopuszczane do wartości null, są ustawione na `default(T)`. Na przykład parametr `int id` jest ustawiony na 0.
-* W przypadku typów złożonych powiązanie modelu tworzy wystąpienie przy użyciu domyślnego konstruktora bez ustawiania właściwości.
-* Tablice są ustawione na `Array.Empty<T>()`, z tą różnicą, że `byte[]` tablice są ustawione na `null`.
+* Nullable simple types are set to `null`.
+* Non-nullable value types are set to `default(T)`. For example, a parameter `int id` is set to 0.
+* For complex Types, model binding creates an instance by using the default constructor, without setting properties.
+* Arrays are set to `Array.Empty<T>()`, except that `byte[]` arrays are set to `null`.
 
-Jeśli stan modelu ma być unieważniony, gdy niczego nie znaleziono w polach formularza dla właściwości modelu, użyj [atrybutu [BindRequired]](#bindrequired-attribute).
+If model state should be invalidated when nothing is found in form fields for a model property, use the [[BindRequired] attribute](#bindrequired-attribute).
 
-Należy zauważyć, że to zachowanie `[BindRequired]` ma zastosowanie do powiązania modelu z ogłoszonych danych formularza, nie do danych JSON ani XML w treści żądania. Dane treści żądania są obsługiwane przez elementy [formatujące dane wejściowe](#input-formatters).
+Note that this `[BindRequired]` behavior applies to model binding from posted form data, not to JSON or XML data in a request body. Request body data is handled by [input formatters](#input-formatters).
 
-## <a name="type-conversion-errors"></a>Błędy konwersji typów
+## <a name="type-conversion-errors"></a>Type conversion errors
 
-Jeśli źródło zostanie znalezione, ale nie można go przekonwertować na typ docelowy, stan modelu jest oflagowany jako nieprawidłowy. Parametr lub właściwość docelowa jest ustawiona na null lub wartość domyślną, jak wskazano w poprzedniej sekcji.
+If a source is found but can't be converted into the target type, model state is flagged as invalid. The target parameter or property is set to null or a default value, as noted in the previous section.
 
-W kontrolerze interfejsu API, który ma atrybut `[ApiController]`, nieprawidłowy stan modelu powoduje automatyczne odpowiedź HTTP 400.
+In an API controller that has the `[ApiController]` attribute, invalid model state results in an automatic HTTP 400 response.
 
-Na stronie Razor ponownie Wyświetl stronę z komunikatem o błędzie:
+In a Razor page, redisplay the page with an error message:
 
 [!code-csharp[](model-binding/samples/2.x/Pages/Instructors/Create.cshtml.cs?name=snippet_HandleMBError&highlight=3-6)]
 
-Weryfikacja po stronie klienta przechwytuje najbardziej złe dane, które mogłyby zostać przesłane do Razor Pages formularzu. Ta weryfikacja sprawia, że trudno jest wyzwolić poprzedni wyróżniony kod. Przykładowa aplikacja zawiera przycisk **Prześlij z nieprawidłowym dniem** , który umieszcza złe dane w polu **Data zatrudnienia** i przesyła formularz. Ten przycisk pokazuje, w jaki sposób kod na potrzeby wyświetlania strony działa po wystąpieniu błędów konwersji danych.
+Client-side validation catches most bad data that would otherwise be submitted to a Razor Pages form. This validation makes it hard to trigger the preceding highlighted code. The sample app includes a **Submit with Invalid Date** button that puts bad data in the **Hire Date** field and submits the form. This button shows how the code for redisplaying the page works when data conversion errors occur.
 
-Gdy strona jest ponownie wyświetlana przez poprzedni kod, nieprawidłowe dane wejściowe nie są wyświetlane w polu formularza. Wynika to z faktu, że właściwość model ma wartość null lub domyślną. Nieprawidłowe dane wejściowe są wyświetlane w komunikacie o błędzie. Jeśli jednak chcesz ponownie wyświetlić złe dane w polu formularza, rozważ, że właściwość model jest ciągiem i ręcznie wykonuje konwersję danych.
+When the page is redisplayed by the preceding code, the invalid input is not shown in the form field. This is because the model property has been set to null or a default value. The invalid input does appear in an error message. But if you want to redisplay the bad data in the form field, consider making the model property a string and doing the data conversion manually.
 
-Ta sama strategia jest zalecana, jeśli nie chcesz, aby Błędy konwersji typów powodowały błędy stanu modelu. W takim przypadku należy zmienić wartość właściwości model na ciąg.
+The same strategy is recommended if you don't want type conversion errors to result in model state errors. In that case, make the model property a string.
 
-## <a name="simple-types"></a>Typy proste
+## <a name="simple-types"></a>Simple types
 
-Typy proste, które tworzą spinacz modelu mogą konwertować ciągi źródłowe, w następujący sposób:
+The simple types that the model binder can convert source strings into include the following:
 
-* [Typu](xref:System.ComponentModel.BooleanConverter)
-* [Byte, bajty](xref:System.ComponentModel.ByteConverter) [](xref:System.ComponentModel.SByteConverter)
-* [Delikatn](xref:System.ComponentModel.CharConverter)
-* [Datę](xref:System.ComponentModel.DateTimeConverter)
+* [Boolean](xref:System.ComponentModel.BooleanConverter)
+* [Byte](xref:System.ComponentModel.ByteConverter), [SByte](xref:System.ComponentModel.SByteConverter)
+* [Char](xref:System.ComponentModel.CharConverter)
+* [DateTime](xref:System.ComponentModel.DateTimeConverter)
 * [DateTimeOffset](xref:System.ComponentModel.DateTimeOffsetConverter)
-* [Dokładności](xref:System.ComponentModel.DecimalConverter)
+* [Decimal](xref:System.ComponentModel.DecimalConverter)
 * [Double](xref:System.ComponentModel.DoubleConverter)
-* [Podstawowe](xref:System.ComponentModel.EnumConverter)
-* [Ident](xref:System.ComponentModel.GuidConverter)
+* [Enum](xref:System.ComponentModel.EnumConverter)
+* [Guid](xref:System.ComponentModel.GuidConverter)
 * [Int16](xref:System.ComponentModel.Int16Converter), [Int32](xref:System.ComponentModel.Int32Converter), [Int64](xref:System.ComponentModel.Int64Converter)
-* [Wiersz](xref:System.ComponentModel.SingleConverter)
-* [Czasu](xref:System.ComponentModel.TimeSpanConverter)
+* [Single](xref:System.ComponentModel.SingleConverter)
+* [TimeSpan](xref:System.ComponentModel.TimeSpanConverter)
 * [UInt16](xref:System.ComponentModel.UInt16Converter), [UInt32](xref:System.ComponentModel.UInt32Converter), [UInt64](xref:System.ComponentModel.UInt64Converter)
-* [Adresu](xref:System.UriTypeConverter)
+* [Uri](xref:System.UriTypeConverter)
 * [Wersja](xref:System.ComponentModel.VersionConverter)
 
-## <a name="complex-types"></a>Typy złożone
+## <a name="complex-types"></a>Complex types
 
-Typ złożony musi mieć publiczny Konstruktor domyślny i publiczne właściwości do zapisu do powiązania. W przypadku wystąpienia powiązania modelu Klasa jest tworzona przy użyciu publicznego konstruktora domyślnego. 
+A complex type must have a public default constructor and public writable properties to bind. When model binding occurs, the class is instantiated using the public default constructor. 
 
-Dla każdej właściwości typu złożonego powiązanie modelu przeszukuje źródła dla *prefiksu wzorca nazwy. property_name*. Jeśli nic nie zostanie znalezione, szuka tylko *property_name* bez prefiksu.
+For each property of the complex type, model binding looks through the sources for the name pattern *prefix.property_name*. If nothing is found, it looks for just *property_name* without the prefix.
 
-W przypadku powiązania z parametrem prefiks jest nazwą parametru. W przypadku powiązania do `PageModel` publicznego Właściwość prefiks jest publiczną nazwą właściwości. Niektóre atrybuty mają właściwość `Prefix`, która pozwala zastąpić domyślne użycie parametru lub nazwy właściwości.
+For binding to a parameter, the prefix is the parameter name. For binding to a `PageModel` public property, the prefix is the public property name. Some attributes have a `Prefix` property that lets you override the default usage of parameter or property name.
 
-Na przykład, Załóżmy, że typ złożony jest następującą klasą `Instructor`:
+For example, suppose the complex type is the following `Instructor` class:
 
   ```csharp
   public class Instructor
@@ -200,94 +225,94 @@ Na przykład, Załóżmy, że typ złożony jest następującą klasą `Instruct
   }
   ```
 
-### <a name="prefix--parameter-name"></a>Prefix = Nazwa parametru
+### <a name="prefix--parameter-name"></a>Prefix = parameter name
 
-Jeśli modelem, który ma zostać powiązany, jest parametr o nazwie `instructorToUpdate`:
+If the model to be bound is a parameter named `instructorToUpdate`:
 
 ```csharp
 public IActionResult OnPost(int? id, Instructor instructorToUpdate)
 ```
 
-Powiązanie modelu rozpocznie się, przeglądając źródła klucza `instructorToUpdate.ID`. Jeśli ta wartość nie zostanie znaleziona, szuka `ID` bez prefiksu.
+Model binding starts by looking through the sources for the key `instructorToUpdate.ID`. If that isn't found, it looks for `ID` without a prefix.
 
-### <a name="prefix--property-name"></a>Prefix = nazwa właściwości
+### <a name="prefix--property-name"></a>Prefix = property name
 
-Jeśli modelem, który ma zostać powiązany, jest właściwość o nazwie `Instructor` kontrolera lub klasy `PageModel`:
+If the model to be bound is a property named `Instructor` of the controller or `PageModel` class:
 
 ```csharp
 [BindProperty]
 public Instructor Instructor { get; set; }
 ```
 
-Powiązanie modelu rozpocznie się, przeglądając źródła klucza `Instructor.ID`. Jeśli ta wartość nie zostanie znaleziona, szuka `ID` bez prefiksu.
+Model binding starts by looking through the sources for the key `Instructor.ID`. If that isn't found, it looks for `ID` without a prefix.
 
-### <a name="custom-prefix"></a>Prefiks niestandardowy
+### <a name="custom-prefix"></a>Custom prefix
 
-Jeśli modelem, który ma zostać powiązany, jest parametr o nazwie `instructorToUpdate`, a atrybut `Bind` określa `Instructor` jako prefiks:
+If the model to be bound is a parameter named `instructorToUpdate` and a `Bind` attribute specifies `Instructor` as the prefix:
 
 ```csharp
 public IActionResult OnPost(
     int? id, [Bind(Prefix = "Instructor")] Instructor instructorToUpdate)
 ```
 
-Powiązanie modelu rozpocznie się, przeglądając źródła klucza `Instructor.ID`. Jeśli ta wartość nie zostanie znaleziona, szuka `ID` bez prefiksu.
+Model binding starts by looking through the sources for the key `Instructor.ID`. If that isn't found, it looks for `ID` without a prefix.
 
-### <a name="attributes-for-complex-type-targets"></a>Atrybuty dla obiektów docelowych typu złożonego
+### <a name="attributes-for-complex-type-targets"></a>Attributes for complex type targets
 
-Dostępne są kilka wbudowanych atrybutów do kontrolowania powiązania modelu typów złożonych:
+Several built-in attributes are available for controlling model binding of complex types:
 
 * `[BindRequired]`
 * `[BindNever]`
 * `[Bind]`
 
 > [!NOTE]
-> Te atrybuty wpływają na powiązanie modelu, gdy dane formularza ogłoszonego są źródłem wartości. Nie wpływają one na wejściowe elementy formatujące, które przetwarzają ogłoszone treści kodu JSON i XML. Dane wejściowe są wyjaśnione [w dalszej części tego artykułu](#input-formatters).
+> These attributes affect model binding when posted form data is the source of values. They do not affect input formatters, which process posted JSON and XML request bodies. Input formatters are explained [later in this article](#input-formatters).
 >
-> Zobacz również Omówienie atrybutu `[Required]` w [walidacji modelu](xref:mvc/models/validation#required-attribute).
+> See also the discussion of the `[Required]` attribute in [Model validation](xref:mvc/models/validation#required-attribute).
 
-### <a name="bindrequired-attribute"></a>[BindRequired] — atrybut
+### <a name="bindrequired-attribute"></a>[BindRequired] attribute
 
-Można stosować tylko do właściwości modelu, a nie do parametrów metody. Powoduje, że powiązanie modelu umożliwia dodanie błędu stanu modelu, Jeśli powiązanie nie może wystąpić dla właściwości modelu. Oto przykład:
+Can only be applied to model properties, not to method parameters. Causes model binding to add a model state error if binding cannot occur for a model's property. Oto przykład:
 
 [!code-csharp[](model-binding/samples/2.x/Models/InstructorWithCollection.cs?name=snippet_BindRequired&highlight=8-9)]
 
-### <a name="bindnever-attribute"></a>[BindNever] — atrybut
+### <a name="bindnever-attribute"></a>[BindNever] attribute
 
-Można stosować tylko do właściwości modelu, a nie do parametrów metody. Uniemożliwia powiązanie modelu z ustawiania właściwości modelu. Oto przykład:
+Can only be applied to model properties, not to method parameters. Prevents model binding from setting a model's property. Oto przykład:
 
 [!code-csharp[](model-binding/samples/2.x/Models/InstructorWithDictionary.cs?name=snippet_BindNever&highlight=3-4)]
 
-### <a name="bind-attribute"></a>[Bind] — atrybut
+### <a name="bind-attribute"></a>[Bind] attribute
 
-Można zastosować do klasy lub parametru metody. Określa, które właściwości modelu powinny być dołączone do powiązania modelu.
+Can be applied to a class or a method parameter. Specifies which properties of a model should be included in model binding.
 
-W poniższym przykładzie tylko określone właściwości modelu `Instructor` są powiązane, gdy wywoływana jest jakakolwiek procedura obsługi lub metoda działania:
+In the following example, only the specified properties of the `Instructor` model are bound when any handler or action method is called:
 
 ```csharp
 [Bind("LastName,FirstMidName,HireDate")]
 public class Instructor
 ```
 
-W poniższym przykładzie tylko określone właściwości modelu `Instructor` są powiązane, gdy wywoływana jest metoda `OnPost`:
+In the following example, only the specified properties of the `Instructor` model are bound when the `OnPost` method is called:
 
 ```csharp
 [HttpPost]
 public IActionResult OnPost([Bind("LastName,FirstMidName,HireDate")] Instructor instructor)
 ```
 
-Atrybut `[Bind]` może służyć do ochrony przed nadużyciem w scenariuszach *tworzenia* scenariuszy. Nie działa prawidłowo w scenariuszach edycji, ponieważ wykluczone właściwości mają ustawioną wartość null lub wartość domyślną, a nie jako pozostawione bez zmian. W celu zapewnienia obrony przed przekroczeniem, zaleca się, aby zamiast atrybutu `[Bind]` uzyskać odpowiednie modele. Aby uzyskać więcej informacji, zobacz [temat Security uwagi dotyczący przefinalizowania](xref:data/ef-mvc/crud#security-note-about-overposting).
+The `[Bind]` attribute can be used to protect against overposting in *create* scenarios. It doesn't work well in edit scenarios because excluded properties are set to null or a default value instead of being left unchanged. For defense against overposting, view models are recommended rather than the `[Bind]` attribute. For more information, see [Security note about overposting](xref:data/ef-mvc/crud#security-note-about-overposting).
 
 ## <a name="collections"></a>Kolekcje
 
-Dla celów, które są kolekcjami typów prostych, powiązanie modelu wyszukuje dopasowania do *parameter_name* lub *property_name*. Jeśli dopasowanie nie zostanie znalezione, szuka jednego z obsługiwanych formatów bez prefiksu. Na przykład:
+For targets that are collections of simple types, model binding looks for matches to *parameter_name* or *property_name*. If no match is found, it looks for one of the supported formats without the prefix. Na przykład:
 
-* Załóżmy, że parametr ma być powiązany, jest tablicą o nazwie `selectedCourses`:
+* Suppose the parameter to be bound is an array named `selectedCourses`:
 
   ```csharp
   public IActionResult OnPost(int? id, int[] selectedCourses)
   ```
 
-* Dane formularza lub ciągu zapytania mogą znajdować się w jednym z następujących formatów:
+* Form or query string data can be in one of the following formats:
    
   ```
   selectedCourses=1050&selectedCourses=2000 
@@ -309,30 +334,30 @@ Dla celów, które są kolekcjami typów prostych, powiązanie modelu wyszukuje 
   [a]=1050&[b]=2000&index=a&index=b
   ```
 
-* Następujący format jest obsługiwany tylko w danych formularza:
+* The following format is supported only in form data:
 
   ```
   selectedCourses[]=1050&selectedCourses[]=2000
   ```
 
-* We wszystkich powyższych formatach przykładowe powiązanie modelu przekazuje tablicę dwóch elementów do `selectedCourses` parametru:
+* For all of the preceding example formats, model binding passes an array of two items to the `selectedCourses` parameter:
 
-  * selectedCourses [0] = 1050
-  * selectedCourses [1] = 2000
+  * selectedCourses[0]=1050
+  * selectedCourses[1]=2000
 
-  Formaty danych używające liczb indeksów dolnych (... [0]... [1]...) należy upewnić się, że są numerowane sekwencyjnie, zaczynając od zera. Jeśli występują luki w numerze indeksu dolnego, wszystkie elementy po przerwie zostaną zignorowane. Na przykład, jeśli indeksy dolne są równe 0 i 2 zamiast 0 i 1, drugi element jest ignorowany.
+  Data formats that use subscript numbers (... [0] ... [1] ...) must ensure that they are numbered sequentially starting at zero. If there are any gaps in subscript numbering, all items after the gap are ignored. For example, if the subscripts are 0 and 2 instead of 0 and 1, the second item is ignored.
 
-## <a name="dictionaries"></a>słownik
+## <a name="dictionaries"></a>Dictionaries
 
-Dla `Dictionary` obiektów docelowych powiązanie modelu wyszukuje dopasowania do *parameter_name* lub *property_name*. Jeśli dopasowanie nie zostanie znalezione, szuka jednego z obsługiwanych formatów bez prefiksu. Na przykład:
+For `Dictionary` targets, model binding looks for matches to *parameter_name* or *property_name*. If no match is found, it looks for one of the supported formats without the prefix. Na przykład:
 
-* Załóżmy, że parametr docelowy jest `Dictionary<int, string>` o nazwie `selectedCourses`:
+* Suppose the target parameter is a `Dictionary<int, string>` named `selectedCourses`:
 
   ```csharp
   public IActionResult OnPost(int? id, Dictionary<int, string> selectedCourses)
   ```
 
-* Ogłoszone dane formularza lub ciągu zapytania mogą wyglądać jak w jednym z następujących przykładów:
+* The posted form or query string data can look like one of the following examples:
 
   ```
   selectedCourses[1050]=Chemistry&selectedCourses[2000]=Economics
@@ -351,42 +376,42 @@ Dla `Dictionary` obiektów docelowych powiązanie modelu wyszukuje dopasowania d
   [0].Key=1050&[0].Value=Chemistry&[1].Key=2000&[1].Value=Economics
   ```
 
-* We wszystkich powyższych formatach przykładowe powiązanie modelu przekazuje słownik dwóch elementów do `selectedCourses` parametru:
+* For all of the preceding example formats, model binding passes a dictionary of two items to the `selectedCourses` parameter:
 
-  * selectedCourses ["1050"] = "Chemia"
-  * selectedCourses ["2000"] = "ekonomia"
+  * selectedCourses["1050"]="Chemistry"
+  * selectedCourses["2000"]="Economics"
 
-## <a name="special-data-types"></a>Specjalne typy danych
+## <a name="special-data-types"></a>Special data types
 
-Istnieją specjalne typy danych, które może obsłużyć powiązanie modelu.
+There are some special data types that model binding can handle.
 
-### <a name="iformfile-and-iformfilecollection"></a>IFormFile i IFormFileCollection
+### <a name="iformfile-and-iformfilecollection"></a>IFormFile and IFormFileCollection
 
-Przekazany plik uwzględniony w żądaniu HTTP.  Obsługiwane są również `IEnumerable<IFormFile>` dla wielu plików.
+An uploaded file included in the HTTP request.  Also supported is `IEnumerable<IFormFile>` for multiple files.
 
 ### <a name="cancellationtoken"></a>CancellationToken
 
-Służy do anulowania działania w kontrolerach asynchronicznych.
+Used to cancel activity in asynchronous controllers.
 
-### <a name="formcollection"></a>Formularz
+### <a name="formcollection"></a>FormCollection
 
-Służy do pobierania wszystkich wartości z ogłoszonych danych formularza.
+Used to retrieve all the values from posted form data.
 
-## <a name="input-formatters"></a>Wejściowe elementy formatujące
+## <a name="input-formatters"></a>Input formatters
 
-Dane w treści żądania mogą być w formacie JSON, XML lub innym. Aby przeanalizować te dane, powiązanie modelu korzysta z *wejściowego programu formatującego* , który jest skonfigurowany do obsługi określonego typu zawartości. Domyślnie ASP.NET Core zawiera dane wejściowe w formacie JSON na potrzeby obsługi danych JSON. Można dodać inne elementy formatujące dla innych typów zawartości.
+Data in the request body can be in JSON, XML, or some other format. To parse this data, model binding uses an *input formatter* that is configured to handle a particular content type. By default, ASP.NET Core includes JSON based input formatters for handling JSON data. You can add other formatters for other content types.
 
-ASP.NET Core wybiera wejściowe elementy formatujące na podstawie atrybutu [użycia](xref:Microsoft.AspNetCore.Mvc.ConsumesAttribute) . Jeśli atrybut nie jest obecny, używa [nagłówka Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html).
+ASP.NET Core selects input formatters based on the [Consumes](xref:Microsoft.AspNetCore.Mvc.ConsumesAttribute) attribute. If no attribute is present, it uses the [Content-Type header](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html).
 
-Aby użyć wbudowanych elementów formatujących dane wejściowe XML:
+To use the built-in XML input formatters:
 
-* Zainstaluj pakiet NuGet `Microsoft.AspNetCore.Mvc.Formatters.Xml`.
+* Install the `Microsoft.AspNetCore.Mvc.Formatters.Xml` NuGet package.
 
-* W `Startup.ConfigureServices`Wywołaj <xref:Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions.AddXmlSerializerFormatters*> lub <xref:Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions.AddXmlDataContractSerializerFormatters*>.
+* In `Startup.ConfigureServices`, call <xref:Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions.AddXmlSerializerFormatters*> or <xref:Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions.AddXmlDataContractSerializerFormatters*>.
 
   [!code-csharp[](model-binding/samples/2.x/Startup.cs?name=snippet_ValueProvider&highlight=9)]
 
-* Zastosuj atrybut `Consumes` do klas kontrolera lub metod akcji, które powinny oczekiwać XML w treści żądania.
+* Apply the `Consumes` attribute to controller classes or action methods that should expect XML in the request body.
 
   ```csharp
   [HttpPost]
@@ -394,33 +419,33 @@ Aby użyć wbudowanych elementów formatujących dane wejściowe XML:
   public ActionResult<Pet> Create(Pet pet)
   ```
 
-  Aby uzyskać więcej informacji, zobacz [wprowadzenie serializacji XML](/dotnet/standard/serialization/introducing-xml-serialization).
+  For more information, see [Introducing XML Serialization](/dotnet/standard/serialization/introducing-xml-serialization).
 
-## <a name="exclude-specified-types-from-model-binding"></a>Wyklucz określone typy z powiązania modelu
+## <a name="exclude-specified-types-from-model-binding"></a>Exclude specified types from model binding
 
-Zachowanie modelu powiązań i systemów walidacji jest zależne od [ModelMetadata](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.modelmetadata). `ModelMetadata` można dostosować, dodając dostawcę szczegółów do [MvcOptions. ModelMetadataDetailsProviders](xref:Microsoft.AspNetCore.Mvc.MvcOptions.ModelMetadataDetailsProviders). Wbudowane dostawcy szczegółów są dostępne do wyłączenia powiązania modelu lub walidacji dla określonych typów.
+The model binding and validation systems' behavior is driven by [ModelMetadata](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.modelmetadata). You can customize `ModelMetadata` by adding a details provider to [MvcOptions.ModelMetadataDetailsProviders](xref:Microsoft.AspNetCore.Mvc.MvcOptions.ModelMetadataDetailsProviders). Built-in details providers are available for disabling model binding or validation for specified types.
 
-Aby wyłączyć powiązanie modelu dla wszystkich modeli określonego typu, Dodaj <xref:Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.ExcludeBindingMetadataProvider> w `Startup.ConfigureServices`. Na przykład, aby wyłączyć powiązanie modelu dla wszystkich modeli typu `System.Version`:
+To disable model binding on all models of a specified type, add an <xref:Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.ExcludeBindingMetadataProvider> in `Startup.ConfigureServices`. For example, to disable model binding on all models of type `System.Version`:
 
 [!code-csharp[](model-binding/samples/2.x/Startup.cs?name=snippet_ValueProvider&highlight=4-5)]
 
-Aby wyłączyć walidację właściwości określonego typu, Dodaj <xref:Microsoft.AspNetCore.Mvc.ModelBinding.SuppressChildValidationMetadataProvider> w `Startup.ConfigureServices`. Na przykład aby wyłączyć walidację właściwości typu `System.Guid`:
+To disable validation on properties of a specified type, add a <xref:Microsoft.AspNetCore.Mvc.ModelBinding.SuppressChildValidationMetadataProvider> in `Startup.ConfigureServices`. For example, to disable validation on properties of type `System.Guid`:
 
 [!code-csharp[](model-binding/samples/2.x/Startup.cs?name=snippet_ValueProvider&highlight=6-7)]
 
-## <a name="custom-model-binders"></a>Niestandardowe powiązania modelu
+## <a name="custom-model-binders"></a>Custom model binders
 
-Można rozszerzać powiązania modelu, pisząc niestandardowy spinacz modelu i używając atrybutu `[ModelBinder]`, aby wybrać go dla danego elementu docelowego. Dowiedz się więcej na temat [niestandardowego powiązania modelu](xref:mvc/advanced/custom-model-binding).
+You can extend model binding by writing a custom model binder and using the `[ModelBinder]` attribute to select it for a given target. Learn more about [custom model binding](xref:mvc/advanced/custom-model-binding).
 
-## <a name="manual-model-binding"></a>Ręczne powiązanie modelu
+## <a name="manual-model-binding"></a>Manual model binding
 
-Powiązanie modelu można wywołać ręcznie przy użyciu metody <xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync*>. Metoda jest definiowana dla klas `ControllerBase` i `PageModel`. Przeciążenia metod umożliwiają określenie prefiksu i dostawcy wartości do użycia. Metoda zwraca `false`, Jeśli powiązanie z modelem nie powiedzie się. Oto przykład:
+Model binding can be invoked manually by using the <xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync*> method. The method is defined on both `ControllerBase` and `PageModel` classes. Method overloads let you specify the prefix and value provider to use. The method returns `false` if model binding fails. Oto przykład:
 
 [!code-csharp[](model-binding/samples/2.x/Pages/InstructorsWithCollection/Create.cshtml.cs?name=snippet_TryUpdate&highlight=1-4)]
 
-## <a name="fromservices-attribute"></a>[FromServices] — atrybut
+## <a name="fromservices-attribute"></a>[FromServices] attribute
 
-Nazwa tego atrybutu jest zgodna ze wzorcem atrybutów powiązania modelu, które określają źródło danych. Ale nie informacje o powiązaniu danych od dostawcy wartości. Pobiera wystąpienie typu z kontenera [iniekcji zależności](xref:fundamentals/dependency-injection) . Jego celem jest zapewnienie alternatywy dla iniekcji konstruktorów, gdy potrzebna jest usługa tylko wtedy, gdy jest wywoływana konkretna metoda.
+This attribute's name follows the pattern of model binding attributes that specify a data source. But it's not about binding data from a value provider. It gets an instance of a type from the [dependency injection](xref:fundamentals/dependency-injection) container. Its purpose is to provide an alternative to constructor injection for when you need a service only if a particular method is called.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
