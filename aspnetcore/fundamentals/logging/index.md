@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/19/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: b23e64077290f0f613e904651e4bb640fcbba95d
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
+ms.openlocfilehash: 23ce2d09d2ce9f415ce71bcd7c21c29cb2a040fc
+ms.sourcegitcommit: 918d7000b48a2892750264b852bad9e96a1165a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74289090"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74550362"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Rejestrowanie w programie .NET Core i ASP.NET Core
 
@@ -48,7 +48,7 @@ W aplikacji konsolowej bez hosta Wywołaj metodę rozszerzenia `Add{provider nam
 
 Domyślne ASP.NET Core wywołań szablonów projektu <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder%2A>, które dodaje następujących dostawców rejestrowania:
 
-* Konsola
+* Konsola programu
 * Debugowanie
 * EventSource
 * EventLog (tylko w przypadku uruchamiania w systemie Windows)
@@ -69,7 +69,7 @@ Poprzedzający kod wymaga odwołań do `Microsoft.Extensions.Logging` i `Microso
 
 Domyślny szablon projektu wywołuje <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A>, który dodaje następujących dostawców rejestrowania:
 
-* Konsola
+* Konsola programu
 * Debugowanie
 * EventSource (rozpoczęcie w ASP.NET Core 2,2)
 
@@ -295,9 +295,9 @@ public class Program
 
 ### <a name="no-asynchronous-logger-methods"></a>Brak metod rejestratora asynchronicznego
 
-Rejestracja powinna być tak szybka, że nie jest to koszt wydajności kodu asynchronicznego. Jeśli magazyn danych rejestrowania jest wolny, nie zapisuj go bezpośrednio. Najpierw Rozważ zapisanie komunikatów dziennika do szybkiego sklepu, a następnie przeniesienie ich do wolnego magazynu później. Na przykład jeśli rejestrujesz się do SQL Server, nie chcesz tego robić bezpośrednio w metodzie `Log`, ponieważ metody `Log` są synchroniczne. Zamiast tego można synchronicznie dodawać komunikaty dziennika do kolejki w pamięci, a proces roboczy w tle ściągał komunikaty z kolejki, aby wykonać asynchroniczne działanie wypychania danych do SQL Server.
+Rejestracja powinna być tak szybka, że nie jest to koszt wydajności kodu asynchronicznego. Jeśli magazyn danych rejestrowania jest wolny, nie zapisuj go bezpośrednio. Najpierw Rozważ zapisanie komunikatów dziennika do szybkiego sklepu, a następnie przeniesienie ich do wolnego magazynu później. Na przykład jeśli rejestrujesz się do SQL Server, nie chcesz tego robić bezpośrednio w metodzie `Log`, ponieważ metody `Log` są synchroniczne. Zamiast tego można synchronicznie dodawać komunikaty dziennika do kolejki w pamięci, a proces roboczy w tle ściągał komunikaty z kolejki, aby wykonać asynchroniczne działanie wypychania danych do SQL Server. Aby uzyskać więcej informacji, zobacz [ten](https://github.com/aspnet/AspNetCore.Docs/issues/11801) problem w serwisie GitHub.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 Konfiguracja dostawcy rejestrowania jest świadczona przez co najmniej jednego dostawcę konfiguracji:
 
@@ -744,13 +744,13 @@ Druga `AddFilter` określa dostawcę debugowania za pomocą nazwy typu. Pierwszy
 
 Dane konfiguracji i kod `AddFilter` przedstawiony w powyższych przykładach tworzą reguły przedstawione w poniższej tabeli. Pierwsze sześć pochodzi z przykładu konfiguracji, a ostatnie dwa pochodzą z przykładu kodu.
 
-| Liczba | Dostawca      | Kategorie zaczynające się od...          | Minimalny poziom rejestrowania |
+| Wartość liczbowa | Provider      | Kategorie zaczynające się od...          | Minimalny poziom rejestrowania |
 | :----: | ------------- | --------------------------------------- | ----------------- |
-| 1      | Debugowanie         | Wszystkie kategorie                          | Informacje       |
-| 2      | Konsola       | Microsoft.AspNetCore.Mvc.Razor.Internal | Ostrzeżenie           |
-| 3      | Konsola       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debugowanie             |
-| 4      | Konsola       | Microsoft.AspNetCore.Mvc.Razor          | Błąd             |
-| 5      | Konsola       | Wszystkie kategorie                          | Informacje       |
+| 1      | Debugowanie         | Wszystkie kategorie                          | Informacje programu       |
+| 2      | Konsola programu       | Microsoft. AspNetCore. MVC. Razor. Internal | Ostrzeżenie           |
+| 3      | Konsola programu       | Microsoft. AspNetCore. MVC. Razor. Razor    | Debugowanie             |
+| 4      | Konsola programu       | Microsoft. AspNetCore. MVC. Razor          | Błąd             |
+| 5      | Konsola programu       | Wszystkie kategorie                          | Informacje programu       |
 | 6      | Wszyscy dostawcy | Wszystkie kategorie                          | Debugowanie             |
 | 7      | Wszyscy dostawcy | System                                  | Debugowanie             |
 | 8      | Debugowanie         | Microsoft                               | szuka             |
@@ -775,7 +775,7 @@ Dane wystąpienie `ILogger` wysyła dzienniki poziomu `Trace` i powyżej do dost
 
 Każdy dostawca definiuje *alias* , który może być używany w konfiguracji zamiast w pełni kwalifikowanej nazwy typu.  W przypadku dostawców wbudowanych Użyj następujących aliasów:
 
-* Konsola
+* Konsola programu
 * Debugowanie
 * EventSource
 * Elemencie
@@ -824,15 +824,15 @@ Poniżej przedstawiono niektóre kategorie używane przez ASP.NET Core i Entity 
 
 | Kategoria                            | Uwagi |
 | ----------------------------------- | ----- |
-| Microsoft.AspNetCore                | Ogólna Diagnostyka ASP.NET Core. |
-| Microsoft.AspNetCore.DataProtection | Które klucze zostały wzięte pod uwagę, znaleziono i użyte. |
-| Microsoft.AspNetCore.HostFiltering  | Dozwolone hosty. |
-| Microsoft.AspNetCore.Hosting        | Jak długo trwa wykonywanie żądań HTTP i czas ich uruchomienia. Które hostowanie zestawów uruchamiania zostało załadowane. |
-| Microsoft.AspNetCore.Mvc            | Diagnostyka MVC i Razor. Powiązanie modelu, wykonywanie filtru, kompilacja widoku, wybór akcji. |
-| Microsoft.AspNetCore.Routing        | Informacje o trasie. |
-| Microsoft.AspNetCore.Server         | Reagowanie na uruchamianie, zatrzymywanie i utrzymywanie aktywności. Informacje o certyfikacie HTTPS. |
-| Microsoft.AspNetCore.StaticFiles    | Obsługiwane pliki. |
-| Microsoft.EntityFrameworkCore       | Ogólna Diagnostyka Entity Framework Core. Aktywność i Konfiguracja bazy danych, wykrywanie zmian, migracje. |
+| Microsoft. AspNetCore                | Ogólna Diagnostyka ASP.NET Core. |
+| Microsoft. AspNetCore. dataprotection | Które klucze zostały wzięte pod uwagę, znaleziono i użyte. |
+| Microsoft. AspNetCore. HostFiltering  | Dozwolone hosty. |
+| Microsoft. AspNetCore. hosting        | Jak długo trwa wykonywanie żądań HTTP i czas ich uruchomienia. Które hostowanie zestawów uruchamiania zostało załadowane. |
+| Microsoft. AspNetCore. MVC            | Diagnostyka MVC i Razor. Powiązanie modelu, wykonywanie filtru, kompilacja widoku, wybór akcji. |
+| Microsoft. AspNetCore. Routing        | Informacje o trasie. |
+| Microsoft. AspNetCore. Server         | Reagowanie na uruchamianie, zatrzymywanie i utrzymywanie aktywności. Informacje o certyfikacie HTTPS. |
+| Microsoft. AspNetCore. StaticFiles    | Obsługiwane pliki. |
+| Microsoft. EntityFrameworkCore       | Ogólna Diagnostyka Entity Framework Core. Aktywność i Konfiguracja bazy danych, wykrywanie zmian, migracje. |
 
 ## <a name="log-scopes"></a>Zakresy dziennika
 
@@ -989,7 +989,7 @@ Użyj narzędzi śledzenia dotnet, aby zebrać ślad z aplikacji:
 
    Na platformach innych niż Windows Dodaj opcję `-f speedscope`, aby zmienić format wyjściowego pliku śledzenia na `speedscope`.
 
-   | Słowo kluczowe | Opis |
+   | Kodu | Opis |
    | :-----: | ----------- |
    | 1       | Rejestruj meta zdarzenia dotyczące `LoggingEventSource`. Nie rejestruje zdarzeń z `ILogger`). |
    | 2       | Włącza `Message` zdarzenie, gdy zostanie wywołane `ILogger.Log()`. Zawiera informacje w sposób programistyczny (nie sformatowany). |
@@ -1140,7 +1140,7 @@ Dostawca rejestrowania jest dołączony jako zależność [Microsoft. Applicatio
 
 Nie używaj pakietu [Microsoft. ApplicationInsights. Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) Package&mdash;, który jest przeznaczony dla ASP.NET 4. x.
 
-Aby uzyskać więcej informacji, zobacz następujące zasoby:
+Więcej informacji można znaleźć w następujących zasobach:
 
 * [Przegląd Application Insights](/azure/application-insights/app-insights-overview)
 * [Application Insights dla ASP.NET Core aplikacji](/azure/azure-monitor/app/asp-net-core) — Zacznij tutaj, jeśli chcesz zaimplementować cały zakres Application Insights telemetrii wraz z rejestrowaniem.
