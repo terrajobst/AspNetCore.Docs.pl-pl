@@ -5,17 +5,17 @@ description: Informacje na temat Blazor modeli hostingu i Blazor Server.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/21/2019
+ms.date: 11/23/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/hosting-models
-ms.openlocfilehash: a017737eacd93ac776afe7ee8024eed602d7edcc
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 38db9804c9cdd1aa31ca48af2dd9ec2e85175156
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317228"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74681048"
 ---
 # <a name="aspnet-core-opno-locblazor-hosting-models"></a>ASP.NET Core Blazor modele hostingowe
 
@@ -222,7 +222,7 @@ aplikacje serwera Blazor są domyślnie skonfigurowane, aby wyrównać interfejs
 
 Renderowanie składników serwera ze statyczną stroną HTML nie jest obsługiwane.
 
-Gdy `RenderMode` jest `ServerPrerendered`, składnik jest początkowo renderowany statycznie jako część strony. Gdy przeglądarka nawiąże połączenie z serwerem, składnik jest renderowany *ponownie*, a składnik jest teraz interaktywny. Jeśli istnieje [Metoda cyklu życia](xref:blazor/components#lifecycle-methods) służąca do inicjowania składnika (`OnInitialized{Async}`), metoda jest wykonywana *dwukrotnie*:
+Gdy `RenderMode` jest `ServerPrerendered`, składnik jest początkowo renderowany statycznie jako część strony. Gdy przeglądarka nawiąże połączenie z serwerem, składnik jest renderowany *ponownie*, a składnik jest teraz interaktywny. Jeśli istnieje metoda cyklu życia " [OnInitialized {Async}](xref:blazor/lifecycle#component-initialization-methods) " dla inicjowania składnika, metoda jest wykonywana *dwukrotnie*:
 
 * Gdy składnik jest wstępnie renderowany statycznie.
 * Po nawiązaniu połączenia z serwerem.

@@ -7,32 +7,32 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/07/2019
 uid: mvc/controllers/testing
-ms.openlocfilehash: 7f4fcb1a5d6e9959c751ebe24e41b39ee05a5819
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: 449d8791962e4233d599f364b2e8c922f0975d2f
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799500"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74681100"
 ---
-# <a name="test-controller-logic-in-aspnet-core"></a>Logika kontrolera testów w ASP.NET Core
+# <a name="unit-test-controller-logic-in-aspnet-core"></a>Logika kontrolera testów jednostkowych w ASP.NET Core
 
 Przez [Steve Smith](https://ardalis.com/)
 
 ::: moniker range=">= aspnetcore-3.0"
 
-[Kontrolery](xref:mvc/controllers/actions) odgrywają centralną rolę w dowolnej aplikacji ASP.NET Core MVC. W związku z tym należy mieć pewność, że kontrolery zachowują się zgodnie z oczekiwaniami. Testy automatyczne mogą wykrywać błędy, zanim aplikacja zostanie wdrożona w środowisku produkcyjnym.
-
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/testing/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
-
-## <a name="unit-tests-of-controller-logic"></a>Testy jednostkowe logiki kontrolera
-
 [Testy jednostkowe](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) obejmują testowanie części aplikacji w izolacji z jej infrastruktury i zależności. Podczas logiki kontrolera testów jednostkowych tylko zawartość pojedynczej akcji jest testowana, a nie zachowanie jej zależności lub samego środowiska.
+
+## <a name="unit-testing-controllers"></a>Kontrolery testów jednostkowych
 
 Skonfiguruj testy jednostkowe akcji kontrolera, aby skoncentrować się na zachowaniu kontrolera. Test jednostkowy kontrolera pozwala uniknąć scenariuszy, takich jak [filtry](xref:mvc/controllers/filters), [Routing](xref:fundamentals/routing)i [powiązania modelu](xref:mvc/models/model-binding). Testy, które obejmują interakcje między składnikami, które zbiorczo odpowiadają na żądanie, są obsługiwane przez *testy integracji*. Aby uzyskać więcej informacji na temat testów integracji, zobacz <xref:test/integration-tests>.
 
 Jeśli piszesz filtry niestandardowe i trasy, przetestuj je jednostkowo, a nie jako część testów dla konkretnej akcji kontrolera.
 
-Aby zademonstrować testy jednostkowe kontrolera, przejrzyj następujący kontroler w przykładowej aplikacji. Kontroler Home wyświetla listę sesji burzy mózgów i umożliwia tworzenie nowych sesji burzy mózgów przy użyciu żądania POST:
+Aby zademonstrować testy jednostkowe kontrolera, przejrzyj następujący kontroler w przykładowej aplikacji. 
+
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/testing/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
+
+Kontroler Home wyświetla listę sesji burzy mózgów i umożliwia tworzenie nowych sesji burzy mózgów przy użyciu żądania POST:
 
 [!code-csharp[](testing/samples/3.x/TestingControllersSample/src/TestingControllersSample/Controllers/HomeController.cs?name=snippet_HomeController&highlight=1,5,10,31-32)]
 
@@ -45,7 +45,7 @@ Poprzedni kontroler:
 Metoda `HTTP GET Index` nie ma pętli ani rozgałęziania i wywołuje tylko jedną metodę. Test jednostkowy dla tej akcji:
 
 * Program umożliwia imitację usługi `IBrainstormSessionRepository` przy użyciu metody `GetTestSessions`. `GetTestSessions` tworzy dwie sesje z burzą mózgów z datami i nazwami sesji.
-* Wykonuje metodę `Index`.
+* Wywołuje metodę `Index`.
 * Wykonuje potwierdzenia w wyniku zwróconym przez metodę:
   * Zostanie zwrócona <xref:Microsoft.AspNetCore.Mvc.ViewResult>.
   * [ViewDataDictionary. model](xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary.Model*) to `StormSessionViewModel`.
@@ -208,7 +208,7 @@ Poprzedni kontroler:
 Metoda `HTTP GET Index` nie ma pętli ani rozgałęziania i wywołuje tylko jedną metodę. Test jednostkowy dla tej akcji:
 
 * Program umożliwia imitację usługi `IBrainstormSessionRepository` przy użyciu metody `GetTestSessions`. `GetTestSessions` tworzy dwie sesje z burzą mózgów z datami i nazwami sesji.
-* Wykonuje metodę `Index`.
+* Wywołuje metodę `Index`.
 * Wykonuje potwierdzenia w wyniku zwróconym przez metodę:
   * Zostanie zwrócona <xref:Microsoft.AspNetCore.Mvc.ViewResult>.
   * [ViewDataDictionary. model](xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary.Model*) to `StormSessionViewModel`.

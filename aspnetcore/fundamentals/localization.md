@@ -3,14 +3,14 @@ title: Globalizacja i lokalizacja w ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak ASP.NET Core udostępnia usługi i oprogramowanie pośredniczące do lokalizowania zawartości w różnych językach i kulturach.
 ms.author: riande
-ms.date: 01/14/2017
+ms.date: 11/30/2019
 uid: fundamentals/localization
-ms.openlocfilehash: 36235e305037c0bbf20093327e2a0ff21b3de809
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 391786498dc7088f3a06915128f23b2c0e734656
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963666"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74681113"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizacja i lokalizacja w ASP.NET Core
 
@@ -276,7 +276,7 @@ Jeśli określisz tylko jedną z informacji o kulturze i kulturze interfejsu uż
 
 6. Naciśnij pozycję język, a następnie naciśnij pozycję **Przenieś w górę**.
 
-::: moniker range=">= aspnetcore-3.0"
+::: moniker range=">= aspnetcore-3.1"
 ### <a name="the-content-language-http-header"></a>Nagłówek HTTP w języku zawartości
 
 Nagłówek jednostki [zawartości w języku](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Language) :
@@ -286,12 +286,12 @@ Nagłówek jednostki [zawartości w języku](https://developer.mozilla.org/en-US
 
 Nagłówki jednostek są używane w żądaniach i odpowiedziach HTTP.
 
-W ASP.NET Core 3,0 nagłówek `Content-Language` można dodać, ustawiając właściwość `ApplyCurrentCultureToResponseHeaders`.
+Nagłówek `Content-Language` można dodać przez ustawienie `ApplyCurrentCultureToResponseHeaders`właściwości.
 
 Dodawanie nagłówka `Content-Language`:
 
- - Zezwala RequestLocalizationMiddleware na ustawienie `Content-Language` nagłówka z `CurrentUICulture`.
- - Eliminuje konieczność ustawienia nagłówka odpowiedzi `Content-Language` jawnie.
+ - Zezwala RequestLocalizationMiddleware na ustawienie nagłówka `Content-Language` przy użyciu `CurrentUICulture`.
+ - Eliminuje konieczność jawnego ustawienia nagłówka odpowiedzi `Content-Language`.
 
 ```csharp
 app.UseRequestLocalization(new RequestLocalizationOptions
@@ -407,5 +407,4 @@ Odsetk
 * [Globalizacja i lokalizowanie aplikacji platformy .NET](/dotnet/standard/globalization-localization/index)
 * [Zasoby w plikach resx](/dotnet/framework/resources/working-with-resx-files-programmatically)
 * [Zestaw Microsoft Multilingual App Toolkit](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308)
-* [Lokalizacje & typy ogólne](https://github.com/hishamco/hishambinateya.com/blob/master/Posts/localization-and-generics.md)
-* [Co nowego w lokalizacji w ASP.NET Core 3,0](http://hishambinateya.com/what-is-new-in-localization-in-asp.net-core-3.0)
+* [Lokalizacje & typy ogólne](http://hishambinateya.com/localization-and-generics)

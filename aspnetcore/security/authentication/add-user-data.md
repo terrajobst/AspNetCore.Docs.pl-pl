@@ -1,44 +1,69 @@
 ---
-title: Dodawanie, pobieranie i usuwanie danych tożsamości użytkownika w projekcie platformy ASP.NET Core
+title: Dodawanie, pobieranie i usuwanie danych użytkownika do tożsamości w projekcie ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, jak dodać danych niestandardowych użytkownika w tożsamości w projektach programu ASP.NET Core. Usuń dane na RODO.
+description: Dowiedz się, jak dodać niestandardowe dane użytkownika do tożsamości w projekcie ASP.NET Core. Usuń dane na Rodo.
 ms.author: riande
 ms.date: 06/18/2019
 ms.custom: mvc, seodec18
 uid: security/authentication/add-user-data
-ms.openlocfilehash: f5a47ffd2e068414268ed9037d4376bfd21ba1bb
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 6daca5776930f80eec8d81132b5a5c4d4d5c13ad
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080811"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74681165"
 ---
-# <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>Dodawanie, pobieranie i usuwanie danych niestandardowych użytkownika w tożsamości w projektach programu ASP.NET Core
+# <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>Dodawanie, pobieranie i usuwanie niestandardowych danych użytkownika do tożsamości w projekcie ASP.NET Core
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-W tym artykule przedstawiono sposób:
+W tym artykule pokazano, jak:
 
-* Dodawanie danych niestandardowych użytkownika do aplikacji sieci web platformy ASP.NET Core.
-* Dekorować niestandardowy model danych użytkownika przy użyciu <xref:Microsoft.AspNetCore.Identity.PersonalDataAttribute> atrybutu, aby był on automatycznie dostępny do pobrania i usunięcia. Udostępnianie danych może zostać pobrana i usunąć pomaga spełnić wymagania [RODO](xref:security/gdpr) wymagania.
+* Dodawanie niestandardowych danych użytkownika do aplikacji sieci Web ASP.NET Core.
+* Dekorować niestandardowy model danych użytkownika przy użyciu atrybutu <xref:Microsoft.AspNetCore.Identity.PersonalDataAttribute>, aby był on automatycznie dostępny do pobrania i usunięcia. Aby można było pobrać i usunąć dane, można spełnić wymagania [Rodo](xref:security/gdpr) .
 
-Przykładowy projekt jest tworzony na podstawie aplikacja internetowa ze stronami Razor, ale instrukcje są podobne dla aplikacji sieci web platformy ASP.NET Core MVC.
+Przykład projektu jest tworzony na podstawie Razor Pages aplikacji sieci Web, ale instrukcje są podobne do ASP.NET Core aplikacji sieci Web MVC.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/add-user-data) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/add-user-data) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
+::: moniker range=">= aspnetcore-3.0"
+
+[!INCLUDE [](~/includes/3.0-SDK.md)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 [!INCLUDE [](~/includes/2.2-SDK.md)]
 
-## <a name="create-a-razor-web-app"></a>Tworzenie aplikacji sieci web Razor
+::: moniker-end
+
+## <a name="create-a-razor-web-app"></a>Tworzenie aplikacji sieci Web Razor
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* W programie Visual Studio **pliku** menu, wybierz opcję **New** > **projektu**. Nadaj projektowi nazwę **WebApp1** Jeśli chcesz go odpowiada przestrzeni nazw z [Pobierz przykładowe](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/authentication/add-user-data) kodu.
-* Wybierz **aplikacji sieci Web platformy ASP.NET Core** > **OK**
+::: moniker range=">= aspnetcore-3.0"
+
+* Z menu **plik** programu Visual Studio wybierz pozycję **Nowy** **projekt** > . Nadaj projektowi nazwę **WebApp1** , jeśli chcesz dopasować ją do przestrzeni nazw [przykładowego kodu pobierania](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/authentication/add-user-data) .
+* Wybierz **ASP.NET Core aplikację sieci Web** > **OK**
+* Na liście rozwijanej wybierz pozycję **ASP.NET Core 3,0**
+* Wybierz **aplikację sieci Web** > **OK**
+* Skompiluj i Uruchom projekt.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+* Z menu **plik** programu Visual Studio wybierz pozycję **Nowy** **projekt** > . Nadaj projektowi nazwę **WebApp1** , jeśli chcesz dopasować ją do przestrzeni nazw [przykładowego kodu pobierania](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/authentication/add-user-data) .
+* Wybierz **ASP.NET Core aplikację sieci Web** > **OK**
 * Na liście rozwijanej wybierz pozycję **ASP.NET Core 2,2**
-* Wybierz **aplikacji sieci Web**  > **OK**
-* Skompiluj i uruchom projekt.
+* Wybierz **aplikację sieci Web** > **OK**
+* Skompiluj i Uruchom projekt.
+
+::: moniker-end
+
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
@@ -48,43 +73,43 @@ dotnet new webapp -o WebApp1
 
 ---
 
-## <a name="run-the-identity-scaffolder"></a>Uruchom Generator szkieletu tożsamości
+## <a name="run-the-identity-scaffolder"></a>Uruchamianie szkieletu tożsamości
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Z **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy na Projekt > **Dodaj** > **nowy element szkieletu**.
-* W okienku po lewej stronie **Dodawanie szkieletu** okno dialogowe, wybierz opcję **tożsamości** > **Dodaj**.
-* W **tożsamość usługi ADD** okno dialogowe, następujące opcje:
-  * Wybierz istniejący plik układu *~/Pages/Shared/_Layout.cshtml*
-  * Wybierz następujące pliki do zastąpienia:
-    * **Konto/rejestrowanie**
-    * **Konto zarządzania/indeks**
-  * Wybierz **+** przycisk, aby utworzyć nową **klasa kontekstu danych**. Akceptuje typu (**WebApp1.Models.WebApp1Context** Jeśli projekt nazwano **WebApp1**).
-  * Wybierz **+** przycisk, aby utworzyć nową **klasy użytkownika**. Akceptuje typu (**WebApp1User** Jeśli projekt nazwano **WebApp1**) > **Dodaj**.
-* Wybierz **Dodaj**.
+* W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt > **Dodaj** > **nowy element szkieletowy**.
+* W lewym okienku okna dialogowego **Dodawanie szkieletu** wybierz pozycję **tożsamość** > **Dodaj**.
+* W oknie dialogowym **Dodawanie tożsamości** można wykonać następujące czynności:
+  * Wybierz istniejący plik układu *~/Pages/Shared/_Layout. cshtml*
+  * Wybierz następujące pliki do przesłonięcia:
+    * **Konto/rejestr**
+    * **Konto/Zarządzanie/indeks**
+  * Wybierz przycisk **+** , aby utworzyć nową **klasę kontekstu danych**. Zaakceptuj typ (**WebApp1. models. WebApp1Context** , jeśli projekt jest nazwany **WebApp1**).
+  * Wybierz przycisk **+** , aby utworzyć nową **klasę użytkownika**. Zaakceptuj typ (**WebApp1User** , jeśli projekt ma nazwę **WebApp1**) > **Dodaj**.
+* Wybierz pozycję **Dodaj**.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Jeśli nie zainstalowano wcześniej Generator szkieletu ASP.NET Core, zainstalowanie go teraz:
+Jeśli jeszcze nie zainstalowano szkieletu ASP.NET Core, zainstaluj go teraz:
 
 ```dotnetcli
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
-Dodaj odwołanie do pakietu [Microsoft.VisualStudio.Web.CodeGeneration.Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) do pliku projektu (.csproj). Uruchom następujące polecenie w katalogu projektu:
+Dodaj odwołanie do pakietu do [Microsoft. VisualStudio. Web. CodeGeneration. Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) do pliku projektu (. csproj). Uruchom następujące polecenie w katalogu projektu:
 
 ```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
 ```
 
-Uruchom następujące polecenie, aby wyświetlić listę opcji Generator szkieletu tożsamości:
+Uruchom następujące polecenie, aby wyświetlić listę opcji szkieletu tożsamości:
 
 ```dotnetcli
 dotnet aspnet-codegenerator identity -h
 ```
 
-W folderze projektu Uruchom Generator szkieletu tożsamości:
+W folderze projektu uruchom program Identity rusztowaer:
 
 ```dotnetcli
 dotnet aspnet-codegenerator identity -u WebApp1User -fi Account.Register;Account.Manage.Index
@@ -92,56 +117,95 @@ dotnet aspnet-codegenerator identity -u WebApp1User -fi Account.Register;Account
 
 ---
 
-Postępuj zgodnie z instrukcjami w [migracje, UseAuthentication i układ](xref:security/authentication/scaffold-identity#efm) można wykonać następujące czynności:
+Postępuj zgodnie z instrukcjami w sekcji [migracje, UseAuthentication i układ](xref:security/authentication/scaffold-identity#efm) , aby wykonać następujące czynności:
 
-* Utwórz migracji i aktualizują bazę danych.
+* Utwórz migrację i zaktualizuj bazę danych.
 * Add `UseAuthentication` to `Startup.Configure`.
 * Dodaj `<partial name="_LoginPartial" />` do pliku układu.
-* Testowanie aplikacji:
+* Przetestuj aplikację:
   * Rejestrowanie użytkownika
-  * Wybierz nową nazwę użytkownika (obok **wylogowania** link). Może być konieczne, rozwiń okno lub wybierz ikonę paska nawigacji, aby pokazać, nazwę użytkownika i inne łącza.
-  * Wybierz **danych osobowych** kartę.
-  * Wybierz **Pobierz** przycisk i zbadać *PersonalData.json* pliku.
-  * Test **Usuń** przycisk, który usuwa zalogowanego użytkownika.
+  * Wybierz nową nazwę użytkownika (obok linku **wylogowania** ). Może być konieczne rozszerzenie okna lub wybranie ikony paska nawigacyjnego, aby wyświetlić nazwę użytkownika i inne linki.
+  * Wybierz kartę **dane osobowe** .
+  * Wybierz przycisk **Pobierz** i zbadaj plik *personaldata. JSON* .
+  * Przetestuj przycisk **Usuń** , który spowoduje usunięcie zalogowanego użytkownika.
 
-## <a name="add-custom-user-data-to-the-identity-db"></a>Dodawanie danych niestandardowych użytkownika do bazy danych tożsamości
+## <a name="add-custom-user-data-to-the-identity-db"></a>Dodawanie niestandardowych danych użytkownika do bazy danych tożsamości
 
-Aktualizacja `IdentityUser` pochodne klasy przy użyciu właściwości niestandardowych. Jeśli nazwę projektu WebApp1, plik nosi *Areas/Identity/Data/WebApp1User.cs*. Aktualizowanie pliku następującym kodem:
+Zaktualizuj klasę pochodną `IdentityUser` przy użyciu właściwości niestandardowych. Jeśli nazwa projektu WebApp1, plik ma nazwę *obszary/tożsamość/Data/WebApp1User. cs*. Zaktualizuj plik przy użyciu następującego kodu:
 
-[!code-csharp[Main](add-user-data/sample-2.2/Areas/Identity/Data/WebApp1User.cs)]
+::: moniker range=">= aspnetcore-3.0"
 
-Właściwości ozdobione [PersonalData](/dotnet/api/microsoft.aspnetcore.identity.personaldataattribute?view=aspnetcore-2.1) atrybutu:
+[!code-csharp[](add-user-data/samples/3.x/SampleApp/Areas/Identity/Data/WebApp1User.cs)]
 
-* Usuwane, gdy *Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml* wywołuje strony Razor `UserManager.Delete`.
-* Uwzględnione w danych pobranych przez *Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml* strona Razor.
+::: moniker-end
 
-### <a name="update-the-accountmanageindexcshtml-page"></a>Aktualizuj stronę Account/Manage/Index.cshtml
+::: moniker range="< aspnetcore-3.0"
 
-Aktualizacja `InputModel` w *Areas/Identity/Pages/Account/Manage/Index.cshtml.cs* przy użyciu następujących wyróżniony kod:
+[!code-csharp[](add-user-data/samples/2.x/SampleApp/Areas/Identity/Data/WebApp1User.cs)]
 
-[!code-csharp[Main](add-user-data/sample-2.2/Areas/Identity/Pages/Account/Manage/Index.cshtml.cs?name=snippet&highlight=28-36,63-64,98-106,119)]
+::: moniker-end
 
-Aktualizacja *Areas/Identity/Pages/Account/Manage/Index.cshtml* z następujący wyróżniony kod znaczników:
+Właściwości oznaczone atrybutem [personaldata](/dotnet/api/microsoft.aspnetcore.identity.personaldataattribute) są następujące:
 
-[!code-html[Main](add-user-data/sample-2.2/Areas/Identity/Pages/Account/Manage/Index.cshtml?highlight=35-42)]
+* Usunięte, gdy strona Razor *obszary/tożsamość/Pages/Account/Manage/DeletePersonalData. cshtml* jest wywoływana `UserManager.Delete`.
+* Zawarte w pobranych danych przez stronę *obszary/tożsamość/strony/konto/Zarządzanie/DownloadPersonalData. cshtml* Razor.
 
-### <a name="update-the-accountregistercshtml-page"></a>Aktualizuj stronę Account/Register.cshtml
+### <a name="update-the-accountmanageindexcshtml-page"></a>Aktualizowanie strony account/Manage/index. cshtml
 
-Aktualizacja `InputModel` w *Areas/Identity/Pages/Account/Register.cshtml.cs* przy użyciu następujących wyróżniony kod:
+Zaktualizuj `InputModel` w *obszarze obszary/tożsamość/strony/konto/Zarządzanie/index. cshtml. cs* przy użyciu następującego wyróżnionego kodu:
 
-[!code-csharp[Main](add-user-data/sample-2.2/Areas/Identity/Pages/Account/Register.cshtml.cs?name=snippet&highlight=28-36,67,66)]
+::: moniker range=">= aspnetcore-3.0"
 
-Aktualizacja *Areas/Identity/Pages/Account/Register.cshtml* z następujący wyróżniony kod znaczników:
+[!code-csharp[](add-user-data/samples/3.x/SampleApp/Areas/Identity/Pages/Account/Manage/Index.cshtml.cs?name=snippet&highlight=24-32,48-49,96-104,106)]
 
-[!code-html[Main](add-user-data/sample-2.2/Areas/Identity/Pages/Account/Register.cshtml?highlight=16-25)]
+Zaktualizuj *obszary/tożsamość/strony/konto/Zarządzanie/index. cshtml* przy użyciu następującego wyróżnionego znacznika:
+
+[!code-cshtml[](add-user-data/samples/3.x/SampleApp/Areas/Identity/Pages/Account/Manage/Index.cshtml?highlight=18-25)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+[!code-csharp[](add-user-data/samples/2.x/SampleApp/Areas/Identity/Pages/Account/Manage/Index.cshtml.cs?name=snippet&highlight=28-36,63-64,98-106,119)]
+
+Zaktualizuj *obszary/tożsamość/strony/konto/Zarządzanie/index. cshtml* przy użyciu następującego wyróżnionego znacznika:
+
+[!code-chtml[](add-user-data/samples/2.x/SampleApp/Areas/Identity/Pages/Account/Manage/Index.cshtml?highlight=35-42)]
+
+::: moniker-end
+
+### <a name="update-the-accountregistercshtml-page"></a>Aktualizowanie strony account/register. cshtml
+
+Zaktualizuj `InputModel` w *obszarach/Identity/Pages/Account/register. cshtml. cs* przy użyciu następującego wyróżnionego kodu:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](add-user-data/samples/3.x/SampleApp/Areas/Identity/Pages/Account/Register.cshtml.cs?name=snippet&highlight=30-38,70-71)]
+
+Zaktualizuj *obszary/tożsamość/strony/account/register. cshtml* przy użyciu następującego wyróżnionego znacznika:
+
+[!code-cshtml[](add-user-data/samples/3.x/SampleApp/Areas/Identity/Pages/Account/Register.cshtml?highlight=16-25)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+[!code-csharp[](add-user-data/samples/2.x/SampleApp/Areas/Identity/Pages/Account/Register.cshtml.cs?name=snippet&highlight=28-36,67,66)]
+
+Zaktualizuj *obszary/tożsamość/strony/account/register. cshtml* przy użyciu następującego wyróżnionego znacznika:
+
+[!code-chtml[](add-user-data/samples/2.x/SampleApp/Areas/Identity/Pages/Account/Register.cshtml?highlight=16-25)]
+
+::: moniker-end
+
 
 Skompiluj projekt.
 
-### <a name="add-a-migration-for-the-custom-user-data"></a>Dodaj migrację danych niestandardowych użytkownika
+### <a name="add-a-migration-for-the-custom-user-data"></a>Dodawanie migracji niestandardowych danych użytkownika
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-W programie Visual Studio **Konsola Menedżera pakietów**:
+W **konsoli Menedżera pakietów**programu Visual Studio:
 
 ```powershell
 Add-Migration CustomUserData
@@ -157,10 +221,10 @@ dotnet ef database update
 
 ---
 
-## <a name="test-create-view-download-delete-custom-user-data"></a>Test tworzenie, wyświetlanie, pobieranie i usuwanie danych niestandardowych użytkownika
+## <a name="test-create-view-download-delete-custom-user-data"></a>Testowanie tworzenia, wyświetlania, pobierania, usuwania niestandardowych danych użytkownika
 
-Testowanie aplikacji:
+Przetestuj aplikację:
 
-* Rejestrowanie nowego użytkownika.
-* Wyświetlanie danych niestandardowych użytkownika na `/Identity/Account/Manage` strony.
-* Pobieranie i wyświetlanie danych osobowych użytkowników z `/Identity/Account/Manage/PersonalData` strony.
+* Zarejestruj nowego użytkownika.
+* Wyświetlanie niestandardowych danych użytkownika na stronie `/Identity/Account/Manage`.
+* Pobierz i Przejrzyj dane osobowe użytkowników na stronie `/Identity/Account/Manage/PersonalData`.

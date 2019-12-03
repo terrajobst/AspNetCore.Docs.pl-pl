@@ -5,17 +5,17 @@ description: Odkryj, jak ASP.NET Core Blazor sposób, w jaki Blazor zarządza ni
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/21/2019
+ms.date: 11/23/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: f2fa59259f1dd36f50e81256bddea265e347554b
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 9784b357c2cdeb7422bbe40a39f881c97f6d716a
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317153"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74680996"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>Obsługa błędów w aplikacjach Blazor ASP.NET Core
 
@@ -122,7 +122,7 @@ Obwód kończy się niepowodzeniem, gdy dowolny wykonany Konstruktor lub setter 
 
 ### <a name="lifecycle-methods"></a>Metody cyklu życia
 
-W trakcie okresu istnienia składnika Blazor wywołuje metody cyklu życia:
+W trakcie okresu istnienia składnika Blazor wywołuje [metody cyklu życia](xref:blazor/lifecycle):
 
 * `OnInitialized` / `OnInitializedAsync`
 * `OnParametersSet` / `OnParametersSetAsync`
@@ -173,7 +173,7 @@ Składnik może zostać usunięty z interfejsu użytkownika, na przykład, ponie
 
 Jeśli metoda `Dispose` składnika zgłasza nieobsługiwany wyjątek, wyjątek jest krytyczny dla obwodu. Jeśli logika usuwania może generować wyjątki, aplikacja powinna zalewkować wyjątki przy użyciu instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem.
 
-Aby uzyskać więcej informacji na temat usuwania składników, zobacz <xref:blazor/components#component-disposal-with-idisposable>.
+Aby uzyskać więcej informacji na temat usuwania składników, zobacz <xref:blazor/lifecycle#component-disposal-with-idisposable>.
 
 ### <a name="javascript-interop"></a>Międzyoperacyjność w języku JavaScript
 

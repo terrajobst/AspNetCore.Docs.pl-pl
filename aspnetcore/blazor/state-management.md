@@ -5,16 +5,16 @@ description: Dowiedz się, jak utrwalać stan w aplikacjach Blazor Server.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 11/23/2019
 no-loc:
 - Blazor
 uid: blazor/state-management
-ms.openlocfilehash: 38ee5fccdf476f08c9f39d01b53c81b48eea04bf
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: facd6c2747bb0b31404c3c4fce25b76cd141932e
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317183"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74680983"
 ---
 # <a name="aspnet-core-opno-locblazor-state-management"></a>Zarządzanie stanem Blazor ASP.NET Core
 
@@ -74,7 +74,7 @@ Trzy Popularne lokalizacje istnieją dla stanu utrwalania w aplikacji Blazor Ser
 
 ### <a name="server-side-in-a-database"></a>Po stronie serwera w bazie danych
 
-W przypadku trwałych trwałości danych lub wszelkich danych, które muszą obejmować wiele użytkowników lub urządzeń, niezależna baza danych po stronie serwera prawie najlepiej sprawdza się. Opcje obejmują:
+W przypadku trwałych trwałości danych lub wszelkich danych, które muszą obejmować wiele użytkowników lub urządzeń, niezależna baza danych po stronie serwera prawie najlepiej sprawdza się. Dostępne opcje:
 
 * Relacyjna baza danych SQL
 * Magazyn kluczy i wartości
@@ -85,7 +85,7 @@ Po zapisaniu danych w bazie danych nowy obwód może być uruchamiany przez uży
 
 Aby uzyskać więcej informacji na temat opcji usługi Azure Data Storage, zobacz [dokumentację usługi Azure Storage](/azure/storage/) i [bazy danych platformy Azure](https://azure.microsoft.com/product-categories/databases/).
 
-### <a name="url"></a>Adres URL
+### <a name="url"></a>{1&gt;URL&lt;1}
 
 W przypadku danych przejściowych reprezentujących stan nawigacji należy modelować dane w ramach adresu URL. Przykłady stanu modelu w adresie URL obejmują:
 
@@ -138,7 +138,7 @@ Przykładem pakietu NuGet, który zapewnia [ochronę danych](xref:security/data-
 > [!WARNING]
 > `Microsoft.AspNetCore.ProtectedBrowserStorage` jest nieobsługiwanym pakietem eksperymentalnym nieodpowiedninym do użycia w środowisku produkcyjnym.
 
-### <a name="installation"></a>Instalacja
+### <a name="installation"></a>Instalacja programu
 
 Aby zainstalować pakiet `Microsoft.AspNetCore.ProtectedBrowserStorage`:
 
@@ -194,7 +194,7 @@ protected override async Task OnInitializedAsync()
 }
 ```
 
-Jeśli parametry składnika obejmują stan nawigacji, wywołaj `ProtectedSessionStore.GetAsync` i przypisz wynik do `OnParametersSetAsync`, a nie `OnInitializedAsync`. `OnInitializedAsync` jest wywoływana tylko raz podczas pierwszego wystąpienia składnika. `OnInitializedAsync` nie zostanie wywołane ponownie później, jeśli użytkownik przejdzie do innego adresu URL, a pozostałe na tej samej stronie.
+Jeśli parametry składnika obejmują stan nawigacji, wywołaj `ProtectedSessionStore.GetAsync` i przypisz wynik do `OnParametersSetAsync`, a nie `OnInitializedAsync`. `OnInitializedAsync` jest wywoływana tylko raz podczas pierwszego wystąpienia składnika. `OnInitializedAsync` nie zostanie wywołane ponownie później, jeśli użytkownik przejdzie do innego adresu URL, a pozostałe na tej samej stronie. Aby uzyskać więcej informacji, zobacz temat <xref:blazor/lifecycle>.
 
 > [!WARNING]
 > Przykłady w tej sekcji działają tylko wtedy, gdy serwer nie ma włączonej obsługi przed renderowaniem. Po włączeniu obsługi przed renderowaniem zostanie wygenerowany błąd podobny do:

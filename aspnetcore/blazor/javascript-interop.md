@@ -5,16 +5,16 @@ description: Dowiedz się, jak wywoływać funkcje języka JavaScript z technolo
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/21/2019
+ms.date: 11/23/2019
 no-loc:
 - Blazor
 uid: blazor/javascript-interop
-ms.openlocfilehash: f55eda512f8dcf0695c2e7f4655db83b26ea4159
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 79555ca6c987e2ca57e0cfab9779024498fdd58b
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317197"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74681031"
 ---
 # <a name="aspnet-core-opno-locblazor-javascript-interop"></a>ASP.NET Core Blazor JavaScript Interop
 
@@ -199,7 +199,7 @@ Metoda jest wywoływana bezpośrednio dla obiektu. W poniższym przykładzie prz
 [!code-cshtml[](javascript-interop/samples_snapshot/component2.razor?highlight=1,4,12)]
 
 > [!IMPORTANT]
-> Zmienna `username` jest wypełniana tylko po wyrenderowaniu składnika. Jeśli niewypełniony `ElementReference` jest przekazywane do kodu JavaScript, kod JavaScript otrzymuje wartość `null`. Aby manipulować odwołaniami do elementów po zakończeniu renderowania składnika (aby ustawić początkowy fokus w elemencie), użyj [metody cyklu życia](xref:blazor/components#lifecycle-methods)`OnAfterRenderAsync` lub `OnAfterRender` składnika.
+> Zmienna `username` jest wypełniana tylko po wyrenderowaniu składnika. Jeśli niewypełniony `ElementReference` jest przekazywane do kodu JavaScript, kod JavaScript otrzymuje wartość `null`. Aby manipulować odwołaniami do elementów po zakończeniu renderowania składnika (aby ustawić początkowy fokus w elemencie), użyj [metod cyklu życia składnika OnAfterRenderAsync lub OnAfterRender](xref:blazor/lifecycle#after-component-render).
 
 ## <a name="invoke-net-methods-from-javascript-functions"></a>Wywoływanie metod .NET przy użyciu funkcji języka JavaScript
 

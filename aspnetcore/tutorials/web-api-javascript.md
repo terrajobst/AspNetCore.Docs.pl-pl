@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak wywołać interfejs API sieci Web ASP.NET Core przy użyciu języka JavaScript.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/27/2019
+ms.date: 11/26/2019
 uid: tutorials/web-api-javascript
-ms.openlocfilehash: 0070816149d64fc1d71d453eb0f135050c78597a
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 5a31aa2974eb41938db89f97c070c352a26290fd
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "72378700"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74681178"
 ---
 # <a name="tutorial-call-an-aspnet-core-web-api-with-javascript"></a>Samouczek: wywoływanie interfejsu API sieci Web ASP.NET Core przy użyciu języka JavaScript
 
@@ -36,28 +36,30 @@ Aby uzyskać ASP.NET Core 2,2, zobacz wersja 2,2 [wywołania interfejsu API siec
 
 W tej sekcji dodasz stronę HTML zawierającą formularze do tworzenia elementów do wykonania i zarządzania nimi. Programy obsługi zdarzeń są dołączone do elementów na stronie. Programy obsługi zdarzeń powodują żądania HTTP do metod akcji internetowego interfejsu API. Funkcja `fetch` interfejsu API pobierania inicjuje każde żądanie HTTP.
 
-Funkcja `fetch` zwraca obiekt `Promise`, który zawiera odpowiedź HTTP reprezentowane jako obiekt `Response`. Typowym wzorcem jest wyodrębnienie treści odpowiedzi JSON przez wywołanie funkcji `json` w obiekcie `Response`. Język JavaScript aktualizuje stronę ze szczegółowymi informacjami z odpowiedzi internetowego interfejsu API.
+Funkcja `fetch` zwraca obiekt `Promise`, który zawiera odpowiedź HTTP reprezentowane jako obiekt `Response`. Typowym wzorcem jest wyodrębnienie treści odpowiedzi JSON przez wywołanie funkcji `json` na obiekcie `Response`. Język JavaScript aktualizuje stronę ze szczegółowymi informacjami z odpowiedzi internetowego interfejsu API.
 
-Najprostszym wywołaniem `fetch` akceptuje pojedynczy parametr reprezentujący trasę. Drugi parametr, znany jako obiekt `init`, jest opcjonalny. `init` służy do skonfigurowania żądania HTTP.
+Najprostszym wywołaniem `fetch` akceptuje pojedynczy parametr reprezentujący trasę. Drugi parametr, znany jako obiekt `init`, jest opcjonalny. `init` służy do konfigurowania żądania HTTP.
 
 1. Skonfiguruj aplikację do [obsługi plików statycznych](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) i [Włącz domyślne mapowanie plików](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_). Następujący wyróżniony kod jest wymagany w metodzie `Configure` *Startup.cs*:
 
     [!code-csharp[](first-web-api/samples/3.0/TodoApi/StartupJavaScript.cs?highlight=8-9&name=snippet_configure)]
 
-1. Utwórz katalog *wwwroot* w katalogu głównym projektu.
+1. Utwórz folder *wwwroot* w katalogu głównym projektu.
 
-1. Dodaj plik HTML o nazwie *index. html* do katalogu *wwwroot* . Zastąp jego zawartość następującym znacznikiem:
+1. Utwórz folder *js* w folderze *wwwroot* .
+
+1. Dodaj plik HTML o nazwie *index. html* do folderu *wwwroot* . Zastąp zawartość *index. html* następującym znacznikiem:
 
     [!code-html[](first-web-api/samples/3.0/TodoApi/wwwroot/index.html)]
 
-1. Dodaj plik języka JavaScript o nazwie *site. js* do katalogu *wwwroot* . Zastąp jego zawartość następującym kodem:
+1. Dodaj plik języka JavaScript o nazwie *site. js* do folderu *wwwroot/js* . Zastąp zawartość środowiska *site. js* następującym kodem:
 
     [!code-javascript[](first-web-api/samples/3.0/TodoApi/wwwroot/js/site.js?name=snippet_SiteJs)]
 
 Zmiana ustawień uruchamiania projektu ASP.NET Core może być wymagana do lokalnego przetestowania strony HTML:
 
 1. Otwórz *Properties\launchSettings.JSON*.
-1. Usuń właściwość `launchUrl`, aby wymusić, że aplikacja zostanie otwarta w pliku *index. html* &mdash;the domyślny plik projektu.
+1. Usuń właściwość `launchUrl`, aby wymusić, że aplikacja zostanie otwarta w pliku *index. html*&mdash;domyślnym plikiem projektu.
 
 Ten przykład wywołuje wszystkie metody CRUD internetowego interfejsu API. Poniżej znajdują się wyjaśnienia żądań interfejsu API sieci Web.
 
@@ -75,9 +77,9 @@ W poniższym kodzie:
 
 * Zmienna `item` jest zadeklarowana w celu skonstruowania literału obiektu reprezentacji elementu do wykonania.
 * Żądanie pobrania jest konfigurowane z następującymi opcjami:
-    * `method`&mdash;określa zlecenie akcji POST protokołu HTTP.
-    * `body`&mdash;określa reprezentację treści żądania w formacie JSON. KOD JSON jest tworzony przez przekazanie literału obiektu przechowywanego w `item` do funkcji [JSON. stringify](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) .
-    * `headers`&mdash;Określa nagłówki żądania HTTP `Accept` i `Content-Type`. Oba nagłówki są ustawione na `application/json`, aby określić typ nośnika, który jest odbierany i wysyłany odpowiednio.
+  * `method`&mdash;określa zlecenie akcji POST protokołu HTTP.
+  * `body`&mdash;określa reprezentację treści żądania w formacie JSON. KOD JSON jest tworzony przez przekazanie literału obiektu przechowywanego w `item` do funkcji [JSON. stringify](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) .
+  * `headers`&mdash;Określa nagłówki żądania HTTP `Accept` i `Content-Type`. Oba nagłówki są ustawione na `application/json`, aby określić typ nośnika, który jest odbierany i wysyłany odpowiednio.
 * Żądanie HTTP POST jest wysyłane do trasy *API/TodoItems* .
 
 [!code-javascript[](first-web-api/samples/3.0/TodoApi/wwwroot/js/site.js?name=snippet_AddItem)]
@@ -95,7 +97,7 @@ Aktualizowanie elementu do wykonania jest podobne do dodawania jednego z nich; I
 
 ### <a name="delete-a-to-do-item"></a>Usuń element do wykonania
 
-Aby usunąć element do wykonania, należy ustawić opcję `method` dla żądania na `DELETE` i określić unikatowy identyfikator elementu w adresie URL.
+Aby usunąć element do wykonania, ustaw opcję `method` żądania, aby `DELETE` i określić unikatowy identyfikator elementu w adresie URL.
 
 [!code-javascript[](first-web-api/samples/3.0/TodoApi/wwwroot/js/site.js?name=snippet_DeleteItem)]
 
