@@ -1,19 +1,19 @@
 ---
-title: SameSite
+title: Pracuj z plikami cookie SameSite w ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak używać programu do SameSite plików cookie w ASP.NET Core
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/11/2019
+ms.date: 12/03/2019
 uid: security/samesite
-ms.openlocfilehash: 91c69c4caf0644c1f40750233175ddb4c02d7cfe
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
-ms.translationtype: HT
+ms.openlocfilehash: 988069a66cc4772583444303948bff2e47ff4310
+ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717466"
+ms.locfileid: "74733989"
 ---
-# <a name="working-with-samesite-cookies-in-aspnet-core"></a>Praca z plikami cookie SameSite w ASP.NET Core
+# <a name="work-with-samesite-cookies-in-aspnet-core"></a>Pracuj z plikami cookie SameSite w ASP.NET Core
 
 Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
 
