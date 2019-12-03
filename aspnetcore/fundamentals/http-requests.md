@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/27/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: 7a5b5c84775ea2482034ef9f3e8a2376036e66cb
-ms.sourcegitcommit: a104ba258ae7c0b3ee7c6fa7eaea1ddeb8b6eb73
+ms.openlocfilehash: 746604bc92775a6fac124ee8bfcf37635786fe41
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74478732"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717012"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Wykonywanie żądań HTTP przy użyciu IHttpClientFactory w ASP.NET Core
 
@@ -293,7 +293,7 @@ Utrzymywanie pojedynczej `HttpClient` wystąpienia przez długi czas jest typowy
 Używanie `IHttpClientFactory` w aplikacji z obsługą podwójnego zapobiegania:
 
 * Problemy z wyczerpaniem zasobów przez pule `HttpMessageHandler` wystąpieniami.
-* Stare problemy związane z usługą DNS przez cykliczne `HttpMessageHandler` wystąpień w regularnych wystąpieniach.
+* Nieodświeżone problemy z usługą DNS przez cykliczne `HttpMessageHandler` wystąpień w regularnych odstępach czasu.
 
 Istnieją alternatywne sposoby rozwiązywania powyższych problemów przy użyciu wystąpienia o długim czasie istnienia <xref:System.Net.Http.SocketsHttpHandler>.
 
@@ -304,7 +304,7 @@ Istnieją alternatywne sposoby rozwiązywania powyższych problemów przy użyci
 Powyższe podejścia rozwiązują problemy z zarządzaniem zasobami, które `IHttpClientFactory` w podobny sposób rozwiązują.
 
 - `SocketsHttpHandler` udostępnia połączenia między wystąpieniami `HttpClient`. To udostępnianie uniemożliwia wyczerpanie gniazda.
-- `SocketsHttpHandler ` cykluje połączenia zgodnie z `PooledConnectionLifetime`, aby uniknąć problemów z usługą DNS.
+- `SocketsHttpHandler` cykluje połączenia zgodnie z `PooledConnectionLifetime`, aby uniknąć nieodświeżonych problemów z usługą DNS.
 
 ### <a name="cookies"></a>Cookie
 
@@ -594,7 +594,7 @@ Utrzymywanie pojedynczej `HttpClient` wystąpienia przez długi czas jest typowy
 Używanie `IHttpClientFactory` w aplikacji z obsługą podwójnego zapobiegania:
 
 * Problemy z wyczerpaniem zasobów przez pule `HttpMessageHandler` wystąpieniami.
-* Stare problemy związane z usługą DNS przez cykliczne `HttpMessageHandler` wystąpień w regularnych wystąpieniach.
+* Nieodświeżone problemy z usługą DNS przez cykliczne `HttpMessageHandler` wystąpień w regularnych odstępach czasu.
 
 Istnieją alternatywne sposoby rozwiązywania powyższych problemów przy użyciu wystąpienia o długim czasie istnienia <xref:System.Net.Http.SocketsHttpHandler>.
 
@@ -605,7 +605,7 @@ Istnieją alternatywne sposoby rozwiązywania powyższych problemów przy użyci
 Powyższe podejścia rozwiązują problemy z zarządzaniem zasobami, które `IHttpClientFactory` w podobny sposób rozwiązują.
 
 - `SocketsHttpHandler` udostępnia połączenia między wystąpieniami `HttpClient`. To udostępnianie uniemożliwia wyczerpanie gniazda.
-- `SocketsHttpHandler ` cykluje połączenia zgodnie z `PooledConnectionLifetime`, aby uniknąć problemów z usługą DNS.
+- `SocketsHttpHandler` cykluje połączenia zgodnie z `PooledConnectionLifetime`, aby uniknąć nieodświeżonych problemów z usługą DNS.
 
 ### <a name="cookies"></a>Cookie
 
@@ -902,7 +902,7 @@ Utrzymywanie pojedynczej `HttpClient` wystąpienia przez długi czas jest typowy
 Używanie `IHttpClientFactory` w aplikacji z obsługą podwójnego zapobiegania:
 
 * Problemy z wyczerpaniem zasobów przez pule `HttpMessageHandler` wystąpieniami.
-* Stare problemy związane z usługą DNS przez cykliczne `HttpMessageHandler` wystąpień w regularnych wystąpieniach.
+* Nieodświeżone problemy z usługą DNS przez cykliczne `HttpMessageHandler` wystąpień w regularnych odstępach czasu.
 
 Istnieją alternatywne sposoby rozwiązywania powyższych problemów przy użyciu wystąpienia o długim czasie istnienia <xref:System.Net.Http.SocketsHttpHandler>.
 
@@ -913,7 +913,7 @@ Istnieją alternatywne sposoby rozwiązywania powyższych problemów przy użyci
 Powyższe podejścia rozwiązują problemy z zarządzaniem zasobami, które `IHttpClientFactory` w podobny sposób rozwiązują.
 
 - `SocketsHttpHandler` udostępnia połączenia między wystąpieniami `HttpClient`. To udostępnianie uniemożliwia wyczerpanie gniazda.
-- `SocketsHttpHandler ` cykluje połączenia zgodnie z `PooledConnectionLifetime`, aby uniknąć problemów z usługą DNS.
+- `SocketsHttpHandler` cykluje połączenia zgodnie z `PooledConnectionLifetime`, aby uniknąć nieodświeżonych problemów z usługą DNS.
 
 ### <a name="cookies"></a>Cookie
 

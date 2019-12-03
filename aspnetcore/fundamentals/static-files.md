@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/07/2019
 uid: fundamentals/static-files
-ms.openlocfilehash: b989b90100318ac874dc399daf65ef7d21c5549f
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: 00bab51cb411552c884f85fa63d42d0691b401b1
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799481"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717276"
 ---
 # <a name="static-files-in-aspnet-core"></a>Pliki statyczne w ASP.NET Core
 
@@ -100,7 +100,7 @@ Rozważ hierarchię katalogów, w której pliki statyczne mają być obsługiwan
 
 [!code-csharp[](static-files/samples/1x/StartupTwoStaticFiles.cs?name=snippet_ConfigureMethod&highlight=5-10)]
 
-W powyższym kodzie hierarchia katalogów *MyStaticFiles* jest udostępniana publicznie za pośrednictwem segmentu identyfikatora URI *StaticFiles* . Żądanie do *http://\<server_address >/StaticFiles/images/banner1.SVG* obsługuje plik *banner1. SVG* .
+W powyższym kodzie hierarchia katalogów *MyStaticFiles* jest udostępniana publicznie za pośrednictwem segmentu identyfikatora URI *StaticFiles* . Żądanie *http://\<server_address >/StaticFiles/images/banner1.SVG* obsługuje plik *banner1. SVG* .
 
 Następujące znaczniki odwołują się do *MyStaticFiles/images/banner1. SVG*:
 
@@ -206,7 +206,7 @@ należy wywołać `AddDirectoryBrowser`, gdy wartość właściwości `EnableDir
 
 Przy użyciu hierarchii plików i poprzedniego kodu adresy URL są rozpoznawane w następujący sposób:
 
-| Identyfikator URI            |                             Reakcji  |
+| {1&gt;URI&lt;1}            |                             Reakcji  |
 | ------- | ------|
 | *http://\<server_address >/StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1. SVG |
 | *http://\<server_address >/StaticFiles*             |     MyStaticFiles/default.html |
@@ -238,6 +238,10 @@ W powyższym kodzie żądanie dotyczące pliku z nieznanym typem zawartości jes
 
 > [!WARNING]
 > Włączenie [ServeUnknownFileTypes](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions.serveunknownfiletypes#Microsoft_AspNetCore_Builder_StaticFileOptions_ServeUnknownFileTypes) stanowi zagrożenie bezpieczeństwa. Jest on domyślnie wyłączony i nie jest zalecane jego użycie. [FileExtensionContentTypeProvider](#fileextensioncontenttypeprovider) zapewnia bezpieczniejsze rozwiązanie do obsługi plików z rozszerzeniami niestandardowymi.
+
+## <a name="serve-files-from-multiple-locations"></a>Obsługiwanie plików z wielu lokalizacji
+
+`UseStaticFiles` i `UseFileServer` domyślnie dostawcy plików wskazywanym w lokalizacji *wwwroot*. Możesz udostępnić dodatkowe wystąpienia `UseStaticFiles` i `UseFileServer` innym dostawcom plików, aby zapewnić obsługę plików z innych lokalizacji. Aby uzyskać więcej informacji, zobacz [ten problem](https://github.com/aspnet/AspNetCore.Docs/issues/15578)w serwisie GitHub.
 
 ### <a name="considerations"></a>Uwagi
 

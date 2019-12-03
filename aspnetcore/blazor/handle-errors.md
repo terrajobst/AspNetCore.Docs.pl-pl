@@ -5,17 +5,17 @@ description: Odkryj, jak ASP.NET Core Blazor sposób, w jaki Blazor zarządza ni
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/23/2019
+ms.date: 12/01/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: 9784b357c2cdeb7422bbe40a39f881c97f6d716a
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: 9f249fac331d31249f9325892e8365e3d0b4cc5a
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74680996"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717064"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>Obsługa błędów w aplikacjach Blazor ASP.NET Core
 
@@ -122,7 +122,7 @@ Obwód kończy się niepowodzeniem, gdy dowolny wykonany Konstruktor lub setter 
 
 ### <a name="lifecycle-methods"></a>Metody cyklu życia
 
-W trakcie okresu istnienia składnika Blazor wywołuje [metody cyklu życia](xref:blazor/lifecycle):
+W trakcie okresu istnienia składnika Blazor wywołuje następujące [metody cyklu życia](xref:blazor/lifecycle):
 
 * `OnInitialized` / `OnInitializedAsync`
 * `OnParametersSet` / `OnParametersSetAsync`

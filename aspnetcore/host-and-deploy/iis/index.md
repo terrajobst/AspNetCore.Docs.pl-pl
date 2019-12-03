@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/26/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 179ab4c97426c9d3cb8ed069d2059d767d755533
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: de1b3e270ccd90bde741975de38a224e557f1a08
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034266"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717419"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>ASP.NET Core hosta w systemie Windows z usługami IIS
 
@@ -72,7 +72,7 @@ Po przetworzeniu żądania przez serwer HTTP IIS żądanie jest wypychane do pot
 
 Hosting w procesie jest nieobecny w przypadku istniejących aplikacji, ale w przypadku wszystkich scenariuszy z usługami w ramach programu z obsługą IIS Express usług w toku są domyślnie obsługiwane [nowe](/dotnet/core/tools/dotnet-new) szablony.
 
-`CreateDefaultBuilder` dodaje wystąpienie <xref:Microsoft.AspNetCore.Hosting.Server.IServer> przez wywołanie metody <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIIS*> w celu uruchomienia [CoreCLR](/dotnet/standard/glossary#coreclr) i hostowania aplikacji w procesie roboczym usług IIS (*w3wp. exe* lub *iisexpress. exe*). Testy wydajności wskazują, że hostowanie aplikacji platformy .NET Core w procesie zapewnia znacznie wyższą przepływność żądań w porównaniu z obsługą żądań serwera proxy poza procesem i serwerem [Kestrel](xref:fundamentals/servers/kestrel) .
+`CreateDefaultBuilder` dodaje wystąpienie <xref:Microsoft.AspNetCore.Hosting.Server.IServer>, wywołując metodę <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIIS*> w celu rozruchu [CoreCLR](/dotnet/standard/glossary#coreclr) i hostowania aplikacji w procesie roboczym usług IIS (*w3wp. exe* lub *iisexpress. exe*). Testy wydajności wskazują, że hostowanie aplikacji platformy .NET Core w procesie zapewnia znacznie wyższą przepływność żądań w porównaniu z obsługą żądań serwera proxy poza procesem i serwerem [Kestrel](xref:fundamentals/servers/kestrel) .
 
 ::: moniker-end
 
@@ -127,7 +127,7 @@ Moduł ASP.NET Core generuje port dynamiczny do przypisania do procesu zaplecza.
 * [Interfejs API Listen Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration)
 * [Konfiguracja](xref:fundamentals/configuration/index) (lub [Opcja wiersza polecenia--URL](xref:fundamentals/host/web-host#override-configuration))
 
-Wywołania interfejsu API `UseUrls` lub Kestrel `Listen` nie są wymagane w przypadku korzystania z modułu. Jeśli jest wywoływana `UseUrls` lub `Listen`, Kestrel nasłuchuje na porcie określonym tylko podczas uruchamiania aplikacji bez usług IIS.
+Wywołania `UseUrls` lub interfejsu API `Listen` Kestrel nie są wymagane w przypadku korzystania z modułu. Jeśli `UseUrls` lub `Listen` jest wywoływana, Kestrel nasłuchuje na porcie określonym tylko podczas uruchamiania aplikacji bez usług IIS.
 
 ::: moniker-end
 
@@ -139,7 +139,7 @@ Aby uzyskać więcej informacji na temat hostingu, zobacz [host in ASP.NET Core]
 
 ### <a name="enable-the-iisintegration-components"></a>Włącz składniki IISIntegration
 
-Typowe wywołania *Program.cs* <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>, aby rozpocząć konfigurowanie hosta, który umożliwia integrację z usługami IIS:
+Typowe wywołania *Program.cs* <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> do rozpoczęcia konfigurowania hosta, który umożliwia integrację z usługami IIS:
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -168,10 +168,10 @@ services.Configure<IISServerOptions>(options =>
 
 | Opcja                         | Domyślny | Ustawienie |
 | ------------------------------ | :-----: | ------- |
-| `AutomaticAuthentication`      | `true`  | W przypadku `true` serwer IIS ustawia `HttpContext.User` uwierzytelnione przez [uwierzytelnianie systemu Windows](xref:security/authentication/windowsauth). W przypadku `false` serwer zapewnia tylko tożsamość dla `HttpContext.User` i reaguje na wyzwania, gdy zostanie jawnie zażądany przez `AuthenticationScheme`. Aby `AutomaticAuthentication` działała, należy włączyć uwierzytelnianie systemu Windows w usługach IIS. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie systemu Windows](xref:security/authentication/windowsauth). |
+| `AutomaticAuthentication`      | `true`  | W przypadku `true`serwer IIS ustawia `HttpContext.User` uwierzytelniane przy użyciu [uwierzytelniania systemu Windows](xref:security/authentication/windowsauth). Jeśli `false`, serwer zapewnia tylko tożsamość dla `HttpContext.User` i reaguje na wyzwania, gdy zostanie jawnie żądany przez `AuthenticationScheme`. Aby `AutomaticAuthentication` działały, należy włączyć uwierzytelnianie systemu Windows w usługach IIS. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie systemu Windows](xref:security/authentication/windowsauth). |
 | `AuthenticationDisplayName`    | `null`  | Ustawia nazwę wyświetlaną pokazywaną użytkownikom na stronach logowania. |
 | `AllowSynchronousIO`           | `false` | Czy synchroniczna operacja we/wy jest dozwolona dla `HttpContext.Request` i `HttpContext.Response`. |
-| `MaxRequestBodySize`           | `30000000`  | Pobiera lub ustawia maksymalny rozmiar treści żądania dla `HttpRequest`. Należy zauważyć, że sama usługa IIS ma limit `maxAllowedContentLength`, który zostanie przetworzony przed ustawieniem `MaxRequestBodySize` w `IISServerOptions`. Zmiana `MaxRequestBodySize` nie wpłynie na `maxAllowedContentLength`. Aby zwiększyć `maxAllowedContentLength`, Dodaj wpis w *pliku Web. config* , aby ustawić `maxAllowedContentLength` na wyższą wartość. Aby uzyskać więcej informacji, zobacz [Konfiguracja](/iis/configuration/system.webServer/security/requestFiltering/requestLimits/#configuration). |
+| `MaxRequestBodySize`           | `30000000`  | Pobiera lub ustawia maksymalny rozmiar treści żądania dla `HttpRequest`. Należy zauważyć, że sama usługa IIS ma limit `maxAllowedContentLength`, który zostanie przetworzony przed ustawieniem `MaxRequestBodySize` w `IISServerOptions`. Zmiana `MaxRequestBodySize` nie wpłynie na `maxAllowedContentLength`. Aby zwiększyć `maxAllowedContentLength`, Dodaj wpis w *pliku Web. config* , aby ustawić `maxAllowedContentLength` wyższą wartość. Aby uzyskać więcej informacji, zobacz [Konfiguracja](/iis/configuration/system.webServer/security/requestFiltering/requestLimits/#configuration). |
 
 **Model hostingu poza procesem**
 
@@ -181,7 +181,7 @@ services.Configure<IISServerOptions>(options =>
 
 | Opcja                         | Domyślny | Ustawienie |
 | ------------------------------ | :-----: | ------- |
-| `AutomaticAuthentication`      | `true`  | W przypadku `true` serwer IIS ustawia `HttpContext.User` uwierzytelnione przez [uwierzytelnianie systemu Windows](xref:security/authentication/windowsauth). W przypadku `false` serwer zapewnia tylko tożsamość dla `HttpContext.User` i reaguje na wyzwania, gdy zostanie jawnie zażądany przez `AuthenticationScheme`. Aby `AutomaticAuthentication` działała, należy włączyć uwierzytelnianie systemu Windows w usługach IIS. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie systemu Windows](xref:security/authentication/windowsauth). |
+| `AutomaticAuthentication`      | `true`  | W przypadku `true`serwer IIS ustawia `HttpContext.User` uwierzytelniane przy użyciu [uwierzytelniania systemu Windows](xref:security/authentication/windowsauth). Jeśli `false`, serwer zapewnia tylko tożsamość dla `HttpContext.User` i reaguje na wyzwania, gdy zostanie jawnie żądany przez `AuthenticationScheme`. Aby `AutomaticAuthentication` działały, należy włączyć uwierzytelnianie systemu Windows w usługach IIS. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie systemu Windows](xref:security/authentication/windowsauth). |
 | `AuthenticationDisplayName`    | `null`  | Ustawia nazwę wyświetlaną pokazywaną użytkownikom na stronach logowania. |
 
 ::: moniker-end
@@ -203,7 +203,7 @@ services.Configure<IISOptions>(options =>
 
 | Opcja                         | Domyślny | Ustawienie |
 | ------------------------------ | :-----: | ------- |
-| `AutomaticAuthentication`      | `true`  | Jeśli `true`, [oprogramowanie pośredniczące integracji usług IIS](#enable-the-iisintegration-components) ustawia `HttpContext.User` uwierzytelnione przez [uwierzytelnianie systemu Windows](xref:security/authentication/windowsauth). Jeśli `false`, oprogramowanie pośredniczące zapewnia tylko tożsamość dla `HttpContext.User` i reaguje na wyzwania, gdy zostanie jawnie zażądana przez `AuthenticationScheme`. Aby `AutomaticAuthentication` działała, należy włączyć uwierzytelnianie systemu Windows w usługach IIS. Aby uzyskać więcej informacji, zobacz temat [uwierzytelnianie systemu Windows](xref:security/authentication/windowsauth) . |
+| `AutomaticAuthentication`      | `true`  | Jeśli `true`, [oprogramowanie pośredniczące integracji usług IIS](#enable-the-iisintegration-components) ustawia `HttpContext.User` uwierzytelniane przy użyciu [uwierzytelniania systemu Windows](xref:security/authentication/windowsauth). Jeśli `false`, oprogramowanie pośredniczące zapewnia tylko tożsamość `HttpContext.User` i reaguje na wyzwania, gdy zostanie jawnie zażądana przez `AuthenticationScheme`. Aby `AutomaticAuthentication` działały, należy włączyć uwierzytelnianie systemu Windows w usługach IIS. Aby uzyskać więcej informacji, zobacz temat [uwierzytelnianie systemu Windows](xref:security/authentication/windowsauth) . |
 | `AuthenticationDisplayName`    | `null`  | Ustawia nazwę wyświetlaną pokazywaną użytkownikom na stronach logowania. |
 | `ForwardClientCertificate`     | `true`  | Jeśli `true` i nagłówek żądania `MS-ASPNETCORE-CLIENTCERT` jest obecny, `HttpContext.Connection.ClientCertificate` zostanie wypełnione. |
 
@@ -233,13 +233,13 @@ Aby zapobiec transformacje pliku *Web. config* przez zestaw SDK sieci Web, użyj
 </PropertyGroup>
 ```
 
-Podczas wyłączania pliku zestawu SDK sieci Web, *processPath* i *argumenty* powinny być ustawiane ręcznie przez dewelopera. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/aspnet-core-module>.
+Podczas wyłączania pliku zestawu SDK sieci Web, *processPath* i *argumenty* powinny być ustawiane ręcznie przez dewelopera. Aby uzyskać więcej informacji, zobacz temat <xref:host-and-deploy/aspnet-core-module>.
 
 ### <a name="webconfig-file-location"></a>Lokalizacja pliku Web. config
 
 Aby poprawnie skonfigurować [moduł ASP.NET Core](xref:host-and-deploy/aspnet-core-module) , plik *Web. config* musi znajdować się w ścieżce [katalogu głównego zawartości](xref:fundamentals/index#content-root) (zazwyczaj ścieżka podstawowa aplikacji) wdrożonej aplikacji. Ta sama lokalizacja jest taka sama jak ścieżka fizyczna witryny sieci Web dostarczana do usług IIS. Plik *Web. config* jest wymagany w katalogu głównym aplikacji, aby umożliwić Publikowanie wielu aplikacji przy użyciu Web Deploy.
 
-Poufne pliki znajdują się w ścieżce fizycznej aplikacji, takiej jak *\<assembly >. runtimeconfig. JSON*, *\<assembly >. XML* (Komentarze dokumentacji XML) i *\<assembly >. deps. JSON*. Gdy plik *Web. config* jest obecny, a lokacja jest uruchamiana normalnie, usługi IIS nie będą obsługiwały tych poufnych plików, jeśli są żądane. Jeśli brakuje pliku *Web. config* o nazwie lub nie można skonfigurować lokacji do normalnego uruchamiania, usługi IIS mogą publicznie obsłużyć poufne pliki.
+Poufne pliki znajdują się w ścieżce fizycznej aplikacji, na przykład *\<assembly >. runtimeconfig. JSON*, *\<Assembly >. XML* (Komentarze dokumentacji XML) i *\<Assembly >. deps. JSON*. Gdy plik *Web. config* jest obecny, a lokacja jest uruchamiana normalnie, usługi IIS nie będą obsługiwały tych poufnych plików, jeśli są żądane. Jeśli brakuje pliku *Web. config* o nazwie lub nie można skonfigurować lokacji do normalnego uruchamiania, usługi IIS mogą publicznie obsłużyć poufne pliki.
 
 **Plik *Web. config* musi być obecny we wdrożeniu przez cały czas, prawidłowo nazwany i można skonfigurować lokację pod kątem normalnego uruchamiania. Nigdy nie należy usuwać pliku *Web. config* z wdrożenia produkcyjnego.**
 
@@ -265,7 +265,7 @@ Włącz rolę serwera **serwera sieci Web (IIS)** i Ustanów usługi ról.
    Aby włączyć uwierzytelnianie systemu Windows, rozwiń następujące węzły: **serwer sieci Web** > **zabezpieczenia**. Wybierz funkcję **uwierzytelniania systemu Windows** . Aby uzyskać więcej informacji, zobacz [uwierzytelnianie systemu windows \<windowsAuthentication >](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/) i [Konfigurowanie uwierzytelniania systemu Windows](xref:security/authentication/windowsauth).
 
    **Obiekty WebSockets (opcjonalnie)**  
-   Obiekty WebSockets są obsługiwane w ASP.NET Core 1,1 lub nowszych. Aby włączyć obiekty WebSockets, rozwiń następujące węzły: **serwer sieci Web** > **Programowanie aplikacji**. Wybierz funkcję **protokołu WebSocket** . Aby uzyskać więcej informacji, zobacz [WebSockets](xref:fundamentals/websockets).
+   Obiekty WebSockets są obsługiwane w ASP.NET Core 1,1 lub nowszych. Aby włączyć obiekty WebSockets, rozwiń następujące węzły: **serwer sieci Web** > **tworzenia aplikacji**. Wybierz funkcję **protokołu WebSocket** . Aby uzyskać więcej informacji, zobacz [WebSockets](xref:fundamentals/websockets).
 
 1. Przejdź do kroku **potwierdzenia** , aby zainstalować rolę i usługi serwera sieci Web. Po zainstalowaniu roli **serwera sieci Web (IIS)** nie jest wymagane ponowne uruchomienie serwera ani usług IIS.
 
@@ -325,15 +325,36 @@ Aby uzyskać wcześniejszą wersję Instalatora:
 1. Uruchom Instalatora na serwerze. Następujące parametry są dostępne podczas uruchamiania Instalatora z powłoki poleceń administratora:
 
    * `OPT_NO_ANCM=1` &ndash; pominąć Instalowanie modułu ASP.NET Core.
-   * `OPT_NO_RUNTIME=1` &ndash; pominąć Instalowanie środowiska uruchomieniowego platformy .NET Core.
-   * `OPT_NO_SHAREDFX=1` &ndash; pominąć instalację ASP.NET Shared Framework (ASP.NET Runtime).
+   * `OPT_NO_RUNTIME=1` &ndash; pominąć Instalowanie środowiska uruchomieniowego platformy .NET Core. Używany, gdy serwer obsługuje tylko [wdrożenia samodzielne (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
+   * `OPT_NO_SHAREDFX=1` &ndash; pominąć instalację ASP.NET Shared Framework (ASP.NET Runtime). Używany, gdy serwer obsługuje tylko [wdrożenia samodzielne (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
    * `OPT_NO_X86=1` &ndash; pominąć Instalowanie środowiska uruchomieniowego x86. Użyj tego parametru, Jeśli wiesz, że nie będziesz hostować aplikacji 32-bitowych. Jeśli w przyszłości będziesz hostować zarówno aplikacje 32-bitowe, jak i 64-bitowe, nie używaj tego parametru i zainstaluj oba środowiska uruchomieniowe.
-   * `OPT_NO_SHARED_CONFIG_CHECK=1` &ndash; wyłączyć sprawdzanie przy użyciu konfiguracji udostępnionej usług IIS, gdy konfiguracja udostępniona (*ApplicationHost. config*) znajduje się na tym samym komputerze, na którym zainstalowano program IIS. *Dostępne tylko w przypadku ASP.NET Core 2,2 lub nowszych instalatorów pakietu do obsługi.* Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration>.
-1. Uruchom ponownie system lub **Zatrzymaj polecenie net stop was**, a następnie polecenie **net start W3SVC** z powłoki poleceń. Ponowne uruchomienie usług IIS powoduje zmianę ścieżki systemowej, która jest zmienną środowiskową, wykonaną przez Instalatora.
+   * `OPT_NO_SHARED_CONFIG_CHECK=1` &ndash; wyłączyć sprawdzanie przy użyciu konfiguracji udostępnionej usług IIS, gdy konfiguracja udostępniona (*ApplicationHost. config*) znajduje się na tym samym komputerze, na którym zainstalowano program IIS. *Dostępne tylko w przypadku ASP.NET Core 2,2 lub nowszych instalatorów pakietu do obsługi.* Aby uzyskać więcej informacji, zobacz temat <xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration>.
+1. Uruchom ponownie system lub wykonaj następujące polecenia w powłoce poleceń:
+
+   ```console
+   net stop was /y
+   net start w3svc
+   ```
+   Ponowne uruchomienie usług IIS powoduje zmianę ścieżki systemowej, która jest zmienną środowiskową, wykonaną przez Instalatora.
+
+::: moniker range=">= aspnetcore-3.0"
+
+ASP.NET Core nie przyjmuje zachowania z przekazaniem do przodu dla wersji poprawki współużytkowanych pakietów platformy. Po uaktualnieniu udostępnionej platformy, instalując nowy pakiet hostingu, ponownie uruchom system lub wykonaj następujące polecenia w powłoce poleceń:
+
+```console
+net stop was /y
+net start w3svc
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 Nie jest konieczne ręczne zatrzymanie poszczególnych lokacji w usługach IIS podczas instalowania pakietu hostingu. Aplikacje hostowane (lokacje IIS) są ponownie uruchamiane po ponownym uruchomieniu usług IIS. Aplikacje są uruchamiane ponownie po otrzymaniu pierwszego żądania, w tym od [modułu inicjalizacji aplikacji](#application-initialization-module-and-idle-timeout).
 
 ASP.NET Core przyjmuje zachowanie funkcji przekazywania do przodu dla wydań poprawek udostępnionych pakietów platformy. Po ponownym uruchomieniu aplikacji hostowanych przez usługi IIS przy użyciu usług IIS aplikacje są ładowane z najnowszymi wersjami poprawki pakietów, do których się odwołują, gdy otrzymają swoje pierwsze żądanie. Jeśli usługi IIS nie zostaną ponownie uruchomione, aplikacje ponownie uruchamiają się i wykazują zachowanie przekazujące, gdy procesy robocze są odtwarzane i otrzymują swoje pierwsze żądanie.
+
+::: moniker-end
 
 > [!NOTE]
 > Aby uzyskać informacje na temat konfiguracji udostępnionej usług IIS, zobacz [ASP.NET Core Module z udostępnioną konfiguracją usług IIS](xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration).
@@ -363,7 +384,7 @@ Podczas wdrażania aplikacji na serwerach z [Web Deploy](/iis/install/installing
 
    ![Nie ustawiaj kodu zarządzanego dla wersji środowiska .NET CLR.](index/_static/edit-apppool-ws2016.png)
 
-    ASP.NET Core działa w osobnym procesie i zarządza środowiskiem uruchomieniowym. ASP.NET Core nie polega na ładowaniu programu Desktop CLR (.NET CLR) &mdash;the Core Common language runtime (CoreCLR) dla platformy .NET Core jest uruchamiany w celu hostowania aplikacji w procesie roboczym. Ustawienie **wersji środowiska .NET CLR** na **Brak kodu zarządzanego** jest opcjonalne, ale zalecane.
+    ASP.NET Core działa w osobnym procesie i zarządza środowiskiem uruchomieniowym. ASP.NET Core nie bazują na ładowaniu środowiska CLR programu Desktop (.NET CLR),&mdash;rdzeń podstawowego środowiska uruchomieniowego języka wspólnego (CoreCLR) dla platformy .NET Core jest uruchamiany w celu hostowania aplikacji w procesie roboczym. Ustawienie **wersji środowiska .NET CLR** na **Brak kodu zarządzanego** jest opcjonalne, ale zalecane.
 
 1. *ASP.NET Core 2,2 lub nowsza*: w przypadku [wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd) z systemem 64-bitowym (x64), które korzysta z [modelu hostingu w procesie](#in-process-hosting-model), wyłączaj pulę aplikacji dla procesów 32-bit (x86).
 
@@ -371,7 +392,7 @@ Podczas wdrażania aplikacji na serwerach z [Web Deploy](/iis/install/installing
 
 1. Potwierdź, że tożsamość modelu procesu ma odpowiednie uprawnienia.
 
-   Jeśli domyślna tożsamość puli aplikacji (**model procesu** > **tożsamość**) została zmieniona z **ApplicationPoolIdentity** na inną tożsamość, sprawdź, czy Nowa tożsamość ma wymagane uprawnienia dostępu do folderu aplikacji, bazy danych, i inne wymagane zasoby. Na przykład Pula aplikacji wymaga dostępu do odczytu i zapisu do folderów, w których aplikacja odczytuje i zapisuje pliki.
+   Jeśli domyślna tożsamość puli aplikacji (**model procesu** > **tożsamość**) została zmieniona z **ApplicationPoolIdentity** na inną tożsamość, sprawdź, czy Nowa tożsamość ma wymagane uprawnienia dostępu do folderu, bazy danych i innych wymaganych zasobów aplikacji. Na przykład Pula aplikacji wymaga dostępu do odczytu i zapisu do folderów, w których aplikacja odczytuje i zapisuje pliki.
 
 **Konfiguracja uwierzytelniania systemu Windows (opcjonalnie)**  
 Aby uzyskać więcej informacji, zobacz [Konfigurowanie uwierzytelniania systemu Windows](xref:security/authentication/windowsauth).
@@ -408,7 +429,7 @@ W poniższym przykładzie lokacja jest powiązana z **nazwą hosta** usług IIS 
 
 Pliki w folderze wdrożenia są zablokowane, gdy aplikacja jest uruchomiona. Nie można zastąpić zablokowanych plików podczas wdrażania. Aby zwolnić zablokowane pliki we wdrożeniu, Zatrzymaj pulę aplikacji, korzystając z **jednej** z następujących metod:
 
-* Użyj Web Deploy i odwołania `Microsoft.NET.Sdk.Web` w pliku projektu. Plik *app_offline. htm* jest umieszczany w katalogu głównym katalogu aplikacji sieci Web. Gdy plik jest obecny, moduł ASP.NET Core prawidłowo zamyka aplikację i obsługuje plik *app_offline. htm* podczas wdrażania. Aby uzyskać więcej informacji, zobacz [Informacje o konfiguracji modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module#app_offlinehtm).
+* Użyj Web Deploy i odwołania `Microsoft.NET.Sdk.Web` w pliku projektu. Plik *app_offline. htm* jest umieszczany w katalogu głównym katalogu aplikacji sieci Web. Gdy plik jest obecny, moduł ASP.NET Core bezpiecznie zamyka aplikację i obsługuje plik *app_offline. htm* podczas wdrażania. Aby uzyskać więcej informacji, zobacz [Informacje o konfiguracji modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module#app_offlinehtm).
 * Ręcznie Zatrzymaj pulę aplikacji w Menedżerze usług IIS na serwerze.
 * Porzuć *app_offline. htm* przy użyciu programu PowerShell (wymaga programu PowerShell 5 lub nowszego):
 
@@ -447,14 +468,14 @@ Aby skonfigurować ochronę danych w ramach usług IIS w celu utrwalenia pierśc
 
 * **Konfigurowanie puli aplikacji usług IIS w celu załadowania profilu użytkownika**
 
-  To ustawienie znajduje się w sekcji **model procesów** w obszarze **Ustawienia zaawansowane** dla puli aplikacji. Ustaw wartość opcji **Załaduj profil użytkownika** na `True`. Ustawienie wartości `True` powoduje, że klucze są przechowywane w katalogu profilu użytkownika i chronione przy użyciu funkcji DPAPI z kluczem specyficznym dla konta użytkownika. Klucze są utrwalane w folderze *% LocalAppData%/ASP.NET/dataprotection-Keys* .
+  To ustawienie znajduje się w sekcji **model procesów** w obszarze **Ustawienia zaawansowane** dla puli aplikacji. Ustaw wartość opcji **Załaduj profil użytkownika** na `True`. Po ustawieniu na `True`klucze są przechowywane w katalogu profilu użytkownika i chronione za pomocą interfejsu DPAPI przy użyciu klucza specyficznego dla konta użytkownika. Klucze są utrwalane w folderze *% LocalAppData%/ASP.NET/dataprotection-Keys* .
 
-  [Atrybut setProfileEnvironment](/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration) puli aplikacji również musi być włączony. Wartość domyślna `setProfileEnvironment` to `true`. W niektórych scenariuszach (na przykład systemu operacyjnego Windows) `setProfileEnvironment` jest ustawiona na `false`. Jeśli klucze nie są przechowywane w katalogu profilu użytkownika zgodnie z oczekiwaniami:
+  [Atrybut setProfileEnvironment](/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration) puli aplikacji również musi być włączony. Wartość domyślna `setProfileEnvironment` jest `true`. W niektórych scenariuszach (na przykład systemu operacyjnego Windows) `setProfileEnvironment` jest ustawiony na `false`. Jeśli klucze nie są przechowywane w katalogu profilu użytkownika zgodnie z oczekiwaniami:
 
   1. Przejdź do folderu *% windir%/system32/inetsrv/config*
   1. Otwórz plik *ApplicationHost. config* .
   1. Znajdź element `<system.applicationHost><applicationPools><applicationPoolDefaults><processModel>`.
-  1. Upewnij się, że atrybut `setProfileEnvironment` nie istnieje, który ma wartość domyślną `true`, lub jawnie ustaw wartość atrybutu na `true`.
+  1. Upewnij się, że atrybut `setProfileEnvironment` nie istnieje, który jest wartością domyślną `true`, lub jawnie ustaw wartość atrybutu na `true`.
 
 * **Używanie systemu plików jako magazynu kluczy**
 
@@ -467,7 +488,7 @@ Aby skonfigurować ochronę danych w ramach usług IIS w celu utrwalenia pierśc
 
 * **Ustawianie zasad dla całej maszyny na potrzeby ochrony danych**
 
-  System ochrony danych ma ograniczoną obsługę ustawiania domyślnych [zasad komputera](xref:security/data-protection/configuration/machine-wide-policy) dla wszystkich aplikacji korzystających z interfejsów API ochrony danych. Aby uzyskać więcej informacji, zobacz <xref:security/data-protection/introduction>.
+  System ochrony danych ma ograniczoną obsługę ustawiania domyślnych [zasad komputera](xref:security/data-protection/configuration/machine-wide-policy) dla wszystkich aplikacji korzystających z interfejsów API ochrony danych. Aby uzyskać więcej informacji, zobacz temat <xref:security/data-protection/introduction>.
 
 ## <a name="virtual-directories"></a>Katalogi wirtualne
 
@@ -514,9 +535,9 @@ W przypadku hostowania aplikacji podrzędnej non-ASP.NET Core w aplikacji ASP.NE
 
 ::: moniker-end
 
-Linki do zasobów statycznych w aplikacji podrzędnej powinny używać notacji z ukośnikiem (`~/`). Notacja "ukośnik" wyzwala [pomocnika tagów](xref:mvc/views/tag-helpers/intro) , aby dołączyć pathbase podaplikacji do renderowanego linku względnego. W przypadku aplikacji podrzędnej w `/subapp_path`obraz połączony z `src="~/image.png"` jest renderowany jako `src="/subapp_path/image.png"`. Oprogramowanie pośredniczące aplikacji głównej nie przetwarza żądania pliku statycznego. Żądanie jest przetwarzane przez oprogramowanie pośredniczące plików statycznych aplikacji podrzędnej.
+Linki do zasobów statycznych w ramach aplikacji podrzędnej powinny używać notacji z ukośnikiem (`~/`). Notacja "ukośnik" wyzwala [pomocnika tagów](xref:mvc/views/tag-helpers/intro) , aby dołączyć pathbase podaplikacji do renderowanego linku względnego. W przypadku aplikacji podrzędnej w `/subapp_path`obraz połączony z `src="~/image.png"` jest renderowany jako `src="/subapp_path/image.png"`. Oprogramowanie pośredniczące aplikacji głównej nie przetwarza żądania pliku statycznego. Żądanie jest przetwarzane przez oprogramowanie pośredniczące plików statycznych aplikacji podrzędnej.
 
-Jeśli statyczny atrybut zasobu `src` jest ustawiony na ścieżkę bezwzględną (na przykład `src="/image.png"`), link jest renderowany bez pathbase podaplikacji. Oprogramowanie pośredniczące pliku statycznego aplikacji głównej próbuje obsłużyć zasób z poziomu [głównego katalogu sieci Web](xref:fundamentals/index#web-root)aplikacji głównej, co spowoduje, że odpowiedź na *404 nie zostanie znaleziona* , chyba że statyczny zasób jest dostępny z poziomu aplikacji głównej.
+Jeśli statyczny atrybut `src` zasobu jest ustawiony na ścieżkę bezwzględną (na przykład `src="/image.png"`), link jest renderowany bez pathbase podaplikacji. Oprogramowanie pośredniczące pliku statycznego aplikacji głównej próbuje obsłużyć zasób z poziomu [głównego katalogu sieci Web](xref:fundamentals/index#web-root)aplikacji głównej, co spowoduje, że odpowiedź na *404 nie zostanie znaleziona* , chyba że statyczny zasób jest dostępny z poziomu aplikacji głównej.
 
 Aby hostować aplikację ASP.NET Core jako aplikację podrzędną w innej aplikacji ASP.NET Core:
 
@@ -534,7 +555,7 @@ Aby uzyskać więcej informacji na temat modelu hostingu w procesie i konfigurow
 
 ## <a name="configuration-of-iis-with-webconfig"></a>Konfiguracja usług IIS z pliku Web. config
 
-Na konfigurację usług IIS wpływa sekcja `<system.webServer>` *pliku Web. config* dla scenariuszy usług IIS, które są funkcjonalne dla ASP.NET Core aplikacji z modułem ASP.NET Core. Na przykład konfiguracja usług IIS jest funkcjonalna dla kompresji dynamicznej. Jeśli usługi IIS są skonfigurowane na poziomie serwera do korzystania z kompresji dynamicznej, element `<urlCompression>` w pliku *Web. config* aplikacji może go wyłączyć dla aplikacji ASP.NET Core.
+Na konfigurację usług IIS wpływa `<system.webServer>` sekcja *pliku Web. config* dla scenariuszy usług IIS, które są funkcjonalne dla ASP.NET Core aplikacji za pomocą modułu ASP.NET Core. Na przykład konfiguracja usług IIS jest funkcjonalna dla kompresji dynamicznej. Jeśli usługi IIS są skonfigurowane na poziomie serwera do korzystania z kompresji dynamicznej, element `<urlCompression>` w pliku *Web. config* aplikacji może go wyłączyć dla aplikacji ASP.NET Core.
 
 Więcej informacji znajduje się w następujących tematach:
 
@@ -542,7 +563,7 @@ Więcej informacji znajduje się w następujących tematach:
 * <xref:host-and-deploy/aspnet-core-module>
 * <xref:host-and-deploy/iis/modules>
 
-Aby ustawić zmienne środowiskowe dla poszczególnych aplikacji działających w pulach izolowanych aplikacji (obsługiwane dla usług IIS 10,0 lub nowszych), zobacz sekcję *polecenie Appcmd. exe* w artykule [zmienne środowiskowe \<environmentVariables >](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) temat w dokumentacji usług IIS. łączoną.
+Aby ustawić zmienne środowiskowe dla poszczególnych aplikacji działających w pulach izolowanych aplikacji (obsługiwanych w przypadku usług IIS 10,0 lub nowszych), zobacz sekcję *polecenie Appcmd. exe* w artykule [zmienne środowiskowe \<environmentVariables >](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) temat w dokumentacji referencyjnej usług IIS.
 
 ## <a name="configuration-sections-of-webconfig"></a>Sekcje konfiguracji pliku Web. config
 
@@ -561,8 +582,8 @@ Aplikacje ASP.NET Core są konfigurowane przy użyciu innych dostawców konfigur
 
 Izolacja puli aplikacji jest określana przez model hostingu:
 
-* Hosting w procesie &ndash; aplikacje są wymagane do uruchomienia w osobnych pulach aplikacji.
-* Hosting poza procesem &ndash; zalecamy izolowanie aplikacji od siebie przez uruchomienie każdej aplikacji w jej własnej puli aplikacji.
+* Hosting w procesie &ndash; aplikacje są wymagane do uruchomienia w oddzielnych pulach aplikacji.
+* Hosting poza procesem, &ndash; zalecamy izolowanie aplikacji przez uruchomienie każdej aplikacji w jej własnej puli aplikacji.
 
 Okno dialogowe **Dodaj witrynę sieci Web** usług IIS domyślnie umożliwia pojedynczej puli aplikacji na aplikację. Po podaniu **nazwy witryny** tekst zostanie automatycznie przeniesiony do pola tekstowego **Pula aplikacji** . Nowa pula aplikacji jest tworzona przy użyciu nazwy lokacji, gdy zostanie dodana lokacja.
 
@@ -592,7 +613,7 @@ Jeśli proces roboczy usług IIS wymaga podwyższonego poziomu dostępu do aplik
 
 1. Wybierz przycisk **lokalizacje** i upewnij się, że wybrano system.
 
-1. Wprowadź **\\IIS puli aplikacji < app_pool_name >** w polu **Wprowadź nazwy obiektów do wybrania** . Wybierz przycisk **Sprawdź nazwy** . W obszarze *Domyślna pula aplikacji* Sprawdź nazwy za pomocą **usług IIS AppPool\DefaultAppPool**. Po wybraniu przycisku **Sprawdź nazwy** w obszarze nazwy obiektów zostanie wykazana wartość **Domyślna pula aplikacji** . Nie można wprowadzić nazwy puli aplikacji bezpośrednio w obszarze nazw obiektów. Podczas sprawdzania nazwy obiektu Użyj **\\IIS puli aplikacji < app_pool_name >** .
+1. Wprowadź **\\IIS puli aplikacji < app_pool_name >** w **Wprowadź nazwy obiektów do wybrania** . Wybierz przycisk **Sprawdź nazwy** . W obszarze *Domyślna pula aplikacji* Sprawdź nazwy za pomocą **usług IIS AppPool\DefaultAppPool**. Po wybraniu przycisku **Sprawdź nazwy** w obszarze nazwy obiektów zostanie wykazana wartość **Domyślna pula aplikacji** . Nie można wprowadzić nazwy puli aplikacji bezpośrednio w obszarze nazw obiektów. Podczas sprawdzania nazwy obiektu Użyj **\\usług IIS puli aplikacji < app_pool_name >** .
 
    ![Okno dialogowe Wybieranie użytkowników lub grup dla folderu aplikacji: Nazwa puli aplikacji "domyślna pula" jest dołączana do "\" puli aplikacji IIS w obszarze nazw obiektów przed wybraniem pozycji" Sprawdź nazwy ".](index/_static/select-users-or-groups-1.png)
 
@@ -624,7 +645,7 @@ Aby uzyskać więcej informacji, zobacz temat [icacls](/windows-server/administr
   * Połączenia z serwerem granicznym dostępnym publicznie korzystają z protokołu HTTP/2, ale połączenie zwrotnego serwera proxy z [serwerem Kestrel](xref:fundamentals/servers/kestrel) korzysta z protokołu HTTP/1.1.
   * Połączenie TLS 1,2 lub nowsze
 
-W przypadku wdrożenia w procesie, gdy jest nawiązywane połączenie HTTP/2, [żądania HttpRequest. Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) są zgłaszane `HTTP/2`. W przypadku wdrożenia poza procesem, gdy jest nawiązywane połączenie HTTP/2, [żądania HttpRequest. Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) są raportowane `HTTP/1.1`.
+W przypadku wdrożenia w procesie podczas ustanawiania połączenia HTTP/2 raporty [HttpRequest. Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) `HTTP/2`. W przypadku wdrożenia poza procesem podczas ustanawiania połączenia HTTP/2 raporty [HttpRequest. Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) `HTTP/1.1`.
 
 Aby uzyskać więcej informacji na temat modeli hostingu w procesie i poza procesami, zobacz <xref:host-and-deploy/aspnet-core-module>.
 
@@ -639,7 +660,7 @@ Obsługa [protokołu HTTP/2](https://httpwg.org/specs/rfc7540.html) jest obsług
 * Struktura docelowa: nie dotyczy wdrożeń poza procesem, ponieważ połączenie HTTP/2 jest obsługiwane całkowicie przez usługi IIS.
 * Połączenie TLS 1,2 lub nowsze
 
-W przypadku nawiązania połączenia HTTP/2 raporty [HttpRequest. Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) `HTTP/1.1`.
+W przypadku ustanowienia połączenia HTTP/2 raporty [HttpRequest. Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) `HTTP/1.1`.
 
 ::: moniker-end
 
@@ -657,8 +678,8 @@ W przypadku aplikacji ASP.NET Core, która jest przeznaczona dla .NET Framework,
 
 Hostowane w usługach IIS przez moduł ASP.NET Core w wersji 2:
 
-* [Moduł inicjalizacji aplikacji](#application-initialization-module) &ndash; aplikacji hostowanej [w procesie](#in-process-hosting-model) lub [poza procesem](#out-of-process-hosting-model) można skonfigurować do automatycznego uruchamiania na potrzeby ponownego uruchomienia procesu roboczego lub ponownego uruchomienia serwera.
-* [Limit czasu bezczynności](#idle-timeout) &ndash; aplikacji hostowanej [w procesie](#in-process-hosting-model) można skonfigurować w taki sposób, aby nie przekroczyć limitu czasu podczas okresów braku aktywności.
+* [Moduł inicjalizacji aplikacji](#application-initialization-module) [&ndash; hostowanej lub pozaprocesowej](#in-process-hosting-model) aplikacji [można skonfigurować](#out-of-process-hosting-model) do automatycznego uruchamiania na potrzeby ponownego uruchomienia procesu roboczego lub ponownego uruchomienia serwera.
+* [Limit czasu bezczynności](#idle-timeout) &ndash; hostowanej aplikacji można skonfigurować [w](#in-process-hosting-model) taki sposób, aby nie przekroczyć limitu czasu podczas okresów braku aktywności.
 
 ### <a name="application-initialization-module"></a>Moduł inicjalizacji aplikacji
 
@@ -691,7 +712,7 @@ Użyj jednego z poniższych metod, aby włączyć moduł inicjowania aplikacji d
   1. Kliknij prawym przyciskiem myszy aplikację i wybierz pozycję **Zarządzaj witryną sieci web** > **Ustawienia zaawansowane**.
   1. Domyślnym ustawieniem **wstępnego ładowania** jest **wartość false**. Ustaw dla opcji **wstępnego ładowania** **wartość true**. Wybierz **przycisk OK**.
 
-* Korzystając z pliku *Web. config*, dodaj element `<applicationInitialization>` z opcją `doAppInitAfterRestart` ustawionym na `true` do elementów `<system.webServer>` w plik *Web. config* aplikacji:
+* Korzystając z pliku *Web. config*, dodaj element `<applicationInitialization>` z `doAppInitAfterRestart` ustawionym na `true` do elementów `<system.webServer>` w plikach *Web. config* aplikacji:
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
@@ -723,7 +744,7 @@ Aby zapobiec przekroczeniu limitu [czasu hostowanych przez aplikacje](#out-of-pr
 ### <a name="application-initialization-module-and-idle-timeout-additional-resources"></a>Dodatkowe zasoby dotyczące modułu inicjalizacji aplikacji i limitu czasu bezczynności
 
 * [Inicjowanie aplikacji usług IIS 8,0](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization)
-* [Inicjowanie aplikacji \<applicationInitialization >](/iis/configuration/system.webserver/applicationinitialization/).
+* [Inicjowanie aplikacji \<> applicationInitialization](/iis/configuration/system.webserver/applicationinitialization/).
 * [Ustawienia modelu procesu dla puli aplikacji \<processModel >](/iis/configuration/system.applicationhost/applicationpools/add/processmodel).
 
 ::: moniker-end

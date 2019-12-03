@@ -5,14 +5,14 @@ description: Dowiedz się, jak przeglądać i testować ASP.NET Core internetowy
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 12/02/2019
 uid: web-api/http-repl
-ms.openlocfilehash: bb3757f51487a307ebfb97452b80995f84e95e4b
-ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
+ms.openlocfilehash: c6e3ab5685b5bd0b154d20585fb0d187f81da641
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037711"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717168"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Testowanie interfejsów API sieci Web przy użyciu protokołu HTTP REPL
 
@@ -27,11 +27,11 @@ Pętla HTTP Read-eval-Print (REPL) to:
 Obsługiwane są następujące [czasowniki http](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods) :
 
 * [USUNIĘTY](#test-http-delete-requests)
-* [GET](#test-http-get-requests)
+* [Pobierz](#test-http-get-requests)
 * [MTP](#test-http-head-requests)
 * [Opcje](#test-http-options-requests)
 * [WYSŁANA](#test-http-patch-requests)
-* [POST](#test-http-post-requests)
+* [POUBOJOWEGO](#test-http-post-requests)
 * [Ubrani](#test-http-put-requests)
 
 Aby wykonać te czynności, [Wyświetl lub Pobierz przykładowy ASP.NET Core internetowy interfejs API](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/http-repl/samples) ([jak pobrać](xref:index#how-to-download-a-sample)).
@@ -40,7 +40,7 @@ Aby wykonać te czynności, [Wyświetl lub Pobierz przykładowy ASP.NET Core int
 
 * [!INCLUDE [2.1-SDK](~/includes/2.1-SDK.md)]
 
-## <a name="installation"></a>Instalacja
+## <a name="installation"></a>Instalacja programu
 
 Aby zainstalować REPL HTTP, uruchom następujące polecenie:
 
@@ -50,7 +50,7 @@ dotnet tool install -g Microsoft.dotnet-httprepl
 
 [Narzędzie globalne platformy .NET Core](/dotnet/core/tools/global-tools#install-a-global-tool) jest instalowane z pakietu NuGet [Microsoft. dotnet-httprepl](https://www.nuget.org/packages/Microsoft.dotnet-httprepl) .
 
-## <a name="usage"></a>Użycie
+## <a name="usage"></a>Pomiar
 
 Po pomyślnej instalacji narzędzia Uruchom następujące polecenie, aby uruchomić REPL HTTP:
 
@@ -225,7 +225,7 @@ https://localhost:5001/people~
 
 Domyślne [kolory](#set-color-preferences) REPL http można dostosować. Ponadto można zdefiniować [domyślny edytor tekstu](#set-the-default-text-editor) . Preferencje HTTP REPL są utrwalane w bieżącej sesji i są honorowane w przyszłych sesjach. Po zmodyfikowaniu preferencje są przechowywane w następującym pliku:
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linuxtablinux"></a>[System](#tab/linux)
 
 *% HOME%/.httpreplprefs*
 
@@ -270,7 +270,7 @@ Kolorowanie odpowiedzi jest obecnie obsługiwane tylko w przypadku formatu JSON.
 https://localhost:5001/people~ pref set colors.json White
 ```
 
-Można używać tylko [dozwolonych kolorów](https://github.com/aspnet/HttpRepl/blob/01d5c3c3373e98fe566ff5ef8a17c571de880293/src/Microsoft.Repl/ConsoleHandling/AllowedColors.cs) . Kolejne żądania HTTP wyświetlają dane wyjściowe z nowym kolorem.
+Można używać tylko [dozwolonych kolorów](https://github.com/dotnet/HttpRepl/blob/01d5c3c3373e98fe566ff5ef8a17c571de880293/src/Microsoft.Repl/ConsoleHandling/AllowedColors.cs) . Kolejne żądania HTTP wyświetlają dane wyjściowe z nowym kolorem.
 
 Jeśli określone klucze kolorów nie są ustawione, brane są więcej kluczy ogólnych. Aby zademonstrować to zachowanie rezerwowe, należy wziąć pod uwagę następujący przykład:
 
@@ -335,7 +335,7 @@ pref set editor.command.default "<EXECUTABLE>"
 
 W poprzednim poleceniu `<EXECUTABLE>` jest pełną ścieżką do pliku wykonywalnego edytora tekstu. Na przykład uruchom następujące polecenie, aby ustawić Visual Studio Code jako domyślny edytor tekstu:
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linuxtablinux"></a>[System](#tab/linux)
 
 ```console
 pref set editor.command.default "/usr/bin/code"
@@ -1037,4 +1037,4 @@ https://localhost:5001/~
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Żądania interfejsu API REST](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods)
-* [Repozytorium usługi GitHub HTTP REPL](https://github.com/aspnet/HttpRepl)
+* [Repozytorium usługi GitHub HTTP REPL](https://github.com/dotnet/HttpRepl)

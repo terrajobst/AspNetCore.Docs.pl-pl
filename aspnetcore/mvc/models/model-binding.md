@@ -6,12 +6,12 @@ ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: riande
 ms.date: 11/21/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: 823d92c279454fc6c744eebbecf4268412774eba
-ms.sourcegitcommit: a104ba258ae7c0b3ee7c6fa7eaea1ddeb8b6eb73
+ms.openlocfilehash: a49fec38a6d38bbd33e9461cbcceb39bfe810f5c
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74478710"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717289"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Powiązanie modelu w ASP.NET Core
 
@@ -378,8 +378,29 @@ Dla `Dictionary` obiektów docelowych powiązanie modelu wyszukuje dopasowania d
 
 * We wszystkich powyższych formatach przykładowe powiązanie modelu przekazuje słownik dwóch elementów do `selectedCourses` parametru:
 
-  * selectedCourses["1050"]="Chemistry"
-  * selectedCourses["2000"]="Economics"
+  * selectedCourses ["1050"] = "Chemia"
+  * selectedCourses ["2000"] = "ekonomia"
+
+<a name="glob"></a>
+
+## <a name="globalization-behavior-of-model-binding-route-data-and-query-strings"></a>Zachowanie globalizacji danych tras powiązań modelu i ciągów zapytań
+
+Dostawca wartości ASP.NET Core tras i dostawcy wartości ciągu zapytania:
+
+* Traktuj wartości jako niezmienną kulturę.
+* Należy oczekiwać, że adresy URL są kulturą niezmienną.
+
+Natomiast wartości pochodzące z danych formularza są przekształcane z uwzględnieniem kultury. Jest to zaprojektowane w taki sposób, aby adresy URL były udostępniane w ustawieniach regionalnych.
+
+Aby dostawca wartości ASP.NET Core trasy i dostawca wartości ciągu zapytania były poddawane konwersji zależnej od kultury:
+
+* Dziedzicz po <xref:Microsoft.AspNetCore.Mvc.ModelBinding.IValueProviderFactory>
+* Skopiuj kod z [QueryStringValueProviderFactory](https://github.com/aspnet/AspNetCore/blob/master/src/Mvc/Mvc.Core/src/ModelBinding/QueryStringValueProviderFactory.cs) lub [RouteValueValueProviderFactory](https://github.com/aspnet/AspNetCore/blob/master/src/Mvc/Mvc.Core/src/ModelBinding/RouteValueProviderFactory.cs)
+* Zastąp [wartość kultury](https://github.com/aspnet/AspNetCore/blob/e625fe29b049c60242e8048b4ea743cca65aa7b5/src/Mvc/Mvc.Core/src/ModelBinding/QueryStringValueProviderFactory.cs#L30) przekazaną do konstruktora dostawcy wartości wartością [CultureInfo. CurrentCulture](xref:System.Globalization.CultureInfo.CurrentCulture)
+* Zastąp domyślną fabrykę dostawcy wartości w opcjach MVC nowym:
+
+[!code-csharp[](model-binding/samples/StartupMB.cs?name=snippet)]
+[!code-csharp[](model-binding/samples/StartupMB.cs?name=snippet1)]
 
 ## <a name="special-data-types"></a>Specjalne typy danych
 

@@ -4,14 +4,14 @@ author: rick-anderson
 ms.author: riande
 description: Odkryj atrybuty pomocnika tagów ASP.NET Core i rolę, jaką każdy atrybut odgrywa w rozszerzeniu zachowania tagu skryptu HTML.
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 12/02/2019
 uid: mvc/views/tag-helpers/builtin-th/script-tag-helper
-ms.openlocfilehash: c3d9148bd62dcc045873cc3a72884ae458349d70
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 8a90eb5a74ff3f8178a47c59ad7ba1b6a389ab87
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317118"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717380"
 ---
 # <a name="script-tag-helper-in-aspnet-core"></a>Pomocnik tagu skryptu w ASP.NET Core
 
@@ -33,6 +33,8 @@ Poniższy znacznik Razor pokazuje `script` element z rezerwą:
         integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
 </script>
 ```
+
+Nie używaj atrybutu [Ustąp](https://developer.mozilla.org/docs/Web/HTML/Element/script) elementu `<script>`, aby odroczyć ładowanie skryptu CDN. Pomocnik tagów skryptu renderuje kod JavaScript, który natychmiast wykonuje wyrażenie [ASP-Fallback-test](#asp-fallback-test) . Wyrażenie nie powiedzie się, jeśli ładowanie skryptu sieci CDN zostało odroczone.
 
 ## <a name="commonly-used-script-tag-helper-attributes"></a>Atrybuty pomocnika często używanych tagów skryptu
 
