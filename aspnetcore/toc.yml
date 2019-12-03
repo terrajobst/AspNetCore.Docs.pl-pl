@@ -286,6 +286,8 @@
           uid: blazor/templates
         - name: Składniki
           uid: blazor/components
+        - name: Cykl życia
+          uid: blazor/lifecycle
         - name: Formularze i walidacja
           uid: blazor/forms-validation
         - name: Biblioteki składników
@@ -819,6 +821,8 @@
       uid: security/index
     - name: Uwierzytelnianie
       items:
+        - name: Omówienie
+          uid: security/authentication/index
         - name: Wprowadzenie do systemu Identity
           uid: security/authentication/identity
         - name: Tożsamość w przypadku aplikacji SPA
