@@ -1,1 +1,0 @@
-> <span data-ttu-id="55119-101">Ostrzeżenie tego tematu nie zostało zaktualizowane dla ASP.NET Core 3,0.</span><span class="sxs-lookup"><span data-stu-id="55119-101">Warning This topic has not been updated for ASP.NET Core 3.0.</span></span>
