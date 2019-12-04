@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 06/17/2019
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 7499381a24a2513a4fbd1205f245e624c86647c3
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: a7a5c40d6c31c4416212c02c1b491dd794f2a1d3
+ms.sourcegitcommit: b3e1e31e5d8bdd94096cf27444594d4a7b065525
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080555"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803282"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Łączenie i zminifikować zasobów statycznych w ASP.NET Core
 
@@ -25,9 +25,9 @@ Tworzenie i minifikacja to dwie różne optymalizacje wydajności, które można
 
 Zgrupowanie i minifikacja przede wszystkim zwiększy czas ładowania żądania pierwszej strony. Po zażądaniu strony sieci Web przeglądarka buforuje statyczne zasoby (JavaScript, CSS i obrazy). W związku z tym, zgrupowanie i minifikacja nie poprawia wydajności podczas żądania tej samej strony lub stron w tej samej lokacji, w której zażądają tych samych zasobów. Jeśli Nagłówek Expires nie jest poprawnie ustawiony na elementach zawartości i jeśli nie jest używane minifikacja i nie jest używany, heurystyka Aktualności przeglądarki Oznacz zasoby jako przestarzałe po kilku dniach. Ponadto przeglądarka wymaga żądania weryfikacji dla każdego elementu zawartości. W takim przypadku zgrupowanie i minifikacja zapewnia poprawę wydajności nawet po pierwszym żądaniu strony.
 
-### <a name="bundling"></a>tworzenia pakietów
+### <a name="bundling"></a>Tworzenia pakietów
 
-Zgrupowanie łączy wiele plików w jeden plik. Zgrupowanie zmniejsza liczbę żądań serwera, które są niezbędne do renderowania zasobów sieci Web, takich jak strona sieci Web. Można utworzyć dowolną liczbę pojedynczych pakietów przeznaczonych dla CSS, JavaScript itd. Mniejsza liczba plików oznacza mniejszą liczbę żądań HTTP z przeglądarki do serwera lub z usługi dostarczającej aplikację. Powoduje to zwiększenie wydajności pierwszej strony.
+Tworzenie pakietów pozwala łączyć wiele plików w jeden plik. Zgrupowanie zmniejsza liczbę żądań serwera, które są niezbędne do renderowania zasobów sieci Web, takich jak strona sieci Web. Można utworzyć dowolną liczbę pojedynczych pakietów przeznaczonych dla CSS, JavaScript itd. Mniejsza liczba plików oznacza mniejszą liczbę żądań HTTP z przeglądarki do serwera lub z usługi dostarczającej aplikację. Powoduje to zwiększenie wydajności pierwszej strony.
 
 ### <a name="minification"></a>Minifikacja
 
@@ -63,7 +63,7 @@ Przeglądarki są dość szczegółowe w odniesieniu do nagłówków żądań HT
 
 ## <a name="choose-a-bundling-and-minification-strategy"></a>Wybierz strategię tworzenia i minifikacja
 
-Szablony projektów MVC i Razor Pages stanowią wbudowane rozwiązanie do tworzenia i minifikacja składające się z pliku konfiguracji JSON. Narzędzia innych firm, takie jak [grunt](xref:client-side/using-grunt) Task Runner, spełniają te same zadania o nieco większej złożoności. Narzędzie innej firmy jest doskonałym rozwiązaniem, gdy przepływ pracy deweloperskiej wymaga przetwarzania poza dzieleniem i minifikacja&mdash;, takim jak zaznaczanie błędów i Optymalizacja obrazu. Korzystając z konstrukcji i minifikacja w czasie projektowania, pliki zminimalizowanego są tworzone przed wdrożeniem aplikacji. Przydzielenie i minifikacja przed wdrożeniem zapewnia zalety mniejszego obciążenia serwera. Należy jednak pamiętać, że konstrukcja czasu projektowania i minifikacja zwiększa złożoność kompilacji i działa tylko z plikami statycznymi.
+Szablony projektów MVC i Razor Pages stanowią wbudowane rozwiązanie do tworzenia i minifikacja składające się z pliku konfiguracji JSON. Narzędzia innych firm, takie jak [grunt](xref:client-side/using-grunt) Task Runner, spełniają te same zadania o nieco większej złożoności. Narzędzie innej firmy jest doskonałym rozwiązaniem, gdy przepływ pracy deweloperskiej wymaga przetwarzania poza tworzeniem i minifikacja&mdash;takich jak zaznaczanie błędów i Optymalizacja obrazu. Korzystając z konstrukcji i minifikacja w czasie projektowania, pliki zminimalizowanego są tworzone przed wdrożeniem aplikacji. Przydzielenie i minifikacja przed wdrożeniem zapewnia zalety mniejszego obciążenia serwera. Należy jednak pamiętać, że konstrukcja czasu projektowania i minifikacja zwiększa złożoność kompilacji i działa tylko z plikami statycznymi.
 
 ## <a name="configure-bundling-and-minification"></a>Konfigurowanie grupowania i minifikacja
 
@@ -85,16 +85,16 @@ Plik *bundleconfig. JSON* definiuje opcje dla każdego pakietu. W poprzednim prz
 
 Opcje konfiguracji obejmują:
 
-* `outputFileName`: Nazwa pliku pakietu do wyprowadzenia. Może zawierać ścieżkę względną z pliku *bundleconfig. JSON* . **Wymagane**
-* `inputFiles`: Tablica plików do powiązania ze sobą. Są to względne ścieżki do pliku konfiguracji. **opcjonalne**, * pusta wartość powoduje pusty plik wyjściowy. Obsługiwane są wzorce [obsługi symboli wieloznacznych](https://www.tldp.org/LDP/abs/html/globbingref.html) .
-* `minify`: Opcje minifikacja dla typu danych wyjściowych. **opcjonalne**, *domyślne — `minify: { enabled: true }`*
+* `outputFileName`: nazwa pliku pakietu do wyprowadzenia. Może zawierać ścieżkę względną z pliku *bundleconfig. JSON* . **Wymagane**
+* `inputFiles`: tablica plików do powiązania ze sobą. Są to względne ścieżki do pliku konfiguracji. **opcjonalne**, * pusta wartość powoduje pusty plik wyjściowy. Obsługiwane są wzorce [obsługi symboli wieloznacznych](https://www.tldp.org/LDP/abs/html/globbingref.html) .
+* `minify`: opcje minifikacja dla typu danych wyjściowych. **opcjonalne**, *domyślne-`minify: { enabled: true }`*
   * Opcje konfiguracji są dostępne dla każdego typu pliku wyjściowego.
     * [Minifier CSS](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
     * [JavaScript Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
     * [Minifier HTML](https://github.com/madskristensen/BundlerMinifier/wiki)
 * `includeInProject`: Flaga oznaczająca, czy dodać wygenerowane pliki do pliku projektu. **opcjonalne**, *Domyślnie-false*
 * `sourceMap`: Flaga oznaczająca, czy generować mapę źródłową dla powiązanego pliku. **opcjonalne**, *Domyślnie-false*
-* `sourceMapRootPath`: Ścieżka katalogu głównego do przechowywania wygenerowanego pliku mapy źródłowej.
+* `sourceMapRootPath`: ścieżka katalogu głównego do przechowywania wygenerowanego pliku mapy źródłowej.
 
 ## <a name="build-time-execution-of-bundling-and-minification"></a>Wykonywanie operacji grupowania i minifikacja w czasie kompilacji
 
@@ -168,7 +168,7 @@ Wyczyść projekt:
 dotnet clean
 ```
 
-Wyświetlane są następujące dane wyjściowe:
+Zostaną wyświetlone następujące dane wyjściowe:
 
 ```console
 Microsoft (R) Build Engine version 15.4.8.50001 for .NET Core
@@ -197,7 +197,7 @@ dotnet bundle
 ```
 
 > [!IMPORTANT]
-> Menedżer pakietów NuGet dodaje zależności do pliku *. csproj jako `<PackageReference />` węzły. Polecenie jest rejestrowane przy użyciu interfejs wiersza polecenia platformy .NET Core tylko wtedy, `<DotNetCliToolReference />` gdy węzeł jest używany. `dotnet bundle` Zmodyfikuj odpowiednio plik *. csproj.
+> Menedżer pakietów NuGet dodaje zależności do pliku *. csproj jako węzły `<PackageReference />`. Polecenie `dotnet bundle` jest rejestrowane interfejs wiersza polecenia platformy .NET Core tylko wtedy, gdy jest używany węzeł `<DotNetCliToolReference />`. Zmodyfikuj odpowiednio plik *. csproj.
 
 ## <a name="add-files-to-workflow"></a>Dodaj pliki do przepływu pracy
 
@@ -213,12 +213,12 @@ Aby zminifikować *niestandardowy. css* i powiązać go z plikiem *site. css* w 
 > Alternatywnie można użyć następującego wzorca obsługi symboli wieloznacznych:
 >
 > ```json
-> "inputFiles": ["wwwroot/**/*(*.css|!(*.min.css))"]
+> "inputFiles": ["wwwroot/**/!(*.min).css" ]
 > ```
 >
 > Ten wzorzec obsługi symboli wieloznacznych dopasowuje wszystkie pliki CSS i wyklucza wzorzec pliku zminimalizowanego.
 
-Skompiluj aplikację. Otwórz *witrynę site. min. css* i zwróć uwagę na zawartość *Custom. css* , która jest dołączana na końcu pliku.
+Kompiluj aplikację. Otwórz *witrynę site. min. css* i zwróć uwagę na zawartość *Custom. css* , która jest dołączana na końcu pliku.
 
 ## <a name="environment-based-bundling-and-minification"></a>Tworzenie i minifikacja oparte na środowisku
 
@@ -226,7 +226,7 @@ Najlepszym rozwiązaniem jest użycie w środowisku produkcyjnym plików z pakie
 
 Określ pliki do uwzględnienia na stronach przy użyciu [pomocnika tagów środowiska](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper) w widokach. Pomocnik tagów środowiska renderuje jego zawartość tylko w przypadku uruchamiania w określonych [środowiskach](xref:fundamentals/environments).
 
-Następujący `environment` tag renderuje nieprzetworzone pliki CSS podczas działania `Development` w środowisku:
+Poniższy tag `environment` renderuje nieprzetworzone pliki CSS podczas działania w środowisku `Development`:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -240,7 +240,7 @@ Następujący `environment` tag renderuje nieprzetworzone pliki CSS podczas dzia
 
 ::: moniker-end
 
-Poniższy `environment` tag renderuje powiązane i zminimalizowanego pliki CSS, gdy działa w środowisku innym niż `Development`. Na przykład uruchomienie w programie `Production` lub `Staging` wyzwala renderowanie tych arkuszy stylów:
+Poniższy tag `environment` renderuje powiązane i zminimalizowanego pliki CSS, gdy działa w środowisku innym niż `Development`. Na przykład uruchomienie w `Production` lub `Staging` wyzwala renderowanie tych arkuszy stylów:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -265,11 +265,11 @@ Pakiet Visual Studio [pakietu & rozszerzenia Minifier](https://marketplace.visua
 > [!NOTE]
 > Pakiet & rozszerzenie Minifier należy do projektu opartego na społeczności w witrynie GitHub, dla którego firma Microsoft nie zapewnia pomocy technicznej. [Tutaj](https://github.com/madskristensen/BundlerMinifier/issues)należy zgłosić problemy.
 
-Kliknij prawym przyciskiem myszy plik *bundleconfig. JSON* w Eksplorator rozwiązań i wybierz pozycję **pakiet & Minifier** > **przekonwertować na Gulp...** :
+Kliknij prawym przyciskiem myszy plik *bundleconfig. JSON* w Eksplorator rozwiązań i wybierz pozycję **pakiet & Minifier** > **Konwertuj na Gulp...** :
 
 ![Konwertuj na element menu kontekstowego Gulp](../client-side/bundling-and-minification/_static/convert-to-gulp.png)
 
-Pliki *Gulpfile. js* i *Package. JSON* są dodawane do projektu. Zainstalowano pomocnicze pakiety [npm](https://www.npmjs.com/) wymienione w `devDependencies` sekcji pliku *Package. JSON* .
+Pliki *Gulpfile. js* i *Package. JSON* są dodawane do projektu. Zainstalowano pomocnicze pakiety [npm](https://www.npmjs.com/) wymienione w sekcji `devDependencies` pliku *Package. JSON* .
 
 Uruchom następujące polecenie w oknie PMC, aby zainstalować interfejs wiersza polecenia Gulp jako zależność globalną:
 
@@ -285,10 +285,10 @@ Plik *Gulpfile. js* odczytuje plik *bundleconfig. JSON* dla danych wejściowych,
 
 Jeśli program Visual Studio i/lub pakiet & rozszerzenia Minifier nie są dostępne, przekonwertuj go ręcznie.
 
-Dodaj plik *Package. JSON* o następującej `devDependencies`postaci do katalogu głównego projektu:
+Dodaj plik *Package. JSON* z następującymi `devDependencies`do katalogu głównego projektu:
 
 > [!WARNING]
-> `gulp-uglify` Moduł nie obsługuje języka ECMAScript (ES) 2015/ES6 i nowszych. Zainstaluj [Gulp-Terser](https://www.npmjs.com/package/gulp-terser) zamiast `gulp-uglify` używać ES2015/ES6 lub nowszego.
+> Moduł `gulp-uglify` nie obsługuje ECMAScript (ES) 2015/ES6 i nowszych. Zainstaluj [Gulp-Terser](https://www.npmjs.com/package/gulp-terser) zamiast `gulp-uglify`, aby użyć ES2015/ES6 lub nowszego.
 
 [!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/package.json?range=5-13)]
 
@@ -314,7 +314,7 @@ Aby wyzwolić zadanie Gulp minifikacja przed kompilacją projektu w programie Vi
 
 [!code-xml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/BuildBundlerMinifierApp.csproj?range=14-16)]
 
-W tym przykładzie wszystkie zadania zdefiniowane w `MyPreCompileTarget` miejscu docelowym są uruchamiane przed wstępnie zdefiniowanym `Build` elementem docelowym. Dane wyjściowe podobne do następujących pojawiają się w oknie danych wyjściowych programu Visual Studio:
+W tym przykładzie wszystkie zadania zdefiniowane w `MyPreCompileTarget` celu są uruchamiane przed wstępnie zdefiniowanym elementem docelowym `Build`. Dane wyjściowe podobne do następujących pojawiają się w oknie danych wyjściowych programu Visual Studio:
 
 ```console
 1>------ Build started: Project: BuildBundlerMinifierApp, Configuration: Debug Any CPU ------
@@ -327,7 +327,6 @@ W tym przykładzie wszystkie zadania zdefiniowane w `MyPreCompileTarget` miejscu
 1>[14:17:49] Finished 'min:css' after 88 ms
 ========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
 ```
-
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/07/2019
 uid: host-and-deploy/index
-ms.openlocfilehash: aa6e3da5f40211535037c671de913ab3219f063a
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: 8c7c131ca328f3118c45e822d6d5c86f0d44001f
+ms.sourcegitcommit: b3e1e31e5d8bdd94096cf27444594d4a7b065525
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799332"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803269"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Hostowanie i wdrażanie ASP.NET Core
 
@@ -32,7 +32,7 @@ Folder *publikowania* zawiera jeden lub więcej plików zestawów aplikacji, zal
 
 Aplikację platformy .NET Core można opublikować jako *samodzielne wdrożenie* lub *wdrożenie zależne od platformy*. Jeśli aplikacja jest samodzielna, pliki zestawu, które zawierają środowisko uruchomieniowe platformy .NET, znajdują się w folderze *Publikowanie* . Jeśli aplikacja jest zależna od struktury, pliki środowiska uruchomieniowego platformy .NET nie są uwzględniane, ponieważ aplikacja ma odwołanie do wersji platformy .NET zainstalowanej na serwerze. Domyślny model wdrażania jest zależny od platformy. Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji .NET Core](/dotnet/core/deploying/).
 
-Oprócz plików *exe* i *dll* , folder *publikacji* aplikacji ASP.NET Core zwykle zawiera pliki konfiguracji, zasoby statyczne i widoki MVC. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/directory-structure>.
+Oprócz plików *exe* i *dll* , folder *publikacji* aplikacji ASP.NET Core zwykle zawiera pliki konfiguracji, zasoby statyczne i widoki MVC. Aby uzyskać więcej informacji, zobacz temat <xref:host-and-deploy/directory-structure>.
 
 ## <a name="set-up-a-process-manager"></a>Konfigurowanie Menedżera procesów
 
@@ -42,7 +42,7 @@ Aplikacja ASP.NET Core jest aplikacją konsolową, która musi zostać uruchomio
   * [Nginx](xref:host-and-deploy/linux-nginx)
   * [Apache](xref:host-and-deploy/linux-apache)
 * Windows
-  * [SERWERZE](xref:host-and-deploy/iis/index)
+  * [IIS](xref:host-and-deploy/iis/index)
   * [Usługa systemu Windows](xref:host-and-deploy/windows-service)
 
 ## <a name="set-up-a-reverse-proxy"></a>Konfigurowanie zwrotnego serwera proxy
@@ -51,9 +51,9 @@ Jeśli aplikacja używa serwera [Kestrel](xref:fundamentals/servers/kestrel) , u
 
 &mdash;konfiguracji z serwerem zwrotnego serwera proxy lub bez niego&mdash;jest obsługiwaną konfiguracją hostingu. Aby uzyskać więcej informacji, zobacz [Kiedy używać Kestrel z zwrotnym serwerem proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
 
-## <a name="proxy-server-and-load-balancer-scenarios"></a>Scenariusze serwera proxy i modułu równoważenia obciążenia
+## <a name="proxy-server-and-load-balancer-scenarios"></a>Serwer proxy i scenariuszy usługi równoważenia obciążenia
 
-Dodatkowa konfiguracja może być wymagana dla aplikacji hostowanych w ramach serwerów proxy i modułów równoważenia obciążenia. Bez dodatkowej konfiguracji aplikacja może nie mieć dostępu do schematu (HTTP/HTTPS) i zdalnego adresu IP, z którego pochodzi żądanie. Aby uzyskać więcej informacji, zobacz [konfigurowanie ASP.NET Core do pracy z serwerami proxy i usługami równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer).
+Dodatkowa konfiguracja może być wymagana dla aplikacji hostowanych w ramach serwerów proxy i modułów równoważenia obciążenia. Bez dodatkowej konfiguracji aplikacja może nie mieć dostępu do schematu (HTTP/HTTPS) i zdalnego adresu IP, z którego pochodzi żądanie. Aby uzyskać więcej informacji, zobacz [Konfigurowanie platformy ASP.NET Core pracować z serwerów proxy i moduły równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer).
 
 ## <a name="use-visual-studio-and-msbuild-to-automate-deployments"></a>Korzystanie z programu Visual Studio i narzędzia MSBuild do automatyzowania wdrożeń
 
@@ -81,7 +81,7 @@ Aby uzyskać informacje na temat konfiguracji do hostowania aplikacji ASP.NET Co
 
 ## <a name="perform-health-checks"></a>Przeprowadzanie kontroli kondycji
 
-Używaj oprogramowania do sprawdzania kondycji, aby przeprowadzać kontrole kondycji aplikacji i jej zależności. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/health-checks>.
+Używaj oprogramowania do sprawdzania kondycji, aby przeprowadzać kontrole kondycji aplikacji i jej zależności. Aby uzyskać więcej informacji, zobacz temat <xref:host-and-deploy/health-checks>.
 
 ::: moniker-end
 
@@ -89,3 +89,5 @@ Używaj oprogramowania do sprawdzania kondycji, aby przeprowadzać kontrole kond
 
 * <xref:host-and-deploy/docker/index>
 * <xref:test/troubleshoot>
+* [Hosting ASP.NET](https://dotnet.microsoft.com/apps/aspnet/hosting)
+
