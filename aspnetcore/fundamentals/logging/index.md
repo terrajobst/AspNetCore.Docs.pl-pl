@@ -5,14 +5,14 @@ description: Dowiedz się, jak używać struktury rejestrowania dostarczonej prz
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/19/2019
+ms.date: 12/04/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 23ce2d09d2ce9f415ce71bcd7c21c29cb2a040fc
-ms.sourcegitcommit: 918d7000b48a2892750264b852bad9e96a1165a7
+ms.openlocfilehash: 49d598330948c5f4a137c534094e14ed5e01e27c
+ms.sourcegitcommit: f4cd3828e26e6d549ba8d0c36a17be35ad9e5a51
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74550362"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825495"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Rejestrowanie w programie .NET Core i ASP.NET Core
 
@@ -28,7 +28,7 @@ Rejestrowanie kodu dla aplikacji bez hosta ogólnego różni się w sposób, w j
 
 ::: moniker-end
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="add-providers"></a>Dodaj dostawców
 
@@ -48,10 +48,10 @@ W aplikacji konsolowej bez hosta Wywołaj metodę rozszerzenia `Add{provider nam
 
 Domyślne ASP.NET Core wywołań szablonów projektu <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder%2A>, które dodaje następujących dostawców rejestrowania:
 
-* Konsola programu
-* Debugowanie
-* EventSource
-* EventLog (tylko w przypadku uruchamiania w systemie Windows)
+* [Console](#console-provider)
+* [Debugowanie](#debug-provider)
+* [EventSource](#event-source-provider)
+* [EventLog](#windows-eventlog-provider) (tylko w przypadku uruchamiania w systemie Windows)
 
 Dostawców domyślnych można zastąpić własnymi opcjami. Wywołaj <xref:Microsoft.Extensions.Logging.LoggingBuilderExtensions.ClearProviders%2A>i Dodaj żądanych dostawców.
 
@@ -129,7 +129,7 @@ W poniższych przykładach ASP.NET Core i aplikacji konsoli Rejestrator jest uż
 
 Aby napisać dzienniki w klasie `Program` aplikacji ASP.NET Core, Pobierz wystąpienie `ILogger` od DI po skompilowaniu hosta:
 
-[!code-csharp[](index/samples/3.x/TodoApiSample/Program.cs?name=snippet_LogFromMain&highlight=9,10)]
+[!code-csharp[](index/samples_snapshot/3.x/TodoApiSample/Program.cs?highlight=9,10)]
 
 Rejestrowanie podczas konstruowania hosta nie jest bezpośrednio obsługiwane. Można jednak użyć osobnego rejestratora. W poniższym przykładzie Rejestrator [Serilog](https://serilog.net/) jest używany do logowania się `CreateHostBuilder`. `AddSerilog` używa konfiguracji statycznej określonej w `Log.Logger`:
 
@@ -747,13 +747,13 @@ Dane konfiguracji i kod `AddFilter` przedstawiony w powyższych przykładach two
 | Wartość liczbowa | Provider      | Kategorie zaczynające się od...          | Minimalny poziom rejestrowania |
 | :----: | ------------- | --------------------------------------- | ----------------- |
 | 1      | Debugowanie         | Wszystkie kategorie                          | Informacje programu       |
-| 2      | Konsola programu       | Microsoft. AspNetCore. MVC. Razor. Internal | Ostrzeżenie           |
-| 3      | Konsola programu       | Microsoft. AspNetCore. MVC. Razor. Razor    | Debugowanie             |
-| 4      | Konsola programu       | Microsoft. AspNetCore. MVC. Razor          | Błąd             |
+| 2      | Konsola programu       | Microsoft.AspNetCore.Mvc.Razor.Internal | Ostrzeżenie           |
+| 3      | Konsola programu       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debugowanie             |
+| 4      | Konsola programu       | Microsoft.AspNetCore.Mvc.Razor          | Błąd             |
 | 5      | Konsola programu       | Wszystkie kategorie                          | Informacje programu       |
 | 6      | Wszyscy dostawcy | Wszystkie kategorie                          | Debugowanie             |
 | 7      | Wszyscy dostawcy | System                                  | Debugowanie             |
-| 8      | Debugowanie         | Microsoft                               | szuka             |
+| 8      | Debugowanie         | Microsoft                               | Ślad             |
 
 Po utworzeniu obiektu `ILogger` obiekt `ILoggerFactory` wybiera jedną regułę dla każdego dostawcy do zastosowania do tego rejestratora. Wszystkie komunikaty zapisywane przez wystąpienie `ILogger` są filtrowane na podstawie wybranych reguł. Najbardziej konkretną regułą można wybrać dla każdego dostawcy i pary kategorii z dostępnych reguł.
 
@@ -824,15 +824,15 @@ Poniżej przedstawiono niektóre kategorie używane przez ASP.NET Core i Entity 
 
 | Kategoria                            | Uwagi |
 | ----------------------------------- | ----- |
-| Microsoft. AspNetCore                | Ogólna Diagnostyka ASP.NET Core. |
-| Microsoft. AspNetCore. dataprotection | Które klucze zostały wzięte pod uwagę, znaleziono i użyte. |
-| Microsoft. AspNetCore. HostFiltering  | Dozwolone hosty. |
-| Microsoft. AspNetCore. hosting        | Jak długo trwa wykonywanie żądań HTTP i czas ich uruchomienia. Które hostowanie zestawów uruchamiania zostało załadowane. |
-| Microsoft. AspNetCore. MVC            | Diagnostyka MVC i Razor. Powiązanie modelu, wykonywanie filtru, kompilacja widoku, wybór akcji. |
-| Microsoft. AspNetCore. Routing        | Informacje o trasie. |
-| Microsoft. AspNetCore. Server         | Reagowanie na uruchamianie, zatrzymywanie i utrzymywanie aktywności. Informacje o certyfikacie HTTPS. |
-| Microsoft. AspNetCore. StaticFiles    | Obsługiwane pliki. |
-| Microsoft. EntityFrameworkCore       | Ogólna Diagnostyka Entity Framework Core. Aktywność i Konfiguracja bazy danych, wykrywanie zmian, migracje. |
+| Microsoft.AspNetCore                | Ogólna Diagnostyka ASP.NET Core. |
+| Microsoft.AspNetCore.DataProtection | Które klucze zostały wzięte pod uwagę, znaleziono i użyte. |
+| Microsoft.AspNetCore.HostFiltering  | Dozwolone hosty. |
+| Microsoft.AspNetCore.Hosting        | Jak długo trwa wykonywanie żądań HTTP i czas ich uruchomienia. Które hostowanie zestawów uruchamiania zostało załadowane. |
+| Microsoft.AspNetCore.Mvc            | Diagnostyka MVC i Razor. Powiązanie modelu, wykonywanie filtru, kompilacja widoku, wybór akcji. |
+| Microsoft.AspNetCore.Routing        | Informacje o trasie. |
+| Microsoft.AspNetCore.Server         | Reagowanie na uruchamianie, zatrzymywanie i utrzymywanie aktywności. Informacje o certyfikacie HTTPS. |
+| Microsoft.AspNetCore.StaticFiles    | Obsługiwane pliki. |
+| Microsoft.EntityFrameworkCore       | Ogólna Diagnostyka Entity Framework Core. Aktywność i Konfiguracja bazy danych, wykrywanie zmian, migracje. |
 
 ## <a name="log-scopes"></a>Zakresy dziennika
 
@@ -889,9 +889,9 @@ warn: TodoApiSample.Controllers.TodoController[4000]
 ASP.NET Core dostarcza następujących dostawców:
 
 * [Console](#console-provider)
-* [Rozpocząć](#debug-provider)
+* [Debugowanie](#debug-provider)
 * [EventSource](#event-source-provider)
-* [Elemencie](#windows-eventlog-provider)
+* [EventLog](#windows-eventlog-provider)
 * [TraceSource](#tracesource-provider)
 * [AzureAppServicesFile](#azure-app-service-provider)
 * [AzureAppServicesBlob](#azure-app-service-provider)
@@ -989,7 +989,7 @@ Użyj narzędzi śledzenia dotnet, aby zebrać ślad z aplikacji:
 
    Na platformach innych niż Windows Dodaj opcję `-f speedscope`, aby zmienić format wyjściowego pliku śledzenia na `speedscope`.
 
-   | Kodu | Opis |
+   | Słowo kluczowe | Opis |
    | :-----: | ----------- |
    | 1       | Rejestruj meta zdarzenia dotyczące `LoggingEventSource`. Nie rejestruje zdarzeń z `ILogger`). |
    | 2       | Włącza `Message` zdarzenie, gdy zostanie wywołane `ILogger.Log()`. Zawiera informacje w sposób programistyczny (nie sformatowany). |
@@ -1051,7 +1051,11 @@ Pakiet dostawcy [Microsoft. Extensions. Logging. EventLog](https://www.nuget.org
 logging.AddEventLog();
 ```
 
-[Przeciążenia addeventlog](xref:Microsoft.Extensions.Logging.EventLoggerFactoryExtensions) umożliwiają przekazywanie <xref:Microsoft.Extensions.Logging.EventLog.EventLogSettings>.
+[Przeciążenia addeventlog](xref:Microsoft.Extensions.Logging.EventLoggerFactoryExtensions) umożliwiają przekazywanie <xref:Microsoft.Extensions.Logging.EventLog.EventLogSettings>. Jeśli `null` lub nie określono, są używane następujące ustawienia domyślne:
+
+* `LogName` &ndash; "aplikacja"
+* `SourceName` &ndash; "środowisko uruchomieniowe .NET"
+* `MachineName` &ndash; komputerze lokalnym
 
 ### <a name="tracesource-provider"></a>Dostawca TraceSource
 
@@ -1122,7 +1126,7 @@ Usługa przesyłania strumieniowego w usłudze Azure log umożliwia wyświetlani
 
 * Serwer aplikacji
 * Serwer sieci Web
-* Śledzenie nieudanych żądań
+* Śledzenie żądań nie powiodło się
 
 Aby skonfigurować przesyłanie strumieniowe dzienników Azure:
 
