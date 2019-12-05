@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/04/2019
 uid: security/authentication/index
-ms.openlocfilehash: 324b2669d3b69e4757a284e4ae7e1de5f4e87e5a
-ms.sourcegitcommit: 05ca05a5c8f6ae556aaad66ad9e4ec1e6b643c77
+ms.openlocfilehash: 40b2fb59b96486435a2ec0a7d69bee5ab4a814d2
+ms.sourcegitcommit: 76d7fff62014c3db02564191ab768acea00f1b26
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74810253"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74852717"
 ---
 # <a name="overview-of-aspnet-core-authentication"></a>Omówienie uwierzytelniania ASP.NET Core
 
@@ -80,14 +80,14 @@ W oparciu o konfigurację schematu uwierzytelniania i kontekst żądania przycho
 
 ### <a name="authenticate"></a>Uwierzytelnianie
 
-Akcja uwierzytelniania schematu uwierzytelniania jest odpowiedzialna za konstruowanie tożsamości użytkownika na podstawie kontekstu żądania. Zwraca <xref:Microsoft.AspNetCore.Authentication.AuthenticateResult> wskazujący, czy uwierzytelnianie zakończyło się pomyślnie, a jeśli tak, tożsamość użytkownika w biletu uwierzytelniania. Zobacz HttpContext. AuthenticateAsync. Przykłady uwierzytelniania obejmują:
+Akcja uwierzytelniania schematu uwierzytelniania jest odpowiedzialna za konstruowanie tożsamości użytkownika na podstawie kontekstu żądania. Zwraca <xref:Microsoft.AspNetCore.Authentication.AuthenticateResult> wskazujący, czy uwierzytelnianie zakończyło się pomyślnie, a jeśli tak, tożsamość użytkownika w biletu uwierzytelniania. Zobacz `HttpContext.AuthenticateAsync`. Przykłady uwierzytelniania obejmują:
 
 * Schemat uwierzytelniania plików cookie, który konstruuje tożsamość użytkownika z plików cookie.
 * Schemat okaziciela JWT deserializacji i weryfikacji tokenu okaziciela JWT w celu utworzenia tożsamości użytkownika.
 
 ### <a name="challenge"></a>Zadanie
 
-Wyzwanie uwierzytelniania jest wywoływane przez autoryzację, gdy nieuwierzytelniony użytkownik żąda punktu końcowego wymagającego uwierzytelniania. Jest wystawiane wyzwanie uwierzytelniania, na przykład gdy użytkownik anonimowy żąda zasobu z ograniczeniami lub klika łącze logowania. Autoryzacja wywołuje wyzwanie przy użyciu określonych schematów uwierzytelniania lub wartość domyślną, jeśli nie została określona. Zobacz HttpContext. ChallengeAsync. Przykłady wyzwania uwierzytelniania obejmują:
+Wyzwanie uwierzytelniania jest wywoływane przez autoryzację, gdy nieuwierzytelniony użytkownik żąda punktu końcowego wymagającego uwierzytelniania. Jest wystawiane wyzwanie uwierzytelniania, na przykład gdy użytkownik anonimowy żąda zasobu z ograniczeniami lub klika łącze logowania. Autoryzacja wywołuje wyzwanie przy użyciu określonych schematów uwierzytelniania lub wartość domyślną, jeśli nie została określona. Zobacz `HttpContext.ChallengeAsync`. Przykłady wyzwania uwierzytelniania obejmują:
 
 * Schemat uwierzytelniania plików cookie przekierowuje użytkownika do strony logowania.
 * Schemat okaziciela JWT zwracający wynik 401 z nagłówkiem `www-authenticate: bearer`.
@@ -96,7 +96,7 @@ Akcja wyzwania powinna dać użytkownikowi informacje o mechanizmie uwierzytelni
 
 ### <a name="forbid"></a>Uniemożliwia
 
-Akcja zabraniania schematu uwierzytelniania jest wywoływana przez autoryzację, gdy uwierzytelniony użytkownik próbuje uzyskać dostęp do zasobu, do którego nie ma dostępu. Zobacz HttpContext. ForbidAsync. Przykładem zabraniania uwierzytelniania są:
+Akcja zabraniania schematu uwierzytelniania jest wywoływana przez autoryzację, gdy uwierzytelniony użytkownik próbuje uzyskać dostęp do zasobu, do którego nie ma dostępu. Zobacz `HttpContext.ForbidAsync`. Przykładem zabraniania uwierzytelniania są:
 * Schemat uwierzytelniania plików cookie przekierowuje użytkownika do strony wskazującej dostęp był zabroniony.
 * Schemat okaziciela JWT zwracający wynik 403.
 * Niestandardowy schemat uwierzytelniania przekierowuje do strony, na której użytkownik może zażądać dostępu do zasobu.

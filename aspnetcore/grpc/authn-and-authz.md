@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 08/13/2019
 uid: grpc/authn-and-authz
-ms.openlocfilehash: e8dd384ec43a66e56891925dcaa529085fa200c7
-ms.sourcegitcommit: 6d26ab647ede4f8e57465e29b03be5cb130fc872
+ms.openlocfilehash: 84903ee781588ff525d1dfce6a313e3867794762
+ms.sourcegitcommit: 76d7fff62014c3db02564191ab768acea00f1b26
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71999861"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74852704"
 ---
 # <a name="authentication-and-authorization-in-grpc-for-aspnet-core"></a>Uwierzytelnianie i autoryzacja w programie gRPC for ASP.NET Core
 
@@ -97,7 +97,7 @@ private static GrpcChannel CreateAuthenticatedChannel(string address)
     });
 
     // SslCredentials is used here because this channel is using TLS.
-    // Channels that aren't using TLS should use ChannelCredentials.Insecure instead.
+    // CallCredentials can't be used with ChannelCredentials.Insecure on non-TLS channels.
     var channel = GrpcChannel.ForAddress(address, new GrpcChannelOptions
     {
         Credentials = ChannelCredentials.Create(new SslCredentials(), credentials)
@@ -138,19 +138,19 @@ public Ticketer.TicketerClient CreateClientWithCert(
 
 Wiele ASP.NET Core obsługiwanych mechanizmów uwierzytelniania współpracuje z gRPC:
 
-* Usługa Azure Active Directory
+* Azure Active Directory
 * Certyfikat klienta
 * IdentityServer
 * Token JWT
-* OAuth 2,0
-* OpenID Connect połączenie
+* OAuth 2.0
+* OpenID Connect
 * WS-Federation
 
 Aby uzyskać więcej informacji na temat konfigurowania uwierzytelniania na serwerze, zobacz [ASP.NET Core Authentication](xref:security/authentication/identity).
 
 Skonfigurowanie klienta gRPC do korzystania z uwierzytelniania będzie zależeć od używanego mechanizmu uwierzytelniania. W poprzednim tokenie okaziciela i certyfikatach klienta przedstawiono kilka sposobów skonfigurowania klienta gRPC do wysyłania metadanych uwierzytelniania z wywołaniami gRPC:
 
-* GRPC klienci z jednoznacznie określonym typem używają `HttpClient` wewnętrznie. Uwierzytelnianie można skonfigurować w [`HttpClientHandler`](/dotnet/api/system.net.http.httpclienthandler)lub przez dodanie wystąpień [`HttpMessageHandler`](/dotnet/api/system.net.http.httpmessagehandler) do `HttpClient`.
+* GRPC klienci z jednoznacznie określonym typem używają `HttpClient` wewnętrznie. Uwierzytelnianie można skonfigurować na [`HttpClientHandler`](/dotnet/api/system.net.http.httpclienthandler)lub przez dodanie wystąpień [`HttpMessageHandler`](/dotnet/api/system.net.http.httpmessagehandler) niestandardowych do `HttpClient`.
 * Każde wywołanie gRPC ma opcjonalny argument `CallOptions`. Nagłówki niestandardowe można wysyłać przy użyciu kolekcji nagłówków opcji.
 
 > [!NOTE]
