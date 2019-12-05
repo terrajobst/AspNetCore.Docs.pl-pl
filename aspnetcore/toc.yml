@@ -555,6 +555,13 @@
     - name: Rejestrowanie i diagnostyka
       displayName: signalr
       uid: signalr/diagnostics
+    - name: Specyfikacje
+      displayName: 'signalr, specs'
+      items:
+        - name: Protokół centrum
+          href: 'https://github.com/aspnet/AspNetCore/blob/master/src/SignalR/docs/specs/HubProtocol.md'
+        - name: Protokoły transportowe
+          href: 'https://github.com/aspnet/AspNetCore/blob/master/src/SignalR/docs/specs/TransportProtocols.md'
 - name: Aplikacje zdalnego wywołania procedury
   items:
     - name: Wprowadzenie do usług gRPC
