@@ -4,14 +4,14 @@ author: mjrousos
 description: Informacje o uwierzytelnianiu w ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/22/2019
+ms.date: 12/04/2019
 uid: security/authentication/index
-ms.openlocfilehash: 5e6c875188831c468bc6ca52ce71c5961b43573c
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: 324b2669d3b69e4757a284e4ae7e1de5f4e87e5a
+ms.sourcegitcommit: 05ca05a5c8f6ae556aaad66ad9e4ec1e6b643c77
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74681456"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74810253"
 ---
 # <a name="overview-of-aspnet-core-authentication"></a>Omówienie uwierzytelniania ASP.NET Core
 
@@ -57,7 +57,7 @@ Schematem uwierzytelniania jest nazwa, która odnosi się do:
 * Program obsługi uwierzytelniania.
 * Opcje konfigurowania określonego wystąpienia programu obsługi.
 
-Schematy są przydatne jako mechanizm do odwoływania się do zachowań uwierzytelnianie, wyzwanie i Zabroń skojarzonej procedury obsługi. Na przykład zasady autoryzacji mogą określać według nazwy, który schemat autoryzacji (lub schematy) powinien zostać użyty do uwierzytelnienia użytkownika. Podczas konfigurowania uwierzytelniania często można określić domyślny schemat uwierzytelniania. Domyślny schemat jest używany, chyba że zasób żąda określonego schematu. Możliwe jest również:
+Schematy są przydatne jako mechanizm do odwoływania się do zachowań uwierzytelnianie, wyzwanie i Zabroń skojarzonej procedury obsługi. Na przykład zasady autoryzacji mogą używać nazw schematów, aby określić, który schemat uwierzytelniania (lub schematy) powinien zostać użyty do uwierzytelnienia użytkownika. Podczas konfigurowania uwierzytelniania często można określić domyślny schemat uwierzytelniania. Domyślny schemat jest używany, chyba że zasób żąda określonego schematu. Możliwe jest również:
 
 * Określ różne domyślne schematy do użycia w akcjach uwierzytelniania, wyzwania i zabraniania.
 * Połącz wiele schematów przy użyciu [schematów zasad](xref:security/authentication/policyschemes).
@@ -78,14 +78,14 @@ W oparciu o konfigurację schematu uwierzytelniania i kontekst żądania przycho
   * Dostęp do nich nie jest autoryzowany (Zabroń).
   * Gdy nie są uwierzytelniane (wyzwanie).
 
-### <a name="authenticate"></a>Potwierdza
+### <a name="authenticate"></a>Uwierzytelnianie
 
 Akcja uwierzytelniania schematu uwierzytelniania jest odpowiedzialna za konstruowanie tożsamości użytkownika na podstawie kontekstu żądania. Zwraca <xref:Microsoft.AspNetCore.Authentication.AuthenticateResult> wskazujący, czy uwierzytelnianie zakończyło się pomyślnie, a jeśli tak, tożsamość użytkownika w biletu uwierzytelniania. Zobacz HttpContext. AuthenticateAsync. Przykłady uwierzytelniania obejmują:
 
 * Schemat uwierzytelniania plików cookie, który konstruuje tożsamość użytkownika z plików cookie.
 * Schemat okaziciela JWT deserializacji i weryfikacji tokenu okaziciela JWT w celu utworzenia tożsamości użytkownika.
 
-### <a name="challenge"></a>Sprawdz
+### <a name="challenge"></a>Zadanie
 
 Wyzwanie uwierzytelniania jest wywoływane przez autoryzację, gdy nieuwierzytelniony użytkownik żąda punktu końcowego wymagającego uwierzytelniania. Jest wystawiane wyzwanie uwierzytelniania, na przykład gdy użytkownik anonimowy żąda zasobu z ograniczeniami lub klika łącze logowania. Autoryzacja wywołuje wyzwanie przy użyciu określonych schematów uwierzytelniania lub wartość domyślną, jeśli nie została określona. Zobacz HttpContext. ChallengeAsync. Przykłady wyzwania uwierzytelniania obejmują:
 
