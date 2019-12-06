@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: security/app-secrets
-ms.openlocfilehash: 3323b7b614b7e8bc711b2c5acfb501b65b3d783b
-ms.sourcegitcommit: 76d7fff62014c3db02564191ab768acea00f1b26
+ms.openlocfilehash: 0bbd6af01ce3a29d3931faa2853a50dc895490cc
+ms.sourcegitcommit: fd2483f0a384b1c479c5b4af025ee46917db1919
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852691"
+ms.locfileid: "74868033"
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Bezpieczne przechowywanie wpisów tajnych aplikacji podczas opracowywania w ASP.NET Core
 
@@ -27,7 +27,7 @@ Zmienne środowiskowe służą do uniknięcia przechowywania wpisów tajnych apl
 
 ::: moniker range="<= aspnetcore-1.1"
 
-Skonfiguruj Odczytywanie wartości zmiennych środowiskowych przez wywołanie <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> w konstruktorze `Startup`:
+Skonfiguruj Odczytywanie wartości zmiennych środowiskowych przez wywołanie <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables%2A> w konstruktorze `Startup`:
 
 [!code-csharp[](app-secrets/samples/1.x/UserSecrets/Startup.cs?name=snippet_StartupConstructor&highlight=8)]
 
@@ -229,11 +229,11 @@ Jeśli projekt jest przeznaczony .NET Framework, zainstaluj pakiet NuGet [Micros
 
 ::: moniker range=">= aspnetcore-2.0"
 
-W ASP.NET Core 2,0 lub nowszym Źródło konfiguracji kluczy tajnych użytkownika jest automatycznie dodawane w trybie programistycznym, gdy projekt wywoła <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>, aby zainicjować nowe wystąpienie hosta ze wstępnie skonfigurowanymi ustawieniami domyślnymi. `CreateDefaultBuilder` wywołań <xref:Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions.AddUserSecrets*>, gdy <xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.EnvironmentName> jest <xref:Microsoft.AspNetCore.Hosting.EnvironmentName.Development>:
+W ASP.NET Core 2,0 lub nowszym Źródło konfiguracji kluczy tajnych użytkownika jest automatycznie dodawane w trybie programistycznym, gdy projekt wywoła <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A>, aby zainicjować nowe wystąpienie hosta ze wstępnie skonfigurowanymi ustawieniami domyślnymi. `CreateDefaultBuilder` wywołań <xref:Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions.AddUserSecrets%2A>, gdy <xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.EnvironmentName> jest <xref:Microsoft.AspNetCore.Hosting.EnvironmentName.Development>:
 
 [!code-csharp[](app-secrets/samples/2.x/UserSecrets/Program.cs?name=snippet_CreateWebHostBuilder&highlight=2)]
 
-Gdy `CreateDefaultBuilder` nie zostanie wywołana, Dodaj źródło konfiguracji danych tajnych użytkownika jawnie, wywołując <xref:Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions.AddUserSecrets*> w konstruktorze `Startup`. Wywołaj `AddUserSecrets` tylko wtedy, gdy aplikacja działa w środowisku deweloperskim, jak pokazano w następującym przykładzie:
+Gdy `CreateDefaultBuilder` nie zostanie wywołana, Dodaj źródło konfiguracji danych tajnych użytkownika jawnie, wywołując <xref:Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions.AddUserSecrets%2A> w konstruktorze `Startup`. Wywołaj `AddUserSecrets` tylko wtedy, gdy aplikacja działa w środowisku deweloperskim, jak pokazano w następującym przykładzie:
 
 [!code-csharp[](app-secrets/samples/1.x/UserSecrets/Startup.cs?name=snippet_StartupConstructor&highlight=12)]
 
@@ -243,7 +243,7 @@ Gdy `CreateDefaultBuilder` nie zostanie wywołana, Dodaj źródło konfiguracji 
 
 Zainstaluj pakiet NuGet [Microsoft. Extensions. Configuration. UserSecrets](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.UserSecrets) .
 
-Dodaj źródło konfiguracji kluczy tajnych użytkownika z wywołaniem do <xref:Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions.AddUserSecrets*> w konstruktorze `Startup`:
+Dodaj źródło konfiguracji kluczy tajnych użytkownika z wywołaniem do <xref:Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions.AddUserSecrets%2A> w konstruktorze `Startup`:
 
 [!code-csharp[](app-secrets/samples/1.x/UserSecrets/Startup.cs?name=snippet_StartupConstructor&highlight=12)]
 
@@ -303,7 +303,7 @@ Usuń parę klucz-wartość `Password` z parametrów połączenia w pliku *appSe
 
 [!code-json[](app-secrets/samples/2.x/UserSecrets/appsettings.json?highlight=3)]
 
-Wartość wpisu tajnego można ustawić na właściwości <xref:System.Data.SqlClient.SqlConnectionStringBuilder.Password*> obiektu <xref:System.Data.SqlClient.SqlConnectionStringBuilder>, aby zakończyć parametry połączenia:
+Wartość wpisu tajnego można ustawić na właściwości <xref:System.Data.SqlClient.SqlConnectionStringBuilder.Password%2A> obiektu <xref:System.Data.SqlClient.SqlConnectionStringBuilder>, aby zakończyć parametry połączenia:
 
 ::: moniker range=">= aspnetcore-2.0"
 

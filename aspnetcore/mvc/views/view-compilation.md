@@ -5,18 +5,18 @@ description: Dowiedz się, jak kompilacja plików Razor występuje w aplikacji A
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/31/2019
+ms.date: 12/05/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 95fa0d72ed9c088945707ac6b79c3fbde35a5a30
-ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
+ms.openlocfilehash: 0a5770a00c5cb319b571628659a07e73e0de54f9
+ms.sourcegitcommit: fd2483f0a384b1c479c5b4af025ee46917db1919
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416148"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74867981"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>Kompilacja pliku Razor w ASP.NET Core
 
-Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range="= aspnetcore-1.1"
 
@@ -94,7 +94,7 @@ Przygotuj aplikację dla [wdrożenia zależnego od platformy](/dotnet/core/deplo
 dotnet publish -c Release
 ```
 
-*\<Project_Name. Plik PrecompiledViews. dll* zawierający skompilowane pliki Razor jest tworzony, gdy kompilacja zakończy się pomyślnie. Na przykład poniższy zrzut ekranu przedstawia zawartość *index. cshtml* w *WebApplication1. PrecompiledViews. dll*:
+*> Project_name\<. Plik PrecompiledViews. dll* zawierający skompilowane pliki Razor jest tworzony, gdy kompilacja zakończy się pomyślnie. Na przykład poniższy zrzut ekranu przedstawia zawartość *index. cshtml* w *WebApplication1. PrecompiledViews. dll*:
 
 ![Widoki Razor wewnątrz biblioteki DLL](view-compilation/_static/razor-views-in-dll.png)
 
@@ -115,7 +115,7 @@ Kompilacja w czasie kompilacji jest uzupełniana przez kompilację plików Razor
 Wartość domyślna to `true` dla:
 
 * Jeśli wersja zgodności aplikacji jest ustawiona na <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1> lub wcześniejszą
-* Jeśli wersja zgodności aplikacji jest ustawiona na <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_2> lub nowsza, a aplikacja znajduje się w <xref:Microsoft.AspNetCore.Hosting.HostingEnvironmentExtensions.IsDevelopment*>środowisku deweloperskim. Inaczej mówiąc, pliki Razor nie będą ponownie kompilowane w środowisku innym niż programowanie, chyba że <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> jest jawnie ustawiona.
+* Jeśli wersja zgodności aplikacji jest ustawiona na <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_2> lub nowsza, a aplikacja znajduje się w <xref:Microsoft.AspNetCore.Hosting.HostingEnvironmentExtensions.IsDevelopment*>środowisku deweloperskim. Inaczej mówiąc, pliki Razor nie będą ponownie kompilowane w środowisku nieprogramistycznym, chyba że <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> jest jawnie ustawiona.
 
 Aby uzyskać wskazówki i przykłady dotyczące ustawiania wersji zgodności aplikacji, zobacz <xref:mvc/compatibility-version>.
 
@@ -123,16 +123,57 @@ Aby uzyskać wskazówki i przykłady dotyczące ustawiania wersji zgodności apl
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Kompilacja środowiska uruchomieniowego jest włączona przy użyciu pakietu `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation`. Aby włączyć kompilację środowiska uruchomieniowego, aplikacje muszą:
+Aby włączyć kompilację środowiska uruchomieniowego dla wszystkich środowisk i trybów konfiguracji:
 
-* Zainstaluj pakiet NuGet [Microsoft. AspNetCore. MVC. Razor. RuntimeCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/) .
-* Zaktualizuj metodę `Startup.ConfigureServices` projektu w celu uwzględnienia wywołania `AddRazorRuntimeCompilation`:
+1. Zainstaluj pakiet NuGet [Microsoft. AspNetCore. MVC. Razor. RuntimeCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/) .
 
-  ```csharp
-  services
-      .AddControllersWithViews()
-      .AddRazorRuntimeCompilation();
-  ```
+1. Zaktualizuj metodę `Startup.ConfigureServices` projektu w celu uwzględnienia wywołania `AddRazorRuntimeCompilation`. Na przykład:
+
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddRazorPages()
+            .AddRazorRuntimeCompilation();
+
+        // code omitted for brevity
+    }
+    ```
+
+### <a name="conditionally-enable-runtime-compilation"></a>Warunkowe włączenie kompilacji środowiska uruchomieniowego
+
+Kompilacja środowiska uruchomieniowego może być włączona w taki sposób, że jest dostępna tylko na potrzeby lokalnego tworzenia. Warunkowe włączenie w ten sposób zapewnia, że opublikowane dane wyjściowe:
+
+* Używa skompilowanych widoków.
+* Jest mniejszy niż rozmiar.
+* Nie włącza obserwatorów plików w środowisku produkcyjnym.
+
+Aby włączyć kompilację środowiska uruchomieniowego na podstawie trybu środowiska i konfiguracji:
+
+1. Warunkowo odwołuje się do pakietu [Microsoft. AspNetCore. MVC. Razor. RuntimeCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/) w oparciu o wartość Active `Configuration`:
+
+    ```xml
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.0" Condition="'$(Configuration)' == 'Debug'" />
+    ```
+
+1. Zaktualizuj metodę `Startup.ConfigureServices` projektu w celu uwzględnienia wywołania `AddRazorRuntimeCompilation`. Warunkowo wykonuj `AddRazorRuntimeCompilation` w taki sposób, aby działał tylko w trybie debugowania, gdy zmienna `ASPNETCORE_ENVIRONMENT` jest ustawiona na `Development`:
+
+    ```csharp
+    public IWebHostEnvironment Env { get; set; }
+    
+    public void ConfigureServices(IServiceCollection services)
+    {
+        IMvcBuilder builder = services.AddRazorPages();
+    
+    #if DEBUG
+        if (Env.IsDevelopment())
+        {
+            builder.AddRazorRuntimeCompilation();
+        }
+    #endif
+
+        // code omitted for brevity
+    }
+    ```
 
 ::: moniker-end
 
