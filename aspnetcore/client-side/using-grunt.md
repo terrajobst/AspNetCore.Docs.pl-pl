@@ -1,62 +1,62 @@
 ---
-title: Korzystanie z Grunt w programie ASP.NET Core
+title: Używanie grunt w ASP.NET Core
 author: rick-anderson
-description: Korzystanie z Grunt w programie ASP.NET Core
+description: Używanie grunt w ASP.NET Core
 ms.author: riande
-ms.date: 06/18/2019
+ms.date: 12/05/2019
 uid: client-side/using-grunt
-ms.openlocfilehash: f3832bd1fe5721fbda114103ac11a8d55312bcb2
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: e516b85da7e94d0c93be642086fede0a11fea3c2
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813550"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879791"
 ---
-# <a name="use-grunt-in-aspnet-core"></a>Korzystanie z Grunt w programie ASP.NET Core
+# <a name="use-grunt-in-aspnet-core"></a>Używanie grunt w ASP.NET Core
 
-Grunt jest modułu uruchamiającego zadania JavaScript, który automatyzuje minimalizację skryptu, kompilacji TypeScript, narzędzia "lint" jakość kodu, procesory wstępne CSS i niemal dowolnym powtarzających się kwestii, wymagającym, wykonując obsługi opracowywania aplikacji klienta. Grunt jest w pełni obsługiwany w programie Visual Studio.
+Grunt to moduł uruchamiający zadania języka JavaScript, który automatyzuje skrypty minifikacja, kompilacja języka TypeScript, jakość kodu "lint", a także wszystkie powtarzalne zadania, które wymagają obsługi rozwoju klienta. Grunt jest w pełni obsługiwany w programie Visual Studio.
 
-W tym przykładzie używa pusty projekt platformy ASP.NET Core jako punktu wyjścia laboratorium, aby pokazać, jak zautomatyzować proces kompilacji klienta od podstaw.
+Ten przykład używa pustego projektu ASP.NET Core jako punktu początkowego, aby pokazać, jak zautomatyzować proces kompilacji klienta od podstaw.
 
-Zakończono przykład oczyszcza katalog docelowy wdrażania, łączy pliki JavaScript, sprawdza, czy jakość kodu, zmniejsza objętość zawartość pliku JavaScript i wdraża w katalogu głównym aplikacji sieci web. Firma Microsoft użyje następujących pakietów:
+Zakończono przykład czyści docelowy katalog wdrożenia, łączy pliki JavaScript, sprawdza jakość kodu, skrapla zawartość pliku JavaScript i wdraża je w katalogu głównym aplikacji sieci Web. Będziemy używać następujących pakietów:
 
-* **grunt**: Pakiet modułu uruchamiającego zadania Grunt.
+* **grunt**: pakiet Runner zadania grunt.
 
-* **grunt-contrib-clean**: Dodatek, który usuwa pliki lub katalogi.
+* **grunt-contrib-Clean**: wtyczka, która usuwa pliki lub katalogi.
 
-* **grunt-contrib-jshint**: Dodatek, który monitoruje jakość kodu JavaScript.
+* **grunt-contrib-jshint**: wtyczka, która przegląda jakość kodu JavaScript.
 
-* **concat — contrib-grunt**: Dodatek, który łączy pliki w jednym pliku.
+* **grunt-contrib-concat**: wtyczka, która przyłącza pliki do pojedynczego pliku.
 
-* **grunt contrib uglify**: Dodatek, który minimalizuje język JavaScript, aby zmniejszyć rozmiar.
+* **grunt-contrib-uglify**: wtyczka, która minifies JavaScript, aby zmniejszyć rozmiar.
 
-* **grunt-contrib-watch**: Dodatek, który obserwuje działań dotyczących plików.
+* **grunt-contrib-Watch**: wtyczka, która obserwuje aktywność pliku.
 
 ## <a name="preparing-the-application"></a>Przygotowywanie aplikacji
 
-Aby rozpocząć, skonfiguruj nową pustą aplikację i dodać pliki przykładowe TypeScript. Pliki TypeScript automatycznie są kompilowane do kodu JavaScript przy użyciu domyślnych ustawień programu Visual Studio i będzie naszym surowce do przetwarzania, korzystanie z Grunt.
+Aby rozpocząć, skonfiguruj nową pustą aplikację sieci Web i Dodaj przykładowe pliki języka TypeScript. Pliki TypeScript są automatycznie kompilowane do języka JavaScript przy użyciu domyślnych ustawień programu Visual Studio i będą nasze surowy materiał do przetwarzania za pomocą grunt.
 
 1. W programie Visual Studio Utwórz nowy `ASP.NET Web Application`.
 
-2. W **nowy projekt ASP.NET** okno dialogowe, wybierz pozycję ASP.NET Core **pusty** szablon i kliknij przycisk OK.
+2. W oknie dialogowym **Nowy projekt ASP.NET** wybierz ASP.NET Core **pusty** szablon i kliknij przycisk OK.
 
-3. Sprawdź struktury projektu w Eksploratorze rozwiązań. `\src` Folder zawiera pusty `wwwroot` i `Dependencies` węzłów.
+3. W Eksplorator rozwiązań Przejrzyj strukturę projektu. Folder `\src` zawiera puste węzły `wwwroot` i `Dependencies`.
 
-    ![rozwiązanie pusty sieci web](using-grunt/_static/grunt-solution-explorer.png)
+    ![puste rozwiązanie sieci Web](using-grunt/_static/grunt-solution-explorer.png)
 
 4. Dodaj nowy folder o nazwie `TypeScript` do katalogu projektu.
 
-5. Przed dodaniem wszystkie pliki, upewnij się, że program Visual Studio oferuje opcję "Kompiluj przy zapisywaniu" dla plików TypeScript zaznaczone. Przejdź do **narzędzia** > **opcje** > **edytora tekstów** > **Typescript**  >  **Projektu**:
+5. Przed dodaniem jakichkolwiek plików upewnij się, że program Visual Studio ma zaznaczoną opcję "Kompiluj przy zapisywaniu" dla plików TypeScript. Przejdź do **opcji** **narzędzia** > opcje > **edytor tekstów** > języku **TypeScript** > **projekt**:
 
-    ![Opcje ustawienia automatycznej kompilacji plików TypeScript](using-grunt/_static/typescript-options.png)
+    ![Opcje ustawiania opcji autokompilowania plików TypeScript](using-grunt/_static/typescript-options.png)
 
-6. Kliknij prawym przyciskiem myszy `TypeScript` katalogu i zaznacz **Dodaj > Nowy element** z menu kontekstowego. Wybierz **plik JavaScript** elementu i nazwij plik *Tastes.ts* (Uwaga \*rozszerzenia TS). Skopiuj wiersz kodu TypeScript poniżej do pliku (podczas zapisywania, nowy *Tastes.js* plik pojawi się ze źródłem JavaScript).
+6. Kliknij prawym przyciskiem myszy katalog `TypeScript` i wybierz polecenie **dodaj > nowy element** z menu kontekstowego. Wybierz element **pliku JavaScript** i Nazwij plik *smaku. TS* (zanotuj \*rozszerzenie TS). Skopiuj wiersz kodu języka TypeScript poniżej do pliku (podczas zapisywania zostanie wyświetlony nowy plik *smak. js* ze źródłem JavaScript).
 
     ```typescript
     enum Tastes { Sweet, Sour, Salty, Bitter }
     ```
 
-7. Dodaj drugi plik do **TypeScript** katalogu i nadaj mu nazwę `Food.ts`. Skopiuj poniższy kod do pliku.
+7. Dodaj drugi plik do katalogu **TypeScript** i nadaj mu nazwę `Food.ts`. Skopiuj poniższy kod do pliku.
 
     ```typescript
     class Food {
@@ -83,20 +83,20 @@ Aby rozpocząć, skonfiguruj nową pustą aplikację i dodać pliki przykładowe
     }
     ```
 
-## <a name="configuring-npm"></a>Konfigurowanie Menedżera NPM
+## <a name="configuring-npm"></a>Konfigurowanie NPM
 
-Skonfiguruj, aby pobrać grunt i grunt zadania programu NPM.
+Następnie skonfiguruj NPM do pobierania grunt i grunt-Tasks.
 
-1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj > Nowy element** z menu kontekstowego. Wybierz **pliku konfiguracyjnego NPM** , należy pozostawić nazwę domyślną *package.json*i kliknij przycisk **Dodaj** przycisku.
+1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz polecenie **dodaj > nowy element** z menu kontekstowego. Wybierz element **pliku konfiguracji npm** , pozostaw nazwę domyślną, *Package. JSON*, a następnie kliknij przycisk **Dodaj** .
 
-2. W *package.json* pliku wewnątrz `devDependencies` obiektu nawiasów klamrowych, wprowadź "grunt". Wybierz `grunt` z funkcji Intellisense listy, a następnie naciśnij klawisz Enter. Visual Studio zacytować nazwę pakietu grunt i Dodaj dwukropka. Po prawej stronie dwukropek, wybierz najnowszą stabilną wersję pakietu z góry na liście funkcji Intellisense (naciśnij klawisz `Ctrl-Space` Intellisense, nie są wyświetlane).
+2. W pliku *Package. JSON* w nawiasach klamrowych obiektu `devDependencies` wprowadź wartość "Grunt". Wybierz pozycję `grunt` z listy IntelliSense i naciśnij klawisz ENTER. Program Visual Studio zwróci nazwę pakietu grunt i doda dwukropek. Z prawej strony dwukropek wybierz najnowszą stabilną wersję pakietu z góry listy IntelliSense (naciśnij `Ctrl-Space`, jeśli IntelliSense nie pojawia się).
 
-    ![grunt Intellisense](using-grunt/_static/devdependencies-grunt.png)
+    ![grunt IntelliSense](using-grunt/_static/devdependencies-grunt.png)
 
     > [!NOTE]
-    > Używa NPM [wersji semantycznej](https://semver.org/) do organizowania zależności. Semantyczne przechowywania wersji, znany także jako SemVer identyfikuje pakiety ze schematu numerowania \<główna >.\< pomocnicza >. \<poprawki >. IntelliSense ułatwia semantycznego versioning przedstawiający kilka typowe opcje. Pierwszy element na liście funkcji Intellisense (0.4.5 w powyższym przykładzie), jest uznawana za stabilną najnowszą wersję pakietu. Symbolu daszka (^) odpowiada najbardziej aktualną wersję główną i tyldy (~) dopasowuje najbardziej aktualną wersję pomocniczą. Zobacz [odwołanie analizatora wersji semver NPM](https://www.npmjs.com/package/semver) rolę przewodnika po pełnej expressivity, która zapewnia SemVer.
+    > NPM używa [semantycznej wersji](https://semver.org/) do organizowania zależności. Wersja semantyczna, znana również jako SemVer, identyfikuje pakiety z schematem numeracji \<głównym >.\<> pomocnicze.\<> poprawki. Technologia IntelliSense upraszcza obsługę wersji semantycznych, pokazując tylko kilka typowych opcji. Górny element na liście IntelliSense (0.4.5 w powyższym przykładzie) jest traktowany jako Najnowsza stabilna wersja pakietu. Symbol karetki (^) jest zgodny z najnowszą wersją główną, a Tylda (~) jest zgodna z najnowszą wersją pomocniczą. Zapoznaj się z informacjami o [analizatorze analizatora wersji npm semver](https://www.npmjs.com/package/semver) jako wskazówką dla expressivity semver.
 
-3. Dodaj więcej zależności, aby załadować grunt-contrib -\* pakietów dla *czyste*, *jshint*, *concat*, *uglify*i *Obejrzyj* jak pokazano w poniższym przykładzie. Wersje muszą być zgodne w przykładzie.
+3. Dodaj więcej zależności, aby załadować pakiety grunt-contrib-\* dla elementów *Clean*, *jshint*, *concat*, *uglify*i *Watch* , jak pokazano w poniższym przykładzie. Wersje nie muszą być zgodne z przykładem.
 
     ```json
     "devDependencies": {
@@ -109,24 +109,24 @@ Skonfiguruj, aby pobrać grunt i grunt zadania programu NPM.
     }
     ```
 
-4. Zapisz *package.json* pliku.
+4. Zapisz plik *Package. JSON* .
 
-Pakiety dla każdego `devDependencies` elementu pobierze oraz wszystkie pliki, które wymaga każdego pakietu. Można znaleźć plików pakietu w *node_modules* katalogu, włączając **Pokaż wszystkie pliki** znajdujący się w **Eksploratora rozwiązań**.
+Pakiety dla każdego elementu `devDependencies` będą pobierane wraz z wszelkimi plikami wymaganymi przez każdy pakiet. Pliki pakietów można znaleźć w katalogu *node_modules* , włączając przycisk **Pokaż wszystkie pliki** w **Eksplorator rozwiązań**.
 
 ![grunt node_modules](using-grunt/_static/node-modules.png)
 
 > [!NOTE]
-> Jeśli zachodzi potrzeba, można ręcznie przywrócić zależności w **Eksploratora rozwiązań** przez kliknięcie prawym przyciskiem myszy `Dependencies\NPM` i wybierając polecenie **przywracania pakietów** opcji menu.
+> Jeśli zachodzi taka potrzeba, można ręcznie przywrócić zależności w **Eksplorator rozwiązań** przez kliknięcie prawym przyciskiem myszy `Dependencies\NPM` i wybranie opcji menu **Przywróć pakiety** .
 
-![Przywracanie pakietów](using-grunt/_static/restore-packages.png)
+![Przywróć pakiety](using-grunt/_static/restore-packages.png)
 
-## <a name="configuring-grunt"></a>Konfigurowanie Grunt
+## <a name="configuring-grunt"></a>Konfigurowanie grunt
 
-Grunt jest konfigurowana przy użyciu manifestu o nazwie *plik Gruntfile.js* który definiuje, ładuje i rejestruje zadania, które mogą być uruchamiane ręcznie lub skonfigurowany do uruchamiania automatycznie na podstawie zdarzeń w programie Visual Studio.
+Grunt jest skonfigurowany przy użyciu manifestu o nazwie *Gruntfile. js* , który definiuje, ładuje i rejestruje zadania, które można uruchomić ręcznie lub skonfigurować do automatycznego uruchamiania na podstawie zdarzeń w programie Visual Studio.
 
-1. Kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** > **nowy element**. Wybierz **plik JavaScript** szablonu elementu, Zmień nazwę na *plik Gruntfile.js*i kliknij przycisk **Dodaj** przycisku.
+1. Kliknij prawym przyciskiem myszy projekt i wybierz polecenie **dodaj** > **nowy element**. Wybierz szablon element **pliku JavaScript** , Zmień nazwę na *Gruntfile. js*, a następnie kliknij przycisk **Dodaj** .
 
-1. Dodaj następujący kod do *plik Gruntfile.js*. `initConfig` Funkcja ustawia opcje dla każdego pakietu, a pozostała część moduł ładuje i zarejestrować zadań.
+1. Dodaj następujący kod do *Gruntfile. js*. Funkcja `initConfig` ustawia opcje dla każdego pakietu, a pozostała część modułu ładuje i rejestruje zadania.
 
    ```javascript
    module.exports = function (grunt) {
@@ -135,7 +135,7 @@ Grunt jest konfigurowana przy użyciu manifestu o nazwie *plik Gruntfile.js* kt�
    };
    ```
 
-1. Wewnątrz `initConfig` funkcji, dodać opcje dla `clean` zadań, jak pokazano w przykładzie *plik Gruntfile.js* poniżej. `clean` Zadanie akceptuje tablicę ciągów katalogów. To zadanie usuwa pliki z *wwwroot/lib* i usuwa całą */temp* katalogu.
+1. W funkcji `initConfig` Dodaj opcje dla zadania `clean`, jak pokazano w przykładzie *Gruntfile. js* poniżej. Zadanie `clean` akceptuje tablicę ciągów katalogów. To zadanie usuwa pliki z katalogu *wwwroot/lib* i usuwa cały katalog */temp* .
 
     ```javascript
     module.exports = function (grunt) {
@@ -145,34 +145,34 @@ Grunt jest konfigurowana przy użyciu manifestu o nazwie *plik Gruntfile.js* kt�
     };
     ```
 
-1. Poniżej `initConfig` funkcji, dodaj wywołanie do `grunt.loadNpmTasks`. Dzięki temu zadania możliwe do uruchomienia w programie Visual Studio.
+1. Poniżej funkcji `initConfig` Dodaj wywołanie do `grunt.loadNpmTasks`. Spowoduje to możliwy do uruchomienia zadania z programu Visual Studio.
 
     ```javascript
     grunt.loadNpmTasks("grunt-contrib-clean");
     ```
 
-1. Zapisz *plik Gruntfile.js*. Plik powinien wyglądać podobnie jak na poniższym zrzucie ekranu.
+1. Zapisz *Gruntfile. js*. Plik powinien wyglądać podobnie do poniższego zrzutu ekranu.
 
-    ![początkowa gruntfile](using-grunt/_static/gruntfile-js-initial.png)
+    ![początkowy gruntfile](using-grunt/_static/gruntfile-js-initial.png)
 
-1. Kliknij prawym przyciskiem myszy *plik Gruntfile.js* i wybierz **Eksplorator modułu uruchamiającego zadania** z menu kontekstowego. **Eksplorator modułu uruchamiającego zadania** zostanie otwarte okno.
+1. Kliknij prawym przyciskiem myszy pozycję *Gruntfile. js* i wybierz pozycję **Eksplorator modułu uruchamiającego zadania** z menu kontekstowego. Zostanie otwarte okno **Eksplorator Runner zadań** .
 
     ![menu Eksploratora modułu uruchamiającego zadania](using-grunt/_static/task-runner-explorer-menu.png)
 
-1. Upewnij się, że `clean` pokazuje, w obszarze **zadania** w **Eksplorator modułu uruchamiającego zadania**.
+1. Sprawdź, czy `clean` są wyświetlane w obszarze **zadania** w **Eksploratorze modułu uruchamiającego zadania**.
 
     ![Lista zadań Eksploratora modułu uruchamiającego zadania](using-grunt/_static/task-runner-explorer-tasks.png)
 
-1. Kliknij prawym przyciskiem myszy zadanie czysty, a następnie wybierz pozycję **Uruchom** z menu kontekstowego. Okno polecenia wyświetla postęp zadania.
+1. Kliknij prawym przyciskiem myszy zadanie czyste i wybierz polecenie **Uruchom** z menu kontekstowego. W oknie polecenia zostanie wyświetlony postęp zadania.
 
-    ![zadanie czysty Uruchom Eksploratora modułu uruchamiającego zadania](using-grunt/_static/task-runner-explorer-run-clean.png)
+    ![Eksplorator modułu uruchamiającego zadania — uruchamianie czystego zadania](using-grunt/_static/task-runner-explorer-run-clean.png)
 
     > [!NOTE]
-    > Brak plików i katalogów, aby wyczyścić jeszcze. Jeśli chcesz możesz ręcznie utworzyć je w Eksploratorze rozwiązań i następnie uruchom zadanie czysty jako test.
+    > Nie ma jeszcze plików lub katalogów do czyszczenia. Jeśli chcesz, możesz je ręcznie utworzyć w Eksplorator rozwiązań a następnie uruchomić czyste zadanie jako test.
 
-1. W `initConfig` funkcji, Dodaj wpis dla `concat` przy użyciu kodu poniżej.
+1. W funkcji `initConfig` Dodaj wpis dla `concat` przy użyciu poniższego kodu.
 
-    `src` Tablicy właściwości zawiera listę plików, połączyć w kolejności, powinny być połączone. `dest` Właściwość przypisuje ścieżce do połączonego pliku, który jest generowany.
+    Tablica właściwości `src` zawiera listę plików do połączenia w kolejności, w jakiej powinny być połączone. Właściwość `dest` przypisuje ścieżkę do połączonego pliku, który został utworzony.
 
     ```javascript
     concat: {
@@ -184,11 +184,11 @@ Grunt jest konfigurowana przy użyciu manifestu o nazwie *plik Gruntfile.js* kt�
     ```
 
     > [!NOTE]
-    > `all` Właściwość w powyższym kodzie jest nazwą obiektu docelowego. Obiekty docelowe są używane w niektórych zadań Grunt do wielu środowisk kompilacji. Możesz wyświetlić wbudowane obiekty docelowe za pomocą technologii IntelliSense lub przypisać własne.
+    > Właściwość `all` w powyższym kodzie jest nazwą obiektu docelowego. Elementy docelowe są używane w niektórych zadaniach grunt, aby umożliwić wiele środowisk kompilacji. Możesz wyświetlić wbudowane elementy docelowe przy użyciu funkcji IntelliSense lub przypisać własne.
 
-1. Dodaj `jshint` zadań przy użyciu kodu poniżej.
+1. Dodaj `jshint` zadanie przy użyciu poniższego kodu.
 
-    Jshint `code-quality` narzędzie jest uruchamiane co plik JavaScript w *temp* katalogu.
+    Narzędzie jshint `code-quality` jest uruchamiane dla każdego pliku JavaScript znajdującego się w katalogu *temp* .
 
     ```javascript
     jshint: {
@@ -200,11 +200,11 @@ Grunt jest konfigurowana przy użyciu manifestu o nazwie *plik Gruntfile.js* kt�
     ```
 
     > [!NOTE]
-    > Opcja "-W069" jest błąd generowany przez jshint podczas używa języka JavaScript dopasowywanie składni, aby przypisać właściwość zamiast notacji z kropką, czyli `Tastes["Sweet"]` zamiast `Tastes.Sweet`. Opcja wyłącza ostrzeżenie, aby umożliwić resztą procesu, aby kontynuować.
+    > Opcja "-W069" jest błędem wytwarzanym przez jshint, gdy język JavaScript używa składni nawiasu do przypisywania właściwości zamiast notacji kropkowej, np. `Tastes["Sweet"]`, a nie `Tastes.Sweet`. Opcja wyłącza ostrzeżenie, aby umożliwić kontynuowanie pozostałej części procesu.
 
-1. Dodaj `uglify` zadań przy użyciu kodu poniżej.
+1. Dodaj `uglify` zadanie przy użyciu poniższego kodu.
 
-    Zadanie minimalizuje *combined.js* plików znajduje się w katalogu temp i tworzy plik wyników w wwwroot/lib zgodnie ze standardową konwencją nazewnictwa  *\<nazwy pliku\>. min.js*.
+    Zadanie minifies *połączonego pliku. js* znajdującego się w katalogu Temp i tworzy plik wynikowy w pliku wwwroot/lib zgodnie ze standardową konwencją nazewnictwa *\<nazwą pliku\>. min. js*.
 
     ```javascript
     uglify: {
@@ -215,7 +215,7 @@ Grunt jest konfigurowana przy użyciu manifestu o nazwie *plik Gruntfile.js* kt�
     },
     ```
 
-1. W obszarze wywołanie `grunt.loadNpmTasks` , ładuje `grunt-contrib-clean`uwzględnić to samo wywołanie dla jshint, concat oraz uglify przy użyciu poniższego kodu.
+1. W obszarze wywołanie do `grunt.loadNpmTasks`, które ładuje `grunt-contrib-clean`, Uwzględnij to samo wywołanie dla jshint, concat i uglify przy użyciu poniższego kodu.
 
     ```javascript
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -223,36 +223,36 @@ Grunt jest konfigurowana przy użyciu manifestu o nazwie *plik Gruntfile.js* kt�
     grunt.loadNpmTasks('grunt-contrib-uglify');
     ```
 
-1. Zapisz *plik Gruntfile.js*. Plik powinien wyglądać podobnie do poniższego przykładu.
+1. Zapisz *Gruntfile. js*. Plik powinien wyglądać podobnie do poniższego przykładu.
 
-    ![przykład pliku pełną grunt](using-grunt/_static/gruntfile-js-complete.png)
+    ![Zakończono przykład pliku grunt](using-grunt/_static/gruntfile-js-complete.png)
 
-1. Należy zauważyć, że **Eksplorator modułu uruchamiającego zadania** zawiera listę zadań `clean`, `concat`, `jshint` i `uglify` zadania. Każde zadanie podrzędne są uruchamiane w kolejności i obserwują rezultaty w **Eksploratora rozwiązań**. Każde zadanie powinno działać bez błędów.
+1. Należy zauważyć, że lista zadań **Eksploratora modułu uruchamiającego zadania** zawiera `clean`, `concat`, `jshint` i `uglify` zadań. Uruchom każde zadanie w kolejności i obserwuj wyniki w **Eksplorator rozwiązań**. Każde zadanie powinno być uruchamiane bez błędów.
 
-    ![Eksplorator modułu uruchamiającego zadania, każde zadanie podrzędne uruchamiania](using-grunt/_static/task-runner-explorer-run-each-task.png)
+    ![Eksplorator modułu uruchamiającego zadania uruchamia każde zadanie](using-grunt/_static/task-runner-explorer-run-each-task.png)
 
-    Zadanie concat tworzy nową *combined.js* pliku i umieszcza go w katalogu tymczasowego. `jshint` Zadań po prostu działa i nie generuje danych wyjściowych. `uglify` Zadanie tworzy nową *combined.min.js* pliku i umieszcza je w *wwwroot/lib*. Po zakończeniu rozwiązania powinien wyglądać podobnie jak na poniższym zrzucie ekranu:
+    Zadanie concat tworzy nowy połączony plik *. js* i umieszcza go w katalogu Temp. Zadanie `jshint` po prostu zostanie uruchomione i nie wygenerowało danych wyjściowych. Zadanie `uglify` tworzy nowy połączony plik *. min. js* i umieszcza go w pliku *wwwroot/lib*. Po zakończeniu rozwiązanie powinno wyglądać podobnie do poniższego zrzutu ekranu:
 
-    ![Eksplorator rozwiązań po wszystkich zadań.](using-grunt/_static/solution-explorer-after-all-tasks.png)
+    ![Eksplorator rozwiązań po wszystkich zadaniach](using-grunt/_static/solution-explorer-after-all-tasks.png)
 
     > [!NOTE]
-    > Aby uzyskać więcej informacji na temat opcji dla każdego pakietu, odwiedź stronę [ https://www.npmjs.com/ ](https://www.npmjs.com/) i wyszukiwania nazwy pakietu, w polu wyszukiwania na stronie głównej. Na przykład możesz wyszukać wyczyścić contrib grunt pakiet do pobrania link do dokumentacji, który objaśnia, wszystkie jego parametry.
+    > Aby uzyskać więcej informacji na temat opcji dla każdego pakietu, odwiedź stronę [https://www.npmjs.com/](https://www.npmjs.com/) i wyszukaj nazwę pakietu w polu wyszukiwania na stronie głównej. Na przykład można wyszukać pakiet grunt-contrib-Clean w celu uzyskania linku do dokumentacji, który objaśnia wszystkie jego parametry.
 
-### <a name="all-together-now"></a>Wszystko w jednym miejscu
+### <a name="all-together-now"></a>Wszystko jest teraz na miejscu
 
-Korzystanie z Grunt `registerTask()` metodę, aby uruchomić szereg zadań w określonej kolejności. Na przykład, aby uruchomić przykład powyższe kroki w kolejności clean -> concat -> jshint -> uglify, Dodaj poniższy kod do modułu. Kod należy dodać do tego samego poziomu wywołania metody loadNpmTasks() poza initConfig.
+Użyj metody grunt `registerTask()`, aby uruchomić serię zadań w określonej kolejności. Na przykład aby uruchomić przykładowe kroki opisane powyżej w kolejności > concat > jshint-> uglify, Dodaj poniższy kod do modułu. Kod powinien zostać dodany do tego samego poziomu, co wywołania loadNpmTasks (), poza initConfig.
 
 ```javascript
 grunt.registerTask("all", ['clean', 'concat', 'jshint', 'uglify']);
 ```
 
-Nowe zadanie pojawia się w Eksplorator modułu uruchamiającego zadania w obszarze zadania aliasów. Można prawym przyciskiem myszy, a następnie uruchom go, tak samo jak inne zadania. `all` Zadanie zostanie uruchomione `clean`, `concat`, `jshint` i `uglify`, w kolejności.
+Nowe zadanie zostanie wyświetlone w Eksploratorze modułu uruchamiającego zadania w obszarze zadania aliasu. Możesz kliknąć prawym przyciskiem myszy i uruchomić go tak samo jak w przypadku innych zadań. Zadanie `all` zostanie uruchomione `clean`, `concat`, `jshint` i `uglify`w pożądanej kolejności.
 
-![alias grunt zadania](using-grunt/_static/alias-tasks.png)
+![grunt zadania aliasu](using-grunt/_static/alias-tasks.png)
 
-## <a name="watching-for-changes"></a>Obserwowanie zmian
+## <a name="watching-for-changes"></a>Obserwowane zmiany
 
-A `watch` zadań przechowuje list plików i katalogów. Obejrzyj automatycznie wyzwala zadania, jeśli wykryje zmiany. Dodaj poniższy kod do initConfig, aby obejrzeć zmiany \*pliki .js w katalogu TypeScript. Po zmianie pliku JavaScript `watch` uruchomi `all` zadania.
+Zadanie `watch` pozwala na zachowanie oczu na plikach i katalogach. Czujka wyzwala zadania automatycznie w przypadku wykrycia zmian. Dodaj poniższy kod do initConfig, aby obejrzeć zmiany w plikach \*. js w katalogu TypeScript. Jeśli plik JavaScript zostanie zmieniony, `watch` uruchomi `all` zadanie.
 
 ```javascript
 watch: {
@@ -261,26 +261,26 @@ watch: {
 }
 ```
 
-Dodaj wywołanie do `loadNpmTasks()` pokazanie `watch` zadania w Eksplorator modułu uruchamiającego zadania.
+Dodaj wywołanie do `loadNpmTasks()`, aby wyświetlić `watch` zadanie w Eksploratorze modułu uruchamiającego zadania.
 
 ```javascript
 grunt.loadNpmTasks('grunt-contrib-watch');
 ```
 
-Kliknij prawym przyciskiem myszy zadanie Obejrzyj Eksplorator modułu uruchamiającego zadania, a następnie wybierz polecenie Uruchom z menu kontekstowego. W oknie polecenia, pokazujący zadania Obejrzyj działającego będą wyświetlane "Oczekiwanie..." Komunikat. Otwórz jeden z plików TypeScript, Dodaj spację, a następnie zapisz plik. Spowoduje to wyzwalanie zadań wyrażenie kontrolne i wyzwalać inne zadania są uruchamiane w kolejności. Poniższy zrzut ekranu przedstawia Uruchom przykład.
+Kliknij prawym przyciskiem myszy zadanie Obejrzyj w Eksploratorze modułu uruchamiającego zadania i wybierz polecenie Uruchom z menu kontekstowego. W oknie wiersza polecenia, w którym jest uruchomione zadanie Obserwuj, zostanie wyświetlony element "oczekiwanie..." Komunikat. Otwórz jeden z plików TypeScript, Dodaj spację, a następnie Zapisz plik. Spowoduje to wyzwolenie zadania czujki i wyzwolenie innych zadań do uruchomienia w pożądanej kolejności. Poniższy zrzut ekranu przedstawia przykład uruchomienia.
 
-![Uruchamianie zadań w danych wyjściowych](using-grunt/_static/watch-running.png)
+![uruchomione zadania wyjściowe](using-grunt/_static/watch-running.png)
 
-## <a name="binding-to-visual-studio-events"></a>Powiązanie z zdarzenia programu Visual Studio
+## <a name="binding-to-visual-studio-events"></a>Powiązanie ze zdarzeniami programu Visual Studio
 
-Jeśli nie chcesz ręcznie uruchomić zadania za każdym razem, gdy pracujesz w programie Visual Studio, można powiązać zadań **przed kompilacji**, **po kompilacji**, **czysty**, i  **Projekt Open** zdarzenia.
+Jeśli nie chcesz ręcznie uruchamiać zadań za każdym razem, gdy Pracujesz w programie Visual Studio, powiąż zadania z **przed kompilacją**, **po kompilacji**, **czyszczeniu**i otwartych zdarzeniach **projektu** .
 
-Powiążmy `watch` tak, aby była uruchamiana za każdym razem, gdy zostanie otwarty program Visual Studio. W Eksplorator modułu uruchamiającego zadania, kliknij prawym przyciskiem myszy zadanie wyrażenie kontrolne, a następnie wybierz **powiązania > Otwórz projekt** z menu kontekstowego.
+Powiąż `watch` tak, aby były uruchamiane za każdym razem, gdy zostanie otwarty program Visual Studio. W Eksploratorze modułu uruchamiającego zadania kliknij prawym przyciskiem myszy zadanie Obejrzyj i wybierz **powiązania** > **projekcie otwarty** z menu kontekstowego.
 
-![Powiąż zadania do otwarcia projektu](using-grunt/_static/bindings-project-open.png)
+![Powiąż zadanie z otwierającym projektu](using-grunt/_static/bindings-project-open.png)
 
-Zwolnij i ponownie Załaduj projekt. Gdy projekt ładuje się ponownie, zadanie Obejrzyj zostanie uruchomione automatycznie.
+Zwolnij i Załaduj ponownie projekt. Po ponownym załadowaniu projektu zadanie czujki rozpocznie się automatycznie.
 
 ## <a name="summary"></a>Podsumowanie
 
-Grunt jest modułu uruchamiającego zadania zaawansowane, który może służyć do zautomatyzowania większości zadań kompilacji klienta. Grunt korzysta z programu NPM dostarczanie pakietów i funkcje narzędzi integracji z programem Visual Studio. Eksplorator modułu uruchamiającego zadania programu Visual Studio wykrywa zmiany w plikach konfiguracji i oferuje wygodny interfejs do uruchamiania zadań, Wyświetl uruchomione zadania podrzędne i powiąż zadania ze zdarzenia programu Visual Studio.
+Grunt to zaawansowany moduł uruchamiający zadania, którego można użyć do zautomatyzowania większości zadań kompilacji klienta. Grunt wykorzystuje NPM do dostarczania pakietów i narzędzi integracji z programem Visual Studio. Eksplorator modułu uruchamiającego zadania programu Visual Studio wykrywa zmiany w plikach konfiguracji i udostępnia wygodny interfejs do uruchamiania zadań, wyświetlania uruchomionych zadań i powiązania zadań z zdarzeniami programu Visual Studio.

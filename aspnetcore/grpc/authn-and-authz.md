@@ -4,14 +4,14 @@ author: jamesnk
 description: Dowiedz się, jak używać uwierzytelniania i autoryzacji w programie gRPC for ASP.NET Core.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
-ms.date: 08/13/2019
+ms.date: 12/05/2019
 uid: grpc/authn-and-authz
-ms.openlocfilehash: 84903ee781588ff525d1dfce6a313e3867794762
-ms.sourcegitcommit: 76d7fff62014c3db02564191ab768acea00f1b26
+ms.openlocfilehash: 258b34113f3c3d9ef2031a43295ea5806b1e22ff
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852704"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880687"
 ---
 # <a name="authentication-and-authorization-in-grpc-for-aspnet-core"></a>Uwierzytelnianie i autoryzacja w programie gRPC for ASP.NET Core
 
@@ -150,7 +150,7 @@ Aby uzyskać więcej informacji na temat konfigurowania uwierzytelniania na serw
 
 Skonfigurowanie klienta gRPC do korzystania z uwierzytelniania będzie zależeć od używanego mechanizmu uwierzytelniania. W poprzednim tokenie okaziciela i certyfikatach klienta przedstawiono kilka sposobów skonfigurowania klienta gRPC do wysyłania metadanych uwierzytelniania z wywołaniami gRPC:
 
-* GRPC klienci z jednoznacznie określonym typem używają `HttpClient` wewnętrznie. Uwierzytelnianie można skonfigurować na [`HttpClientHandler`](/dotnet/api/system.net.http.httpclienthandler)lub przez dodanie wystąpień [`HttpMessageHandler`](/dotnet/api/system.net.http.httpmessagehandler) niestandardowych do `HttpClient`.
+* GRPC klienci z jednoznacznie określonym typem używają `HttpClient` wewnętrznie. Uwierzytelnianie można skonfigurować w [HttpClientHandler](/dotnet/api/system.net.http.httpclienthandler)lub przez dodanie wystąpień [HttpMessageHandler](/dotnet/api/system.net.http.httpmessagehandler) niestandardowych do `HttpClient`.
 * Każde wywołanie gRPC ma opcjonalny argument `CallOptions`. Nagłówki niestandardowe można wysyłać przy użyciu kolekcji nagłówków opcji.
 
 > [!NOTE]
@@ -158,7 +158,7 @@ Skonfigurowanie klienta gRPC do korzystania z uwierzytelniania będzie zależeć
 
 ## <a name="authorize-users-to-access-services-and-service-methods"></a>Autoryzuj użytkowników do uzyskiwania dostępu do usług i metod usług
 
-Domyślnie wszystkie metody w usłudze mogą być wywoływane przez nieuwierzytelnionych użytkowników. Aby wymagać uwierzytelniania, należy zastosować atrybut [[autoryzuje]](xref:Microsoft.AspNetCore.Authorization.AuthorizeAttribute) do usługi:
+Domyślnie wszystkie metody w usłudze mogą być wywoływane przez nieuwierzytelnionych użytkowników. Aby wymagać uwierzytelniania, zastosuj atrybut [`[Authorize]`](xref:Microsoft.AspNetCore.Authorization.AuthorizeAttribute) do usługi:
 
 ```csharp
 [Authorize]

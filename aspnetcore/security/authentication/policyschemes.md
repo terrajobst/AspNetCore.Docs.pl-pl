@@ -1,38 +1,38 @@
 ---
-title: Zasady programów w programie ASP.NET Core
+title: Schematy zasad w ASP.NET Core
 author: rick-anderson
-description: Schematy zasady uwierzytelniania ułatwiają ma jeden logiczne schemat uwierzytelniania
+description: Schematy zasad uwierzytelniania ułatwiają korzystanie z jednego schematu uwierzytelniania logicznego
 ms.author: riande
-ms.date: 02/28/2019
+ms.date: 12/05/2019
 uid: security/authentication/policyschemes
-ms.openlocfilehash: be03f349455c673b0739935ad20e596325c8cb74
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: f02d8e5cac20a9b60c5eddbd28253efacf682ea1
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815281"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880716"
 ---
-# <a name="policy-schemes-in-aspnet-core"></a>Zasady programów w programie ASP.NET Core
+# <a name="policy-schemes-in-aspnet-core"></a>Schematy zasad w ASP.NET Core
 
-Schematy zasady uwierzytelniania ułatwiają ma jeden logiczne schemat uwierzytelniania za pomocą wielu metod. Na przykład schemat zasad może na użytek uwierzytelniania Google wyzwania i uwierzytelniania plików cookie całą resztą. Uwierzytelnianie zasad schematom:
+Schematy zasad uwierzytelniania ułatwiają korzystanie z wielu metod logicznego uwierzytelniania. Na przykład schemat zasad może korzystać z uwierzytelniania Google na potrzeby wyzwań i uwierzytelniania plików cookie dla wszystkich innych. Systemy zasad uwierzytelniania sprawiają, że:
 
-* Można łatwo przekazywać wszelkie działania uwierzytelniania do innego schematu.
-* Do przodu dynamicznie na podstawie żądania.
+* Łatwa do przodu jakakolwiek akcja uwierzytelniania w innym schemacie.
+* Przekazywanie dynamicznie na podstawie żądania.
 
-Wszystkie schematy uwierzytelniania, które pochodne użyj <xref:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions> oraz skojarzonych z nimi [ `AuthenticationHandler<TOptions>` ](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1):
+Wszystkie schematy uwierzytelniania wykorzystujące pochodne <xref:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions> i skojarzone [AuthenticationHandler\<TOptions >](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1):
 
-* Są wykonywane automatycznie schematy zasad w programie ASP.NET Core 2.1 lub nowszej.
-* Można ją włączyć za pośrednictwem Konfigurowanie opcje schematu.
+* Są automatycznie schematami zasad w ASP.NET Core 2,1 i nowszych.
+* Można ją włączyć za pomocą konfiguracji opcji schematu.
 
 [!code-csharp[sample](policyschemes/samples/AuthenticationSchemeOptions.cs?name=snippet)]
 
 ## <a name="examples"></a>Przykłady
 
-Poniższy przykład pokazuje wyższe schematu poziomu, który łączy niższym poziomie schematów. Uwierzytelnianie serwisu Google jest używany dla wyzwań i uwierzytelniania plików cookie jest używany dla wszystkich innych:
+Poniższy przykład przedstawia schemat wyższego poziomu, który łączy schematy niższego poziomu. Uwierzytelnianie Google jest używane na potrzeby wyzwań, a uwierzytelnianie plików cookie jest używane dla wszystkiego innego:
 
 [!code-csharp[sample](policyschemes/samples/Startup.cs?name=snippet1)]
 
-Poniższy przykład umożliwia dynamiczne Wybieranie schematów na podstawie danego żądania. Oznacza to jak łączyć pliki cookie i uwierzytelniania interfejsu API:
+W poniższym przykładzie jest włączany dynamiczny Wybór schematów dla każdego żądania. Oznacza to, jak mieszać pliki cookie i uwierzytelnianie interfejsu API:
 
  <!-- REVIEW, missing If set in public Func<HttpContext, string> ForwardDefaultSelector -->
 

@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: 9f249fac331d31249f9325892e8365e3d0b4cc5a
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: e737a8a85e7eb83d95618d71e85b0307c54b0766
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717064"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879682"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>Obsługa błędów w aplikacjach Blazor ASP.NET Core
 
@@ -116,7 +116,7 @@ Poprzednie Nieobsłużone wyjątki zostały opisane w poniższych sekcjach tego 
 Gdy Blazor tworzy wystąpienie składnika:
 
 * Konstruktor składnika jest wywoływany.
-* Są wywoływane konstruktory wszelkich niepojedynczych usług DI dostarczonych do konstruktora składnika za pośrednictwem dyrektywy [@inject](xref:blazor/dependency-injection#request-a-service-in-a-component) lub atrybutu [[wstrzyknięcie]](xref:blazor/dependency-injection#request-a-service-in-a-component) . 
+* Konstruktory wszelkich niepojedynczych usług DI dostarczonych do konstruktora składnika za pośrednictwem dyrektywy [`@inject`](xref:blazor/dependency-injection#request-a-service-in-a-component) lub atrybutu [`[Inject]`](xref:blazor/dependency-injection#request-a-service-in-a-component) są wywoływane. 
 
 Obwód kończy się niepowodzeniem, gdy dowolny wykonany Konstruktor lub setter dla każdej właściwości `[Inject]` zgłasza nieobsłużony wyjątek. Wyjątek jest krytyczny, ponieważ struktura nie może utworzyć wystąpienia składnika. Jeśli logika konstruktora może generować wyjątki, aplikacja powinna zalewkować wyjątki przy użyciu instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem.
 
@@ -152,7 +152,7 @@ Aby zapobiec wystąpieniu wyjątku odwołania o wartości null w logice renderow
 
 Poprzedni kod założono, że `person` nie `null`. Często Struktura kodu gwarantuje, że obiekt istnieje w momencie renderowania składnika. W takich przypadkach nie trzeba sprawdzać `null` w logice renderowania. W poprzednim przykładzie można zagwarantować, że istnieje `person`, ponieważ `person` jest tworzony podczas tworzenia wystąpienia składnika.
 
-### <a name="event-handlers"></a>Programy obsługi zdarzeń
+### <a name="event-handlers"></a>Procedury obsługi zdarzeń
 
 Kod po stronie klienta wyzwala wywołania kodu, C# gdy programy obsługi zdarzeń są tworzone przy użyciu:
 
@@ -185,7 +185,7 @@ Poniższe warunki dotyczą obsługi błędów w `InvokeAsync<T>`:
 * Jeśli wywołanie `InvokeAsync<T>` nie powiedzie się asynchronicznie, <xref:System.Threading.Tasks.Task> .NET kończy się niepowodzeniem. Wywołanie `InvokeAsync<T>` może zakończyć się niepowodzeniem, na przykład ponieważ kod po stronie JavaScript zgłasza wyjątek lub zwraca `Promise`, który został ukończony jako `rejected`. Kod dewelopera musi przechwycić wyjątek. W przypadku użycia operatora [await](/dotnet/csharp/language-reference/keywords/await) Rozważ zapakowanie wywołania metody w instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem. W przeciwnym razie niepowodzenie kodu spowoduje nieobsłużony wyjątek, który jest krytyczny dla obwodu.
 * Domyślnie wywołania do `InvokeAsync<T>` muszą zakończyć się w określonym czasie lub w przeciwnym razie upłynął limit czasu połączenia. Domyślny limit czasu wynosi jedną minutę. Limit czasu chroni kod przed utratą połączenia sieciowego lub kodem JavaScript, który nigdy nie odsyła komunikat uzupełniający. Jeśli wystąpiło przełączenie, wynikiem `Task` zakończy się niepowodzeniem z <xref:System.OperationCanceledException>. Zalewka i przetwórz wyjątek z rejestrowaniem.
 
-Podobnie kod JavaScript może inicjować wywołania metod .NET wskazywanych przez [atrybut [JSInvokable]](xref:blazor/javascript-interop#invoke-net-methods-from-javascript-functions). Jeśli te metody .NET zgłaszają nieobsługiwany wyjątek:
+Podobnie kod JavaScript może inicjować wywołania metod .NET wskazywanych przez atrybut [`[JSInvokable]`](xref:blazor/javascript-interop#invoke-net-methods-from-javascript-functions) . Jeśli te metody .NET zgłaszają nieobsługiwany wyjątek:
 
 * Wyjątek nie jest traktowany jako krytyczny dla obwodu.
 * `Promise` po stronie JavaScript zostanie odrzucony.

@@ -4,16 +4,16 @@ author: mjrousos
 description: Wskazówki dotyczące zwiększania wydajności aplikacji ASP.NET Core i unikania typowych problemów z wydajnością.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: performance/performance-best-practices
-ms.openlocfilehash: 64d231ca435ccbfe9bfcd839a2b67fcee68c0cc6
-ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
+ms.openlocfilehash: bd30776d527b4ac9f44005e9f5d03fec7cfda2e6
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74239883"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880919"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core najlepszych rozwiązań dotyczących wydajności
 
@@ -56,7 +56,7 @@ Profiler, taki jak [Narzędzia PerfView](https://github.com/Microsoft/perfview),
 Mając
 
 * **Należy rozważyć buforowanie** dużych obiektów, które są często używane. Buforowanie dużych obiektów zapobiega kosztownym alokacjom.
-* **Buforuj** bufory przy użyciu [`ArrayPool<T>`](/dotnet/api/system.buffers.arraypool-1) do przechowywania dużych tablic.
+* **Buforuj** bufory za pomocą [ArrayPool\<t >](/dotnet/api/system.buffers.arraypool-1) do przechowywania dużych tablic.
 * **Nie** przydzielaj wielu, krótkoterminowych dużych obiektów w [ścieżkach kodu gorąca](#understand-hot-code-paths).
 
 Problemy z pamięcią, takie jak poprzednia, można zdiagnozować, przeglądając statystyki dotyczące wyrzucania elementów bezużytecznych (GC) w [Narzędzia PerfView](https://github.com/Microsoft/perfview) i badając:
@@ -140,7 +140,7 @@ Mając
 
 ## <a name="use-the-latest-aspnet-core-release"></a>Użyj najnowszej wersji ASP.NET Core
 
-Każda nowa wersja ASP.NET Core obejmuje ulepszenia wydajności. Optymalizacje w oprogramowaniu .NET Core i ASP.NET Core oznaczają, że nowsze wersje zwykle outperform starsze wersje. Na przykład program .NET Core 2,1 dodaliśmy obsługę skompilowanych wyrażeń regularnych i benefitted z [`Span<T>`](https://msdn.microsoft.com/magazine/mt814808.aspx). ASP.NET Core 2,2 dodano obsługę protokołu HTTP/2. [ASP.NET Core 3,0 dodaje wiele ulepszeń](xref:aspnetcore-3.0) , które zmniejszają wykorzystanie pamięci i zwiększają przepływność. Jeśli wydajność jest priorytetem, rozważ uaktualnienie do bieżącej wersji ASP.NET Core.
+Każda nowa wersja ASP.NET Core obejmuje ulepszenia wydajności. Optymalizacje w oprogramowaniu .NET Core i ASP.NET Core oznaczają, że nowsze wersje zwykle outperform starsze wersje. Na przykład program .NET Core 2,1 dodaliśmy obsługę skompilowanych wyrażeń regularnych i benefitted z [zakresu\<t >](https://msdn.microsoft.com/magazine/mt814808.aspx). ASP.NET Core 2,2 dodano obsługę protokołu HTTP/2. [ASP.NET Core 3,0 dodaje wiele ulepszeń](xref:aspnetcore-3.0) , które zmniejszają wykorzystanie pamięci i zwiększają przepływność. Jeśli wydajność jest priorytetem, rozważ uaktualnienie do bieżącej wersji ASP.NET Core.
 
 ## <a name="minimize-exceptions"></a>Minimalizuj wyjątki
 
@@ -186,7 +186,7 @@ Poprzedni kod asynchronicznie deserializacji treści żądania do C# obiektu.
 
 ## <a name="prefer-readformasync-over-requestform"></a>Preferuj ReadFormAsync przez żądanie. formularz
 
-Użyj `HttpContext.Request.ReadFormAsync`, a nie `HttpContext.Request.Form`.
+Użyj `HttpContext.Request.ReadFormAsync` zamiast `HttpContext.Request.Form`.
 `HttpContext.Request.Form` mogą być bezpiecznie odczytywane tylko z następującymi warunkami:
 
 * Formularz został odczytany przez wywołanie `ReadFormAsync`i

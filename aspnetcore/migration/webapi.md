@@ -1,23 +1,23 @@
 ---
-title: Migrowanie z interfejsu API sieci Web platformy ASP.NET do ASP.NET Core
+title: Migrowanie z interfejsu API sieci Web ASP.NET do ASP.NET Core
 author: ardalis
-description: Dowiedz się, jak przeprowadzić migrację z implementacją interfejsu API sieci web z interfejsu API sieci Web programu ASP.NET 4.x ASP.NET Core MVC.
+description: Dowiedz się, jak migrować implementację internetowego interfejsu API z ASP.NET 4. x sieci Web API do ASP.NET Core MVC.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/10/2018
+ms.date: 12/05/2019
 uid: migration/webapi
-ms.openlocfilehash: 74c7730a667ebc979241489733cdace149cacdf2
-ms.sourcegitcommit: d6e51c60439f03a8992bda70cc982ddb15d3f100
+ms.openlocfilehash: c68cf83f427f53b110075168c6d5e4d021808782
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67555750"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881147"
 ---
-# <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>Migrowanie z interfejsu API sieci Web platformy ASP.NET do ASP.NET Core
+# <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>Migrowanie z interfejsu API sieci Web ASP.NET do ASP.NET Core
 
 Przez [Scott Addie](https://twitter.com/scott_addie) i [Steve Smith](https://ardalis.com/)
 
-Interfejsu API sieci Web programu ASP.NET 4.x jest usługą HTTP, która osiąga szerokiej gamy klientów, w tym przeglądarek i urządzeń przenośnych. Aplikacja interfejsu API sieci Web modele w prostszy model programowania, znany jako program ASP.NET Core MVC i platformy ASP.NET Core ujednolica MVC ASP.NET 4.x firmy. W tym artykule przedstawiono kroki wymagane do migracji z interfejsu API sieci Web 4.x ASP.NET do ASP.NET Core MVC.
+Internetowy interfejs API ASP.NET 4. x to usługa HTTP, która dociera do szerokiego zakresu klientów, w tym przeglądarek i urządzeń przenośnych. ASP.NET Core modele aplikacji MVC i Web API łączy ASP.NET 4. x w prostszy model programowania znany jako ASP.NET Core MVC. W tym artykule przedstawiono kroki wymagane do przeprowadzenia migracji z interfejsu API sieci Web ASP.NET 4. x do ASP.NET Core MVC.
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/migration/webapi/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
@@ -25,136 +25,136 @@ Interfejsu API sieci Web programu ASP.NET 4.x jest usługą HTTP, która osiąga
 
 [!INCLUDE [prerequisites](../includes/net-core-prereqs-vs2019-2.2.md)]
 
-## <a name="review-aspnet-4x-web-api-project"></a>Przejrzyj projekt interfejsu API sieci Web programu ASP.NET 4.x
+## <a name="review-aspnet-4x-web-api-project"></a>Przegląd projektu interfejsu API sieci Web ASP.NET 4. x
 
-Jako punktu wyjścia, w tym artykule wykorzystano *ProductsApp* projektu utworzonego w [wprowadzenie do wzorca ASP.NET Web API 2](/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api). W tym projekcie prosty projekt interfejsu API sieci Web platformy ASP.NET 4.x jest skonfigurowany w następujący sposób.
+Jako punkt początkowy, w tym artykule używany jest projekt *ProductsApp* utworzony w [wprowadzenie z ASP.NET Web API 2](/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api). W tym projekcie jest skonfigurowany prosty projekt interfejsu API sieci Web ASP.NET 4. x w następujący sposób.
 
-W *Global.asax.cs*, połączenie jest nawiązywane w przypadku `WebApiConfig.Register`:
+W *Global.asax.cs*, wykonano wywołanie do `WebApiConfig.Register`:
 
 [!code-csharp[](webapi/sample/ProductsApp/Global.asax.cs?highlight=14)]
 
-`WebApiConfig` Klasa znajduje się w *App_Start* folder i ma statycznych `Register` metody:
+Klasa `WebApiConfig` znajduje się w folderze *App_Start* i ma statyczną metodę `Register`:
 
 [!code-csharp[](webapi/sample/ProductsApp/App_Start/WebApiConfig.cs)]
 
-Ta klasa umożliwia skonfigurowanie [trasowanie atrybutów](/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2), chociaż w rzeczywistości nie jest on używany w projekcie. Umożliwia również skonfigurowanie tabeli routingu, który jest używany przez interfejs API sieci Web platformy ASP.NET. W tym przypadku interfejsu API sieci Web programu ASP.NET 4.x oczekuje, że adresy URL służące do być zgodny z formatem `/api/{controller}/{id}`, za pomocą `{id}` opcjonalne.
+Ta klasa konfiguruje [Routing atrybutów](/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2), chociaż nie jest faktycznie używana w projekcie. Konfiguruje również tabelę routingu, która jest używana przez interfejs API sieci Web ASP.NET. W takim przypadku interfejs API sieci Web ASP.NET 4. x oczekuje, że adresy URL są zgodne z formatem `/api/{controller}/{id}`, z opcjonalną `{id}`.
 
-*ProductsApp* projekt zawiera jeden kontroler. Kontroler dziedziczy `ApiController` i zawiera dwie akcje:
+Projekt *ProductsApp* zawiera jeden kontroler. Kontroler dziedziczy po `ApiController` i zawiera dwie akcje:
 
 [!code-csharp[](webapi/sample/ProductsApp/Controllers/ProductsController.cs?highlight=28,33)]
 
-`Product` Używany przez model `ProductsController` jest prostą klasę:
+Model `Product` używany przez `ProductsController` jest prostą klasą:
 
 [!code-csharp[](webapi/sample/ProductsApp/Models/Product.cs)]
 
-W poniższych sekcjach przedstawiono migracji projektu interfejsu API sieci Web platformy ASP.NET Core MVC.
+W poniższych sekcjach przedstawiono migrację projektu interfejsu API sieci Web do ASP.NET Core MVC.
 
 ## <a name="create-destination-project"></a>Utwórz projekt docelowy
 
-Wykonaj następujące czynności w programie Visual Studio:
+Wykonaj następujące kroki w programie Visual Studio:
 
-* Przejdź do **pliku** > **nowe** > **projektu** > **innych typów projektów**  >  **Rozwiązań programu visual Studio**. Wybierz **puste rozwiązanie**, a rozwiązanie *WebAPIMigration*. Kliknij przycisk **OK** przycisku.
-* Dodaj istniejące *ProductsApp* projektu do rozwiązania.
-* Dodaj nową **aplikacji sieci Web programu ASP.NET Core** projektu do rozwiązania. Wybierz **platformy .NET Core** docelowy framework z listy rozwijanej, a następnie wybierz **API** szablonu projektu. Nadaj projektowi nazwę *ProductsCore*i kliknij przycisk **OK** przycisku.
+* Przejdź do **pliku** > **nowy** > **project** > **innych typów projektów** > **rozwiązania programu Visual Studio**. Wybierz pozycję **puste rozwiązanie**i nazwij rozwiązanie *WebAPIMigration*. Kliknij przycisk **OK**.
+* Dodaj istniejący projekt *ProductsApp* do rozwiązania.
+* Dodaj nowy projekt **aplikacji sieci Web ASP.NET Core** do rozwiązania. Wybierz platformę docelową **platformy .NET Core** z listy rozwijanej i wybierz szablon projektu **interfejsu API** . Nazwij projekt *ProductsCore*, a następnie kliknij przycisk **OK** .
 
-Rozwiązanie zawiera teraz dwa projekty. W poniższych sekcjach opisano Migrowanie *ProductsApp* zawartość projektu, aby *ProductsCore* projektu.
+Rozwiązanie zawiera teraz dwa projekty. W poniższych sekcjach opisano Migrowanie zawartości projektu *ProductsApp* do projektu *ProductsCore* .
 
-## <a name="migrate-configuration"></a>Migracja konfiguracji
+## <a name="migrate-configuration"></a>Migruj konfigurację
 
-Nie korzysta z platformy ASP.NET Core *App_Start* folderu lub *Global.asax* pliku, a *web.config* plik zostanie dodany na czas publikacji. *Startup.cs* zastępuje *Global.asax* i znajduje się w katalogu głównym projektu. `Startup` Klasa obsługuje wszystkie zadania uruchamiania aplikacji. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/startup>.
+ASP.NET Core nie używa folderu *App_Start* ani pliku *Global. asax* , a plik *Web. config* jest dodawany w czasie publikacji. *Startup.cs* jest zamiennikiem elementu *Global. asax* i znajduje się w katalogu głównym projektu. Klasa `Startup` obsługuje wszystkie zadania uruchamiania aplikacji. Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/startup>.
 
-W programie ASP.NET Core MVC trasowanie atrybutów jest domyślnie włączone podczas <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc*> jest wywoływana w `Startup.Configure`. Następujące `UseMvc` wywołać zastępuje *ProductsApp* projektu *App_Start/WebApiConfig.cs* pliku:
+W ASP.NET Core MVC, routing atrybutu jest uwzględniany domyślnie, gdy <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc*> jest wywoływana w `Startup.Configure`. Następujące wywołanie `UseMvc` zastępuje plik */webapiconfig.cs App_Start* projektu *ProductsApp* :
 
 [!code-csharp[](webapi/sample/ProductsCore/Startup.cs?name=snippet_Configure&highlight=13])]
 
 ## <a name="migrate-models-and-controllers"></a>Migrowanie modeli i kontrolerów
 
-Skopiuj *ProductApp* kontroler projektu i model używa. Wykonaj następujące kroki:
+Kopiuj przez kontroler projektu *ProductApp* oraz model, którego używa. Wykonaj następujące kroki:
 
-1. Kopiuj *Controllers/ProductsController.cs* z oryginalnego projektu na nową.
-1. Skopiuj cały *modeli* folderu z oryginalnego projektu na nową.
-1. Zmień obszary nazw kopiowanych plików, aby odpowiadała nowej nazwie projektu (*ProductsCore*). Dostosuj `using ProductsApp.Models;` instrukcji w *ProductsController.cs* zbyt.
+1. Skopiuj *Kontrolery/ProductsController. cs* z oryginalnego projektu do nowego.
+1. Skopiuj cały folder *modele* z oryginalnego projektu do nowego.
+1. Zmień przestrzenie nazw skopiowane pliki na pasujące do nowej nazwy projektu (*ProductsCore*). Dostosuj również instrukcję `using ProductsApp.Models;` w *ProductsController.cs* .
 
-Na tym etapie tworzenia wyniki aplikacji na wiele błędów kompilacji. Błędy występują, ponieważ następujące składniki nie istnieją w programie ASP.NET Core:
+W tym momencie Kompilowanie aplikacji powoduje szereg błędów kompilacji. Błędy występują, ponieważ następujące składniki nie istnieją w ASP.NET Core:
 
-* `ApiController` Klasa
-* `System.Web.Http` Namespace
-* `IHttpActionResult` Interfejs
+* Klasa `ApiController`
+* Obszar nazw `System.Web.Http`
+* Interfejs `IHttpActionResult`
 
-Napraw błędy w następujący sposób:
+Usuń błędy w następujący sposób:
 
-1. Zmiana `ApiController` do <xref:Microsoft.AspNetCore.Mvc.ControllerBase>. Dodaj `using Microsoft.AspNetCore.Mvc;` rozpoznać `ControllerBase` odwołania.
+1. Zmiana `ApiController` do <xref:Microsoft.AspNetCore.Mvc.ControllerBase>. Dodaj `using Microsoft.AspNetCore.Mvc;`, aby rozwiązać `ControllerBase` odwołanie.
 1. Usuń folder `using System.Web.Http;`.
-1. Zmiana `GetProduct` akcja ma typ zwracany z `IHttpActionResult` do `ActionResult<Product>`.
+1. Zmień typ zwracany akcji `GetProduct` z `IHttpActionResult` na `ActionResult<Product>`.
 
-Uprość `GetProduct` akcji `return` instrukcji do następującego:
+Uprość instrukcję `return` akcji `GetProduct` w następujący sposób:
 
 ```csharp
 return product;
 ```
 
-## <a name="configure-routing"></a>Konfigurowanie routingu
+## <a name="configure-routing"></a>Configure routing (Konfigurowanie routingu)
 
-Skonfiguruj routing w następujący sposób:
+Skonfiguruj Routing w następujący sposób:
 
-1. Dekoracji `ProductsController` klasy z następującymi atrybutami:
+1. Oznacz klasę `ProductsController` następującymi atrybutami:
 
     ```csharp
     [Route("api/[controller]")]
     [ApiController]
     ```
 
-    Poprzedni [[trasy]](xref:Microsoft.AspNetCore.Mvc.RouteAttribute) atrybut konfiguruje wzorzec routingu atrybutów kontrolera. [[Klasy ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) atrybutu sprawia, że atrybut routingu wymagana dla wszystkich akcji w tym kontrolerze.
+    Poprzedni atrybut [`[Route]`](xref:Microsoft.AspNetCore.Mvc.RouteAttribute) konfiguruje wzorzec routingu atrybutu kontrolera. Atrybut [`[ApiController]`](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) powoduje, że atrybut routingu wymaga dla wszystkich akcji w tym kontrolerze.
 
-    Routing atrybutów obsługuje tokenów, takich jak `[controller]` i `[action]`. W czasie wykonywania każdy token jest zastępowana nazwą kontroler lub akcję, odpowiednio, do którego zastosowano atrybut. Tokeny Zmniejsz liczbę magic ciągów w projekcie. Tokeny upewnij się, trasy ciągle synchronizowana z odpowiednich kontrolerów i akcji po automatyczne nazwy refaktoryzacje są stosowane.
-1. Ustaw tryb zgodności projektu do programu ASP.NET Core w wersji 2.2:
+    Routing atrybutów obsługuje tokeny, takie jak `[controller]` i `[action]`. W czasie wykonywania każdy token jest zastępowany odpowiednio nazwą kontrolera lub akcji, do którego zastosowano atrybut. Tokeny zmniejszają liczbę ciągów magicznych w projekcie. Tokeny zapewniają również, że trasy pozostają zsynchronizowane z odpowiednimi kontrolerami i akcjami, gdy stosowane są automatyczne refaktoryzacje zmiany nazwy.
+1. Ustaw tryb zgodności projektu na ASP.NET Core 2,2:
 
     [!code-csharp[](webapi/sample/ProductsCore/Startup.cs?name=snippet_ConfigureServices&highlight=4)]
 
-    Zmian poprzednim:
+    Poprzednia zmiana:
 
-    * Wymagane jest wprowadzenie `[ApiController]` atrybut na poziomie kontrolera.
-    * Powoduje do potencjalnie istotne zachowania wprowadzone w programie ASP.NET Core 2.2.
-1. Włącz żądania HTTP Get do `ProductController` akcje:
-    * Zastosuj [[HttpGet]](xref:Microsoft.AspNetCore.Mvc.HttpGetAttribute) atrybutu `GetAllProducts` akcji.
-    * Zastosuj `[HttpGet("{id}")]` atrybutu `GetProduct` akcji.
+    * Jest wymagany do użycia atrybutu `[ApiController]` na poziomie kontrolera.
+    * Umożliwia potencjalne uszkodzenie zachowań wprowadzonych w ASP.NET Core 2,2.
+1. Włącz żądania HTTP GET do akcji `ProductController`:
+    * Zastosuj atrybut [`[HttpGet]`](xref:Microsoft.AspNetCore.Mvc.HttpGetAttribute) do akcji `GetAllProducts`.
+    * Zastosuj atrybut `[HttpGet("{id}")]` do akcji `GetProduct`.
 
-Po zmian poprzednim i usunięcie nieużywanych `using` instrukcji *ProductsController.cs* pliku wygląda następująco:
+Po powyższych zmianach i usunięciu nieużywanych instrukcji `using` plik *ProductsController.cs* wygląda następująco:
 
 [!code-csharp[](webapi/sample/ProductsCore/Controllers/ProductsController.cs)]
 
-Uruchom projekt zmigrowane i przejdź do `/api/products`. Zostanie wyświetlona pełna lista trzy produkty. Przejdź do `/api/products/1`. Pojawi się pierwszy produkt.
+Uruchom migrowany projekt i przejdź do `/api/products`. Zostanie wyświetlona pełna lista trzech produktów. Przejdź do `/api/products/1`. Zostanie wyświetlony pierwszy produkt.
 
-## <a name="compatibility-shim"></a>Podkładki zgodności
+## <a name="compatibility-shim"></a>Podkładka zgodności
 
-[Microsoft.AspNetCore.Mvc.WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim) biblioteka zawiera poprawkę zgodności, aby przenieść projektach programów ASP.NET 4.x interfejsu API sieci Web platformy ASP.NET Core. Podkładki zgodności rozszerza platformy ASP.NET Core, obsługę wielu Konwencji z interfejsu Web API 2 platformy ASP.NET 4.x. Przykładowe przenoszone wcześniej w tym dokumencie jest wystarczająco podstawowe, że podkładki zgodność nie jest konieczne. W przypadku większych projektów przy użyciu podkładki zgodności może być przydatne do tymczasowo unaoczni API między platformą ASP.NET Core i ASP.NET 4.x Web API 2.
+Biblioteka [Microsoft. AspNetCore. MVC. WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim) zawiera podkładkę zgodności do przenoszenia projektów interfejsu API sieci Web ASP.NET 4. x do ASP.NET Core. Podkładka zgodności rozszerza ASP.NET Core do obsługi wielu konwencji z ASP.NET 4. x Web API 2. Przykładowy port podany wcześniej w tym dokumencie jest wystarczająco mały, że podkładka zgodności była niepotrzebna. W przypadku większych projektów użycie podkładki zgodności może być przydatne do tymczasowego mostkowania przerwy między ASP.NET Core i ASP.NET 4. x Web API 2.
 
-Podkładki zgodności internetowy interfejs API jest przeznaczone do służyć jako tymczasowy środek do obsługi migrowania dużych interfejsu API sieci Web projektach programów ASP.NET 4.x ASP.NET Core. Wraz z upływem czasu projektów powinny zostać uaktualnione do użycia wzorców platformy ASP.NET Core, zamiast polegania na poprawkę zgodności.
+Podkładka zgodności dla interfejsu API sieci Web ma służyć jako tymczasowa miara do obsługi migrowania dużych ASP.NETych projektów interfejsu API sieci Web do ASP.NET Core. W miarę upływu czasu projekty należy zaktualizować tak, aby korzystały z wzorców ASP.NET Core zamiast polegać na podkładki zgodności.
 
-Zgodność funkcji dostępnych w `Microsoft.AspNetCore.Mvc.WebApiCompatShim` obejmują:
+Funkcje zgodności zawarte w `Microsoft.AspNetCore.Mvc.WebApiCompatShim` obejmują:
 
-* Dodaje `ApiController` wpisz, aby kontrolerami typów podstawowych, nie muszą zostać zaktualizowane.
-* Umożliwia powiązanie modelu w stylu interfejsu API sieci Web. Platforma ASP.NET Core MVC model funkcji wiązania, podobnie jak w przypadku platformy ASP.NET MVC 5 4.x, domyślnie. Zmiany podkładki zgodności modelu powiązania, które są bardziej podobne do Konwencji powiązanie modelu 4.x Web API 2 platformy ASP.NET. Na przykład typy złożone są automatycznie powiązany z treści żądania.
-* Rozszerza wiązania modelu akcji kontrolera można korzystać z parametrami typu `HttpRequestMessage`.
-* Dodaje elementy formatujące komunikaty umożliwiając akcji do zwrócenia wyników typu `HttpResponseMessage`.
-* Dodaje metody dodatkowe odpowiedzi, które akcje Web API 2 może być używane do udostępniania odpowiedzi:
-  * `HttpResponseMessage` generatory:
+* Dodaje typ `ApiController`, aby nie trzeba było aktualizować typów podstawowych kontrolerów.
+* Włącza powiązanie modelu internetowego interfejsu API. ASP.NET Core funkcji powiązania modelu MVC podobnie jak w przypadku ASP.NET 4. x MVC 5, domyślnie. W ramach podkładki zgodności zmiany powiązania modelu są bardziej podobne do Konwencji powiązań modelu ASP.NET 4. x sieci Web. Na przykład typy złożone są automatycznie powiązane z treścią żądania.
+* Rozszerza powiązanie modelu, aby akcje kontrolera mogły przyjmować parametry typu `HttpRequestMessage`.
+* Dodaje elementy formatujące komunikaty umożliwiające działanie zwracające wyniki typu `HttpResponseMessage`.
+* Dodaje dodatkowe metody odpowiedzi, które mogą być używane przez działania Web API 2 do obsłużenia odpowiedzi:
+  * Generatory `HttpResponseMessage`:
     * `CreateResponse<T>`
     * `CreateErrorResponse`
-  * Metody wynik akcji:
+  * Metody wyniku akcji:
     * `BadRequestErrorMessageResult`
     * `ExceptionResult`
     * `InternalServerErrorResult`
     * `InvalidModelStateResult`
     * `NegotiatedContentResult`
     * `ResponseMessageResult`
-* Dodaje wystąpienie `IContentNegotiator` do aplikacji użytkownika kontenera (DI) iniekcji zależności i udostępnia związane z negocjacji typy zawartości z [Microsoft.AspNet.WebApi.Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/). Przykładami takich typów `DefaultContentNegotiator` i `MediaTypeFormatter`.
+* Dodaje wystąpienie `IContentNegotiator` do kontenera iniekcji zależności aplikacji i udostępnia typy powiązane z negocjowaniem zawartości z [Microsoft. ASPNET. WebApi. Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/). Przykłady takich typów obejmują `DefaultContentNegotiator` i `MediaTypeFormatter`.
 
 Aby użyć podkładek zgodności:
 
-1. Zainstaluj [Microsoft.AspNetCore.Mvc.WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim) pakietu NuGet.
-1. Zarejestruj podkładki zgodności usług za pomocą kontenera DI aplikacji przez wywołanie metody `services.AddMvc().AddWebApiConventions()` w `Startup.ConfigureServices`.
-1. Zdefiniuj specyficzne dla interfejsu API tras za pomocą sieci web `MapWebApiRoute` na `IRouteBuilder` aplikacji `IApplicationBuilder.UseMvc` wywołania.
+1. Zainstaluj pakiet NuGet [Microsoft. AspNetCore. MVC. WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim) .
+1. Zarejestruj usługi podkładki zgodności z kontenerem DI aplikacji, wywołując `services.AddMvc().AddWebApiConventions()` w `Startup.ConfigureServices`.
+1. Zdefiniuj trasy specyficzne dla interfejsu API sieci Web przy użyciu `MapWebApiRoute` na `IRouteBuilder` w wywołaniu `IApplicationBuilder.UseMvc` aplikacji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

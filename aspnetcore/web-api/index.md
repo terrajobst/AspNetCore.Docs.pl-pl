@@ -7,20 +7,20 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/22/2019
 uid: web-api/index
-ms.openlocfilehash: 3f52e4ce2d26902324ab30e0bda7ed8a4942daa0
-ms.sourcegitcommit: ddc813f0f1fb293861a01597532919945b0e7fe5
+ms.openlocfilehash: 5ef8b4d012f4ed90339ffea191612e4dc365d958
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74412045"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880527"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>Tworzenie internetowych interfejsów API za pomocą ASP.NET Core
 
 Przez [Scott Addie](https://github.com/scottaddie) i [Tomasz Dykstra](https://github.com/tdykstra)
 
-ASP.NET Core obsługuje tworzenie usług RESTful, znanych również jako interfejsy API sieci Web C#, przy użyciu programu. Aby obsługiwać żądania, interfejs API sieci Web używa kontrolerów. *Kontrolery* w INTERNETowym interfejsie API są klasami pochodnymi od `ControllerBase`. W tym artykule pokazano, jak używać kontrolerów do obsługi żądań interfejsu API sieci Web.
+Platforma ASP.NET Core obsługuje tworzenie usług RESTful, znanych także jako internetowe interfejsy API, za pomocą języka C#. Aby obsługiwać żądania, interfejs API sieci Web używa kontrolerów. *Kontrolery* w INTERNETowym interfejsie API są klasami pochodnymi od `ControllerBase`. W tym artykule pokazano, jak używać kontrolerów do obsługi żądań interfejsu API sieci Web.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/index/samples). ([Jak pobrać](xref:index#how-to-download-a-sample)).
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/index/samples). ([Jak pobrać](xref:index#how-to-download-a-sample)).
 
 ## <a name="controllerbase-class"></a>Klasa ControllerBase
 
@@ -56,7 +56,7 @@ Poniżej przedstawiono kilka przykładów metod, które zapewnia `ControllerBase
 
 Aby uzyskać listę wszystkich dostępnych metod i właściwości, zobacz <xref:Microsoft.AspNetCore.Mvc.ControllerBase>.
 
-## <a name="attributes"></a>Atrybuty
+## <a name="attributes"></a>{1&gt;{2&gt;Atrybuty&lt;2}&lt;1}
 
 Przestrzeń nazw <xref:Microsoft.AspNetCore.Mvc> zawiera atrybuty, których można użyć do skonfigurowania zachowania kontrolerów internetowego interfejsu API i metod akcji. Poniższy przykład używa atrybutów, aby określić obsługiwane zlecenie akcji HTTP i wszystkie znane kody stanu HTTP, które mogą zostać zwrócone:
 
@@ -66,17 +66,17 @@ Poniżej przedstawiono kilka przykładów dostępnych atrybutów.
 
 |Atrybut|Uwagi|
 |---------|-----|
-|[Szlak](<xref:Microsoft.AspNetCore.Mvc.RouteAttribute>)      |Określa wzorzec adresu URL dla kontrolera lub akcji.|
-|[Węglowodor](<xref:Microsoft.AspNetCore.Mvc.BindAttribute>)        |Określa prefiks i właściwości, które mają zostać dołączone do powiązania modelu.|
-|[Narzędzia HttpGet](<xref:Microsoft.AspNetCore.Mvc.HttpGetAttribute>)  |Identyfikuje akcję, która obsługuje czasownik HTTP GET.|
-|[Zużywa](<xref:Microsoft.AspNetCore.Mvc.ConsumesAttribute>)|Określa typy danych, które akcja akceptuje.|
-|[Wyświetla](<xref:Microsoft.AspNetCore.Mvc.ProducesAttribute>)|Określa typy danych, które zwraca akcja.|
+|[`[Route]`](<xref:Microsoft.AspNetCore.Mvc.RouteAttribute>)      |Określa wzorzec adresu URL dla kontrolera lub akcji.|
+|[`[Bind]`](<xref:Microsoft.AspNetCore.Mvc.BindAttribute>)        |Określa prefiks i właściwości, które mają zostać dołączone do powiązania modelu.|
+|[`[HttpGet]`](<xref:Microsoft.AspNetCore.Mvc.HttpGetAttribute>)  |Identyfikuje akcję, która obsługuje czasownik HTTP GET.|
+|[`[Consumes]`](<xref:Microsoft.AspNetCore.Mvc.ConsumesAttribute>)|Określa typy danych, które akcja akceptuje.|
+|[`[Produces]`](<xref:Microsoft.AspNetCore.Mvc.ProducesAttribute>)|Określa typy danych, które zwraca akcja.|
 
 Aby zapoznać się z listą zawierającą dostępne atrybuty, zapoznaj się z przestrzenią nazw <xref:Microsoft.AspNetCore.Mvc>.
 
 ## <a name="apicontroller-attribute"></a>ApiController — atrybut
 
-Atrybut [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) można zastosować do klasy kontrolera, aby włączyć następujące zachowania specyficzne dla interfejsu API:
+Atrybut [`[ApiController]`](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) można zastosować do klasy kontrolera, aby włączyć następujące zachowania dotyczące interfejsów API ceniona:
 
 * [Wymagania dotyczące routingu atrybutów](#attribute-routing-requirement)
 * [Automatyczne odpowiedzi HTTP 400](#automatic-http-400-responses)
@@ -241,12 +241,12 @@ Atrybut źródłowy powiązania definiuje lokalizację, w której zostanie znale
 
 |Atrybut|Źródło powiązania |
 |---------|---------|
-|[[FromBody]](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute)     | Treść żądania |
-|[[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute)     | Formularz danych w treści żądania |
-|[[FromHeader]](xref:Microsoft.AspNetCore.Mvc.FromHeaderAttribute) | Nagłówek żądania |
-|[[FromQuery]](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute)   | Parametr ciągu zapytania żądania |
-|[[FromRoute]](xref:Microsoft.AspNetCore.Mvc.FromRouteAttribute)   | Kierowanie danych z bieżącego żądania |
-|[[FromServices]](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) | Usługa żądania wstrzykiwana jako parametr akcji |
+|[`[FromBody]`](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute)     | Treść żądania |
+|[`[FromForm]`](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute)     | Formularz danych w treści żądania |
+|[`[FromHeader]`](xref:Microsoft.AspNetCore.Mvc.FromHeaderAttribute) | Nagłówek żądania |
+|[`[FromQuery]`](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute)   | Parametr ciągu zapytania żądania |
+|[`[FromRoute]`](xref:Microsoft.AspNetCore.Mvc.FromRouteAttribute)   | Kierowanie danych z bieżącego żądania |
+|[`[FromServices]`](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) | Usługa żądania wstrzykiwana jako parametr akcji |
 
 > [!WARNING]
 > Nie używaj `[FromRoute]`, gdy wartości mogą zawierać `%2f` (`/`). `%2f` nie zostanie wystąpić do `/`. Użyj `[FromQuery]`, jeśli wartość może zawierać `%2f`.
@@ -322,7 +322,7 @@ Aby wyłączyć wnioskowanie źródłowe powiązania, ustaw <xref:Microsoft.AspN
 
 ## <a name="multipartform-data-request-inference"></a>Wieloczęściowe/formularz-wnioskowanie dotyczące danych
 
-Atrybut `[ApiController]` stosuje regułę wnioskowania, gdy parametr akcji ma adnotację z atrybutem [[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute) . Typ zawartości żądania `multipart/form-data` jest wywnioskowany.
+Atrybut `[ApiController]` stosuje regułę wnioskowania, gdy parametr akcji ma adnotację z atrybutem [`[FromForm]`](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute) . Typ zawartości żądania `multipart/form-data` jest wywnioskowany.
 
 Aby wyłączyć domyślne zachowanie, ustaw właściwość <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressConsumesConstraintForFormFileParameters> na `true` w `Startup.ConfigureServices`:
 

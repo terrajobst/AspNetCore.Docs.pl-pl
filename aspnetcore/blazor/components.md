@@ -9,18 +9,18 @@ ms.date: 11/27/2019
 no-loc:
 - Blazor
 uid: blazor/components
-ms.openlocfilehash: 19636b0f10e71133eddece918b1bb9e2bc25a226
-ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
+ms.openlocfilehash: 9cdbae0bde8f6c44dc8b680dccbf9c8f96043c7f
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74733846"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879696"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
 Autorzy [Luke Latham](https://github.com/guardrex) i [Daniel Roth](https://github.com/danroth27)
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 aplikacje Blazor są kompilowane przy użyciu *składników*programu. Składnik jest niezależnym fragmentem interfejsu użytkownika (UI), takim jak strona, okno dialogowe lub formularz. Składnik zawiera znaczniki HTML i logikę przetwarzania wymagane do iniekcji danych lub reagowania na zdarzenia interfejsu użytkownika. Składniki są elastyczne i lekkie. Mogą być zagnieżdżane, ponownie używane i udostępniane między projektami.
 
@@ -171,7 +171,7 @@ Poniższe `ParentComponent` mogą zapewnić zawartość do renderowania `ChildCo
 
 ## <a name="attribute-splatting-and-arbitrary-parameters"></a>Korzystając atrybutów i dowolne parametry
 
-Składniki mogą przechwytywać i renderować dodatkowe atrybuty oprócz zadeklarowanych parametrów składnika. Dodatkowe atrybuty mogą być przechwytywane w słowniku, a następnie *splatted* na element, gdy składnik jest renderowany przy użyciu dyrektywy [@attributes](xref:mvc/views/razor#attributes) Razor. Ten scenariusz jest przydatny podczas definiowania składnika, który generuje element znaczników, który obsługuje różne dostosowania. Na przykład można żmudnym definiować atrybuty oddzielnie dla `<input>`, które obsługują wiele parametrów.
+Składniki mogą przechwytywać i renderować dodatkowe atrybuty oprócz zadeklarowanych parametrów składnika. Dodatkowe atrybuty mogą być przechwytywane w słowniku, a następnie *splatted* na element, gdy składnik jest renderowany przy użyciu dyrektywy [`@attributes`](xref:mvc/views/razor#attributes) Razor. Ten scenariusz jest przydatny podczas definiowania składnika, który generuje element znaczników, który obsługuje różne dostosowania. Na przykład można żmudnym definiować atrybuty oddzielnie dla `<input>`, które obsługują wiele parametrów.
 
 W poniższym przykładzie pierwszy element `<input>` (`id="useIndividualParams"`) używa pojedynczych parametrów składnika, podczas gdy drugi `<input>` elementu (`id="useAttributesDict"`) używa atrybutu korzystając:
 
@@ -287,7 +287,7 @@ Renderowane `<div>` w składniku `Parent` zawiera `extra="10"` w przypadku przec
 
 ## <a name="data-binding"></a>Powiązanie danych
 
-Powiązanie danych zarówno ze składnikami, jak i elementami modelu DOM jest realizowane przy użyciu atrybutu [@bind](xref:mvc/views/razor#bind) . Poniższy przykład wiąże Właściwość `CurrentValue` z wartością pola tekstowego:
+Powiązanie danych zarówno ze składnikami, jak i elementami modelu DOM jest realizowane przy użyciu atrybutu [`@bind`](xref:mvc/views/razor#bind) . Poniższy przykład wiąże Właściwość `CurrentValue` z wartością pola tekstowego:
 
 ```cshtml
 <input @bind="CurrentValue" />
@@ -315,7 +315,7 @@ Używanie `@bind` z właściwością `CurrentValue` (`<input @bind="CurrentValue
 
 Gdy składnik jest renderowany, `value` elementu wejściowego pochodzi z właściwości `CurrentValue`. Gdy użytkownik wpisze w polu tekstowym i zmieni fokus elementu, zdarzenie `onchange` jest wyzwalane, a właściwość `CurrentValue` jest ustawiona na wartość zmieniona. W rzeczywistości generowanie kodu jest bardziej skomplikowane, ponieważ `@bind` obsługuje przypadki, w których są wykonywane konwersje typów. W zasadzie `@bind` kojarzy bieżącą wartość wyrażenia z atrybutem `value` i obsługuje zmiany przy użyciu zarejestrowanej procedury obsługi.
 
-Oprócz obsługi zdarzeń `onchange` ze składnią `@bind`, właściwość lub pole można powiązać przy użyciu innych zdarzeń, określając atrybut [@bind-value](xref:mvc/views/razor#bind) z `event` parametrem ([@bind-value:event](xref:mvc/views/razor#bind)). Poniższy przykład wiąże `CurrentValue` właściwość dla zdarzenia `oninput`:
+Oprócz obsługi zdarzeń `onchange` ze składnią `@bind`, właściwość lub pole można powiązać przy użyciu innych zdarzeń, określając atrybut [`@bind-value`](xref:mvc/views/razor#bind) z `event` parametrem ([`@bind-value:event`](xref:mvc/views/razor#bind)). Poniższy przykład wiąże `CurrentValue` właściwość dla zdarzenia `oninput`:
 
 ```cshtml
 <input @bind-value="CurrentValue" @bind-value:event="oninput" />
@@ -384,7 +384,7 @@ Aby uzyskać informacje na temat sposobu ustawiania kultury użytkownika, zobacz
 
 **Ciągi formatujące**
 
-Powiązanie danych działa z ciągami formatu <xref:System.DateTime> przy użyciu [@bind:format](xref:mvc/views/razor#bind). W tej chwili nie są dostępne inne wyrażenia formatu, takie jak formaty walutowe lub liczbowe.
+Powiązanie danych działa z ciągami formatu <xref:System.DateTime> przy użyciu [`@bind:format`](xref:mvc/views/razor#bind). W tej chwili nie są dostępne inne wyrażenia formatu, takie jak formaty walutowe lub liczbowe.
 
 ```cshtml
 <input @bind="StartDate" @bind:format="yyyy-MM-dd" />
@@ -498,7 +498,7 @@ Ogólnie rzecz biorąc, właściwość może być powiązana z odpowiednią obs�
 
 ## <a name="event-handling"></a>Obsługa zdarzeń
 
-Składniki Razor zapewniają funkcje obsługi zdarzeń. Dla atrybutu elementu HTML o nazwie `on{EVENT}` (na przykład `onclick` i `onsubmit`) z wartością typu delegata składniki Razor traktują wartość atrybutu jako procedurę obsługi zdarzeń. Nazwa atrybutu jest zawsze sformatowana [@on{Event}](xref:mvc/views/razor#onevent).
+Składniki Razor zapewniają funkcje obsługi zdarzeń. Dla atrybutu elementu HTML o nazwie `on{EVENT}` (na przykład `onclick` i `onsubmit`) z wartością typu delegata składniki Razor traktują wartość atrybutu jako procedurę obsługi zdarzeń. Nazwa atrybutu jest zawsze sformatowana [`@on{EVENT}`](xref:mvc/views/razor#onevent).
 
 Poniższy kod wywołuje metodę `UpdateHeading`, gdy przycisk zostanie wybrany w interfejsie użytkownika:
 
@@ -554,17 +554,17 @@ Obsługiwane `EventArgs` przedstawiono w poniższej tabeli.
 | Zdarzenie            | Klasa                | Zdarzenia i uwagi dotyczące modelu DOM |
 | ---------------- | -------------------- | -------------------- |
 | Schowek        | `ClipboardEventArgs` | `oncut`, `oncopy`, `onpaste` |
-| Przeciągnąć             | `DragEventArgs`      | `ondrag`, `ondragstart`, `ondragenter`, `ondragleave`, `ondragover`, `ondrop`, `ondragend`<br><br>`DataTransfer` i `DataTransferItem` przechowywać przeciągane dane elementu. |
+| Przeciągnij             | `DragEventArgs`      | `ondrag`, `ondragstart`, `ondragenter`, `ondragleave`, `ondragover`, `ondrop`, `ondragend`<br><br>`DataTransfer` i `DataTransferItem` przechowywać przeciągane dane elementu. |
 | Błąd            | `ErrorEventArgs`     | `onerror` |
-| Zdarzenie            | `EventArgs`          | *Ogólne*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Schowek*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Dane wejściowe*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart``onsubmit`<br><br>*Multimedialny*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
-| Fokus            | `FocusEventArgs`     | `onfocus`, `onblur`, `onfocusin`, `onfocusout`<br><br>Nie obejmuje obsługi `relatedTarget`. |
+| Zdarzenie            | `EventArgs`          | *Ogólne*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Schowek*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Dane wejściowe*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart`, `onsubmit`<br><br>*Multimedialny*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
+| Koncentracja            | `FocusEventArgs`     | `onfocus`, `onblur`, `onfocusin`, `onfocusout`<br><br>Nie obejmuje obsługi `relatedTarget`. |
 | Dane wejściowe            | `ChangeEventArgs`    | `onchange`, `oninput` |
 | Klawiatura         | `KeyboardEventArgs`  | `onkeydown`, `onkeypress`, `onkeyup` |
-| Wskaźnik            | `MouseEventArgs`     | `onclick`, `oncontextmenu`, `ondblclick`, `onmousedown`, `onmouseup`, `onmouseover`, `onmousemove`, `onmouseout` |
+| Mysz            | `MouseEventArgs`     | `onclick`, `oncontextmenu`, `ondblclick`, `onmousedown`, `onmouseup`, `onmouseover`, `onmousemove`, `onmouseout` |
 | Wskaźnik myszy    | `PointerEventArgs`   | `onpointerdown`, `onpointerup`, `onpointercancel`, `onpointermove`, `onpointerover`, `onpointerout`, `onpointerenter`, `onpointerleave`, `ongotpointercapture`, `onlostpointercapture` |
-| Kółko myszy      | `WheelEventArgs`     | `onwheel`, `onmousewheel` |
-| Postęp         | `ProgressEventArgs`  | `onabort`, `onload`, `onloadend`, `onloadstart`, `onprogress``ontimeout` |
-| Dotyk            | `TouchEventArgs`     | `ontouchstart`, `ontouchend`, `ontouchmove`, `ontouchenter`, `ontouchleave``ontouchcancel`<br><br>`TouchPoint` reprezentuje pojedynczy punkt kontaktu na urządzeniu dotykowym. |
+| Kółka myszy      | `WheelEventArgs`     | `onwheel`, `onmousewheel` |
+| Postęp         | `ProgressEventArgs`  | `onabort`, `onload`, `onloadend`, `onloadstart`, `onprogress`, `ontimeout` |
+| Dotyk            | `TouchEventArgs`     | `ontouchstart`, `ontouchend`, `ontouchmove`, `ontouchenter`, `ontouchleave`, `ontouchcancel`<br><br>`TouchPoint` reprezentuje pojedynczy punkt kontaktu na urządzeniu dotykowym. |
 
 Aby uzyskać informacje o zachowaniu właściwości i obsłudze zdarzeń zdarzeń w powyższej tabeli, zobacz [klasy EventArgs w źródle odwołań (gałąź ASPNET/AspNetCore Release/3.0)](https://github.com/aspnet/AspNetCore/tree/release/3.0/src/Components/Web/src/Web).
 
@@ -651,7 +651,7 @@ Preferuj silnie wpisaną `EventCallback<T>` przez `EventCallback`. `EventCallbac
 
 ### <a name="prevent-default-actions"></a>Zapobiegaj akcjom domyślnym
 
-Użyj [@on{Event}:p](xref:mvc/views/razor#oneventpreventdefault) atrybucie dyrektywy reventdefault, aby zapobiec domyślnej akcji dla zdarzenia.
+Użyj atrybutu dyrektywy [`@on{EVENT}:preventDefault`](xref:mvc/views/razor#oneventpreventdefault) , aby zapobiec domyślnej akcji dla zdarzenia.
 
 Po wybraniu klucza na urządzeniu wejściowym, gdy fokus elementu znajduje się w polu tekstowym, przeglądarka zwykle wyświetla znak klucza w polu tekstowym. W poniższym przykładzie zachowanie domyślne jest blokowane przez określenie atrybutu dyrektywy `@onkeypress:preventDefault`. Licznik przyrostu i klucz **+** nie są przechwytywane do wartości elementu `<input>`:
 
@@ -683,7 +683,7 @@ Procedura obsługi zdarzeń nie jest wymagana, aby zapobiec akcji domyślnej. Pr
 
 ### <a name="stop-event-propagation"></a>Zatrzymaj propagację zdarzeń
 
-Aby zatrzymać propagację zdarzeń, Użyj atrybutu dyrektywy [@on{Event}: stopPropagation](xref:mvc/views/razor#oneventstoppropagation) .
+Użyj atrybutu dyrektywy [`@on{EVENT}:stopPropagation`](xref:mvc/views/razor#oneventstoppropagation) , aby zatrzymać propagację zdarzeń.
 
 W poniższym przykładzie, zaznaczając pole wyboru, Zapobiegaj kliknięciu zdarzeń z drugiego elementu podrzędnego `<div>` od propagowania do `<div>`nadrzędnego:
 
@@ -841,7 +841,7 @@ Password:
 
 Odwołania do składników zapewniają sposób odwoływania się do wystąpienia składnika, dzięki czemu można wydać polecenia do tego wystąpienia, takie jak `Show` lub `Reset`. Aby przechwycić odwołanie do składnika:
 
-* Dodaj atrybut [@ref](xref:mvc/views/razor#ref) do składnika podrzędnego.
+* Dodaj atrybut [`@ref`](xref:mvc/views/razor#ref) do składnika podrzędnego.
 * Zdefiniuj pole z tym samym typem co składnik podrzędny.
 
 ```cshtml
@@ -1026,7 +1026,7 @@ Składnia *catch-all* (`*`/`**`), która przechwytuje ścieżkę między wieloma
 
 Składniki Razor są generowane jako klasy częściowe. Składniki Razor są tworzone przy użyciu jednej z następujących metod:
 
-* C#kod jest zdefiniowany w bloku [@code](xref:mvc/views/razor#code) przy użyciu znaczników HTML i kodu Razor w pojedynczym pliku. Szablony Blazor definiują ich składniki Razor przy użyciu tego podejścia.
+* C#kod jest zdefiniowany w bloku [`@code`](xref:mvc/views/razor#code) przy użyciu znaczników HTML i kodu Razor w pojedynczym pliku. Szablony Blazor definiują ich składniki Razor przy użyciu tego podejścia.
 * C#kod jest umieszczany w pliku związanym z kodem zdefiniowanym jako Klasa częściowa.
 
 Poniższy przykład pokazuje domyślny składnik `Counter` z blokiem `@code` w aplikacji wygenerowanej na podstawie szablonu Blazor. Znaczniki HTML, kod Razor i C# kod są w tym samym pliku:
@@ -1125,13 +1125,13 @@ Klasa bazowa powinna pochodzić od `ComponentBase`.
 
 Przestrzeń nazw składnika utworzone przy użyciu Razor jest oparta na (w kolejności priorytetu):
 
-* Wyznaczanie [@namespace](xref:mvc/views/razor#namespace) w znaczniku pliku*Razor (`@namespace BlazorSample.MyNamespace`* ).
+* Wyznaczanie [`@namespace`](xref:mvc/views/razor#namespace) w znaczniku pliku*Razor (`@namespace BlazorSample.MyNamespace`* ).
 * `RootNamespace` projektu w pliku projektu (`<RootNamespace>BlazorSample</RootNamespace>`).
 * Nazwa projektu, pobrana z nazwy pliku projektu ( *. csproj*) i ścieżka z katalogu głównego projektu do składnika. Na przykład struktura rozpoznaje *{Project root}/Pages/index.Razor* (*BlazorSample. csproj*) do przestrzeni nazw `BlazorSample.Pages`. Składniki przestrzegają C# reguł powiązań nazw. Dla składnika `Index` w tym przykładzie składniki należące do zakresu są wszystkich składników:
   * W tym samym folderze *strony*.
   * Składniki w katalogu głównym projektu, które nie określają jawnie innej przestrzeni nazw.
 
-Składniki zdefiniowane w innej przestrzeni nazw są wprowadzane do zakresu za pomocą dyrektywy [@using](xref:mvc/views/razor#using) Razor.
+Składniki zdefiniowane w innej przestrzeni nazw są wprowadzane do zakresu za pomocą dyrektywy [`@using`](xref:mvc/views/razor#using) Razor.
 
 Jeśli inny składnik, `NavMenu.razor`, istnieje w *BlazorSample/Shared/* folder, składnik może być używany w `Index.razor` z następującą instrukcją `@using`:
 
@@ -1143,7 +1143,7 @@ This is the Index page.
 <NavMenu></NavMenu>
 ```
 
-Do składników można także odwoływać się za pomocą ich w pełni kwalifikowanych nazw, które nie wymagają dyrektywy [@using](xref:mvc/views/razor#using) :
+Do składników można także odwoływać się za pomocą ich w pełni kwalifikowanych nazw, które nie wymagają dyrektywy [`@using`](xref:mvc/views/razor#using) :
 
 ```cshtml
 This is the Index page.
@@ -1272,7 +1272,7 @@ Alternatywnie można określić atrybut `Context` dla elementu składnika. Okre�
 
 ### <a name="generic-typed-components"></a>Składniki typu rodzajowego
 
-Składniki z szablonami są często wpisywane ogólnie. Na przykład ogólny składnik `ListViewTemplate` może służyć do renderowania `IEnumerable<T>` wartości. Aby zdefiniować składnik ogólny, użyj dyrektywy [@typeparam](xref:mvc/views/razor#typeparam) , aby określić parametry typu:
+Składniki z szablonami są często wpisywane ogólnie. Na przykład ogólny składnik `ListViewTemplate` może służyć do renderowania `IEnumerable<T>` wartości. Aby zdefiniować składnik ogólny, użyj dyrektywy [`@typeparam`](xref:mvc/views/razor#typeparam) , aby określić parametry typu:
 
 [!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/ListViewTemplate.razor)]
 
@@ -1565,7 +1565,7 @@ Gdy kod jest wykonywany po raz pierwszy, jeśli `someFlag` jest `true`, Konstruk
 
 | Sequence | Typ      | Dane   |
 | :------: | --------- | :----: |
-| 0        | Węzeł tekstu | pierwszego  |
+| 0        | Węzeł tekstu | Pierwsze  |
 | 1        | Węzeł tekstu | Sekunda |
 
 Załóżmy, że `someFlag` `false`, a znaczniki są renderowane ponownie. Tym razem Konstruktor odbiera:
@@ -1597,7 +1597,7 @@ Teraz pierwsze dane wyjściowe to:
 
 | Sequence | Typ      | Dane   |
 | :------: | --------- | :----: |
-| 0        | Węzeł tekstu | pierwszego  |
+| 0        | Węzeł tekstu | Pierwsze  |
 | 1        | Węzeł tekstu | Sekunda |
 
 Ten wynik jest identyczny z poprzednim przypadkiem, dlatego nie istnieją żadne negatywne problemy. `someFlag` jest `false` podczas drugiego renderowania, a dane wyjściowe:
@@ -1638,7 +1638,7 @@ Aby uzyskać więcej informacji i przykładów, zobacz <xref:fundamentals/locali
 
 Domyślnie konfiguracja konsolidatora Blazordla Blazor aplikacji webassembly umożliwia rozłączenie informacji o danych wielojęzycznych z wyjątkiem lokalizacji lokalnych jawnie żądanych. Aby uzyskać więcej informacji i wskazówek dotyczących kontrolowania zachowania konsolidatora, zobacz <xref:host-and-deploy/blazor/configure-linker#configure-the-linker-for-internationalization>.
 
-### <a name="cookies"></a>Cookie
+### <a name="cookies"></a>Pliki cookie
 
 Plik cookie kultury lokalizacji może utrzymywać kulturę użytkownika. Plik cookie jest tworzony przez metodę `OnGet` strony hosta aplikacji (*strony/hosta. cshtml. cs*). Oprogramowanie pośredniczące lokalizacji odczytuje plik cookie na kolejnych żądaniach, aby ustawić kulturę użytkownika. 
 

@@ -6,18 +6,18 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/09/2019
 uid: web-api/action-return-types
-ms.openlocfilehash: c409170a24225e160c1c53e7294590589e114f7f
-ms.sourcegitcommit: 231780c8d7848943e5e9fd55e93f437f7e5a371d
+ms.openlocfilehash: fe665026fdced22ccf4b4f1ba655e858a7acf016
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116084"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879740"
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>Typy zwracane akcje kontrolera w ASP.NET Core Web API
 
 Przez [Scott Addie](https://github.com/scottaddie)
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/action-return-types/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/action-return-types/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ASP.NET Core oferuje następujące opcje dla zwracanych typów akcji kontrolera API sieci Web:
 
@@ -25,7 +25,7 @@ ASP.NET Core oferuje następujące opcje dla zwracanych typów akcji kontrolera 
 
 * [Określony typ](#specific-type)
 * [IActionResult](#iactionresult-type)
-* [ActionResult\<T >](#actionresultt-type)
+* [ActionResult\<T>](#actionresultt-type)
 
 ::: moniker-end
 
@@ -92,7 +92,7 @@ Obie powyższe akcje nie są blokowane w przypadku ASP.NET Core 3,0.
 
 Typ zwracany <xref:Microsoft.AspNetCore.Mvc.IActionResult> jest odpowiedni, gdy w akcji istnieje wiele typów zwracanych `ActionResult`. Typy `ActionResult` reprezentują różne kody stanu HTTP. Każda Klasa nieabstrakcyjna pochodna z `ActionResult` jest zgodna z prawidłowym zwracanym typem. Niektóre typowe typy zwracane w tej kategorii to <xref:Microsoft.AspNetCore.Mvc.BadRequestResult> (400), <xref:Microsoft.AspNetCore.Mvc.NotFoundResult> (404) i <xref:Microsoft.AspNetCore.Mvc.OkObjectResult> (200). Alternatywnie, wygodne metody klasy <xref:Microsoft.AspNetCore.Mvc.ControllerBase> mogą być używane do zwracania typów `ActionResult` z akcji. Na przykład `return BadRequest();` jest skróconą formą `return new BadRequestResult();`.
 
-Ponieważ istnieje wiele typów zwracanych i ścieżek w tym typie akcji, konieczne jest użycie zliberalizowanej wartości atrybutu [[ProducesResponseType]](xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute) . Ten atrybut zawiera bardziej szczegółowe szczegóły odpowiedzi dla stron pomocy interfejsu API sieci Web generowanych przez narzędzia takie jak [Swagger](xref:tutorials/web-api-help-pages-using-swagger). `[ProducesResponseType]` wskazuje znane typy i kody stanu HTTP do zwrócenia przez akcję.
+Ponieważ w tym typie akcji istnieje wiele typów zwracanych i ścieżek, konieczne jest korzystanie z zliberalizowanego atrybutu [`[ProducesResponseType]`](xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute) . Ten atrybut zawiera bardziej szczegółowe szczegóły odpowiedzi dla stron pomocy interfejsu API sieci Web generowanych przez narzędzia takie jak [Swagger](xref:tutorials/web-api-help-pages-using-swagger). `[ProducesResponseType]` wskazuje znane typy i kody stanu HTTP do zwrócenia przez akcję.
 
 ### <a name="synchronous-action"></a>Akcja synchroniczna
 
@@ -142,13 +142,13 @@ Na przykład następujący model wskazuje, że żądania muszą zawierać `Name`
 
 ::: moniker range=">= aspnetcore-2.1"
 
-Jeśli jest stosowany atrybut [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) w ASP.NET Core 2,1 lub nowszej, błędy walidacji modelu powodują powstanie kodu stanu 400. Aby uzyskać więcej informacji, zobacz [Automatyczne HTTP 400 odpowiedzi](xref:web-api/index#automatic-http-400-responses).
+Jeśli zastosowano atrybut [`[ApiController]`](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) w ASP.NET Core 2,1 lub nowszej, błędy walidacji modelu powodują powstanie kodu stanu 400. Aby uzyskać więcej informacji, zobacz [Automatyczne HTTP 400 odpowiedzi](xref:web-api/index#automatic-http-400-responses).
 
 ## <a name="actionresultt-type"></a>Typ > ActionResult\<
 
 W ASP.NET Core 2,1 został wprowadzony typ zwracany [ActionResult\<t >](xref:Microsoft.AspNetCore.Mvc.ActionResult`1) dla akcji kontrolera interfejsu API sieci Web. Umożliwia zwrócenie typu pochodnego od <xref:Microsoft.AspNetCore.Mvc.ActionResult> lub zwrócenie [określonego typu](#specific-type). `ActionResult<T>` oferuje następujące korzyści w stosunku do [typu IActionResult](#iactionresult-type):
 
-* Właściwość `Type` atrybutu [[ProducesResponseType]](xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute) może być wykluczona. Na przykład `[ProducesResponseType(200, Type = typeof(Product))]` jest uproszczony do `[ProducesResponseType(200)]`. Oczekiwany zwracany typ akcji jest wywnioskowany na podstawie `T` w `ActionResult<T>`.
+* Właściwość `Type` atrybutu [`[ProducesResponseType]`](xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute) może być wykluczona. Na przykład `[ProducesResponseType(200, Type = typeof(Product))]` jest uproszczony do `[ProducesResponseType(200)]`. Oczekiwany zwracany typ akcji jest wywnioskowany na podstawie `T` w `ActionResult<T>`.
 * [Operatory rzutowania niejawnego](/dotnet/csharp/language-reference/keywords/implicit) obsługują konwersję zarówno `T`, jak i `ActionResult` do `ActionResult<T>`. `T` konwertuje do <xref:Microsoft.AspNetCore.Mvc.ObjectResult>, co oznacza, że `return new ObjectResult(T);` jest uproszczony do `return T;`.
 
 C#nie obsługuje operatorów rzutowania niejawnego w interfejsach. W związku z tym konwersja interfejsu do konkretnego typu jest niezbędna do użycia `ActionResult<T>`. Na przykład użycie `IEnumerable` w poniższym przykładzie nie działa:
@@ -183,7 +183,7 @@ Rozważ akcję asynchroniczną, w której istnieją dwa możliwe typy zwracane:
 W poprzedniej akcji:
 
 * Kod stanu 400 (<xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*>) jest zwracany przez środowisko uruchomieniowe ASP.NET Core, gdy:
-  * Atrybut [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) został zastosowany i walidacja modelu kończy się niepowodzeniem.
+  * Atrybut [`[ApiController]`](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) został zastosowany i walidacja modelu kończy się niepowodzeniem.
   * Opis produktu zawiera "widżet XYZ".
 * Kod stanu 201 jest generowany przez metodę <xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*> podczas tworzenia produktu. W tej ścieżce kodu obiekt `Product` jest udostępniany w treści odpowiedzi. Podano nagłówek odpowiedzi `Location` zawierający adres URL nowo utworzonego produktu.
 

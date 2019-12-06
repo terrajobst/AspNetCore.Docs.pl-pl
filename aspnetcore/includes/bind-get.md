@@ -1,10 +1,10 @@
 > [!WARNING]
-> Ze względów bezpieczeństwa należy zadecydować, aby powiązać `GET` dane żądania z właściwościami modelu strony. Sprawdź dane wejściowe użytkownika przed mapowaniem go na właściwości. W `GET` przypadku scenariuszy, które opierają się na ciągach zapytania lub wartościach trasy, Metoda ta jest przydatna.
+> Ze względów bezpieczeństwa musisz zrezygnować z, aby powiązać `GET` dane żądania z właściwościami modelu strony. Sprawdź dane wejściowe użytkownika przed mapowaniem go na właściwości. Wyznaczanie do powiązania `GET` jest przydatne podczas rozwiązywania scenariuszy, które opierają się na ciągach zapytania lub wartościach tras.
 >
-> Aby powiązać właściwość na `GET` żądania, ustaw `SupportsGet` właściwość atrybutu [[BindProperty]](xref:Microsoft.AspNetCore.Mvc.BindPropertyAttribute) na: `true`
+> Aby powiązać właściwość na żądaniach `GET`, ustaw właściwość `SupportsGet` atrybutu [`[BindProperty]`](xref:Microsoft.AspNetCore.Mvc.BindPropertyAttribute) na `true`:
 >
 > ```csharp
 > [BindProperty(SupportsGet = true)]
 > ```
 >
-> Aby uzyskać więcej informacji, [zobacz ASP.NET Core Community standup: Powiąż przy POBIERAniu dyskusji (](https://www.youtube.com/watch?v=p7iHB9V-KVU&feature=youtu.be&t=54m27s)YouTube).
+> Aby uzyskać więcej informacji, zobacz [ASP.NET Core Community standup: bind on Get Discussion (YouTube)](https://www.youtube.com/watch?v=p7iHB9V-KVU&feature=youtu.be&t=54m27s).

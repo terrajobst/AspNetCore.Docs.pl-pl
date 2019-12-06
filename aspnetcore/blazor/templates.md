@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/templates
-ms.openlocfilehash: e82f28afdac8517f72538094d97f28bdcfe46102
-ms.sourcegitcommit: 918d7000b48a2892750264b852bad9e96a1165a7
+ms.openlocfilehash: bc0ea4a777e8684a7b0925377b8a19a45c2b531c
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74551586"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879655"
 ---
 # <a name="aspnet-core-opno-locblazor-templates"></a>Szablony Blazor ASP.NET Core
 
@@ -43,7 +43,7 @@ Następujące pliki i foldery tworzą Blazor aplikację wygenerowaną na podstaw
   * `ConfigureServices` &ndash; konfiguruje usługi dla [iniekcji zależności](xref:fundamentals/dependency-injection) aplikacji. W Blazor aplikacji serwera usługi są dodawane przez wywoływanie <xref:Microsoft.Extensions.DependencyInjection.ComponentServiceCollectionExtensions.AddServerSideBlazor*>, a `WeatherForecastService` jest dodawane do kontenera usługi do użycia przez przykładowy składnik `FetchData`.
   * `Configure` &ndash; konfiguruje potok obsługi żądania aplikacji:
     * Blazor webassembly &ndash; dodaje składnik `App` (określony jako element `app` DOM do metody `AddComponent`), który jest głównym składnikiem aplikacji.
-    * Serwer Blazor
+    * Serwer programu Blazor
       * <xref:Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions.MapBlazorHub*> jest wywoływana w celu skonfigurowania punktu końcowego dla połączenia w czasie rzeczywistym z przeglądarką. Połączenie jest tworzone za pomocą [SignalR](xref:signalr/introduction), który jest strukturą do dodawania funkcji sieci Web w czasie rzeczywistym do aplikacji.
       * [MapFallbackToPage ("/_Host")](xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapFallbackToPage*) jest wywoływana w celu skonfigurowania strony głównej aplikacji (*strony/_Host. cshtml*) i włączenia nawigacji.
 
@@ -61,7 +61,7 @@ Następujące pliki i foldery tworzą Blazor aplikację wygenerowaną na podstaw
 
 * *App. razor* &ndash; głównym składnikiem aplikacji, która konfiguruje Routing po stronie klienta za pomocą składnika <xref:Microsoft.AspNetCore.Components.Routing.Router>. Składnik `Router` przechwytuje nawigację przeglądarki i renderuje stronę pasującą do żądanego adresu.
 
-* Folder *strony* &ndash; zawiera składniki/strony z obsługą routingu (*Razor*), które tworzą aplikację Blazor. Trasy dla każdej strony są określane za pomocą dyrektywy [@page](xref:mvc/views/razor#page) . Szablon zawiera następujące składniki:
+* Folder *strony* &ndash; zawiera składniki/strony z obsługą routingu (*Razor*), które tworzą aplikację Blazor. Trasy dla każdej strony są określane za pomocą dyrektywy [`@page`](xref:mvc/views/razor#page) . Szablon zawiera następujące składniki:
   * `Index` (*index. Razor*) &ndash; implementuje stronę główną.
   * `Counter` (*Counter. Razor*) &ndash; implementuje stronę licznika.
   * `Error` (*Error. Razor*, Blazor tylko aplikacja serwera) &ndash; renderowane, gdy wystąpił nieobsługiwany wyjątek w aplikacji.
@@ -71,7 +71,7 @@ Następujące pliki i foldery tworzą Blazor aplikację wygenerowaną na podstaw
   * `MainLayout` (*MainLayout. Razor*) &ndash; składnik układu aplikacji.
   * `NavMenu` (*NavMenu. Razor*) &ndash; implementuje nawigację po pasku bocznym. Zawiera [składnik NavLink](xref:blazor/routing#navlink-component) (<xref:Microsoft.AspNetCore.Components.Routing.NavLink>), który renderuje linki nawigacji do innych składników Razor. Składnik `NavLink` automatycznie wskazuje wybrany stan podczas ładowania składnika, co pomaga użytkownikowi zrozumieć, który składnik jest aktualnie wyświetlany.
 
-* *_Imports. razor* &ndash; zawiera wspólne dyrektywy Razor do uwzględnienia w składnikach aplikacji ( *. Razor*), takich jak [@using](xref:mvc/views/razor#using) dyrektyw dla przestrzeni nazw.
+* *_Imports. razor* &ndash; zawiera wspólne dyrektywy Razor do uwzględnienia w składnikach aplikacji ( *. Razor*), takich jak [`@using`](xref:mvc/views/razor#using) dyrektyw dla przestrzeni nazw.
 
 * Folder *danych* (Blazor Server) &ndash; zawiera klasę `WeatherForecast` i implementację `WeatherForecastService`, które zawierają przykładowe dane pogodowe do składnika `FetchData` aplikacji.
 

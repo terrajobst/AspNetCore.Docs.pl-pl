@@ -3,14 +3,14 @@ title: Dodaj wyszukiwanie do ASP.NET Core Razor Pages
 author: rick-anderson
 description: Pokazuje, jak dodać wyszukiwanie do ASP.NET Core Razor Pages
 ms.author: riande
-ms.date: 7/23/2019
+ms.date: 12/05/2019
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: 1eeb3aa86f2a6928b6d0b368c90e4760a66a6c6e
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: 8228207b0f37a6923b29891ac3115dd0be115501
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72334066"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881332"
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>Dodaj wyszukiwanie do ASP.NET Core Razor Pages
 
@@ -26,7 +26,7 @@ Dodaj następujące wyróżnione właściwości do *stron/filmów/index. cshtml.
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
 
-* `SearchString`: zawiera tekst wprowadzany przez użytkowników w polu tekstowym Wyszukaj. `SearchString` jest uzupełniony atrybutem [`[BindProperty]`](/dotnet/api/microsoft.aspnetcore.mvc.bindpropertyattribute) . `[BindProperty]` wiąże wartości formularzy i ciągi zapytania o tej samej nazwie, co właściwość. `(SupportsGet = true)` jest wymagana do powiązania w żądaniach GET.
+* `SearchString`: zawiera tekst wprowadzany przez użytkowników w polu tekstowym Wyszukaj. `SearchString` ma atrybut [`[BindProperty]`](/dotnet/api/microsoft.aspnetcore.mvc.bindpropertyattribute) . `[BindProperty]` wiąże wartości formularzy i ciągi zapytania o tej samej nazwie, co właściwość. `(SupportsGet = true)` jest wymagana do powiązania w żądaniach GET.
 * `Genres`: zawiera listę gatunku. `Genres` umożliwia użytkownikowi wybranie gatunku z listy. `SelectList` wymaga `using Microsoft.AspNetCore.Mvc.Rendering;`
 * `MovieGenre`: zawiera konkretny gatunek wybierany przez użytkownika (na przykład "zachodni").
 * `Genres` i `MovieGenre` są używane w dalszej części tego samouczka.
@@ -129,7 +129,7 @@ Dodaj następujące wyróżnione właściwości do *stron/filmów/index. cshtml.
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
 
-* `SearchString`: zawiera tekst wprowadzany przez użytkowników w polu tekstowym Wyszukaj. `SearchString` jest uzupełniony atrybutem [`[BindProperty]`](/dotnet/api/microsoft.aspnetcore.mvc.bindpropertyattribute) . `[BindProperty]` wiąże wartości formularzy i ciągi zapytania o tej samej nazwie, co właściwość. `(SupportsGet = true)` jest wymagana do powiązania w żądaniach GET.
+* `SearchString`: zawiera tekst wprowadzany przez użytkowników w polu tekstowym Wyszukaj. `SearchString` ma atrybut [`[BindProperty]`](/dotnet/api/microsoft.aspnetcore.mvc.bindpropertyattribute) . `[BindProperty]` wiąże wartości formularzy i ciągi zapytania o tej samej nazwie, co właściwość. `(SupportsGet = true)` jest wymagana do powiązania w żądaniach GET.
 * `Genres`: zawiera listę gatunku. `Genres` umożliwia użytkownikowi wybranie gatunku z listy. `SelectList` wymaga `using Microsoft.AspNetCore.Mvc.Rendering;`
 * `MovieGenre`: zawiera konkretny gatunek wybierany przez użytkownika (na przykład "zachodni").
 * `Genres` i `MovieGenre` są używane w dalszej części tego samouczka.

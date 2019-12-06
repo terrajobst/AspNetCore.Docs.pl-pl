@@ -5,16 +5,16 @@ description: Dowiedz się, jak używać uwierzytelniania i autoryzacji w ASP.NET
 monikerRange: '>= aspnetcore-2.1'
 ms.author: anurse
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: signalr/security
-ms.openlocfilehash: c5a34ae67bdfb8f7fd92c00f18973b66b685a99c
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: f443fe0fbaaa1facd09edc0878c048772895ecff
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963898"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881182"
 ---
 # <a name="security-considerations-in-aspnet-core-opno-locsignalr"></a>Zagadnienia dotyczące zabezpieczeń w ASP.NET Core SignalR
 
@@ -117,7 +117,7 @@ Jeśli masz problemy z rejestrowaniem tych danych w dziennikach serwera, możesz
 
 ## <a name="exceptions"></a>Wyjątki
 
-Komunikaty o wyjątkach są zwykle uznawane za dane poufne, które nie powinny być ujawnione dla klienta. Domyślnie SignalR nie wysyła szczegółów wyjątku zgłoszonego przez metodę centrum do klienta programu. Zamiast tego klient otrzymuje komunikat ogólny informujący o wystąpieniu błędu. Dostarczenie komunikatu o wyjątku do klienta może zostać zastąpione (na przykład w przypadku tworzenia lub testowania) za pomocą [`EnableDetailedErrors`](xref:signalr/configuration#configure-server-options). Komunikaty o wyjątkach nie powinny być udostępniane klientowi w aplikacjach produkcyjnych.
+Komunikaty o wyjątkach są zwykle uznawane za dane poufne, które nie powinny być ujawnione dla klienta. Domyślnie SignalR nie wysyła szczegółów wyjątku zgłoszonego przez metodę centrum do klienta programu. Zamiast tego klient otrzymuje komunikat ogólny informujący o wystąpieniu błędu. Dostarczenie komunikatu o wyjątku do klienta może zostać zastąpione (na przykład w przypadku programowania lub testowania) za pomocą [EnableDetailedErrors](xref:signalr/configuration#configure-server-options). Komunikaty o wyjątkach nie powinny być udostępniane klientowi w aplikacjach produkcyjnych.
 
 ## <a name="buffer-management"></a>Zarządzanie buforem
 
@@ -131,7 +131,7 @@ Jeśli rozmiar komunikatów przekracza 32 KB, można zwiększyć limit. Zwiększ
 * Klient może spowodować, że serwer przydzieli bufory dużych pamięci.
 * Alokacja serwerów dużych buforów może obniżyć liczbę jednoczesnych połączeń.
 
-Istnieją limity dla wiadomości przychodzących i wychodzących, obie można skonfigurować na [`HttpConnectionDispatcherOptions`](xref:signalr/configuration#configure-server-options) obiekcie skonfigurowanym w `MapHub`:
+Istnieją limity dla wiadomości przychodzących i wychodzących, obie można skonfigurować na obiekcie [HttpConnectionDispatcherOptions](xref:signalr/configuration#configure-server-options) skonfigurowanym w `MapHub`:
 
 * `ApplicationMaxBufferSize` reprezentuje maksymalną liczbę bajtów od klienta, które buforuje serwer. Jeśli klient próbuje wysłać komunikat przekraczający ten limit, połączenie może być zamknięte.
 * `TransportMaxBufferSize` reprezentuje maksymalną liczbę bajtów, które może wysłać serwer. Jeśli serwer próbuje wysłać komunikat (uwzględniając wartości zwracane z metod centralnych) większy niż ten limit, zostanie zgłoszony wyjątek.

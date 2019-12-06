@@ -3,14 +3,14 @@ title: Routing do akcji kontrolera w ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, w jaki sposób ASP.NET Core MVC używa programów pośredniczących routingu, aby dopasować adresy URL żądań przychodzących i zmapować je na akcje.
 ms.author: riande
-ms.date: 01/24/2019
+ms.date: 12/05/2019
 uid: mvc/controllers/routing
-ms.openlocfilehash: a0dbfbe60c151990581b494f81e500fe0b315f55
-ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.openlocfilehash: b0cd3df6eb0efa90fc76d206413016d6c624285c
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72589854"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881073"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>Routing do akcji kontrolera w ASP.NET Core
 
@@ -35,7 +35,7 @@ app.UseMvc(routes =>
 
 Wewnątrz wywołania do `UseMvc`, `MapRoute` służy do tworzenia pojedynczej trasy, która odnosi się do trasy `default`. Większość aplikacji MVC będzie używać trasy z szablonem podobnym do trasy `default`.
 
-@No__t_0 szablonu trasy może być zgodna ze ścieżką URL podobną do `/Products/Details/5` i wyodrębniać wartości tras `{ controller = Products, action = Details, id = 5 }` przez tokenizowanie ścieżki. MVC podejmie próbę zlokalizowania kontrolera o nazwie `ProductsController` i uruchomi akcję `Details`:
+`"{controller=Home}/{action=Index}/{id?}"` szablonu trasy może być zgodna ze ścieżką URL podobną do `/Products/Details/5` i wyodrębniać wartości tras `{ controller = Products, action = Details, id = 5 }` przez tokenizowanie ścieżki. MVC podejmie próbę zlokalizowania kontrolera o nazwie `ProductsController` i uruchomi akcję `Details`:
 
 ```csharp
 public class ProductsController : Controller
@@ -81,7 +81,7 @@ Za pomocą tej definicji kontrolera i szablonu trasy, Akcja `HomeController.Inde
 
 * `/`
 
-Wygodna `UseMvcWithDefaultRoute` metody:
+Wygodna `UseMvcWithDefaultRoute`metody:
 
 ```csharp
 app.UseMvcWithDefaultRoute();
@@ -111,7 +111,7 @@ routes.DefaultHandler = new MvcRouteHandler(...);
 app.UseRouter(routes.Build());
 ```
 
-`UseMvc` nie definiuje bezpośrednio żadnych tras, dodaje symbol zastępczy do kolekcji tras dla trasy `attribute`. @No__t_0 Przeciążenie umożliwia dodanie własnych tras, a także obsługuje routing atrybutów.  `UseMvc` i wszystkie jego Wariacje dodają symbol zastępczy dla atrybutu trasy — atrybut jest zawsze dostępny niezależnie od sposobu konfigurowania `UseMvc`. `UseMvcWithDefaultRoute` definiuje domyślną trasę i obsługuje routing atrybutów. Sekcja [Routing atrybutów](#attribute-routing-ref-label) zawiera więcej szczegółów dotyczących routingu atrybutów.
+`UseMvc` nie definiuje bezpośrednio żadnych tras, dodaje symbol zastępczy do kolekcji tras dla trasy `attribute`. `UseMvc(Action<IRouteBuilder>)` Przeciążenie umożliwia dodanie własnych tras, a także obsługuje routing atrybutów.  `UseMvc` i wszystkie jego Wariacje dodają symbol zastępczy dla atrybutu trasy — atrybut jest zawsze dostępny niezależnie od sposobu konfigurowania `UseMvc`. `UseMvcWithDefaultRoute` definiuje domyślną trasę i obsługuje routing atrybutów. Sekcja [Routing atrybutów](#attribute-routing-ref-label) zawiera więcej szczegółów dotyczących routingu atrybutów.
 
 <a name="routing-conventional-ref-label"></a>
 
@@ -137,7 +137,7 @@ Korzystając z tej `default` trasy, Ścieżka adresu URL `/Products/List` jest m
 > Użycie konwencjonalnego routingu z domyślną trasą umożliwia szybkie Kompilowanie aplikacji bez konieczności podawania nowego wzorca adresu URL dla każdej zdefiniowanej akcji. W przypadku aplikacji z akcjami w stylu CRUD zachowanie spójności adresów URL na kontrolerach może pomóc uprościć kod i uczynić interfejs użytkownika bardziej przewidywalny.
 
 > [!WARNING]
-> @No__t_0 jest zdefiniowany jako opcjonalny przez szablon trasy, co oznacza, że akcje mogą być wykonywane bez identyfikatora dostarczonego jako część adresu URL. Typowo to, co się stanie, jeśli `id` zostanie pominięty w adresie URL, zostanie ustawiony na `0` przez powiązanie modelu i w wyniku tego nie zostanie znaleziona żadna jednostka w `id == 0` dopasowania bazy danych. Routing atrybutu może dać szczegółowy formant, który ma być wymagany dla niektórych akcji, a nie dla innych. Zgodnie z Konwencją dokumentacja będzie zawierać parametry opcjonalne, takie jak `id`, gdy prawdopodobnie będą widoczne w prawidłowym użyciu.
+> `id` jest zdefiniowany jako opcjonalny przez szablon trasy, co oznacza, że akcje mogą być wykonywane bez identyfikatora dostarczonego jako część adresu URL. Typowo to, co się stanie, jeśli `id` zostanie pominięty w adresie URL, zostanie ustawiony na `0` przez powiązanie modelu i w wyniku tego nie zostanie znaleziona żadna jednostka w `id == 0`dopasowania bazy danych. Routing atrybutu może dać szczegółowy formant, który ma być wymagany dla niektórych akcji, a nie dla innych. Zgodnie z Konwencją dokumentacja będzie zawierać parametry opcjonalne, takie jak `id`, gdy prawdopodobnie będą widoczne w prawidłowym użyciu.
 
 ## <a name="multiple-routes"></a>Wiele tras
 
@@ -152,14 +152,14 @@ app.UseMvc(routes =>
 });
 ```
 
-Trasa `blog` w tym miejscu jest *dedykowaną tradycyjną trasą*, co oznacza, że używa systemu routingu konwencjonalnego, ale jest przeznaczona dla konkretnej akcji. Ponieważ `controller` i `action` nie pojawiają się w szablonie trasy jako parametry, mogą mieć tylko wartości domyślne i w związku z tym trasa będzie zawsze mapowana na `BlogController.Article` akcji.
+Trasa `blog` w tym miejscu jest *dedykowaną tradycyjną trasą*, co oznacza, że używa systemu routingu konwencjonalnego, ale jest przeznaczona dla konkretnej akcji. Ponieważ `controller` i `action` nie pojawiają się w szablonie trasy jako parametry, mogą mieć tylko wartości domyślne i w związku z tym trasa będzie zawsze mapowana na `BlogController.Article`akcji.
 
 Trasy w kolekcji tras są uporządkowane i będą przetwarzane w kolejności, w jakiej zostały dodane. W tym przykładzie zostanie podjęta próba `blog` trasy przed trasą `default`.
 
 > [!NOTE]
 > *Dedykowane konwencjonalne trasy* często korzystają z parametrów trasy catch-all, takich jak `{*article}`, do przechwytywania pozostałej części ścieżki URL. Może to spowodować, że trasa "zbyt zachłanne" oznacza, że pasuje do adresów URL, które mają być dopasowane przez inne trasy. Umieść trasy "zachłanne" później w tabeli tras, aby rozwiązać ten problem.
 
-### <a name="fallback"></a>Istnie
+### <a name="fallback"></a>Opcja rezerwowa
 
 W ramach przetwarzania żądań MVC sprawdzi, czy wartości trasy mogą być używane do znajdowania kontrolera i akcji w aplikacji. Jeśli wartości trasy nie są zgodne z akcją, trasa nie jest uważana za dopasowanie i zostanie podjęta kolejna trasa. Jest to nazywane *Fallback*i ma na celu uproszczenie przypadków, w których trasy konwencjonalne nakładają się na siebie.
 
@@ -177,9 +177,9 @@ public class ProductsController : Controller
 }
 ```
 
-Ten kontroler definiuje dwie akcje, które byłyby zgodne ze ścieżką URL `/Products/Edit/17` i trasy `{ controller = Products, action = Edit, id = 17 }` danych. Jest to typowy wzorzec dla kontrolerów MVC, gdzie `Edit(int)` pokazuje formularz służący do edytowania produktu, a `Edit(int, Product)` przetwarza opublikowany formularz. Aby ten możliwy składnik MVC musiał wybrać `Edit(int, Product)`, gdy żądanie jest `POST` HTTP i `Edit(int)`, gdy zlecenie HTTP jest inne.
+Ten kontroler definiuje dwie akcje, które byłyby zgodne ze ścieżką URL `/Products/Edit/17` i trasy `{ controller = Products, action = Edit, id = 17 }`danych. Jest to typowy wzorzec dla kontrolerów MVC, gdzie `Edit(int)` pokazuje formularz służący do edytowania produktu, a `Edit(int, Product)` przetwarza opublikowany formularz. Aby ten możliwy składnik MVC musiał wybrać `Edit(int, Product)`, gdy żądanie jest `POST` HTTP i `Edit(int)`, gdy zlecenie HTTP jest inne.
 
-@No__t_0 (`[HttpPost]`) to implementacja `IActionConstraint`, która będzie zezwalać na wybranie akcji tylko wtedy, gdy zlecenie HTTP jest `POST`. Obecność `IActionConstraint` powoduje, że `Edit(int, Product)` dopasowanie "lepszy" niż `Edit(int)`, więc `Edit(int, Product)` zostanie podjęta najpierw.
+`HttpPostAttribute` (`[HttpPost]`) to implementacja `IActionConstraint`, która będzie zezwalać na wybranie akcji tylko wtedy, gdy zlecenie HTTP jest `POST`. Obecność `IActionConstraint` powoduje, że `Edit(int, Product)` dopasowanie "lepszy" niż `Edit(int)`, więc `Edit(int, Product)` zostanie podjęta najpierw.
 
 Należy napisać niestandardowe implementacje `IActionConstraint` w wyspecjalizowanych scenariuszach, ale ważne jest, aby zrozumieć rolę atrybutów, takich jak atrybuty `HttpPostAttribute`-like, które są zdefiniowane dla innych zleceń HTTP. W konwencjonalnym routingu typowe dla akcji używanie tej samej nazwy akcji, gdy są one częścią przepływu pracy `show form -> submit form`. Wygoda tego wzorca stanie się bardziej oczywista po przejrzeniu sekcji [zrozumienie IActionConstraint](#understanding-iactionconstraint) .
 
@@ -208,7 +208,7 @@ Nazwy tras nie mają wpływu na Dopasowywanie adresów URL ani obsługę żąda�
 
 ## <a name="attribute-routing"></a>Routing atrybutów
 
-Funkcja routingu atrybutów używa zestawu atrybutów do mapowania akcji bezpośrednio do szablonów tras. W poniższym przykładzie `app.UseMvc();` jest używany w metodzie `Configure` i nie jest przenoszona żadna trasa. @No__t_0 będzie zgodna z zestawem adresów URL podobnym do tego, co `{controller=Home}/{action=Index}/{id?}` trasie domyślnej:
+Funkcja routingu atrybutów używa zestawu atrybutów do mapowania akcji bezpośrednio do szablonów tras. W poniższym przykładzie `app.UseMvc();` jest używany w metodzie `Configure` i nie jest przenoszona żadna trasa. `HomeController` będzie zgodna z zestawem adresów URL podobnym do tego, co `{controller=Home}/{action=Index}/{id?}` trasie domyślnej:
 
 ```csharp
 public class HomeController : Controller
@@ -233,7 +233,7 @@ public class HomeController : Controller
 }
 ```
 
-Akcja `HomeController.Index()` będzie wykonywana dla dowolnej ścieżki URL `/`, `/Home` lub `/Home/Index`.
+Akcja `HomeController.Index()` będzie wykonywana dla dowolnej ścieżki URL `/`, `/Home`lub `/Home/Index`.
 
 > [!NOTE]
 > W tym przykładzie przedstawiono najważniejsze różnice programistyczne między routingiem atrybutów i routingiem konwencjonalnym. Routing atrybutów wymaga więcej danych wejściowych w celu określenia trasy; konwencjonalne trasy domyślne obsługuje trasy bardziej zwięzłie. Jednak Routing atrybutu zezwala na (i wymaga) precyzyjnej kontroli, które szablony tras mają zastosowanie do poszczególnych akcji.
@@ -264,7 +264,7 @@ public class MyDemoController : Controller
 ```
 
 > [!NOTE]
-> Powyższe szablony tras nie definiują parametrów trasy dla `action`, `area` i `controller`. W rzeczywistości te parametry tras są niedozwolone w trasach atrybutów. Ponieważ szablon trasy jest już skojarzony z akcją, nie ma sensu analizy nazwy akcji na podstawie adresu URL.
+> Powyższe szablony tras nie definiują parametrów trasy dla `action`, `area`i `controller`. W rzeczywistości te parametry tras są niedozwolone w trasach atrybutów. Ponieważ szablon trasy jest już skojarzony z akcją, nie ma sensu analizy nazwy akcji na podstawie adresu URL.
 
 ## <a name="attribute-routing-with-httpverb-attributes"></a>Routing atrybutów z atrybutami http [Verb]
 
@@ -336,7 +336,7 @@ public class ProductsApiController : Controller
 }
 ```
 
-W tym przykładzie ścieżka adresu URL `/products` może być zgodna `ProductsApi.ListProducts`, a ścieżka URL `/products/5` może pasować `ProductsApi.GetProduct(int)`. Obie te akcje pasują do `GET` HTTP, ponieważ są one w `HttpGetAttribute`.
+W tym przykładzie ścieżka adresu URL `/products` może być zgodna `ProductsApi.ListProducts`, a ścieżka URL `/products/5` może pasować `ProductsApi.GetProduct(int)`. Obie te akcje pasują do `GET` HTTP, ponieważ są oznaczone `HttpGetAttribute`.
 
 Szablony tras zastosowane do akcji rozpoczynającej się od `/` lub `~/` nie są łączone z szablonami tras zastosowanymi do kontrolera. Ten przykład dopasowuje zestaw ścieżek URL podobny do *trasy domyślnej*.
 
@@ -382,7 +382,7 @@ Razor Pages Routing i kontroler MVC współdzielą implementację. Informacje o 
 
 ## <a name="token-replacement-in-route-templates-controller-action-area"></a>Zastępowanie tokenu w szablonach tras ([Controller], [Action], [obszar])
 
-Dla wygody, trasy atrybutu obsługują *zastępowanie tokenów* przez umieszczanie tokenu w nawiasach kwadratowych (`[`, `]`). Tokeny `[action]`, `[area]` i `[controller]` są zastępowane wartościami nazwy akcji, obszaru i nazwy kontrolera z akcji, w której jest zdefiniowana trasa. W poniższym przykładzie akcje są zgodne ze ścieżkami URL zgodnie z opisem w komentarzach:
+Dla wygody, trasy atrybutu obsługują *zastępowanie tokenów* przez umieszczanie tokenu w nawiasach kwadratowych (`[`, `]`). Tokeny `[action]`, `[area]`i `[controller]` są zastępowane wartościami nazwy akcji, obszaru i nazwy kontrolera z akcji, w której jest zdefiniowana trasa. W poniższym przykładzie akcje są zgodne ze ścieżkami URL zgodnie z opisem w komentarzach:
 
 [!code-csharp[](routing/sample/main/Controllers/ProductsController.cs?range=7-11,13-17,20-22)]
 
@@ -418,7 +418,7 @@ Aby dopasować ogranicznik zastępczy tokenu literału `[` lub `]`, należy to z
 
 Zastępowanie tokenu można dostosować za pomocą transformatora parametrów. Transformator parametrów implementuje `IOutboundParameterTransformer` i przekształca wartość parametrów. Na przykład niestandardowy `SlugifyParameterTransformer` przekształcania parametrów zmienia wartość trasy `SubscriptionManagement` na `subscription-management`.
 
-@No__t_0 jest konwencją modelu aplikacji, która:
+`RouteTokenTransformerConvention` jest konwencją modelu aplikacji, która:
 
 * Stosuje transformator parametrów do wszystkich tras atrybutów w aplikacji.
 * Dostosowuje wartości tokenów tras w miarę ich wymiany.
@@ -431,7 +431,7 @@ public class SubscriptionManagementController : Controller
 }
 ```
 
-@No__t_0 jest zarejestrowany jako opcja w `ConfigureServices`.
+`RouteTokenTransformerConvention` jest zarejestrowany jako opcja w `ConfigureServices`.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -597,12 +597,12 @@ MVC kompiluje tabelę odnośników wszystkich akcji przypisanych do atrybutu i d
 
 ### <a name="generating-urls-by-action-name"></a>Generowanie adresów URL według nazwy akcji
 
-`Url.Action` (`IUrlHelper`. `Action`) i wszystkie powiązane przeciążenia są oparte na tym pomysłie, aby określić, do czego chcesz utworzyć łącze, określając nazwę kontrolera i nazwę akcji.
+`Url.Action` (`IUrlHelper` . `Action`) i wszystkie powiązane przeciążenia są oparte na tym pomysłie, aby określić, do czego chcesz utworzyć łącze, określając nazwę kontrolera i nazwę akcji.
 
 > [!NOTE]
 > W przypadku korzystania z `Url.Action`, bieżące wartości trasy dla `controller` i `action` są określone dla Ciebie — wartość `controller` i `action` są częścią *wartości otoczenia* **i** *wartości*. Metoda `Url.Action`, zawsze używa bieżących wartości `action` i `controller` i wygeneruje ścieżkę URL, która kieruje do bieżącej akcji.
 
-Funkcja routingu próbuje użyć wartości w otoczeniu wartości, aby podać informacje, które nie zostały wprowadzone podczas generowania adresu URL. Przy użyciu trasy, takiej jak `{a}/{b}/{c}/{d}` i wartości otoczenia `{ a = Alice, b = Bob, c = Carol, d = David }`, routing ma wystarczającą ilość informacji do wygenerowania adresu URL bez dodatkowych wartości — ponieważ wszystkie parametry trasy mają wartość. W przypadku dodania wartości `{ d = Donovan }` wartość `{ d = David }` zostanie zignorowana, a wygenerowana Ścieżka adresu URL zostanie `Alice/Bob/Carol/Donovan`.
+Funkcja routingu próbuje użyć wartości w otoczeniu wartości, aby podać informacje, które nie zostały wprowadzone podczas generowania adresu URL. Przy użyciu trasy, takiej jak `{a}/{b}/{c}/{d}` i wartości otoczenia `{ a = Alice, b = Bob, c = Carol, d = David }`, routing ma wystarczającą ilość informacji do wygenerowania adresu URL bez dodatkowych wartości — ponieważ wszystkie parametry trasy mają wartość. W przypadku dodania wartości `{ d = Donovan }`wartość `{ d = David }` zostanie zignorowana, a wygenerowana Ścieżka adresu URL zostanie `Alice/Bob/Carol/Donovan`.
 
 > [!WARNING]
 > Ścieżki URL są hierarchiczne. W powyższym przykładzie, jeśli dodano wartość `{ c = Cheryl }`, obie wartości `{ c = Carol, d = David }` zostałyby zignorowane. W takim przypadku nie ma już wartości `d` a generowanie adresów URL zakończy się niepowodzeniem. Należy określić pożądaną wartość `c` i `d`.  Może wystąpić potrzeba napotkania tego problemu przy użyciu trasy domyślnej (`{controller}/{action}/{id?}`), ale w takim przypadku rzadko wystąpi to zachowanie, ponieważ `Url.Action` będzie zawsze jawnie określać `controller` i `action` wartość.
@@ -626,7 +626,7 @@ Powyższy kod wygeneruje adres URL przez przekazanie go do kontrolera i nazwy ak
 
 ### <a name="generating-urls-in-html"></a>Generowanie adresów URL w kodzie HTML
 
-`IHtmlHelper` udostępnia metody `HtmlHelper`, `Html.BeginForm` i `Html.ActionLink` generować odpowiednio elementy `<form>` i `<a>`. Te metody używają metody `Url.Action` do wygenerowania adresu URL i akceptują podobne argumenty. @No__t_0 pomocników dla `HtmlHelper` są `Html.BeginRouteForm` i `Html.RouteLink`, które mają podobną funkcjonalność.
+`IHtmlHelper` udostępnia metody `HtmlHelper`, `Html.BeginForm` i `Html.ActionLink` generować odpowiednio elementy `<form>` i `<a>`. Te metody używają metody `Url.Action` do wygenerowania adresu URL i akceptują podobne argumenty. `Url.RouteUrl` pomocników dla `HtmlHelper` są `Html.BeginRouteForm` i `Html.RouteLink`, które mają podobną funkcjonalność.
 
 TagHelpers Generuj adresy URL za pomocą `form` TagHelper i `<a>` TagHelper. Oba te zastosowania `IUrlHelper` do ich implementacji. Aby uzyskać więcej informacji, zobacz [Praca z formularzami](../views/working-with-forms.md) .
 
@@ -683,7 +683,7 @@ Poniższy przykład konfiguruje MVC do używania domyślnej trasy konwencjonalne
 
 [!code-csharp[](routing/sample/AreasRouting/Startup.cs?name=snippet1)]
 
-W przypadku dopasowania ścieżki URL, takiej jak `/Manage/Users/AddUser`, Pierwsza trasa będzie generować wartości trasy `{ area = Blog, controller = Users, action = AddUser }`. @No__t_0 wartość trasy jest generowana przez wartość domyślną dla `area`, w rzeczywistości trasa utworzona przez `MapAreaRoute` jest równoważna następującym:
+W przypadku dopasowania ścieżki URL, takiej jak `/Manage/Users/AddUser`, Pierwsza trasa będzie generować wartości trasy `{ area = Blog, controller = Users, action = AddUser }`. `area` wartość trasy jest generowana przez wartość domyślną dla `area`, w rzeczywistości trasa utworzona przez `MapAreaRoute` jest równoważna następującym:
 
 [!code-csharp[](routing/sample/AreasRouting/Startup.cs?name=snippet2)]
 
@@ -696,7 +696,7 @@ Korzystając z powyższego przykładu, wartości trasy będą zgodne z następuj
 
 [!code-csharp[](routing/sample/AreasRouting/Areas/Blog/Controllers/UsersController.cs)]
 
-@No__t_0 to oznacza, że w ramach obszaru znajduje się kontroler. Załóżmy, że ten kontroler znajduje się w obszarze `Blog`. Kontrolery bez atrybutu `[Area]` nie są członkami żadnego obszaru i **nie** będą zgodne, gdy wartość trasy `area` zostanie udostępniona przez Routing. W poniższym przykładzie tylko pierwszy kontroler może być zgodny z wartościami trasy `{ area = Blog, controller = Users, action = AddUser }`.
+`AreaAttribute` to oznacza, że w ramach obszaru znajduje się kontroler. Załóżmy, że ten kontroler znajduje się w obszarze `Blog`. Kontrolery bez atrybutu `[Area]` nie są członkami żadnego obszaru i **nie** będą zgodne, gdy wartość trasy `area` zostanie udostępniona przez Routing. W poniższym przykładzie tylko pierwszy kontroler może być zgodny z wartościami trasy `{ area = Blog, controller = Users, action = AddUser }`.
 
 [!code-csharp[](routing/sample/AreasRouting/Areas/Blog/Controllers/UsersController.cs)]
 

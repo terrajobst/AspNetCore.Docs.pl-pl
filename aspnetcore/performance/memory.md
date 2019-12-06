@@ -4,20 +4,20 @@ author: rick-anderson
 description: Dowiedz się, jak pamięć jest zarządzana w ASP.NET Core oraz jak działa Moduł wyrzucania elementów bezużytecznych.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 12/05/2019
 uid: performance/memory
-ms.openlocfilehash: 4c25c069aa2a6088c0549d786ecdd487ab7b9ea5
-ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
+ms.openlocfilehash: 85e34c9faa31a1020a4200eb99003455ca435ec3
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896945"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880949"
 ---
 # <a name="memory-management-and-garbage-collection-gc-in-aspnet-core"></a>Zarządzanie pamięcią i wyrzucanie elementów bezużytecznych (GC) w ASP.NET Core
 
 Autorzy [Sébastien ros](https://github.com/sebastienros) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Zarządzanie pamięcią jest złożone, nawet w zarządzanym środowisku, takim jak .NET. Analizowanie i rozwiązywanie problemów z pamięcią może być trudne. Ten artykuł:
+Zarządzanie pamięcią jest złożone, nawet w zarządzanym środowisku, takim jak .NET. Analizowanie i rozwiązywanie problemów z pamięcią może być trudne. W tym artykule:
 
 * Został umotywowany przez wiele *przecieków pamięci* i *nie działa* problem z GC. Większość z tych problemów została spowodowana przez niezrozumienie, jak zużycie pamięci działa w programie .NET Core, lub nie zrozumienie, jak to jest mierzone.
 * Pokazuje problematyczne użycie pamięci i sugeruje alternatywne podejścia.
@@ -139,7 +139,7 @@ Tryb GC można jawnie ustawić w pliku projektu lub w pliku *runtimeconfig. JSON
 
 Zmiana `ServerGarbageCollection` w pliku projektu wymaga odbudowania aplikacji.
 
-**Uwaga:** Zbieranie elementów bezużytecznych serwera **nie** jest dostępne na maszynach z jednym rdzeniem. Aby uzyskać więcej informacji, zobacz <xref:System.Runtime.GCSettings.IsServerGC>.
+**Uwaga:** Zbieranie elementów bezużytecznych serwera **nie** jest dostępne na maszynach z jednym rdzeniem. Aby uzyskać więcej informacji, zobacz temat <xref:System.Runtime.GCSettings.IsServerGC>.
 
 Na poniższej ilustracji przedstawiono profil pamięci w ramach 5 K RPS pliku przy użyciu usługi Stacja robocza GC.
 
@@ -171,7 +171,7 @@ public ActionResult<string> GetStaticString()
 }
 ```
 
-Poprzedni kod:
+Powyższy kod:
 
 * Jest przykładem typowego przecieku pamięci.
 * Częste wywołania powodują, że pamięć aplikacji wzrasta do momentu awarii procesu z wyjątkiem `OutOfMemory`.
@@ -192,7 +192,7 @@ Niektóre obiekty .NET Core są zależne od pamięci natywnej. Pamięć natywna 
 
 Platforma .NET udostępnia interfejs <xref:System.IDisposable>, aby umożliwić deweloperom zwalnianie pamięci natywnej. Nawet jeśli nie jest wywoływana <xref:System.IDisposable.Dispose*>, prawidłowo zaimplementowane klasy wywołania `Dispose` po uruchomieniu [finalizatora](/dotnet/csharp/programming-guide/classes-and-structs/destructors) .
 
-Rozważmy następujący kod:
+Spójrzmy na poniższy kod:
 
 ```csharp
 [HttpGet("fileprovider")]
@@ -279,7 +279,7 @@ Aby uzyskać więcej informacji, zobacz:
 * [Niekryte sterta dużego obiektu](https://devblogs.microsoft.com/dotnet/large-object-heap-uncovered-from-an-old-msdn-article/)
 * [Sterta dużych obiektów](/dotnet/standard/garbage-collection/large-object-heap)
 
-### <a name="httpclient"></a>HttpClient
+### <a name="httpclient"></a>Klasy HttpClient
 
 Nieprawidłowe użycie <xref:System.Net.Http.HttpClient> może spowodować przeciek zasobów. Zasoby systemowe, takie jak połączenia z bazami danych, gniazda, uchwyty plików itp.:
 
@@ -373,7 +373,7 @@ Na poniższym wykresie przedstawiono wywoływanie poprzedzającego interfejsu AP
 
 Na poprzednim wykresie kolekcje generacji 0 są wykonywane około raz na sekundę.
 
-Poprzedni kod można zoptymalizować przez buforowanie bufora `byte` przy użyciu [`ArrayPool<T>`](xref:System.Buffers.ArrayPool`1). Wystąpienie statyczne jest ponownie używane między żądaniami.
+Poprzedni kod można zoptymalizować przez buforowanie bufora `byte` za pomocą [ArrayPool\<t >](xref:System.Buffers.ArrayPool`1). Wystąpienie statyczne jest ponownie używane między żądaniami.
 
 Różni się to od tego, czy obiekt w puli jest zwracany z interfejsu API. Oznacza to:
 

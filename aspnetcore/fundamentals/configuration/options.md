@@ -7,16 +7,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/18/2019
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 4192bab8acef7c4f7bdf1ac481c468cd0a835420
-ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
+ms.openlocfilehash: 46cfff905636dc0d50fcde5e781ce47fb6d85cc0
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74239796"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880385"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Wzorzec opcji w ASP.NET Core
 
-Autor [Luke Latham](https://github.com/guardrex)
+Przez [Luke Latham](https://github.com/guardrex)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -27,7 +27,7 @@ Wzorzec opcji używa klas do reprezentowania grup powiązanych ustawień. Gdy [U
 
 Opcje umożliwiają również mechanizm weryfikacji danych konfiguracyjnych. Aby uzyskać więcej informacji, zobacz sekcję [Opcje walidacji](#options-validation) .
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="package"></a>Package
 
@@ -168,7 +168,7 @@ Iniekcja opcji jest prezentowana jako przykład &num;4 w przykładowej aplikacji
 
 Wsuń <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> do:
 
-* Strona Razor lub widok MVC z dyrektywą [@inject](xref:mvc/views/razor#inject) Razor.
+* Strona Razor lub widok MVC z dyrektywą [`@inject`](xref:mvc/views/razor#inject) Razor.
 * Model strony lub widoku.
 
 Poniższy przykład z przykładowej aplikacji wprowadza <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> do modelu strony (*strony/index. cshtml. cs*):
@@ -451,7 +451,7 @@ Wzorzec opcji używa klas do reprezentowania grup powiązanych ustawień. Gdy [U
 
 Opcje umożliwiają również mechanizm weryfikacji danych konfiguracyjnych. Aby uzyskać więcej informacji, zobacz sekcję [Opcje walidacji](#options-validation) .
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -592,7 +592,7 @@ Iniekcja opcji jest prezentowana jako przykład &num;4 w przykładowej aplikacji
 
 Wsuń <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> do:
 
-* Strona Razor lub widok MVC z dyrektywą [@inject](xref:mvc/views/razor#inject) Razor.
+* Strona Razor lub widok MVC z dyrektywą [`@inject`](xref:mvc/views/razor#inject) Razor.
 * Model strony lub widoku.
 
 Poniższy przykład z przykładowej aplikacji wprowadza <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> do modelu strony (*strony/index. cshtml. cs*):
@@ -873,7 +873,7 @@ Wzorzec opcji używa klas do reprezentowania grup powiązanych ustawień. Gdy [U
 
 Opcje umożliwiają również mechanizm weryfikacji danych konfiguracyjnych. Aby uzyskać więcej informacji, zobacz sekcję [Opcje walidacji](#options-validation) .
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

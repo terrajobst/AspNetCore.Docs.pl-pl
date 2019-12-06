@@ -6,12 +6,12 @@ ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: riande
 ms.date: 11/21/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: a49fec38a6d38bbd33e9461cbcceb39bfe810f5c
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: 705044804b6ecc980baa88a624863ce5ac72a694
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717289"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881052"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Powiązanie modelu w ASP.NET Core
 
@@ -79,7 +79,7 @@ Domyślnie właściwości nie są powiązane z żądaniami HTTP GET. Zazwyczaj w
 
 [!code-csharp[](model-binding/samples/2.x/Pages/Instructors/Index.cshtml.cs?name=snippet_SupportsGet)]
 
-## <a name="sources"></a>Źródeł
+## <a name="sources"></a>Źródła
 
 Domyślnie powiązanie modelu pobiera dane w postaci par klucz-wartość z następujących źródeł w żądaniu HTTP:
 
@@ -96,11 +96,11 @@ Dla każdego parametru lub właściwości docelowej źródła są skanowane w ko
 
 Jeśli źródło domyślne jest niepoprawne, użyj jednego z następujących atrybutów, aby określić Źródło:
 
-* [[FromQuery]](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute) — pobiera wartości z ciągu zapytania. 
-* [[FromRoute]](xref:Microsoft.AspNetCore.Mvc.FromRouteAttribute) — pobiera wartości z danych trasy.
-* [[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute) — pobiera wartości ze opublikowanych pól formularza.
-* [[FromBody]](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute) — pobiera wartości z treści żądania.
-* [[FromHeader]](xref:Microsoft.AspNetCore.Mvc.FromHeaderAttribute) — pobiera wartości z nagłówków HTTP.
+* [`[FromQuery]`](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute) — pobiera wartości z ciągu zapytania. 
+* [`[FromRoute]`](xref:Microsoft.AspNetCore.Mvc.FromRouteAttribute) — pobiera wartości z danych trasy.
+* [`[FromForm]`](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute) — pobiera wartości ze opublikowanych pól formularza.
+* [`[FromBody]`](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute) — pobiera wartości z treści żądania.
+* [`[FromHeader]`](xref:Microsoft.AspNetCore.Mvc.FromHeaderAttribute) — pobiera wartości z nagłówków HTTP.
 
 Następujące atrybuty:
 
@@ -166,7 +166,7 @@ Domyślnie błąd stanu modelu nie jest tworzony, jeśli dla właściwości mode
 * W przypadku typów złożonych powiązanie modelu tworzy wystąpienie przy użyciu domyślnego konstruktora bez ustawiania właściwości.
 * Tablice są ustawione na `Array.Empty<T>()`, z tą różnicą, że `byte[]` tablice są ustawione na `null`.
 
-Jeśli stan modelu ma być unieważniony, gdy niczego nie znaleziono w polach formularza dla właściwości modelu, użyj [atrybutu [BindRequired]](#bindrequired-attribute).
+Jeśli stan modelu ma być unieważniony, gdy niczego nie znaleziono w polach formularza dla właściwości modelu, Użyj atrybutu [`[BindRequired]`](#bindrequired-attribute) .
 
 Należy zauważyć, że to zachowanie `[BindRequired]` ma zastosowanie do powiązania modelu z ogłoszonych danych formularza, nie do danych JSON ani XML w treści żądania. Dane treści żądania są obsługiwane przez elementy [formatujące dane wejściowe](#input-formatters).
 
@@ -190,20 +190,20 @@ Ta sama strategia jest zalecana, jeśli nie chcesz, aby Błędy konwersji typów
 
 Typy proste, które tworzą spinacz modelu mogą konwertować ciągi źródłowe, w następujący sposób:
 
-* [Typu](xref:System.ComponentModel.BooleanConverter)
+* [Wartość logiczna](xref:System.ComponentModel.BooleanConverter)
 * [Byte, bajty](xref:System.ComponentModel.ByteConverter) [](xref:System.ComponentModel.SByteConverter)
 * [Delikatn](xref:System.ComponentModel.CharConverter)
-* [Datę](xref:System.ComponentModel.DateTimeConverter)
+* [DateTime](xref:System.ComponentModel.DateTimeConverter)
 * [DateTimeOffset](xref:System.ComponentModel.DateTimeOffsetConverter)
-* [Dokładności](xref:System.ComponentModel.DecimalConverter)
+* [Decimal](xref:System.ComponentModel.DecimalConverter)
 * [Double](xref:System.ComponentModel.DoubleConverter)
-* [Podstawowe](xref:System.ComponentModel.EnumConverter)
+* [Enum](xref:System.ComponentModel.EnumConverter)
 * [Ident](xref:System.ComponentModel.GuidConverter)
 * [Int16](xref:System.ComponentModel.Int16Converter), [Int32](xref:System.ComponentModel.Int32Converter), [Int64](xref:System.ComponentModel.Int64Converter)
-* [Wiersz](xref:System.ComponentModel.SingleConverter)
-* [Czasu](xref:System.ComponentModel.TimeSpanConverter)
+* [Single](xref:System.ComponentModel.SingleConverter)
+* [TimeSpan](xref:System.ComponentModel.TimeSpanConverter)
 * [UInt16](xref:System.ComponentModel.UInt16Converter), [UInt32](xref:System.ComponentModel.UInt32Converter), [UInt64](xref:System.ComponentModel.UInt64Converter)
-* [Adresu](xref:System.UriTypeConverter)
+* [Identyfikator URI](xref:System.UriTypeConverter)
 * [Wersja](xref:System.ComponentModel.VersionConverter)
 
 ## <a name="complex-types"></a>Typy złożone
@@ -347,7 +347,7 @@ Dla celów, które są kolekcjami typów prostych, powiązanie modelu wyszukuje 
 
   Formaty danych używające liczb indeksów dolnych (... [0]... [1]...) należy upewnić się, że są numerowane sekwencyjnie, zaczynając od zera. Jeśli występują luki w numerze indeksu dolnego, wszystkie elementy po przerwie zostaną zignorowane. Na przykład, jeśli indeksy dolne są równe 0 i 2 zamiast 0 i 1, drugi element jest ignorowany.
 
-## <a name="dictionaries"></a>Słownik
+## <a name="dictionaries"></a>Słowniki
 
 Dla `Dictionary` obiektów docelowych powiązanie modelu wyszukuje dopasowania do *parameter_name* lub *property_name*. Jeśli dopasowanie nie zostanie znalezione, szuka jednego z obsługiwanych formatów bez prefiksu. Na przykład:
 
@@ -378,8 +378,8 @@ Dla `Dictionary` obiektów docelowych powiązanie modelu wyszukuje dopasowania d
 
 * We wszystkich powyższych formatach przykładowe powiązanie modelu przekazuje słownik dwóch elementów do `selectedCourses` parametru:
 
-  * selectedCourses ["1050"] = "Chemia"
-  * selectedCourses ["2000"] = "ekonomia"
+  * selectedCourses["1050"]="Chemistry"
+  * selectedCourses["2000"]="Economics"
 
 <a name="glob"></a>
 

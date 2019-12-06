@@ -1,102 +1,102 @@
 ---
-title: What's new in ASP.NET Core 2.0
+title: Co nowego w ASP.NET Core 2,0
 author: rick-anderson
-description: Dowiedz się więcej o nowych funkcjach w programie ASP.NET Core 2.0.
+description: Dowiedz się więcej o nowych funkcjach w ASP.NET Core 2,0.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/28/2019
+ms.date: 12/05/2019
 uid: aspnetcore-2.0
-ms.openlocfilehash: dac5a48042a71774cb884e30a166be68bee69691
-ms.sourcegitcommit: f5762967df3be8b8c868229e679301f2f7954679
+ms.openlocfilehash: 452ccd76eece55cb5cf38fe39781f2f64dd5d466
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048110"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880876"
 ---
-# <a name="whats-new-in-aspnet-core-20"></a>What's new in ASP.NET Core 2.0
+# <a name="whats-new-in-aspnet-core-20"></a>Co nowego w ASP.NET Core 2,0
 
-W tym artykule przedstawiono najbardziej znaczących zmian w programie ASP.NET Core 2.0 wraz z łączami do odpowiedniej dokumentacji.
+W tym artykule przedstawiono najbardziej znaczące zmiany w ASP.NET Core 2,0 z linkami do odpowiedniej dokumentacji.
 
 ## <a name="razor-pages"></a>Razor Pages
 
-Strony razor jest to nowa funkcja usługi ASP.NET Core MVC, która sprawia, że kodowania skoncentrowane na stronie scenariuszy łatwiejsze i bardziej wydajne.
+Razor Pages to nowa funkcja ASP.NET Core MVC, która sprawia, że kodowanie scenariuszy ukierunkowanych na strony jest łatwiejsze i bardziej produktywne.
 
-Aby uzyskać więcej informacji zobacz wprowadzenie i samouczków:
+Aby uzyskać więcej informacji, zobacz Wprowadzenie i samouczek:
 
 * [Wprowadzenie do produktu Razor Pages](xref:razor-pages/index)
 * [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages/razor-pages-start)
 
-## <a name="aspnet-core-metapackage"></a>Meta Microsoft.aspnetcore.all platformy ASP.NET Core
+## <a name="aspnet-core-metapackage"></a>ASP.NET Core, pakiet
 
-Nowe meta Microsoft.aspnetcore.all platformy ASP.NET Core obejmuje wszystkie pakiety wprowadzone i obsługiwane przez zespoły platformy ASP.NET Core i Entity Framework Core, wraz z ich zależnościami wewnętrznych i innych firm 3. Nie trzeba wybrać poszczególne platformy ASP.NET Core funkcje przez pakiet. Wszystkie funkcje są uwzględnione w [pakiet](https://www.nuget.org/packages/Microsoft.AspNetCore.All) pakietu. Szablony domyślne używają tego pakietu.
+Nowy ASP.NET Core pakietem zawierającym wszystkie pakiety wykonane i obsługiwane przez zespoły ASP.NET Core i Entity Framework Core wraz z ich wewnętrznymi i zewnętrznymi zależnościami. Nie trzeba już wybierać poszczególnych funkcji ASP.NET Core według pakietu. Wszystkie funkcje są zawarte w pakiecie [Microsoft. AspNetCore. All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) . Szablony domyślne używają tego pakietu.
 
-Aby uzyskać więcej informacji, zobacz [pakiet meta Microsoft.aspnetcore.all dla programu ASP.NET Core 2.0](xref:fundamentals/metapackage).
+Aby uzyskać więcej informacji, zobacz [Microsoft. AspNetCore. All pakietu dla ASP.NET Core 2,0](xref:fundamentals/metapackage).
 
-## <a name="runtime-store"></a>Środowisko uruchomieniowe Store
+## <a name="runtime-store"></a>Magazyn środowiska uruchomieniowego
 
-Aplikacje, które używają `Microsoft.AspNetCore.All` meta Microsoft.aspnetcore.all automatycznie wykorzystywać nowe Store środowiska uruchomieniowego programu .NET Core. Store zawiera wszystkie zasoby środowiska uruchomieniowego, wymagane do uruchamiania aplikacji ASP.NET Core 2.0. Kiedy używasz `Microsoft.AspNetCore.All` meta Microsoft.aspnetcore.all, żadne zasoby z przywoływanych pakietów dla platformy ASP.NET Core NuGet są wdrażane przy użyciu aplikacji, ponieważ są one już przechowywane w systemie docelowym. Zasoby w Store środowiska uruchomieniowego są również wstępnie skompilowanych, aby poprawić czas uruchamiania aplikacji.
+Aplikacje, które używają pakietu `Microsoft.AspNetCore.All`, automatycznie wykorzystują nowy magazyn środowiska uruchomieniowego platformy .NET Core. Magazyn zawiera wszystkie zasoby środowiska uruchomieniowego potrzebne do uruchamiania aplikacji ASP.NET Core 2,0. W przypadku korzystania z pakietu `Microsoft.AspNetCore.All`, żadne zasoby z przywoływanych ASP.NET Core pakietów NuGet nie są wdrażane wraz z aplikacją, ponieważ znajdują się już w systemie docelowym. Elementy zawartości w magazynie środowiska uruchomieniowego są również wstępnie skompilowane w celu poprawienia czasu uruchamiania aplikacji.
 
-Aby uzyskać więcej informacji, zobacz [magazynu środowiska uruchomieniowego](/dotnet/core/deploying/runtime-store)
+Aby uzyskać więcej informacji, zobacz [Magazyn środowiska uruchomieniowego](/dotnet/core/deploying/runtime-store)
 
 ## <a name="net-standard-20"></a>.NET Standard 2.0
 
-Pakiety platformy ASP.NET Core 2.0 docelowych .NET Standard 2.0. Pakiety mogą być przywoływane przez inne biblioteki .NET Standard 2.0 i mogą być uruchamiane na .NET Standard 2.0 zgodne implementacji .NET, w tym .NET Core 2.0 i .NET Framework 4.6.1. 
+.NET Standard 2,0 pakietów ASP.NET Core 2,0. Do pakietów mogą odwoływać się inne .NET Standard biblioteki 2,0, które mogą być uruchamiane na .NET Standard 2,0 zgodnych implementacjach platformy .NET, w tym .NET Core 2,0 i .NET Framework 4.6.1. 
 
-`Microsoft.AspNetCore.All` Meta Microsoft.aspnetcore.all jest przeznaczony dla platformy .NET Core 2.0, ponieważ jest ono przeznaczone do użycia z Store środowiska uruchomieniowego programu .NET Core 2.0.
+Pakiet `Microsoft.AspNetCore.All` nie dotyczy tylko programu .NET Core 2,0, ponieważ jest przeznaczony do użycia z magazynem środowiska uruchomieniowego programu .NET Core 2,0.
 
 ## <a name="configuration-update"></a>Aktualizacja konfiguracji
 
-`IConfiguration` Wystąpienia zostanie dodany do kontenera usług, domyślnie w programie ASP.NET Core 2.0. `IConfiguration` w usługach kontenerów ułatwia dla aplikacji, które można pobrać wartości konfiguracji z kontenera.
+Wystąpienie `IConfiguration` jest dodawane do kontenera usługi domyślnie w ASP.NET Core 2,0. `IConfiguration` w kontenerze usługi ułatwia aplikacjom pobieranie wartości konfiguracyjnych z kontenera.
 
-Aby uzyskać informacje o stanie planowanej dokumentacji, zobacz [problem w usłudze GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/3387).
+Aby uzyskać informacje o stanie planowanej dokumentacji, zobacz problem z usługą [GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/3387).
 
-## <a name="logging-update"></a>Rejestrowanie aktualizacji
+## <a name="logging-update"></a>Aktualizacja rejestrowania
 
-W programie ASP.NET Core 2.0 rejestrowania jest włączona w systemie (DI) iniekcji zależności domyślnie. Dodawanie dostawcy i Konfigurowanie filtrowania w *Program.cs* zamiast w pliku *Startup.cs* pliku. I domyślnego `ILoggerFactory` obsługuje filtrowanie w sposób, który pozwala na użytek jeden elastyczne podejście filtrowanie krzyżowe dostawcy i filtrowanie określonego dostawcy.
+W ASP.NET Core 2,0 rejestrowanie jest domyślnie włączone do systemu iniekcji zależności. Należy dodać dostawców i skonfigurować filtrowanie w pliku *program.cs* , a nie w pliku *Startup.cs* . I domyślne `ILoggerFactory` obsługuje filtrowanie w taki sposób, że umożliwia korzystanie z jednego elastycznego podejścia do filtrowania między dostawcami i filtrowania poszczególnych dostawców.
 
 Aby uzyskać więcej informacji, zobacz [wprowadzenie do rejestrowania](xref:fundamentals/logging/index).
 
 ## <a name="authentication-update"></a>Aktualizacja uwierzytelniania
 
-Nowy model uwierzytelniania ułatwia skonfigurowanie uwierzytelniania dla aplikacji przy użyciu DI.
+Nowy model uwierzytelniania ułatwia konfigurowanie uwierzytelniania aplikacji przy użyciu funkcji DI.
 
-Nowe szablony są dostępne do konfigurowania uwierzytelniania dla aplikacji sieci web i interfejsów API sieci web przy użyciu [usługi Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/).
+Nowe szablony są dostępne do konfigurowania uwierzytelniania dla aplikacji sieci Web i interfejsów API sieci Web przy użyciu [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/).
 
-Aby uzyskać informacje o stanie planowanej dokumentacji, zobacz [problem w usłudze GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/3054).
+Aby uzyskać informacje o stanie planowanej dokumentacji, zobacz problem z usługą [GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/3054).
 
 ## <a name="identity-update"></a>Aktualizacja tożsamości
 
-Wprowadziliśmy je łatwiej tworzyć bezpieczne internetowych interfejsów API przy użyciu tożsamości w programie ASP.NET Core 2.0. Możesz uzyskać tokenów dostępu do uzyskiwania dostępu do sieci web API za pomocą [Microsoft Authentication Library (MSAL)](https://www.nuget.org/packages/Microsoft.Identity.Client).
+Ułatwiamy tworzenie bezpiecznych interfejsów API sieci Web przy użyciu tożsamości w ASP.NET Core 2,0. Możesz uzyskać tokeny dostępu do uzyskiwania dostępu do interfejsów API sieci Web przy użyciu [biblioteki uwierzytelniania firmy Microsoft (MSAL)](https://www.nuget.org/packages/Microsoft.Identity.Client).
 
-Aby uzyskać więcej informacji na temat zmian uwierzytelniania w wersji 2.0 zobacz następujące zasoby:
+Aby uzyskać więcej informacji na temat zmian uwierzytelniania w 2,0, zobacz następujące zasoby:
 
-* [Potwierdzenie konta i odzyskiwanie hasła w programie ASP.NET Core](xref:security/authentication/accconfirm)
-* [Włączanie generowania kodu QR dla wystawcy uwierzytelnienia aplikacji w programie ASP.NET Core](xref:security/authentication/identity-enable-qrcodes)
-* [Migrowanie do platformy ASP.NET Core 2.0 uwierzytelniania i tożsamości](xref:migration/1x-to-2x/identity-2x)
+* [Potwierdzenie konta i odzyskiwanie hasła w ASP.NET Core](xref:security/authentication/accconfirm)
+* [Włącz generowanie kodu QR dla aplikacji uwierzytelniania w ASP.NET Core](xref:security/authentication/identity-enable-qrcodes)
+* [Migrowanie uwierzytelniania i tożsamości do ASP.NET Core 2,0](xref:migration/1x-to-2x/identity-2x)
 
-## <a name="spa-templates"></a>Szablonów aplikacji JEDNOSTRONICOWYCH
+## <a name="spa-templates"></a>Szablony SPA
 
-Pojedynczy szablony projektu strona aplikacji (SPA) szablonów Angular, Aurelia, struktura Knockout.js, React.js i React.js z kontenera Redux są dostępne. Platformy Angular szablon został uaktualniony do Angular 4. Szablony usługi Angular i języka React domyślnie są dostępne; Aby dowiedzieć się, jak uzyskać innych szablonów, zobacz [Utwórz nowy projekt SPA](xref:client-side/spa-services#create-a-new-project). Aby uzyskać informacje dotyczące sposobu tworzenia SPA w programie ASP.NET Core, zobacz <xref:client-side/spa-services>.
+Dostępne są szablony projektów aplikacji jednostronicowych (SPA) dla kątowych, Aurelia, odcinania. js, replika. js i reaguje. js z Redux. Szablon kątowy został zaktualizowany do kąta 4. Szablony kątowe i reagowanie są domyślnie dostępne; Aby uzyskać informacje o sposobach uzyskiwania innych szablonów, zobacz [Tworzenie nowego projektu Spa](xref:client-side/spa-services#create-a-new-project). Aby uzyskać informacje na temat sposobu tworzenia SPA w ASP.NET Core, zobacz <xref:client-side/spa-services>.
 
-## <a name="kestrel-improvements"></a>Ulepszenia kestrel
+## <a name="kestrel-improvements"></a>Udoskonalenia Kestrel
 
-Serwer sieci web Kestrel ma nowe funkcje, które lepiej przystosować na serwerze dostępnym z Internetu. Liczba opcji konfiguracji ograniczenia serwera zostały dodane w `KestrelServerOptions` klasy przez nowe `Limits` właściwości. Dodaj następujące limity:
+Serwer sieci Web Kestrel ma nowe funkcje, które sprawiają, że jest to bardziej odpowiednie jako serwer dostępny z Internetu. W nowej właściwości `Limits` klasy `KestrelServerOptions` są dodawane różne opcje konfiguracji ograniczeń serwera. Dodaj limity dla następujących:
 
-* Maksymalna liczba połączeń klientów
-* Rozmiar treści żądania maksymalna
-* Szybkość danych treści żądania minimalne
+* Maksymalna liczba połączeń klienta
+* Maksymalny rozmiar treści żądania
+* Minimalna stawka danych treści żądania
 
-Aby uzyskać więcej informacji, zobacz [implementacji serwera sieci web Kestrel w programie ASP.NET Core](xref:fundamentals/servers/kestrel).
+Aby uzyskać więcej informacji, zobacz [Implementacja serwera sieci Web Kestrel w ASP.NET Core](xref:fundamentals/servers/kestrel).
 
-## <a name="weblistener-renamed-to-httpsys"></a>Zmieniono nazwę pliku HTTP.sys WebListener
+## <a name="weblistener-renamed-to-httpsys"></a>Nazwa elementu webListener została zmieniona na HTTP. sys
 
-Pakiety `Microsoft.AspNetCore.Server.WebListener` i `Microsoft.Net.Http.Server` została scalona nowy pakiet `Microsoft.AspNetCore.Server.HttpSys`. Przestrzenie nazw zostały zaktualizowane do dopasowania.
+Pakiety `Microsoft.AspNetCore.Server.WebListener` i `Microsoft.Net.Http.Server` zostały scalone z `Microsoft.AspNetCore.Server.HttpSys`nowym pakietem. Przestrzenie nazw zostały zaktualizowane w celu dopasowania.
 
-Aby uzyskać więcej informacji, zobacz [implementacji serwera sieci web HTTP.sys, w programie ASP.NET Core](xref:fundamentals/servers/httpsys).
+Aby uzyskać więcej informacji, zobacz [Implementacja serwera sieci Web http. sys w ASP.NET Core](xref:fundamentals/servers/httpsys).
 
-## <a name="enhanced-http-header-support"></a>Ulepszona obsługa nagłówków HTTP
+## <a name="enhanced-http-header-support"></a>Ulepszona obsługa nagłówka HTTP
 
-Podczas przesyłania przy użyciu platformy MVC `FileStreamResult` lub `FileContentResult`, masz teraz możliwość ustawienia `ETag` lub `LastModified` daty dla zawartości, przesyłania. Można ustawić następujące wartości w zwracanej zawartości przy użyciu kodu podobne do następujących:
+W przypadku przesyłania `FileStreamResult` lub `FileContentResult`przy użyciu MVC można teraz ustawić `ETag` lub `LastModified` datę dla przesyłanej zawartości. Można ustawić te wartości w zwracanej zawartości z kodem podobnym do poniższego:
 
 ```csharp
 var data = Encoding.UTF8.GetBytes("This is a sample text from a binary array");
@@ -104,58 +104,58 @@ var entityTag = new EntityTagHeaderValue("\"MyCalculatedEtagValue\"");
 return File(data, "text/plain", "downloadName.txt", lastModified: DateTime.UtcNow.AddSeconds(-5), entityTag: entityTag);
 ```
 
-Pliku zwrócone do odwiedzających będzie posiadać odpowiednie nagłówki HTTP dla `ETag` i `LastModified` wartości.
+Plik zwrócony do odwiedzających ma odpowiednie nagłówki HTTP dla wartości `ETag` i `LastModified`.
 
-Jeśli aplikacja obiektu odwiedzającego zażąda zawartości z nagłówkiem żądania zakresu, ASP.NET Core rozpoznaje żądania i obsługuje nagłówka. Żądanej zawartości mogą być dostarczane częściowo, ASP.NET Core odpowiednio pomija i zwraca tylko żądany zestaw bajtów. Nie musisz tworzyć żadnych specjalnych obsługi do Twojej metody, aby dostosować lub obsługi tej funkcji; odbywa się automatycznie dla Ciebie.
+Jeśli osoba odwiedzająca aplikację żąda zawartości z nagłówkiem żądania zakresu, ASP.NET Core rozpoznaje żądanie i obsługuje nagłówek. Jeśli żądana zawartość może zostać dostarczona częściowo, ASP.NET Core odpowiednio pomija i zwróci tylko żądany zestaw bajtów. Nie musisz pisać żadnych specjalnych programów obsługi w swoich metodach, aby dostosować lub obsłużyć tę funkcję. jest ono automatycznie obsługiwane.
 
-## <a name="hosting-startup-and-application-insights"></a>Uruchamianie hostingu i usługi Application Insights
+## <a name="hosting-startup-and-application-insights"></a>Hosting uruchamiania i Application Insights
 
-Środowisk hostingowych teraz wstrzykiwanie zależności dodatkowych pakietów i wykonanie kodu podczas uruchamiania aplikacji bez zastosowania konieczności jawnego wiedziały lub wywołanie dowolnej metody. Tę funkcję można włączyć niektórych środowisk "światła w górę" funkcji unikatowych dla danego środowiska bez aplikacji musi wiedzieć z wyprzedzeniem. 
+Środowiska hostingu mogą teraz dodawać dodatkowe zależności pakietu i wykonywać kod podczas uruchamiania aplikacji, bez konieczności jawnego podjęcia zależności przez aplikację lub wywołania jakichkolwiek metod. Ta funkcja może służyć do włączania pewnych środowisk jako "świateł-up", które są unikatowe dla danego środowiska, bez konieczności poznania się przed czasem. 
 
-W programie ASP.NET Core 2.0, ta funkcja jest używana, można automatycznie włączyć diagnostykę usługi Application Insights podczas debugowania w programie Visual Studio i (po zgodzie na rozwiązanie) podczas uruchamiania w usłudze Azure App Services. W rezultacie szablony projektów nie jest już dodać pakiety usługi Application Insights i kod domyślnie.
+W ASP.NET Core 2,0 Ta funkcja jest używana do automatycznego włączania diagnostyki Application Insights podczas debugowania w programie Visual Studio i (po dodaniu go w programie) podczas uruchamiania na platformie Azure App Services. W związku z tym szablony projektu nie będą już domyślnie dodawać Application Insights pakietów i kodu.
 
-Aby uzyskać informacje o stanie planowanej dokumentacji, zobacz [problem w usłudze GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/3389).
+Aby uzyskać informacje o stanie planowanej dokumentacji, zobacz problem z usługą [GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/3389).
 
-## <a name="automatic-use-of-anti-forgery-tokens"></a>Automatyczne użycie tokeny zabezpieczające przed fałszerstwem
+## <a name="automatic-use-of-anti-forgery-tokens"></a>Automatyczne korzystanie z tokenów chroniących przed fałszerstwem
 
-Platforma ASP.NET Core zawsze pomogła kodowanie HTML zawartości domyślnie, ale z nową wersją dodatkowego kroku jest podjęte w celu pomocy atakami fałszerstwo żądania międzywitrynowego (XSRF). Platforma ASP.NET Core teraz emitować tokeny zabezpieczające przed fałszerstwem domyślnie i sprawdzić ich poprawność akcje POST formularza i stron bez dodatkowej konfiguracji.
+ASP.NET Core zawsze pomogła korzystać z zawartości kodowanej w języku HTML domyślnie, ale z nową wersją jest podejmowana dodatkowa czynność, która pomaga zapobiegać atakom przez wiele witryn (XSRF). ASP.NET Core teraz emitują tokeny zabezpieczające przed fałszerstwem domyślnie i sprawdzają poprawność przy użyciu akcji POST formularzy i stron bez dodatkowej konfiguracji.
 
-Aby uzyskać więcej informacji, zobacz [zapobiec Cross-Site Request Forgery (XSRF/CSRF) ataki](xref:security/anti-request-forgery).
+Aby uzyskać więcej informacji, zobacz [Zapobiegaj fałszowaniu żądań między witrynami (XSRF/CSRF)](xref:security/anti-request-forgery).
 
-## <a name="automatic-precompilation"></a>Automatyczne wstępnej kompilacji
+## <a name="automatic-precompilation"></a>Automatyczna kompilacja prekompilowana
 
-Wstępna kompilacja widoku razor jest domyślnie podczas publikowania, zmniejszając rozmiar danych wyjściowych publikowania i aplikacji czas uruchamiania.
+Wstępna kompilacja widoku Razor jest domyślnie włączona podczas publikowania, zmniejszając rozmiar danych wyjściowych publikowania i czas uruchamiania aplikacji.
 
-Aby uzyskać więcej informacji, zobacz [kompilacja widoku Razor i wstępnej kompilacji w programie ASP.NET Core](xref:mvc/views/view-compilation).
+Aby uzyskać więcej informacji, zobacz [kompilacja widoku Razor i prekompilacja w ASP.NET Core](xref:mvc/views/view-compilation).
 
-## <a name="razor-support-for-c-71"></a>Obsługa razor dla języka C# 7.1
+## <a name="razor-support-for-c-71"></a>Obsługa Razor dla C# 7,1
 
-Aparat widoku Razor został zaktualizowany do pracy z nowy kompilator Roslyn. Obejmuje to obsługę funkcji języka C# 7.1 jak domyślne wyrażeń, wywnioskowane nazwy krotki i dopasowania do wzorca za pomocą typów ogólnych. Aby korzystać z języka C# 7.1 w projekcie, dodaj następującą właściwość w pliku projektu, a następnie załaduj ponownie rozwiązanie:
+Aparat widoku Razor został zaktualizowany, aby współpracował z nowym kompilatorem Roslyn. Obejmuje to obsługę funkcji C# 7,1, takich jak domyślne wyrażenia, wywnioskowane nazwy krotek i dopasowanie wzorców do typów ogólnych. Aby użyć C# 7,1 w projekcie, Dodaj następującą właściwość w pliku projektu, a następnie załaduj ponownie rozwiązanie:
 
 ```xml
 <LangVersion>latest</LangVersion>
 ```
 
-Aby uzyskać informacje o stanie funkcji języka C# 7.1 zobacz [repozytorium GitHub platformy Roslyn](https://github.com/dotnet/roslyn/blob/master/docs/Language%20Feature%20Status.md).
+Aby uzyskać informacje na temat stanu C# funkcji 7,1, zobacz [repozytorium GitHub Roslyn](https://github.com/dotnet/roslyn/blob/master/docs/Language%20Feature%20Status.md).
 
-## <a name="other-documentation-updates-for-20"></a>Inne aktualizacje dokumentacji dla wersji 2.0
+## <a name="other-documentation-updates-for-20"></a>Inne aktualizacje dokumentacji dotyczące 2,0
 
-* [Program Visual Studio publikowania profile na potrzeby wdrażania aplikacji platformy ASP.NET Core](xref:host-and-deploy/visual-studio-publish-profiles)
+* [Profile publikowania programu Visual Studio dla wdrożenia aplikacji ASP.NET Core](xref:host-and-deploy/visual-studio-publish-profiles)
 * [Zarządzanie kluczami](xref:security/data-protection/implementation/key-management)
-* [Konfigurowanie uwierzytelniania serwisu Facebook](xref:security/authentication/facebook-logins)
-* [Konfigurowanie uwierzytelniania usługi Twitter](xref:security/authentication/twitter-logins)
-* [Konfigurowanie uwierzytelniania serwisu Google](xref:security/authentication/google-logins)
-* [Konfigurowanie uwierzytelniania Account firmy Microsoft](xref:security/authentication/microsoft-logins)
+* [Konfigurowanie uwierzytelniania w usłudze Facebook](xref:security/authentication/facebook-logins)
+* [Konfigurowanie uwierzytelniania w usłudze Twitter](xref:security/authentication/twitter-logins)
+* [Skonfiguruj uwierzytelnianie Google](xref:security/authentication/google-logins)
+* [Konfigurowanie uwierzytelniania konta Microsoft](xref:security/authentication/microsoft-logins)
 
 ## <a name="migration-guidance"></a>Wskazówki dotyczące migracji
 
-Aby uzyskać wskazówki dotyczące sposobu przeprowadzenia migracji platformy ASP.NET Core 1.x aplikacji ASP.NET Core 2.0 zobacz następujące zasoby:
+Aby uzyskać wskazówki dotyczące sposobu migracji aplikacji ASP.NET Core 1. x do ASP.NET Core 2,0, zobacz następujące zasoby:
 
-* [Migracja z programu ASP.NET Core 1.x do platformy ASP.NET Core 2.0](xref:migration/1x-to-2x/index)
-* [Migrowanie do platformy ASP.NET Core 2.0 uwierzytelniania i tożsamości](xref:migration/1x-to-2x/identity-2x)
+* [Migrowanie z ASP.NET Core 1. x do ASP.NET Core 2,0](xref:migration/1x-to-2x/index)
+* [Migrowanie uwierzytelniania i tożsamości do ASP.NET Core 2,0](xref:migration/1x-to-2x/identity-2x)
 
 ## <a name="additional-information"></a>Dodatkowe informacje
 
-Aby uzyskać pełną listę zmian, zobacz [platformy ASP.NET Core w wersji 2.0 — informacje o wersji](https://github.com/aspnet/Home/releases/tag/2.0.0).
+Aby uzyskać pełną listę zmian, zapoznaj się z [informacjami o wersji ASP.NET Core 2,0](https://github.com/aspnet/Home/releases/tag/2.0.0).
 
-Aby połączyć się z postępach i planach zespołu projektowego ASP.NET Core, obejrzyj Konferencję [ASP.NET Community Standup](https://live.asp.net/).
+Aby nawiązać połączenie z postępem i planami zespołu deweloperów ASP.NET Core, Dostosuj do [ASP.NET Community standup](https://live.asp.net/).

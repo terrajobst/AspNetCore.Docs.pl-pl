@@ -4,14 +4,14 @@ author: Rick-Anderson
 description: Dowiedz się, jak stron Razor w programie ASP.NET Core umożliwia kodowania scenariuszy skoncentrowane na stronie łatwiejsze i bardziej wydajne niż przy użyciu platformy MVC.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 10/07/2019
+ms.date: 12/05/2019
 uid: razor-pages/index
-ms.openlocfilehash: 67cc4f9b261372996d612f922c9f491f53948ece
-ms.sourcegitcommit: ddc813f0f1fb293861a01597532919945b0e7fe5
+ms.openlocfilehash: fbe6e307ff5f7388e91cc2276f22ae1672507587
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74412073"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880897"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do Razor Pages w ASP.NET Core
 
@@ -71,7 +71,7 @@ Weź pod uwagę podstawową stronę:<a name="OnGet"></a>
 
 [!code-cshtml[](index/3.0sample/RazorPagesIntro/Pages/Index.cshtml?highlight=1)]
 
-Poprzedni kod wygląda podobnie jak [plik widoku Razor](xref:tutorials/first-mvc-app/adding-view) używany w aplikacji ASP.NET Core z kontrolerami i widokami. Czym różni się to [@page](xref:mvc/views/razor#page) dyrektywie. `@page` sprawia, że plik jest akcją MVC, co oznacza, że obsługuje żądania bezpośrednio, bez przechodzenia przez kontroler. `@page` musi być pierwszą dyrektywą Razor na stronie. `@page` ma wpływ na zachowanie innych konstrukcji [Razor](xref:mvc/views/razor) . Nazwy plików Razor Pages mają sufiks *. cshtml* .
+Poprzedni kod wygląda podobnie jak [plik widoku Razor](xref:tutorials/first-mvc-app/adding-view) używany w aplikacji ASP.NET Core z kontrolerami i widokami. Czym różni się to [`@page`](xref:mvc/views/razor#page) dyrektywie. `@page` sprawia, że plik jest akcją MVC, co oznacza, że obsługuje żądania bezpośrednio, bez przechodzenia przez kontroler. `@page` musi być pierwszą dyrektywą Razor na stronie. `@page` ma wpływ na zachowanie innych konstrukcji [Razor](xref:mvc/views/razor) . Nazwy plików Razor Pages mają sufiks *. cshtml* .
 
 Podobna Strona, za pomocą klasy `PageModel`, jest pokazana w następujących dwóch plikach. Plik *Pages/index2. cshtml* :
 
@@ -128,7 +128,7 @@ Klasa `PageModel` umożliwia rozdzielenie logiki strony od jej prezentacji. Defi
 * Zarządzanie zależnościami stron przy użyciu [iniekcji zależności](xref:fundamentals/dependency-injection).
 * [Testowanie jednostek](xref:test/razor-pages-tests)
 
-Strona ma *metodę obsługi*`OnPostAsync`, która jest uruchamiana na żądaniach `POST` (gdy użytkownik zaksięguje formularz). Można dodać metody obsługi dla dowolnego zlecenia HTTP. Najczęstszymi obsłudze są:
+Strona ma *metodę obsługi*`OnPostAsync`, która jest uruchamiana na żądaniach `POST` (gdy użytkownik zaksięguje formularz). Można dodać metody obsługi dla dowolnego zlecenia HTTP. Najczęstsze procedury obsługi to:
 
 * `OnGet` do zainicjowania stanu wymaganego dla strony. W poprzednim kodzie Metoda `OnGet` wyświetla stronę Razor *. cshtml* .
 * `OnPost` obsługi przesłanych formularzy.
@@ -149,7 +149,7 @@ Podstawowy przepływ `OnPostAsync`:
 Sprawdź, czy występują błędy walidacji.
 
 * Jeśli nie ma żadnych błędów, Zapisz dane i Przekieruj.
-* W przypadku wystąpienia błędów ponownie Wyświetl stronę z komunikatami walidacji. W wielu przypadkach błędy sprawdzania poprawności zostaną wykryte na kliencie i nigdy nie przesłano ich do serwera.
+* W przypadku wystąpienia błędów ponownie Wyświetl stronę z komunikatami walidacji. W wielu przypadkach błędy weryfikacji zostaną wykryte w kliencie i nigdy nie zostaną przesłane do serwera.
 
 Plik widoku *Pages/Create. cshtml* :
 
@@ -163,7 +163,7 @@ W poprzednim kodzie, ogłaszanie formularza:
 
 * Z prawidłowymi danymi:
 
-  * Metoda obsługi `OnPostAsync` wywołuje metodę pomocnika <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel.RedirectToPage*>. `RedirectToPage` zwraca wystąpienie <xref:Microsoft.AspNetCore.Mvc.RedirectToPageResult>. `RedirectToPage`:
+  * Metoda obsługi `OnPostAsync` wywołuje metodę pomocnika <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel.RedirectToPage*>. Metoda `RedirectToPage` zwraca wystąpienie klasy <xref:Microsoft.AspNetCore.Mvc.RedirectToPageResult>. `RedirectToPage`:
 
     * Jest wynikiem akcji.
     * Jest podobny do `RedirectToAction` lub `RedirectToRoute` (używany w kontrolerach i widokach).
@@ -171,7 +171,7 @@ W poprzednim kodzie, ogłaszanie formularza:
 
 * Z błędami walidacji, które są przesyłane do serwera:
 
-  * Metoda obsługi `OnPostAsync` wywołuje metodę pomocnika <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageBase.Page*>. `Page` zwraca wystąpienie <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageResult>. Zwracanie `Page` jest podobne do sposobu, w jaki akcje w kontrolerach zwracają `View`. `PageResult` jest domyślnym typem zwracanym dla metody obsługi. Metoda obsługi zwracająca `void` renderuje stronę.
+  * Metoda obsługi `OnPostAsync` wywołuje metodę pomocnika <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageBase.Page*>. Metoda `Page` zwraca wystąpienie klasy <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageResult>. Zwracanie `Page` jest podobne do sposobu, w jaki akcje w kontrolerach zwracają `View`. `PageResult` jest domyślnym typem zwracanym dla metody obsługi. Metoda obsługi zwracająca `void` renderuje stronę.
   * W poprzednim przykładzie, księgowanie formularza bez wartości powoduje, że [ModelState. IsValid](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid) zwraca wartość false. W tym przykładzie na kliencie nie są wyświetlane błędy sprawdzania poprawności. Przekazywanie błędów sprawdzania poprawności jest omówione w dalszej części tego dokumentu.
 
   [!code-cs[](index/3.0sample/RazorPagesContacts/Pages/Customers/Create.cshtml.cs?name=snippet_OnPostAsync&highlight=3-6)]
@@ -235,7 +235,7 @@ Ponieważ `handler` jest `delete` w tym przykładzie, metoda obsługi `OnPostDel
 
 [!code-cs[](index/3.0sample/RazorPagesContacts/Pages/Customers/Index.cshtml.cs?name=snippet2)]
 
-Metoda `OnPostDeleteAsync`:
+`OnPostDeleteAsync` Metody:
 
 * Pobiera `id` z ciągu zapytania.
 * Wysyła zapytanie do bazy danych o kontakt z klientem z `FindAsync`.
@@ -424,13 +424,13 @@ Aplikacja ma następującą strukturę plików/folderów:
 
 * */Pages*
 
-  * *Index. cshtml*
+  * *Index.cshtml*
   * *Privacy. cshtml*
   * */Customers*
 
-    * *Create. cshtml*
-    * *Edytuj. cshtml*
-    * *Index. cshtml*
+    * *Create.cshtml*
+    * *Edit.cshtml*
+    * *Index.cshtml*
 
 Strony */Customers/Create. cshtml* i *Pages/Customers/Edit. cshtml* przekierowywać do *stron/Customers/index. cshtml* po powodzeniu. Ciąg `./Index` jest względną nazwą strony używaną w celu uzyskania dostępu do poprzedniej strony. Służy do generowania adresów URL na stronie *strony/klienci/index. cshtml* . Na przykład:
 
@@ -448,7 +448,7 @@ Nazwa strony jest ścieżką do strony z folderu głównego */Pages* , włączni
 
 Generowanie adresów URL dla stron obsługuje nazwy względne. W poniższej tabeli przedstawiono, która strona indeksu została wybrana przy użyciu różnych `RedirectToPage` parametrów na *stronach/klientach/Create. cshtml*.
 
-| RedirectToPage(x)| Stronic |
+| RedirectToPage(x)| logowania |
 | ----------------- | ------------ |
 | RedirectToPage("/Index") | *Strony/indeks* |
 | RedirectToPage("./Index"); | *Strony/klienci/indeks* |
@@ -721,7 +721,7 @@ Klasa `PageModel` umożliwia rozdzielenie logiki strony od jej prezentacji. Defi
 * Zarządzanie zależnościami stron przy użyciu [iniekcji zależności](xref:fundamentals/dependency-injection).
 * [Testowanie jednostkowe](xref:test/razor-pages-tests) stron.
 
-Strona ma *metodę obsługi*`OnPostAsync`, która jest uruchamiana na żądaniach `POST` (gdy użytkownik zaksięguje formularz). Można dodać metody obsługi dla dowolnego zlecenia HTTP. Najczęstszymi obsłudze są:
+Strona ma *metodę obsługi*`OnPostAsync`, która jest uruchamiana na żądaniach `POST` (gdy użytkownik zaksięguje formularz). Metody procedury obsługi można dodać dla dowolnego czasownika HTTP. Najczęstsze procedury obsługi to:
 
 * `OnGet` do zainicjowania stanu wymaganego dla strony. Przykład [OnGet](#OnGet) .
 * `OnPost` obsługi przesłanych formularzy.
@@ -742,17 +742,17 @@ Podstawowy przepływ `OnPostAsync`:
 Sprawdź, czy występują błędy walidacji.
 
 * Jeśli nie ma żadnych błędów, Zapisz dane i Przekieruj.
-* W przypadku wystąpienia błędów ponownie Wyświetl stronę z komunikatami walidacji. Walidacja po stronie klienta jest taka sama jak w przypadku tradycyjnych ASP.NET Core aplikacji MVC. W wielu przypadkach błędy sprawdzania poprawności zostaną wykryte na kliencie i nigdy nie przesłano ich do serwera.
+* W przypadku wystąpienia błędów ponownie Wyświetl stronę z komunikatami walidacji. Walidacja po stronie klienta jest taka sama jak w przypadku tradycyjnych ASP.NET Core aplikacji MVC. W wielu przypadkach błędy weryfikacji zostaną wykryte w kliencie i nigdy nie zostaną przesłane do serwera.
 
 Po pomyślnym wprowadzeniu danych metoda obsługi `OnPostAsync` wywołuje metodę pomocnika `RedirectToPage`, aby zwrócić wystąpienie `RedirectToPageResult`. `RedirectToPage` to nowy wynik akcji, podobny do `RedirectToAction` lub `RedirectToRoute`, ale dostosowany do stron. W powyższym przykładzie przekierowuje do głównej strony indeksu (`/Index`). `RedirectToPage` szczegółowo opisano w sekcji [generowanie adresów URL dla stron](#url_gen) .
 
-Gdy przesłany formularz ma błędy walidacji (które są przekazywane do serwera), metoda obsługi`OnPostAsync` wywołuje metodę pomocnika `Page`. `Page` zwraca wystąpienie `PageResult`. Zwracanie `Page` jest podobne do sposobu, w jaki akcje w kontrolerach zwracają `View`. `PageResult` jest domyślnym typem zwracanym dla metody obsługi. Metoda obsługi zwracająca `void` renderuje stronę.
+Gdy przesłany formularz ma błędy walidacji (które są przekazywane do serwera), metoda obsługi`OnPostAsync` wywołuje metodę pomocnika `Page`. Metoda `Page` zwraca wystąpienie klasy `PageResult`. Zwracanie `Page` jest podobne do sposobu, w jaki akcje w kontrolerach zwracają `View`. `PageResult` jest domyślnym typem zwracanym dla metody obsługi. Metoda obsługi zwracająca `void` renderuje stronę.
 
 Właściwość `Customer` używa atrybutu `[BindProperty]`, aby zrezygnować z powiązania modelu.
 
 [!code-cs[](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_PageModel&highlight=10-11)]
 
-Razor Pages domyślnie Powiąż właściwości tylko z czasownikami nie`GET`. Powiązanie z właściwościami może zmniejszyć ilość kodu, który trzeba napisać. Powiązanie zmniejsza kod, używając tej samej właściwości do renderowania pól formularza (`<input asp-for="Customer.Name">`) i akceptuję dane wejściowe.
+Razor Pages domyślnie Powiąż właściwości tylko z czasownikami nie`GET`. Utworzenie powiązania z właściwościami może zmniejszyć ilość kodu, który trzeba napisać. Powiązanie zmniejsza kod, używając tej samej właściwości do renderowania pól formularza (`<input asp-for="Customer.Name">`) i akceptuję dane wejściowe.
 
 [!INCLUDE[](~/includes/bind-get.md)]
 
@@ -805,7 +805,7 @@ Ponieważ `handler` jest `delete` w tym przykładzie, metoda obsługi `OnPostDel
 
 [!code-cs[](index/sample/RazorPagesContacts/Pages/Index.cshtml.cs?range=26-37)]
 
-Metoda `OnPostDeleteAsync`:
+`OnPostDeleteAsync` Metody:
 
 * Akceptuje `id` z ciągu zapytania. Jeśli dyrektywa strony *index. cshtml* zawiera ograniczenie routingu `"{id:int?}"`, `id` będzie pochodzić z danych tras. Dane trasy dla `id` są określone w identyfikatorze URI, takim jak `https://localhost:5001/Customers/2`.
 * Wysyła zapytanie do bazy danych o kontakt z klientem z `FindAsync`.
@@ -814,7 +814,7 @@ Metoda `OnPostDeleteAsync`:
 
 ## <a name="mark-page-properties-as-required"></a>Oznacz właściwości strony jako wymagane
 
-Właściwości na `PageModel` mogą być dekoracyjne z [wymaganym](/dotnet/api/system.componentmodel.dataannotations.requiredattribute) atrybutem:
+Właściwości `PageModel` można oznaczyć przy użyciu [wymaganego](/dotnet/api/system.componentmodel.dataannotations.requiredattribute) atrybutu:
 
 [!code-cs[](index/sample/Create.cshtml.cs?highlight=3,15-16)]
 
@@ -941,12 +941,12 @@ Aplikacja ma następującą strukturę plików/folderów:
 
 * */Pages*
 
-  * *Index. cshtml*
+  * *Index.cshtml*
   * */Customers*
 
-    * *Create. cshtml*
-    * *Edytuj. cshtml*
-    * *Index. cshtml*
+    * *Create.cshtml*
+    * *Edit.cshtml*
+    * *Index.cshtml*
 
 Strony */Customers/Create. cshtml* i *Pages/Customers/Edit. cshtml* przekierują do *stron/index. cshtml* po powodzeniu. Ciąg `/Index` jest częścią identyfikatora URI, aby uzyskać dostęp do poprzedniej strony. Ciąg `/Index` może służyć do generowania identyfikatorów URI na stronie *stron/index. cshtml* . Na przykład:
 
@@ -958,7 +958,7 @@ Nazwa strony jest ścieżką do strony z folderu głównego */Pages* , włączni
 
 Generowanie adresów URL dla stron obsługuje nazwy względne. W poniższej tabeli przedstawiono, która strona indeksu została wybrana z innymi `RedirectToPage` parametry ze *stron/klientów/Create. cshtml*:
 
-| RedirectToPage(x)| Stronic |
+| RedirectToPage(x)| logowania |
 | ----------------- | ------------ |
 | RedirectToPage("/Index") | *Strony/indeks* |
 | RedirectToPage("./Index"); | *Strony/klienci/indeks* |
@@ -979,9 +979,9 @@ Aby uzyskać więcej informacji, zobacz temat <xref:mvc/controllers/areas>.
 
 ## <a name="viewdata-attribute"></a>ViewData — atrybut
 
-Dane można przekazywać do strony z [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). Właściwości na kontrolerach lub modelach stron Razor z `[ViewData]` są przechowywane i ładowane z [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary).
+Dane można przekazywać do strony z [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). Właściwości na kontrolerach lub modelach stron Razor z atrybutem `[ViewData]` są przechowywane i ładowane z [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary).
 
-W poniższym przykładzie `AboutModel` zawiera właściwość `Title` z `[ViewData]`. Właściwość `Title` jest ustawiana na tytuł strony informacje:
+W poniższym przykładzie `AboutModel` zawiera właściwość `Title` oznaczona przy użyciu `[ViewData]`. Właściwość `Title` jest ustawiana na tytuł strony informacje:
 
 ```csharp
 public class AboutModel : PageModel

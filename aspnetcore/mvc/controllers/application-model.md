@@ -3,14 +3,14 @@ title: Pracuj z modelem aplikacji w ASP.NET Core
 author: ardalis
 description: Dowiedz się, jak czytać i manipulować modelem aplikacji, aby modyfikować sposób zachowania elementów MVC w ASP.NET Core.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 12/05/2019
 uid: mvc/controllers/application-model
-ms.openlocfilehash: 4e264dc7cc63955df42df0b9eeeb7b82ae286241
-ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
+ms.openlocfilehash: 4b6c978e5752eb320412a1c204df8e3d288fe4a1
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74733963"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881089"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>Pracuj z modelem aplikacji w ASP.NET Core
 
@@ -192,11 +192,11 @@ Konwencje dostarczone przez podkładkę są stosowane tylko do części aplikacj
 
 `UseWebApiParameterConventionsAttribute` służy do stosowania Konwencji akcji `WebApiParameterConventionsApplicationModelConvention`. Ta Konwencja określa, że proste typy używane jako parametry akcji są powiązane z identyfikatorem URI domyślnie, natomiast typy złożone są powiązane z treści żądania.
 
-### <a name="routes"></a>Rozsyłan
+### <a name="routes"></a>Trasy
 
 `UseWebApiRoutesAttribute` kontroluje, czy stosowana jest Konwencja kontrolera `WebApiApplicationModelConvention`. Po włączeniu ta konwencja jest używana do dodawania obsługi [obszarów](xref:mvc/controllers/areas) do trasy.
 
-Oprócz zestawu Konwencji pakiet zgodności zawiera `System.Web.Http.ApiController` klasę bazową, która zastępuje ten, który jest dostarczany przez internetowy interfejs API. Dzięki temu kontrolery napisane dla interfejsu API sieci Web i dziedziczą z jej `ApiController`, aby działały tak, jak zostały zaprojektowane, podczas uruchamiania na ASP.NET Core MVC. Ta klasa kontrolera podstawowego ma wszystkie atrybuty `UseWebApi*` wymienione powyżej. `ApiController` uwidacznia właściwości, metody i typy wyników, które są zgodne z tymi znajdującymi się w interfejsie API sieci Web.
+Oprócz zestawu Konwencji pakiet zgodności zawiera `System.Web.Http.ApiController` klasę bazową, która zastępuje ten, który jest dostarczany przez internetowy interfejs API. Dzięki temu kontrolery napisane dla interfejsu API sieci Web i dziedziczą z jej `ApiController`, aby działały tak, jak zostały zaprojektowane, podczas uruchamiania na ASP.NET Core MVC. Wszystkie atrybuty `UseWebApi*` wymienione wcześniej są stosowane do klasy kontrolera podstawowego. `ApiController` uwidacznia właściwości, metody i typy wyników, które są zgodne z tymi znajdującymi się w interfejsie API sieci Web.
 
 ## <a name="using-apiexplorer-to-document-your-app"></a>Dokumentowanie aplikacji przy użyciu ApiExplorer
 

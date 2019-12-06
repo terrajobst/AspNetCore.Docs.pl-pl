@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/04/2019
 uid: mvc/models/file-uploads
-ms.openlocfilehash: b57ad4fe62de38085c11d7026d278cc6e0c565ce
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 20e58660185a3055e06e92d9136e80e2394a470d
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963155"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881069"
 ---
 # <a name="upload-files-in-aspnet-core"></a>Przekaż pliki w ASP.NET Core
 
@@ -22,7 +22,7 @@ ms.locfileid: "73963155"
 
 ASP.NET Core obsługuje przekazywanie co najmniej jednego pliku przy użyciu powiązania z buforowanym modelem dla mniejszych plików i przesyłania strumieniowego z buforem dla większych plików.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 
@@ -46,17 +46,17 @@ Kroki zabezpieczeń, które zmniejszają prawdopodobieństwo pomyślnego ataku:
 &dagger;przykładowej aplikacji przedstawiono podejście, które spełnia kryteria.
 
 > [!WARNING]
-> Przekazywanie złośliwego kodu do systemu jest często pierwszym krokiem do wykonania kodu, który może:
+> Przekazywanie złośliwego kodu do systemu często jest pierwszym krokiem do wykonywania kodu, która może być:
 >
 > * Całkowicie przejąć kontrolę nad systemem.
 > * Przeciąż system z wynikiem awarii systemu.
-> * Naruszanie danych użytkownika lub systemu.
+> * Naruszyć bezpieczeństwo danych użytkownika lub systemu.
 > * Zastosuj graffiti do publicznego interfejsu użytkownika.
 >
-> Aby uzyskać informacje na temat zmniejszania obszaru ataków podczas akceptowania plików od użytkowników, zobacz następujące zasoby:
+> Instrukcje dotyczące zmniejszenie obszaru powierzchni ataku, akceptując pliki użytkowników zobacz następujące zasoby:
 >
-> * [Przekazywanie plików bez ograniczeń](https://www.owasp.org/index.php/Unrestricted_File_Upload)
-> * [Zabezpieczenia platformy Azure: Upewnij się, że podczas akceptowania plików od użytkowników są stosowane odpowiednie kontrolki](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
+> * [Przekazywanie pliku bez ograniczeń](https://www.owasp.org/index.php/Unrestricted_File_Upload)
+> * [Zabezpieczenia platformy Azure: Upewnij się, że odpowiednie formanty są stosowane podczas akceptowania plików od użytkowników](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
 
 Aby uzyskać więcej informacji na temat implementowania środków zabezpieczeń, w tym przykładów z przykładowej aplikacji, zobacz sekcję [Walidacja](#validation) .
 
@@ -64,7 +64,7 @@ Aby uzyskać więcej informacji na temat implementowania środków zabezpieczeń
 
 Typowe opcje magazynu dla plików to:
 
-* Baza danych
+* Baza danych programu
 
   * W przypadku małych operacji przekazywania plików baza danych jest często szybsza niż opcje magazynu fizycznego (systemu plików lub udziału sieciowego).
   * Baza danych jest często bardziej wygodna niż opcje magazynu fizycznego, ponieważ Pobieranie rekordu bazy danych dla danych użytkownika może jednocześnie dostarczyć zawartość pliku (na przykład obraz awatara).
@@ -101,7 +101,7 @@ Zasoby (dysk, pamięć) używane przez operacje przekazywania plików zależą o
 Buforowanie małych plików zostało omówione w następujących sekcjach tego tematu:
 
 * [Magazyn fizyczny](#upload-small-files-with-buffered-model-binding-to-physical-storage)
-* [Database](#upload-small-files-with-buffered-model-binding-to-a-database)
+* [Baza danych](#upload-small-files-with-buffered-model-binding-to-a-database)
 
 **Przesyłanie strumieniowe**
 
@@ -686,7 +686,7 @@ public class BufferedSingleFileUploadPhysicalModel : PageModel
 }
 ```
 
-`RequestSizeLimitAttribute` można również zastosować przy użyciu dyrektywy Razor [@attribute](xref:mvc/views/razor#attribute) :
+`RequestSizeLimitAttribute` można również zastosować przy użyciu dyrektywy Razor [`@attribute`](xref:mvc/views/razor#attribute) :
 
 ```cshtml
 @attribute [RequestSizeLimitAttribute(52428800)]
@@ -751,7 +751,7 @@ Przykłady w tym temacie polegają na <xref:System.IO.MemoryStream> do przechowy
 
 ASP.NET Core obsługuje przekazywanie co najmniej jednego pliku przy użyciu powiązania z buforowanym modelem dla mniejszych plików i przesyłania strumieniowego z buforem dla większych plików.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 
@@ -775,17 +775,17 @@ Kroki zabezpieczeń, które zmniejszają prawdopodobieństwo pomyślnego ataku:
 &dagger;przykładowej aplikacji przedstawiono podejście, które spełnia kryteria.
 
 > [!WARNING]
-> Przekazywanie złośliwego kodu do systemu jest często pierwszym krokiem do wykonania kodu, który może:
+> Przekazywanie złośliwego kodu do systemu często jest pierwszym krokiem do wykonywania kodu, która może być:
 >
 > * Całkowicie przejąć kontrolę nad systemem.
 > * Przeciąż system z wynikiem awarii systemu.
-> * Naruszanie danych użytkownika lub systemu.
+> * Naruszyć bezpieczeństwo danych użytkownika lub systemu.
 > * Zastosuj graffiti do publicznego interfejsu użytkownika.
 >
-> Aby uzyskać informacje na temat zmniejszania obszaru ataków podczas akceptowania plików od użytkowników, zobacz następujące zasoby:
+> Instrukcje dotyczące zmniejszenie obszaru powierzchni ataku, akceptując pliki użytkowników zobacz następujące zasoby:
 >
-> * [Przekazywanie plików bez ograniczeń](https://www.owasp.org/index.php/Unrestricted_File_Upload)
-> * [Zabezpieczenia platformy Azure: Upewnij się, że podczas akceptowania plików od użytkowników są stosowane odpowiednie kontrolki](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
+> * [Przekazywanie pliku bez ograniczeń](https://www.owasp.org/index.php/Unrestricted_File_Upload)
+> * [Zabezpieczenia platformy Azure: Upewnij się, że odpowiednie formanty są stosowane podczas akceptowania plików od użytkowników](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
 
 Aby uzyskać więcej informacji na temat implementowania środków zabezpieczeń, w tym przykładów z przykładowej aplikacji, zobacz sekcję [Walidacja](#validation) .
 
@@ -793,7 +793,7 @@ Aby uzyskać więcej informacji na temat implementowania środków zabezpieczeń
 
 Typowe opcje magazynu dla plików to:
 
-* Baza danych
+* Baza danych programu
 
   * W przypadku małych operacji przekazywania plików baza danych jest często szybsza niż opcje magazynu fizycznego (systemu plików lub udziału sieciowego).
   * Baza danych jest często bardziej wygodna niż opcje magazynu fizycznego, ponieważ Pobieranie rekordu bazy danych dla danych użytkownika może jednocześnie dostarczyć zawartość pliku (na przykład obraz awatara).
@@ -830,7 +830,7 @@ Zasoby (dysk, pamięć) używane przez operacje przekazywania plików zależą o
 Buforowanie małych plików zostało omówione w następujących sekcjach tego tematu:
 
 * [Magazyn fizyczny](#upload-small-files-with-buffered-model-binding-to-physical-storage)
-* [Database](#upload-small-files-with-buffered-model-binding-to-a-database)
+* [Baza danych](#upload-small-files-with-buffered-model-binding-to-a-database)
 
 **Przesyłanie strumieniowe**
 
@@ -1472,6 +1472,6 @@ Przykłady w tym temacie polegają na <xref:System.IO.MemoryStream> do przechowy
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Przekazywanie plików bez ograniczeń](https://www.owasp.org/index.php/Unrestricted_File_Upload)
+* [Przekazywanie pliku bez ograniczeń](https://www.owasp.org/index.php/Unrestricted_File_Upload)
 * [Zabezpieczenia platformy Azure: ramka zabezpieczeń: sprawdzanie poprawności danych wejściowych | Środki zaradcze](/azure/security/azure-security-threat-modeling-tool-input-validation)
 * [Wzorce projektowe chmury platformy Azure: wzorzec klucza portiera](/azure/architecture/patterns/valet-key)

@@ -5,14 +5,14 @@ description: Dowiedz się, jak Klasa startowa w ASP.NET Core konfiguruje usługi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/02/2019
+ms.date: 12/05/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 081eaa772d136477a37a3392877886327e0cda7c
-ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
+ms.openlocfilehash: 2468c685850f74b8dafb3e0abea6d7b83c417af0
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73634034"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880521"
 ---
 # <a name="app-startup-in-aspnet-core"></a>Uruchamianie aplikacji w ASP.NET Core
 
@@ -43,7 +43,7 @@ Powyższy przykład jest przeznaczony dla [Razor Pages](xref:razor-pages/index);
 
 ::: moniker-end
 
-Klasa `Startup` jest określana podczas kompilowania [hosta](xref:fundamentals/index#host) aplikacji. Klasa `Startup` jest zazwyczaj określana przez wywołanie metody [`WebHostBuilderExtensions.UseStartup<TStartup>`](xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*) na konstruktorze hosta:
+Klasa `Startup` jest określana podczas kompilowania [hosta](xref:fundamentals/index#host) aplikacji. Klasa `Startup` jest zazwyczaj określana przez wywołanie metody [WebHostBuilderExtensions. UseStartup\<TStartup >](xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*) na konstruktorze hosta:
 
 ::: moniker range="< aspnetcore-3.0"
 
@@ -95,7 +95,7 @@ Aby uzyskać więcej informacji na temat hosta, zobacz [hosta](xref:fundamentals
 
 Metoda <xref:Microsoft.AspNetCore.Hosting.StartupBase.ConfigureServices*> jest:
 
-* Opcjonalna.
+* Opcjonalny.
 * Wywoływane przez hosta przed metodą `Configure`, aby skonfigurować usługi aplikacji.
 * Gdzie są ustawiane [Opcje konfiguracji](xref:fundamentals/configuration/index) zgodnie z Konwencją.
 
@@ -251,7 +251,7 @@ Kolejność wykonywania oprogramowania pośredniczącego jest ustawiana w kolejn
 
 ## <a name="add-configuration-at-startup-from-an-external-assembly"></a>Dodaj konfigurację podczas uruchamiania z zestawu zewnętrznego
 
-Implementacja <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> umożliwia dodawanie ulepszeń do aplikacji podczas uruchamiania z zestawu zewnętrznego poza klasą `Startup` aplikacji. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/platform-specific-configuration>.
+Implementacja <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> umożliwia dodawanie ulepszeń do aplikacji podczas uruchamiania z zestawu zewnętrznego poza klasą `Startup` aplikacji. Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/configuration/platform-specific-configuration>.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

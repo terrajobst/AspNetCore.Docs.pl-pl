@@ -4,17 +4,17 @@ author: rick-anderson
 description: Dowiedz się więcej o nowych funkcjach w ASP.NET Core 3,0.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: aspnetcore-3.0
-ms.openlocfilehash: c3dde383507ec919f82b5268ddbf23911c3d24f8
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 4ade13c38880c9915ec590297f2a43548ca400a8
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963119"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880825"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>Co nowego w ASP.NET Core 3,0
 
@@ -38,9 +38,9 @@ scenariusze obsługiwane przez środowisko Blazor Framework:
 * Kompiluj biblioteki składników z bibliotekami klas Razor
 * Międzyoperacyjność w języku JavaScript
 
-Aby uzyskać więcej informacji, zobacz <xref:blazor/index>.
+Aby uzyskać więcej informacji, zobacz temat <xref:blazor/index>.
 
-### <a name="opno-locblazor-server"></a>Serwer Blazor
+### <a name="opno-locblazor-server"></a>Serwer programu Blazor
 
 Blazor oddziela logikę renderowania składników od sposobu stosowania aktualizacji interfejsu użytkownika. Serwer Blazor zapewnia obsługę hostowania składników Razor na serwerze w aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika są obsługiwane za pośrednictwem połączenia SignalR. Serwer Blazor jest obsługiwany w ASP.NET Core 3,0.
 
@@ -77,7 +77,7 @@ funkcje gRPC w ASP.NET Core 3,0 obejmują:
 * [GRPC .NET. client](https://www.nuget.org/packages/Grpc.Net.Client) &ndash; klienta GRPC dla platformy .NET Core, który kompiluje się na znanym `HttpClient`.
 * [GRPC .NET. ClientFactory](https://www.nuget.org/packages/Grpc.Net.ClientFactory) &ndash; GRPC z integracją klienta z `HttpClientFactory`.
 
-Aby uzyskać więcej informacji, zobacz <xref:grpc/index>.
+Aby uzyskać więcej informacji, zobacz temat <xref:grpc/index>.
 
 ## SignalR
 
@@ -182,7 +182,7 @@ W poprzednim kodzie `DomainRestrictedRequirement` służy jako `IAuthorizationRe
 * Sprawdź kontekst, w którym jest wywoływany centrum.
 * Podejmowanie decyzji na umożliwienie użytkownikowi wykonywania poszczególnych metod centrów.
 
-Poszczególne metody centrów mogą być dekoracyjne z nazwą zasad, które kod sprawdza w czasie wykonywania. Gdy klienci próbują wywołać poszczególne metody centrów, program obsługi `DomainRestrictedRequirement` uruchamia i kontroluje dostęp do metod. W zależności od sposobu, w jaki `DomainRestrictedRequirement` kontroluje dostęp:
+Poszczególne metody centrów mogą być oznaczone nazwą zasad, które kod sprawdza w czasie wykonywania. Gdy klienci próbują wywołać poszczególne metody centrów, program obsługi `DomainRestrictedRequirement` uruchamia i kontroluje dostęp do metod. W zależności od sposobu, w jaki `DomainRestrictedRequirement` kontroluje dostęp:
 
 * Wszyscy zalogowani użytkownicy mogą wywoływać metodę `SendMessage`.
 * Historie użytkowników mogą wyświetlać tylko użytkownicy, którzy zalogowali się przy użyciu adresu e-mail `@jabbr.net`.
@@ -319,8 +319,8 @@ Aby dodać Json.NET do ASP.NET Core 3,0, zobacz [Dodawanie obsługi formatu JSON
 
 Poniższa lista zawiera nowe dyrektywy Razor:
 
-* [@attribute](xref:mvc/views/razor#attribute) &ndash; dyrektywa `@attribute` stosuje dany atrybut do klasy wygenerowanej strony lub widoku. Na przykład `@attribute [Authorize]`.
-* [@implements](xref:mvc/views/razor#implements) &ndash; dyrektywa `@implements` implementuje interfejs dla wygenerowanej klasy. Na przykład `@implements IDisposable`.
+* [`@attribute`](xref:mvc/views/razor#attribute) &ndash; dyrektywa `@attribute` stosuje dany atrybut do klasy wygenerowanej strony lub widoku. Na przykład `@attribute [Authorize]`.
+* [`@implements`](xref:mvc/views/razor#implements) &ndash; dyrektywa `@implements` implementuje interfejs dla wygenerowanej klasy. Na przykład `@implements IDisposable`.
 
 ## <a name="identityserver4-supports-authentication-and-authorization-for-web-apis-and-spas"></a>Usługi identityserver4 obsługuje uwierzytelnianie i autoryzację dla interfejsów API sieci Web i aplikacji jednostronicowych
 
@@ -365,7 +365,7 @@ Opcje uwierzytelniania certyfikatów obejmują:
 * Sprawdź, czy certyfikaty są odwoływane.
 * Sprawdź, czy certyfikat proffered ma odpowiednie flagi użycia.
 
-Domyślny podmiot zabezpieczeń użytkownika jest konstruowany ze wszystkich właściwości certyfikatu. Nazwa główna użytkownika zawiera zdarzenie, które umożliwia uzupełnianie lub zastępowanie podmiotu zabezpieczeń. Aby uzyskać więcej informacji, zobacz <xref:security/authentication/certauth>.
+Domyślny podmiot zabezpieczeń użytkownika jest konstruowany ze wszystkich właściwości certyfikatu. Nazwa główna użytkownika zawiera zdarzenie, które umożliwia uzupełnianie lub zastępowanie podmiotu zabezpieczeń. Aby uzyskać więcej informacji, zobacz temat <xref:security/authentication/certauth>.
 
 [Uwierzytelnianie systemu Windows](/windows-server/security/windows-authentication/windows-authentication-overview) zostało rozszerzone na system Linux i macOS. W poprzednich wersjach uwierzytelnianie systemu Windows było ograniczone do [usług IIS](xref:host-and-deploy/iis/index) i [HttpSys](xref:fundamentals/servers/httpsys). W ASP.NET Core 3,0 [Kestrel](xref:fundamentals/servers/kestrel) ma możliwość używania [protokołów](/windows-server/security/kerberos/kerberos-authentication-overview)Negotiate, Kerberos i [NTLM w systemach Windows](/windows-server/security/kerberos/ntlm-overview), Linux i macOS dla hostów przyłączonych do domeny systemu Windows. Kestrel obsługa tych schematów uwierzytelniania jest udostępniana przez pakiet [NuGet Microsoft. AspNetCore. Authentication. Negotiate](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Negotiate) . Podobnie jak w przypadku innych usług uwierzytelniania, skonfiguruj aplikację uwierzytelniania Wide, a następnie skonfiguruj usługę:
 
@@ -391,7 +391,7 @@ Wymagania dotyczące hosta:
   * Dla procesu sieci Web należy utworzyć nazwy SPN.
   * Na komputerze hosta muszą być generowane i skonfigurowane [pliki plik KEYTAB](https://blogs.technet.microsoft.com/pie/2018/01/03/all-you-need-to-know-about-keytab-files/) .
 
-Aby uzyskać więcej informacji, zobacz <xref:security/authentication/windowsauth>.
+Aby uzyskać więcej informacji, zobacz temat <xref:security/authentication/windowsauth>.
 
 ## <a name="template-changes"></a>Zmiany szablonu
 
@@ -430,7 +430,7 @@ Wszystkie usługi można nadal dodawać bezpośrednio jako argumenty do metody `
 * Niejednoznaczność między nagłówkami a przyczepami została rozwiązana przez przeniesienie końcowych nagłówków do nowej kolekcji.
 * Synchroniczne interfejsy API we/wy, takie jak `HttpRequest.Body.Read`, są typowym źródłem zablokowania wątków prowadzącego do awarii aplikacji. W 3,0 `AllowSynchronousIO` jest domyślnie wyłączona.
 
-Aby uzyskać więcej informacji, zobacz <xref:migration/22-to-30#kestrel>.
+Aby uzyskać więcej informacji, zobacz temat <xref:migration/22-to-30#kestrel>.
 
 ## <a name="http2-enabled-by-default"></a>Protokół HTTP/2 włączony domyślnie
 
@@ -454,7 +454,7 @@ Routing punktów końcowych, który umożliwia platformom (na przykład MVC) wsp
 * Punkty końcowe mogą implementować zasady, takie jak CORS lub Authorization, zarówno w oprogramowaniu pośredniczącym, jak i MVC.
 * Filtry i atrybuty mogą być umieszczane na metodach w kontrolerach.
 
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/routing#routing-basics>.
+Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/routing#routing-basics>.
 
 ## <a name="health-checks"></a>Kontrole kondycji
 
@@ -473,14 +473,14 @@ Punkty końcowe sprawdzania kondycji mogą:
 * Wymagaj autoryzacji.
 * Wymagaj mechanizmu CORS.
 
-Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 * <xref:migration/22-to-30#health-checks>
 * <xref:host-and-deploy/health-checks>
 
 ## <a name="pipes-on-httpcontext"></a>Potoki w obiekcie HttpContext
 
-Teraz można odczytać treść żądania i napisać treść odpowiedzi przy użyciu interfejsu API <xref:System.IO.Pipelines>. Program <!-- <xref:Microsoft.AspNetCore.Http.HttpRequest.BodyReader> --> Właściwość `HttpRequest.BodyReader` zawiera <xref:System.IO.Pipelines.PipeReader>, których można użyć do odczytu treści żądania. Program <!-- <xref:Microsoft.AspNetCore.Http.> --> Właściwość `HttpResponse.BodyWriter` zawiera <xref:System.IO.Pipelines.PipeWriter>, których można użyć do zapisania treści odpowiedzi. `HttpRequest.BodyReader` jest analogiczny do strumienia `HttpRequest.Body`. `HttpResponse.BodyWriter` jest analogiczny do strumienia `HttpResponse.Body`.
+Teraz można odczytać treść żądania i napisać treść odpowiedzi przy użyciu interfejsu API <xref:System.IO.Pipelines>. Microsoft® <!-- <xref:Microsoft.AspNetCore.Http.HttpRequest.BodyReader> --> Właściwość `HttpRequest.BodyReader` zawiera <xref:System.IO.Pipelines.PipeReader>, których można użyć do odczytu treści żądania. Microsoft® <!-- <xref:Microsoft.AspNetCore.Http.> --> Właściwość `HttpResponse.BodyWriter` zawiera <xref:System.IO.Pipelines.PipeWriter>, których można użyć do zapisania treści odpowiedzi. `HttpRequest.BodyReader` jest analogiczny do strumienia `HttpRequest.Body`. `HttpResponse.BodyWriter` jest analogiczny do strumienia `HttpResponse.Body`.
 
 <!-- indirectly related, https://github.com/dotnet/docs/pull/14414 won't be published by 9/23  -->
 

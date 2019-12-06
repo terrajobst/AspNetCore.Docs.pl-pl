@@ -3,14 +3,14 @@ title: Tworzenie klienta i serwera platformy .NET Core gRPC w ASP.NET Core
 author: juntaoluo
 description: W tym samouczku pokazano, jak utworzyć usługę gRPC i klienta gRPC na ASP.NET Core. Dowiedz się, jak utworzyć projekt usługi gRPC, edytować plik PROTO i dodać wywołanie przesyłania strumieniowego dupleksu.
 ms.author: johluo
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: e5373d9abb9a770132e756843dbd15534dbe3356
-ms.sourcegitcommit: 231780c8d7848943e5e9fd55e93f437f7e5a371d
+ms.openlocfilehash: c179dd31e6484246498c857aad797eb752f00bf5
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116098"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879649"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Samouczek: Tworzenie gRPC klienta i serwera w ASP.NET Core
 
@@ -22,7 +22,7 @@ Na koniec będziesz mieć klienta gRPC, który komunikuje się z usługą gRPC G
 
 [Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/grpc/grpc-start/sample) ([jak pobrać](xref:index#how-to-download-a-sample)).
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Utwórz serwer gRPC.
@@ -52,13 +52,13 @@ W tym samouczku przedstawiono następujące instrukcje:
 * Uruchom program Visual Studio i wybierz pozycję **Utwórz nowy projekt**. Alternatywnie z menu **plik** programu Visual Studio wybierz pozycję **Nowy** **projekt** > .
 * W oknie dialogowym **Tworzenie nowego projektu** wybierz pozycję **Usługa gRPC** i wybierz pozycję **dalej**:
 
-  ![\* * Utwórz nowy projekt * * okno dialogowe](~/tutorials/grpc/grpc-start/static/cnp.png)
+  ![Okno dialogowe Tworzenie nowego projektu](~/tutorials/grpc/grpc-start/static/cnp.png)
 
 * Nazwij projekt **GrpcGreeter**. Ważne jest, aby nazwa projektu *GrpcGreeter* , tak aby przestrzenie nazw były zgodne podczas kopiowania i wklejania kodu.
-* Wybierz pozycję **Utwórz**.
+* Wybierz **tworzenie**.
 * W oknie dialogowym **Tworzenie nowej usługi gRPC** :
   * Wybrano szablon **usługi gRPC** .
-  * Wybierz pozycję **Utwórz**.
+  * Wybierz **tworzenie**.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -75,7 +75,7 @@ W tym samouczku przedstawiono następujące instrukcje:
   * `code` polecenie otwiera folder *GrpcGreeter* w nowym wystąpieniu Visual Studio Code.
 
   Zostanie wyświetlone okno dialogowe z **wymaganymi zasobami do kompilowania i debugowania brakuje w "GrpcGreeter". Dodać je?**
-* Wybierz pozycję **tak**.
+* Wybierz pozycję **Yes**.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
@@ -120,8 +120,8 @@ info: Microsoft.Hosting.Lifetime[0]
 
 * *Greeting. proto* &ndash; plik *Protos/Greeting. proto* definiuje `Greeter` gRPC i służy do generowania zasobów serwera gRPC. Aby uzyskać więcej informacji, zobacz [wprowadzenie do gRPC](xref:grpc/index).
 * Folder *usługi* : zawiera implementację usługi `Greeter`.
-* plik *appSettings. json* &ndash; zawiera dane konfiguracyjne, takie jak protokół używany przez Kestrel. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/index>.
-* *Program.cs* &ndash; zawiera punkt wejścia dla usługi gRPC. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host>.
+* plik *appSettings. json* &ndash; zawiera dane konfiguracyjne, takie jak protokół używany przez Kestrel. Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/configuration/index>.
+* *Program.cs* &ndash; zawiera punkt wejścia dla usługi gRPC. Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/host/generic-host>.
 * *Startup.cs* &ndash; zawiera kod, który konfiguruje zachowanie aplikacji. Aby uzyskać więcej informacji, zobacz [Uruchamianie aplikacji](xref:fundamentals/startup).
 
 ## <a name="create-the-grpc-client-in-a-net-console-app"></a>Tworzenie klienta gRPC w aplikacji konsolowej .NET
@@ -176,7 +176,7 @@ Zainstaluj pakiety przy użyciu konsoli Menedżera pakietów (PMC) lub Zarządza
 #### <a name="manage-nuget-packages-option-to-install-packages"></a>Opcja zarządzania pakietami NuGet w celu zainstalowania pakietów
 
 * Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** > **Zarządzanie pakietami NuGet**
-* Wybierz kartę **przeglądanie** .
+* Wybierz kartę **Przeglądaj**.
 * W polu wyszukiwania wprowadź **GRPC .NET. Client** .
 * Wybierz pakiet **GRPC .NET. Client** z karty **Przeglądaj** i wybierz pozycję **Zainstaluj**.
 * Powtórz dla `Google.Protobuf` i `Grpc.Tools`.

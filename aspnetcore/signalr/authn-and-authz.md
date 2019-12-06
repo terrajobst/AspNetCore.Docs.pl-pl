@@ -5,16 +5,16 @@ description: Dowiedz się, jak używać uwierzytelniania i autoryzacji w ASP.NET
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: signalr/authn-and-authz
-ms.openlocfilehash: 5a1e15ef46a3f89af3fbd3d505e7bd340c46e672
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 091cc9b2adc1f6a8fac79519884695d1c1725d2a
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963829"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880417"
 ---
 # <a name="authentication-and-authorization-in-aspnet-core-opno-locsignalr"></a>Uwierzytelnianie i autoryzacja w ASP.NET Core SignalR
 
@@ -24,7 +24,7 @@ Według [Andrew Stanton-pielęgniarki](https://twitter.com/anurse)
 
 ## <a name="authenticate-users-connecting-to-a-opno-locsignalr-hub"></a>Uwierzytelnianie użytkowników łączących się z centrum SignalR
 
-SignalR można używać z [uwierzytelnianiem ASP.NET Core](xref:security/authentication/identity) w celu skojarzenia użytkownika z każdym połączeniem. W centrum dane uwierzytelniania są dostępne z właściwości [`HubConnectionContext.User`](/dotnet/api/microsoft.aspnetcore.signalr.hubconnectioncontext.user) . Uwierzytelnianie umożliwia centrum wywoływanie metod we wszystkich połączeniach skojarzonych z użytkownikiem. Aby uzyskać więcej informacji, zobacz [Zarządzanie użytkownikami i grupami w SignalR](xref:signalr/groups). Wiele połączeń może być skojarzonych z pojedynczym użytkownikiem.
+SignalR można używać z [uwierzytelnianiem ASP.NET Core](xref:security/authentication/identity) w celu skojarzenia użytkownika z każdym połączeniem. W centrum dane uwierzytelniania są dostępne z poziomu właściwości [HubConnectionContext. User](/dotnet/api/microsoft.aspnetcore.signalr.hubconnectioncontext.user) . Uwierzytelnianie umożliwia centrum wywoływanie metod we wszystkich połączeniach skojarzonych z użytkownikiem. Aby uzyskać więcej informacji, zobacz [Zarządzanie użytkownikami i grupami w SignalR](xref:signalr/groups). Wiele połączeń może być skojarzonych z pojedynczym użytkownikiem.
 
 Poniżej znajduje się przykład `Startup.Configure`, który używa uwierzytelniania SignalR i ASP.NET Core:
 
@@ -129,7 +129,7 @@ Dodaj nową klasę implementującą `IUserIdProvider` i pobierającą jedno z o�
 
 [!code-csharp[Name based provider](authn-and-authz/sample/nameuseridprovider.cs?name=NameUserIdProvider)]
 
-Zamiast `ClaimTypes.Name` można użyć dowolnej wartości z `User` (na przykład identyfikatora SID systemu Windows itd.).
+Zamiast `ClaimTypes.Name`można użyć dowolnej wartości z `User` (na przykład identyfikatora SID systemu Windows itd.).
 
 > [!NOTE]
 > Wybrana wartość musi być unikatowa wśród wszystkich użytkowników w systemie. W przeciwnym razie komunikat przeznaczony dla jednego użytkownika może zostać zakończony przez innego użytkownika.
@@ -266,7 +266,7 @@ public class DomainRestrictedRequirement :
 }
 ```
 
-W `Startup.ConfigureServices` Dodaj nowe zasady, podając niestandardowe wymagania `DomainRestrictedRequirement` jako parametr, aby utworzyć zasady `DomainRestricted`.
+W `Startup.ConfigureServices`Dodaj nowe zasady, podając niestandardowe wymagania `DomainRestrictedRequirement` jako parametr, aby utworzyć zasady `DomainRestricted`.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

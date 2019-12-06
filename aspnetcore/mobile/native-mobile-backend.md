@@ -1,46 +1,46 @@
 ---
-title: Tworzenie usług zaplecza dla natywnych aplikacji mobilnych za pomocą programu ASP.NET Core
+title: Tworzenie usług zaplecza dla natywnych aplikacji mobilnych za pomocą ASP.NET Core
 author: ardalis
-description: Dowiedz się, jak tworzenie usług zaplecza za pomocą platformy ASP.NET Core MVC do obsługi natywnych aplikacji mobilnych.
+description: Dowiedz się, jak utworzyć usługi zaplecza przy użyciu ASP.NET Core MVC do obsługi natywnych aplikacji mobilnych.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 12/05/2019
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: b50d2593d7dc4b89472033898373e3a22fc9a7a3
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 38ac69bfe9d99d6d61f96fde92d86fd752ebbb6b
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899080"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881162"
 ---
-# <a name="create-backend-services-for-native-mobile-apps-with-aspnet-core"></a>Tworzenie usług zaplecza dla natywnych aplikacji mobilnych za pomocą programu ASP.NET Core
+# <a name="create-backend-services-for-native-mobile-apps-with-aspnet-core"></a>Tworzenie usług zaplecza dla natywnych aplikacji mobilnych za pomocą ASP.NET Core
 
 Przez [Steve Smith](https://ardalis.com/)
 
-Aplikacje mobilne mogą komunikować się z usługami zaplecza programu ASP.NET Core. Aby uzyskać instrukcje dotyczące łączenia usługi sieci web w lokalnych z symulatorach systemu iOS i emulatory systemu Android, zobacz [Połącz z lokalnych usług sieci Web z poziomu systemu iOS symulatorach i emulatory systemu Android](/xamarin/cross-platform/deploy-test/connect-to-local-web-services).
+Aplikacje mobilne mogą komunikować się z ASP.NET Core usług zaplecza. Aby uzyskać instrukcje dotyczące łączenia lokalnych usług sieci Web z symulatorami systemu iOS i emulatorami systemu Android, zobacz [nawiązywanie połączenia z lokalnymi usługami sieci Web z symulatorów systemu iOS i emulatorów systemu Android](/xamarin/cross-platform/deploy-test/connect-to-local-web-services).
 
-[Wyświetlanie lub pobieranie przykładowego kodu usługi wewnętrznej bazy danych](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mobile/native-mobile-backend/sample)
+[Wyświetlanie lub Pobieranie przykładowego kodu usług wewnętrznej bazy danych](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mobile/native-mobile-backend/sample)
 
-## <a name="the-sample-native-mobile-app"></a>Przykładowe natywnej aplikacji mobilnej
+## <a name="the-sample-native-mobile-app"></a>Przykładowa Natywna aplikacja mobilna
 
-W tym samouczku pokazano, jak tworzenie usług zaplecza za pomocą platformy ASP.NET Core MVC do obsługi natywnych aplikacji mobilnych. Używa ona [aplikacji Xamarin Forms ToDoRest](/xamarin/xamarin-forms/data-cloud/consuming/rest) jako jego klient natywny, która obejmuje oddzielne klientów natywnych dla systemów Android, iOS, Windows Universal i Windows Phone urządzeń. Można wykonać kroki samouczka połączone do tworzenia aplikacji natywnej (i zainstaluj wymagane bezpłatne narzędzia Xamarin), a także Pobierz przykładowe rozwiązanie platformy Xamarin. Przykład Xamarin obejmuje projekt usług ASP.NET Web API 2 aplikacji ASP.NET Core w tym artykule są zastępowane (bez zmian, wymagane przez klienta).
+W tym samouczku przedstawiono sposób tworzenia usług zaplecza przy użyciu ASP.NET Core MVC do obsługi natywnych aplikacji mobilnych. Korzysta ona z [aplikacji Xamarin Forms ToDoRest](/xamarin/xamarin-forms/data-cloud/consuming/rest) jako klienta natywnego, w tym oddzielnych klientów natywnych dla urządzeń z systemami Android, iOS, uniwersalnym i Windows Phone. Aby utworzyć aplikację natywną (i zainstalować niezbędne bezpłatne narzędzia Xamarin), możesz skorzystać z połączonego samouczka, a także pobrać przykładowe rozwiązanie Xamarin. Przykład platformy Xamarin zawiera projekt usług ASP.NET Web API 2, który zastąpi aplikacja ASP.NET Core w tym artykule (bez zmian wymaganych przez klienta).
 
-![Wykonaj pozostałe aplikacji uruchomionych na smartfonie dla systemu Android](native-mobile-backend/_static/todo-android.png)
+![Aby aplikacja REST działała na urządzeniu smartphone z systemem Android](native-mobile-backend/_static/todo-android.png)
 
 ### <a name="features"></a>Funkcje
 
-Aplikacja ToDoRest obsługuje wyświetlanie, dodawanie i aktualizowania elementów do wykonania. Każdy element ma identyfikator, nazwę, uwagi i właściwości wskazującą, czy go jest zostało to jeszcze zrobione.
+Aplikacja ToDoRest obsługuje wyświetlanie listy, Dodawanie, usuwanie i aktualizowanie elementów do wykonania. Każdy element ma identyfikator, nazwę, notatki i Właściwość wskazującą, czy została jeszcze ukończona.
 
-Widok główny elementów, jak pokazano powyżej, wyświetla nazwę każdego elementu i wskazuje, jeśli jest wykonywane ze znacznikiem wyboru.
+Główny widok elementów, jak pokazano powyżej, zawiera listę nazw poszczególnych elementów i wskazuje, czy jest on wykonany za pomocą znacznika wyboru.
 
-Naciskając `+` ikona otwiera okno dialogowe Dodawanie elementu:
+Naciśnięcie ikony `+` otwiera okno dialogowe Dodawanie elementu:
 
-![Okno dialogowe elementu Dodawanie](native-mobile-backend/_static/todo-android-new-item.png)
+![Okno dialogowe Dodawanie elementu](native-mobile-backend/_static/todo-android-new-item.png)
 
-Naciśnięcie elementu na ekranie głównym listy zostanie otwarte okno dialogowe Edycja, gdzie można zmodyfikować nazwę, uwagi i gotowe ustawienia elementu, lub można usunąć elementu:
+Naciśnięcie elementu na głównym ekranie listy otwiera okno dialogowe edytowania, w którym można modyfikować nazwę elementu, notatki i gotowe ustawienia lub można usunąć element:
 
-![Edytuj okno dialogowe elementu](native-mobile-backend/_static/todo-android-edit-item.png)
+![Edytowanie elementu — okno dialogowe](native-mobile-backend/_static/todo-android-edit-item.png)
 
-W tym przykładzie jest domyślnie skonfigurowany do użycia usług zaplecza hostowanych w developer.xamarin.com, dzięki czemu operacji tylko do odczytu. Aby przetestować go samodzielnie względem aplikacji ASP.NET Core utworzona w następnej sekcji, które są uruchomione na komputerze, musisz zaktualizować aplikację `RestUrl` stałej. Przejdź do `ToDoREST` projektu, a następnie otwórz *Constants.cs* pliku. Zastąp `RestUrl` adres URL, który zawiera IP Twojego komputera adresów (nie localhost ani niebędący adresem 127.0.0.1, ponieważ ten adres jest używany z emulatora urządzeń, nie z Twojego komputera). Zawierają również numer portu (5000). Aby przetestować działanie usługi z urządzeniem, upewnij się, że nie masz aktywnych Zapora blokuje dostęp do tego portu.
+Ten przykład jest domyślnie skonfigurowany do korzystania z usług zaplecza hostowanych w developer.xamarin.com, które zezwalają na operacje tylko do odczytu. Aby przetestować aplikację ASP.NET Core utworzoną w następnej sekcji działającej na komputerze, musisz zaktualizować stałą `RestUrl` aplikacji. Przejdź do projektu `ToDoREST` i Otwórz plik *Constants.cs* . Zastąp `RestUrl` adresem URL, który zawiera adres IP maszyny (nie localhost lub 127.0.0.1, ponieważ ten adres jest używany z emulatora urządzenia, a nie z komputera). Uwzględnij również numer portu (5000). Aby sprawdzić, czy usługi działają z urządzeniem, upewnij się, że nie masz aktywnej zapory, która blokuje dostęp do tego portu.
 
 ```csharp
 // URL of REST service (Xamarin ReadOnly Service)
@@ -50,107 +50,107 @@ W tym przykładzie jest domyślnie skonfigurowany do użycia usług zaplecza hos
 public static string RestUrl = "http://192.168.1.207:5000/api/todoitems/{0}";
 ```
 
-## <a name="creating-the-aspnet-core-project"></a>Tworzenie projektu platformy ASP.NET Core
+## <a name="creating-the-aspnet-core-project"></a>Tworzenie projektu ASP.NET Core
 
-Tworzenie nowej aplikacji sieci Web platformy ASP.NET Core w programie Visual Studio. Wybierz szablon interfejsu API sieci Web i bez uwierzytelniania. Nadaj projektowi nazwę *ToDoApi*.
+Utwórz nową aplikację sieci Web ASP.NET Core w programie Visual Studio. Wybierz szablon internetowego interfejsu API i bez uwierzytelniania. Nazwij projekt *ToDoApi*.
 
-![Okno dialogowe Nowy aplikacji sieci Web ASP.NET z wybraniu szablonu projektu interfejsu API sieci Web](native-mobile-backend/_static/web-api-template.png)
+![Okno dialogowe Nowa aplikacja sieci Web ASP.NET z wybranym szablonem projektu interfejsu API sieci Web](native-mobile-backend/_static/web-api-template.png)
 
-Aplikacja powinien odpowiedzieć na wszystkie żądania na porcie 5000. Aktualizacja *Program.cs* obejmujący `.UseUrls("http://*:5000")` do osiągnięcia tego:
+Aplikacja powinna odpowiedzieć na wszystkie żądania kierowane do portu 5000. Zaktualizuj *program.cs* , aby uwzględnić `.UseUrls("http://*:5000")`, aby to osiągnąć:
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Program.cs?range=10-16&highlight=3)]
 
 > [!NOTE]
-> Sprawdź, czy uruchomić aplikację bezpośrednio, a nie za usług IIS Express, który ignoruje żądania-local domyślnie. Uruchom [dotnet, uruchom](/dotnet/core/tools/dotnet-run) z wiersza polecenia, lub wybierz nazwę profilu aplikacji z listy rozwijanej Debuguj element docelowy, na pasku narzędzi programu Visual Studio.
+> Upewnij się, że aplikacja jest uruchamiana bezpośrednio, a nie w IIS Express, co domyślnie ignoruje żądania nielokalne. Uruchom polecenie [dotnet Run](/dotnet/core/tools/dotnet-run) z wiersza polecenia lub wybierz profil nazwy aplikacji z listy rozwijanej cel debugowania na pasku narzędzi programu Visual Studio.
 
-Dodaj klasę modelu do reprezentowania elementów do wykonania. Oznacz wymagane pola za pomocą `[Required]` atrybutu:
+Dodaj klasę modelu do reprezentowania elementów do wykonania. Oznacz wymagane pola z atrybutem `[Required]`:
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Models/ToDoItem.cs)]
 
-Metody interfejsu API wymagają jakiś sposób, aby pracować z danymi. Użyto tych samych `IToDoRepository` interfejsu oryginalnego używa platformy Xamarin w przykładowej:
+Metody interfejsu API wymagają pewnego sposobu pracy z danymi. Użyj tego samego interfejsu `IToDoRepository` oryginalnego przykładu platformy Xamarin:
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Interfaces/IToDoRepository.cs)]
 
-W tym przykładzie wdrożenia po prostu używa prywatnego kolekcję elementów:
+Dla tego przykładu implementacja używa tylko prywatnej kolekcji elementów:
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Services/ToDoRepository.cs)]
 
-Konfigurowanie wdrożenia w *Startup.cs*:
+Skonfiguruj implementację w programie *Startup.cs*:
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Startup.cs?highlight=6&range=29-35)]
 
-W tym momencie możesz przystąpić do tworzenia *ToDoItemsController*.
+W tym momencie można przystąpić do tworzenia *ToDoItemsController*.
 
 > [!TIP]
-> Dowiedz się więcej na temat tworzenia internetowych interfejsów API w [Tworzenie pierwszego interfejsu API sieci Web za pomocą platformy ASP.NET Core MVC i programu Visual Studio](../tutorials/first-web-api.md).
+> Dowiedz się więcej o tworzeniu interfejsów API sieci Web w temacie Tworzenie [pierwszego internetowego interfejsu API za pomocą ASP.NET Core MVC i Visual Studio](../tutorials/first-web-api.md).
 
 ## <a name="creating-the-controller"></a>Tworzenie kontrolera
 
-Dodaj nowy kontroler do projektu, *ToDoItemsController*. It should inherit from Microsoft.AspNetCore.Mvc.Controller. Dodaj `Route` atrybutu, aby wskazać, że kontroler będzie obsługiwać żądania kierowane do ścieżki, począwszy od `api/todoitems`. `[controller]` Token dla trasy jest zastępowany przez nazwę kontrolera (z pominięciem `Controller` sufiks) i jest szczególnie przydatne w przypadku globalnych trasy. Dowiedz się więcej o [routingu](../fundamentals/routing.md).
+Dodaj nowy kontroler do projektu, *ToDoItemsController*. Powinien on dziedziczyć po elemencie Microsoft. AspNetCore. MVC. Controller. Dodaj atrybut `Route`, aby wskazać, że kontroler będzie obsługiwał żądania wysyłane do ścieżek zaczynających się od `api/todoitems`. Token `[controller]` w marszrucie jest zastępowany nazwą kontrolera (z pominięciem sufiksu `Controller`) i jest szczególnie przydatny w przypadku tras globalnych. Dowiedz się więcej o [routingu](../fundamentals/routing.md).
 
-Wymaga kontrolera `IToDoRepository` do funkcji; żądania wystąpienia tego typu za pośrednictwem konstruktora kontrolera. W czasie wykonywania, to wystąpienie uwarunkowane przestrzeganiem dzięki obsłudze struktury [wstrzykiwanie zależności](../fundamentals/dependency-injection.md).
+Kontroler wymaga `IToDoRepository` do działania; Zażądaj wystąpienia tego typu za pomocą konstruktora kontrolera. W czasie wykonywania to wystąpienie zostanie dostarczone przy użyciu obsługi platformy w celu [iniekcji zależności](../fundamentals/dependency-injection.md).
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=1-17&highlight=9,14)]
 
-Ten interfejs API obsługuje czterech różnych czasowników HTTP do wykonywania operacji CRUD (tworzenia, odczytu, Update, Delete) w źródle danych. Najprostsza to jest operacja odczytu, która odpowiada na żądania HTTP GET.
+Ten interfejs API obsługuje cztery różne czasowniki HTTP do wykonywania operacji CRUD (tworzenie, odczytywanie, aktualizowanie i usuwanie) w źródle danych. Najprostszą z nich jest operacja odczytu, która odnosi się do żądania HTTP GET.
 
-### <a name="reading-items"></a>Trwa odczyt elementów
+### <a name="reading-items"></a>Odczytywanie elementów
 
-Żądanie listy elementów odbywa się za pomocą żądanie GET w celu `List` metody. `[HttpGet]` Atrybutu na `List` metoda wskazuje, czy ta akcja tylko powinna obsługiwać żądania GET. Trasy dla tej akcji jest trasy określonych w kontrolerze. Nie jest konieczna użyć nazwy akcji w ramach trasy. Wystarczy upewnić się, że każde działanie ma unikatowy i jednoznacznie trasy. Atrybuty routingu mogą być stosowane na poziomach metody do zbudowania określonej trasy i kontrolera.
+Żądanie listy elementów jest wykonywane z żądaniem pobrania do metody `List`. Atrybut `[HttpGet]` w metodzie `List` wskazuje, że ta akcja powinna obsługiwać tylko żądania GET. Trasa dla tej akcji jest trasą określoną na kontrolerze. Nie trzeba koniecznie używać nazwy akcji jako części trasy. Wystarczy upewnić się, że każda akcja ma unikatową i jednoznaczną trasę. Atrybuty routingu mogą być stosowane zarówno na poziomie kontrolera, jak i metody do tworzenia określonych tras.
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=19-23)]
 
-`List` Metoda zwraca kod odpowiedzi 200 OK i wszystkie elementy zadań do wykonania, zserializowanym w formacie JSON.
+Metoda `List` zwraca kod odpowiedzi 200 OK i wszystkie elementy do wykonania, które zostały zserializowane jako dane JSON.
 
-Można przetestować nową metodę interfejsu API przy użyciu różnych narzędzi, takich jak [Postman](https://www.getpostman.com/docs/), pokazano poniżej:
+Nową metodę interfejsu API można testować przy użyciu różnych narzędzi, takich jak program [Poster](https://www.getpostman.com/docs/), jak pokazano tutaj:
 
-![Konsola narzędzia postman, pokazująca, że żądanie GET todoitems i treści odpowiedzi, wyświetlanie kod JSON dla trzech elementów zwróconych](native-mobile-backend/_static/postman-get.png)
+![Konsola programu Poster pokazująca żądanie GET dla TodoItems i treść odpowiedzi przedstawiającą kod JSON dla trzech zwróconych elementów](native-mobile-backend/_static/postman-get.png)
 
 ### <a name="creating-items"></a>Tworzenie elementów
 
-Zgodnie z Konwencją tworzenie nowych elementów danych jest zamapowana na zlecenie HTTP POST. `Create` Metoda ma `[HttpPost]` zastosowano atrybut i akceptuje `ToDoItem` wystąpienia. Ponieważ `item` argumentów, które zostaną przekazane w treści wpisu, ten parametr zostanie nadany `[FromBody]` atrybutu.
+Zgodnie z Konwencją tworzenie nowych elementów danych jest mapowane na zlecenie HTTP POST. Metoda `Create` ma zastosowany atrybut `[HttpPost]` i akceptuje wystąpienie `ToDoItem`. Ponieważ argument `item` jest przesyłany w treści wpisu, ten parametr określa atrybut `[FromBody]`.
 
-Wewnątrz metody element jest zaznaczony dla ważności i wcześniejsze istnienie w magazynie danych, a jeśli wystąpią żadne problemy, jest ona dodawana przy użyciu repozytorium. Sprawdzanie `ModelState.IsValid` wykonuje [Walidacja modelu](../mvc/models/validation.md)i musi być wykonywane w każdej metody interfejsu API, który akceptuje dane wejściowe użytkownika.
+Wewnątrz metody element jest sprawdzany pod kątem ważności i wcześniejszej istnienia w magazynie danych, a jeśli nie wystąpią żadne problemy, zostanie dodany za pomocą repozytorium. Sprawdzanie, `ModelState.IsValid` wykonuje [walidację modelu](../mvc/models/validation.md)i należy wykonać każdą metodę interfejsu API, która akceptuje dane wejściowe użytkownika.
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=25-46)]
 
-W przykładzie użyto wyliczenia zawierający kody błędów, które są przekazywane do klientów urządzeń przenośnych:
+Przykład używa wyliczenia zawierającego kody błędów, które są przesyłane do klienta mobilnego:
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=91-99)]
 
-Przetestuj dodawania nowych elementów przy użyciu narzędzia Postman, wybierając zlecenie WPIS, podając nowy obiekt w formacie JSON w treści żądania. Należy również dodać nagłówek żądania określając `Content-Type` z `application/json`.
+Przetestuj Dodawanie nowych elementów przy użyciu programu Poster, wybierając pozycję POST Verb dostarczającą nowy obiekt w formacie JSON w treści żądania. Należy również dodać nagłówek żądania określający `Content-Type` `application/json`.
 
-![Konsola postman pokazująca, że WPIS i odpowiedzi](native-mobile-backend/_static/postman-post.png)
+![Konsola programu Poster pokazująca wpis i odpowiedź](native-mobile-backend/_static/postman-post.png)
 
-Metoda zwraca nowo utworzonego elementu w odpowiedzi.
+Metoda zwraca nowo utworzony element w odpowiedzi.
 
 ### <a name="updating-items"></a>Aktualizowanie elementów
 
-Modyfikowanie rekordów jest wykonywane za pomocą żądania HTTP PUT. Inne niż ta zmiana `Edit` metody jest niemal identyczny `Create`. Należy pamiętać, że jeśli nie odnaleziono rekordu, `Edit` zwróci akcji `NotFound` odpowiedzi (404).
+Modyfikowanie rekordów odbywa się przy użyciu żądań HTTP PUT. Poza tą zmianą Metoda `Edit` jest niemal identyczna z `Create`. Należy pamiętać, że jeśli rekord nie zostanie znaleziony, Akcja `Edit` zwróci odpowiedź `NotFound` (404).
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=48-69)]
 
-Aby przetestować za pomocą narzędzia Postman, zmień zlecenie na PUT. Określ dane zaktualizowanego obiektu w treści żądania.
+Aby przetestować przy użyciu programu Poster, Zmień czasownik na wartość PUT. Określ zaktualizowane dane obiektu w treści żądania.
 
-![Konsola postman przedstawiające PUT i odpowiedzi](native-mobile-backend/_static/postman-put.png)
+![Konsola programu post z informacjami o UMIESZCZENIU i odpowiedzi](native-mobile-backend/_static/postman-put.png)
 
-Ta metoda zwraca `NoContent` odpowiedzi (204), jeśli operacja się powiedzie, w celu zachowania spójności z istniejącym interfejsem API.
+Ta metoda zwraca `NoContent` (204) odpowiedź po pomyślnym, aby zapewnić spójność z istniejącym interfejsem API.
 
 ### <a name="deleting-items"></a>Usuwanie elementów
 
-Usuwanie rekordów odbywa się przez wprowadzania żądań DELETE służących do usługi i przekazanie identyfikator elementu do usunięcia. Zgodnie z aktualizacjami, otrzyma żądań dla elementów, które nie istnieją `NotFound` odpowiedzi. W przeciwnym razie otrzyma żądania zakończonego powodzeniem `NoContent` odpowiedzi (204).
+Usuwanie rekordów jest realizowane przez wykonywanie żądań usuwania do usługi i przekazywanie identyfikatora elementu do usunięcia. Podobnie jak w przypadku aktualizacji, żądania dla elementów, które nie istnieją, będą otrzymywać `NotFound` odpowiedzi. W przeciwnym razie pomyślne żądanie otrzyma odpowiedź `NoContent` (204).
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=71-88)]
 
-Należy pamiętać, że po testowania funkcji usuwania, nic nie musi w treści żądania.
+Należy pamiętać, że podczas testowania funkcji usuwania w treści żądania nic nie jest wymagane.
 
-![Konsola postman pokazująca, że DELETE i odpowiedzi](native-mobile-backend/_static/postman-delete.png)
+![Konsola Poster pokazująca usuwanie i odpowiedź](native-mobile-backend/_static/postman-delete.png)
 
-## <a name="common-web-api-conventions"></a>Typowych Konwencji interfejsu API sieci Web
+## <a name="common-web-api-conventions"></a>Konwencje wspólnych interfejsów API sieci Web
 
-Podczas opracowywania usług zaplecza dla aplikacji, należy stworzyć zestaw spójne konwencje lub zasady dotyczące postępowania odciąż przekrojowe zagadnienia. Na przykład w usłudze powyżej żądań dla określonych rekordów, które nie zostały odnalezione otrzymywanych `NotFound` odpowiedzi, a nie `BadRequest` odpowiedzi. Podobnie, polecenia wprowadzone do tej usługi, które są przekazywane w typach powiązana z modelem zawsze zaznaczone `ModelState.IsValid` i zwrócony `BadRequest` dla typów nieprawidłowy model.
+Podczas tworzenia usług zaplecza dla aplikacji, należy utworzyć spójny zestaw Konwencji lub zasad służących do obsługi zagadnień związanych z rozwojem. Na przykład w podanej powyżej usłudze żądania dla określonych rekordów, które nie zostały odnalezione, otrzymały odpowiedź `NotFound`, a nie odpowiedzi `BadRequest`. Podobnie polecenia wykonywane do tej usługi, które zostały spełnione w typach powiązanych przez model, są zawsze zaznaczone `ModelState.IsValid` i zwracają `BadRequest` dla nieprawidłowych typów modeli.
 
-Po zidentyfikowaniu wspólne zasady dla interfejsów API, można zwykle hermetyzację go w [filtru](../mvc/controllers/filters.md). Dowiedz się więcej o [jak hermetyzacji wspólnych zasad interfejsu API w aplikacji ASP.NET Core MVC](https://msdn.microsoft.com/magazine/mt767699.aspx).
+Po zidentyfikowaniu wspólnych zasad dla interfejsów API można zwykle hermetyzować je w [filtrze](../mvc/controllers/filters.md). Dowiedz się więcej o [sposobie hermetyzacji wspólnych zasad interfejsu API w aplikacjach ASP.NET Core MVC](https://msdn.microsoft.com/magazine/mt767699.aspx).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

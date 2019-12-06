@@ -4,16 +4,16 @@ author: rick-anderson
 description: Dowiedz się więcej o nowych funkcjach w ASP.NET Core 2,2.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: aspnetcore-2.2
-ms.openlocfilehash: fca653158c95e7c1a11f25f4076830fe3e7e93ae
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 8995a514ea2e5016da85952d0f0beaf396a5d639
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963135"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880848"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>Co nowego w ASP.NET Core 2,2
 
@@ -23,7 +23,7 @@ W tym artykule przedstawiono najbardziej znaczące zmiany w ASP.NET Core 2,2 z l
 
 OpenAPI (wcześniej znany jako Swagger) to specyfikacja języka niezależny od do opisywania interfejsów API REST. Ekosystem OpenAPI zawiera narzędzia, które umożliwiają odnajdywanie, testowanie i tworzenie kodu klienta przy użyciu specyfikacji. Obsługa generowania i wizualizacji dokumentów OpenAPI w ASP.NET Core MVC jest zapewniana za pośrednictwem projektów opartych na społeczności, takich jak [NSwag](https://github.com/RicoSuter/NSwag) i [Swashbuckle. AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore). ASP.NET Core 2,2 oferuje udoskonalone narzędzia i środowisko uruchomieniowe do tworzenia dokumentów OpenAPI.
 
-Aby uzyskać więcej informacji, zobacz następujące zasoby:
+Więcej informacji można znaleźć w następujących zasobach:
 
 * <xref:web-api/advanced/analyzers>
 * <xref:web-api/advanced/conventions>
@@ -37,7 +37,7 @@ ASP.NET Core 2,1 wprowadzono `ProblemDetails`na podstawie specyfikacji [RFC 7807
 
 ASP.NET Core 2,2 używa nowego systemu *routingu punktu końcowego* do ulepszonego wysyłania żądań. Zmiany obejmują nowe elementy członkowskie interfejsu API generacji linków i transformatory parametrów trasy.
 
-Aby uzyskać więcej informacji, zobacz następujące zasoby:
+Więcej informacji można znaleźć w następujących zasobach:
 
 * [Routing punktów końcowych w 2,2](https://blogs.msdn.microsoft.com/webdev/2018/08/27/asp-net-core-2-2-0-preview1-endpoint-routing/)
 * [Transformatory parametrów trasy](https://www.hanselman.com/blog/ASPNETCore22ParameterTransformersForCleanURLGenerationAndSlugsInRazorPagesOrMVC.aspx) (zobacz sekcję **routingu** )
@@ -57,7 +57,12 @@ Aby uzyskać więcej informacji, zobacz [kontrole kondycji w ASP.NET Core](xref:
 
 ASP.NET Core 2,2 dodaje obsługę protokołu HTTP/2.
 
-HTTP/2 to główna wersja protokołu HTTP. Niektóre z istotnych funkcji protokołu HTTP/2 obsługują kompresję nagłówka i całkowicie multipleksne strumienie za pośrednictwem jednego połączenia. Chociaż protokół HTTP/2 zachowuje semantykę protokołu HTTP (nagłówki HTTP, metody itp.), jest to istotna zmiana z protokołu HTTP/1. x na temat tego, jak te dane są frameowe i wysyłane przez sieć.
+HTTP/2 to główna wersja protokołu HTTP. Istotne funkcje protokołu HTTP/2 obejmują:
+
+* Obsługa kompresji nagłówka.
+* W pełni multipleksne strumienie za pośrednictwem jednego połączenia.
+
+Chociaż protokół HTTP/2 zachowuje semantykę protokołu HTTP (na przykład nagłówki HTTP i metody), jest to istotna zmiana z protokołu HTTP/1. x na temat tego, jak dane są frameowe i wysyłane między klientem a serwerem.
 
 W związku z tą zmianą w ramkach serwery i klienci muszą negocjować używaną wersję protokołu. Negocjowanie protokołu warstwy aplikacji (CLIENTHELLO ALPN) to rozszerzenie TLS, które umożliwia serwerowi i klientowi negocjowanie wersji protokołu używanej w ramach uzgadniania TLS. Chociaż istnieje możliwość uzyskania wcześniejszej wiedzy między serwerem a klientem programu, wszystkie główne przeglądarki obsługują CLIENTHELLO ALPN jako jedyny sposób nawiązywania połączenia HTTP/2.
 
@@ -65,7 +70,7 @@ Aby uzyskać więcej informacji, zobacz [Obsługa protokołu HTTP/2](xref:fundam
 
 ## <a name="kestrel-configuration"></a>Konfiguracja Kestrel
 
-We wcześniejszych wersjach ASP.NET Core opcje Kestrel są konfigurowane przez wywołanie `UseKestrel`. W 2,2 opcje Kestrel są konfigurowane przez wywołanie `ConfigureKestrel` w konstruktorze hosta. Ta zmiana rozwiązuje problem z kolejnością rejestracji `IServer` na potrzeby hostingu w procesie. Aby uzyskać więcej informacji, zobacz następujące zasoby:
+We wcześniejszych wersjach ASP.NET Core opcje Kestrel są konfigurowane przez wywołanie `UseKestrel`. W 2,2 opcje Kestrel są konfigurowane przez wywołanie `ConfigureKestrel` w konstruktorze hosta. Ta zmiana rozwiązuje problem z kolejnością rejestracji `IServer` na potrzeby hostingu w procesie. Więcej informacji można znaleźć w następujących zasobach:
 
 * [Eliminowanie konfliktu Iisurl](https://github.com/aspnet/KestrelHttpServer/issues/2760)
 * [Konfigurowanie opcji serwera Kestrel za pomocą ConfigureKestrel](xref:fundamentals/servers/kestrel?view=aspnetcore-2.2#how-to-use-kestrel-in-aspnet-core-apps)

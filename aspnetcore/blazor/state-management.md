@@ -9,12 +9,12 @@ ms.date: 11/23/2019
 no-loc:
 - Blazor
 uid: blazor/state-management
-ms.openlocfilehash: facd6c2747bb0b31404c3c4fce25b76cd141932e
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: ed203458126f3b4c97103c88a465e3eb5953a775
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74680983"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879712"
 ---
 # <a name="aspnet-core-opno-locblazor-state-management"></a>Zarządzanie stanem Blazor ASP.NET Core
 
@@ -77,7 +77,7 @@ Trzy Popularne lokalizacje istnieją dla stanu utrwalania w aplikacji Blazor Ser
 W przypadku trwałych trwałości danych lub wszelkich danych, które muszą obejmować wiele użytkowników lub urządzeń, niezależna baza danych po stronie serwera prawie najlepiej sprawdza się. Dostępne opcje:
 
 * Relacyjna baza danych SQL
-* Magazyn kluczy i wartości
+* Magazyn wartości klucza
 * Magazyn obiektów BLOB
 * Magazyn tabel
 
@@ -157,7 +157,7 @@ Aby zainstalować pakiet `Microsoft.AspNetCore.ProtectedBrowserStorage`:
 
 ### <a name="save-and-load-data-within-a-component"></a>Zapisz i Załaduj dane w składniku
 
-W dowolnym składniku wymagającym ładowania lub zapisywania danych w magazynie przeglądarki Użyj [@inject](xref:blazor/dependency-injection#request-a-service-in-a-component) , aby wstrzyknąć wystąpienie jednego z następujących elementów:
+W dowolnym składniku wymagającym ładowania lub zapisywania danych w magazynie przeglądarki Użyj [`@inject`](xref:blazor/dependency-injection#request-a-service-in-a-component) , aby wstrzyknąć wystąpienie jednego z następujących elementów:
 
 * `ProtectedLocalStorage`
 * `ProtectedSessionStorage`

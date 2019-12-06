@@ -9,12 +9,12 @@ ms.date: 11/27/2019
 no-loc:
 - Blazor
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: 2a83761b598a339aeaf8bec6f8fd50d09e608f0c
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: 07069410135e216ff5f4de94285a54be66d44615
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74681217"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880380"
 ---
 # <a name="build-your-first-opno-locblazor-app"></a>Tworzenie pierwszej aplikacji Blazor
 
@@ -125,7 +125,7 @@ W przypadku pracy z aplikacją Blazor webassembly `HttpClient` jest wstrzykiwana
 
 [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1_client.razor?highlight=7-8)]
 
-Pętla [@foreach](/dotnet/csharp/language-reference/keywords/foreach-in) jest używana do renderowania każdego wystąpienia prognozy jako wiersza w tabeli danych o pogodzie:
+Pętla [`@foreach`](/dotnet/csharp/language-reference/keywords/foreach-in) jest używana do renderowania każdego wystąpienia prognozy jako wiersza w tabeli danych o pogodzie:
 
 [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData3.razor?highlight=11-19)]
 

@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się więcej o walidacji modelu w ASP.NET Core MVC i Razor Pages.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/21/2019
+ms.date: 12/05/2019
 uid: mvc/models/validation
-ms.openlocfilehash: 19f71799e958e2761832c91cec6762a6d391d2b5
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 7a6017141eb1016128c4a135c187479717580bb5
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317427"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881042"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Walidacja modelu w ASP.NET Core MVC i Razor Pages
 
@@ -55,10 +55,10 @@ Poniżej przedstawiono niektóre wbudowane atrybuty walidacji:
 * `[Phone]`: sprawdza, czy właściwość ma format numeru telefonu.
 * `[Range]`: sprawdza, czy wartość właściwości znajduje się w określonym zakresie.
 * `[RegularExpression]`: sprawdza, czy wartość właściwości jest zgodna z określonym wyrażeniem regularnym.
-* `[Required]`: sprawdza, czy pole nie ma wartości null. Aby uzyskać szczegółowe informacje o zachowaniu tego atrybutu, zobacz [[Required]](#required-attribute) .
+* `[Required]`: sprawdza, czy pole nie ma wartości null. Zobacz [`[Required]` atrybutu](#required-attribute) , aby uzyskać szczegółowe informacje o zachowaniu tego atrybutu.
 * `[StringLength]`: sprawdza, czy wartość właściwości String nie przekracza podanego limitu długości.
 * `[Url]`: sprawdza, czy właściwość ma format adresu URL.
-* `[Remote]`: sprawdza poprawność danych wejściowych na kliencie przez wywołanie metody akcji na serwerze. Zobacz [atrybut [Remote]](#remote-attribute) , aby uzyskać szczegółowe informacje o zachowaniu tego atrybutu.
+* `[Remote]`: sprawdza poprawność danych wejściowych na kliencie przez wywołanie metody akcji na serwerze. Aby uzyskać szczegółowe informacje o zachowaniu tego atrybutu, zobacz `[`[Remote] ' (atrybut #remote-Attribute).
 
 Pełną listę atrybutów sprawdzania poprawności można znaleźć w przestrzeni nazw [System. ComponentModel. DataAnnotations](xref:System.ComponentModel.DataAnnotations) .
 
@@ -134,7 +134,7 @@ Właściwość `AdditionalFields` atrybutu `[Remote]` umożliwia Weryfikowanie k
 
 [!code-csharp[](validation/samples/3.x/ValidationSample/Models/User.cs?name=snippet_Name&highlight=1,5)]
 
-`AdditionalFields` można jawnie ustawić dla ciągów `"FirstName"` i `"LastName"`, ale użycie operatora [`nameof`](/dotnet/csharp/language-reference/keywords/nameof) upraszcza późniejsze refaktoryzacje. Metoda akcji dla tej walidacji musi akceptować zarówno argumenty `firstName`, jak i `lastName`:
+`AdditionalFields` można jawnie ustawić dla ciągów "FirstName" i "LastName", ale użycie operatora [nameof](/dotnet/csharp/language-reference/keywords/nameof) upraszcza późniejsze refaktoryzacje. Metoda akcji dla tej walidacji musi akceptować zarówno argumenty `firstName`, jak i `lastName`:
 
 [!code-csharp[](validation/samples/3.x/ValidationSample/Controllers/UsersController.cs?name=snippet_VerifyName)]
 
@@ -255,9 +255,13 @@ Poprzednie pomocnicy tagów renderują następujący kod HTML:
 </div>
 ```
 
-Zwróć uwagę, że atrybuty `data-` w danych wyjściowych HTML odpowiadają atrybutom walidacji właściwości `Movie.ReleaseDate`. Atrybut `data-val-required` zawiera komunikat o błędzie, który zostanie wyświetlony, jeśli użytkownik nie wypełni pola Data wydania. niezauważalne sprawdzenie poprawności przez funkcję jQuery spowoduje przekazanie tej wartości do metody weryfikacji jQuery [`required()`](https://jqueryvalidation.org/required-method/) , która następnie wyświetla ten komunikat w obszarze towarzyszące **\<zakres >** .
+Zwróć uwagę, że atrybuty `data-` w danych wyjściowych HTML odpowiadają atrybutom walidacji właściwości `Movie.ReleaseDate`. Atrybut `data-val-required` zawiera komunikat o błędzie, który zostanie wyświetlony, jeśli użytkownik nie wypełni pola Data wydania. niezauważalne sprawdzenie poprawności przez funkcję jQuery powoduje, że ta wartość jest przekazywana do walidacji elementu jQuery [()](https://jqueryvalidation.org/required-method/) , a następnie wyświetla ten komunikat w towarzyszącym **\<span >** .
 
 Walidacja typu danych jest oparta na typie .NET właściwości, chyba że zostanie zastąpiona przez atrybut `[DataType]`. Przeglądarki mają własne domyślne komunikaty o błędach, ale pakietem weryfikacji jQuery nie dyskretnego sprawdzania poprawności może przesłonić te komunikaty. `[DataType]` atrybuty i podklasy, takie jak `[EmailAddress]` pozwalają określić komunikat o błędzie.
+
+## <a name="unobtrusive-validation"></a>Niezauważalna weryfikacja
+
+Aby uzyskać informacje o niezauważalnej weryfikacji, zobacz [ten problem](https://github.com/aspnet/AspNetCore.Docs/issues/1111)w usłudze GitHub.
 
 ### <a name="add-validation-to-dynamic-forms"></a>Dodawanie walidacji do formularzy dynamicznych
 
@@ -415,10 +419,10 @@ Wbudowane atrybuty walidacji obejmują:
 * `[Phone]`: sprawdza, czy właściwość ma format numeru telefonu.
 * `[Range]`: sprawdza, czy wartość właściwości znajduje się w określonym zakresie.
 * `[RegularExpression]`: sprawdza, czy wartość właściwości jest zgodna z określonym wyrażeniem regularnym.
-* `[Required]`: sprawdza, czy pole nie ma wartości null. Aby uzyskać szczegółowe informacje o zachowaniu tego atrybutu, zobacz [[Required]](#required-attribute) .
+* `[Required]`: sprawdza, czy pole nie ma wartości null. Zobacz [`[Required]` atrybutu](#required-attribute) , aby uzyskać szczegółowe informacje o zachowaniu tego atrybutu.
 * `[StringLength]`: sprawdza, czy wartość właściwości String nie przekracza podanego limitu długości.
 * `[Url]`: sprawdza, czy właściwość ma format adresu URL.
-* `[Remote]`: sprawdza poprawność danych wejściowych na kliencie przez wywołanie metody akcji na serwerze. Zobacz [atrybut [Remote]](#remote-attribute) , aby uzyskać szczegółowe informacje o zachowaniu tego atrybutu.
+* `[Remote]`: sprawdza poprawność danych wejściowych na kliencie przez wywołanie metody akcji na serwerze. Zobacz [`[Remote]` atrybutu](#remote-attribute) , aby uzyskać szczegółowe informacje o zachowaniu tego atrybutu.
 
 Pełną listę atrybutów sprawdzania poprawności można znaleźć w przestrzeni nazw [System. ComponentModel. DataAnnotations](xref:System.ComponentModel.DataAnnotations) .
 
@@ -494,7 +498,7 @@ Właściwość `AdditionalFields` atrybutu `[Remote]` umożliwia Weryfikowanie k
 
 [!code-csharp[](validation/samples/2.x/ValidationSample/Models/User.cs?name=snippet_UserNameProperties)]
 
-`AdditionalFields` można jawnie ustawić dla ciągów `"FirstName"` i `"LastName"`, ale użycie operatora [`nameof`](/dotnet/csharp/language-reference/keywords/nameof) upraszcza późniejsze refaktoryzacje. Metoda akcji dla tej weryfikacji musi akceptować zarówno imiona, jak i nazwiska:
+`AdditionalFields` można jawnie ustawić dla ciągów `"FirstName"` i `"LastName"`, ale użycie operatora [nameof](/dotnet/csharp/language-reference/keywords/nameof) upraszcza późniejsze refaktoryzacje. Metoda akcji dla tej weryfikacji musi akceptować zarówno imiona, jak i nazwiska:
 
 [!code-csharp[](validation/samples/2.x/ValidationSample/Controllers/UsersController.cs?name=snippet_VerifyName)]
 
@@ -624,7 +628,7 @@ Poprzednie pomocnicy tagów renderują następujący kod HTML.
 </form>
 ```
 
-Zwróć uwagę, że atrybuty `data-` w danych wyjściowych HTML odpowiadają atrybutom walidacji właściwości `ReleaseDate`. Atrybut `data-val-required` zawiera komunikat o błędzie, który zostanie wyświetlony, jeśli użytkownik nie wypełni pola Data wydania. niezauważalne sprawdzenie poprawności przez funkcję jQuery spowoduje przekazanie tej wartości do metody weryfikacji jQuery [`required()`](https://jqueryvalidation.org/required-method/) , która następnie wyświetla ten komunikat w obszarze towarzyszące **\<zakres >** .
+Zwróć uwagę, że atrybuty `data-` w danych wyjściowych HTML odpowiadają atrybutom walidacji właściwości `ReleaseDate`. Atrybut `data-val-required` zawiera komunikat o błędzie, który zostanie wyświetlony, jeśli użytkownik nie wypełni pola Data wydania. niezauważalne sprawdzenie poprawności przez funkcję jQuery powoduje, że ta wartość jest przekazywana do walidacji elementu jQuery [()](https://jqueryvalidation.org/required-method/) , a następnie wyświetla ten komunikat w towarzyszącym **\<span >** .
 
 Walidacja typu danych jest oparta na typie .NET właściwości, chyba że zostanie zastąpiona przez atrybut `[DataType]`. Przeglądarki mają własne domyślne komunikaty o błędach, ale pakietem weryfikacji jQuery nie dyskretnego sprawdzania poprawności może przesłonić te komunikaty. `[DataType]` atrybuty i podklasy, takie jak `[EmailAddress]` pozwalają określić komunikat o błędzie.
 

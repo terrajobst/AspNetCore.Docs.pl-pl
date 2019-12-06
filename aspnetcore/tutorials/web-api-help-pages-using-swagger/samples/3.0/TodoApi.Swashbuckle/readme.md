@@ -10,16 +10,16 @@ products:
 - vs-code
 - vs-mac
 urlFragment: getstarted-swashbuckle-aspnetcore
-ms.openlocfilehash: d48288de90626ada83f5da1759f0057f0be46f19
-ms.sourcegitcommit: f91d322f790123d41ec3271fa084ae20ed9f89a6
+ms.openlocfilehash: e02247325f430b0ce23dbb3f5bc344a60a1a164a
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155145"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879727"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Wprowadzenie do Swashbuckle i ASP.NET Core
 
-W przypadku korzystania z internetowego interfejsu API zrozumienie jego różnych metod może być trudne dla dewelopera. Struktura [Swagger](https://swagger.io/), znana również jako [openapi](https://www.openapis.org/), rozwiązuje problem związany z generowaniem użytecznej dokumentacji i stron pomocy dla interfejsów API sieci Web. Zapewnia takie korzyści, jak dokumentacja interaktywna, generowanie zestawu SDK klienta i możliwość odnajdywania interfejsów API.
+Podczas korzystania z internetowego interfejsu API, informacje o jego różne metody może stanowić wyzwanie dla dewelopera. [Struktury swagger](https://swagger.io/), znane również jako [OpenAPI](https://www.openapis.org/), rozwiązuje problem Generowanie przydatne stron pomocy i dokumentacji dla interfejsów API sieci Web. Zapewnia korzyści, takich jak dokumentacja interaktywne, generowanie zestawów SDK klienta i odnajdywania interfejsu API.
 
 W tym przykładzie pokazano [Swashbuckle. AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) implementacja platformy .NET.
 
@@ -241,7 +241,7 @@ public void ConfigureServices(IServiceCollection services)
 
 W poprzednim kodzie [odbicie](/dotnet/csharp/programming-guide/concepts/reflection) jest używane do kompilowania nazwy pliku XML pasującego do projektu interfejsu API sieci Web. Właściwość [AppContext. BaseDirectory](/dotnet/api/system.appcontext.basedirectory) służy do konstruowania ścieżki do pliku XML. Niektóre funkcje struktury Swagger (na przykład schematu parametrów wejściowych lub metod HTTP i kodów odpowiedzi z odpowiednich atrybutów) działają bez użycia pliku dokumentacji XML. W przypadku większości funkcji, a mianowicie podsumowania metod i opisów parametrów i kodów odpowiedzi, użycie pliku XML jest obowiązkowe.
 
-Dodawanie komentarzy z potrójnym ukośnikiem do akcji rozszerza interfejs użytkownika struktury Swagger, dodając opis do nagłówka sekcji. Dodaj element [\<podsumowania](/dotnet/csharp/programming-guide/xmldoc/summary) powyżej akcji `Delete`:
+Dodawanie do akcji komentarzy z potrójnym ukośnikiem ulepsza wyniki narzędzia Swagger UI przez dodanie opisu do nagłówka sekcji. Dodaj element `Delete` powyżej akcji: [\<podsumowania>](/dotnet/csharp/programming-guide/xmldoc/summary)
 
 ```csharp
 /// <summary>
@@ -334,7 +334,7 @@ Zwróć uwagę na ulepszenia interfejsu użytkownika z następującymi dodatkowy
 
 ### <a name="data-annotations"></a>Adnotacje danych
 
-Dekorować model z atrybutami, które znajdują się w przestrzeni nazw [System. ComponentModel. DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) , aby pomóc w użyciu składników interfejsu użytkownika struktury Swagger.
+Oznacz model atrybutami, które znajdują się w przestrzeni nazw [System. ComponentModel. DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) , aby ułatwić DYSKOM interfejsu użytkownika struktury Swagger.
 
 Dodaj atrybut `[Required]` do właściwości `Name` klasy `TodoItem`:
 

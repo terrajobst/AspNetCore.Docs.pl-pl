@@ -4,16 +4,16 @@ author: jamesnk
 description: Dowiedz się, jak gRPC porównuje z interfejsami API protokołu HTTP i jakie są zalecane scenariusze.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: grpc/comparison
-ms.openlocfilehash: ceb24d656827548492a6fa326681922297fc481b
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 8935e665dfd5d8f9afa002f475c202ec0f0ee657
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963658"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880670"
 ---
 # <a name="compare-grpc-services-with-http-apis"></a>Porównanie usług gRPC za pomocą interfejsów API protokołu HTTP
 
@@ -28,13 +28,13 @@ Poniższa tabela zawiera porównanie funkcji między gRPC i interfejsami API pro
 | Funkcja          | gRPC                                               | Interfejsy API protokołu HTTP z JSON           |
 | ---------------- | -------------------------------------------------- | ----------------------------- |
 | Kontrakt         | Wymagane ( *. proto*)                                | Opcjonalnie (OpenAPI)            |
-| Protokół         | PROTOKÓŁ HTTP/2                                             | HTTP                          |
+| Protokół         | HTTP/2                                             | HTTP                          |
 | Ładunku          | [Protobuf (mały, binarny)](#performance)           | JSON (duże, czytelne dla ludzi)  |
 | Prescriptiveness | [Specyfikacja Strict](#strict-specification)      | Sypki. Wszystkie protokoły HTTP są prawidłowe.     |
 | Przesyłanie strumieniowe        | [Klient, serwer, dwukierunkowa](#streaming)       | Klient, serwer                |
 | Obsługa przeglądarki  | [Nie (wymaga GRPC-Web)](#limited-browser-support) | Tak                           |
 | Zabezpieczenia         | Transport (TLS)                                    | Transport (TLS)               |
-| Generowanie kodu klienta | [Opcję](#code-generation)                      | Narzędzia OpenAPI + inne firmy |
+| Generowanie kodu klienta | [Tak](#code-generation)                      | Narzędzia OpenAPI + inne firmy |
 
 ## <a name="grpc-strengths"></a>mocne gRPC
 
@@ -49,7 +49,7 @@ gRPC została zaprojektowana dla protokołu HTTP/2, która stanowi znaczną wers
 
 ### <a name="code-generation"></a>Generowanie kodu
 
-Wszystkie struktury gRPC zapewniają obsługę pierwszej klasy w celu generowania kodu. Podstawowy plik do gRPC Development to [plik *. proto* ](https://developers.google.com/protocol-buffers/docs/proto3), który definiuje kontrakt usług gRPC Services i messages. Z tego pliku struktury gRPC w kodzie generują klasę bazową usługi, komunikaty i kompletny klient.
+Wszystkie struktury gRPC zapewniają obsługę pierwszej klasy w celu generowania kodu. Podstawowy plik do gRPC Development to [plik. proto](https://developers.google.com/protocol-buffers/docs/proto3), który definiuje kontrakt usług gRPC Services i messages. Z tego pliku struktury gRPC w kodzie generują klasę bazową usługi, komunikaty i kompletny klient.
 
 Udostępniając plik *. proto* między serwerem a klientem, można wygenerować komunikaty i kod klienta na końcu. Generowanie kodu klienta eliminuje duplikowanie komunikatów na kliencie i serwerze, a następnie tworzy klienta o jednoznacznie określonym typie. Nie trzeba pisać klienta powoduje oszczędność czasu projektowania w aplikacjach z wieloma usługami.
 

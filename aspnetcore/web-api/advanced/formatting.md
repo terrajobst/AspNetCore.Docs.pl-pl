@@ -4,14 +4,14 @@ author: ardalis
 description: Dowiedz się, jak sformatować dane odpowiedzi w ASP.NET Core Web API.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 8/22/2019
+ms.date: 12/05/2019
 uid: web-api/advanced/formatting
-ms.openlocfilehash: 78fe620ea8fdd681a276253f77939bcb2a56ebb9
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: 4433ed11dad7522962ebeed411c4bef88e07e7af
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391289"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881353"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>Formatowanie danych odpowiedzi w ASP.NET Core Web API
 
@@ -248,7 +248,7 @@ Mapowanie ze ścieżki żądania należy określić w marszrucie używanej przez
 
 Poprzednia trasa pozwala określić żądany format jako opcjonalne rozszerzenie pliku. Atrybut [`[FormatFilter]`](xref:Microsoft.AspNetCore.Mvc.FormatFilterAttribute) sprawdza obecność wartości format w `RouteData` i mapuje format odpowiedzi do odpowiedniego programu formatującego podczas tworzenia odpowiedzi.
 
-|           Szlak        |             EQ              |
+|           Trasa        |             EQ              |
 |------------------------|------------------------------------|
 |   `/api/products/5`    |    Domyślny program formatujący dane wyjściowe    |
 | `/api/products/5.json` | Program formatujący JSON (jeśli jest skonfigurowany) |
