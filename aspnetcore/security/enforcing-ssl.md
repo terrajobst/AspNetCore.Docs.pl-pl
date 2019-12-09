@@ -4,18 +4,18 @@ author: rick-anderson
 description: Dowiedz się, jak wymagać protokołu HTTPS/TLS w aplikacji internetowej ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/14/2019
+ms.date: 12/06/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: 82cd2e52f3bd929682b9eae24611ad04fd9f8682
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 032105c67e15ab94635ae6fadea103450c7eb0fb
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317370"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944242"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Wymuszanie protokołu HTTPS w ASP.NET Core
 
-Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tym dokumencie przedstawiono sposób:
 
@@ -173,7 +173,7 @@ Wywoływanie `AddHttpsRedirection` jest niezbędne tylko do zmiany wartości `Ht
 Poprzedni wyróżniony kod:
 
 * Ustawia [HttpsRedirectionOptions. RedirectStatusCode](xref:Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionOptions.RedirectStatusCode*) na <xref:Microsoft.AspNetCore.Http.StatusCodes.Status307TemporaryRedirect>, która jest wartością domyślną. Użyj pól klasy <xref:Microsoft.AspNetCore.Http.StatusCodes>, aby przydziały `RedirectStatusCode`.
-* Ustawia port HTTPS na 5001. Wartość domyślna to 443.
+* Ustawia port HTTPS na 5001.
 
 #### <a name="configure-permanent-redirects-in-production"></a>Konfigurowanie stałych przekierowań w środowisku produkcyjnym
 
@@ -277,7 +277,7 @@ Następujący kod:
 ::: moniker-end
 
 
-* Ustawia parametr Preload nagłówka Strict-Transport-Security. Wstępne ładowanie nie jest częścią [specyfikacji RFC HSTS](https://tools.ietf.org/html/rfc6797), ale jest obsługiwane przez przeglądarki sieci Web do wstępnego ładowania witryn HSTS w przypadku instalacji nowej. Aby uzyskać więcej informacji, zobacz [https://hstspreload.org/](https://hstspreload.org/) .
+* Ustawia parametr Preload nagłówka Strict-Transport-Security. Wstępne ładowanie nie jest częścią [specyfikacji RFC HSTS](https://tools.ietf.org/html/rfc6797), ale jest obsługiwane przez przeglądarki sieci Web do wstępnego ładowania witryn HSTS w przypadku instalacji nowej. Aby uzyskać więcej informacji, zobacz [https://hstspreload.org/](https://hstspreload.org/).
 * Włącza [includeSubDomain](https://tools.ietf.org/html/rfc6797#section-6.1.2), która stosuje zasady HSTS do hostowania poddomen.
 * Jawnie ustawia wartość maksymalnego wieku w nagłówku Strict-Transport-Security na 60 dni. Jeśli nie zostanie ustawiona, wartość domyślna to 30 dni. Aby uzyskać więcej informacji, zobacz [dyrektywę max-age](https://tools.ietf.org/html/rfc6797#section-6.1.1) .
 * Dodaje `example.com` do listy hostów do wykluczenia.
@@ -313,7 +313,7 @@ Usuń zaznaczenie pola wyboru **Konfiguruj dla protokołu HTTPS** .
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
 
-Użyj opcji `--no-https`. Na przykład:
+Należy użyć opcji `--no-https`. Na przykład
 
 ```dotnetcli
 dotnet new webapp --no-https
@@ -383,7 +383,7 @@ Powyższe polecenia rozwiązują większość problemów z zaufaniem do przeglą
 ### <a name="docker---certificate-not-trusted"></a>Zaufać certyfikatowi platformy Docker
 
 * Usuń folder *C:\Users\{User} \AppData\Roaming\ASP.NET\Https* .
-* Wyczyść rozwiązanie. Usuń foldery *bin* i *obj* .
+* Wyczyść rozwiązanie. Usuń *bin* i *obj* folderów.
 * Uruchom ponownie narzędzie programistyczne. Na przykład Visual Studio, Visual Studio Code lub Visual Studio dla komputerów Mac.
 
 ### <a name="windows---certificate-not-trusted"></a>Windows-certyfikat niezaufany

@@ -5,17 +5,17 @@ description: Eksploruj ASP.NET Core Blazor, sposób tworzenia interakcyjnego int
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc, seoapril2019
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/index
-ms.openlocfilehash: 8b656a7461c78475432722540ad628258cfe19c4
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 4ab6af649afe66d92fb2ea07d3abed057f321bce
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962913"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74943722"
 ---
 # <a name="introduction-to-aspnet-core-opno-locblazor"></a>Wprowadzenie do ASP.NET Core Blazor
 
@@ -53,7 +53,7 @@ Klasa składnika jest zwykle zapisywana w formie strony znaczników [Razor](xref
 
 Poniższy znacznik Razor ilustruje składnik (*dialog. Razor*), który może być zagnieżdżony w innym składniku:
 
-```cshtml
+```razor
 <div>
     <h1>@Title</h1>
 
@@ -76,7 +76,7 @@ Poniższy znacznik Razor ilustruje składnik (*dialog. Razor*), który może by�
 }
 ```
 
-Zawartość okna dialogowego (`ChildContent`) i tytuł (`Title`) są dostarczane przez składnik, który używa tego składnika w interfejsie użytkownika. `OnYes` to C# Metoda wyzwalana przez zdarzenie `onclick` przycisku.
+Treść okna dialogowego (`ChildContent`) i tytuł (`Title`) są dostarczane przez składnik, który używa tego składnika w interfejsie użytkownika. `OnYes` jest C# metodą wyzwalaną przez zdarzenie `onclick` przycisku.
 
 Blazor używa naturalnych tagów HTML dla kompozycji interfejsu użytkownika. Elementy HTML określają składniki, a atrybuty znacznika przechodzą wartości do właściwości składnika.
 
@@ -84,7 +84,7 @@ W poniższym przykładzie składnik `Index` używa składnika `Dialog`. `ChildCo
 
 *Index. Razor*:
 
-```cshtml
+```razor
 @page "/"
 
 <h1>Hello, world!</h1>
@@ -128,7 +128,7 @@ Rozmiar opublikowanej aplikacji, jej *rozmiaru ładunku*, jest krytycznym czynni
 * Odpowiedzi HTTP są kompresowane.
 * Środowisko uruchomieniowe platformy .NET i zestawy są buforowane w przeglądarce.
 
-## <a name="opno-locblazor-server"></a>Serwer Blazor
+## <a name="opno-locblazor-server"></a>Serwer programu Blazor
 
 Blazor oddziela logikę renderowania składników od sposobu stosowania aktualizacji interfejsu użytkownika. Serwer Blazor zapewnia obsługę hostowania składników Razor na serwerze w aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika są obsługiwane za pośrednictwem połączenia [SignalR](xref:signalr/introduction) .
 
@@ -140,13 +140,13 @@ Połączenie używane przez Blazor Server do komunikowania się z przeglądarką
 
 ## <a name="javascript-interop"></a>Międzyoperacyjność w języku JavaScript
 
-W przypadku aplikacji, które wymagają bibliotek JavaScript innych firm i dostępu do interfejsów API przeglądarki, składniki współdziałają z JavaScript. Składniki mogą korzystać z dowolnej biblioteki lub interfejsu API, który może być używany przez język JavaScript. C#kod może wywołać kod JavaScript, a kod JavaScript może wywołać C# kod. Aby uzyskać więcej informacji, zobacz <xref:blazor/javascript-interop>.
+W przypadku aplikacji, które wymagają bibliotek JavaScript innych firm i dostępu do interfejsów API przeglądarki, składniki współdziałają z JavaScript. Składniki mogą korzystać z dowolnej biblioteki lub interfejsu API, który może być używany przez język JavaScript. C#kod może wywołać kod JavaScript, a kod JavaScript może wywołać C# kod. Aby uzyskać więcej informacji, zobacz temat <xref:blazor/javascript-interop>.
 
 ## <a name="code-sharing-and-net-standard"></a>Udostępnianie kodu i .NET Standard
 
 Blazor implementuje [.NET Standard 2,0](/dotnet/standard/net-standard). .NET Standard jest formalną specyfikacją interfejsów API platformy .NET, które są wspólne dla implementacji platformy .NET. Biblioteki klas .NET Standard mogą być współużytkowane przez różne platformy .NET, takie jak Blazor, .NET Framework, .NET Core, Xamarin, mono i Unity.
 
-Interfejsy API, które nie mają zastosowania w przeglądarce sieci Web (na przykład dostęp do systemu plików, otwieranie gniazda i wątkowość) zgłaszają <xref:System.PlatformNotSupportedException>.
+Interfejsy API, które nie są stosowane w przeglądarce sieci Web (na przykład dostęp do systemu plików, otwieranie gniazda i wątkowość), zgłasza <xref:System.PlatformNotSupportedException>.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
@@ -154,5 +154,5 @@ Interfejsy API, które nie mają zastosowania w przeglądarce sieci Web (na przy
 * <xref:blazor/hosting-models>
 * [Przewodnik dla języka C#](/dotnet/csharp/)
 * <xref:mvc/views/razor>
-* [TEKST](https://www.w3.org/html/)
+* [HTML](https://www.w3.org/html/)
 * [Firma Awesome Blazor](https://github.com/AdrienTorris/awesome-blazor) linki społecznościowe

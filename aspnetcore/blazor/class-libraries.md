@@ -5,16 +5,16 @@ description: Odkryj, jak składniki mogą być dołączane do aplikacji Blazor z
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 uid: blazor/class-libraries
-ms.openlocfilehash: d4cc4124c9dc28ed6da0923b919919df4965f89f
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 6bac007e3e1d046d6b16a3a0be6dc5976b99b766
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962711"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74943878"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>ASP.NET Core biblioteki klas składników Razor
 
@@ -35,16 +35,16 @@ Postępuj zgodnie ze wskazówkami w artykule <xref:blazor/get-started>, aby skon
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Utwórz nowy projekt.
-1. Wybierz **bibliotekę klas Razor**. Wybierz pozycję **dalej**.
+1. Wybierz **bibliotekę klas Razor**. Wybierz opcję **Dalej**.
 1. W oknie dialogowym **Tworzenie nowej biblioteki klas Razor** wybierz pozycję **Utwórz**.
-1. Podaj nazwę projektu w polu **Nazwa projektu** lub zaakceptuj nazwę domyślną projektu. W przykładach w tym temacie użyto nazwy projektu `MyComponentLib1`. Wybierz pozycję **Utwórz**.
+1. Podaj nazwę projektu w polu **Nazwa projektu** lub zaakceptuj nazwę domyślną projektu. W przykładach w tym temacie użyto nazwy projektu `MyComponentLib1`. Wybierz **tworzenie**.
 1. Dodaj RCL do rozwiązania:
    1. Kliknij prawym przyciskiem myszy rozwiązanie. Wybierz pozycję **dodaj** > **istniejący projekt**.
    1. Przejdź do pliku projektu RCL.
    1. Wybierz plik projektu RCL ( *. csproj*).
 1. Dodaj odwołanie RCL z aplikacji:
    1. Kliknij prawym przyciskiem myszy projekt aplikacji. Wybierz pozycję dodaj **odwołanie** > .
-   1. Wybierz projekt RCL. Wybierz **przycisk OK**.
+   1. Wybierz projekt RCL. Wybierz **OK**.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
@@ -73,7 +73,7 @@ W poniższych przykładach `MyComponentLib1` jest biblioteka składników zawier
 
 Do składnika `SalesReport` można odwoływać się za pomocą jego pełnej nazwy typu z przestrzenią nazw:
 
-```cshtml
+```razor
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
@@ -83,7 +83,7 @@ Welcome to your new app.
 
 Składnik może być również przywoływany, jeśli biblioteka została wprowadzona do zakresu za pomocą dyrektywy `@using`:
 
-```cshtml
+```razor
 @using MyComponentLib1
 
 <h1>Hello, world!</h1>
@@ -107,7 +107,7 @@ Przekaż pakiet do narzędzia NuGet przy użyciu polecenia [push NuGet w trybie 
 
 ## <a name="create-a-razor-components-class-library-with-static-assets"></a>Tworzenie biblioteki klas składników Razor ze statycznymi zasobami
 
-RCL może zawierać statyczne zasoby. Zasoby statyczne są dostępne dla każdej aplikacji, która korzysta z biblioteki. Aby uzyskać więcej informacji, zobacz <xref:razor-pages/ui-class#create-an-rcl-with-static-assets>.
+RCL może zawierać statyczne zasoby. Zasoby statyczne są dostępne dla każdej aplikacji, która korzysta z biblioteki. Aby uzyskać więcej informacji, zobacz temat <xref:razor-pages/ui-class#create-an-rcl-with-static-assets>.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

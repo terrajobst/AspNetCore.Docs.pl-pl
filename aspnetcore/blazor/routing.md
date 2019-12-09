@@ -5,20 +5,20 @@ description: Dowiedz się, jak kierować żądania w aplikacjach i informacje o 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/23/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 uid: blazor/routing
-ms.openlocfilehash: 2c139db4e44679fbd9f3455a2d2543be0e128765
-ms.sourcegitcommit: 918d7000b48a2892750264b852bad9e96a1165a7
+ms.openlocfilehash: 1690434f48141bc83e7bc02e22cb763430eaa10d
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74550337"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944021"
 ---
 # <a name="aspnet-core-opno-locblazor-routing"></a>Routing Blazor ASP.NET Core
 
-Autor [Luke Latham](https://github.com/guardrex)
+Przez [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
@@ -36,7 +36,7 @@ Najbardziej typową konfiguracją jest kierowanie wszystkich żądań do strony 
 
 Składnik `Router` umożliwia routing do każdego składnika z określoną trasą. Składnik `Router` pojawi się w pliku *App. Razor* :
 
-```cshtml
+```razor
 <Router AppAssembly="typeof(Startup).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
@@ -58,7 +58,12 @@ Opcjonalnie można określić parametr `DefaultLayout` z klasą układu, która 
 
 Do składnika można zastosować wiele szablonów tras. Poniższy składnik odpowiada na żądania `/BlazorRoute` i `/DifferentBlazorRoute`:
 
-[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
+```razor
+@page "/BlazorRoute"
+@page "/DifferentBlazorRoute"
+
+<h1>Blazor routing</h1>
+```
 
 > [!IMPORTANT]
 > Aby adresy URL zostały poprawnie rozpoznane, aplikacja musi zawierać tag `<base>` w pliku *wwwroot/index.html* (Blazor webassembly) lub *pages/_Host. cshtml* (serwerBlazor) z ścieżką bazową aplikacji określoną w `href` atrybutu (`<base href="/">`). Aby uzyskać więcej informacji, zobacz temat <xref:host-and-deploy/blazor/index#app-base-path>.
@@ -69,7 +74,7 @@ Składnik `Router` umożliwia aplikacji określenie zawartości niestandardowej,
 
 W pliku *App. Razor* Ustaw zawartość niestandardową w `NotFound` parametr szablonu składnika `Router`:
 
-```cshtml
+```razor
 <Router AppAssembly="typeof(Startup).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
@@ -87,7 +92,7 @@ Zawartość tagów `<NotFound>` może zawierać dowolne elementy, takie jak inne
 
 Użyj parametru `AdditionalAssemblies`, aby określić dodatkowe zestawy dla składnika `Router`, które mają być brane pod uwagę podczas wyszukiwania składników routingu. Określone zestawy są traktowane jako uzupełnienie zestawu określonego `AppAssembly`. W poniższym przykładzie `Component1` jest składnikiem rutowanym zdefiniowanym w bibliotece klas, do której się odwołuje. Poniższy `AdditionalAssemblies` przykład powoduje obsługę routingu dla `Component1`:
 
-```cshtml
+```razor
 <Router
     AppAssembly="typeof(Program).Assembly"
     AdditionalAssemblies="new[] { typeof(Component1).Assembly }">
@@ -99,7 +104,22 @@ Użyj parametru `AdditionalAssemblies`, aby określić dodatkowe zestawy dla sk�
 
 Router używa parametrów trasy do wypełniania odpowiednich parametrów składnika o tej samej nazwie (bez uwzględniania wielkości liter):
 
-[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/RouteParameter.razor?name=snippet_RouteParameter&highlight=2,7-8)]
+```razor
+@page "/RouteParameter"
+@page "/RouteParameter/{text}"
+
+<h1>Blazor is @Text!</h1>
+
+@code {
+    [Parameter]
+    public string Text { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Text = Text ?? "fantastic";
+    }
+}
+```
 
 Parametry opcjonalne nie są obsługiwane w przypadku aplikacji Blazor w ASP.NET Core 3,0. W poprzednim przykładzie zastosowano dwie dyrektywy `@page`. Pierwszy zezwala na nawigowanie do składnika bez parametru. Druga dyrektywa `@page` przyjmuje parametr trasy `{text}` i przypisuje wartość do właściwości `Text`.
 
@@ -112,7 +132,7 @@ W poniższym przykładzie trasy do składnika `Users` są zgodne tylko wtedy, gd
 * Segment trasy `Id` jest obecny w adresie URL żądania.
 * Segment `Id` jest liczbą całkowitą (`int`).
 
-[!code-cshtml[](routing/samples_snapshot/3.x/Constraint.razor?highlight=1)]
+[!code-razor[](routing/samples_snapshot/3.x/Constraint.razor?highlight=1)]
 
 Dostępne są ograniczenia trasy podane w poniższej tabeli. W przypadku ograniczeń trasy, które pasują do niezmiennej kultury, zobacz ostrzeżenie poniżej tabeli, aby uzyskać więcej informacji.
 
@@ -154,7 +174,7 @@ Podczas tworzenia linków nawigacji należy używać składnika `NavLink` zamias
 
 Poniższy składnik `NavMenu` tworzy pasek nawigacyjny [Bootstrap](https://getbootstrap.com/docs/) , który pokazuje, jak używać składników `NavLink`:
 
-[!code-cshtml[](routing/samples_snapshot/3.x/NavMenu.razor?highlight=4,9)]
+[!code-razor[](routing/samples_snapshot/3.x/NavMenu.razor?highlight=4,9)]
 
 Istnieją dwie `NavLinkMatch` opcje, które można przypisać do atrybutu `Match` elementu `<NavLink>`:
 
@@ -165,7 +185,7 @@ W powyższym przykładzie `NavLink` Home `href=""` dopasowuje główny adres URL
 
 Dodatkowe atrybuty składników `NavLink` są przenoszone do renderowanego tagu zakotwiczenia. W poniższym przykładzie składnik `NavLink` zawiera atrybut `target`:
 
-```cshtml
+```razor
 <NavLink href="my-page" target="_blank">My page</NavLink>
 ```
 
@@ -190,7 +210,7 @@ Użyj `Microsoft.AspNetCore.Components.NavigationManager` do pracy z identyfikat
 
 Poniższy składnik przechodzi do składnika `Counter` aplikacji po wybraniu przycisku:
 
-```cshtml
+```razor
 @page "/navigate"
 @inject NavigationManager NavigationManager
 

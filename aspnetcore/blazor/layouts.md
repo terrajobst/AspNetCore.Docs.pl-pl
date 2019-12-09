@@ -5,16 +5,16 @@ description: Dowiedz się, jak tworzyć składniki układu wielokrotnego użytku
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 uid: blazor/layouts
-ms.openlocfilehash: 3546259fc6b622a6137a6baa8f446c5f43af1cab
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 90acfb0d4e9daadb12be79de6bd0c99fc545697a
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962810"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944060"
 ---
 # <a name="aspnet-core-opno-locblazor-layouts"></a>ASP.NET Core układy Blazor
 
@@ -31,7 +31,7 @@ Aby przekształcić *składnik* do *układu*, składnik:
 
 Poniższy przykład kodu pokazuje szablon Razor składnika układu: *MainLayout. Razor*. Układ dziedziczy `LayoutComponentBase` i ustawia `@Body` między paskiem nawigacyjnym i stopką:
 
-[!code-cshtml[](layouts/sample_snapshot/3.x/MainLayout.razor?highlight=1,13)]
+[!code-razor[](layouts/sample_snapshot/3.x/MainLayout.razor?highlight=1,13)]
 
 W aplikacji opartej na jednym z szablonów aplikacji Blazor składnik `MainLayout` (*MainLayout. Razor*) znajduje się w folderze *udostępnionym* aplikacji.
 
@@ -39,11 +39,11 @@ W aplikacji opartej na jednym z szablonów aplikacji Blazor składnik `MainLayou
 
 Określ domyślny układ aplikacji w składniku `Router` w pliku *App. Razor* aplikacji. Poniższy składnik `Router`, który jest dostarczany przez domyślne szablony Blazor, ustawia domyślny układ na składnik `MainLayout`:
 
-[!code-cshtml[](layouts/sample_snapshot/3.x/App1.razor?highlight=3)]
+[!code-razor[](layouts/sample_snapshot/3.x/App1.razor?highlight=3)]
 
 Aby podać domyślny układ zawartości `NotFound`, określ `LayoutView` dla zawartości `NotFound`:
 
-[!code-cshtml[](layouts/sample_snapshot/3.x/App2.razor?highlight=6-9)]
+[!code-razor[](layouts/sample_snapshot/3.x/App2.razor?highlight=6-9)]
 
 Aby uzyskać więcej informacji na temat składnika `Router`, zobacz <xref:blazor/routing>.
 
@@ -55,7 +55,7 @@ Użyj dyrektywy Razor `@layout`, aby zastosować układ do składnika. Kompilato
 
 Zawartość następującego składnika `MasterList` jest wstawiana do `MasterLayout` na pozycji `@Body`:
 
-[!code-cshtml[](layouts/sample_snapshot/3.x/MasterList.razor?highlight=1)]
+[!code-razor[](layouts/sample_snapshot/3.x/MasterList.razor?highlight=1)]
 
 Określanie układu bezpośrednio w składniku przesłania domyślny zestaw *układów* w routerze lub `@layout` dyrektywie zaimportowanej z *_Imports. Razor*.
 
@@ -65,11 +65,11 @@ Każdy folder aplikacji może opcjonalnie zawierać plik szablonu o nazwie *_Imp
 
 Następujące *_Imports.* Importy pliku Razor:
 
-* `MyCoolLayout`.,
+* `MyCoolLayout`.
 * Wszystkie składniki Razor w tym samym folderze i wszystkie podfoldery.
 * Przestrzeń nazw `BlazorApp1.Data`.
  
-[!code-cshtml[](layouts/sample_snapshot/3.x/_Imports.razor)]
+[!code-razor[](layouts/sample_snapshot/3.x/_Imports.razor)]
 
 Plik *_Imports. Razor* jest podobny do [pliku _ViewImports. cshtml dla widoków i stron Razor,](xref:mvc/views/layout#importing-shared-directives) ale jest stosowany w odniesieniu do plików składników Razor.
 
@@ -81,15 +81,15 @@ Aplikacje mogą składać się z zagnieżdżonych układów. Składnik może odw
 
 Poniższy przykład pokazuje, jak używać układów zagnieżdżonych. Plik *EpisodesComponent. Razor* jest składnikiem do wyświetlenia. Składnik odwołuje się do `MasterListLayout`:
 
-[!code-cshtml[](layouts/sample_snapshot/3.x/EpisodesComponent.razor?highlight=1)]
+[!code-razor[](layouts/sample_snapshot/3.x/EpisodesComponent.razor?highlight=1)]
 
 Plik *MasterListLayout. Razor* zawiera `MasterListLayout`. Układ odwołuje się do innego układu, `MasterLayout`, gdzie jest renderowany. `EpisodesComponent` jest renderowany w miejscu, w którym pojawia się `@Body`:
 
-[!code-cshtml[](layouts/sample_snapshot/3.x/MasterListLayout.razor?highlight=1,9)]
+[!code-razor[](layouts/sample_snapshot/3.x/MasterListLayout.razor?highlight=1,9)]
 
 Na koniec `MasterLayout` w *MasterLayout. Razor* zawiera elementy układu najwyższego poziomu, takie jak nagłówek, menu główne i stopka. `MasterListLayout` z `EpisodesComponent` jest renderowany w miejscu, w którym pojawia się `@Body`:
 
-[!code-cshtml[](layouts/sample_snapshot/3.x/MasterLayout.razor?highlight=6)]
+[!code-razor[](layouts/sample_snapshot/3.x/MasterLayout.razor?highlight=6)]
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

@@ -5,16 +5,16 @@ description: Dowiedz się, jak utrwalać stan w aplikacjach Blazor Server.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/23/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 uid: blazor/state-management
-ms.openlocfilehash: ed203458126f3b4c97103c88a465e3eb5953a775
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 7351ee2438c6adf675b8aa5e8ecdb1b2da7b4f23
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74879712"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74943930"
 ---
 # <a name="aspnet-core-opno-locblazor-state-management"></a>Zarządzanie stanem Blazor ASP.NET Core
 
@@ -164,7 +164,7 @@ W dowolnym składniku wymagającym ładowania lub zapisywania danych w magazynie
 
 Wybór zależy od tego, który magazyn zapasowy ma być używany. W poniższym przykładzie użyto `sessionStorage`:
 
-```cshtml
+```razor
 @using Microsoft.AspNetCore.ProtectedBrowserStorage
 @inject ProtectedSessionStorage ProtectedSessionStore
 ```
@@ -215,7 +215,7 @@ private int? currentCount;
 
 Zamiast bezwarunkowo wyświetlać przycisk Count i **Increment** , wybierz, aby wyświetlić te elementy tylko wtedy, gdy dane są ładowane:
 
-```cshtml
+```razor
 @if (currentCount.HasValue)
 {
     <p>Current count: <strong>@currentCount</strong></p>
@@ -255,7 +255,7 @@ Aby wyłączyć renderowanie, Otwórz plik *Pages/_Host. cshtml* i Zmień wywoł
 
 Renderowanie może być przydatne w przypadku innych stron, które nie używają `localStorage` lub `sessionStorage`. Aby włączyć renderowanie, odłóż operację ładowania do momentu podłączenia przeglądarki do obwodu. Poniżej przedstawiono przykład przechowywania wartości licznika:
 
-```cshtml
+```razor
 @using Microsoft.AspNetCore.ProtectedBrowserStorage
 @inject ProtectedLocalStorage ProtectedLocalStore
 
@@ -296,7 +296,7 @@ Jeśli wiele składników korzysta z magazynu opartego na przeglądarce, ponowne
 
 W poniższym przykładzie składnika `CounterStateProvider` dane licznika są utrwalane:
 
-```cshtml
+```razor
 @using Microsoft.AspNetCore.ProtectedBrowserStorage
 @inject ProtectedSessionStorage ProtectedSessionStore
 
@@ -336,7 +336,7 @@ Składnik `CounterStateProvider` obsługuje fazę ładowania, ponieważ nie rend
 
 Aby użyć składnika `CounterStateProvider`, zawiń wystąpienie składnika wokół dowolnego innego składnika, który wymaga dostępu do stanu licznika. Aby zapewnić dostępność stanu dla wszystkich składników w aplikacji, zawiń składnik `CounterStateProvider` wokół `Router` w składniku `App` (*App. Razor*):
 
-```cshtml
+```razor
 <CounterStateProvider>
     <Router AppAssembly="typeof(Startup).Assembly">
         ...
@@ -346,7 +346,7 @@ Aby użyć składnika `CounterStateProvider`, zawiń wystąpienie składnika wok
 
 Zapakowane składniki są odbierane i mogą modyfikować stan trwałych liczników. Poniższy składnik `Counter` implementuje wzorzec:
 
-```cshtml
+```razor
 @page "/counter"
 
 <p>Current count: <strong>@CounterStateProvider.CurrentCount</strong></p>

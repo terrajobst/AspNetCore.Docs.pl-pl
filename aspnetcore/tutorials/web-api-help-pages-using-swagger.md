@@ -1,17 +1,17 @@
 ---
 title: ASP.NET Core Web API help pages w strukturze Swagger / interfejsu OpenAPI
-author: rsuter
+author: RicoSuter
 description: Ten samouczek zawiera wskazówki dotyczące dodawania struktury Swagger, aby generować dokumentację i strony dla aplikacji interfejsu API sieci Web pomocy.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 09/20/2018
+ms.date: 12/07/2019
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: 06a942ca213c7c0a58932494be0ed23cb6896d48
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: 4408e02996b958bf009903aa1e4eeda9ad4f457c
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856093"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944086"
 ---
 # <a name="aspnet-core-web-api-help-pages-with-swagger--openapi"></a>Strony sieci web platformy ASP.NET Core pomocy interfejsu API, w strukturze Swagger / interfejsu OpenAPI
 

@@ -5,17 +5,17 @@ description: Informacje na temat Blazor modeli hostingu i Blazor Server.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/23/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/hosting-models
-ms.openlocfilehash: 38db9804c9cdd1aa31ca48af2dd9ec2e85175156
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: 7676d16bddf146ea38619ed35c5e32c5bce731de
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74681048"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74943774"
 ---
 # <a name="aspnet-core-opno-locblazor-hosting-models"></a>ASP.NET Core Blazor modele hostingowe
 
@@ -56,7 +56,7 @@ Istnieją downsides Blazor hostingu zestawu webassembly:
 * Rozmiar pobieranych plików jest większy i ładowanie aplikacji trwa dłużej.
 * Środowisko uruchomieniowe platformy .NET i obsługa narzędzi są mniej dojrzałe. Na przykład istnieją ograniczenia dotyczące obsługi [.NET Standard](/dotnet/standard/net-standard) i debugowania.
 
-## <a name="opno-locblazor-server"></a>Serwer Blazor
+## <a name="opno-locblazor-server"></a>Serwer programu Blazor
 
 W modelu hostingu serwera Blazor aplikacja jest wykonywana na serwerze z poziomu aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika, obsługa zdarzeń i wywołania języka JavaScript są obsługiwane przez połączenie [SignalR](xref:signalr/introduction) .
 
@@ -150,7 +150,7 @@ Gdy klient wykryje, że połączenie zostało utracone, do użytkownika jest wy�
 
 Aby dostosować interfejs użytkownika, zdefiniuj element z `id` `components-reconnect-modal` w `<body>` na stronie *_Host. cshtml* Razor:
 
-```html
+```cshtml
 <div id="components-reconnect-modal">
     ...
 </div>
@@ -323,7 +323,7 @@ Następująca strona Razor renderuje składnik `Counter`:
 
 ### <a name="render-noninteractive-components-from-razor-pages-and-views"></a>Renderuj nieinteraktywne składniki ze stron Razor i widoków
 
-Na poniższej stronie Razor składnik `MyComponent` jest renderowany statycznie z wartością początkową określoną przy użyciu formularza:
+Na poniższej stronie Razor składnik `Counter` jest renderowany statycznie z wartością początkową określoną przy użyciu formularza:
 
 ::: moniker range=">= aspnetcore-3.1"
 
@@ -356,7 +356,7 @@ Na poniższej stronie Razor składnik `MyComponent` jest renderowany statycznie 
     <button type="submit">Set initial value</button>
 </form>
 
-@(await Html.RenderComponentAsync<MyComponent>(RenderMode.Static, 
+@(await Html.RenderComponentAsync<Counter>(RenderMode.Static, 
     new { InitialValue = InitialValue }))
 
 @code {

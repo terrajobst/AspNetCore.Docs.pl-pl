@@ -5,17 +5,17 @@ description: Odkryj, jak ASP.NET Core Blazor sposób, w jaki Blazor zarządza ni
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: e737a8a85e7eb83d95618d71e85b0307c54b0766
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: d73eb9a0dd0ec7a4bec4b7b9aeaaa4a9ee888bce
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74879682"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74943709"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>Obsługa błędów w aplikacjach Blazor ASP.NET Core
 
@@ -138,7 +138,7 @@ W poniższym przykładzie, gdzie `OnParametersSetAsync` wywołuje metodę w celu
   * `loadFailed` jest ustawiony na `true`, który jest używany do wyświetlania komunikatu o błędzie dla użytkownika.
   * Błąd jest rejestrowany.
 
-[!code-cshtml[](handle-errors/samples_snapshot/3.x/product-details.razor?highlight=11,27-39)]
+[!code-razor[](handle-errors/samples_snapshot/3.x/product-details.razor?highlight=11,27-39)]
 
 ### <a name="rendering-logic"></a>Logika renderowania
 
@@ -148,7 +148,7 @@ Logika renderowania może zgłosić wyjątek. Przykład tego scenariusza występ
 
 Aby zapobiec wystąpieniu wyjątku odwołania o wartości null w logice renderowania, przed uzyskaniem dostępu do elementów członkowskich Sprawdź, czy `null` obiektu. W poniższym przykładzie właściwości `person.Address` nie są dostępne w przypadku `null``person.Address`:
 
-[!code-cshtml[](handle-errors/samples_snapshot/3.x/person-example.razor?highlight=1)]
+[!code-razor[](handle-errors/samples_snapshot/3.x/person-example.razor?highlight=1)]
 
 Poprzedni kod założono, że `person` nie `null`. Często Struktura kodu gwarantuje, że obiekt istnieje w momencie renderowania składnika. W takich przypadkach nie trzeba sprawdzać `null` w logice renderowania. W poprzednim przykładzie można zagwarantować, że istnieje `person`, ponieważ `person` jest tworzony podczas tworzenia wystąpienia składnika.
 

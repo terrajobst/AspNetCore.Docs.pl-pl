@@ -9,12 +9,12 @@ ms.date: 12/05/2019
 no-loc:
 - Blazor
 uid: blazor/dependency-injection
-ms.openlocfilehash: 17dd0f927064ae7c2b1e3e439fd93e2cb220a5a4
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: aad6cfee500b5cb502470f6a4a7cb5756df09dc4
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74879782"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74943787"
 ---
 # <a name="aspnet-core-opno-locblazor-dependency-injection"></a>ASP.NET Core Blazor iniekcji zależności
 
@@ -84,7 +84,7 @@ Użyj wielu instrukcji `@inject`, aby wstrzyknąć różne usługi.
 
 Poniższy przykład pokazuje, jak używać `@inject`. Usługa implementująca `Services.IDataAccess` jest wstrzykiwana do `DataRepository`właściwości składnika. Zwróć uwagę, jak kod używa wyłącznie abstrakcji `IDataAccess`:
 
-[!code-cshtml[](dependency-injection/samples_snapshot/3.x/CustomerList.razor?highlight=2-3,23)]
+[!code-razor[](dependency-injection/samples_snapshot/3.x/CustomerList.razor?highlight=2-3,23)]
 
 Wewnętrznie wygenerowana Właściwość (`DataRepository`) używa atrybutu `InjectAttribute`. Zazwyczaj ten atrybut nie jest używany bezpośrednio. Jeśli klasa podstawowa jest wymagana dla składników i właściwości wstrzykiwane są również wymagane dla klasy bazowej, ręcznie Dodaj `InjectAttribute`:
 
@@ -100,7 +100,7 @@ public class ComponentBase : IComponent
 
 W składnikach pochodnych z klasy bazowej dyrektywa `@inject` nie jest wymagana. `InjectAttribute` klasy podstawowej jest wystarczająca:
 
-```cshtml
+```razor
 @page "/demo"
 @inherits ComponentBase
 
@@ -135,7 +135,7 @@ W przypadku aplikacji ASP.NET Core usługi o określonym zakresie są zwykle obj
 
 Aby zasięgać usługi do okresu istnienia składnika, można użyć klas podstawowych `OwningComponentBase` i `OwningComponentBase<TService>`. Te klasy bazowe uwidaczniają Właściwość `ScopedServices` typu `IServiceProvider`, które rozwiązują usługi objęte zakresem czasu istnienia składnika. Aby utworzyć składnik, który dziedziczy z klasy podstawowej w Razor, użyj dyrektywy `@inherits`.
 
-```cshtml
+```razor
 @page "/users"
 @attribute [Authorize]
 @inherits OwningComponentBase<Data.ApplicationDbContext>

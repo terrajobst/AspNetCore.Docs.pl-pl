@@ -5,16 +5,16 @@ description: Dowiedz się, jak wywoływać funkcje języka JavaScript z technolo
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/02/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 uid: blazor/javascript-interop
-ms.openlocfilehash: 108fdac8667f407adba3470de4eb8e35883cefbf
-ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
+ms.openlocfilehash: 05225b86701b7a5d5c84dd43afbef70dd1ece228
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74733833"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944073"
 ---
 # <a name="aspnet-core-opno-locblazor-javascript-interop"></a>ASP.NET Core Blazor JavaScript Interop
 
@@ -24,7 +24,7 @@ ms.locfileid: "74733833"
 
 Aplikacja Blazor może wywoływać funkcje języka JavaScript z technologii .NET i .NET z kodu JavaScript.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="invoke-javascript-functions-from-net-methods"></a>Wywoływanie funkcji języka JavaScript z metod .NET
 
@@ -55,7 +55,7 @@ Następujący składnik:
 * Wywołuje funkcję `convertArray` JavaScript przy użyciu `JSRuntime`, gdy zostanie wybrany przycisk składnika (**Konwertuj tablicę**).
 * Po wywołaniu funkcji języka JavaScript przenoszona tablica jest konwertowana na ciąg. Ciąg jest zwracany do składnika do wyświetlenia.
 
-[!code-cshtml[](javascript-interop/samples_snapshot/call-js-example.razor?highlight=2,34-35)]
+[!code-razor[](javascript-interop/samples_snapshot/call-js-example.razor?highlight=2,34-35)]
 
 ## <a name="use-of-ijsruntime"></a>Korzystanie z IJSRuntime
 
@@ -63,7 +63,7 @@ Aby użyć abstrakcji `IJSRuntime`, należy zastosować jedną z następujących
 
 * Wsuń `IJSRuntime` abstrakcję do składnika Razor ( *. Razor*):
 
-  [!code-cshtml[](javascript-interop/samples_snapshot/inject-abstraction.razor?highlight=1)]
+  [!code-razor[](javascript-interop/samples_snapshot/inject-abstraction.razor?highlight=1)]
 
   Wewnątrz elementu `<head>` *wwwroot/index.html* (Blazor webassembly) lub *pages/_Host. cshtml* (Blazor Server) podaj funkcję JavaScript `handleTickerChanged`. Funkcja jest wywoływana z `IJSRuntime.InvokeVoidAsync` i nie zwraca wartości:
 
@@ -79,7 +79,7 @@ Aby użyć abstrakcji `IJSRuntime`, należy zastosować jedną z następujących
 
 * Aby można było wygenerować zawartość dynamiczną przy użyciu [BuildRenderTree](xref:blazor/components#manual-rendertreebuilder-logic), użyj atrybutu `[Inject]`:
 
-  ```csharp
+  ```razor
   [Inject]
   IJSRuntime JSRuntime { get; set; }
   ```
@@ -117,7 +117,35 @@ Przykładowa aplikacja zawiera składnik demonstrujący międzyoperacyjność JS
 
 *Strony/JSInterop. Razor*:
 
-[!code-cshtml[](./common/samples/3.x/BlazorWebAssemblySample/Pages/JsInterop.razor?name=snippet_JSInterop1&highlight=3,19-21,23-25)]
+```razor
+@page "/JSInterop"
+@using BlazorSample.JsInteropClasses
+@inject IJSRuntime JSRuntime
+
+<h1>JavaScript Interop</h1>
+
+<h2>Invoke JavaScript functions from .NET methods</h2>
+
+<button type="button" class="btn btn-primary" @onclick="TriggerJsPrompt">
+    Trigger JavaScript Prompt
+</button>
+
+<h3 id="welcome" style="color:green;font-style:italic"></h3>
+
+@code {
+    public async Task TriggerJsPrompt()
+    {
+        // showPrompt is implemented in wwwroot/exampleJsInterop.js
+        var name = await JSRuntime.InvokeAsync<string>(
+                "exampleJsFunctions.showPrompt",
+                "What's your name?");
+        // displayWelcome is implemented in wwwroot/exampleJsInterop.js
+        await JSRuntime.InvokeVoidAsync(
+                "exampleJsFunctions.displayWelcome",
+                $"Hello {name}! Welcome to Blazor!");
+    }
+}
+```
 
 1. Gdy `TriggerJsPrompt` jest wykonywane, wybierając przycisk **Monituj wyzwalacza JavaScript** składnika, funkcja JavaScript `showPrompt` dostępna w pliku *wwwroot/exampleJsInterop. js* jest wywoływana.
 1. Funkcja `showPrompt` akceptuje dane wejściowe użytkownika (nazwę użytkownika), które są kodowane w formacie HTML i zwracane do składnika. Składnik przechowuje nazwę użytkownika w zmiennej lokalnej, `name`.
@@ -142,7 +170,7 @@ Przechwyć odwołania do elementów HTML w składniku, korzystając z następuj�
 
 W poniższym przykładzie pokazano przechwytywanie odwołania do `username` elementu `<input>`:
 
-```cshtml
+```razor
 <input @ref="username" ... />
 
 @code {
@@ -155,7 +183,7 @@ W poniższym przykładzie pokazano przechwytywanie odwołania do `username` elem
 >
 > W poniższym przykładzie jest *niebezpieczne* do mutacji zawartości listy nieuporządkowanej (`ul`), ponieważ Blazor współdziała z modelem dom w celu wypełnienia elementów listy elementu (`<li>`):
 >
-> ```cshtml
+> ```razor
 > <ul ref="MyList">
 >     @foreach (var item in Todos)
 >     {
@@ -170,7 +198,7 @@ W odniesieniu do kodu platformy .NET `ElementReference` jest nieprzezroczystym u
 
 Na przykład poniższy kod definiuje metodę rozszerzenia .NET, która umożliwia ustawienie fokusu na elemencie:
 
-*exampleJsInterop. js*:
+*exampleJsInterop.js*:
 
 ```javascript
 window.exampleJsFunctions = {
@@ -182,7 +210,7 @@ window.exampleJsFunctions = {
 
 Aby wywołać funkcję języka JavaScript, która nie zwraca wartości, użyj `IJSRuntime.InvokeVoidAsync`. Poniższy kod ustawia fokus na wejściu do nazwy użytkownika, wywołując poprzednią funkcję JavaScript z przechwyconą `ElementReference`:
 
-[!code-cshtml[](javascript-interop/samples_snapshot/component1.razor?highlight=1,3,11-12)]
+[!code-razor[](javascript-interop/samples_snapshot/component1.razor?highlight=1,3,11-12)]
 
 Aby użyć metody rozszerzenia, Utwórz statyczną metodę rozszerzenia, która odbiera wystąpienie `IJSRuntime`:
 
@@ -196,7 +224,7 @@ public static async Task Focus(this ElementReference elementRef, IJSRuntime jsRu
 
 Metoda `Focus` jest wywoływana bezpośrednio dla obiektu. W poniższym przykładzie przyjęto założenie, że metoda `Focus` jest dostępna z przestrzeni nazw `JsInteropClasses`:
 
-[!code-cshtml[](javascript-interop/samples_snapshot/component2.razor?highlight=1-4,12)]
+[!code-razor[](javascript-interop/samples_snapshot/component2.razor?highlight=1-4,12)]
 
 > [!IMPORTANT]
 > Zmienna `username` jest wypełniana tylko po wyrenderowaniu składnika. Jeśli niewypełniony `ElementReference` jest przekazywane do kodu JavaScript, kod JavaScript otrzymuje wartość `null`. Aby manipulować odwołaniami do elementów po zakończeniu renderowania składnika (aby ustawić początkowy fokus w elemencie), użyj [metod cyklu życia składnika OnAfterRenderAsync lub OnAfterRender](xref:blazor/lifecycle#after-component-render).
@@ -214,7 +242,7 @@ public static ValueTask<T> GenericMethod<T>(this ElementReference elementRef,
 
 `GenericMethod` jest wywoływana bezpośrednio w obiekcie z typem. W poniższym przykładzie przyjęto założenie, że `GenericMethod` jest dostępny z przestrzeni nazw `JsInteropClasses`:
 
-[!code-cshtml[](javascript-interop/samples_snapshot/component3.razor?highlight=17)]
+[!code-razor[](javascript-interop/samples_snapshot/component3.razor?highlight=17)]
 
 ## <a name="invoke-net-methods-from-javascript-functions"></a>Wywoływanie metod .NET przy użyciu funkcji języka JavaScript
 
@@ -226,7 +254,20 @@ Przykładowa aplikacja zawiera C# metodę zwracającą tablicę `int`s. Atrybut 
 
 *Strony/JsInterop. Razor*:
 
-[!code-cshtml[](./common/samples/3.x/BlazorWebAssemblySample/Pages/JsInterop.razor?name=snippet_JSInterop2&highlight=7-11)]
+```razor
+<button type="button" class="btn btn-primary"
+        onclick="exampleJsFunctions.returnArrayAsyncJs()">
+    Trigger .NET static method ReturnArrayAsync
+</button>
+
+@code {
+    [JSInvokable]
+    public static Task<int[]> ReturnArrayAsync()
+    {
+        return Task.FromResult(new int[] { 1, 2, 3 });
+    }
+}
+```
 
 Kod JavaScript obsługiwany przez klienta wywołuje metodę C# .NET.
 
@@ -258,11 +299,23 @@ Po wybraniu przycisku **Wyzwalaj metodę wystąpienia .NET HelloHelper. sayHello
 
 *Strony/JsInterop. Razor*:
 
-[!code-cshtml[](./common/samples/3.x/BlazorWebAssemblySample/Pages/JsInterop.razor?name=snippet_JSInterop3&highlight=8-9)]
+```razor
+<button type="button" class="btn btn-primary" @onclick="TriggerNetInstanceMethod">
+    Trigger .NET instance method HelloHelper.SayHello
+</button>
+
+@code {
+    public async Task TriggerNetInstanceMethod()
+    {
+        var exampleJsInterop = new ExampleJsInterop(JSRuntime);
+        await exampleJsInterop.CallHelloHelperSayHello("Blazor");
+    }
+}
+```
 
 `CallHelloHelperSayHello` wywołuje funkcję JavaScript `sayHello` z nowym wystąpieniem `HelloHelper`.
 
-*JsInteropClasses/ExampleJsInterop. cs*:
+*JsInteropClasses/ExampleJsInterop.cs*:
 
 [!code-csharp[](./common/samples/3.x/BlazorWebAssemblySample/JsInteropClasses/ExampleJsInterop.cs?name=snippet1&highlight=10-16)]
 
@@ -272,7 +325,7 @@ Po wybraniu przycisku **Wyzwalaj metodę wystąpienia .NET HelloHelper. sayHello
 
 Nazwa jest przenoszona do konstruktora `HelloHelper`, który ustawia właściwość `HelloHelper.Name`. Gdy funkcja JavaScript `sayHello` jest wykonywana, `HelloHelper.SayHello` zwraca komunikat `Hello, {Name}!`, który jest zapisywana w konsoli przez funkcję JavaScript.
 
-*JsInteropClasses/HelloHelper. cs*:
+*JsInteropClasses/HelloHelper.cs*:
 
 [!code-csharp[](./common/samples/3.x/BlazorWebAssemblySample/JsInteropClasses/HelloHelper.cs?name=snippet1&highlight=5,10-11)]
 

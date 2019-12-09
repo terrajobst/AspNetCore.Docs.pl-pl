@@ -3,14 +3,14 @@ title: Dokumentacja składni razor dla platformy ASP.NET Core
 author: rick-anderson
 description: Więcej informacji na temat składni znacznikowania Razor do osadzania kodu na serwerze do stron sieci Web.
 ms.author: riande
-ms.date: 11/09/2019
+ms.date: 12/05/2019
 uid: mvc/views/razor
-ms.openlocfilehash: a18fd2886124f186b8f35abf4b55a51f1f996958
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: baac0ac38a0781cb9c16689cf3e29526b602d8da
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881012"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944255"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Dokumentacja składni razor dla platformy ASP.NET Core
 
@@ -461,7 +461,7 @@ Dyrektywa `@attribute` dodaje dany atrybut do klasy wygenerowanej strony lub wid
 
 Blok `@code` umożliwia [składnikowi Razor](xref:blazor/components) Dodawanie C# elementów członkowskich (pól, właściwości i metod) do składnika:
 
-```cshtml
+```razor
 @code {
     // C# members (fields, properties, and methods)
 }

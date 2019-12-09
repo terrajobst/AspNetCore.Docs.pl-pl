@@ -5,17 +5,17 @@ description: Dowiedz się, jak ograniczyć zagrożenia bezpieczeństwa do Blazor
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/server
-ms.openlocfilehash: 5cf83a4dd255959e8840fca3a8194b5b4e2ad0a8
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 2d644b84b304a31ad0debc16164ad155c7f7da65
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963875"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944285"
 ---
 # <a name="secure-aspnet-core-opno-locblazor-server-apps"></a>Bezpieczne ASP.NET Core aplikacje Blazor Server
 
@@ -36,15 +36,15 @@ W środowiskach z ograniczeniami, takimi jak wewnątrz sieci firmowej lub intran
 
 Wyczerpanie zasobów może wystąpić, gdy klient współdziała z serwerem i powoduje, że serwer zużywa nadmierne zasoby. Nadmierne wykorzystanie zasobów dotyczy głównie:
 
-* [TESTY](#cpu)
-* [Rozmiar](#memory)
+* [CPU](#cpu)
+* [Pamięć](#memory)
 * [Połączenia klienckie](#client-connections)
 
 Ataki typu "odmowa usługi" (DoS) zwykle poszukują wyczerpania zasobów aplikacji lub serwera. Jednak wyczerpanie zasobów nie musi być przyczyną ataku w systemie. Na przykład ograniczone zasoby mogą być wyczerpane ze względu na wysokie zapotrzebowanie użytkownika. System DoS został szczegółowo omówiony w sekcji [ataki typu "odmowa usługi" (DOS)](#denial-of-service-dos-attacks) .
 
-Zasoby Blazor zewnętrzne, takie jak bazy danych i dojścia do plików (używane do odczytu i zapisu plików) mogą również powodować wyczerpanie zasobów. Aby uzyskać więcej informacji, zobacz <xref:performance/performance-best-practices>.
+Zasoby Blazor zewnętrzne, takie jak bazy danych i dojścia do plików (używane do odczytu i zapisu plików) mogą również powodować wyczerpanie zasobów. Aby uzyskać więcej informacji, zobacz temat <xref:performance/performance-best-practices>.
 
-### <a name="cpu"></a>CPU
+### <a name="cpu"></a>Procesor
 
 Wyczerpanie procesora może wystąpić, gdy jeden lub więcej klientów wymusza intensywną realizację procesora CPU przez serwer.
 
@@ -73,7 +73,7 @@ Wymagania dotyczące pamięci po stronie serwera są rozważenia dla wszystkich 
 > [!NOTE]
 > Podczas programowania można użyć profilera lub przechwycić ślad w celu oceny wymagań pamięci klientów. Program profilujący lub ślad nie będzie przechwytywać pamięci przyprzypisanej do określonego klienta. Aby przechwycić wykorzystanie pamięci przez określonego klienta podczas tworzenia, Przechwyć zrzut i sprawdź zapotrzebowanie na pamięć wszystkich obiektów, które zostały umieszczone w obwodzie użytkownika.
 
-### <a name="client-connections"></a>Połączenia klienckie
+### <a name="client-connections"></a>Połączenia klienta
 
 Wyczerpanie połączenia może wystąpić, gdy co najmniej jeden klient otwiera zbyt wiele równoczesnych połączeń z serwerem, uniemożliwiając innym klientom nawiązywanie nowych połączeń.
 
@@ -126,7 +126,7 @@ Dla wywołań z metod .NET do języka JavaScript:
 
 Wykonaj następujące środki ostrożności, aby zabezpieczyć się przed poprzednimi scenariuszami:
 
-* Zawijaj wywołania programu JS Interop w instrukcjach [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) , aby uwzględnić błędy, które mogą wystąpić podczas wywołań. Aby uzyskać więcej informacji, zobacz <xref:blazor/handle-errors#javascript-interop>.
+* Zawijaj wywołania programu JS Interop w instrukcjach [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) , aby uwzględnić błędy, które mogą wystąpić podczas wywołań. Aby uzyskać więcej informacji, zobacz temat <xref:blazor/handle-errors#javascript-interop>.
 * Sprawdź poprawność danych zwróconych przez wywołania międzyoperacyjności JS, w tym komunikaty o błędach, przed podjęciem jakiejkolwiek akcji.
 
 ### <a name="net-methods-invoked-from-the-browser"></a>Metody .NET wywoływane z przeglądarki
@@ -159,7 +159,7 @@ zdarzenia serwera Blazor są asynchroniczne, więc do serwera można wysłać wi
 
 Rozważmy składnik licznika, który powinien zezwalać użytkownikowi na zwiększenie licznika maksymalnie trzy razy. Przycisk służący do zwiększania licznika jest warunkowo oparty na wartości `count`:
 
-```cshtml
+```razor
 <p>Count: @count<p>
 
 @if (count < 3)
@@ -180,7 +180,7 @@ Rozważmy składnik licznika, który powinien zezwalać użytkownikowi na zwięk
 
 Klient może wysłać co najmniej jedno zdarzenie przyrostu, zanim środowisko generuje nowe renderowanie tego składnika. Wynikiem tego jest to, że `count` można zwiększyć przez użytkownika *trzykrotnie* , ponieważ przycisk nie jest usuwany przez interfejs użytkownika wystarczająco szybko. Prawidłowy sposób osiągnięcia limitu trzech `count` przyrostów pokazano w następującym przykładzie:
 
-```cshtml
+```razor
 <p>Count: @count<p>
 
 @if (count < 3)
@@ -208,7 +208,7 @@ Poprzez dodanie `if (count < 3) { ... }` kontroli w ramach procedury obsługi, d
 
 Jeśli wywołanie zwrotne zdarzenia wywołuje długotrwałą operację, taką jak pobieranie danych z zewnętrznej usługi lub bazy danych, należy rozważyć użycie funkcji Guard. Funkcja Guard może uniemożliwić użytkownikowi kolejkowanie wielu operacji, gdy operacja jest w toku i zawiera wizualne Opinie. Poniższy kod składnika ustawia `isLoading` do `true` podczas `GetForecastAsync` pobiera dane z serwera. Gdy `isLoading` jest `true`, przycisk jest wyłączony w interfejsie użytkownika:
 
-```cshtml
+```razor
 @page "/fetchdata"
 @using BlazorServerSample.Data
 @inject WeatherForecastService ForecastService
@@ -235,7 +235,7 @@ Jeśli wywołanie zwrotne zdarzenia wywołuje długotrwałą operację, taką ja
 
 Oprócz używania ochrony zgodnie z opisem w sekcji [Guard dla wielu odniesień](#guard-against-multiple-dispatches) należy rozważyć użycie <xref:System.Threading.CancellationToken>, aby anulować długotrwałe operacje, gdy składnik zostanie usunięty. Takie podejście ma dodatkową korzyść, unikając *użycia-After-Dispose* w składnikach:
 
-```cshtml
+```razor
 @implements IDisposable
 
 ...
@@ -291,7 +291,7 @@ Błąd po stronie klienta nie zawiera stosu wywołań i nie zawiera szczegółó
 
 Włącz szczegółowe błędy przy użyciu:
 
-* `CircuitOptions.DetailedErrors`.,
+* `CircuitOptions.DetailedErrors`.
 * klucz konfiguracji `DetailedErrors`. Na przykład ustaw dla zmiennej środowiskowej `ASPNETCORE_DETAILEDERRORS` wartość `true`.
 
 > [!WARNING]
@@ -346,7 +346,7 @@ W przypadku luki w zabezpieczeniach XSS aplikacja musi zawierać dane wejściowe
 
 W ramach ochrony przed atakami typu XSS należy rozważyć zaimplementowanie rozwiązań XSS, takich jak [zasady zabezpieczeń zawartości (CSP)](https://developer.mozilla.org/docs/Web/HTTP/CSP).
 
-Aby uzyskać więcej informacji, zobacz <xref:security/cross-site-scripting>.
+Aby uzyskać więcej informacji, zobacz temat <xref:security/cross-site-scripting>.
 
 ### <a name="cross-origin-protection"></a>Ochrona między źródłami
 
@@ -355,7 +355,7 @@ Ataki między źródłami obejmują klienta z innego źródła, wykonującego ak
 * dostęp do aplikacji serwera Blazor można uzyskać, chyba że zostaną podjęte dodatkowe środki w celu ich uniemożliwienia. Aby wyłączyć dostęp między źródłami, wyłącz funkcję CORS w punkcie końcowym przez dodanie oprogramowania pośredniczącego CORS do potoku i dodanie `DisableCorsAttribute` do metadanych punktu końcowego Blazor lub ograniczenie zestawu dozwolonych źródeł przez [skonfigurowanie SignalR na potrzeby udostępniania zasobów między źródłami](xref:signalr/security#cross-origin-resource-sharing).
 * Jeśli jest włączona funkcja CORS, w zależności od konfiguracji specyfikacji CORS może być wymagane wykonanie dodatkowych czynności w celu ochrony aplikacji. Jeśli funkcja CORS jest włączona globalnie, można wyłączyć funkcję CORS dla centrum Blazor Server, dodając metadane `DisableCorsAttribute` do metadanych punktu końcowego po wywołaniu `hub.MapBlazorHub()`.
 
-Aby uzyskać więcej informacji, zobacz <xref:security/anti-request-forgery>.
+Aby uzyskać więcej informacji, zobacz temat <xref:security/anti-request-forgery>.
 
 ### <a name="click-jacking"></a>Gniazdo kliknięcia
 
@@ -383,7 +383,7 @@ To zalecenie ma zastosowanie również w przypadku renderowania linków w ramach
 * Jeśli to możliwe, użyj linków względnych.
 * Sprawdź, czy bezwzględne miejsca docelowe linków są prawidłowe przed dołączeniem ich do strony.
 
-Aby uzyskać więcej informacji, zobacz <xref:security/preventing-open-redirects>.
+Aby uzyskać więcej informacji, zobacz temat <xref:security/preventing-open-redirects>.
 
 ## <a name="authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja
 

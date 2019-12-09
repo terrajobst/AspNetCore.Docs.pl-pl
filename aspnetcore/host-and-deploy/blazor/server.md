@@ -5,17 +5,17 @@ description: Dowiedz się, jak hostować i wdrażać aplikację Blazor Server pr
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/21/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/server
-ms.openlocfilehash: b688d000f26c9b230d9fdee8423b3194145fe1aa
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: d45d355eabc53fc90bcda4cb7be22fb6a9f04541
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317295"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944337"
 ---
 # <a name="host-and-deploy-opno-locblazor-server"></a>Hostowanie i wdrażanie serwera Blazor
 
@@ -25,7 +25,7 @@ ms.locfileid: "74317295"
 
 [aplikacje serweraBlazor](xref:blazor/hosting-models#blazor-server) mogą akceptować [ogólne wartości konfiguracji hosta](xref:fundamentals/host/generic-host#host-configuration).
 
-## <a name="deployment"></a>Wdrożenie
+## <a name="deployment"></a>Wdrażanie
 
 Korzystając z [modelu hostinguBlazor Server](xref:blazor/hosting-models#blazor-server), Blazor jest wykonywane na serwerze z poziomu aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika, obsługa zdarzeń i wywołania języka JavaScript są obsługiwane przez połączenie [SignalR](xref:signalr/introduction) .
 
@@ -49,7 +49,7 @@ Aby uzyskać wskazówki dotyczące tworzenia bezpiecznych i skalowalnych aplikac
 
 Każdy obwód wykorzystuje około 250 KB pamięci w przypadku aplikacji o minimalnej *Hello World*. Rozmiar obwodu zależy od kodu aplikacji i wymagań dotyczących konserwacji stanu związanych z poszczególnymi składnikami. Zalecamy mierzenie wymagań dotyczących zasobów podczas opracowywania aplikacji i infrastruktury, ale następujący punkt odniesienia może być punktem początkowym w planowaniu celu wdrożenia: jeśli oczekujesz, że aplikacja będzie obsługiwać 5 000 współbieżnych użytkowników, rozważ budżetowanie o najmniej 1,3 GB pamięci serwera do aplikacji (lub ~ 273 KB na użytkownika).
 
-### <a name="opno-locsignalr-configuration"></a>Konfiguracja SignalR
+### <a name="opno-locsignalr-configuration"></a>Konfiguracja programu SignalR
 
 aplikacje serwera Blazor używają ASP.NET Core SignalR do komunikowania się z przeglądarką. [warunki hostingu i skalowaniaSignalR](xref:signalr/publish-to-azure-web-app) mają zastosowanie do aplikacji Blazor Server.
 
@@ -73,7 +73,7 @@ Zalecamy korzystanie z [usługi Azure SignalR](/azure/azure-signalr) dla aplikac
 
    * Konfiguracja (Użyj **jednej** z następujących metod):
   
-     * *appSettings. JSON*:
+     * *appsettings.json*:
 
        ```json
        "Azure:SignalR:ServerStickyMode": "Required"
@@ -83,7 +83,7 @@ Zalecamy korzystanie z [usługi Azure SignalR](/azure/azure-signalr) dla aplikac
 
 1. Utwórz profil publikowania aplikacji platformy Azure w programie Visual Studio dla aplikacji serwera Blazor.
 1. Dodaj zależność **usługi SignalR platformy Azure** do profilu. Jeśli subskrypcja platformy Azure nie ma istniejącego wystąpienia usługi SignalR platformy Azure do przypisania do aplikacji, wybierz pozycję **Utwórz nowe wystąpienie usługi azure SignalR** , aby udostępnić nowe wystąpienie usługi.
-1. Opublikuj aplikację na platformie Azure.
+1. Publikowanie aplikacji na platformie Azure
 
 #### <a name="iis"></a>IIS
 
@@ -109,7 +109,7 @@ metadata:
 
 Przy użyciu kodu [js Interop](xref:blazor/javascript-interop) można mierzyć opóźnienia sieci, jak pokazano w poniższym przykładzie:
 
-```cshtml
+```razor
 @inject IJSRuntime JS
 
 @if (latency is null)
