@@ -4,7 +4,7 @@
 
 W projekcie RazorPagesMovie Utwórz nowy folder o nazwie *dane*. Dodaj następującą klasę `RazorPagesMovieContext` do folderu *danych* :
 
-[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Data/RazorPagesMovieContext.cs)]
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Data/RazorPagesMovieContext.cs)]
 
 Poprzedni kod tworzy właściwość `DbSet` dla zestawu jednostek. W Entity Framework terminologii zestaw jednostek zwykle odpowiada tabeli bazy danych, a jednostka odpowiada wierszowi w tabeli.
 

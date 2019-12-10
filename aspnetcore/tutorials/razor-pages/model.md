@@ -5,12 +5,12 @@ description: Dowiedz się, jak można dodać klas związanych z zarządzaniem fi
 ms.author: riande
 ms.date: 12/05/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 1988877a552ba58841140a00b61bdcf003afd87d
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 95b6d3e016edcd2e13207c8e658cf0d2fb21f945
+ms.sourcegitcommit: 4e3edff24ba6e43a103fee1b126c9826241bb37b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881341"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74959086"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Dodawanie modelu strony Razor aplikacji w programie ASP.NET Core
 
@@ -353,11 +353,6 @@ to use Data, it should not use models. That will make the namespace the same for
 -->
 
 * Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
-* Zainstaluj narzędzia do tworzenia szkieletów:
-
-  ```dotnetcli
-   dotnet tool install --global dotnet-aspnet-codegenerator
-   ```
 
 * **Aby uzyskać Windows**: Uruchom następujące polecenie:
 
@@ -376,12 +371,6 @@ to use Data, it should not use models. That will make the namespace the same for
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 * Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
-* Zainstaluj narzędzia do tworzenia szkieletów:
-
-  ```dotnetcli
-   dotnet tool install --global dotnet-aspnet-codegenerator
-   ```
-
 * Uruchom następujące polecenie:
 
   ```dotnetcli
