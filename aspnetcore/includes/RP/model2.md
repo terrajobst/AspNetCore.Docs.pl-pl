@@ -29,7 +29,7 @@ Dodaj parametry połączenia do pliku *appSettings. JSON* , jak pokazano w nast�
 Dodaj następujące instrukcje `using` w górnej części *Startup.cs*:
 
 ```csharp
-using RazorPagesMovie.Models;
+using RazorPagesMovie.Data;
 using Microsoft.EntityFrameworkCore;
 ```
 
