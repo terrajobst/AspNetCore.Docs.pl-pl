@@ -5,14 +5,14 @@ description: Dowiedz się więcej o obsłudze błędów przy użyciu ASP.NET Cor
 monikerRange: '>= aspnetcore-2.1'
 ms.author: prkrishn
 ms.custom: mvc
-ms.date: 09/27/2019
+ms.date: 12/10/2019
 uid: web-api/handle-errors
-ms.openlocfilehash: 457ad7449c608c3b1b0acd729626e07808f55897
-ms.sourcegitcommit: ddc813f0f1fb293861a01597532919945b0e7fe5
+ms.openlocfilehash: c2dbc47b4495b7187aefbc62eb6d2f0c9683c2da
+ms.sourcegitcommit: 29ace642ca0e1f0b48a18d66de266d8811df2b83
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74412101"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74987829"
 ---
 # <a name="handle-errors-in-aspnet-core-web-apis"></a>Obsługa błędów w ASP.NET Core interfejsów API sieci Web
 
@@ -34,7 +34,7 @@ curl -i https://localhost:5001/weatherforecast/chicago
 
 ::: moniker range=">= aspnetcore-3.0"
 
-W ASP.NET Core 3,0 i nowszych na stronie wyjątków dla deweloperów zostanie wyświetlona odpowiedź w postaci zwykłego tekstu, jeśli klient nie zażąda danych wyjściowych w formacie HTML. Wyświetlane są następujące dane wyjściowe:
+W ASP.NET Core 3,0 i nowszych na stronie wyjątków dla deweloperów zostanie wyświetlona odpowiedź w postaci zwykłego tekstu, jeśli klient nie zażąda danych wyjściowych w formacie HTML. Zostaną wyświetlone następujące dane wyjściowe:
 
 ```console
 HTTP/1.1 500 Internal Server Error
@@ -149,7 +149,7 @@ W środowiskach innych niż programowanie [wyjątek obsługujący oprogramowanie
 
     ::: moniker-end
 
-Poprzednia akcja `Error` wysyła do klienta ładunek zgodny z [RFC7807](https://tools.ietf.org/html/rfc7807).
+Poprzednia akcja `Error` wysyła do klienta ładunek zgodny ze standardem [RFC 7807](https://tools.ietf.org/html/rfc7807).
 
 Wyjątek obsługujący oprogramowanie pośredniczące może również dostarczyć bardziej szczegółowe dane wyjściowe negocjowane z zawartością w lokalnym środowisku programistycznym. Wykonaj następujące kroki, aby utworzyć spójny format ładunku w środowisku deweloperskim i produkcyjnym:
 
@@ -267,6 +267,13 @@ W przypadku kontrolerów interfejsu API sieci Web MVC reaguje na <xref:Microsoft
 ## <a name="client-error-response"></a>Odpowiedź na błąd klienta
 
 *Wynik błędu* jest definiowany w wyniku przy użyciu kodu stanu HTTP 400 lub wyższego. W przypadku kontrolerów interfejsu API sieci Web MVC przekształca wynik błędu z wynikiem <xref:Microsoft.AspNetCore.Mvc.ProblemDetails>.
+
+::: moniker range="= aspnetcore-2.1"
+
+> [!IMPORTANT]
+> ASP.NET Core 2,1 generuje odpowiedź na szczegóły problemu, która jest niemal zgodna ze specyfikacją RFC 7807. Jeśli 100 procent zgodności jest ważne, Uaktualnij projekt do ASP.NET Core 2,2 lub nowszego.
+
+::: moniker-end
 
 ::: moniker range=">= aspnetcore-3.0"
 
