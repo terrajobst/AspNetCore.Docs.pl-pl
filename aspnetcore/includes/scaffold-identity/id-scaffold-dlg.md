@@ -1,36 +1,42 @@
-<span data-ttu-id="73070-101">Uruchom szkielet tożsamości:</span><span class="sxs-lookup"><span data-stu-id="73070-101">Run the Identity scaffolder:</span></span>
+<span data-ttu-id="ac7e7-101">Uruchom szkielet tożsamości:</span><span class="sxs-lookup"><span data-stu-id="ac7e7-101">Run the Identity scaffolder:</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="73070-102">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="73070-102">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="ac7e7-102">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="ac7e7-102">Visual Studio</span></span>](#tab/visual-studio)
 
-* <span data-ttu-id="73070-103">Z **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy na Projekt > **Dodaj** > **nowy element szkieletu**.</span><span class="sxs-lookup"><span data-stu-id="73070-103">From **Solution Explorer**, right-click on the project > **Add** > **New Scaffolded Item**.</span></span>
-* <span data-ttu-id="73070-104">W okienku po lewej stronie **Dodawanie szkieletu** okno dialogowe, wybierz opcję **tożsamości** > **Dodaj**.</span><span class="sxs-lookup"><span data-stu-id="73070-104">From the left pane of the **Add Scaffold** dialog, select **Identity** > **ADD**.</span></span>
-* <span data-ttu-id="73070-105">W oknie dialogowym **Dodawanie tożsamości** wybierz odpowiednie opcje.</span><span class="sxs-lookup"><span data-stu-id="73070-105">In the **ADD Identity** dialog, select the options you want.</span></span>
-  * <span data-ttu-id="73070-106">Wybierz istniejącą stronę układu lub plik układu zostanie zastąpiony nieprawidłowym znacznikiem.</span><span class="sxs-lookup"><span data-stu-id="73070-106">Select your existing layout page, or your layout file will be overwritten with incorrect markup.</span></span> <span data-ttu-id="73070-107">Na przykład `~/Pages/Shared/_Layout.cshtml` dla Razor Pages `~/Views/Shared/_Layout.cshtml` dla projektów MVC</span><span class="sxs-lookup"><span data-stu-id="73070-107">For example `~/Pages/Shared/_Layout.cshtml` for Razor Pages `~/Views/Shared/_Layout.cshtml` for MVC projects</span></span>
-  * <span data-ttu-id="73070-108">Wybierz **+** przycisk, aby utworzyć nową **klasa kontekstu danych**.</span><span class="sxs-lookup"><span data-stu-id="73070-108">Select the **+** button to create a new **Data context class**.</span></span>
-* <span data-ttu-id="73070-109">Wybierz **Dodaj**.</span><span class="sxs-lookup"><span data-stu-id="73070-109">Select **ADD**.</span></span>
+* <span data-ttu-id="ac7e7-103">Z **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy na Projekt > **Dodaj** > **nowy element szkieletu**.</span><span class="sxs-lookup"><span data-stu-id="ac7e7-103">From **Solution Explorer**, right-click on the project > **Add** > **New Scaffolded Item**.</span></span>
+* <span data-ttu-id="ac7e7-104">W okienku po lewej stronie **Dodawanie szkieletu** okno dialogowe, wybierz opcję **tożsamości** > **Dodaj**.</span><span class="sxs-lookup"><span data-stu-id="ac7e7-104">From the left pane of the **Add Scaffold** dialog, select **Identity** > **ADD**.</span></span>
+* <span data-ttu-id="ac7e7-105">W oknie dialogowym **Dodawanie tożsamości** wybierz odpowiednie opcje.</span><span class="sxs-lookup"><span data-stu-id="ac7e7-105">In the **ADD Identity** dialog, select the options you want.</span></span>
+  * <span data-ttu-id="ac7e7-106">Wybierz istniejącą stronę układu lub plik układu zostanie zastąpiony nieprawidłowym znacznikiem.</span><span class="sxs-lookup"><span data-stu-id="ac7e7-106">Select your existing layout page, or your layout file will be overwritten with incorrect markup.</span></span> <span data-ttu-id="ac7e7-107">Na przykład `~/Pages/Shared/_Layout.cshtml` dla Razor Pages `~/Views/Shared/_Layout.cshtml` dla projektów MVC</span><span class="sxs-lookup"><span data-stu-id="ac7e7-107">For example `~/Pages/Shared/_Layout.cshtml` for Razor Pages `~/Views/Shared/_Layout.cshtml` for MVC projects</span></span>
+  * <span data-ttu-id="ac7e7-108">Wybierz **+** przycisk, aby utworzyć nową **klasa kontekstu danych**.</span><span class="sxs-lookup"><span data-stu-id="ac7e7-108">Select the **+** button to create a new **Data context class**.</span></span>
+* <span data-ttu-id="ac7e7-109">Wybierz **Dodaj**.</span><span class="sxs-lookup"><span data-stu-id="ac7e7-109">Select **ADD**.</span></span>
 
-# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="73070-110">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="73070-110">.NET Core CLI</span></span>](#tab/netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="ac7e7-110">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="ac7e7-110">.NET Core CLI</span></span>](#tab/netcore-cli)
 
-<span data-ttu-id="73070-111">Jeśli nie zainstalowano wcześniej Generator szkieletu ASP.NET Core, zainstalowanie go teraz:</span><span class="sxs-lookup"><span data-stu-id="73070-111">If you have not previously installed the ASP.NET Core scaffolder, install it now:</span></span>
+<span data-ttu-id="ac7e7-111">Jeśli nie zainstalowano wcześniej Generator szkieletu ASP.NET Core, zainstalowanie go teraz:</span><span class="sxs-lookup"><span data-stu-id="ac7e7-111">If you have not previously installed the ASP.NET Core scaffolder, install it now:</span></span>
 
 ```dotnetcli
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
-<span data-ttu-id="73070-112">Dodaj odwołanie do pakietu do [Microsoft. VisualStudio. Web. CodeGeneration. Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) do pliku projektu (\*. csproj).</span><span class="sxs-lookup"><span data-stu-id="73070-112">Add a package reference to [Microsoft.VisualStudio.Web.CodeGeneration.Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) to the project (\*.csproj) file.</span></span> <span data-ttu-id="73070-113">Uruchom następujące polecenie w katalogu projektu:</span><span class="sxs-lookup"><span data-stu-id="73070-113">Run the following command in the project directory:</span></span>
+<span data-ttu-id="ac7e7-112">Dodaj wymagane odwołania pakietu NuGet do pliku projektu (\*. csproj).</span><span class="sxs-lookup"><span data-stu-id="ac7e7-112">Add required NuGet package references to the project (\*.csproj) file.</span></span> <span data-ttu-id="ac7e7-113">Uruchom następujące polecenie w katalogu projektu:</span><span class="sxs-lookup"><span data-stu-id="ac7e7-113">Run the following command in the project directory:</span></span>
 
 ```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
-dotnet restore
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
+dotnet add package Microsoft.AspNetCore.Identity.UI
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore.Tools
 ```
 
-<span data-ttu-id="73070-114">Uruchom następujące polecenie, aby wyświetlić listę opcji Generator szkieletu tożsamości:</span><span class="sxs-lookup"><span data-stu-id="73070-114">Run the following command to list the Identity scaffolder options:</span></span>
+<span data-ttu-id="ac7e7-114">Uruchom następujące polecenie, aby wyświetlić listę opcji Generator szkieletu tożsamości:</span><span class="sxs-lookup"><span data-stu-id="ac7e7-114">Run the following command to list the Identity scaffolder options:</span></span>
 
 ```dotnetcli
 dotnet aspnet-codegenerator identity -h
 ```
 
-<span data-ttu-id="73070-115">W folderze projektu uruchom program do tworzenia szkieletu tożsamości z żądanymi opcjami.</span><span class="sxs-lookup"><span data-stu-id="73070-115">In the project folder, run the Identity scaffolder with the options you want.</span></span> <span data-ttu-id="73070-116">Na przykład, aby skonfigurować tożsamość przy użyciu domyślnego interfejsu użytkownika i minimalnej liczby plików, uruchom następujące polecenie:</span><span class="sxs-lookup"><span data-stu-id="73070-116">For example, to setup identity with the default UI and the minimum number of files, run the following command:</span></span>
+[!INCLUDE[](~/includes/scaffoldTFM.md)]
+
+<span data-ttu-id="ac7e7-115">W folderze projektu uruchom program do tworzenia szkieletu tożsamości z żądanymi opcjami.</span><span class="sxs-lookup"><span data-stu-id="ac7e7-115">In the project folder, run the Identity scaffolder with the options you want.</span></span> <span data-ttu-id="ac7e7-116">Na przykład, aby skonfigurować tożsamość przy użyciu domyślnego interfejsu użytkownika i minimalnej liczby plików, uruchom następujące polecenie:</span><span class="sxs-lookup"><span data-stu-id="ac7e7-116">For example, to setup identity with the default UI and the minimum number of files, run the following command:</span></span>
 
 ```dotnetcli
 dotnet aspnet-codegenerator identity --useDefaultUI
