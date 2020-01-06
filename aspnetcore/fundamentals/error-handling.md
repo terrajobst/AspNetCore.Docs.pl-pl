@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: 162972043a90fc8cc45aed52b5fa80ade3e11f39
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: c20d8757eef80fdbb73b1b7a9933a3c0be9bb8ed
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880060"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358980"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Obsługa błędów w ASP.NET Core
 
@@ -84,6 +84,8 @@ Alternatywą dla [niestandardowej strony obsługi wyjątków](#exception-handler
 Oto przykład użycia wyrażenia lambda dla obsługi wyjątków:
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_HandlerPageLambda)]
+
+W poprzednim kodzie `await context.Response.WriteAsync(new string(' ', 512));` został dodany, aby przeglądarka Internet Explorer wyświetlała komunikat o błędzie zamiast komunikatu o błędzie programu IE. Aby uzyskać więcej informacji, zobacz [problem w usłudze GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/16144).
 
 > [!WARNING]
 > **Nie** należy podawać poufnych informacji o błędach z <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> lub <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> do klientów. Obsługa błędów stanowi zagrożenie bezpieczeństwa.

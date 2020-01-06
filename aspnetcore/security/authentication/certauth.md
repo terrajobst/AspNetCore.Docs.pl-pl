@@ -4,14 +4,14 @@ author: blowdart
 description: Dowiedz się, jak skonfigurować uwierzytelnianie certyfikatów w ASP.NET Core dla usług IIS i HTTP. sys.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: bdorrans
-ms.date: 12/09/2019
+ms.date: 01/02/2020
 uid: security/authentication/certauth
-ms.openlocfilehash: 38ee8a6767191bb3eee4286e49b96162b14d9889
-ms.sourcegitcommit: 4e3edff24ba6e43a103fee1b126c9826241bb37b
+ms.openlocfilehash: 9c175439c0313d62c75898f1af097774b06f353a
+ms.sourcegitcommit: e7d4fe6727d423f905faaeaa312f6c25ef844047
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74959063"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608148"
 ---
 # <a name="configure-certificate-authentication-in-aspnet-core"></a>Konfigurowanie uwierzytelniania certyfikatów w ASP.NET Core
 
@@ -63,23 +63,33 @@ Procedura obsługi `CertificateAuthenticationOptions` ma pewne wbudowane walidac
 
 ### <a name="allowedcertificatetypes--chained-selfsigned-or-all-chained--selfsigned"></a>AllowedCertificateTypes = łańcuchy, SelfSigned lub wszystkie (łańcuchowo | SelfSigned)
 
-Ten test sprawdza, czy dozwolony jest tylko odpowiedni typ certyfikatu.
+Wartość domyślna: `CertificateTypes.Chained`
+
+Ten test sprawdza, czy dozwolony jest tylko odpowiedni typ certyfikatu. Jeśli aplikacja korzysta z certyfikatów z podpisem własnym, ta opcja musi być ustawiona na `CertificateTypes.All` lub `CertificateTypes.SelfSigned`.
 
 ### <a name="validatecertificateuse"></a>ValidateCertificateUse
+
+Wartość domyślna: `true`
 
 Ten test sprawdza, czy certyfikat przedstawiony przez klienta ma rozszerzone użycie klucza uwierzytelniania klienta (EKU) lub nie rozszerzeń EKU w ogóle. Zgodnie ze specyfikacją, jeśli nie określono rozszerzenia EKU, wszystkie rozszerzeń EKU są uznawane za prawidłowe.
 
 ### <a name="validatevalidityperiod"></a>ValidateValidityPeriod
 
+Wartość domyślna: `true`
+
 Ten test sprawdza, czy certyfikat jest w jego okresie ważności. W przypadku każdego żądania program obsługi zapewnia, że certyfikat, który był ważny, gdy był prezentowany, nie upłynął podczas bieżącej sesji.
 
 ### <a name="revocationflag"></a>RevocationFlag
+
+Wartość domyślna: `X509RevocationFlag.ExcludeRoot`
 
 Flaga określająca, które certyfikaty w łańcuchu są sprawdzane pod kątem odwołania.
 
 Sprawdzanie odwołań jest wykonywane tylko wtedy, gdy certyfikat jest powiązany z certyfikatem głównym.
 
 ### <a name="revocationmode"></a>Odwołaniemode
+
+Wartość domyślna: `X509RevocationMode.Online`
 
 Flaga określająca sposób sprawdzania odwołania.
 
@@ -376,6 +386,9 @@ Get-ChildItem -Path cert:\localMachine\my\"The thumbprint..." | Export-PfxCertif
 
 Export-Certificate -Cert cert:\localMachine\my\"The thumbprint..." -FilePath root_ca_dev_damienbod.crt
 ```
+
+> [!NOTE]
+> Wartość parametru `-DnsName` musi być zgodna z elementem docelowym wdrożenia aplikacji. Na przykład "localhost" do programowania.
 
 #### <a name="install-in-the-trusted-root"></a>Zainstaluj w zaufanym katalogu głównym
 

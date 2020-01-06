@@ -5,14 +5,14 @@ description: Informacje dotyczące konfigurowania aplikacji przy użyciu par naz
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/14/2019
+ms.date: 12/16/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: e0e55d40734e0cb6e3e1afe1c708ec47c6f43054
-ms.sourcegitcommit: f91d322f790123d41ec3271fa084ae20ed9f89a6
+ms.openlocfilehash: 37ba756cc4170c145d2ab1f9f0a465057cc826c1
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155170"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358711"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault dostawcę konfiguracji w programie ASP.NET Core
 
@@ -23,7 +23,7 @@ W tym dokumencie wyjaśniono, jak za pomocą dostawcy konfiguracji [Key Vault Mi
 * Kontrolowanie dostępu do poufnych danych konfiguracyjnych.
 * Spełnienie wymagania dotyczącego sprawdzania poprawności sprzętowych modułów zabezpieczeń FIPS 140-2 Level 2 (HSM) podczas przechowywania danych konfiguracyjnych.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="packages"></a>Pakiety
 
@@ -90,7 +90,7 @@ Instrukcje dostępne w [przewodniku szybki start: Ustawianie i pobieranie wpisu 
 1. Utwórz magazyn kluczy w grupie zasobów przy użyciu następującego polecenia, gdzie `{KEY VAULT NAME}` jest nazwą nowego magazynu kluczy, a `{LOCATION}` jest regionem platformy Azure (centrum danych):
 
    ```azure-cli
-   az keyvault create --name "{KEY VAULT NAME}" --resource-group "{RESOURCE GROUP NAME}" --location {LOCATION}
+   az keyvault create --name {KEY VAULT NAME} --resource-group "{RESOURCE GROUP NAME}" --location {LOCATION}
    ```
 
 1. Utwórz klucze tajne w magazynie kluczy jako pary nazwa-wartość.
@@ -100,8 +100,8 @@ Instrukcje dostępne w [przewodniku szybki start: Ustawianie i pobieranie wpisu 
    Następujące wpisy tajne są przeznaczone do użycia z przykładową aplikacją. Wartości zawierają sufiks `_prod`, aby odróżnić je od wartości sufiksów `_dev` ładowanych w środowisku programistycznym ze swoich kluczy tajnych użytkownika. Zastąp `{KEY VAULT NAME}` nazwą magazynu kluczy utworzonego w poprzednim kroku:
 
    ```azure-cli
-   az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "SecretName" --value "secret_value_1_prod"
-   az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "Section--SecretName" --value "secret_value_2_prod"
+   az keyvault secret set --vault-name {KEY VAULT NAME} --name "SecretName" --value "secret_value_1_prod"
+   az keyvault secret set --vault-name {KEY VAULT NAME} --name "Section--SecretName" --value "secret_value_2_prod"
    ```
 
 ## <a name="use-application-id-and-x509-certificate-for-non-azure-hosted-apps"></a>Używanie identyfikatora aplikacji i certyfikatu X. 509 dla aplikacji nieobsługiwanych przez platformę Azure
@@ -124,11 +124,11 @@ Przykładowa aplikacja używa identyfikatora aplikacji i certyfikatu X. 509, gdy
 1. Zapisz nazwę magazynu kluczy, identyfikator aplikacji i odcisk palca certyfikatu w pliku *appSettings. JSON* aplikacji.
 1. Przejdź do **magazynu kluczy** w Azure Portal.
 1. Wybierz magazyn kluczy utworzony w [magazynie wpisów tajnych w środowisku produkcyjnym z](#secret-storage-in-the-production-environment-with-azure-key-vault) sekcją Azure Key Vault.
-1. Wybierz pozycję **zasady dostępu**.
+1. Wybierz pozycję **Zasady dostępu**.
 1. Wybierz pozycję **Dodaj zasady dostępu**.
 1. Otwórz **uprawnienia do wpisów tajnych** i Udostępnij aplikację z uprawnieniami **pobierania** i **wyświetlania listy** .
 1. Wybierz pozycję **Wybierz podmiot zabezpieczeń** i wybierz zarejestrowaną aplikację według nazwy. Wybierz przycisk **Wybierz** .
-1. Wybierz **przycisk OK**.
+1. Wybierz **OK**.
 1. Wybierz pozycję **Zapisz**.
 1. Wdróż aplikację.
 
@@ -159,7 +159,7 @@ Przykładowe wartości:
 * Identyfikator aplikacji: `627e911e-43cc-61d4-992e-12db9c81b413`
 * Odcisk palca certyfikatu: `fe14593dd66b2406c5269d742d04b6e1ab03adb1`
 
-*appSettings. JSON*:
+*appsettings.json*:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -190,7 +190,7 @@ Aplikacja wdrożona do Azure App Service jest automatycznie zarejestrowana w us�
 Za pomocą interfejsu wiersza polecenia platformy Azure i identyfikatora obiektu aplikacji Udostępnij aplikację z uprawnieniami `list` i `get`, aby uzyskać dostęp do magazynu kluczy:
 
 ```azure-cli
-az keyvault set-policy --name '{KEY VAULT NAME}' --object-id {OBJECT ID} --secret-permissions get list
+az keyvault set-policy --name {KEY VAULT NAME} --object-id {OBJECT ID} --secret-permissions get list
 ```
 
 **Uruchom ponownie aplikację** przy użyciu interfejsu wiersza polecenia platformy Azure, programu PowerShell lub Azure Portal.
@@ -215,7 +215,7 @@ Przykładowa aplikacja:
 
 Przykładowa wartość nazwy magazynu kluczy: `contosovault`
     
-*appSettings. JSON*:
+*appsettings.json*:
 
 ```json
 {
@@ -304,8 +304,8 @@ Gdy takie podejście jest zaimplementowane:
 1. Wpisy tajne są zapisywane w Azure Key Vault przy użyciu następujących poleceń interfejsu wiersza polecenia platformy Azure:
 
    ```azure-cli
-   az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "5000-AppSecret" --value "5.0.0.0_secret_value_prod"
-   az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "5100-AppSecret" --value "5.1.0.0_secret_value_prod"
+   az keyvault secret set --vault-name {KEY VAULT NAME} --name "5000-AppSecret" --value "5.0.0.0_secret_value_prod"
+   az keyvault secret set --vault-name {KEY VAULT NAME} --name "5100-AppSecret" --value "5.1.0.0_secret_value_prod"
    ```
 
 1. Po uruchomieniu aplikacji są ładowane wpisy tajne magazynu kluczy. Wpis tajny ciągu dla `5000-AppSecret` jest zgodny z wersją aplikacji określoną w pliku projektu aplikacji (`5.0.0.0`).

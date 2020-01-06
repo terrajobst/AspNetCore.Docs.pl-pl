@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/21/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: 627ca483d60514d85e38c0e346ff5aef64ad9fee
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: 06ce9c72f43955345efb61afed2538158810005f
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034304"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358072"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Uwierzytelnianie w serwisach Facebook, Google i dostawcy zewnętrznym w ASP.NET Core
 
-Autorzy [Valeriy Novytskyy](https://github.com/01binary) i [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Valeriy Novytskyy](https://github.com/01binary) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tym samouczku przedstawiono sposób tworzenia aplikacji ASP.NET Core 3,0, która umożliwia użytkownikom logowanie się przy użyciu uwierzytelniania OAuth 2,0 z poświadczeniami od zewnętrznych dostawców uwierzytelniania.
 
@@ -34,9 +34,9 @@ Aby zapoznać się z przykładami sposobu, w jaki nazwy logowania społeczności
 
 * Utwórz nowy projekt.
 * Wybierz pozycję **ASP.NET Core aplikacja sieci Web** i przycisk **dalej**.
-* Podaj **nazwę projektu** i Potwierdź lub Zmień **lokalizację**. Wybierz pozycję **Utwórz**.
+* Podaj **nazwę projektu** i Potwierdź lub Zmień **lokalizację**. Wybierz **tworzenie**.
 * Na liście rozwijanej wybierz pozycję **ASP.NET Core 3,0** , a następnie wybierz pozycję **aplikacja sieci Web**.
-* W obszarze **uwierzytelnianie**wybierz opcję **Zmień** i ustaw uwierzytelnianie na **konta poszczególnych użytkowników**. Wybierz **przycisk OK**.
+* W obszarze **uwierzytelnianie**wybierz opcję **Zmień** i ustaw uwierzytelnianie na **konta poszczególnych użytkowników**. Wybierz **OK**.
 * W oknie **Tworzenie nowej ASP.NET Core aplikacji sieci Web** wybierz pozycję **Utwórz**.
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
@@ -45,7 +45,7 @@ Aby zapoznać się z przykładami sposobu, w jaki nazwy logowania społeczności
 
 * Zmień katalog (`cd`) do folderu, który będzie zawierać projekt.
 
-* W przypadku systemu Windows uruchom następujące polecenie:
+* W systemie Windows uruchom następujące polecenie:
 
   ```dotnetcli
   dotnet new webapp -o WebApp1 -au Individual -uld
@@ -111,8 +111,7 @@ Aby utworzyć hasło i zalogować się przy użyciu poczty e-mail, która zosta�
 
 ## <a name="next-steps"></a>Następne kroki
 
+* Zobacz [ten problem](https://github.com/aspnet/AspNetCore.Docs/issues/10563) w usłudze GitHub, aby uzyskać informacje na temat dostosowywania przycisków logowania.
 * W tym artykule wprowadzono uwierzytelnianie zewnętrzne i wyjaśniono wymagania wstępne wymagane do dodania zewnętrznych logowań do aplikacji ASP.NET Core.
-
 * Odwołuje się do stron specyficznych dla dostawcy, aby skonfigurować logowania dla dostawców wymaganych przez aplikację.
-
-* Możesz chcieć utrzymać dodatkowe dane dotyczące użytkownika oraz tokeny dostępu i odświeżania. Aby uzyskać więcej informacji, zobacz <xref:security/authentication/social/additional-claims>.
+* Możesz chcieć utrzymać dodatkowe dane dotyczące użytkownika oraz tokeny dostępu i odświeżania. Aby uzyskać więcej informacji, zobacz temat <xref:security/authentication/social/additional-claims>.

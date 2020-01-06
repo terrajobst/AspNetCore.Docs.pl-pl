@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się więcej o walidacji modelu w ASP.NET Core MVC i Razor Pages.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/15/2019
 uid: mvc/models/validation
-ms.openlocfilehash: 7a6017141eb1016128c4a135c187479717580bb5
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 042a9933e561de4957f6332bdff3c4f09d2e119b
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881042"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355267"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Walidacja modelu w ASP.NET Core MVC i Razor Pages
 
@@ -58,7 +58,7 @@ Poniżej przedstawiono niektóre wbudowane atrybuty walidacji:
 * `[Required]`: sprawdza, czy pole nie ma wartości null. Zobacz [`[Required]` atrybutu](#required-attribute) , aby uzyskać szczegółowe informacje o zachowaniu tego atrybutu.
 * `[StringLength]`: sprawdza, czy wartość właściwości String nie przekracza podanego limitu długości.
 * `[Url]`: sprawdza, czy właściwość ma format adresu URL.
-* `[Remote]`: sprawdza poprawność danych wejściowych na kliencie przez wywołanie metody akcji na serwerze. Aby uzyskać szczegółowe informacje o zachowaniu tego atrybutu, zobacz `[`[Remote] ' (atrybut #remote-Attribute).
+* `[Remote]`: sprawdza poprawność danych wejściowych na kliencie przez wywołanie metody akcji na serwerze. Zobacz [`[Remote]` atrybutu](#remote-attribute) , aby uzyskać szczegółowe informacje o zachowaniu tego atrybutu.
 
 Pełną listę atrybutów sprawdzania poprawności można znaleźć w przestrzeni nazw [System. ComponentModel. DataAnnotations](xref:System.ComponentModel.DataAnnotations) .
 
@@ -423,6 +423,8 @@ Wbudowane atrybuty walidacji obejmują:
 * `[StringLength]`: sprawdza, czy wartość właściwości String nie przekracza podanego limitu długości.
 * `[Url]`: sprawdza, czy właściwość ma format adresu URL.
 * `[Remote]`: sprawdza poprawność danych wejściowych na kliencie przez wywołanie metody akcji na serwerze. Zobacz [`[Remote]` atrybutu](#remote-attribute) , aby uzyskać szczegółowe informacje o zachowaniu tego atrybutu.
+
+W przypadku korzystania z atrybutu `[RegularExpression]` z walidacją po stronie klienta wyrażenie regularne jest wykonywane w języku JavaScript na kliencie. Oznacza to, że będzie używane zachowanie zgodne ze standardem [ECMAScript](/dotnet/standard/base-types/regular-expression-options#ecmascript-matching-behavior) . Aby uzyskać więcej informacji, zobacz [problem w usłudze GitHub](https://github.com/dotnet/corefx/issues/42487).
 
 Pełną listę atrybutów sprawdzania poprawności można znaleźć w przestrzeni nazw [System. ComponentModel. DataAnnotations](xref:System.ComponentModel.DataAnnotations) .
 

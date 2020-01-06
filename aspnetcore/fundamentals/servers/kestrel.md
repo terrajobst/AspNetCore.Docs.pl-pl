@@ -5,14 +5,14 @@ description: Dowiedz się więcej na temat Kestrel, międzyplatformowego serwera
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/14/2019
+ms.date: 12/26/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 6fba6689f72f7a565e28d80f6770765ab097cf11
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
+ms.openlocfilehash: 9fbf0ec93634100fccef279fc7cad92cb1420e84
+ms.sourcegitcommit: 991442dfb16ef08a0aae05bc79f9e9a2d819c587
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74289104"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75492595"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci Web Kestrel w ASP.NET Core
 
@@ -33,7 +33,7 @@ Kestrel obsługuje następujące scenariusze:
 
 Kestrel jest obsługiwana na wszystkich platformach i wersjach obsługiwanych przez platformę .NET Core.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="http2-support"></a>Obsługa protokołu HTTP/2
 
@@ -49,7 +49,7 @@ Kestrel jest obsługiwana na wszystkich platformach i wersjach obsługiwanych pr
 &dagger;HTTP/2 będą obsługiwane w przypadku macOS w przyszłej wersji.
 &Dagger;Kestrel ma ograniczoną obsługę protokołu HTTP/2 w systemie Windows Server 2012 R2 i Windows 8.1. Obsługa jest ograniczona, ponieważ lista obsługiwanych mechanizmów szyfrowania TLS dostępnych w tych systemach operacyjnych jest ograniczona. Do zabezpieczenia połączeń TLS może być wymagany certyfikat wygenerowany przy użyciu algorytmu podpisu cyfrowego (ECDSA) krzywej eliptycznej.
 
-W przypadku ustanowienia połączenia HTTP/2 raporty [HttpRequest. Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) `HTTP/2`.
+Jeśli zostanie nawiązane połączenie HTTP/2, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) raporty `HTTP/2`.
 
 Protokół HTTP/2 jest domyślnie wyłączony. Więcej informacji na temat konfiguracji można znaleźć w sekcjach [Kestrel Options](#kestrel-options) and [ListenOptions. Protocols](#listenoptionsprotocols) .
 
@@ -135,15 +135,30 @@ Skorzystaj z **jednej** z następujących metod:
 * Skonfiguruj Kestrel w `Startup.ConfigureServices`:
 
   1. Wstrzyknąć wystąpienie `IConfiguration` do klasy `Startup`. W poniższym przykładzie przyjęto założenie, że wprowadzona konfiguracja jest przypisana do właściwości `Configuration`.
-  2. W `Startup.ConfigureServices`Załaduj sekcję `Kestrel` konfiguracji do konfiguracji Kestrel.
+  2. W `Startup.ConfigureServices`Załaduj sekcję `Kestrel` konfiguracji do konfiguracji Kestrel:
 
      ```csharp
-     // using Microsoft.Extensions.Configuration
-
-     public void ConfigureServices(IServiceCollection services)
+     using Microsoft.Extensions.Configuration
+     
+     public class Startup
      {
-         services.Configure<KestrelServerOptions>(
-             Configuration.GetSection("Kestrel"));
+         public Startup(IConfiguration configuration)
+         {
+             Configuration = configuration;
+         }
+
+         public IConfiguration Configuration { get; }
+
+         public void ConfigureServices(IServiceCollection services)
+         {
+             services.Configure<KestrelServerOptions>(
+                 Configuration.GetSection("Kestrel"));
+         }
+
+         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+         {
+             ...
+         }
      }
      ```
 
@@ -352,7 +367,7 @@ Domyślnie ASP.NET Core wiąże się z:
 
 Określ adresy URL przy użyciu:
 
-* Zmienna środowiskowa `ASPNETCORE_URLS`.
+* `ASPNETCORE_URLS` zmiennej środowiskowej.
 * `--urls` argument wiersza polecenia.
 * klucz konfiguracji hosta `urls`.
 * Metoda rozszerzenia `UseUrls`.
@@ -637,7 +652,7 @@ webBuilder.ConfigureKestrel(serverOptions =>
 
 Metoda <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> wiąże się z gniazdem TCP, a opcja lambda zezwala na konfigurację certyfikatu X. 509:
 
-[!code-csharp[](kestrel/samples/3.x/KestrelSample/Program.cs?name=snippet_TCPSocket&highlight=9-16)]
+[!code-csharp[](kestrel/samples/3.x/KestrelSample/Program.cs?name=snippet_TCPSocket&highlight=12-18)]
 
 Przykład konfiguruje HTTPS dla punktu końcowego z <xref:Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions>. Użyj tego samego interfejsu API, aby skonfigurować inne ustawienia Kestrel dla określonych punktów końcowych.
 
@@ -939,7 +954,7 @@ Aby obejść ten sposób, użyj oprogramowania pośredniczącego filtrowania hos
 
 Programowe filtrowanie hosta jest domyślnie wyłączone. Aby włączyć oprogramowanie pośredniczące, zdefiniuj klucz `AllowedHosts` w pliku *appSettings. json*/*appSettings.\<EnvironmentName >. JSON*. Wartość to rozdzielana średnikami lista nazw hostów bez numerów portów:
 
-*appSettings. JSON*:
+*appsettings.json*:
 
 ```json
 {
@@ -969,7 +984,7 @@ Kestrel obsługuje następujące scenariusze:
 
 Kestrel jest obsługiwana na wszystkich platformach i wersjach obsługiwanych przez platformę .NET Core.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="http2-support"></a>Obsługa protokołu HTTP/2
 
@@ -985,7 +1000,7 @@ Kestrel jest obsługiwana na wszystkich platformach i wersjach obsługiwanych pr
 &dagger;HTTP/2 będą obsługiwane w przypadku macOS w przyszłej wersji.
 &Dagger;Kestrel ma ograniczoną obsługę protokołu HTTP/2 w systemie Windows Server 2012 R2 i Windows 8.1. Obsługa jest ograniczona, ponieważ lista obsługiwanych mechanizmów szyfrowania TLS dostępnych w tych systemach operacyjnych jest ograniczona. Do zabezpieczenia połączeń TLS może być wymagany certyfikat wygenerowany przy użyciu algorytmu podpisu cyfrowego (ECDSA) krzywej eliptycznej.
 
-W przypadku ustanowienia połączenia HTTP/2 raporty [HttpRequest. Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) `HTTP/2`.
+Jeśli zostanie nawiązane połączenie HTTP/2, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) raporty `HTTP/2`.
 
 Protokół HTTP/2 jest domyślnie wyłączony. Więcej informacji na temat konfiguracji można znaleźć w sekcjach [Kestrel Options](#kestrel-options) and [ListenOptions. Protocols](#listenoptionsprotocols) .
 
@@ -1089,15 +1104,30 @@ Skorzystaj z **jednej** z następujących metod:
 * Skonfiguruj Kestrel w `Startup.ConfigureServices`:
 
   1. Wstrzyknąć wystąpienie `IConfiguration` do klasy `Startup`. W poniższym przykładzie przyjęto założenie, że wprowadzona konfiguracja jest przypisana do właściwości `Configuration`.
-  2. W `Startup.ConfigureServices`Załaduj sekcję `Kestrel` konfiguracji do konfiguracji Kestrel.
+  2. W `Startup.ConfigureServices`Załaduj sekcję `Kestrel` konfiguracji do konfiguracji Kestrel:
 
      ```csharp
-     // using Microsoft.Extensions.Configuration
-
-     public void ConfigureServices(IServiceCollection services)
+     using Microsoft.Extensions.Configuration
+     
+     public class Startup
      {
-         services.Configure<KestrelServerOptions>(
-             Configuration.GetSection("Kestrel"));
+         public Startup(IConfiguration configuration)
+         {
+             Configuration = configuration;
+         }
+
+         public IConfiguration Configuration { get; }
+
+         public void ConfigureServices(IServiceCollection services)
+         {
+             services.Configure<KestrelServerOptions>(
+                 Configuration.GetSection("Kestrel"));
+         }
+
+         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+         {
+             ...
+         }
      }
      ```
 
@@ -1319,7 +1349,7 @@ Domyślnie ASP.NET Core wiąże się z:
 
 Określ adresy URL przy użyciu:
 
-* Zmienna środowiskowa `ASPNETCORE_URLS`.
+* `ASPNETCORE_URLS` zmiennej środowiskowej.
 * `--urls` argument wiersza polecenia.
 * klucz konfiguracji hosta `urls`.
 * Metoda rozszerzenia `UseUrls`.
@@ -1790,7 +1820,7 @@ Protokoły określone w wartościach zastąpienia kodu ustawione przez konfigura
 W wersji platformy ASP.NET Core 2.1 transport domyślny serwera Kestrel nie jest już oparty na bibliotece libuv, ale na zarządzanych gniazdach. Jest to istotna zmiana dla aplikacji ASP.NET Core 2,0 uaktualniana do 2,1, które wywołują <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderLibuvExtensions.UseLibuv*> i zależą od jednego z następujących pakietów:
 
 * [Microsoft. AspNetCore. Server. Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) (bezpośrednie odwołanie do pakietu)
-* [Microsoft. AspNetCore. App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)
+* [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)
 
 Dla projektów, które wymagają użycia Libuv:
 
@@ -1872,7 +1902,7 @@ Aby obejść ten sposób, użyj oprogramowania pośredniczącego filtrowania hos
 
 Programowe filtrowanie hosta jest domyślnie wyłączone. Aby włączyć oprogramowanie pośredniczące, zdefiniuj klucz `AllowedHosts` w pliku *appSettings. json*/*appSettings.\<EnvironmentName >. JSON*. Wartość to rozdzielana średnikami lista nazw hostów bez numerów portów:
 
-*appSettings. JSON*:
+*appsettings.json*:
 
 ```json
 {
@@ -1899,7 +1929,7 @@ Kestrel obsługuje następujące scenariusze:
 
 Kestrel jest obsługiwana na wszystkich platformach i wersjach obsługiwanych przez platformę .NET Core.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-kestrel-with-a-reverse-proxy"></a>Kiedy używać Kestrel z zwrotnym serwerem proxy
 
@@ -1979,15 +2009,30 @@ Skorzystaj z **jednej** z następujących metod:
 * Skonfiguruj Kestrel w `Startup.ConfigureServices`:
 
   1. Wstrzyknąć wystąpienie `IConfiguration` do klasy `Startup`. W poniższym przykładzie przyjęto założenie, że wprowadzona konfiguracja jest przypisana do właściwości `Configuration`.
-  2. W `Startup.ConfigureServices`Załaduj sekcję `Kestrel` konfiguracji do konfiguracji Kestrel.
+  2. W `Startup.ConfigureServices`Załaduj sekcję `Kestrel` konfiguracji do konfiguracji Kestrel:
 
      ```csharp
-     // using Microsoft.Extensions.Configuration
-
-     public void ConfigureServices(IServiceCollection services)
+     using Microsoft.Extensions.Configuration
+     
+     public class Startup
      {
-         services.Configure<KestrelServerOptions>(
-             Configuration.GetSection("Kestrel"));
+         public Startup(IConfiguration configuration)
+         {
+             Configuration = configuration;
+         }
+
+         public IConfiguration Configuration { get; }
+
+         public void ConfigureServices(IServiceCollection services)
+         {
+             services.Configure<KestrelServerOptions>(
+                 Configuration.GetSection("Kestrel"));
+         }
+
+         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+         {
+             ...
+         }
      }
      ```
 
@@ -2166,7 +2211,7 @@ Domyślnie ASP.NET Core wiąże się z:
 
 Określ adresy URL przy użyciu:
 
-* Zmienna środowiskowa `ASPNETCORE_URLS`.
+* `ASPNETCORE_URLS` zmiennej środowiskowej.
 * `--urls` argument wiersza polecenia.
 * klucz konfiguracji hosta `urls`.
 * Metoda rozszerzenia `UseUrls`.
@@ -2562,7 +2607,7 @@ W przypadku korzystania z usług IIS powiązania URL dla powiązań przesłonię
 W wersji platformy ASP.NET Core 2.1 transport domyślny serwera Kestrel nie jest już oparty na bibliotece libuv, ale na zarządzanych gniazdach. Jest to istotna zmiana dla aplikacji ASP.NET Core 2,0 uaktualniana do 2,1, które wywołują <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderLibuvExtensions.UseLibuv*> i zależą od jednego z następujących pakietów:
 
 * [Microsoft. AspNetCore. Server. Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) (bezpośrednie odwołanie do pakietu)
-* [Microsoft. AspNetCore. App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)
+* [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)
 
 Dla projektów, które wymagają użycia Libuv:
 
@@ -2644,7 +2689,7 @@ Aby obejść ten sposób, użyj oprogramowania pośredniczącego filtrowania hos
 
 Programowe filtrowanie hosta jest domyślnie wyłączone. Aby włączyć oprogramowanie pośredniczące, zdefiniuj klucz `AllowedHosts` w pliku *appSettings. json*/*appSettings.\<EnvironmentName >. JSON*. Wartość to rozdzielana średnikami lista nazw hostów bez numerów portów:
 
-*appSettings. JSON*:
+*appsettings.json*:
 
 ```json
 {

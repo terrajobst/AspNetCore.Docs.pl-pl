@@ -8,12 +8,12 @@ ms.date: 11/21/2019
 no-loc:
 - SignalR
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: a7c99c9e79647995886aec5b3a91584fd2f24451
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 331176f299c0efcd7acb19430ffddcaee7ca1cf3
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317486"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357948"
 ---
 # <a name="use-aspnet-core-opno-locsignalr-with-typescript-and-webpack"></a>Korzystanie z ASP.NET Core SignalR z użyciem języka TypeScript i pakietu WebPack
 
@@ -21,7 +21,7 @@ Autorzy [Sébastien Sougnez](https://twitter.com/ssougnez) i [Scott Addie](https
 
 [Pakiet WebPack](https://webpack.js.org/) umożliwia deweloperom tworzenie i kompilowanie zasobów po stronie klienta aplikacji sieci Web. W tym samouczku pokazano, jak używać pakietu WebPack w ASP.NET Core SignalR aplikacji sieci Web, której klient został zapisany w języku [TypeScript](https://www.typescriptlang.org/).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie szkieletu ASP.NET Core aplikacji SignalR Starter
@@ -30,7 +30,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Skonfiguruj serwer SignalR
 > * Włącz komunikację między klientem a serwerem
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -39,13 +39,13 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * [Program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) z **ASP.NET i programowaniem aplikacji sieci Web**
-* [Zestaw .NET Core SDK 3,0 lub nowszy](https://www.microsoft.com/net/download/all)
+* [Zestaw .NET Core SDK 3.0 lub nowszy](https://www.microsoft.com/net/download/all)
 * [Node. js](https://nodejs.org/) z [npm](https://www.npmjs.com/)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
-* [Zestaw .NET Core SDK 3,0 lub nowszy](https://www.microsoft.com/net/download/all)
+* [Zestaw .NET Core SDK 3.0 lub nowszy](https://www.microsoft.com/net/download/all)
 * [C#dla Visual Studio Code w wersji 1.17.1 lub nowszej](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * [Node. js](https://nodejs.org/) z [npm](https://www.npmjs.com/)
 
@@ -274,13 +274,13 @@ Upewnij się, że aplikacja działa z następującymi krokami.
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * [Program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) z **ASP.NET i programowaniem aplikacji sieci Web**
-* [Zestaw .NET Core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download/all)
+* [.NET core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download/all)
 * [Node. js](https://nodejs.org/) z [npm](https://www.npmjs.com/)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
-* [Zestaw .NET Core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download/all)
+* [.NET core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download/all)
 * [C#dla Visual Studio Code w wersji 1.17.1 lub nowszej](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * [Node. js](https://nodejs.org/) z [npm](https://www.npmjs.com/)
 
@@ -433,7 +433,7 @@ W aplikacji jest obecnie wyświetlany prosty formularz służący do wysyłania 
 1. Wykonaj następujące polecenie w katalogu głównym projektu:
 
     ```console
-    npm install @microsoft/signalr
+    npm install @aspnet/signalr
     ```
 
     Poprzednie polecenie instaluje [SignalR klienta języka TypeScript](https://www.npmjs.com/package/@microsoft/signalr), który umożliwia klientowi wysyłanie komunikatów do serwera programu.

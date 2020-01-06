@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak działa powiązanie modelu w ASP.NET Core i jak dostosować jego zachowanie.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: riande
-ms.date: 11/21/2019
+ms.date: 12/18/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: da6cc25e0bbb1b2301529b34eab4c91f9ccb46eb
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: d36e42ef2517068ade3f874dc62cc7587ee3ca98
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944298"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355671"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Powiązanie modelu w ASP.NET Core
 
@@ -34,7 +34,7 @@ Kontrolery i strony Razor współpracują z danymi, które pochodzą z żądań 
 
 Załóżmy, że masz następującą metodę działania:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Controllers/PetsController.cs?name=snippet_DogsOnly)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Controllers/PetsController.cs?name=snippet_DogsOnly)]
 
 A aplikacja odbiera żądanie przy użyciu tego adresu URL:
 
@@ -67,19 +67,19 @@ Powiązanie modelu próbuje znaleźć wartości dla następujących rodzajów ob
 
 Można zastosować do właściwości publicznej kontrolera lub klasy `PageModel`, aby spowodować powiązanie modelu z celem tej właściwości:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Pages/Instructors/Edit.cshtml.cs?name=snippet_BindProperty&highlight=3-4)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Pages/Instructors/Edit.cshtml.cs?name=snippet_BindProperty&highlight=3-4)]
 
 ### <a name="bindpropertiesattribute"></a>[BindProperties] — atrybut
 
 Dostępne w ASP.NET Core 2,1 i nowszych.  Można zastosować do kontrolera lub klasy `PageModel`, aby poinstruować model powiązania do wszystkich właściwości publicznych klasy:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Pages/Instructors/Create.cshtml.cs?name=snippet_BindProperties&highlight=1-2)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Pages/Instructors/Create.cshtml.cs?name=snippet_BindProperties&highlight=1-2)]
 
 ### <a name="model-binding-for-http-get-requests"></a>Powiązanie modelu dla żądań HTTP GET
 
 Domyślnie właściwości nie są powiązane z żądaniami HTTP GET. Zazwyczaj wszystkie potrzebne do żądania GET są parametrem identyfikatora rekordu. Identyfikator rekordu służy do wyszukiwania elementu w bazie danych. W związku z tym nie ma potrzeby powiązania właściwości, która przechowuje wystąpienie modelu. W scenariuszach, w których właściwości są powiązane z żądaniami GET, ustaw właściwość `SupportsGet` na `true`:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Pages/Instructors/Index.cshtml.cs?name=snippet_SupportsGet)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Pages/Instructors/Index.cshtml.cs?name=snippet_SupportsGet)]
 
 ## <a name="sources"></a>Źródła
 
@@ -108,11 +108,11 @@ Następujące atrybuty:
 
 * Są dodawane do właściwości modelu pojedynczo (nie do klasy modelu), jak w poniższym przykładzie:
 
-  [!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Models/Instructor.cs?name=snippet_FromQuery&highlight=5-6)]
+  [!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Models/Instructor.cs?name=snippet_FromQuery&highlight=5-6)]
 
 * Opcjonalnie Zaakceptuj wartość nazwy modelu w konstruktorze. Ta opcja jest dostępna w przypadku, gdy nazwa właściwości nie jest zgodna z wartością w żądaniu. Na przykład wartość w żądaniu może być nagłówkiem z łącznikiem w nazwie, jak w poniższym przykładzie:
 
-  [!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Pages/Instructors/Index.cshtml.cs?name=snippet_FromHeader)]
+  [!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Pages/Instructors/Index.cshtml.cs?name=snippet_FromHeader)]
 
 ### <a name="frombody-attribute"></a>[FromBody] — atrybut
 
@@ -153,9 +153,9 @@ Dane źródłowe są dostarczane do systemu powiązań modelu przez *dostawców 
 * Utwórz klasę, która implementuje `IValueProviderFactory`.
 * Zarejestruj klasę fabryki w `Startup.ConfigureServices`.
 
-Przykładowa aplikacja zawiera [dostawcę wartości](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProvider.cs) i przykład [fabryki](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProviderFactory.cs) , który pobiera wartości z plików cookie. Oto kod rejestracyjny w `Startup.ConfigureServices`:
+Przykładowa aplikacja zawiera [dostawcę wartości](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProvider.cs) i przykład [fabryki](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProviderFactory.cs) , który pobiera wartości z plików cookie. Oto kod rejestracyjny w `Startup.ConfigureServices`:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=3)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=4)]
 
 Pokazany kod umieszcza niestandardowego dostawcę wartości po wszystkich wbudowanych dostawcach wartości.  Aby najpierw utworzyć ten element na liście, wywołaj `Insert(0, new CookieValueProviderFactory())`, a nie `Add`.
 
@@ -180,7 +180,7 @@ W kontrolerze interfejsu API, który ma atrybut `[ApiController]`, nieprawidłow
 
 Na stronie Razor ponownie Wyświetl stronę z komunikatem o błędzie:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Pages/Instructors/Create.cshtml.cs?name=snippet_HandleMBError&highlight=3-6)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Pages/Instructors/Create.cshtml.cs?name=snippet_HandleMBError&highlight=3-6)]
 
 Weryfikacja po stronie klienta przechwytuje najbardziej złe dane, które mogłyby zostać przesłane do Razor Pages formularzu. Ta weryfikacja sprawia, że trudno jest wyzwolić poprzedni wyróżniony kod. Przykładowa aplikacja zawiera przycisk **Prześlij z nieprawidłowym dniem** , który umieszcza złe dane w polu **Data zatrudnienia** i przesyła formularz. Ten przycisk pokazuje, w jaki sposób kod na potrzeby wyświetlania strony działa po wystąpieniu błędów konwersji danych.
 
@@ -276,13 +276,13 @@ Dostępne są kilka wbudowanych atrybutów do kontrolowania powiązania modelu t
 
 Można stosować tylko do właściwości modelu, a nie do parametrów metody. Powoduje, że powiązanie modelu umożliwia dodanie błędu stanu modelu, Jeśli powiązanie nie może wystąpić dla właściwości modelu. Oto przykład:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Models/InstructorWithCollection.cs?name=snippet_BindRequired&highlight=8-9)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Models/InstructorWithCollection.cs?name=snippet_BindRequired&highlight=8-9)]
 
 ### <a name="bindnever-attribute"></a>[BindNever] — atrybut
 
 Można stosować tylko do właściwości modelu, a nie do parametrów metody. Uniemożliwia powiązanie modelu z ustawiania właściwości modelu. Oto przykład:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Models/InstructorWithDictionary.cs?name=snippet_BindNever&highlight=3-4)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Models/InstructorWithDictionary.cs?name=snippet_BindNever&highlight=3-4)]
 
 ### <a name="bind-attribute"></a>[Bind] — atrybut
 
@@ -401,8 +401,8 @@ Aby dostawca wartości ASP.NET Core trasy i dostawca wartości ciągu zapytania 
 * Zastąp [wartość kultury](https://github.com/aspnet/AspNetCore/blob/e625fe29b049c60242e8048b4ea743cca65aa7b5/src/Mvc/Mvc.Core/src/ModelBinding/QueryStringValueProviderFactory.cs#L30) przekazaną do konstruktora dostawcy wartości wartością [CultureInfo. CurrentCulture](xref:System.Globalization.CultureInfo.CurrentCulture)
 * Zastąp domyślną fabrykę dostawcy wartości w opcjach MVC nowym:
 
-[!code-csharp[](model-binding/samples_snapshot/2.x/Startup.cs?name=snippet)]
-[!code-csharp[](model-binding/samples_snapshot/2.x/Startup.cs?name=snippet1)]
+[!code-csharp[](model-binding/samples_snapshot/3.x/Startup.cs?name=snippet)]
+[!code-csharp[](model-binding/samples_snapshot/3.x/Startup.cs?name=snippet1)]
 
 ## <a name="special-data-types"></a>Specjalne typy danych
 
@@ -432,7 +432,7 @@ Aby użyć wbudowanych elementów formatujących dane wejściowe XML:
 
 * W `Startup.ConfigureServices`Wywołaj <xref:Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions.AddXmlSerializerFormatters*> lub <xref:Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions.AddXmlDataContractSerializerFormatters*>.
 
-  [!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=9)]
+  [!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=10)]
 
 * Zastosuj atrybut `Consumes` do klas kontrolera lub metod akcji, które powinny oczekiwać XML w treści żądania.
 
@@ -444,27 +444,52 @@ Aby użyć wbudowanych elementów formatujących dane wejściowe XML:
 
   Aby uzyskać więcej informacji, zobacz [wprowadzenie serializacji XML](/dotnet/standard/serialization/introducing-xml-serialization).
 
+### <a name="customize-model-binding-with-input-formatters"></a>Dostosowywanie powiązania modelu z użyciem danych wejściowych
+
+Wejściowy program formatujący pobiera pełną odpowiedzialność za odczytywanie danych z treści żądania. Aby dostosować ten proces, należy skonfigurować interfejsy API używane przez dane wejściowe programu formatującego. W tej sekcji opisano sposób dostosowywania programu formatującego wejściowego opartego na `System.Text.Json`ach w celu zrozumienia niestandardowego typu o nazwie `ObjectId`. 
+
+Rozważmy następujący model, który zawiera niestandardową Właściwość `ObjectId` o nazwie `Id`:
+
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Models/ModelWithObjectId.cs?name=snippet_Class&highlight=3)]
+
+Aby dostosować proces powiązania modelu przy użyciu `System.Text.Json`, Utwórz klasę pochodną <xref:System.Text.Json.Serialization.JsonConverter%601>:
+
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/JsonConverters/ObjectIdConverter.cs?name=snippet_Class)]
+
+Aby użyć niestandardowego konwertera, zastosuj atrybut <xref:System.Text.Json.Serialization.JsonConverterAttribute> do typu. W poniższym przykładzie typ `ObjectId` jest skonfigurowany z `ObjectIdConverter` jako konwerterem niestandardowym:
+
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Models/ObjectId.cs?name=snippet_Class&highlight=1)]
+
+Aby uzyskać więcej informacji, zobacz [jak pisać konwertery niestandardowe](/dotnet/standard/serialization/system-text-json-converters-how-to).
+
 ## <a name="exclude-specified-types-from-model-binding"></a>Wyklucz określone typy z powiązania modelu
 
 Zachowanie modelu powiązań i systemów walidacji jest zależne od [ModelMetadata](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.modelmetadata). `ModelMetadata` można dostosować, dodając dostawcę szczegółów do [MvcOptions. ModelMetadataDetailsProviders](xref:Microsoft.AspNetCore.Mvc.MvcOptions.ModelMetadataDetailsProviders). Wbudowane dostawcy szczegółów są dostępne do wyłączenia powiązania modelu lub walidacji dla określonych typów.
 
 Aby wyłączyć powiązanie modelu dla wszystkich modeli określonego typu, Dodaj <xref:Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.ExcludeBindingMetadataProvider> w `Startup.ConfigureServices`. Na przykład, aby wyłączyć powiązanie modelu dla wszystkich modeli typu `System.Version`:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=4-5)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=5-6)]
 
 Aby wyłączyć walidację właściwości określonego typu, Dodaj <xref:Microsoft.AspNetCore.Mvc.ModelBinding.SuppressChildValidationMetadataProvider> w `Startup.ConfigureServices`. Na przykład aby wyłączyć walidację właściwości typu `System.Guid`:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=6-7)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=7-8)]
 
 ## <a name="custom-model-binders"></a>Niestandardowe powiązania modelu
 
 Można rozszerzać powiązania modelu, pisząc niestandardowy spinacz modelu i używając atrybutu `[ModelBinder]`, aby wybrać go dla danego elementu docelowego. Dowiedz się więcej na temat [niestandardowego powiązania modelu](xref:mvc/advanced/custom-model-binding).
 
-## <a name="manual-model-binding"></a>Ręczne powiązanie modelu
+## <a name="manual-model-binding"></a>Ręczne powiązanie modelu 
 
 Powiązanie modelu można wywołać ręcznie przy użyciu metody <xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync*>. Metoda jest definiowana dla klas `ControllerBase` i `PageModel`. Przeciążenia metod umożliwiają określenie prefiksu i dostawcy wartości do użycia. Metoda zwraca `false`, Jeśli powiązanie z modelem nie powiedzie się. Oto przykład:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Pages/InstructorsWithCollection/Create.cshtml.cs?name=snippet_TryUpdate&highlight=1-4)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Pages/InstructorsWithCollection/Create.cshtml.cs?name=snippet_TryUpdate&highlight=1-4)]
+
+<xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync*> używa dostawców wartości do pobierania danych z formularza, ciągu zapytania i danych tras. `TryUpdateModelAsync` jest zazwyczaj: 
+
+* Używany z aplikacjami Razor Pages i MVC przy użyciu kontrolerów i widoków, aby zapobiec nadmiernemu księgowaniu.
+* Nieużywany z interfejsem API sieci Web, chyba że jest używane z danych formularza, ciągów zapytań i danych tras. Punkty końcowe interfejsu API sieci Web, które [używają formatu JSON, do](#input-formatters) deserializacji treści żądania do obiektu.
+
+Aby uzyskać więcej informacji, zobacz [TryUpdateModelAsync](xref:data/ef-rp/crud#TryUpdateModelAsync).
 
 ## <a name="fromservices-attribute"></a>[FromServices] — atrybut
 

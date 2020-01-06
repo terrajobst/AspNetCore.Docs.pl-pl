@@ -7,18 +7,18 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 4c96815461898ce9273f953f083143d8b50d406e
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: bcd36509fe42da0a79b9243d17701f40e066a212
+ms.sourcegitcommit: 077b45eceae044475f04c1d7ef2d153d7c0515a8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259407"
+ms.lasthandoff: 12/29/2019
+ms.locfileid: "75542689"
 ---
 # <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Samouczek: Używanie funkcji migracji ASP.NET MVC z EF Core
 
 W tym samouczku Zacznij korzystać z funkcji migracji EF Core, aby zarządzać zmianami modelu danych. W kolejnych samouczkach dodasz więcej migracji w miarę zmieniania modelu danych.
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostały wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Więcej informacji na temat migracji
@@ -104,7 +104,7 @@ W przypadku utworzenia początkowej migracji, gdy baza danych już istnieje, kod
 
 Migracja tworzy *migawkę* bieżącego schematu bazy danych w *migracji/SchoolContextModelSnapshot. cs*. Po dodaniu migracji, EF określa, co zmieniło się, porównując model danych z plikiem migawki.
 
-Podczas usuwania migracji należy użyć polecenia " [migracje z programu dotnet Dr](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) ". `dotnet ef migrations remove` usuwa migrację i gwarantuje, że migawka zostanie prawidłowo zresetowana.
+Aby usunąć migrację, użyj polecenia [migracji programu dotnet EF Remove](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) . `dotnet ef migrations remove` usuwa migrację i gwarantuje, że migawka zostanie prawidłowo zresetowana. Jeśli `dotnet ef migrations remove` nie powiedzie się, użyj `dotnet ef migrations remove -v`, aby uzyskać więcej informacji na temat błędu.
 
 Aby uzyskać więcej informacji na temat sposobu użycia pliku migawek, zobacz [EF Core migracji w środowiskach zespołu](/ef/core/managing-schemas/migrations/teams) .
 
@@ -167,13 +167,13 @@ Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia, 
 
 Aby uzyskać więcej informacji na temat poleceń PMC, zobacz [konsola Menedżera pakietów (Visual Studio)](/ef/core/miscellaneous/cli/powershell).
 
-## <a name="get-the-code"></a>Pobierz kod
+## <a name="get-the-code"></a>Uzyskaj kod
 
 [Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-step"></a>Następny krok
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostały wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Zapoznaj się z migracjami

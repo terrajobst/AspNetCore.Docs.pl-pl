@@ -6,16 +6,18 @@ ms.author: casoper
 ms.date: 12/05/2019
 ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 0c7e8a1db924bdedf29468bf6b8cc17f03962c6d
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 9b18b19838a2d25944a2498b6eec1677e56b12cc
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880739"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358264"
 ---
 # <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Uwierzytelnianie w interfejsie web API za pomocą usługi Azure Active Directory B2C w programie ASP.NET Core
 
 Przez [Soper kamery](https://twitter.com/camsoper)
+
+<!-- Next update remove screenshots. They become obsolete too soon and are more work to update -->
 
 [Usługa Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) to rozwiązanie zarządzania tożsamością w chmurze dla aplikacji internetowych i mobilnych. Usługa zapewnia uwierzytelnianie dla aplikacji hostowanych w chmurze i lokalnych. Typy uwierzytelniania obejmują indywidualnych kont, kont sieci społecznościowych i federacyjnych konta przedsiębiorstwa. Usługa Azure AD B2C zapewnia również usługi Multi-Factor authentication z minimalną konfiguracją.
 
@@ -177,7 +179,7 @@ Aby wprowadzić uwierzytelnionego żądania interfejsu API sieci web, token elem
    |       **Adres URL uwierzytelniania**        | `https://login.microsoftonline.com/{tenant domain name}/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |  Zastąp *{nazwa domeny dzierżawy}* z nazwą domeny dzierżawy. **WAŻNE**: ten adres URL musi mieć taką samą nazwę domeny, jak co znajduje się w `AzureAdB2C.Instance` w sieci web, interfejsów API *appsettings.json* pliku. Patrz Uwaga&dagger;.                                                  |
    |       **Identyfikator klienta**       |                *{Wprowadź aplikację Postman **identyfikator aplikacji**}*                              |                                                                                                                                                                                                                                                                              |
    |         **Zakres**         |         `https://{tenant domain name}/{api}/user_impersonation openid offline_access`       | Zastąp *{nazwa domeny dzierżawy}* z nazwą domeny dzierżawy. Zastąp *{interfejsu api}* z identyfikator URI Identyfikatora aplikacji należy nadać interfejsu API sieci web podczas pierwszej rejestracji (w tym przypadku `api`). Wzorzec adresu URL: `https://{tenant}.onmicrosoft.com/{api-id-uri}/{scope name}`.         |
-   |         **State**         |                                      *{puste}*                                          |                                                                                                                                                                                                                                                                              |
+   |         **Stan**         |                                      *{puste}*                                          |                                                                                                                                                                                                                                                                              |
    | **Uwierzytelnianie klienta** |                                Wyślij poświadczeń klienta w treści                                |                                                                                                                                                                                                                                                                              |
 
     > [!NOTE]

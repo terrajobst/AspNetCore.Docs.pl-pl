@@ -1,42 +1,42 @@
 ---
-title: Metody kontrolera i widoki w programie ASP.NET Core
+title: Metody i widoki kontrolera w ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, jak pracować z metody kontrolera, widoków i DataAnnotations w programie ASP.NET Core.
+description: Dowiedz się, jak korzystać z metod kontrolera, widoków i adnotacji DataAnnotations w ASP.NET Core.
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 6d960da5acecbb95893bd339b4391560bedffb3d
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 2c442060872ab1d2d79a2e355ae257fdf1005914
+ms.sourcegitcommit: 991442dfb16ef08a0aae05bc79f9e9a2d819c587
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815414"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75492643"
 ---
-# <a name="controller-methods-and-views-in-aspnet-core"></a>Metody kontrolera i widoki w programie ASP.NET Core
+# <a name="controller-methods-and-views-in-aspnet-core"></a>Metody i widoki kontrolera w ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Mamy dobry początek aplikacji filmu, ale prezentacji nie jest najlepszym rozwiązaniem, na przykład **ReleaseDate** powinna być dwa słowa.
+Dobrze zaczynasz korzystać z aplikacji filmowej, ale prezentacja nie jest idealna, na przykład **ReleaseDate** powinny być dwa słowa.
 
-![Widok indeksu: Data wydania jest jedno słowo (bez spacji) i każdy film Data wydania zawiera godzinę 12: 00](working-with-sql/_static/m55.png)
+![Widok indeksu: Data wydania to jeden wyraz (bez spacji), a każda Data wydania filmu przedstawia godzinę 12 AM](working-with-sql/_static/m55.png)
 
-Otwórz *Models/Movie.cs* pliku i Dodaj wyróżnione wiersze, które przedstawiono poniżej:
+Otwórz plik *models/Movie. cs* i Dodaj wyróżnione wiersze poniżej:
 
 [!code-csharp[](start-mvc/sample/MvcMovie22/Models/MovieDateFixed.cs?name=snippet_1&highlight=2,3,12-13,17)]
 
-Omówione [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) w następnym samouczku. [Wyświetlić](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) atrybut określa, co będzie wyświetlone nazwy pola (w tym przypadku "Data wydania" zamiast "ReleaseDate"). [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) atrybut określa typ danych (Data), co nie jest wyświetlane informacje o godzinie, w tym polu.
+W następnym samouczku omówiono wszystkie [Adnotacje](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) . Atrybut [Display](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) określa, co ma być wyświetlane dla nazwy pola (w tym przypadku "Data wydania" zamiast "ReleaseDate"). Atrybut [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) określa typ danych (Data), więc informacje o czasie przechowywane w polu nie są wyświetlane.
 
-`[Column(TypeName = "decimal(18, 2)")]` Wymagana jest adnotacja danych, dzięki czemu można poprawnie mapowane na platformy Entity Framework Core `Price` walutę w bazie danych. Aby uzyskać więcej informacji, zobacz [typy danych](/ef/core/modeling/relational/data-types).
+`[Column(TypeName = "decimal(18, 2)")]` adnotacji danych jest wymagana, aby Entity Framework Core prawidłowo mapować `Price` do waluty w bazie danych. Aby uzyskać więcej informacji, zobacz [typy danych](/ef/core/modeling/relational/data-types).
 
-Przejdź do `Movies` kontrolera i przytrzymasz wskaźnik myszy **Edytuj** link, aby wyświetlić docelowy adres URL.
+Przejdź do kontrolera `Movies` i przytrzymaj wskaźnik myszy nad linkiem **edycji** , aby zobaczyć docelowy adres URL.
 
-![Okno przeglądarki z myszy nad łącze edycji i łącze adres Url https://localhost:5001/Movies/Edit/5 jest wyświetlany](~/tutorials/first-mvc-app/controller-methods-views/_static/edit7.png)
+![Okno przeglądarki z myszą nad linkiem edycji i adresem URL linku https://localhost:5001/Movies/Edit/5 jest pokazywany](~/tutorials/first-mvc-app/controller-methods-views/_static/edit7.png)
 
-**Edytuj**, **szczegóły**, i **Usuń** łącza są generowane przez Pomocnik tagu kotwicy MVC Core, w *Views/Movies/Index.cshtml* pliku.
+Linki **Edytuj**, **szczegóły**i **Usuń** są generowane przez pomocnika podstawowego tagu zakotwiczenia MVC w pliku *views/filmy/index. cshtml* .
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?highlight=1-3&range=46-50)]
 
-[Pomocnicy tagów](xref:mvc/views/tag-helpers/intro) umożliwiają uczestniczenie kodu po stronie serwera w tworzeniu i renderowaniu elementów HTML w plikach Razor. W powyższym kodzie `AnchorTagHelper` dynamicznie generuje kod HTML `href` wartość atrybutu z id metody i wyznaczać trasy akcji kontrolera. Możesz użyć **Wyświetl źródło** ze swojej ulubionej przeglądarce lub użyj narzędzia dla deweloperów do sprawdzenia wygenerowany kod znaczników. Poniżej przedstawiono część wygenerowanego kodu HTML:
+[Pomocnicy tagów](xref:mvc/views/tag-helpers/intro) umożliwiają uczestniczenie kodu po stronie serwera w tworzeniu i renderowaniu elementów HTML w plikach Razor. W powyższym kodzie `AnchorTagHelper` dynamicznie generuje wartość atrybutu HTML `href` z metody akcji kontrolera i identyfikatora trasy. Możesz użyć **widoku źródła** z ulubionej przeglądarki lub użyć narzędzi programistycznych do sprawdzenia wygenerowanego znacznika. Poniżej przedstawiono część wygenerowanego kodu HTML:
 
 ```html
  <td>
@@ -46,21 +46,21 @@ Przejdź do `Movies` kontrolera i przytrzymasz wskaźnik myszy **Edytuj** link, 
 </td>
 ```
 
-Odwołaj format [routingu](xref:mvc/controllers/routing) w *Startup.cs* pliku:
+Odwołaj format zestawu [routingu](xref:mvc/controllers/routing) w pliku *Startup.cs* :
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_1&highlight=5)]
 
-Tłumaczy platformy ASP.NET Core `https://localhost:5001/Movies/Edit/4` na żądanie, aby `Edit` metody akcji `Movies` kontroler z parametrem `Id` 4. (Metody kontrolera są również znane jako metody akcji).
+ASP.NET Core tłumaczy `https://localhost:5001/Movies/Edit/4` na żądanie do metody akcji `Edit` kontrolera `Movies` z parametrem `Id` 4. (Metody kontrolera są również nazywane metodami akcji).
 
-[Pomocników tagów](xref:mvc/views/tag-helpers/intro) są jednymi z najbardziej popularnych nowe funkcje w programie ASP.NET Core. Aby uzyskać więcej informacji, zobacz [dodatkowe zasoby](#additional-resources).
+[Pomocnicy tagów](xref:mvc/views/tag-helpers/intro) to jedna z najpopularniejszych nowych funkcji w programie ASP.NET Core. Aby uzyskać więcej informacji, zobacz [dodatkowe zasoby](#additional-resources).
 
-Otwórz `Movies` kontrolera i zbadaj dwa `Edit` metody akcji. Poniższy kod przedstawia `HTTP GET Edit` metody, która pobiera film i wypełnia formularz edycji generowane przez *Edit.cshtml* pliku Razor.
+Otwórz kontroler `Movies` i Przeanalizuj dwie metody akcji `Edit`. Poniższy kod przedstawia metodę `HTTP GET Edit`, która pobiera film i wypełnia formularz edycji wygenerowany przez plik Razor *Edit. cshtml* .
 
 ::: moniker range=">= aspnetcore-2.1"
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MC1.cs?name=snippet_edit1)]
 
-Poniższy kod przedstawia `HTTP POST Edit` metody, która przetwarza wartości przesłanych film:
+Poniższy kod przedstawia metodę `HTTP POST Edit`, która przetwarza ogłoszone wartości filmu:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
 
@@ -70,15 +70,15 @@ Poniższy kod przedstawia `HTTP POST Edit` metody, która przetwarza wartości p
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit1)]
 
-Poniższy kod przedstawia `HTTP POST Edit` metody, która przetwarza wartości przesłanych film:
+Poniższy kod przedstawia metodę `HTTP POST Edit`, która przetwarza ogłoszone wartości filmu:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
 
 ::: moniker-end
 
-`[Bind]` Atrybut jest jednym ze sposobów, aby zapewnić ochronę przed [polegającymi](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Powinien zawierać tylko właściwości w `[Bind]` atrybut, który chcesz zmienić. Aby uzyskać więcej informacji, zobacz [chronić kontroler z nadmiernego księgowania](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application). [Modele widoków](https://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) zawierają alternatywne podejście, aby uniknąć nadmiernego ogłaszania.
+Atrybut `[Bind]` jest jednym ze sposobów ochrony przed [nadmiernym publikowaniem](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Należy uwzględnić tylko właściwości w atrybucie `[Bind]`, który chcesz zmienić. Aby uzyskać więcej informacji, zobacz [Ochrona kontrolera przed nadmiernym publikowaniem](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application). [Modele widoków](https://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) zapewniają alternatywne podejście do zapobiegania nadmiernemu księgowaniu.
 
-Zwróć uwagę, drugi `Edit` metody akcji jest poprzedzony `[HttpPost]` atrybutu.
+Zwróć uwagę, że druga metoda działania `Edit` jest poprzedzona atrybutem `[HttpPost]`.
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -92,35 +92,35 @@ Zwróć uwagę, drugi `Edit` metody akcji jest poprzedzony `[HttpPost]` atrybutu
 
 ::: moniker-end
 
-`HttpPost` Atrybut określa, że to `Edit` może być wywołana metoda *tylko* dla `POST` żądań. Można zastosować `[HttpGet]` atrybutu do pierwszego Edytuj metodę, ale nie jest konieczne ponieważ `[HttpGet]` jest ustawieniem domyślnym.
+Atrybut `HttpPost` określa, że ta metoda `Edit` może być wywoływana *tylko* dla żądań `POST`. Do pierwszej metody edycji można zastosować atrybut `[HttpGet]`, ale nie jest to konieczne, ponieważ `[HttpGet]` jest wartością domyślną.
 
-`ValidateAntiForgeryToken` Atrybut jest używany do [zapobiegania fałszowaniu żądania](xref:security/anti-request-forgery) i parę przy użyciu tokenu zabezpieczającego przed sfałszowaniem generowane w pliku widoku edycji (*Views/Movies/Edit.cshtml*). Edytuj plik widoku generuje token zabezpieczający przed sfałszowaniem z [Pomocnik tagu formularza](xref:mvc/views/working-with-forms).
+Atrybut `ValidateAntiForgeryToken` służy do [zapobiegania fałszowaniu żądania](xref:security/anti-request-forgery) i jest sparowany z tokenem chroniącym przed fałszerstwem wygenerowanym w pliku widoku edycji (*widoki/filmy/Edit. cshtml*). Plik widoku edycji generuje token chroniący przed fałszerstwem za pomocą [pomocnika tagu formularza](xref:mvc/views/working-with-forms).
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/Edit.cshtml?range=9)]
 
-[Pomocnik tagu formularza](xref:mvc/views/working-with-forms) generuje ukryte token zabezpieczający przed sfałszowaniem, które muszą być zgodne `[ValidateAntiForgeryToken]` wygenerowany token zabezpieczający przed sfałszowaniem w `Edit` metody kontrolera filmów. Aby uzyskać więcej informacji, zobacz [ochrona przed fałszerstwem żądań](xref:security/anti-request-forgery).
+[Pomocnik tagu formularza](xref:mvc/views/working-with-forms) generuje ukryty token chroniący przed fałszerstwem, który musi być zgodny z `[ValidateAntiForgeryToken]` wygenerowanym tokenem chroniącym przed fałszerstwem w metodzie `Edit` kontrolera filmów. Aby uzyskać więcej informacji, zobacz [zabezpieczenia przed fałszowaniem](xref:security/anti-request-forgery).
 
-`HttpGet Edit` Metoda przyjmuje filmu `ID` parametru wyszukuje filmu używający narzędzia Entity Framework `FindAsync` metodę i zwraca wybrany film do widoku edycji. Jeśli nie można odnaleźć filmu, `NotFound` (HTTP 404) jest zwracany.
+Metoda `HttpGet Edit` przyjmuje parametr `ID` filmu, wyszukuje film przy użyciu metody Entity Framework `FindAsync` i zwraca wybrany film do widoku edycji. Jeśli nie można znaleźć filmu, zwracany jest `NotFound` (HTTP 404).
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MC1.cs?name=snippet_edit1)]
 
-Podczas tworzenia widoku edycji system scaffoldingu zbadane `Movie` klasy i utworzony kod do renderowania `<label>` i `<input>` elementy dla każdej właściwości klasy. Poniższy przykład przedstawia widok edycji, który został wygenerowany przez system scaffoldingu programu Visual Studio:
+Gdy system szkieletu utworzył widok edycji, zbadamy klasę `Movie` i utworzono kod w celu renderowania `<label>` i `<input>` elementów dla każdej właściwości klasy. W poniższym przykładzie przedstawiono widok edycji, który został wygenerowany przez system szkieletu programu Visual Studio:
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/EditOriginal.cshtml)]
 
-Zwróć uwagę, jak szablon widoku ma `@model MvcMovie.Models.Movie` instrukcji w górnej części pliku. `@model MvcMovie.Models.Movie` Określa, czy widok oczekuje modelu dla widoku szablonu typu `Movie`.
+Zwróć uwagę, jak szablon widoku zawiera instrukcję `@model MvcMovie.Models.Movie` w górnej części pliku. `@model MvcMovie.Models.Movie` określa, że widok oczekuje modelu dla szablonu widoku, który ma być typu `Movie`.
 
-Utworzony szkielet kodu używa kilka metod pomocniczych znaczników uprościć kod znaczników HTML. [Pomocnik tagu etykiet](xref:mvc/views/working-with-forms) Wyświetla nazwę pola ("Title", "ReleaseDate", "Gatunku" lub "Price"). [Pomocnik tagu dane wejściowe](xref:mvc/views/working-with-forms) renderowanie kodu HTML `<input>` elementu. [Pomocnik tagu weryfikacji](xref:mvc/views/working-with-forms) wyświetla komunikaty weryfikacji skojarzony z tej właściwości.
+Kod szkieletowy używa kilku metod pomocnika tagów do uproszczenia znacznika HTML. [Pomocnik tagów etykiet](xref:mvc/views/working-with-forms) wyświetla nazwę pola ("title", "ReleaseDate", "gatunek" lub "price"). [Pomocnik tagu wejściowego](xref:mvc/views/working-with-forms) renderuje element HTML `<input>`. [Pomocnik tagów walidacji](xref:mvc/views/working-with-forms) wyświetla wszystkie komunikaty weryfikacyjne skojarzone z tą właściwością.
 
-Uruchom aplikację, a następnie przejdź do `/Movies` adresu URL. Kliknij przycisk **Edytuj** łącza. W przeglądarce Wyświetl źródło strony. Wygenerowany kod HTML dla `<form>` element znajdują się poniżej.
+Uruchom aplikację i przejdź do adresu URL `/Movies`. Kliknij link **Edytuj** . Sprawdź Źródło strony w przeglądarce. Poniżej przedstawiono wygenerowany kod HTML dla elementu `<form>`.
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/edit_view_source.html?highlight=1,6,10,17,24,28)]
 
-`<input>` Elementy znajdują się w `HTML <form>` elementu którego `action` ma ustawioną wartość atrybutu Opublikuj `/Movies/Edit/id` adresu URL. Dane formularza zostaną opublikowane na serwerze po `Save` przycisku. Ostatni wiersz przed tagiem zamykającym `</form>` element pokazuje ukryte [XSRF](xref:security/anti-request-forgery) token generowane przez [Pomocnik tagu formularza](xref:mvc/views/working-with-forms).
+Elementy `<input>` znajdują się w `HTML <form>` elemencie, którego atrybut `action` jest ustawiony na wartość post na adres URL `/Movies/Edit/id`. Dane formularza zostaną opublikowane na serwerze po kliknięciu przycisku `Save`. Ostatni wiersz przed zamykającym `</form>` elementu wyświetla ukryty token [XSRF](xref:security/anti-request-forgery) generowany przez [pomocnika tagów formularza](xref:mvc/views/working-with-forms).
 
 ## <a name="processing-the-post-request"></a>Przetwarzanie żądania POST
 
-Poniższej przedstawiono listę `[HttpPost]` wersję `Edit` metody akcji.
+Na poniższej liście przedstawiono `[HttpPost]` wersji metody akcji `Edit`.
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -134,30 +134,30 @@ Poniższej przedstawiono listę `[HttpPost]` wersję `Edit` metody akcji.
 
 ::: moniker-end
 
-`[ValidateAntiForgeryToken]` Atrybut weryfikuje ukryte [XSRF](xref:security/anti-request-forgery) token wygenerowany przez generator tokenów zabezpieczających przed sfałszowaniem w [Pomocnik tagu formularza](xref:mvc/views/working-with-forms)
+Atrybut `[ValidateAntiForgeryToken]` sprawdza poprawność ukrytego tokenu [XSRF](xref:security/anti-request-forgery) wygenerowanego przez generatora tokenów chroniących przed fałszowaniem w [Pomocniku tagów formularza](xref:mvc/views/working-with-forms)
 
-[Wiązanie modelu](xref:mvc/models/model-binding) systemu przyjmuje wartości przesłanego formularza i tworzy `Movie` obiektu, który jest przekazywany jako `movie` parametru. `ModelState.IsValid` Metoda sprawdza, czy dane dostarczone w formie może służyć do modyfikowania (edycji lub aktualizacja) `Movie` obiektu. Jeśli dane są prawidłowe, są zapisywane. Dane zaktualizowane movie (edytowanych) są zapisywane w bazie danych przez wywołanie metody `SaveChangesAsync` metoda kontekst bazy danych. Po zapisaniu danych, kod przekierowuje użytkownika do `Index` metody akcji `MoviesController` klasy, która wyświetla kolekcji film, w tym zmiany wprowadzone przed chwilą.
+System [powiązań modelu](xref:mvc/models/model-binding) przyjmuje wartości ogłoszonych formularzy i tworzy obiekt `Movie`, który jest przesyłany jako parametr `movie`. Metoda `ModelState.IsValid` sprawdza, czy dane przesyłane w formularzu mogą być używane do modyfikowania (edycji lub aktualizowania) `Movie` obiektu. Jeśli dane są prawidłowe, zostaną zapisane. Zaktualizowane (edytowane) dane filmu są zapisywane w bazie danych przez wywołanie metody `SaveChangesAsync` kontekstu bazy danych. Po zapisaniu danych kod przekierowuje użytkownika do metody akcji `Index` klasy `MoviesController`, co spowoduje wyświetlenie kolekcji filmów, w tym właśnie wprowadzonych zmian.
 
-Zanim opublikowania formularza z serwerem, weryfikacji po stronie klienta sprawdza reguł sprawdzania poprawności w polach. Jeśli występują błędy sprawdzania poprawności, jest wyświetlany komunikat o błędzie i formularza nie jest opublikowane. Obsługa języka JavaScript jest wyłączona, nie będziesz mieć weryfikacji po stronie klienta, ale serwer wykryje opublikowanych wartości, które nie są prawidłowe i wartości formularza zostanie wyświetlony ponownie, z komunikatów o błędach. W dalszej części tego samouczka omówiony [sprawdzania poprawności modelu](xref:mvc/models/validation) bardziej szczegółowo. [Pomocnik tagu weryfikacji](xref:mvc/views/working-with-forms) w *Views/Movies/Edit.cshtml* Wyświetl szablon dba o wyświetlaniu odpowiedniego komunikatu o błędzie.
+Przed opublikowaniem formularza na serwerze sprawdzanie poprawności po stronie klienta sprawdza wszystkie reguły sprawdzania poprawności w polach. Jeśli wystąpią jakieś błędy sprawdzania poprawności, zostanie wyświetlony komunikat o błędzie z informacją, że formularz nie zostanie opublikowany. Jeśli język JavaScript jest wyłączony, nie będzie można sprawdzić poprawności po stronie klienta, ale serwer wykryje ogłoszone wartości, które nie są prawidłowe, a wartości formularza zostaną wyświetlone ponownie przy użyciu komunikatów o błędach. W dalszej części samouczka sprawdzimy [Sprawdzanie poprawności modelu](xref:mvc/models/validation) w bardziej szczegółowy sposób. [Pomocnik tagów walidacji](xref:mvc/views/working-with-forms) w szablonie *widoki/filmy/edytowanie. cshtml* ma zadbać o wyświetlenie odpowiednich komunikatów o błędach.
 
-![Edytuj widok: Wyjątek dla nieprawidłowej wartości cen ABC, informacja o tym, że pola Cena musi być liczbą. Wyjątek dla nieprawidłowej wartości Data wydania xyz stanów należy wprowadzić prawidłową datę.](~/tutorials/first-mvc-app/controller-methods-views/_static/val.png)
+![Widok edycji: wyjątek dla nieprawidłowej wartości ceny ABC wskazuje, że cena pola musi być liczbą. Wyjątek dla nieprawidłowej wartości daty wydania dla Stanów XYZ Wprowadź prawidłową datę.](~/tutorials/first-mvc-app/controller-methods-views/_static/val.png)
 
-Wszystkie `HttpGet` metodami w kontrolerze filmu wykonaj podobny wzorzec. Staną się obiekt filmu (lub listę obiektów, w przypadku `Index`) i przekazać obiekt (model) do widoku. `Create` Metoda przekazuje obiekt pusty filmu w taki sposób, aby `Create` widoku. Wszystkie metody, które tworzenie, edytowanie, usuwanie lub inny sposób modyfikować danych, należy więc w `[HttpPost]` przeciążenia metody. Modyfikowanie danych w `HTTP GET` metoda stanowi zagrożenie bezpieczeństwa. Modyfikowanie danych w `HTTP GET` metoda również narusza HTTP najlepszych rozwiązań i architektury [REST](http://rest.elkstein.org/) wzorca, który określa, że żądania GET nie powinno się zmieniać stan aplikacji. Innymi słowy wykonywanie operacji GET powinna być bezpieczne operacji, która ma żadnych efektów ubocznych i nie modyfikuje utrwalonych danych.
+Wszystkie metody `HttpGet` w kontrolerze filmu są zgodne z podobnym wzorcem. Uzyskują one obiekt filmu (lub listę obiektów, w przypadku `Index`) i przekaże obiekt (model) do widoku. Metoda `Create` przekazuje pusty obiekt filmu do widoku `Create`. Wszystkie metody, które tworzą, edytują, usuwają lub w inny sposób modyfikują dane, to w `[HttpPost]` Przeciążenie metody. Modyfikowanie danych w metodzie `HTTP GET` stanowi zagrożenie bezpieczeństwa. Modyfikowanie danych w metodzie `HTTP GET` również narusza najlepszych rozwiązań protokołu HTTP i wzorca [rest](http://rest.elkstein.org/) architektury, który określa, że żądania GET nie powinny zmieniać stanu aplikacji. Innymi słowy wykonanie operacji GET powinno być operacją bezpieczną, która nie ma efektów ubocznych i nie modyfikuje utrwalonych danych.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Globalizacja i lokalizacja](xref:fundamentals/localization)
-* [Wprowadzenie do pomocnicy tagów](xref:mvc/views/tag-helpers/intro)
-* [Tworzenie pomocników tagów](xref:mvc/views/tag-helpers/authoring)
+* [Wprowadzenie do pomocy tagów](xref:mvc/views/tag-helpers/intro)
+* [Autorzy tagów](xref:mvc/views/tag-helpers/authoring)
 * [Ochrona przed fałszerstwem żądań](xref:security/anti-request-forgery)
-* Chroń swoje kontroler z [polegającymi](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)
-* [ViewModels](https://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
+* Chroń kontroler przed [nadmiernym publikowaniem](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)
+* [Modele widoków](https://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
 * [Pomocnik tagu formularza](xref:mvc/views/working-with-forms)
 * [Pomocnik tagu wejściowego](xref:mvc/views/working-with-forms)
 * [Pomocnik tagu etykiety](xref:mvc/views/working-with-forms)
 * [Pomocnik tagu wyboru](xref:mvc/views/working-with-forms)
-* [Pomocnik tagu sprawdzania poprawności](xref:mvc/views/working-with-forms)
+* [Pomocnik tagów walidacji](xref:mvc/views/working-with-forms)
 
 > [!div class="step-by-step"]
-> [Poprzednie](working-with-sql.md)
-> [dalej](search.md)  
+> [Poprzedni](working-with-sql.md)
+> [Następny](search.md)  

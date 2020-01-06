@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 4377d7d1895b80b3c98a5b480c0f42820f11fbb8
-ms.sourcegitcommit: 4e3edff24ba6e43a103fee1b126c9826241bb37b
+ms.openlocfilehash: 3bf930d19684e84365f0ff0255fccd2939fb3f39
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74959115"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354920"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Samouczek: Tworzenie internetowego interfejsu API za pomocą ASP.NET Core
 
@@ -450,8 +450,6 @@ Na poniższej ilustracji przedstawiono aktualizacji Postman:
 Przeanalizuj metodę `DeleteTodoItem`:
 
 [!code-csharp[](first-web-api/samples/3.0/TodoApi/Controllers/TodoItemsController.cs?name=snippet_Delete)]
-
-`DeleteTodoItem` Odpowiedź jest [204 (Brak zawartości)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
 
 ### <a name="test-the-deletetodoitem-method"></a>Metoda DeleteTodoItem testu
 

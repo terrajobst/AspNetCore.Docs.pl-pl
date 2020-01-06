@@ -5,14 +5,14 @@ description: Dowiedz się, w jaki sposób Routing ASP.NET Core jest odpowiedzial
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/24/2019
+ms.date: 12/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: be4493cc927bd5437a2c9dab00b6a555756195bb
-ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
+ms.openlocfilehash: 9780183f8f9bc322f73d058b3cab7f8c10f7cd5f
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416137"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354739"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w ASP.NET Core
 
@@ -20,12 +20,12 @@ ms.locfileid: "73416137"
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Routing jest odpowiedzialny za mapowanie identyfikatorów URI żądań na punkty końcowe i wysyłanie żądań przychodzących do tych punktów końcowych. Trasy są zdefiniowane w aplikacji i konfigurowane podczas uruchamiania aplikacji. Trasa może opcjonalnie wyodrębnić wartości z adresu URL zawartego w żądaniu. te wartości mogą być następnie używane do przetwarzania żądań. Przy użyciu informacji o trasie z aplikacji Routing jest również w stanie generować adresy URL mapowane na punkty końcowe.
+Routing jest odpowiedzialny za mapowanie identyfikatorów URI żądań na punkty końcowe i wysyłanie żądań przychodzących do tych punktów końcowych. Trasy są zdefiniowane w aplikacji i konfigurowane podczas uruchamiania aplikacji. Trasa może opcjonalnie wyodrębnić wartości z adresu URL zawartego w żądaniu. te wartości mogą być następnie używane do przetwarzania żądań. Przy użyciu informacji o trasie z aplikacji Routing jest również w stanie generować adresy URL mapowane na punkty końcowe. Wiele aplikacji nie musi dodawać tras wykraczających poza elementy oferowane przez szablony. Szablony ASP.NET Core dla kontrolerów i stron Razor konfigurują punkty końcowe tras. Jeśli musisz dodać niestandardowe punkty końcowe tras, niestandardowe punkty końcowe można skonfigurować obok punktów końcowych trasy generowanych przez szablon.
 
 > [!IMPORTANT]
 > Ten dokument obejmuje Routing ASP.NET Core niskiego poziomu. Aby uzyskać informacje na temat ASP.NET Core routingu MVC, zobacz <xref:mvc/controllers/routing>. Aby uzyskać informacje na temat Konwencji routingu w Razor Pages, zobacz <xref:razor-pages/razor-pages-conventions>.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Podstawy routingu
 
@@ -127,6 +127,22 @@ Metody zapewniane przez <xref:Microsoft.AspNetCore.Routing.LinkGenerator> obsłu
 >
 > * Używaj <xref:Microsoft.AspNetCore.Routing.LinkGenerator> z przestrogą w oprogramowaniu pośredniczącym w połączeniu z `Map` lub `MapWhen`. `Map*` zmienia ścieżkę podstawową żądania wykonania, która ma wpływ na dane wyjściowe generowania łącza. Wszystkie <xref:Microsoft.AspNetCore.Routing.LinkGenerator> interfejsy API umożliwiają określanie ścieżki podstawowej. Zawsze określaj pustą ścieżkę bazową do cofnięcia `Map*`ma wpływ na generowanie linków.
 
+## <a name="endpoint-routing"></a>Routing punktów końcowych
+
+* Punkt końcowy trasy ma szablon, metadane i delegat żądania, który obsługuje odpowiedź punktu końcowego. Metadane służą do implementowania zagadnień związanych z wycinaniem w oparciu o zasady i konfigurację dołączone do każdego punktu końcowego. Na przykład, oprogramowanie pośredniczące autoryzacji może przejrzeć kolekcję metadanych punktu końcowego dla [zasad autoryzacji](xref:security/authorization/policies#applying-policies-to-mvc-controllers).
+* Routing punktów końcowych integruje się z oprogramowanie pośredniczące przy użyciu dwóch metod rozszerzających:
+  * [UseRouting](xref:Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions.UseRouting*) dodaje dopasowanie trasy do potoku programu pośredniczącego. Musi ona występować przed wszelkimi wykorzystanymi przez trasę programem pośredniczącym, takim jak autoryzacja, wykonywaniem punktów końcowych itd.
+  * [UseEndpoints](xref:Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions.UseEndpoints*) dodaje wykonywanie punktu końcowego do potoku programu pośredniczącego. Uruchamia delegata żądania, który obsługuje odpowiedź punktu końcowego.
+  `UseEndpoints` jest również miejscem, w którym skonfigurowano punkty końcowe trasy, które mogą być dopasowane i wykonywane przez aplikację. Na przykład <xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapRazorPages*>, <xref:Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapControllers*>, <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapGet*>i <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapPost*>.
+* Aplikacje używają metod pomocnika ASP.NET Core, aby skonfigurować ich trasy. Struktury ASP.NET Core zapewniają metody pomocnika, takie jak <xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapRazorPages*>,, <xref:Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapControllers*> i `MapHub<THub>`. Istnieją również metody pomocnika do konfigurowania własnych niestandardowych punktów końcowych tras: <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapGet*>, <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapPost*>i [MapVerb](xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions). 
+* Routing punktu końcowego obsługuje również punkty końcowe zmieniające się po uruchomieniu aplikacji. Aby można było obsługiwać ten element w aplikacji lub ASP.NET Core Framework, należy utworzyć i zarejestrować niestandardowy <xref:Microsoft.AspNetCore.Routing.EndpointDataSource>. Jest to funkcja zaawansowana i zazwyczaj nie jest wymagana. Punkty końcowe są zwykle konfigurowane podczas uruchamiania i są statyczne przez okres istnienia aplikacji. Ładowanie konfiguracji trasy z pliku lub bazy danych podczas uruchamiania nie jest dynamiczne.
+
+Poniższy kod przedstawia podstawowy przykład routingu punktów końcowych:
+
+[!code-csharp[](routing/samples/3.x/Startup.cs?name=snippet)]
+
+Aby uzyskać więcej informacji na temat routingu punktów końcowych, zobacz [dopasowanie adresów URL](#url-matching) w tym dokumencie.
+
 ## <a name="endpoint-routing-differences-from-earlier-versions-of-routing"></a>Różnice w kierowaniu punktów końcowych z wcześniejszych wersji routingu
 
 Istnieje kilka różnic między routingiem punktu końcowego i wersjami routingu wcześniejszego niż w ASP.NET Core 2,2:
@@ -204,7 +220,7 @@ Istnieje kilka różnic między routingiem punktu końcowego i wersjami routingu
 
   Jedyna gwiazdka "catch-all" w poprzednich wersjach ASP.NET Core (`{*myparametername}`) pozostaje obsługiwana, a ukośniki są zakodowane.
 
-  | Szlak              | Wygenerowano łącze<br>`Url.Action(new { category = "admin/products" })`&hellip; |
+  | Trasa              | Wygenerowano łącze<br>`Url.Action(new { category = "admin/products" })`&hellip; |
   | ------------------ | --------------------------------------------------------------------- |
   | `/search/{*page}`  | `/search/admin%2Fproducts` (ukośnik zostanie zakodowany)             |
   | `/search/{**page}` | `/search/admin/products`                                              |
@@ -356,11 +372,11 @@ Trasy muszą być skonfigurowane w metodzie `Startup.Configure`. Przykładowa ap
 
 W poniższej tabeli przedstawiono odpowiedzi z podanym identyfikatorem URI.
 
-| Identyfikator URI                    | Reakcji                                          |
+| {1&gt;URI&lt;1}                    | Odpowiedź                                          |
 | ---------------------- | ------------------------------------------------- |
-| `/package/create/3`    | Cześć! Wartości trasy: [Operation, Create], [ID, 3] |
-| `/package/track/-3`    | Cześć! Wartości trasy: [Operation, Track], [ID,-3] |
-| `/package/track/-3/`   | Cześć! Wartości trasy: [Operation, Track], [ID,-3] |
+| `/package/create/3`    | Witamy. Wartości trasy: [Operation, Create], [ID, 3] |
+| `/package/track/-3`    | Witamy. Wartości trasy: [Operation, Track], [ID,-3] |
+| `/package/track/-3/`   | Witamy. Wartości trasy: [Operation, Track], [ID,-3] |
 | `/package/track/`      | Żądanie przepada w, brak dopasowania.              |
 | `GET /hello/Joe`       | Witaj, Jan!                                          |
 | `POST /hello/Joe`      | Żądanie przepada w, dopasowuje tylko HTTP GET. |
@@ -470,13 +486,13 @@ public User GetUserById(int id) { }
 ```
 
 > [!WARNING]
-> Ograniczenia trasy weryfikujące adres URL i konwertowane na typ CLR (takie jak `int` lub `DateTime`) zawsze używają niezmiennej kultury. W tych ograniczeniach przyjęto założenie, że adres URL nie jest Lokalizowalny. Ograniczenia trasy dostarczone przez platformę nie modyfikują wartości przechowywanych w wartościach trasy. Wszystkie wartości tras analizowane na podstawie adresu URL są przechowywane jako ciągi. Na przykład, ograniczenie `float` próbuje skonwertować wartość trasy na float, ale przekonwertowana wartość jest używana tylko w celu sprawdzenia, czy można ją przekonwertować na wartość zmiennoprzecinkową.
+> Ograniczenia trasy, które weryfikują adres URL i są konwertowane na typ CLR (takie jak `int` lub `DateTime`), zawsze używają niezmiennej kultury. W tych ograniczeniach przyjęto założenie, że adres URL nie jest Lokalizowalny. Ograniczenia trasy dostarczone przez platformę nie modyfikują wartości przechowywanych w wartościach trasy. Wszystkie wartości tras analizowane na podstawie adresu URL są przechowywane jako ciągi. Na przykład, ograniczenie `float` próbuje skonwertować wartość trasy na float, ale przekonwertowana wartość jest używana tylko w celu sprawdzenia, czy można ją przekonwertować na wartość zmiennoprzecinkową.
 
 ## <a name="regular-expressions"></a>Wyrażenia regularne
 
 ASP.NET Core Framework dodaje `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` do konstruktora wyrażeń regularnych. Aby uzyskać opis tych elementów członkowskich, zobacz <xref:System.Text.RegularExpressions.RegexOptions>.
 
-Wyrażenia regularne używają ograniczników i tokenów podobnych do tych używanych w ramach routingu i C# języka. Tokeny wyrażenia regularnego muszą być zmienione. Aby użyć wyrażenia regularnego `^\d{3}-\d{2}-\d{4}$` w routingu, wyrażenie musi mieć `\` (pojedynczy ukośnik odwrotny) podany w ciągu jako `\\` (podwójny ukośnik odwrotny) w pliku C# źródłowym w celu ucieczki `\` ciąg ucieczki znak (chyba, że używane są [literały ciągu Verbatim](/dotnet/csharp/language-reference/keywords/string)). Na znaki ogranicznika parametru routingu ucieczki (`{`, `}`, `[`, `]`), podwójne znaki w wyrażeniu (`{{`, `}`, `[[`, `]]`). W poniższej tabeli przedstawiono wyrażenie regularne i wersja z ucieczką.
+Wyrażenia regularne używają ograniczników i tokenów podobnych do tych używanych w ramach routingu i C# języka. Tokeny wyrażenia regularnego muszą być zmienione. Aby użyć wyrażenia regularnego `^\d{3}-\d{2}-\d{4}$` w routingu, wyrażenie musi mieć `\` (pojedynczy ukośnik odwrotny) podany w ciągu jako `\\` (podwójny ukośnik odwrotny) w pliku C# źródłowym w celu wypróbowania znaku ucieczki `\` ciągu znaków (chyba że jest używany [literały ciągu Verbatim](/dotnet/csharp/language-reference/keywords/string)). Na znaki ogranicznika parametru routingu ucieczki (`{`, `}`, `[`, `]`), podwójne znaki w wyrażeniu (`{{`, `}`, `[[`, `]]`). W poniższej tabeli przedstawiono wyrażenie regularne i wersja z ucieczką.
 
 | Wyrażenie regularne    | Wyrażenie regularne o zmienionym znaczeniu     |
 | --------------------- | ------------------------------ |
@@ -487,11 +503,11 @@ Wyrażenia regularne używane w routingu często zaczynają się od znaku daszka
 
 | Wyrażenie   | String    | Dopasowanie | Komentarz               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | Cześć     | Tak   | Dopasowania podciągów     |
+| `[a-z]{2}`   | hello     | Tak   | Dopasowania podciągów     |
 | `[a-z]{2}`   | 123abc456 | Tak   | Dopasowania podciągów     |
-| `[a-z]{2}`   | MZ        | Tak   | Wyrażenie dopasowania    |
+| `[a-z]{2}`   | mz        | Tak   | Wyrażenie dopasowania    |
 | `[a-z]{2}`   | MZ        | Tak   | Bez uwzględniania wielkości liter    |
-| `^[a-z]{2}$` | Cześć     | Nie    | Zobacz `^` i `$` powyżej |
+| `^[a-z]{2}$` | hello     | Nie    | Zobacz `^` i `$` powyżej |
 | `^[a-z]{2}$` | 123abc456 | Nie    | Zobacz `^` i `$` powyżej |
 
 Aby uzyskać więcej informacji na temat składni wyrażeń regularnych, zobacz [.NET Framework wyrażeń regularnych](/dotnet/standard/base-types/regular-expression-language-quick-reference).
@@ -693,7 +709,7 @@ Więcej informacji na temat routingu opartego na <xref:Microsoft.AspNetCore.Rout
 > [!IMPORTANT]
 > Ten dokument obejmuje Routing ASP.NET Core niskiego poziomu. Aby uzyskać informacje na temat ASP.NET Core routingu MVC, zobacz <xref:mvc/controllers/routing>. Aby uzyskać informacje na temat Konwencji routingu w Razor Pages, zobacz <xref:razor-pages/razor-pages-conventions>.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Podstawy routingu
 
@@ -865,7 +881,7 @@ Istnieje kilka różnic między routingiem punktu końcowego w ASP.NET Core 2,2 
 
   Jedyna gwiazdka "catch-all" w poprzednich wersjach ASP.NET Core (`{*myparametername}`) pozostaje obsługiwana, a ukośniki są zakodowane.
 
-  | Szlak              | Wygenerowano łącze<br>`Url.Action(new { category = "admin/products" })`&hellip; |
+  | Trasa              | Wygenerowano łącze<br>`Url.Action(new { category = "admin/products" })`&hellip; |
   | ------------------ | --------------------------------------------------------------------- |
   | `/search/{*page}`  | `/search/admin%2Fproducts` (ukośnik zostanie zakodowany)             |
   | `/search/{**page}` | `/search/admin/products`                                              |
@@ -1017,11 +1033,11 @@ Trasy muszą być skonfigurowane w metodzie `Startup.Configure`. Przykładowa ap
 
 W poniższej tabeli przedstawiono odpowiedzi z podanym identyfikatorem URI.
 
-| Identyfikator URI                    | Reakcji                                          |
+| {1&gt;URI&lt;1}                    | Odpowiedź                                          |
 | ---------------------- | ------------------------------------------------- |
-| `/package/create/3`    | Cześć! Wartości trasy: [Operation, Create], [ID, 3] |
-| `/package/track/-3`    | Cześć! Wartości trasy: [Operation, Track], [ID,-3] |
-| `/package/track/-3/`   | Cześć! Wartości trasy: [Operation, Track], [ID,-3] |
+| `/package/create/3`    | Witamy. Wartości trasy: [Operation, Create], [ID, 3] |
+| `/package/track/-3`    | Witamy. Wartości trasy: [Operation, Track], [ID,-3] |
+| `/package/track/-3/`   | Witamy. Wartości trasy: [Operation, Track], [ID,-3] |
 | `/package/track/`      | Żądanie przepada w, brak dopasowania.              |
 | `GET /hello/Joe`       | Witaj, Jan!                                          |
 | `POST /hello/Joe`      | Żądanie przepada w, dopasowuje tylko HTTP GET. |
@@ -1131,13 +1147,13 @@ public User GetUserById(int id) { }
 ```
 
 > [!WARNING]
-> Ograniczenia trasy weryfikujące adres URL i konwertowane na typ CLR (takie jak `int` lub `DateTime`) zawsze używają niezmiennej kultury. W tych ograniczeniach przyjęto założenie, że adres URL nie jest Lokalizowalny. Ograniczenia trasy dostarczone przez platformę nie modyfikują wartości przechowywanych w wartościach trasy. Wszystkie wartości tras analizowane na podstawie adresu URL są przechowywane jako ciągi. Na przykład, ograniczenie `float` próbuje skonwertować wartość trasy na float, ale przekonwertowana wartość jest używana tylko w celu sprawdzenia, czy można ją przekonwertować na wartość zmiennoprzecinkową.
+> Ograniczenia trasy, które weryfikują adres URL i są konwertowane na typ CLR (takie jak `int` lub `DateTime`), zawsze używają niezmiennej kultury. W tych ograniczeniach przyjęto założenie, że adres URL nie jest Lokalizowalny. Ograniczenia trasy dostarczone przez platformę nie modyfikują wartości przechowywanych w wartościach trasy. Wszystkie wartości tras analizowane na podstawie adresu URL są przechowywane jako ciągi. Na przykład, ograniczenie `float` próbuje skonwertować wartość trasy na float, ale przekonwertowana wartość jest używana tylko w celu sprawdzenia, czy można ją przekonwertować na wartość zmiennoprzecinkową.
 
 ## <a name="regular-expressions"></a>Wyrażenia regularne
 
 ASP.NET Core Framework dodaje `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` do konstruktora wyrażeń regularnych. Aby uzyskać opis tych elementów członkowskich, zobacz <xref:System.Text.RegularExpressions.RegexOptions>.
 
-Wyrażenia regularne używają ograniczników i tokenów podobnych do tych używanych w ramach routingu i C# języka. Tokeny wyrażenia regularnego muszą być zmienione. Aby użyć wyrażenia regularnego `^\d{3}-\d{2}-\d{4}$` w routingu, wyrażenie musi mieć `\` (pojedynczy ukośnik odwrotny) podany w ciągu jako `\\` (podwójny ukośnik odwrotny) w pliku C# źródłowym w celu ucieczki `\` ciąg ucieczki znak (chyba, że używane są [literały ciągu Verbatim](/dotnet/csharp/language-reference/keywords/string)). Na znaki ogranicznika parametru routingu ucieczki (`{`, `}`, `[`, `]`), podwójne znaki w wyrażeniu (`{{`, `}`, `[[`, `]]`). W poniższej tabeli przedstawiono wyrażenie regularne i wersja z ucieczką.
+Wyrażenia regularne używają ograniczników i tokenów podobnych do tych używanych w ramach routingu i C# języka. Tokeny wyrażenia regularnego muszą być zmienione. Aby użyć wyrażenia regularnego `^\d{3}-\d{2}-\d{4}$` w routingu, wyrażenie musi mieć `\` (pojedynczy ukośnik odwrotny) podany w ciągu jako `\\` (podwójny ukośnik odwrotny) w pliku C# źródłowym w celu wypróbowania znaku ucieczki `\` ciągu znaków (chyba że jest używany [literały ciągu Verbatim](/dotnet/csharp/language-reference/keywords/string)). Na znaki ogranicznika parametru routingu ucieczki (`{`, `}`, `[`, `]`), podwójne znaki w wyrażeniu (`{{`, `}`, `[[`, `]]`). W poniższej tabeli przedstawiono wyrażenie regularne i wersja z ucieczką.
 
 | Wyrażenie regularne    | Wyrażenie regularne o zmienionym znaczeniu     |
 | --------------------- | ------------------------------ |
@@ -1148,11 +1164,11 @@ Wyrażenia regularne używane w routingu często zaczynają się od znaku daszka
 
 | Wyrażenie   | String    | Dopasowanie | Komentarz               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | Cześć     | Tak   | Dopasowania podciągów     |
+| `[a-z]{2}`   | hello     | Tak   | Dopasowania podciągów     |
 | `[a-z]{2}`   | 123abc456 | Tak   | Dopasowania podciągów     |
-| `[a-z]{2}`   | MZ        | Tak   | Wyrażenie dopasowania    |
+| `[a-z]{2}`   | mz        | Tak   | Wyrażenie dopasowania    |
 | `[a-z]{2}`   | MZ        | Tak   | Bez uwzględniania wielkości liter    |
-| `^[a-z]{2}$` | Cześć     | Nie    | Zobacz `^` i `$` powyżej |
+| `^[a-z]{2}$` | hello     | Nie    | Zobacz `^` i `$` powyżej |
 | `^[a-z]{2}$` | 123abc456 | Nie    | Zobacz `^` i `$` powyżej |
 
 Aby uzyskać więcej informacji na temat składni wyrażeń regularnych, zobacz [.NET Framework wyrażeń regularnych](/dotnet/standard/base-types/regular-expression-language-quick-reference).
@@ -1269,7 +1285,7 @@ services.AddMvc()
 > [!IMPORTANT]
 > Ten dokument obejmuje Routing ASP.NET Core niskiego poziomu. Aby uzyskać informacje na temat ASP.NET Core routingu MVC, zobacz <xref:mvc/controllers/routing>. Aby uzyskać informacje na temat Konwencji routingu w Razor Pages, zobacz <xref:razor-pages/razor-pages-conventions>.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Podstawy routingu
 
@@ -1469,11 +1485,11 @@ Trasy muszą być skonfigurowane w metodzie `Startup.Configure`. Przykładowa ap
 
 W poniższej tabeli przedstawiono odpowiedzi z podanym identyfikatorem URI.
 
-| Identyfikator URI                    | Reakcji                                          |
+| {1&gt;URI&lt;1}                    | Odpowiedź                                          |
 | ---------------------- | ------------------------------------------------- |
-| `/package/create/3`    | Cześć! Wartości trasy: [Operation, Create], [ID, 3] |
-| `/package/track/-3`    | Cześć! Wartości trasy: [Operation, Track], [ID,-3] |
-| `/package/track/-3/`   | Cześć! Wartości trasy: [Operation, Track], [ID,-3] |
+| `/package/create/3`    | Witamy. Wartości trasy: [Operation, Create], [ID, 3] |
+| `/package/track/-3`    | Witamy. Wartości trasy: [Operation, Track], [ID,-3] |
+| `/package/track/-3/`   | Witamy. Wartości trasy: [Operation, Track], [ID,-3] |
 | `/package/track/`      | Żądanie przepada w, brak dopasowania.              |
 | `GET /hello/Joe`       | Witaj, Jan!                                          |
 | `POST /hello/Joe`      | Żądanie przepada w, dopasowuje tylko HTTP GET. |
@@ -1585,13 +1601,13 @@ public User GetUserById(int id) { }
 ```
 
 > [!WARNING]
-> Ograniczenia trasy weryfikujące adres URL i konwertowane na typ CLR (takie jak `int` lub `DateTime`) zawsze używają niezmiennej kultury. W tych ograniczeniach przyjęto założenie, że adres URL nie jest Lokalizowalny. Ograniczenia trasy dostarczone przez platformę nie modyfikują wartości przechowywanych w wartościach trasy. Wszystkie wartości tras analizowane na podstawie adresu URL są przechowywane jako ciągi. Na przykład, ograniczenie `float` próbuje skonwertować wartość trasy na float, ale przekonwertowana wartość jest używana tylko w celu sprawdzenia, czy można ją przekonwertować na wartość zmiennoprzecinkową.
+> Ograniczenia trasy, które weryfikują adres URL i są konwertowane na typ CLR (takie jak `int` lub `DateTime`), zawsze używają niezmiennej kultury. W tych ograniczeniach przyjęto założenie, że adres URL nie jest Lokalizowalny. Ograniczenia trasy dostarczone przez platformę nie modyfikują wartości przechowywanych w wartościach trasy. Wszystkie wartości tras analizowane na podstawie adresu URL są przechowywane jako ciągi. Na przykład, ograniczenie `float` próbuje skonwertować wartość trasy na float, ale przekonwertowana wartość jest używana tylko w celu sprawdzenia, czy można ją przekonwertować na wartość zmiennoprzecinkową.
 
 ## <a name="regular-expressions"></a>Wyrażenia regularne
 
 ASP.NET Core Framework dodaje `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` do konstruktora wyrażeń regularnych. Aby uzyskać opis tych elementów członkowskich, zobacz <xref:System.Text.RegularExpressions.RegexOptions>.
 
-Wyrażenia regularne używają ograniczników i tokenów podobnych do tych używanych w ramach routingu i C# języka. Tokeny wyrażenia regularnego muszą być zmienione. Aby użyć wyrażenia regularnego `^\d{3}-\d{2}-\d{4}$` w routingu, wyrażenie musi mieć `\` (pojedynczy ukośnik odwrotny) podany w ciągu jako `\\` (podwójny ukośnik odwrotny) w pliku C# źródłowym w celu ucieczki `\` ciąg ucieczki znak (chyba, że używane są [literały ciągu Verbatim](/dotnet/csharp/language-reference/keywords/string)). Na znaki ogranicznika parametru routingu ucieczki (`{`, `}`, `[`, `]`), podwójne znaki w wyrażeniu (`{{`, `}`, `[[`, `]]`). W poniższej tabeli przedstawiono wyrażenie regularne i wersja z ucieczką.
+Wyrażenia regularne używają ograniczników i tokenów podobnych do tych używanych w ramach routingu i C# języka. Tokeny wyrażenia regularnego muszą być zmienione. Aby użyć wyrażenia regularnego `^\d{3}-\d{2}-\d{4}$` w routingu, wyrażenie musi mieć `\` (pojedynczy ukośnik odwrotny) podany w ciągu jako `\\` (podwójny ukośnik odwrotny) w pliku C# źródłowym w celu wypróbowania znaku ucieczki `\` ciągu znaków (chyba że jest używany [literały ciągu Verbatim](/dotnet/csharp/language-reference/keywords/string)). Na znaki ogranicznika parametru routingu ucieczki (`{`, `}`, `[`, `]`), podwójne znaki w wyrażeniu (`{{`, `}`, `[[`, `]]`). W poniższej tabeli przedstawiono wyrażenie regularne i wersja z ucieczką.
 
 | Wyrażenie regularne    | Wyrażenie regularne o zmienionym znaczeniu     |
 | --------------------- | ------------------------------ |
@@ -1602,11 +1618,11 @@ Wyrażenia regularne używane w routingu często zaczynają się od znaku daszka
 
 | Wyrażenie   | String    | Dopasowanie | Komentarz               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | Cześć     | Tak   | Dopasowania podciągów     |
+| `[a-z]{2}`   | hello     | Tak   | Dopasowania podciągów     |
 | `[a-z]{2}`   | 123abc456 | Tak   | Dopasowania podciągów     |
-| `[a-z]{2}`   | MZ        | Tak   | Wyrażenie dopasowania    |
+| `[a-z]{2}`   | mz        | Tak   | Wyrażenie dopasowania    |
 | `[a-z]{2}`   | MZ        | Tak   | Bez uwzględniania wielkości liter    |
-| `^[a-z]{2}$` | Cześć     | Nie    | Zobacz `^` i `$` powyżej |
+| `^[a-z]{2}$` | hello     | Nie    | Zobacz `^` i `$` powyżej |
 | `^[a-z]{2}$` | 123abc456 | Nie    | Zobacz `^` i `$` powyżej |
 
 Aby uzyskać więcej informacji na temat składni wyrażeń regularnych, zobacz [.NET Framework wyrażeń regularnych](/dotnet/standard/base-types/regular-expression-language-quick-reference).

@@ -1,11 +1,11 @@
 * `-c|--content`
 
-  Zawiera wbudowane treści żądania HTTP. Na przykład `-c "{ 'id': 2, 'name': 'Cherry' }"`.
+  Udostępnia wbudowaną treść żądania HTTP. Na przykład `-c "{"id":2,"name":"Cherry"}"`.
 
 * `-f|--file`
 
-  Zawiera ścieżkę do pliku zawierającego treści żądania HTTP. Na przykład `-f "C:\request.json"`.
+  Zawiera ścieżkę do pliku zawierającego treść żądania HTTP. Na przykład `-f "C:\request.json"`.
 
 * `--no-body`
 
-  Wskazuje, że wymagana jest nie treści żądania HTTP.
+  Wskazuje, że treść żądania HTTP nie jest wymagana.

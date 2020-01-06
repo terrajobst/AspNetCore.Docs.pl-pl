@@ -2,16 +2,17 @@
 title: Wykonywanie żądań HTTP przy użyciu IHttpClientFactory w ASP.NET Core
 author: stevejgordon
 description: Dowiedz się więcej o używaniu interfejsu IHttpClientFactory do zarządzania wystąpieniami logicznych HttpClient w ASP.NET Core.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/27/2019
+ms.date: 12/16/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: f33444b8fc08dc022da7700af53a218600290162
-ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
+ms.openlocfilehash: f2494a5815396e693f6fd2a45ad78ebffe4d54a3
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74733924"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358085"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Wykonywanie żądań HTTP przy użyciu IHttpClientFactory w ASP.NET Core
 
@@ -41,7 +42,7 @@ Istnieje kilka sposobów, `IHttpClientFactory` mogą być używane w aplikacji:
 
 Najlepsze podejście zależy od wymagań aplikacji.
 
-### <a name="basic-usage"></a>Podstawowe użycie
+### <a name="basic-usage"></a>Podstawowy sposób użycia
 
 `IHttpClientFactory` można zarejestrować, wywołując `AddHttpClient`:
 
@@ -97,7 +98,7 @@ Klient z określonym typem akceptuje parametr `HttpClient` w jego konstruktorze:
 
 [!code-csharp[](http-requests/samples/3.x/HttpClientFactorySample/GitHub/GitHubService.cs?name=snippet1&highlight=5)]
 
-W powyższym kodzie:
+Powyższy kod ma następujące działanie:
 
 * Konfiguracja zostanie przeniesiona do określonego klienta.
 * Obiekt `HttpClient` jest udostępniany jako właściwość publiczna.
@@ -306,7 +307,7 @@ Powyższe podejścia rozwiązują problemy z zarządzaniem zasobami, które `IHt
 - `SocketsHttpHandler` udostępnia połączenia między wystąpieniami `HttpClient`. To udostępnianie uniemożliwia wyczerpanie gniazda.
 - `SocketsHttpHandler` cykluje połączenia zgodnie z `PooledConnectionLifetime`, aby uniknąć nieodświeżonych problemów z usługą DNS.
 
-### <a name="cookies"></a>Cookie
+### <a name="cookies"></a>Pliki cookie
 
 Wystąpienia `HttpMessageHandler` w puli powoduje, że obiekty `CookieContainer` są udostępniane. Nieoczekiwane udostępnianie obiektów `CookieContainer` często powoduje nieprawidłowy kod. W przypadku aplikacji wymagających plików cookie należy rozważyć następujące kwestie:
 
@@ -357,6 +358,7 @@ W poniższym przykładzie:
 * [Używanie elementu HttpClientFactory do implementowania odpornych na błędy żądań HTTP](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests)
 * [Zaimplementuj ponowne próby wywołania HTTP przy użyciu wykładniczej wycofywania z zasadami HttpClientFactory i Polly](/dotnet/standard/microservices-architecture/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly)
 * [Implementowanie wzorca wyłącznika](/dotnet/standard/microservices-architecture/implement-resilient-applications/implement-circuit-breaker-pattern)
+* [Jak serializować i deserializować kod JSON w programie .NET](/dotnet/standard/serialization/system-text-json-how-to)
 
 ::: moniker-end
 
@@ -371,7 +373,7 @@ W poniższym przykładzie:
 * Zarządza buforowaniem i okresem istnienia podstawowych wystąpień `HttpClientMessageHandler`, aby uniknąć typowych problemów z usługą DNS występujących podczas ręcznego zarządzania `HttpClient` okresów istnienia.
 * Dodaje konfigurowalne środowisko rejestrowania (za pośrednictwem `ILogger`) dla wszystkich żądań wysyłanych przez klientów utworzonych przez fabrykę.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="consumption-patterns"></a>Wzorce zużycia
 
@@ -384,7 +386,7 @@ Istnieje kilka sposobów, `IHttpClientFactory` mogą być używane w aplikacji:
 
 Żadna z nich nie jest ściśle wyższa od siebie. Najlepsze podejście zależy od ograniczeń aplikacji.
 
-### <a name="basic-usage"></a>Podstawowe użycie
+### <a name="basic-usage"></a>Podstawowy sposób użycia
 
 `IHttpClientFactory` można zarejestrować, wywołując metodę rozszerzenia `AddHttpClient` na `IServiceCollection`wewnątrz metody `Startup.ConfigureServices`.
 
@@ -607,7 +609,7 @@ Powyższe podejścia rozwiązują problemy z zarządzaniem zasobami, które `IHt
 - `SocketsHttpHandler` udostępnia połączenia między wystąpieniami `HttpClient`. To udostępnianie uniemożliwia wyczerpanie gniazda.
 - `SocketsHttpHandler` cykluje połączenia zgodnie z `PooledConnectionLifetime`, aby uniknąć nieodświeżonych problemów z usługą DNS.
 
-### <a name="cookies"></a>Cookie
+### <a name="cookies"></a>Pliki cookie
 
 Wystąpienia `HttpMessageHandler` w puli powoduje, że obiekty `CookieContainer` są udostępniane. Nieoczekiwane udostępnianie obiektów `CookieContainer` często powoduje nieprawidłowy kod. W przypadku aplikacji wymagających plików cookie należy rozważyć następujące kwestie:
 
@@ -661,7 +663,7 @@ W poniższym przykładzie:
 
 ::: moniker-end
 
-::: moniker range="<= aspnetcore-2.1"
+::: moniker range="= aspnetcore-2.1"
 
 [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/rynowak)i [Steve Gordon](https://github.com/stevejgordon)
 
@@ -672,7 +674,7 @@ W poniższym przykładzie:
 * Zarządza buforowaniem i okresem istnienia podstawowych wystąpień `HttpClientMessageHandler`, aby uniknąć typowych problemów z usługą DNS występujących podczas ręcznego zarządzania `HttpClient` okresów istnienia.
 * Dodaje konfigurowalne środowisko rejestrowania (za pośrednictwem `ILogger`) dla wszystkich żądań wysyłanych przez klientów utworzonych przez fabrykę.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -689,7 +691,7 @@ Istnieje kilka sposobów, `IHttpClientFactory` mogą być używane w aplikacji:
 
 Żadna z nich nie jest ściśle wyższa od siebie. Najlepsze podejście zależy od ograniczeń aplikacji.
 
-### <a name="basic-usage"></a>Podstawowe użycie
+### <a name="basic-usage"></a>Podstawowy sposób użycia
 
 `IHttpClientFactory` można zarejestrować, wywołując metodę rozszerzenia `AddHttpClient` na `IServiceCollection`wewnątrz metody `Startup.ConfigureServices`.
 
@@ -915,7 +917,7 @@ Powyższe podejścia rozwiązują problemy z zarządzaniem zasobami, które `IHt
 - `SocketsHttpHandler` udostępnia połączenia między wystąpieniami `HttpClient`. To udostępnianie uniemożliwia wyczerpanie gniazda.
 - `SocketsHttpHandler` cykluje połączenia zgodnie z `PooledConnectionLifetime`, aby uniknąć nieodświeżonych problemów z usługą DNS.
 
-### <a name="cookies"></a>Cookie
+### <a name="cookies"></a>Pliki cookie
 
 Wystąpienia `HttpMessageHandler` w puli powoduje, że obiekty `CookieContainer` są udostępniane. Nieoczekiwane udostępnianie obiektów `CookieContainer` często powoduje nieprawidłowy kod. W przypadku aplikacji wymagających plików cookie należy rozważyć następujące kwestie:
 

@@ -5,12 +5,12 @@ description: Otrzymuj wskazówki dotyczące migrowania istniejących aplikacji A
 ms.author: scaddie
 ms.date: 10/18/2019
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 1564b644b774939c3c242a41812851917e96d2b2
-ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.openlocfilehash: 19be7191792c44fb5414eb0a7b24772c45391253
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "74803347"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359415"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>Migrowanie z ASP.NET do ASP.NET Core
 
@@ -158,6 +158,40 @@ Na przykład zasób obrazu w folderze *wwwroot/images* jest dostępny dla przegl
 ## <a name="multi-value-cookies"></a>Wiele wartości plików cookie
 
 [Wielowartościowe pliki cookie](xref:System.Web.HttpCookie.Values) nie są obsługiwane w ASP.NET Core. Utwórz jeden plik cookie na wartość.
+
+## <a name="partial-app-migration"></a>Migracja częściowej aplikacji
+
+Jednym z metod migracji części aplikacji jest utworzenie aplikacji podrzędnej IIS i przeniesienie niektórych tras z ASP.NET 4. x do ASP.NET Core przy zachowaniu struktury adresu URL aplikacji. Rozważmy na przykład strukturę URL aplikacji z pliku *ApplicationHost. config* :
+
+```xml
+<sites>
+    <site name="Default Web Site" id="1" serverAutoStart="true">
+        <application path="/">
+            <virtualDirectory path="/" physicalPath="D:\sites\MainSite\" />
+        </application>
+        <application path="/api" applicationPool="DefaultAppPool">
+            <virtualDirectory path="/" physicalPath="D:\sites\netcoreapi" />
+        </application>
+        <bindings>
+            <binding protocol="http" bindingInformation="*:80:" />
+            <binding protocol="https" bindingInformation="*:443:" sslFlags="0" />
+        </bindings>
+    </site>
+    ...
+</sites>
+```
+
+Struktura katalogów:
+
+```
+.
+├── MainSite
+│   ├── ...
+│   └── Web.config
+└── NetCoreApi
+    ├── ...
+    └── web.config
+```
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

@@ -3,14 +3,14 @@ title: Uwierzytelnianie w serwisach Facebook, Google i dostawcy zewnętrznym bez
 author: rick-anderson
 description: Wyjaśnienie dotyczące korzystania z usługi Facebook, Google, Twitter itp. i uwierzytelniania użytkownika konta bez tożsamości ASP.NET Core.
 ms.author: riande
-ms.date: 11/19/2019
+ms.date: 12/10/2019
 uid: security/authentication/social/social-without-identity
-ms.openlocfilehash: 680ea091dcc5ed7f94879b5d277e8be7e5abeb7b
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
+ms.openlocfilehash: 612964ec9ed4975cdc81780dda3bac6cce96037f
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74289115"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359061"
 ---
 # <a name="use-social-sign-in-provider-authentication-without-aspnet-core-identity"></a>Korzystanie z uwierzytelniania przy użyciu dostawcy logowania społecznego bez tożsamości ASP.NET Core
 
@@ -27,7 +27,7 @@ Ten przykład używa [uwierzytelniania Google](xref:security/authentication/goog
 * [Uwierzytelnianie przy użyciu usługi Twitter](xref:security/authentication/twitter-logins)
 * [Inni dostawcy](xref:security/authentication/otherlogins)
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 W metodzie `ConfigureServices` Skonfiguruj schematy uwierzytelniania aplikacji przy użyciu metod <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*>, <xref:Microsoft.Extensions.DependencyInjection.CookieExtensions.AddCookie*>i <xref:Microsoft.Extensions.DependencyInjection.GoogleExtensions.AddGoogle*>:
 
@@ -47,7 +47,7 @@ W `Startup.Configure`Wywołaj `UseAuthentication` i `UseAuthorization` między w
 
 [!code-csharp[](social-without-identity/samples_snapshot/3.x/Startup.cs?name=snippet2&highlight=3-4)]
 
-Aby dowiedzieć się więcej o schematach uwierzytelniania i uwierzytelnianiu plików cookie, zobacz <xref:security/authentication/cookie>.
+Aby dowiedzieć się więcej o schematach uwierzytelniania, zobacz [pojęcia związane z uwierzytelnianiem](xref:security/authentication/index#authentication-concepts). Aby dowiedzieć się więcej o uwierzytelnianiu plików cookie, zobacz <xref:security/authentication/cookie>.
 
 ## <a name="apply-authorization"></a>Zastosuj autoryzację
 
@@ -82,7 +82,7 @@ Ten przykład używa [uwierzytelniania Google](xref:security/authentication/goog
 * [Uwierzytelnianie przy użyciu usługi Twitter](xref:security/authentication/twitter-logins)
 * [Inni dostawcy](xref:security/authentication/otherlogins)
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 W metodzie `ConfigureServices` Skonfiguruj schematy uwierzytelniania aplikacji przy użyciu metod `AddAuthentication`, `AddCookie`i `AddGoogle`:
 
@@ -102,7 +102,7 @@ W metodzie `Configure` Wywołaj metodę `UseAuthentication`, aby wywołać oprog
 
 [!code-csharp[](social-without-identity/samples_snapshot/2.x/Startup.cs?name=snippet2)]
 
-Aby dowiedzieć się więcej o schematach uwierzytelniania i uwierzytelnianiu plików cookie, zobacz <xref:security/authentication/cookie>.
+Aby dowiedzieć się więcej o schematach uwierzytelniania, zobacz [pojęcia związane z uwierzytelnianiem](xref:security/authentication/index#authentication-concepts). Aby dowiedzieć się więcej o uwierzytelnianiu plików cookie, zobacz <xref:security/authentication/cookie>.
 
 ## <a name="apply-authorization"></a>Zastosuj autoryzację
 

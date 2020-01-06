@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/18/2019
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 46cfff905636dc0d50fcde5e781ce47fb6d85cc0
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 1e0bbe041223d376a778c6a326fcee4d254a9127
+ms.sourcegitcommit: c815a9465e7b1bab44ce1643ec345b33e6cf1598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880385"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75606782"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Wzorzec opcji w ASP.NET Core
 
@@ -283,7 +283,7 @@ services.AddOptions<MyOptions>("optionalName")
 
 Można uzyskać dostęp do innych usług z iniekcji zależności podczas konfigurowania opcji na dwa sposoby:
 
-* Przekaż delegat konfiguracji w celu [skonfigurowania](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) w usłudze [OptionsBuilder\<TOptions >](xref:Microsoft.Extensions.Options.OptionsBuilder`1). Program [OptionsBuilder\<TOptions >](xref:Microsoft.Extensions.Options.OptionsBuilder`1) oferuje przeciążenia [konfiguracji](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) , które umożliwiają konfigurowanie opcji przy użyciu maksymalnie pięciu usług:
+* Przekaż delegat konfiguracji w celu [skonfigurowania](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) w usłudze [OptionsBuilder\<TOptions >](xref:Microsoft.Extensions.Options.OptionsBuilder`1). `OptionsBuilder<TOptions>` zapewnia przeciążenia [konfiguracji](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) , które zezwalają na użycie maksymalnie pięciu usług w celu skonfigurowania opcji:
 
   ```csharp
   services.AddOptions<MyOptions>("optionalName")

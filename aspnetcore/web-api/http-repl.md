@@ -5,14 +5,14 @@ description: Dowiedz się, jak przeglądać i testować ASP.NET Core internetowy
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/02/2019
+ms.date: 12/11/2019
 uid: web-api/http-repl
-ms.openlocfilehash: c6e3ab5685b5bd0b154d20585fb0d187f81da641
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: 34ec2b2eb511f33e1263cdad4a338183a3e4b83a
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717168"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356163"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Testowanie interfejsów API sieci Web przy użyciu protokołu HTTP REPL
 
@@ -26,13 +26,13 @@ Pętla HTTP Read-eval-Print (REPL) to:
 
 Obsługiwane są następujące [czasowniki http](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods) :
 
-* [USUNIĘTY](#test-http-delete-requests)
-* [Pobierz](#test-http-get-requests)
+* [DELETE](#test-http-delete-requests)
+* [GET](#test-http-get-requests)
 * [MTP](#test-http-head-requests)
 * [Opcje](#test-http-options-requests)
 * [WYSŁANA](#test-http-patch-requests)
-* [POUBOJOWEGO](#test-http-post-requests)
-* [Ubrani](#test-http-put-requests)
+* [POST](#test-http-post-requests)
+* [PUT](#test-http-put-requests)
 
 Aby wykonać te czynności, [Wyświetl lub Pobierz przykładowy ASP.NET Core internetowy interfejs API](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/http-repl/samples) ([jak pobrać](xref:index#how-to-download-a-sample)).
 
@@ -225,7 +225,7 @@ https://localhost:5001/people~
 
 Domyślne [kolory](#set-color-preferences) REPL http można dostosować. Ponadto można zdefiniować [domyślny edytor tekstu](#set-the-default-text-editor) . Preferencje HTTP REPL są utrwalane w bieżącej sesji i są honorowane w przyszłych sesjach. Po zmodyfikowaniu preferencje są przechowywane w następującym pliku:
 
-# <a name="linuxtablinux"></a>[System](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 *% HOME%/.httpreplprefs*
 
@@ -335,7 +335,7 @@ pref set editor.command.default "<EXECUTABLE>"
 
 W poprzednim poleceniu `<EXECUTABLE>` jest pełną ścieżką do pliku wykonywalnego edytora tekstu. Na przykład uruchom następujące polecenie, aby ustawić Visual Studio Code jako domyślny edytor tekstu:
 
-# <a name="linuxtablinux"></a>[System](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ```console
 pref set editor.command.default "/usr/bin/code"
@@ -690,8 +690,9 @@ Aby wydać żądanie HTTP DELETE:
         "data": "Strawberry"
       }
     ]
+    ```
 
-1. Run the `delete` command on an endpoint that supports it:
+1. Uruchom `delete` polecenie w punkcie końcowym, który go obsługuje:
 
     ```console
     https://localhost:5001/fruits~ delete 2
@@ -970,7 +971,7 @@ Jeśli często wykonujesz ten sam zestaw poleceń HTTP REPL, Rozważ przechowywa
     https://localhost:5001/~ run C:\http-repl-scripts\people-script.txt
     ```
 
-    Wyświetlane są następujące dane wyjściowe:
+    Zostaną wyświetlone następujące dane wyjściowe:
 
     ```console
     https://localhost:5001/~ set base https://localhost:5001

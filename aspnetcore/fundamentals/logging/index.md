@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/04/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 49d598330948c5f4a137c534094e14ed5e01e27c
-ms.sourcegitcommit: f4cd3828e26e6d549ba8d0c36a17be35ad9e5a51
+ms.openlocfilehash: e1c50c4592b21d56ed813dac43204d63f1bfe46c
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825495"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359351"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Rejestrowanie w programie .NET Core i ASP.NET Core
 
@@ -1056,6 +1056,16 @@ logging.AddEventLog();
 * `LogName` &ndash; "aplikacja"
 * `SourceName` &ndash; "środowisko uruchomieniowe .NET"
 * `MachineName` &ndash; komputerze lokalnym
+
+Zdarzenia są rejestrowane dla [poziomu ostrzeżeń i wyższych](#log-level). Aby rejestrować zdarzenia mniejsze niż `Warning`, jawnie ustaw poziom dziennika. Na przykład Dodaj następujący kod do pliku *appSettings. JSON* :
+
+```json
+"EventLog": {
+  "LogLevel": {
+    "Default": "Information"
+  }
+}
+```
 
 ### <a name="tracesource-provider"></a>Dostawca TraceSource
 

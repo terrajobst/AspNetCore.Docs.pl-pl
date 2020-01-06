@@ -3,14 +3,14 @@ title: Niestandardowe powiązanie modelu w ASP.NET Core
 author: ardalis
 description: Dowiedz się, jak powiązanie modelu umożliwia akcjom kontrolera bezpośrednie działanie z typami modeli w ASP.NET Core.
 ms.author: riande
-ms.date: 12/05/2019
+ms.date: 01/01/2020
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 625cc6c9ca5a2c22d028ea25f8fc0d942b71f12d
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 565858ff3471253f2975d73cc8a3aa85360eb227
+ms.sourcegitcommit: e7d4fe6727d423f905faaeaa312f6c25ef844047
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881130"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608083"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Niestandardowe powiązanie modelu w ASP.NET Core
 
@@ -18,7 +18,7 @@ Przez [Steve Smith](https://ardalis.com/)
 
 Powiązanie modelu umożliwia działanie kontrolera do pracy bezpośrednio z typami modeli (przekazane jako argumenty metod), a nie żądaniami HTTP. Mapowanie między danymi żądań przychodzących a modelami aplikacji jest obsługiwane przez program Binders. Deweloperzy mogą rozszerzać wbudowaną funkcję powiązania modelu, implementując niestandardowe powiązania modelu (zazwyczaj nie trzeba pisać własnego dostawcy).
 
-[Wyświetlanie lub pobieranie przykładu z usługi GitHub](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/)
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="default-model-binder-limitations"></a>Domyślne ograniczenia spinacza modelu
 
@@ -28,21 +28,13 @@ Domyślne powiązania modeli obsługują większość wspólnych typów danych .
 
 Powiązanie modelu używa określonych definicji dla typów, w których działa. *Typ prosty* jest konwertowany z pojedynczego ciągu w danych wejściowych. *Typ złożony* jest konwertowany z wielu wartości wejściowych. Struktura określa różnice w zależności od istnienia `TypeConverter`. Zalecamy utworzenie konwertera typów, jeśli istnieje proste `string` -> mapowania `SomeType`, które nie wymaga zasobów zewnętrznych.
 
-Przed utworzeniem własnego spinacza modelu niestandardowego warto przejrzeć sposób implementacji istniejących spinaczy modelu. Rozważmy [ByteArrayModelBinder](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinder) , którego można użyć do przekonwertowania ciągów zakodowanych algorytmem Base64 na tablice bajtowe. Tablice bajtowe są często przechowywane jako pliki lub pola obiektów BLOB bazy danych.
+Przed utworzeniem własnego spinacza modelu niestandardowego warto przejrzeć sposób implementacji istniejących spinaczy modelu. Rozważmy <xref:Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinder>, których można użyć do przekonwertowania ciągów zakodowanych algorytmem Base64 na tablice bajtowe. Tablice bajtowe są często przechowywane jako pliki lub pola obiektów BLOB bazy danych.
 
 ### <a name="working-with-the-bytearraymodelbinder"></a>Praca z ByteArrayModelBinder
 
-Ciągi kodowane algorytmem Base64 mogą służyć do reprezentowania danych binarnych. Na przykład poniższy obraz może być zakodowany jako ciąg.
+Ciągi kodowane algorytmem Base64 mogą służyć do reprezentowania danych binarnych. Na przykład obraz może być zakodowany jako ciąg. Postępuj zgodnie z instrukcjami podanymi w pliku [README przykładu](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/samples/2.x/CustomModelBindingSample/README.md) , aby skonwertować zakodowany w formacie base64 ciąg do pliku.
 
-![Bot dotnet](custom-model-binding/images/bot.png "Bot dotnet")
-
-Na poniższej ilustracji pokazano małą część zakodowanego ciągu:
-
-![kodowanie dotnet bot](custom-model-binding/images/encoded-bot.png "kodowanie dotnet bot")
-
-Postępuj zgodnie z instrukcjami podanymi w pliku [README przykładu](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/sample/CustomModelBindingSample/README.md) , aby przekonwertować ciąg zakodowany w formacie base64 na plik.
-
-ASP.NET Core MVC może pobrać ciąg zakodowany w formacie base64 i użyć `ByteArrayModelBinder`, aby przekonwertować go na tablicę bajtów. [ByteArrayModelBinderProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinderprovider) implementujący mapowania [IModelBinderProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.imodelbinderprovider) `byte[]` argumenty `ByteArrayModelBinder`:
+ASP.NET Core MVC może pobrać ciąg zakodowany w formacie base64 i użyć `ByteArrayModelBinder`, aby przekonwertować go na tablicę bajtów. <xref:Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider> mapuje argumenty `byte[]` do `ByteArrayModelBinder`:
 
 ```csharp
 public IModelBinder GetBinder(ModelBinderProviderContext context)
@@ -61,11 +53,11 @@ public IModelBinder GetBinder(ModelBinderProviderContext context)
 }
 ```
 
-Podczas tworzenia własnego spinacza modelu niestandardowego można zaimplementować własny typ `IModelBinderProvider` lub użyć [ModelBinderAttribute](/dotnet/api/microsoft.aspnetcore.mvc.modelbinderattribute).
+Podczas tworzenia własnego spinacza modelu niestandardowego można zaimplementować własny typ `IModelBinderProvider` lub użyć <xref:Microsoft.AspNetCore.Mvc.ModelBinderAttribute>.
 
 Poniższy przykład pokazuje, jak użyć `ByteArrayModelBinder` do przekonwertowania ciągu zakodowanego algorytmem Base64 na `byte[]` i zapisać wynik do pliku:
 
-[!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Controllers/ImageController.cs?name=post1&highlight=3)]
+[!code-csharp[](custom-model-binding/samples/2.x/CustomModelBindingSample/Controllers/ImageController.cs?name=post1)]
 
 Można OPUBLIKOWAĆ ciąg zakodowany algorytmem Base64 w tej metodzie interfejsu API za pomocą narzędzia, takiego jak [Poster](https://www.getpostman.com/):
 
@@ -73,7 +65,7 @@ Można OPUBLIKOWAĆ ciąg zakodowany algorytmem Base64 w tej metodzie interfejsu
 
 Tak długo, jak spinacz może powiązać dane żądania do odpowiednio nazwanych właściwości lub argumentów, powiązanie modelu zakończy się pomyślnie. Poniższy przykład pokazuje, jak używać `ByteArrayModelBinder` z modelem widoku:
 
-[!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Controllers/ImageController.cs?name=post2&highlight=2)]
+[!code-csharp[](custom-model-binding/samples/2.x/CustomModelBindingSample/Controllers/ImageController.cs?name=post2&highlight=2)]
 
 ## <a name="custom-model-binder-sample"></a>Przykładowy spinacz modelu niestandardowego
 
@@ -85,24 +77,24 @@ W tej sekcji zaimplementujemy niestandardowy spinacz modelu, który:
 
 Poniższy przykład używa atrybutu `ModelBinder` w modelu `Author`:
 
-[!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Data/Author.cs?highlight=10)]
+[!code-csharp[](custom-model-binding/samples/2.x/CustomModelBindingSample/Data/Author.cs?highlight=6)]
 
 W poprzednim kodzie atrybut `ModelBinder` określa typ `IModelBinder`, który ma być używany do powiązania parametrów akcji `Author`.
 
 Następująca Klasa `AuthorEntityBinder` wiąże parametr `Author` przez pobranie jednostki ze źródła danych przy użyciu Entity Framework Core i `authorId`:
 
-[!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinder.cs?name=demo)]
+[!code-csharp[](custom-model-binding/samples/2.x/CustomModelBindingSample/Binders/AuthorEntityBinder.cs?name=demo)]
 
 > [!NOTE]
 > Poprzednia Klasa `AuthorEntityBinder` jest przeznaczona do zilustrowania niestandardowego spinacza modelu. Klasa nie jest przeznaczona do zilustrowania najlepszych rozwiązań dotyczących scenariusza wyszukiwania. W polu odnośnik Powiąż `authorId` i zbadaj bazę danych w metodzie Action. To podejście oddziela błędy powiązań modelu z przypadków `NotFound`.
 
 Poniższy kod ilustruje sposób używania `AuthorEntityBinder` w metodzie Action:
 
-[!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo2&highlight=2)]
+[!code-csharp[](custom-model-binding/samples/2.x/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo2&highlight=2)]
 
 Atrybut `ModelBinder` może służyć do zastosowania `AuthorEntityBinder` do parametrów, które nie używają Konwencji domyślnych:
 
-[!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo1&highlight=2)]
+[!code-csharp[](custom-model-binding/samples/2.x/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo1&highlight=2)]
 
 W tym przykładzie, ponieważ nazwa argumentu nie jest domyślną `authorId`, jest określona w parametrze przy użyciu atrybutu `ModelBinder`. Zarówno kontroler, jak i Metoda akcji są uproszczone w porównaniu z wyszukiwaniem jednostki w metodzie akcji. Logika pobierania autora przy użyciu Entity Framework Core jest przenoszona do spinacza modelu. Może to być znaczące uproszczenie, gdy istnieje kilka metod, które wiążą się z modelem `Author`.
 
@@ -112,23 +104,15 @@ Można zastosować atrybut `ModelBinder` do poszczególnych właściwości model
 
 Zamiast stosować atrybut, można zaimplementować `IModelBinderProvider`. Jest to sposób implementacji wbudowanych powiązań struktury. Po określeniu typu, na którym działa Twój spinacz, należy określić typ argumentu, który produkuje, a **nie** dane wejściowe zaakceptowane przez spinacz. Następujący dostawca programu Binder współpracuje z `AuthorEntityBinder`. Po dodaniu do kolekcji dostawców MVC nie trzeba używać atrybutu `ModelBinder` w parametrach typu `Author` lub `Author`.
 
-[!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinderProvider.cs?highlight=17-20)]
+[!code-csharp[](custom-model-binding/samples/2.x/CustomModelBindingSample/Binders/AuthorEntityBinderProvider.cs?highlight=17-20)]
 
 > Uwaga: Poprzedni kod zwraca `BinderTypeModelBinder`. `BinderTypeModelBinder` pełni rolę fabryki dla segregatorów modelu i zapewnia iniekcję zależności (DI). `AuthorEntityBinder` wymaga od DI do uzyskania dostępu EF Core. Użyj `BinderTypeModelBinder`, jeśli model spinacza wymaga usług z DI.
 
 Aby użyć niestandardowego dostawcy segregatorów modelu, Dodaj go w `ConfigureServices`:
 
-[!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
+[!code-csharp[](custom-model-binding/samples/2.x/CustomModelBindingSample/Startup.cs?name=snippet_ConfigureServices&highlight=5-10)]
 
-Podczas oceniania powiązań modelu kolekcja dostawców jest sprawdzana w podanej kolejności. Używany jest pierwszy dostawca zwracający spinacz.
-
-Na poniższej ilustracji przedstawiono domyślne powiązania modelu z debugera.
-
-![domyślne powiązania modelu](custom-model-binding/images/default-model-binders.png "domyślne powiązania modelu")
-
-Dodanie swojego dostawcy do końca kolekcji może spowodować wywołanie wbudowanego spinacza modelu, zanim niestandardowy spinacz będzie miał szansę. W tym przykładzie niestandardowy dostawca zostanie dodany do początku kolekcji, aby upewnić się, że jest on używany do `Author` argumentów akcji.
-
-[!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
+Podczas oceniania powiązań modelu kolekcja dostawców jest sprawdzana w podanej kolejności. Używany jest pierwszy dostawca zwracający spinacz. Dodanie swojego dostawcy do końca kolekcji może spowodować wywołanie wbudowanego spinacza modelu, zanim niestandardowy spinacz będzie miał szansę. W tym przykładzie niestandardowy dostawca zostanie dodany do początku kolekcji, aby upewnić się, że jest on używany do `Author` argumentów akcji.
 
 ### <a name="polymorphic-model-binding"></a>Powiązanie modelu polimorficznego
 
@@ -147,4 +131,4 @@ Niestandardowe powiązania modelu:
 
 - Nie należy próbować ustawiać kodów stanu ani zwracać wyników (na przykład nie znaleziono 404). Jeśli powiązanie modelu nie powiedzie się, [Filtr akcji](xref:mvc/controllers/filters) lub logika w samej metodzie akcji powinien obsłużyć błąd.
 - Są najbardziej przydatne do eliminowania powtarzających się kodu i krzyżowego obaw z metod akcji.
-- Zazwyczaj nie należy używać do konwertowania ciągu na typ niestandardowy, obiekt [TypeConverter](/dotnet/api/system.componentmodel.typeconverter) jest zwykle lepszym rozwiązaniem.
+- Zazwyczaj nie należy używać do konwertowania ciągu na typ niestandardowy, a <xref:System.ComponentModel.TypeConverter> jest zazwyczaj lepszym rozwiązaniem.

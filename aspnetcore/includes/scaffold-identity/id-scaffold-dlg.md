@@ -17,11 +17,15 @@ Jeśli nie zainstalowano wcześniej Generator szkieletu ASP.NET Core, zainstalow
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
-Dodaj odwołanie do pakietu do [Microsoft. VisualStudio. Web. CodeGeneration. Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) do pliku projektu (\*. csproj). Uruchom następujące polecenie w katalogu projektu:
+Dodaj wymagane odwołania pakietu NuGet do pliku projektu (\*. csproj). Uruchom następujące polecenie w katalogu projektu:
 
 ```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
-dotnet restore
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
+dotnet add package Microsoft.AspNetCore.Identity.UI
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore.Tools
 ```
 
 Uruchom następujące polecenie, aby wyświetlić listę opcji Generator szkieletu tożsamości:
@@ -29,6 +33,8 @@ Uruchom następujące polecenie, aby wyświetlić listę opcji Generator szkiele
 ```dotnetcli
 dotnet aspnet-codegenerator identity -h
 ```
+
+[!INCLUDE[](~/includes/scaffoldTFM.md)]
 
 W folderze projektu uruchom program do tworzenia szkieletu tożsamości z żądanymi opcjami. Na przykład, aby skonfigurować tożsamość przy użyciu domyślnego interfejsu użytkownika i minimalnej liczby plików, uruchom następujące polecenie:
 

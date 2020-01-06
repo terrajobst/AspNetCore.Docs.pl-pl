@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 7/23/2019
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: c2397a535fa2c128f18d65323d0f4920af914205
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: 34157a63e43372876a02a858741dfd3a83a063b1
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72334219"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354812"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Dodawanie walidacji do ASP.NET Core stronie Razor
 
@@ -92,6 +92,8 @@ Opcjonalna, testowa weryfikacja po stronie serwera:
       return Page();
    }
   ```
+  
+Alternatywnie można [wyłączyć weryfikację po stronie klienta na serwerze](xref:mvc/models/validation#disable-client-side-validation).
 
 Poniższy kod przedstawia część strony *Create. cshtml* podświetloną wcześniej w samouczku. Jest on używany przez strony Tworzenie i edytowanie, aby wyświetlić początkowy formularz i ponownie wyświetlić formularz w przypadku błędu.
 

@@ -9,24 +9,24 @@ ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: signalr/javascript-client
-ms.openlocfilehash: 926160a41c82853d83890f0d52b14d7d5561a990
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: eaf737642cdbd7ab2b1b5c16538b47a70cddd332
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963770"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354696"
 ---
 # <a name="aspnet-core-opno-locsignalr-javascript-client"></a>Klient ASP.NET Core SignalR JavaScript
 
-Autor [Rachel Appel](https://twitter.com/rachelappel)
+Przez [Rachel Appel](https://twitter.com/rachelappel)
 
 Biblioteka klienta ASP.NET Core SignalR JavaScript umożliwia deweloperom Wywoływanie kodu centrum po stronie serwera.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/signalr/javascript-client/sample) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/signalr/javascript-client/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="install-the-opno-locsignalr-client-package"></a>Zainstaluj pakiet klienta SignalR
 
-Biblioteka klienta SignalR JavaScript jest dostarczana jako pakiet [npm](https://www.npmjs.com/) . Jeśli używasz programu Visual Studio, uruchom `npm install` z **konsoli Menedżera pakietów** w folderze głównym. Aby uzyskać Visual Studio Code, uruchom polecenie w **zintegrowanym terminalu**.
+Biblioteka klienta SignalR JavaScript jest dostarczana jako pakiet [npm](https://www.npmjs.com/) . Jeśli używasz programu Visual Studio, uruchom `npm install` z **Konsola Menedżera pakietów** podczas gdy w folderze głównym. Dla programu Visual Studio Code, uruchom polecenie **zintegrowany Terminal**.
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -35,7 +35,7 @@ Biblioteka klienta SignalR JavaScript jest dostarczana jako pakiet [npm](https:/
   npm install @microsoft/signalr
   ```
 
-npm instaluje zawartość pakietu w folderze *node_modules\\@microsoft\signalr\dist\browser* . Utwórz nowy folder o nazwie *sygnalizujący* w folderze *wwwroot\\lib* . Skopiuj plik *sygnalizującer. js* do folderu *wwwroot\lib\signalr* .
+npm instaluje zawartość pakietu w *node_modules\\@microsoft\signalr\dist\browser* folderu. Utwórz nowy folder o nazwie *signalr* w obszarze *wwwroot\\lib* folderu. Kopiuj *signalr.js* plik *wwwroot\lib\signalr* folderu.
 
 ::: moniker-end
 
@@ -46,7 +46,7 @@ npm instaluje zawartość pakietu w folderze *node_modules\\@microsoft\signalr\d
   npm install @aspnet/signalr
   ```
 
-npm instaluje zawartość pakietu w folderze *node_modules\\@aspnet\signalr\dist\browser* . Utwórz nowy folder o nazwie *sygnalizujący* w folderze *wwwroot\\lib* . Skopiuj plik *sygnalizującer. js* do folderu *wwwroot\lib\signalr* .
+npm instaluje zawartość pakietu w *node_modules\\@aspnet\signalr\dist\browser* folderu. Utwórz nowy folder o nazwie *signalr* w obszarze *wwwroot\\lib* folderu. Kopiuj *signalr.js* plik *wwwroot\lib\signalr* folderu.
 
 ::: moniker-end
 
@@ -58,26 +58,26 @@ Odwołuje się do SignalR klienta JavaScript w elemencie `<script>`.
 <script src="~/lib/signalr/signalr.js"></script>
 ```
 
-## <a name="connect-to-a-hub"></a>Nawiązywanie połączenia z centrum
+## <a name="connect-to-a-hub"></a>Połączenia z koncentratorem
 
-Poniższy kod tworzy i uruchamia połączenie. Nazwa centrum nie uwzględnia wielkości liter.
+Poniższy kod tworzy i uruchamia połączenie. Nazwa Centrum jest uwzględniana wielkość liter.
 
 [!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=9-13,43-45)]
 
 ### <a name="cross-origin-connections"></a>Połączenia między źródłami
 
-Zwykle przeglądarki ładują połączenia z tej samej domeny co żądana strona. Zdarza się jednak, że jest wymagane połączenie z inną domeną.
+Zazwyczaj przeglądarek ładowanie połączeń z tej samej domenie co żądanej strony. Istnieją jednak sytuacje, gdy wymagane jest połączenie do innej domeny.
 
-Aby uniemożliwić złośliwym lokacjom odczytywanie poufnych danych z innej lokacji, [połączenia między źródłami](xref:security/cors) są domyślnie wyłączone. Aby zezwolić na żądanie między źródłami, włącz je w klasie `Startup`.
+Aby zapobiec złośliwych witryn odczytywanie poufnych danych z innej lokacji [połączeń cross-origin](xref:security/cors) są domyślnie wyłączone. Aby zezwolić na żądania między źródłami, włącz go w `Startup` klasy.
 
 [!code-csharp[Cross-origin connections](javascript-client/sample/Startup.cs?highlight=29-35,56)]
 
-## <a name="call-hub-methods-from-client"></a>Wywoływanie metod centrów z klienta
+## <a name="call-hub-methods-from-client"></a>Wywoływanie metod koncentratora z klienta
 
-Klienci języka JavaScript wywołują metody publiczne w centrach za pomocą metody [Invoke](/javascript/api/%40aspnet/signalr/hubconnection#invoke) elementu [HubConnection](/javascript/api/%40aspnet/signalr/hubconnection). Metoda `invoke` akceptuje dwa argumenty:
+Klientów JavaScript wywołania metod publicznych w centrach za pośrednictwem [wywołania](/javascript/api/%40aspnet/signalr/hubconnection#invoke) metody [HubConnection](/javascript/api/%40aspnet/signalr/hubconnection). `invoke` Metoda przyjmuje dwa argumenty:
 
-* Nazwa metody centrum. W poniższym przykładzie nazwa metody w centrum jest `SendMessage`.
-* Wszystkie argumenty zdefiniowane w metodzie centrum. W poniższym przykładzie nazwa argumentu jest `message`. Przykładowy kod używa składni funkcji ze strzałką, która jest obsługiwana w bieżących wersjach wszystkich głównych przeglądarek z wyjątkiem programu Internet Explorer.
+* Nazwa metody koncentratora. W poniższym przykładzie jest nazwa metody koncentratora `SendMessage`.
+* Argumenty zdefiniowane w metody koncentratora. W poniższym przykładzie jest nazwa argumentu `message`. Przykładowy kod używa składni funkcji ze strzałką, która jest obsługiwana w bieżących wersjach wszystkich głównych przeglądarek z wyjątkiem programu Internet Explorer.
 
   [!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=24)]
 
@@ -91,38 +91,38 @@ Metoda `send` zwraca `Promise`języka JavaScript. `Promise` jest rozpoznawany, g
 > [!NOTE]
 > Użycie `send` nie czeka na odebranie komunikatu przez serwer. W związku z tym nie można zwrócić danych ani błędów z serwera.
 
-## <a name="call-client-methods-from-hub"></a>Wywoływanie metod klienta z centrum
+## <a name="call-client-methods-from-hub"></a>Wywoływanie metody klienta z Centrum
 
-Aby odbierać komunikaty z centrum, zdefiniuj metodę przy użyciu metody [on](/javascript/api/%40aspnet/signalr/hubconnection#on) w `HubConnection`.
+Aby odbierać komunikaty z Centrum, definiowanie metody przy użyciu [na](/javascript/api/%40aspnet/signalr/hubconnection#on) metody `HubConnection`.
 
 * Nazwa metody klienta JavaScript. W poniższym przykładzie nazwa metody jest `ReceiveMessage`.
-* Argumenty przekazywane przez centrum do metody. W poniższym przykładzie wartość argumentu jest `message`.
+* Argumenty Centrum przekazuje do metody. W poniższym przykładzie wartość argumentu jest `message`.
 
 [!code-javascript[Receive calls from hub](javascript-client/sample/wwwroot/js/chat.js?range=14-19)]
 
-Poprzedni kod w `connection.on` jest uruchamiany, gdy kod po stronie serwera wywoła go przy użyciu metody [SendAsync](/dotnet/api/microsoft.aspnetcore.signalr.clientproxyextensions.sendasync) .
+Powyższy kod w `connection.on` jest uruchamiany, gdy wywołuje kod po stronie serwera, za pomocą [SendAsync](/dotnet/api/microsoft.aspnetcore.signalr.clientproxyextensions.sendasync) metody.
 
 [!code-csharp[Call client-side](javascript-client/sample/hubs/chathub.cs?range=8-11)]
 
 SignalR określa, która metoda klienta ma być wywoływana przez dopasowanie nazwy metody i argumentów zdefiniowanych w `SendAsync` i `connection.on`.
 
 > [!NOTE]
-> Najlepszym rozwiązaniem jest wywołanie metody [Start](/javascript/api/%40aspnet/signalr/hubconnection#start) na `HubConnection` po `on`. Dzięki temu programy obsługi zostaną zarejestrowane przed odebraniem wszelkich komunikatów.
+> Najlepszym rozwiązaniem, należy wywołać [start](/javascript/api/%40aspnet/signalr/hubconnection#start) metody `HubConnection` po `on`. Daje to pewność, że inne programy obsługi są rejestrowane, zanim jakiekolwiek komunikaty są odbierane.
 
-## <a name="error-handling-and-logging"></a>Obsługa błędów i rejestrowanie
+## <a name="error-handling-and-logging"></a>Rejestrowanie i obsługa błędów
 
-Łańcuchuje metodę `catch` na końcu metody `start` w celu obsługi błędów po stronie klienta. Użyj `console.error`, aby wyprowadzić błędy do konsoli przeglądarki.
+Łańcuch `catch` metody do końca `start` metodę, aby obsługiwać błędy po stronie klienta. Użyj `console.error` błędy dane wyjściowe do konsoli w przeglądarce.
 
 [!code-javascript[Error handling](javascript-client/sample/wwwroot/js/chat.js?range=49-51)]
 
-Skonfiguruj śledzenie dzienników po stronie klienta, przekazując Rejestrator i typ zdarzenia, które będą rejestrowane po nawiązaniu połączenia. Komunikaty są rejestrowane z określonym poziomem dziennika i wyższym. Dostępne poziomy dzienników są następujące:
+Konfiguracja po stronie klienta dziennika śledzenia, przekazując rejestratora i typu zdarzenia logowania, gdy połączenie zostało nawiązane. Komunikaty są rejestrowane, z poziomu określonego dziennika lub nowszy. Poziomy dziennika dostępne są następujące:
 
-* `signalR.LogLevel.Error` &ndash; komunikatów o błędach. Rejestruje tylko wiadomości `Error`.
-* `signalR.LogLevel.Warning` &ndash; komunikatów ostrzegawczych dotyczących potencjalnych błędów. Rejestruje `Warning`i `Error` komunikatów.
-* `signalR.LogLevel.Information` &ndash; komunikatów o stanie bez błędów. Rejestruje wiadomości `Information`, `Warning`i `Error`.
-* `signalR.LogLevel.Trace` &ndash; komunikatów śledzenia. Rejestruje wszystko, w tym dane przesyłane między koncentratorem a klientem.
+* `signalR.LogLevel.Error` &ndash; Komunikaty o błędach. Dzienniki `Error` tylko komunikaty.
+* `signalR.LogLevel.Warning` &ndash; Komunikaty ostrzegawcze o potencjalnych błędów. Dzienniki `Warning`, i `Error` wiadomości.
+* `signalR.LogLevel.Information` &ndash; Komunikaty o stanie bez błędów. Dzienniki `Information`, `Warning`, i `Error` wiadomości.
+* `signalR.LogLevel.Trace` &ndash; Komunikaty śledzenia. Rejestruje wszystkim, łącznie z danych przesyłanych między Centrum a klientem.
 
-Użyj metody [configureLogging](/javascript/api/%40aspnet/signalr/hubconnectionbuilder#configurelogging) w [HubConnectionBuilder](/javascript/api/%40aspnet/signalr/hubconnectionbuilder) , aby skonfigurować poziom rejestrowania. Komunikaty są rejestrowane w konsoli przeglądarki.
+Użyj [configureLogging](/javascript/api/%40aspnet/signalr/hubconnectionbuilder#configurelogging) metody [HubConnectionBuilder](/javascript/api/%40aspnet/signalr/hubconnectionbuilder) skonfigurować poziom dziennika. Komunikaty są rejestrowane w konsoli przeglądarki.
 
 [!code-javascript[Logging levels](javascript-client/sample/wwwroot/js/chat.js?range=9-12)]
 
@@ -236,15 +236,16 @@ const connection = new signalR.HubConnectionBuilder()
     .withUrl("/chatHub")
     .withAutomaticReconnect({
         nextRetryDelayInMilliseconds: retryContext => {
-          if (retryContext.elapsedMilliseconds < 60000) {
-            // If we've been reconnecting for less than 60 seconds so far,
-            // wait between 0 and 10 seconds before the next reconnect attempt.
-            return Math.random() * 10000;
-          } else {
-            // If we've been reconnecting for more than 60 seconds so far, stop reconnecting.
-            return null;
-          }
-        })
+            if (retryContext.elapsedMilliseconds < 60000) {
+                // If we've been reconnecting for less than 60 seconds so far,
+                // wait between 0 and 10 seconds before the next reconnect attempt.
+                return Math.random() * 10000;
+            } else {
+                // If we've been reconnecting for more than 60 seconds so far, stop reconnecting.
+                return null;
+            }
+        }
+    })
     .build();
 ```
 
@@ -257,26 +258,26 @@ Alternatywnie można napisać kod, który ponownie podłącze klienta ręcznie, 
 ::: moniker range="< aspnetcore-3.0"
 
 > [!WARNING]
-> W systemach wcześniejszych niż 3,0 klient JavaScript dla SignalR nie będzie automatycznie ponownie łączyć się. Musisz napisać kod, który ponownie podłącze klienta ręcznie.
+> W systemach wcześniejszych niż 3,0 klient JavaScript dla SignalR nie będzie automatycznie ponownie łączyć się. Należy napisać kod, który zostanie nawiązana ponownie ręcznie klienta.
 
 ::: moniker-end
 
 Poniższy kod ilustruje typowe podejście do ponownego łączenia ręcznego:
 
-1. Funkcja (w tym przypadku funkcja `start`) została utworzona w celu uruchomienia połączenia.
-1. Wywołaj funkcję `start` w obsłudze zdarzeń `onclose` połączenia.
+1. Funkcji (w tym przypadku `start` funkcji) jest tworzony, aby rozpocząć połączenie.
+1. Wywołaj `start` funkcji przez połączenie `onclose` programu obsługi zdarzeń.
 
 [!code-javascript[Reconnect the JavaScript client](javascript-client/sample/wwwroot/js/chat.js?range=28-40)]
 
-Implementacja rzeczywista będzie używać wykładniczej kopii zapasowej lub ponowić określoną liczbę razy przed pokazaniem.
+Implementacja rzeczywistych będzie używać wycofywanie wykładnicze lub spróbuj ponownie określoną liczbę razy, przed rezygnacją.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Dokumentacja interfejsów API języka JavaScript](/javascript/api/?view=signalr-js-latest)
-* [Samouczek JavaScript](xref:tutorials/signalr)
-* [Samouczek WebPack i język TypeScript](xref:tutorials/signalr-typescript-webpack)
+* [Samouczek języka JavaScript](xref:tutorials/signalr)
+* [Samouczek dotyczący WebPack i TypeScript](xref:tutorials/signalr-typescript-webpack)
 * [Centra](xref:signalr/hubs)
 * [Klient .NET](xref:signalr/dotnet-client)
 * [Publikowanie na platformie Azure](xref:signalr/publish-to-azure-web-app)
-* [Żądania między źródłami (CORS)](xref:security/cors)
+* [Żądań Cross-Origin (CORS)](xref:security/cors)
 * [Dokumentacja bezserwerowa usługi SignalR platformy Azure](/azure/azure-signalr/signalr-concept-serverless-development-config)

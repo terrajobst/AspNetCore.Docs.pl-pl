@@ -5,16 +5,16 @@ description: Dowiedz się, jak tworzyć i używać składników Razor, w tym jak
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/28/2019
 no-loc:
 - Blazor
 uid: blazor/components
-ms.openlocfilehash: a79202565f45b4d26e280427892ea16b33f3f853
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 87f21d84c17e5bbd1247bb955acee81384b890e7
+ms.sourcegitcommit: 47d453f34b6fd0179119c572cb8be64c5365cbb6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74943865"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75597905"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
@@ -1624,7 +1624,8 @@ składnik `BuiltContent`:
 }
 ```
 
-> ! WYŚWIETLANIA Typy w `Microsoft.AspNetCore.Components.RenderTree` umożliwiają przetwarzanie *wyników* operacji renderowania. Są to wewnętrzne szczegóły implementacji platformy Blazor Framework. Te typy powinny być uznawane za *niestabilne* i mogą ulec zmianie w przyszłych wersjach.
+> [!WARNING]
+> Typy w `Microsoft.AspNetCore.Components.RenderTree` umożliwiają przetwarzanie *wyników* operacji renderowania. Są to wewnętrzne szczegóły implementacji platformy Blazor Framework. Te typy powinny być uznawane za *niestabilne* i mogą ulec zmianie w przyszłych wersjach.
 
 ### <a name="sequence-numbers-relate-to-code-line-numbers-and-not-execution-order"></a>Numery sekwencji odnoszą się do numerów wierszy kodu, a nie kolejności wykonywania
 
@@ -1658,7 +1659,7 @@ Gdy kod jest wykonywany po raz pierwszy, jeśli `someFlag` jest `true`, Konstruk
 
 | Sequence | Typ      | Dane   |
 | :------: | --------- | :----: |
-| 0        | Węzeł tekstu | Pierwsze  |
+| 0        | Węzeł tekstu | First  |
 | 1        | Węzeł tekstu | Sekunda |
 
 Załóżmy, że `someFlag` `false`, a znaczniki są renderowane ponownie. Tym razem Konstruktor odbiera:
@@ -1690,7 +1691,7 @@ Teraz pierwsze dane wyjściowe to:
 
 | Sequence | Typ      | Dane   |
 | :------: | --------- | :----: |
-| 0        | Węzeł tekstu | Pierwsze  |
+| 0        | Węzeł tekstu | First  |
 | 1        | Węzeł tekstu | Sekunda |
 
 Ten wynik jest identyczny z poprzednim przypadkiem, dlatego nie istnieją żadne negatywne problemy. `someFlag` jest `false` podczas drugiego renderowania, a dane wyjściowe:

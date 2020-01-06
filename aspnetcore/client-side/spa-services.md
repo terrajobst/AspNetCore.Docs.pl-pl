@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: H1Hack27Feb2017
 ms.date: 09/06/2019
 uid: client-side/spa-services
-ms.openlocfilehash: 7aff46f739239246191763e0590046b2d9995922
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 52285999d7710cc3198836b9246596980cfc1666
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080506"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355787"
 ---
 # <a name="use-javascript-services-to-create-single-page-applications-in-aspnet-core"></a>Korzystanie z usług JavaScript do tworzenia aplikacji jednostronicowych w ASP.NET Core
 
@@ -69,7 +69,7 @@ Aby pracować z SpaServices, należy zainstalować następujące elementy:
     node -v && npm -v
     ```
 
-  * W przypadku wdrażania w witrynie sieci Web systemu Azure nie jest wymagane&mdash;żadne działanie Node. js zainstalowane i dostępne w środowiskach serwerów.
+  * W przypadku wdrażania w witrynie sieci Web systemu Azure nie jest wymagane żadne działanie&mdash;Node. js jest zainstalowane i dostępne w środowiskach serwerów.
 
 * [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 
@@ -195,7 +195,7 @@ Po załadowaniu aplikacji w przeglądarce, karty konsoli narzędzi dla deweloper
 
 W większości aplikacji jednostronicowych opartych na ASP.NET Core, routing po stronie klienta jest często pożądany oprócz routingu po stronie serwera. Systemy routingu SPA i MVC może działać niezależnie bez zakłóceń. Brak, jednak jednej krawędzi przypadków stanowiące wyzwań: Identyfikowanie odpowiedzi HTTP 404.
 
-Rozważmy scenariusz, w którym będą trasę `/some/page` jest używany. Przyjęto założenie, żądanie nie-dopasowania do wzorca trasy po stronie serwera, ale jego dopasowanie do wzorca, trasę po stronie klienta. Teraz należy wziąć pod uwagę żądanie przychodzące dla `/images/user-512.png`, którego oczekuje ogólnie można znaleźć pliku obrazu na serwerze. Jeśli żądana ścieżka zasobu nie jest zgodna z żadną trasą po stronie serwera lub plikiem statycznym, jest mało prawdopodobne, że aplikacja po stronie&mdash;klienta obsłuży jej zwykle zwrócenie kodu stanu HTTP 404.
+Rozważmy scenariusz, w którym będą trasę `/some/page` jest używany. Przyjęto założenie, żądanie nie-dopasowania do wzorca trasy po stronie serwera, ale jego dopasowanie do wzorca, trasę po stronie klienta. Teraz należy wziąć pod uwagę żądanie przychodzące dla `/images/user-512.png`, którego oczekuje ogólnie można znaleźć pliku obrazu na serwerze. Jeśli żądana ścieżka zasobu nie jest zgodna z żadną trasą po stronie serwera lub plikiem statycznym, jest mało prawdopodobne, że aplikacja po stronie klienta obsłuży jej&mdash;na ogół zwraca kod stanu HTTP 404.
 
 ### <a name="routing-helpers-prerequisites"></a>Wymagania wstępne pomocników routingu
 
@@ -289,6 +289,8 @@ Skrypt uruchamia Karma narzędzie test runner, który odczytuje ustawienia zdefi
 [!code-javascript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/test/karma.conf.js?range=4-5,8-11)]
 
 ## <a name="publish-the-app"></a>Publikowanie aplikacji
+
+Aby uzyskać więcej informacji na temat publikowania na platformie Azure, zobacz [ten problem](https://github.com/aspnet/AspNetCore.Docs/issues/12474) w usłudze GitHub.
 
 Łączenie wygenerowanych elementów zawartości po stronie klienta i opublikowane artefaktów ASP.NET Core w gotowe do wdrożenia pakietu może być kłopotliwe. Szczęście SpaServices organizuje procesu całej publikacji z niestandardowy cel programu MSBuild, o nazwie `RunWebpack`:
 

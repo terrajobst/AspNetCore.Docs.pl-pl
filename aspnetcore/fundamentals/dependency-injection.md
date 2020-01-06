@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/05/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: c46e7322e86c2836a15bd0720995a8634bb185be
-ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
+ms.openlocfilehash: fabc6df07d2d7beaa546b189bb7527f626fc669d
+ms.sourcegitcommit: 47d453f34b6fd0179119c572cb8be64c5365cbb6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73634009"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75597944"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Wstrzykiwanie zależności w ASP.NET Core
 
@@ -107,7 +107,7 @@ w kontenerze usługi `IMyDependency` i `ILogger<TCategoryName>` musi być zareje
 Kontener rozwiązuje `ILogger<TCategoryName>` dzięki wykorzystaniu [typów otwartych (rodzajowych)](/dotnet/csharp/language-reference/language-specification/types#open-and-closed-types), eliminując konieczność zarejestrowania każdego [(rodzajowego) typu konstruowanego](/dotnet/csharp/language-reference/language-specification/types#constructed-types):
 
 ```csharp
-services.AddSingleton(typeof(ILogger<T>), typeof(Logger<T>));
+services.AddSingleton(typeof(ILogger<>), typeof(Logger<>));
 ```
 
 W przykładowej aplikacji usługa `IMyDependency` jest zarejestrowana z typem konkretnym `MyDependency`. Rejestracja zakresów okresu istnienia usługi do okresu istnienia pojedynczego żądania. [Okresy istnienia usługi](#service-lifetimes) zostały opisane w dalszej części tego tematu.
@@ -176,7 +176,7 @@ public void Configure(IApplicationBuilder app, IOptions<MyOptions> options)
 }
 ```
 
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/startup>.
+Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/startup>.
 
 ## <a name="framework-provided-services"></a>Usługi udostępniane przez platformę
 
@@ -259,7 +259,7 @@ Przejściowe usługi okresu istnienia (<xref:Microsoft.Extensions.DependencyInje
 Usługi okresu istnienia w zakresie (<xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped*>) są tworzone raz dla każdego żądania klienta (połączenie).
 
 > [!WARNING]
-> W przypadku korzystania z usługi w zakresie w oprogramowaniu pośredniczącym należy wstrzyknąć usługę do metody `Invoke` lub `InvokeAsync`. Nie wprowadzaj przez iniekcję konstruktora, ponieważ wymusza ona zachowanie usługi jako pojedynczej. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/middleware/write#per-request-middleware-dependencies>.
+> W przypadku korzystania z usługi w zakresie w oprogramowaniu pośredniczącym należy wstrzyknąć usługę do metody `Invoke` lub `InvokeAsync`. Nie wprowadzaj przez iniekcję konstruktora, ponieważ wymusza ona zachowanie usługi jako pojedynczej. Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/middleware/write#per-request-middleware-dependencies>.
 
 ### <a name="singleton"></a>Pojedynczego
 
@@ -272,7 +272,7 @@ Pojedyncze usługi okresu istnienia (<xref:Microsoft.Extensions.DependencyInject
 
 Metody rozszerzenia rejestracji usług oferują przeciążenia, które są przydatne w określonych scenariuszach.
 
-| Metoda | Automatyczne<br>object<br>myśl | Wiele<br>implementacje | Przekaż argumenty |
+| Metoda | Automatyczne<br>Obiekt programu<br>myśl | Wielokrotne<br>implementacje | Przekaż argumenty |
 | ------ | :-----------------------------: | :-------------------------: | :-------: |
 | `Add{LIFETIME}<{SERVICE}, {IMPLEMENTATION}>()`<br>Przykład:<br>`services.AddSingleton<IMyDep, MyDep>();` | Tak | Tak | Nie |
 | `Add{LIFETIME}<{SERVICE}>(sp => new {IMPLEMENTATION})`<br>Przykłady:<br>`services.AddSingleton<IMyDep>(sp => new MyDep());`<br>`services.AddSingleton<IMyDep>(sp => new MyDep("A string!"));` | Tak | Tak | Tak |
@@ -553,7 +553,7 @@ Główny dostawca usług jest tworzony, gdy zostanie wywołane <xref:Microsoft.E
 
 Usługi o określonym zakresie są usuwane przez kontener, który go utworzył. Jeśli w kontenerze głównym zostanie utworzona usługa o określonym zakresie, okres istnienia usługi zostanie skutecznie podwyższony do pojedynczej, ponieważ jest usuwany tylko przez kontener główny, gdy aplikacja/serwer jest wyłączony. Sprawdzanie poprawności zakresów usług przechwytuje te sytuacje w przypadku wywołania `BuildServiceProvider`.
 
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/web-host#scope-validation>.
+Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/host/web-host#scope-validation>.
 
 ## <a name="request-services"></a>Usługi żądania
 
@@ -640,7 +640,7 @@ Metoda fabryki pojedynczej usługi, taka jak drugi argument dla [AddSingleton\<T
 
 * Unikaj używania *wzorca lokalizatora usługi*. Na przykład nie należy wywoływać <xref:System.IServiceProvider.GetService*>, aby uzyskać wystąpienie usługi, gdy można użyć DI zamiast:
 
-  **Prawidłowy**
+  **Niepoprawnie:**
 
   ```csharp
   public class MyClass()

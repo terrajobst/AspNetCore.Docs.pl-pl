@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 no-loc:
 - SignalR
 uid: signalr/scale
-ms.openlocfilehash: 7fc767939996a489174be949742637030924616d
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 6506430202870ba9de2f8eb6f33d79c7c1fbbbd4
+ms.sourcegitcommit: e7d4fe6727d423f905faaeaa312f6c25ef844047
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963744"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608070"
 ---
 # <a name="aspnet-core-opno-locsignalr-hosting-and-scaling"></a>ASP.NET Core SignalR hosting i skalowanie
 
@@ -52,7 +52,7 @@ Aby zapobiec wykorzystaniu przez SignalR zasobów błędów w innych aplikacjach
 
 Aby zapobiec wykorzystaniu przez SignalR zasobów błędów w aplikacji SignalR, Przeskaluj w poziomie, aby ograniczyć liczbę połączeń, które serwer musi obsłużyć.
 
-## <a name="scale-out"></a>Skalowanie w poziomie
+## <a name="scale-out"></a>Skalowanie funkcji
 
 Aplikacja, która używa SignalR musi śledzić wszystkie połączenia, które tworzą problemy dla farmy serwerów. Dodaj serwer i pobiera nowe połączenia, o których nie wie inne serwery. Na przykład SignalR na każdym serwerze na poniższym diagramie jest nieświadomy połączeń na innych serwerach. Gdy SignalR na jednym z serwerów chce wysłać komunikat do wszystkich klientów, komunikat zostanie przekierowany do klientów podłączonych do tego serwera.
 
@@ -90,13 +90,28 @@ Plan Redis to zalecane podejście skalowalne w poziomie dla aplikacji hostowanyc
 
 Zanotowane wcześniej zalety usługi Azure SignalR są niekorzystne dla planu Redis:
 
-* Są wymagane sesje programu Sticky Notes, nazywane również [koligacją klienta](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing#step-3---configure-client-affinity). Po zainicjowaniu połączenia na serwerze połączenie musi pozostać na tym serwerze.
+* Wymagane są sesje programu Sticky Notes, znane także jako [koligacja klienta](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing#step-3---configure-client-affinity), z wyjątkiem sytuacji, gdy spełnione są **obie** następujące sytuacje:
+  * Wszyscy klienci są skonfigurowani do korzystania **tylko** z obiektów WebSockets.
+  * [Ustawienie SkipNegotiation](xref:signalr/configuration#configure-additional-options) jest włączone w konfiguracji klienta. 
+   Po zainicjowaniu połączenia na serwerze połączenie musi pozostać na tym serwerze.
 * Aplikacja SignalR musi być skalowana w poziomie na podstawie liczby klientów, nawet jeśli jest wysyłanych kilka komunikatów.
 * Aplikacja SignalR używa znacznie większej liczby zasobów połączenia niż aplikacja internetowa bez SignalR.
 
+## <a name="iis-limitations-on-windows-client-os"></a>Ograniczenia usług IIS w systemie operacyjnym Windows Client
+
+Windows 10 i Windows 8. x są systemami operacyjnymi klienta. Program IIS w systemach operacyjnych klienta ma limit 10 współbieżnych połączeń. połączenia SignalRsą następujące:
+
+* Przejściowe i często ponownie nawiązane.
+* **Nie** usunięto natychmiast, gdy nie jest już używane.
+
+Powyższe warunki mogą spowodować osiągnięcie 10 limitów połączeń w systemie operacyjnym klienta. Gdy system operacyjny klienta jest używany do programowania, zalecamy:
+
+* Należy unikać usług IIS.
+* Użyj Kestrel lub IIS Express jako celów wdrożenia.
+
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji, zobacz następujące zasoby:
+Więcej informacji można znaleźć w następujących zasobach:
 
 * [Dokumentacja usługi Azure SignalR](/azure/azure-signalr/signalr-overview)
 * [Konfigurowanie planu Redis](xref:signalr/redis-backplane)
