@@ -314,7 +314,7 @@
           uid: blazor/handle-errors
         - name: Debugowanie
           uid: blazor/debug
-        - name: Wywoływanie interfejsu API sieci Web
+        - name: Wywoływanie internetowego interfejsu API
           uid: blazor/call-web-api
         - name: Hostowanie i wdrażanie
           items:
@@ -326,8 +326,6 @@
               uid: host-and-deploy/blazor/server
             - name: Konfigurowanie konsolidatora
               uid: host-and-deploy/blazor/configure-linker
-        - name: Przykłady
-          href: 'https://github.com/aspnet/samples/tree/master/samples/aspnetcore/blazor'
     - name: Programowanie po stronie klienta
       items:
         - name: Aplikacje jednostronicowe
@@ -612,7 +610,7 @@
       uid: test/integration-tests
     - name: Obciążenie i testy przeciążeniowe
       uid: test/loadtests
-    - name: Rozwiązywanie problemów
+    - name: Rozwiązywanie problemów i debugowanie
       uid: test/troubleshoot
     - name: Rejestrowanie
       uid: fundamentals/logging/index
@@ -885,15 +883,15 @@
             - name: Omówienie
               uid: security/authentication/azure-active-directory/index
             - name: Integrowanie usługi Azure AD z aplikacją internetową
-              href: 'https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/'
+              href: 'https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial'
             - name: Integrowanie usługi Azure AD B2C z aplikacją internetową
               uid: security/authentication/azure-ad-b2c
             - name: Integrowanie usługi Azure AD B2C z internetowym interfejsem API
               uid: security/authentication/azure-ad-b2c-webapi
             - name: Wywoływanie internetowego interfejsu API z podsystemu WPF
-              href: 'https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/'
+              href: 'https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore'
             - name: Wywoływanie internetowego interfejsu API w aplikacji internetowej przy użyciu usługi Azure AD
-              href: 'https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/'
+              href: 'https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore'
         - name: Zabezpieczanie aplikacji platformy ASP.NET Core za pomocą usługi IdentityServer4
           href: 'https://identityserver4.readthedocs.io/'
         - name: Zabezpieczanie aplikacji platformy ASP.NET Core za pomocą uwierzytelniania w usłudze Azure App Service (Easy Auth)
@@ -1101,6 +1099,9 @@
       uid: fundamentals/host/hosted-services
     - name: Hosting zestawów startowych
       uid: fundamentals/configuration/platform-specific-configuration
+    - name: Platforma ASP.NET Core w bibliotekach klas
+      displayName: shared framework
+      uid: fundamentals/target-aspnetcore
     - name: Metapakiet Microsoft.AspNetCore.App
       uid: fundamentals/metapackage-app
     - name: Metapakiet Microsoft.AspNetCore.All
