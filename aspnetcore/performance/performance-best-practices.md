@@ -8,12 +8,12 @@ ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: performance/performance-best-practices
-ms.openlocfilehash: bd30776d527b4ac9f44005e9f5d03fec7cfda2e6
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: c74adf7479d176c41dc26c7e77acfc3dc9cdcb88
+ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880919"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75693963"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core najlepszych rozwiązań dotyczących wydajności
 
@@ -44,7 +44,7 @@ Typowy problem z wydajnością w aplikacjach ASP.NET Core blokuje wywołania, kt
 **Do**:
 
 * Utwórz asynchroniczne [ścieżki kodu na gorąco](#understand-hot-code-paths) .
-* Wywołania dostępu do danych i długotrwałych interfejsów API operacji asynchronicznie, jeśli jest dostępny asynchroniczny interfejs API. Ponownie nie należy używać [zadania. Run](/dotnet/api/system.threading.tasks.task.run) , aby utworzyć interfejs API synchronus jako asynchroniczny.
+* Wywołania dostępu do danych, we/wy i długotrwałych interfejsów API operacji asynchronicznie, jeśli jest dostępny asynchroniczny interfejs API. **Nie** należy używać [zadania. Run](/dotnet/api/system.threading.tasks.task.run) , aby utworzyć interfejs API synchronus jako asynchroniczny.
 * Akcja uczyń kontroler/stronę Razor asynchronicznie. Cały stos wywołań jest asynchroniczny, aby można było korzystać z wzorców [asynchronicznych/await](/dotnet/csharp/programming-guide/concepts/async/) .
 
 Profiler, taki jak [Narzędzia PerfView](https://github.com/Microsoft/perfview), może służyć do znajdowania wątków często dodanych do [puli wątków](/windows/desktop/procthread/thread-pools). Zdarzenie `Microsoft-Windows-DotNETRuntime/ThreadPoolWorkerThread/Start` wskazuje wątek dodany do puli wątków. <!--  For more information, see [async guidance docs](TBD-Link_To_Davifowl_Doc)  -->
@@ -67,7 +67,7 @@ Problemy z pamięcią, takie jak poprzednia, można zdiagnozować, przeglądają
 
 Aby uzyskać więcej informacji, zobacz [odzyskiwanie pamięci i wydajność](/dotnet/standard/garbage-collection/performance).
 
-## <a name="optimize-data-access"></a>Optymalizowanie dostępu do danych
+## <a name="optimize-data-access-and-io"></a>Optymalizowanie dostępu do danych i we/wy
 
 Interakcje z magazynem danych i innymi usługami zdalnymi są często najwolniej częścią aplikacji ASP.NET Core. Wydajne odczytywanie i zapisywanie danych ma kluczowe znaczenie dla dobrej wydajności.
 

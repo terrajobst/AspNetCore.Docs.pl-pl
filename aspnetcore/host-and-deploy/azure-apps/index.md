@@ -5,14 +5,14 @@ description: Ten artykuł zawiera linki do hosta platformy Azure i wdrażania za
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/07/2019
+ms.date: 12/16/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: f9fc6e706046165c142e19ca38d97ac21914dc9b
-ms.sourcegitcommit: a104ba258ae7c0b3ee7c6fa7eaea1ddeb8b6eb73
+ms.openlocfilehash: 51d82d1deadb3d2adbdccd39c8d949e3f9f812fd
+ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74478767"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75693846"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Wdróż aplikacje ASP.NET Core w Azure App Service
 
@@ -87,19 +87,19 @@ Po utworzeniu lub zmodyfikowaniu ustawienia aplikacji w witrynie Azure Portal i 
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Gdy aplikacja korzysta z [hosta ogólnego](xref:fundamentals/host/generic-host), zmienne środowiskowe nie są domyślnie ładowane do konfiguracji aplikacji, a dostawca konfiguracji musi zostać dodany przez dewelopera. Deweloper Określa prefiks zmiennej środowiskowej podczas dodawania dostawcy konfiguracji. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host> i [dostawca konfiguracji zmiennych środowiskowych](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
+Gdy aplikacja korzysta z [hosta ogólnego](xref:fundamentals/host/generic-host), zmienne środowiskowe są ładowane do konfiguracji aplikacji, gdy <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*> jest wywoływana w celu skompilowania hosta. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host> i [dostawca konfiguracji zmiennych środowiskowych](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-Gdy aplikacja kompiluje hosta za pomocą elementu [webhost. CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), zmienne środowiskowe, które konfigurują hosta, używają prefiksu `ASPNETCORE_`. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/web-host> i [dostawca konfiguracji zmiennych środowiskowych](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
+Gdy aplikacja korzysta z [hosta sieci Web](xref:fundamentals/host/web-host), zmienne środowiskowe są ładowane do konfiguracji aplikacji, gdy <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> jest wywoływana w celu skompilowania hosta. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/web-host> i [dostawca konfiguracji zmiennych środowiskowych](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
 
 ::: moniker-end
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Serwer proxy i scenariuszy usługi równoważenia obciążenia
 
-[Oprogramowanie pośredniczące integracji usług IIS](xref:host-and-deploy/iis/index#enable-the-iisintegration-components), które konfiguruje przekierowane nagłówki oprogramowania pośredniczącego podczas hostingu [poza procesem](xref:host-and-deploy/iis/index#out-of-process-hosting-model), a moduł ASP.NET Core jest skonfigurowany do przesyłania dalej schematu (http/https) i zdalnego adresu IP, z którego pochodzi żądanie. Dodatkowa konfiguracja może być wymagane dla aplikacji hostowanych za serwery proxy dodatkowe i moduły równoważenia obciążenia. Aby uzyskać więcej informacji, zobacz [konfigurowanie ASP.NET Core do pracy z serwerami proxy i usługami równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer).
+[Oprogramowanie pośredniczące integracji usług IIS](xref:host-and-deploy/iis/index#enable-the-iisintegration-components), które konfiguruje przekierowane nagłówki oprogramowania pośredniczącego podczas hostingu [poza procesem](xref:host-and-deploy/iis/index#out-of-process-hosting-model), a moduł ASP.NET Core jest skonfigurowany do przesyłania dalej schematu (http/https) i zdalnego adresu IP, z którego pochodzi żądanie. Dodatkowa konfiguracja może być wymagane dla aplikacji hostowanych za serwery proxy dodatkowe i moduły równoważenia obciążenia. Aby uzyskać więcej informacji, zobacz [Konfigurowanie platformy ASP.NET Core pracować z serwerów proxy i moduły równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer).
 
 ## <a name="monitoring-and-logging"></a>Monitorowanie i rejestrowanie
 
@@ -146,14 +146,16 @@ W przypadku wymiany między miejscami wdrożenia każdy system korzystający z o
 Aby uzyskać więcej informacji, zobacz temat <xref:security/data-protection/implementation/key-storage-providers>.
 <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>
 
-## <a name="deploy-aspnet-core-30-to-azure-app-service"></a>Wdróż ASP.NET Core 3,0 do Azure App Service
+## <a name="deploy-an-aspnet-core-app-that-uses-a-net-core-preview"></a>Wdrażanie aplikacji ASP.NET Core korzystającej z platformy .NET Core Preview
 
-ASP.NET Core 3,0 jest obsługiwane w Azure App Service. Aby wdrożyć wersję zapoznawczą programu .NET Core w wersji nowszej niż .NET Core 3,0, użyj jednej z następujących metod. Te podejścia są również używane, gdy środowisko uruchomieniowe jest dostępne, ale zestaw SDK nie został zainstalowany na Azure App Service.
+Aby wdrożyć aplikację, która korzysta z wersji zapoznawczej programu .NET Core, zobacz następujące zasoby. Te podejścia są również używane, gdy środowisko uruchomieniowe jest dostępne, ale zestaw SDK nie został zainstalowany na Azure App Service.
 
 * [Określ wersję zestaw .NET Core SDK przy użyciu Azure Pipelines](#specify-the-net-core-sdk-version-using-azure-pipelines)
-* [Wdróż samodzielną aplikację w wersji zapoznawczej](#deploy-a-self-contained-preview-app).
-* [Użyj platformy Docker z Web Apps dla kontenerów](#use-docker-with-web-apps-for-containers).
-* [Zainstaluj rozszerzenie witryny w wersji zapoznawczej](#install-the-preview-site-extension).
+* [Wdrażanie samodzielnej aplikacji w wersji zapoznawczej](#deploy-a-self-contained-preview-app)
+* [Korzystanie z platformy Docker z Web Apps dla kontenerów](#use-docker-with-web-apps-for-containers)
+* [Zainstaluj rozszerzenie witryny w wersji zapoznawczej](#install-the-preview-site-extension)
+
+Zapoznaj się z wersją ASP.NET Core dostępną w usłudze Azure App Service, [ASP.NET Core na pulpicie nawigacyjnym app Service](https://aspnetcoreon.azurewebsites.net/) .
 
 ### <a name="specify-the-net-core-sdk-version-using-azure-pipelines"></a>Określ wersję zestaw .NET Core SDK przy użyciu Azure Pipelines
 
@@ -195,7 +197,7 @@ Jeśli wystąpi problem przy użyciu rozszerzenia witryny w wersji zapoznawczej,
 1. W witrynie Azure Portal przejdź do App Service.
 1. Wybierz aplikację sieci Web.
 1. Wpisz "ex" w polu wyszukiwania, aby odfiltrować "rozszerzenia", lub przewiń w dół listy narzędzi do zarządzania.
-1. Wybierz pozycję **rozszerzenia**.
+1. Wybierz pozycję **Rozszerzenia**.
 1. Wybierz pozycję **Dodaj**.
 1. Wybierz rozszerzenie **środowiska uruchomieniowego ASP.NET Core {X. Y} ({x64 | x86})** z listy, gdzie `{X.Y}` jest wersją ASP.NET Core wersji zapoznawczej i `{x64|x86}` Określa platformę.
 1. Wybierz **przycisk OK** , aby zaakceptować postanowienia prawne.
@@ -254,7 +256,7 @@ W przypadku wdrożenia 64-bitowego:
 1. Wybierz pozycję **kompilacja** > **Opublikuj {nazwa aplikacji}** na pasku narzędzi programu Visual Studio lub kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Publikuj**.
 1. W oknie dialogowym **Wybieranie elementu docelowego publikowania** upewnij się, że **App Service** jest zaznaczone.
 1. Wybierz pozycję **Zaawansowane**. Zostanie otwarte okno dialogowe **Publikowanie** .
-1. W oknie dialogowym **publikowania** :
+1. W **Publikuj** okno dialogowe:
    * Upewnij się, że wybrano konfigurację **wydania** .
    * Otwórz listę rozwijaną **tryb wdrażania** i wybierz pozycję **zależne od struktury**.
    * Wybierz **przenośne** jako **docelowe środowisko uruchomieniowe**.
@@ -285,7 +287,7 @@ Użyj programu Visual Studio lub narzędzi interfejsu wiersza polecenia (CLI) dl
 1. Wybierz pozycję **kompilacja** > **Opublikuj {nazwa aplikacji}** na pasku narzędzi programu Visual Studio lub kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Publikuj**.
 1. W oknie dialogowym **Wybieranie elementu docelowego publikowania** upewnij się, że **App Service** jest zaznaczone.
 1. Wybierz pozycję **Zaawansowane**. Zostanie otwarte okno dialogowe **Publikowanie** .
-1. W oknie dialogowym **publikowania** :
+1. W **Publikuj** okno dialogowe:
    * Upewnij się, że wybrano konfigurację **wydania** .
    * Otwórz listę rozwijaną **tryb wdrażania** i wybierz pozycję **samodzielny**.
    * Wybierz docelowe środowisko uruchomieniowe z listy rozwijanej **docelowy środowisko uruchomieniowe** . Wartość domyślna to `win-x86`.
@@ -324,7 +326,7 @@ Jeśli musisz przekształcić *plik Web. config* przy publikowaniu (na przykład
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Przegląd App Service](/azure/app-service/app-service-web-overview)
+* [Omówienie usługi App Service](/azure/app-service/app-service-web-overview)
 * [Azure App Service: najlepsze miejsce do hostowania aplikacji .NET (wideo z omówieniem 55 minut)](https://channel9.msdn.com/events/dotnetConf/2017/T222)
 * [Piątek Azure: Azure App Service środowisko diagnostyczne i rozwiązywania problemów (wideo 12-minutowy)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)
 * [Omówienie diagnostyki Azure App Service](/azure/app-service/app-service-diagnostics)

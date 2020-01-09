@@ -1,31 +1,33 @@
 ---
-title: Wprowadzenie do autoryzacji w programie ASP.NET Core
+title: Wprowadzenie do autoryzacji w ASP.NET Core
 author: rick-anderson
-description: Poznaj podstawowe zasady autoryzacji i działanie autoryzacji w aplikacji platformy ASP.NET Core.
+description: Poznaj podstawowe informacje dotyczące autoryzacji i sposobu działania autoryzacji w aplikacjach ASP.NET Core.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/introduction
-ms.openlocfilehash: 5465eb7875ebecd77b628376ef886db0ddd05025
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: b5e60b3c256941fff5e54e1a02e077c34c535902
+ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902845"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75693872"
 ---
-# <a name="introduction-to-authorization-in-aspnet-core"></a>Wprowadzenie do autoryzacji w programie ASP.NET Core
+# <a name="introduction-to-authorization-in-aspnet-core"></a>Wprowadzenie do autoryzacji w ASP.NET Core
 
 <a name="security-authorization-introduction"></a>
 
-Autoryzacja Określa, do procesu, który określa, co użytkownik będzie mógł robić. Na przykład użytkownik administracyjny może utworzyć bibliotekę dokumentów, dodawanie dokumentów, edytowanie dokumentów i je usunąć. Użytkownik niebędący administratorem Praca z biblioteką tylko jest upoważniony do odczytu w dokumentach.
+Autoryzacja odnosi się do procesu, który określa, co użytkownik może zrobić. Na przykład użytkownik administracyjny może utworzyć bibliotekę dokumentów, dodać dokumenty, edytować dokumenty i je usunąć. Użytkownik niebędący użytkownikiem administracyjnym, który współpracuje z biblioteką, ma uprawnienia tylko do odczytu dokumentów.
 
-Autoryzacja jest prostopadły i niezależny od uwierzytelniania. Autoryzacja wymaga jednak mechanizm uwierzytelniania. Uwierzytelnianie to proces upewnieniu się, kim jest użytkownik. Uwierzytelnianie może utworzyć jedną lub więcej tożsamości dla bieżącego użytkownika.
+Autoryzacja jest prostopadła i niezależna od uwierzytelniania. Autoryzacja wymaga jednak mechanizmu uwierzytelniania. Uwierzytelnianie to proces ustalania, kto jest użytkownikiem. Uwierzytelnianie może utworzyć jedną lub więcej tożsamości dla bieżącego użytkownika.
+
+Aby uzyskać więcej informacji na temat uwierzytelniania w ASP.NET Core, zobacz <xref:security/authentication/index>.
 
 ## <a name="authorization-types"></a>Typy autoryzacji
 
-Autoryzacji platformy ASP.NET Core zawiera prostego, deklaratywnego [roli](xref:security/authorization/roles) i zaawansowane [oparte na zasadach](xref:security/authorization/policies) modelu. Autoryzacji jest będzie wyrażana wymagania i procedury obsługi ocenić oświadczenia użytkownika względem wymagań. Imperatywne sprawdzanie może bazować na proste lub zasady, które ocenić tożsamości użytkownika i właściwości zasobu, który użytkownik próbuje uzyskać dostęp.
+Autoryzacja ASP.NET Core zapewnia prostą, deklaratywną [rolę](xref:security/authorization/roles) i bogaty model [oparty na zasadach](xref:security/authorization/policies) . Autoryzacja jest wyrażona w wymaganiach, a programy obsługi szacują oświadczenia użytkownika względem wymagań. Bezwzględne kontrole mogą opierać się na prostych zasadach lub zasadach, które obliczają zarówno tożsamość użytkownika, jak i właściwości zasobu, do którego użytkownik próbuje uzyskać dostęp.
 
-## <a name="namespaces"></a>Namespaces
+## <a name="namespaces"></a>{1&gt;Przestrzenie nazw&lt;1}
 
-Składniki autoryzacji, w tym `AuthorizeAttribute` i `AllowAnonymousAttribute` atrybutów, znajdują się w `Microsoft.AspNetCore.Authorization` przestrzeni nazw.
+Składniki autoryzacji, w tym atrybuty `AuthorizeAttribute` i `AllowAnonymousAttribute`, znajdują się w przestrzeni nazw `Microsoft.AspNetCore.Authorization`.
 
-Zapoznaj się z dokumentacją na [autoryzacja prosta](xref:security/authorization/simple).
+Zapoznaj się z dokumentacją dotyczącą [prostej autoryzacji](xref:security/authorization/simple).
