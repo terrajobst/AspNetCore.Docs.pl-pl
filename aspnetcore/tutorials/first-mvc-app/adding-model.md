@@ -5,12 +5,12 @@ description: Dodaj model do prostej aplikacji ASP.NET Core.
 ms.author: riande
 ms.date: 8/15/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 2fac37e7069fb2a464d4de1da8912197f7adf8a8
-ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
+ms.openlocfilehash: 5d4251a2577111324aa2cfb715c41e3ecad5a9d1
+ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73761089"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75722803"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Dodawanie modelu do aplikacji ASP.NET Core MVC
 
@@ -32,9 +32,13 @@ W tym samouczku najpierw napiszesz klasy modelu, a EF Core tworzy bazę danych. 
 
 Kliknij prawym przyciskiem myszy folder *modele* > **Dodaj** **klasy** > . Nazwij plik *Movie.cs*.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Dodaj plik o nazwie *Movie.cs* do folderu *models* .
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+
+Kliknij prawym przyciskiem myszy folder *modele* > **Dodaj** > **nową klasę** > **pustą klasę**. Nazwij plik *Movie.cs*.
 
 ---
 
@@ -67,9 +71,26 @@ Install-Package Microsoft.EntityFrameworkCore.SqlServer
 
 Poprzednie polecenie dodaje dostawcę SQL Server EF Core. Pakiet dostawcy instaluje pakiet EF Core jako zależność. Dodatkowe pakiety są instalowane automatycznie w kroku tworzenia szkieletu w dalszej części tego samouczka.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE[](~/includes/add-EF-NuGet-SQLite-CLI.md)]
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+
+W menu **projekt** wybierz polecenie **Zarządzaj pakietami NuGet**.
+
+W polu **wyszukiwania** w prawym górnym rogu wprowadź `Microsoft.EntityFrameworkCore.SQLite` i naciśnij klawisz **Return** , aby wyszukać. Wybierz pasujący pakiet NuGet i naciśnij przycisk **Dodaj pakiet** .
+
+![Dodaj Entity Framework Core pakiet NuGet](~/tutorials/first-mvc-app-mac/adding-model/_static/add-nuget-packages.png)
+
+Zostanie wyświetlone okno dialogowe **Wybieranie projektów** z wybranym projektem `MvcMovie`. Naciśnij przycisk **OK** .
+
+Zostanie wyświetlone okno dialogowe **akceptacji licencji** . Przejrzyj odpowiednie licencje, a następnie kliknij przycisk **Akceptuj** .
+
+Powtórz powyższe kroki, aby zainstalować następujące pakiety NuGet:
+ * `Microsoft.VisualStudio.Web.CodeGeneration.Design`
+ * `Microsoft.EntityFrameworkCore.SqlServer`
+ * `Microsoft.EntityFrameworkCore.Design`
 
 ---
 
@@ -155,7 +176,7 @@ Ukończ okno dialogowe **Dodawanie kontrolera** :
 
 * **Widoki:** Zachowaj wartość domyślną dla każdej zaznaczonej opcji
 * **Nazwa kontrolera:** Zachowaj domyślną *MoviesController*
-* Wybierz pozycję **Dodaj**
+* Wybierz pozycję **Dodaj**.
 
 Program Visual Studio tworzy:
 
@@ -182,7 +203,7 @@ Automatyczne tworzenie tych plików jest znane jako *rusztowania*.
 
   [!INCLUDE [explains scaffold generated params](~/includes/mvc-intro/model4.md)]
 
-### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 * Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
 
@@ -426,7 +447,7 @@ Ukończ okno dialogowe **Dodawanie kontrolera** :
 
 * **Widoki:** Zachowaj wartość domyślną dla każdej zaznaczonej opcji
 * **Nazwa kontrolera:** Zachowaj domyślną *MoviesController*
-* Wybierz pozycję **Dodaj**
+* Wybierz pozycję **Dodaj**.
 
 ![Okno dialogowe Dodawanie kontrolera](adding-model/_static/add_controller2.png)
 
@@ -466,7 +487,7 @@ Automatyczne tworzenie kontekstu bazy danych i metod akcji [CRUD](https://wikipe
 
 <!-- Mac -------------------------->
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 * Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
 * Zainstaluj narzędzia do tworzenia szkieletów:
@@ -689,6 +710,6 @@ Ponieważ obiekt `Model` jest silnie określony (jako obiekt `IEnumerable<Movie>
 
 > [!div class="step-by-step"]
 > [Poprzednie dodanie widoku](adding-view.md)
-> [następnym DZIAŁAniem z SQL](working-with-sql.md)
+> [następnym działaniem z bazą danych](working-with-sql.md)
 
 ::: moniker-end

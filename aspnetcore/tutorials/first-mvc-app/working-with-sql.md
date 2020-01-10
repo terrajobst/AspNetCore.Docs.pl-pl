@@ -5,12 +5,12 @@ description: Dowiedz się więcej o używaniu SQL Server LocalDB lub oprogramowa
 ms.author: riande
 ms.date: 8/16/2019
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: de392f4220cf0182d02a20f387164d2f4b184b58
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: d556f07111fb2022a1c2f1a066459566e302835d
+ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72289077"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75722777"
 ---
 # <a name="work-with-sql-in-aspnet-core"></a>Współpraca z SQL w ASP.NET Core
 
@@ -231,7 +231,7 @@ Usuń wszystkie rekordy z bazy danych (w związku z czym zostanie uruchomiona Me
 
 Aplikacja pokazuje dane z rozrzutu.
 
-![Aplikacja filmowa MVC otwarta w przeglądarce Microsoft Edge pokazująca dane filmu](working-with-sql/_static/m55.png)
+![Aplikacja filmowa MVC otwarta w przeglądarce Microsoft Edge pokazująca dane filmu](working-with-sql/_static/m55_mac.png)
 
 > [!div class="step-by-step"]
 > [Poprzedni](adding-model.md)

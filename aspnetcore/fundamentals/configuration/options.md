@@ -5,14 +5,14 @@ description: Dowiedz się, jak używać wzorca opcji do reprezentowania grup pow
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/18/2019
+ms.date: 01/07/2019
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 1e0bbe041223d376a778c6a326fcee4d254a9127
-ms.sourcegitcommit: c815a9465e7b1bab44ce1643ec345b33e6cf1598
+ms.openlocfilehash: 98fe30fbc424dd51ce8f8319b7ce959fd755c480
+ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75606782"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75722742"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Wzorzec opcji w ASP.NET Core
 
@@ -27,7 +27,7 @@ Wzorzec opcji używa klas do reprezentowania grup powiązanych ustawień. Gdy [U
 
 Opcje umożliwiają również mechanizm weryfikacji danych konfiguracyjnych. Aby uzyskać więcej informacji, zobacz sekcję [Opcje walidacji](#options-validation) .
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="package"></a>Package
 
@@ -54,7 +54,7 @@ Scenariusze [po konfiguracji](#options-post-configuration) umożliwiają ustawia
 
 ## <a name="general-options-configuration"></a>Konfiguracja opcji ogólnych
 
-Konfiguracja opcji ogólnych jest przedstawiana jako przykład &num;1 w przykładowej aplikacji.
+Konfiguracja opcji ogólnych jest przedstawiona jako przykład 1 w aplikacji przykładowej.
 
 Klasa Options musi być nieabstrakcyjna z publicznym konstruktorem bez parametrów. Następująca Klasa `MyOptions`ma dwie właściwości, `Option1` i `Option2`. Ustawienie wartości domyślnych jest opcjonalne, ale Konstruktor klasy w poniższym przykładzie ustawia wartość domyślną `Option1`. `Option2` ma ustawioną wartość domyślną, inicjując właściwość bezpośrednio (*modele/opcje. cs*):
 
@@ -98,7 +98,7 @@ option1 = value1_from_json, option2 = -1
 
 ## <a name="configure-simple-options-with-a-delegate"></a>Skonfiguruj proste opcje z delegatem
 
-Konfigurowanie prostych opcji za pomocą delegata jest zademonstrowane jako przykład &num;2 w przykładowej aplikacji.
+Konfigurowanie prostych opcji z delegatem jest zademonstrowane jako przykład 2 w przykładowej aplikacji.
 
 Użyj delegata, aby ustawić wartości opcji. Przykładowa aplikacja używa klasy `MyOptionsWithDelegateConfig` (*modele/MyOptionsWithDelegateConfig. cs*):
 
@@ -128,7 +128,7 @@ delegate_option1 = value1_configured_by_delegate, delegate_option2 = 500
 
 ## <a name="suboptions-configuration"></a>Konfiguracja podopcji
 
-Konfiguracja podopcji jest przedstawiana jako przykład &num;3 w przykładowej aplikacji.
+Konfiguracja podopcji jest przedstawiana jako przykład 3 w przykładowej aplikacji.
 
 Aplikacje powinny tworzyć klasy opcji, które odnoszą się do określonych grup scenariuszy (klas) w aplikacji. Części aplikacji, które wymagają wartości konfiguracyjnych, powinny mieć dostęp tylko do wartości konfiguracyjnych, z których korzystają.
 
@@ -164,7 +164,7 @@ subOption1 = subvalue1_from_json, subOption2 = 200
 
 ## <a name="options-injection"></a>Iniekcja opcji
 
-Iniekcja opcji jest prezentowana jako przykład &num;4 w przykładowej aplikacji.
+Iniekcja opcji jest przedstawiana jako przykład 4 w przykładowej aplikacji.
 
 Wsuń <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> do:
 
@@ -189,7 +189,7 @@ Po uruchomieniu aplikacji na renderowanej stronie są wyświetlane wartości opc
 
 ## <a name="reload-configuration-data-with-ioptionssnapshot"></a>Załaduj ponownie dane konfiguracji za pomocą IOptionsSnapshot
 
-Ponowne ładowanie danych konfiguracyjnych za pomocą <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> przedstawiono w przykładzie &num;5 w przykładowej aplikacji.
+Ponowne ładowanie danych konfiguracyjnych za pomocą <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> przedstawiono w przykładzie 5 w aplikacji przykładowej.
 
 Przy użyciu <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601>opcje są obliczane raz dla każdego żądania, gdy jest on używany i buforowany przez okres istnienia żądania.
 
@@ -220,9 +220,9 @@ snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
 
 ## <a name="named-options-support-with-iconfigurenamedoptions"></a>Obsługa nazwanych opcji w programie IConfigureNamedOptions
 
-Obsługa nazwanych opcji w <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> jest przedstawiana jako przykład &num;6 w przykładowej aplikacji.
+Obsługa nazwanych opcji w <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> jest przedstawiana jako przykład 6 w aplikacji przykładowej.
 
-Obsługa " *nazwanych opcji* " pozwala aplikacji rozróżnić między nazwanymi konfiguracjami opcji. W przykładowej aplikacji, nazwane opcje są zadeklarowane za pomocą [OptionsServiceCollectionExtensions. configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*), która wywołuje [ConfigureNamedOptions\<TOptions >. Konfiguruj](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*) metodę rozszerzenia:
+Obsługa "nazwanych opcji" pozwala aplikacji rozróżnić między nazwanymi konfiguracjami opcji. W przykładowej aplikacji, nazwane opcje są zadeklarowane za pomocą [OptionsServiceCollectionExtensions. configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*), która wywołuje [ConfigureNamedOptions\<TOptions >. Skonfiguruj](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*) metodę rozszerzenia. W nazwanych opcjach jest uwzględniana wielkość liter.
 
 [!code-csharp[](options/samples/3.x/OptionsSample/Startup.cs?name=snippet_Example6)]
 
@@ -451,7 +451,7 @@ Wzorzec opcji używa klas do reprezentowania grup powiązanych ustawień. Gdy [U
 
 Opcje umożliwiają również mechanizm weryfikacji danych konfiguracyjnych. Aby uzyskać więcej informacji, zobacz sekcję [Opcje walidacji](#options-validation) .
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -478,7 +478,7 @@ Scenariusze [po konfiguracji](#options-post-configuration) umożliwiają ustawia
 
 ## <a name="general-options-configuration"></a>Konfiguracja opcji ogólnych
 
-Konfiguracja opcji ogólnych jest przedstawiana jako przykład &num;1 w przykładowej aplikacji.
+Konfiguracja opcji ogólnych jest przedstawiona jako przykład 1 w aplikacji przykładowej.
 
 Klasa Options musi być nieabstrakcyjna z publicznym konstruktorem bez parametrów. Następująca Klasa `MyOptions`ma dwie właściwości, `Option1` i `Option2`. Ustawienie wartości domyślnych jest opcjonalne, ale Konstruktor klasy w poniższym przykładzie ustawia wartość domyślną `Option1`. `Option2` ma ustawioną wartość domyślną, inicjując właściwość bezpośrednio (*modele/opcje. cs*):
 
@@ -522,7 +522,7 @@ option1 = value1_from_json, option2 = -1
 
 ## <a name="configure-simple-options-with-a-delegate"></a>Skonfiguruj proste opcje z delegatem
 
-Konfigurowanie prostych opcji za pomocą delegata jest zademonstrowane jako przykład &num;2 w przykładowej aplikacji.
+Konfigurowanie prostych opcji z delegatem jest zademonstrowane jako przykład 2 w przykładowej aplikacji.
 
 Użyj delegata, aby ustawić wartości opcji. Przykładowa aplikacja używa klasy `MyOptionsWithDelegateConfig` (*modele/MyOptionsWithDelegateConfig. cs*):
 
@@ -552,7 +552,7 @@ delegate_option1 = value1_configured_by_delegate, delegate_option2 = 500
 
 ## <a name="suboptions-configuration"></a>Konfiguracja podopcji
 
-Konfiguracja podopcji jest przedstawiana jako przykład &num;3 w przykładowej aplikacji.
+Konfiguracja podopcji jest przedstawiana jako przykład 3 w przykładowej aplikacji.
 
 Aplikacje powinny tworzyć klasy opcji, które odnoszą się do określonych grup scenariuszy (klas) w aplikacji. Części aplikacji, które wymagają wartości konfiguracyjnych, powinny mieć dostęp tylko do wartości konfiguracyjnych, z których korzystają.
 
@@ -588,7 +588,7 @@ subOption1 = subvalue1_from_json, subOption2 = 200
 
 ## <a name="options-injection"></a>Iniekcja opcji
 
-Iniekcja opcji jest prezentowana jako przykład &num;4 w przykładowej aplikacji.
+Iniekcja opcji jest przedstawiana jako przykład 4 w przykładowej aplikacji.
 
 Wsuń <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> do:
 
@@ -613,7 +613,7 @@ Po uruchomieniu aplikacji na renderowanej stronie są wyświetlane wartości opc
 
 ## <a name="reload-configuration-data-with-ioptionssnapshot"></a>Załaduj ponownie dane konfiguracji za pomocą IOptionsSnapshot
 
-Ponowne ładowanie danych konfiguracyjnych za pomocą <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> przedstawiono w przykładzie &num;5 w przykładowej aplikacji.
+Ponowne ładowanie danych konfiguracyjnych za pomocą <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> przedstawiono w przykładzie 5 w aplikacji przykładowej.
 
 Przy użyciu <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601>opcje są obliczane raz dla każdego żądania, gdy jest on używany i buforowany przez okres istnienia żądania.
 
@@ -644,9 +644,9 @@ snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
 
 ## <a name="named-options-support-with-iconfigurenamedoptions"></a>Obsługa nazwanych opcji w programie IConfigureNamedOptions
 
-Obsługa nazwanych opcji w <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> jest przedstawiana jako przykład &num;6 w przykładowej aplikacji.
+Obsługa nazwanych opcji w <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> jest przedstawiana jako przykład 6 w aplikacji przykładowej.
 
-Obsługa " *nazwanych opcji* " pozwala aplikacji rozróżnić między nazwanymi konfiguracjami opcji. W przykładowej aplikacji, nazwane opcje są zadeklarowane za pomocą [OptionsServiceCollectionExtensions. configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*), która wywołuje [ConfigureNamedOptions\<TOptions >. Konfiguruj](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*) metodę rozszerzenia:
+Obsługa "nazwanych opcji" pozwala aplikacji rozróżnić między nazwanymi konfiguracjami opcji. W przykładowej aplikacji, nazwane opcje są zadeklarowane za pomocą [OptionsServiceCollectionExtensions. configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*), która wywołuje [ConfigureNamedOptions\<TOptions >. Skonfiguruj](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*) metodę rozszerzenia. W nazwanych opcjach jest uwzględniana wielkość liter.
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example6)]
 
@@ -873,7 +873,7 @@ Wzorzec opcji używa klas do reprezentowania grup powiązanych ustawień. Gdy [U
 
 Opcje umożliwiają również mechanizm weryfikacji danych konfiguracyjnych. Aby uzyskać więcej informacji, zobacz sekcję [Opcje walidacji](#options-validation) .
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -900,7 +900,7 @@ Scenariusze [po konfiguracji](#options-post-configuration) umożliwiają ustawia
 
 ## <a name="general-options-configuration"></a>Konfiguracja opcji ogólnych
 
-Konfiguracja opcji ogólnych jest przedstawiana jako przykład &num;1 w przykładowej aplikacji.
+Konfiguracja opcji ogólnych jest przedstawiona jako przykład 1 w aplikacji przykładowej.
 
 Klasa Options musi być nieabstrakcyjna z publicznym konstruktorem bez parametrów. Następująca Klasa `MyOptions`ma dwie właściwości, `Option1` i `Option2`. Ustawienie wartości domyślnych jest opcjonalne, ale Konstruktor klasy w poniższym przykładzie ustawia wartość domyślną `Option1`. `Option2` ma ustawioną wartość domyślną, inicjując właściwość bezpośrednio (*modele/opcje. cs*):
 
@@ -944,7 +944,7 @@ option1 = value1_from_json, option2 = -1
 
 ## <a name="configure-simple-options-with-a-delegate"></a>Skonfiguruj proste opcje z delegatem
 
-Konfigurowanie prostych opcji za pomocą delegata jest zademonstrowane jako przykład &num;2 w przykładowej aplikacji.
+Konfigurowanie prostych opcji z delegatem jest zademonstrowane jako przykład 2 w przykładowej aplikacji.
 
 Użyj delegata, aby ustawić wartości opcji. Przykładowa aplikacja używa klasy `MyOptionsWithDelegateConfig` (*modele/MyOptionsWithDelegateConfig. cs*):
 
@@ -974,7 +974,7 @@ delegate_option1 = value1_configured_by_delegate, delegate_option2 = 500
 
 ## <a name="suboptions-configuration"></a>Konfiguracja podopcji
 
-Konfiguracja podopcji jest przedstawiana jako przykład &num;3 w przykładowej aplikacji.
+Konfiguracja podopcji jest przedstawiana jako przykład 3 w przykładowej aplikacji.
 
 Aplikacje powinny tworzyć klasy opcji, które odnoszą się do określonych grup scenariuszy (klas) w aplikacji. Części aplikacji, które wymagają wartości konfiguracyjnych, powinny mieć dostęp tylko do wartości konfiguracyjnych, z których korzystają.
 
@@ -1010,7 +1010,7 @@ subOption1 = subvalue1_from_json, subOption2 = 200
 
 ## <a name="options-provided-by-a-view-model-or-with-direct-view-injection"></a>Opcje udostępniane przez model widoku lub bezpośrednie iniekcja widoku
 
-Opcje udostępniane przez model widoku lub bezpośrednie wstrzyknięcie widoku są prezentowane jako przykład &num;4 w przykładowej aplikacji.
+Opcje udostępniane przez model widoku lub bezpośrednie wstrzyknięcie widoku są przedstawiane jako przykład 4 w aplikacji przykładowej.
 
 Opcje można dostarczyć w modelu widoku lub poprzez wstrzyknięcie <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> bezpośrednio do widoku (*strony/index. cshtml. cs*):
 
@@ -1030,7 +1030,7 @@ Po uruchomieniu aplikacji na renderowanej stronie są wyświetlane wartości opc
 
 ## <a name="reload-configuration-data-with-ioptionssnapshot"></a>Załaduj ponownie dane konfiguracji za pomocą IOptionsSnapshot
 
-Ponowne ładowanie danych konfiguracyjnych za pomocą <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> przedstawiono w przykładzie &num;5 w przykładowej aplikacji.
+Ponowne ładowanie danych konfiguracyjnych za pomocą <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> przedstawiono w przykładzie 5 w aplikacji przykładowej.
 
 <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> obsługuje opcje ponownego ładowania z minimalnym obciążeniem przetwarzania.
 
@@ -1058,9 +1058,9 @@ snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
 
 ## <a name="named-options-support-with-iconfigurenamedoptions"></a>Obsługa nazwanych opcji w programie IConfigureNamedOptions
 
-Obsługa nazwanych opcji w <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> jest przedstawiana jako przykład &num;6 w przykładowej aplikacji.
+Obsługa nazwanych opcji w <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> jest przedstawiana jako przykład 6 w aplikacji przykładowej.
 
-Obsługa " *nazwanych opcji* " pozwala aplikacji rozróżnić między nazwanymi konfiguracjami opcji. W przykładowej aplikacji, nazwane opcje są zadeklarowane za pomocą [OptionsServiceCollectionExtensions. configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*), która wywołuje [ConfigureNamedOptions\<TOptions >. Konfiguruj](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*) metodę rozszerzenia:
+Obsługa "nazwanych opcji" pozwala aplikacji rozróżnić między nazwanymi konfiguracjami opcji. W przykładowej aplikacji, nazwane opcje są zadeklarowane za pomocą [OptionsServiceCollectionExtensions. configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*), która wywołuje [ConfigureNamedOptions\<TOptions >. Skonfiguruj](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*) metodę rozszerzenia. W nazwanych opcjach jest uwzględniana wielkość liter.
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example6)]
 

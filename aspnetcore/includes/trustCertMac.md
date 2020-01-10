@@ -1,21 +1,15 @@
-* Aby ufać certyfikatowi programistycznemu HTTPS, należy uruchomić następujące polecenie:
+Visual Studio dla komputerów Mac wyświetla następujące okno podręczne:
 
-    ```dotnetcli
-    dotnet dev-certs https --trust
-    ```
+![Nie znaleziono certyfikatu deweloperskiego HTTPS. Czy chcesz zainstalować certyfikat i ufać mu?](~/getting-started/_static/trustCertMac.png)
 
-* Poprzednie polecenie wyświetla następujące dane wyjściowe:
+Wybierz opcję **tak** , jeśli ufasz certyfikatowi Deweloperskiemu.
 
-    ```console
-    Trusting the HTTPS development certificate was requested. If the certificate 
-    is not already trusted we will run the following command:
-    'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain 
-    <<certificate>>'
-    This command might prompt you for your password to install the certificate on the 
-    system keychain.
-    The HTTPS developer certificate was generated successfully.
-    ```
+Wyświetlane jest następujące okno dialogowe:
 
-* Jeśli zostanie wyświetlony monit, wprowadź nazwę użytkownika i hasło administratora.  Certyfikat zostanie teraz zainstalowany i zaufany.
+![Okno dialogowe ostrzeżenia o zabezpieczeniach](~/getting-started/_static/certMac.png)
 
-    Aby uzyskać więcej informacji, zobacz artykuł [Ufaj certyfikatowi deweloperskim protokołu HTTPS ASP.NET Core](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos) .
+Wprowadź hasło i wybierz pozycję **OK**
+
+Wybierz **Tak**, jeśli zgadzasz się ufać certyfikatowi programistycznemu.
+
+Aby uzyskać więcej informacji, zobacz artykuł [ufanie certyfikatowi Deweloperskiemu protokołu HTTPS ASP.NET Core](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos) .

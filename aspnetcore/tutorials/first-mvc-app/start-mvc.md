@@ -5,12 +5,12 @@ description: Dowiedz się, jak rozpocząć pracę z ASP.NET Core MVC.
 ms.author: riande
 ms.date: 10/16/2019
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: e70384a6f20f3ef06059ed6b51c76e923187c317
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 901257efdfbc7b36249233745175f5ed253da2c7
+ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354938"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75722892"
 ---
 # <a name="get-started-with-aspnet-core-mvc"></a>Wprowadzenie do ASP.NET Core MVC
 
@@ -100,9 +100,7 @@ Samouczek założono familarity z VS Code. Aby uzyskać więcej informacji, zoba
 
 * W oknie dialogowym **Konfigurowanie nowego interfejsu API sieci Web ASP.NET Core** Ustaw platformę **docelową** programu **.NET Core 3,1**.
 
-<!-- 
-  ![macOS .NET Core 2.2 selection](./start-mvc/_static/new_project_22_vsmac.png)
--->
+  ![wybór macOS .NET Core 3,1](./start-mvc/_static/new_project_31_vsmac.png)
 
 * Nazwij projekt **MvcMovie**, a następnie wybierz pozycję **Utwórz**.
 

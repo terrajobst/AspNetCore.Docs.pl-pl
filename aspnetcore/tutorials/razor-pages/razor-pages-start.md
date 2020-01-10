@@ -5,12 +5,12 @@ description: W tej serii samouczków pokazano, jak używać Razor Pages w ASP.NE
 ms.author: riande
 ms.date: 11/12/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: b651437b698d01310f90c5f14832616c1896e6c0
-ms.sourcegitcommit: 4e3edff24ba6e43a103fee1b126c9826241bb37b
+ms.openlocfilehash: 6e1d58ccd83f7d7c1083dc2bf9ce7476650812a1
+ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74959102"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75723026"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Samouczek: wprowadzenie do Razor Pages w ASP.NET Core
 
@@ -25,7 +25,7 @@ Na końcu serii będziesz mieć aplikację, która zarządza bazą danych filmó
 
 [!INCLUDE[View or download sample code](~/includes/rp/download.md)]
 
-W tym samouczku zostaną wykonane następujące czynności:
+W tym samouczku zostały wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Utwórz aplikację sieci Web Razor Pages.
@@ -100,18 +100,13 @@ Na końcu tego samouczka będziesz mieć działającą Razor Pagesową aplikacj�
 
   ![okno dialogowe z systemem macOS nowego projektu](razor-pages-start/_static/webapp.png)
 
-* W oknie dialogowym **Konfigurowanie nowego interfejsu API sieci Web ASP.NET Core** Ustaw platformę **docelową** na **.NET Core 3,1**.
+* W oknie dialogowym **Konfigurowanie nowej aplikacji sieci Web** Ustaw platformę **docelową** na **platformę .NET Core 3,1**.
 
-  ![wybór macOS .NET Core 3,0](razor-pages-start/_static/targetframework3.png)
+  ![wybór macOS .NET Core 3,1](razor-pages-start/_static/targetframework3.png)
 
 * Nazwij projekt **RazorPagesMovie**, a następnie wybierz pozycję **Utwórz**.
 
   ![nameproj](razor-pages-start/_static/RazorPagesMovie.png)
-
-
-## <a name="open-the-project"></a>Otwórz projekt
-
-W programie Visual Studio wybierz pozycję **plik > Otwórz**, a następnie wybierz plik *RazorPagesMovie. csproj* .
 
 <!-- End of VS tabs -->
 
@@ -171,7 +166,7 @@ Na końcu serii będziesz mieć aplikację, która zarządza bazą danych filmó
 
 [!INCLUDE[View or download sample code](~/includes/rp/download.md)]
 
-W tym samouczku zostaną wykonane następujące czynności:
+W tym samouczku zostały wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Utwórz aplikację sieci Web Razor Pages.
@@ -242,19 +237,21 @@ Na końcu tego samouczka będziesz mieć działającą Razor Pagesową aplikacj�
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
-W terminalu uruchom następujące polecenie:
+* Wybierz pozycję **plik** > **nowe rozwiązanie**.
 
-<!-- TODO: update these instruction once mac support 2.2 projects -->
+![Nowe rozwiązanie w systemie macOS](../first-mvc-app/start-mvc/_static/new_project_vsmac.png)
 
-```dotnetcli
-dotnet new webapp -o RazorPagesMovie
-```
+* Wybierz pozycję **aplikacja** **sieci > Web** > **.NET Core** > **dalej**.
 
-Poprzednie polecenia używają [interfejs wiersza polecenia platformy .NET Core](/dotnet/core/tools/dotnet) do tworzenia projektu Razor Pages.
+  ![okno dialogowe z systemem macOS nowego projektu](razor-pages-start/_static/webapp.png)
 
-## <a name="open-the-project"></a>Otwórz projekt
+* W oknie dialogowym **Konfigurowanie nowego interfejsu API sieci Web ASP.NET Core** Ustaw platformę **docelową** na **.NET Core 3,1**.
 
-W programie Visual Studio wybierz pozycję **plik > Otwórz**, a następnie wybierz plik *RazorPagesMovie. csproj* .
+  ![wybór macOS .NET Core 3,0](razor-pages-start/_static/targetframework3.png)
+
+* Nazwij projekt **RazorPagesMovie**, a następnie wybierz pozycję **Utwórz**.
+
+  ![nameproj](razor-pages-start/_static/RazorPagesMovie.png)
 
 <!-- End of VS tabs -->
 
