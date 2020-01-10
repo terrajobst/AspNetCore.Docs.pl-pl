@@ -5,12 +5,12 @@ description: Dowiedz się, jak obszary są funkcją ASP.NET MVC służącą do o
 ms.author: riande
 ms.date: 12/05/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: 7e02a21361e0e2148b29a3ae0f1ba25e68239e13
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 1066f4ce104e507abe63302fd3523a3a7a8dfde9
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881116"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75828246"
 ---
 # <a name="areas-in-aspnet-core"></a>Obszary w ASP.NET Core
 
@@ -55,7 +55,7 @@ Weź pod uwagę aplikację, która ma dwie grupy logiczne, *produkty* i *usługi
       * Widoki
         * Strona główna programu
           * Index.cshtml
-        * Zarządzanie
+        * Zarządzaj
           * Index.cshtml
           * About. cshtml
     * Usługi
@@ -96,7 +96,7 @@ Poniższy kod używa <xref:Microsoft.AspNetCore.Builder.MvcAreaRouteBuilderExten
 
 [!code-csharp[](areas/samples/MVCareas/StartupMapAreaRoute.cs?name=snippet&highlight=18-27)]
 
-Korzystając z `MapAreaRoute` z ASP.NET Core 2,2, zobacz [ten problem](https://github.com/aspnet/AspNetCore/issues/7772)w usłudze GitHub.
+Korzystając z `MapAreaRoute` z ASP.NET Core 2,2, zobacz [ten problem](https://github.com/dotnet/AspNetCore/issues/7772)w usłudze GitHub.
 
 Aby uzyskać więcej informacji, zobacz [Routing obszaru](xref:mvc/controllers/routing#areas).
 
@@ -145,7 +145,7 @@ Obszary z Razor Pages wymagają folderu *Areas/<area name>/Pages* w katalogu gł
         * Indeks
     * Usługi
       * Strony
-        * Zarządzanie
+        * Zarządzaj
           * — informacje
           * Indeks
 

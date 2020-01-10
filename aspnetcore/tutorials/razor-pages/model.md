@@ -5,12 +5,12 @@ description: Dowiedz się, jak można dodać klas związanych z zarządzaniem fi
 ms.author: riande
 ms.date: 12/05/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: ef4671c9e7628c106b9f68ba5cbfd8a127e095d0
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: fa5be8f3a222a7c186409faa2f48e43347df637a
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358032"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829299"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Dodawanie modelu strony Razor aplikacji w programie ASP.NET Core
 
@@ -47,8 +47,8 @@ Kliknij prawym przyciskiem myszy *modeli* folderu. Wybierz **Dodaj** > **klasy**
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
-* W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **RazorPagesMovie** projektu, a następnie wybierz **Dodaj** > **nowy Folder**. Nazwa folderu *modeli*.
-* Kliknij prawym przyciskiem myszy folder *modele* , a następnie wybierz polecenie **Dodaj** > **nowy plik**.
+* W okienko rozwiązania kliknij prawym przyciskiem myszy projekt **RazorPagesMovie** , a następnie wybierz pozycję **Dodaj** > **Nowy folder.** .. Nazwij *modele*folderów.
+* Kliknij prawym przyciskiem myszy folder *modele* , a następnie wybierz polecenie **Dodaj** > **nowy plik.** ...
 * W **nowy plik** okno dialogowe:
 
   * Wybierz **ogólne** w okienku po lewej stronie.
@@ -56,8 +56,6 @@ Kliknij prawym przyciskiem myszy *modeli* folderu. Wybierz **Dodaj** > **klasy**
   * Nazwa klasy **filmu** i wybierz **New**.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
-
-[!INCLUDE [model 2](~/includes/RP/model2.md)]
 
 ---
 
@@ -122,22 +120,38 @@ Wykonaj **dodać strony Razor za pomocą programu Entity Framework (CRUD)** okno
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
-* Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
-* Zainstaluj narzędzia do tworzenia szkieletów:
+Tworzenie *stron/filmów* folderu:
 
-  ```dotnetcli
-   dotnet tool install --global dotnet-aspnet-codegenerator
-   ```
+* Kliknij prawym przyciskiem myszy folder *strony* > **Dodaj** > **Nowy folder**.
+* Nazwa folderu *filmy*
 
-* Uruchom następujące polecenie:
+Kliknij prawym przyciskiem myszy folder *strony/filmy* > **Dodaj** > **nowe tworzenie szkieletu..** ..
 
-  ```dotnetcli
-  dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
-  ```
+![Obraz z poprzednich instrukcji.](model/_static/scaMac.png)
 
-[!INCLUDE [explains scaffold gen params](~/includes/RP/model4.md)]
+W oknie dialogowym **Nowa rusztowania** wybierz pozycję **Razor Pages przy użyciu Entity Framework (CRUD)** > **dalej**.
 
-[!INCLUDE [use SQL Server in production](~/includes/RP/sqlitedev.md)]
+![Obraz z poprzednich instrukcji.](model/_static/add_scaffoldMac.png)
+
+Wykonaj **dodać strony Razor za pomocą programu Entity Framework (CRUD)** okno dialogowe:
+
+* W menu rozwijanym **Klasa modelu** wybierz lub wpisz **film (RazorPagesMovie. models)** .
+* W wierszu **klasy kontekstu danych** wpisz nazwę nowej klasy, RazorPagesMovie. **Dane**. RazorPagesMovieContext. [Ta zmiana](https://developercommunity.visualstudio.com/content/problem/652166/aspnet-core-ef-scaffolder-uses-incorrect-namespace.html) nie jest wymagana. Tworzy klasę kontekstu bazy danych z poprawną przestrzenią nazw.
+* Wybierz pozycję **Dodaj**.
+
+![Obraz z poprzednich instrukcji.](model/_static/arpMac.png)
+
+*Appsettings.json* plik został zaktualizowany o parametry połączenia używane do łączenia z lokalnej bazy danych.
+
+### <a name="add-ef-tools"></a>Dodawanie narzędzi EF
+
+Uruchom następujące interfejs wiersza polecenia platformy .NET Core polecenie:
+
+```dotnetcli
+dotnet tool install --global dotnet-ef
+```
+
+Poprzednie polecenie dodaje Entity Framework Core narzędzia dla interfejs wiersza polecenia platformy .NET Core.
 
 ---
 
@@ -156,7 +170,20 @@ Proces szkieletu tworzy i aktualizuje następujące pliki:
 
 Pliki utworzone i zaktualizowane zostały wyjaśnione w kolejnej sekcji.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+
+Proces szkieletu tworzy i aktualizuje następujące pliki:
+
+* *Strony/filmów*: tworzenie, usuwanie, uzyskać szczegółowe informacje, edytowanie i indeksu.
+* *Data/RazorPagesMovieContext.cs*
+
+### <a name="updated"></a>Zaktualizowano
+
+* *Startup.cs*
+
+Pliki utworzone i zaktualizowane zostały wyjaśnione w kolejnej sekcji.
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Proces tworzenia szkieletu tworzy następujące pliki:
 
@@ -310,8 +337,6 @@ Kliknij prawym przyciskiem myszy *modeli* folderu. Wybierz **Dodaj** > **klasy**
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
-[!INCLUDE [model 2](~/includes/RP/model2.md)]
-
 ---
 
 Skompiluj projekt, aby sprawdzić, czy nie wystąpiły żadne błędy kompilacji.
@@ -372,14 +397,28 @@ to use Data, it should not use models. That will make the namespace the same for
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
-* Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
-* Uruchom następujące polecenie:
+Tworzenie *stron/filmów* folderu:
 
-  ```dotnetcli
-  dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
-  ```
+* Kliknij prawym przyciskiem myszy folder *strony* > **Dodaj** > **Nowy folder**.
+* Nazwa folderu *filmy*
 
-[!INCLUDE [explains scaffold gen params](~/includes/RP/model4.md)]
+Kliknij prawym przyciskiem myszy folder *strony/filmy* > **Dodaj** > **nowy element szkieletowy**.
+
+![Obraz z poprzednich instrukcji.](model/_static/scaMac.png)
+
+W oknie dialogowym **Dodawanie nowej szkieletu** wybierz pozycję **Razor Pages przy użyciu Entity Framework (CRUD)** > **Dodaj**.
+
+![Obraz z poprzednich instrukcji.](model/_static/add_scaffoldMac.png)
+
+Wykonaj **dodać strony Razor za pomocą programu Entity Framework (CRUD)** okno dialogowe:
+
+* Z listy rozwijanej **Klasa modelu** wybierz lub wpisz **film**.
+* W wierszu **klasy kontekstu danych** wpisz wybierz **RazorPagesMovieContext** to spowoduje utworzenie nowej klasy kontekstu bazy danych z poprawną przestrzenią nazw. W takim przypadku będzie to **RazorPagesMovie. models. RazorPagesMovieContext**.
+* Wybierz pozycję **Dodaj**.
+
+![Obraz z poprzednich instrukcji.](model/_static/arpMac.png)
+
+*Appsettings.json* plik został zaktualizowany o parametry połączenia używane do łączenia z lokalnej bazy danych.
 
 ---
 

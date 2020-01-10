@@ -3,14 +3,14 @@ title: Artykuły oparte na ASP.NET Core projektach utworzonych przy użyciu posz
 author: rick-anderson
 description: Odkryj artykuły na podstawie ASP.NET Core projektów utworzonych przy użyciu poszczególnych kont użytkowników.
 ms.author: riande
-ms.date: 11/30/2017
+ms.date: 12/11/2019
 uid: security/authentication/individual
-ms.openlocfilehash: 91c5665dc50124b3ba09bdcfbf3ba501f684c604
-ms.sourcegitcommit: 9e85c2562df5e108d7933635c830297f484bb775
+ms.openlocfilehash: 7ef0d5eabded61d04fb9fe7be384a663ad7ea5f4
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73463034"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75828714"
 ---
 # <a name="articles-based-on-aspnet-core-projects-created-with-individual-user-accounts"></a>Artykuły oparte na ASP.NET Core projektach utworzonych przy użyciu poszczególnych kont użytkowników
 
@@ -36,7 +36,7 @@ dotnet new razor -au Individual
 
 ::: moniker-end
 
-Zobacz [ten problem](https://github.com/aspnet/AspNetCore/issues/5833) w usłudze GitHub, aby uzyskać uwierzytelnianie interfejsu API sieci Web.
+Zobacz [ten problem](https://github.com/dotnet/AspNetCore/issues/5833) w usłudze GitHub, aby uzyskać uwierzytelnianie interfejsu API sieci Web.
 
 <a name="no"></a>
 
@@ -56,6 +56,32 @@ Projekty utworzone bez uwierzytelniania:
 Uwierzytelnianie systemu Windows jest określone dla nowych aplikacji sieci Web w interfejs wiersza polecenia platformy .NET Core z opcją `-au Windows`. W programie Visual Studio w oknie dialogowym **Zmienianie uwierzytelniania** dostępne są opcje **uwierzytelniania systemu Windows** .
 
 Jeśli wybrano opcję uwierzytelnianie systemu Windows, aplikacja jest skonfigurowana do korzystania z [modułu usług IIS uwierzytelniania systemu Windows](xref:host-and-deploy/iis/modules). Uwierzytelnianie systemu Windows jest przeznaczone dla intranetowych witryn sieci Web.
+
+## <a name="dotnet-new-webapp-authentication-options"></a>Opcje uwierzytelniania w programie dotnet New webapp
+
+W poniższej tabeli przedstawiono opcje uwierzytelniania dostępne dla nowych aplikacji sieci Web:
+
+| Opcja | Typ uwierzytelniania | Link umożliwiający uzyskanie dodatkowych informacji |
+ | ----------------- | ------------ | ---------- |
+| Brak            |  Brak uwierzytelniania | | 
+| Pojedyncze      |  Uwierzytelnianie indywidualne | <xref:security/authentication/identity>
+| IndividualB2C   |  Uwierzytelnianie indywidualne hostowane w chmurze za pomocą Azure AD B2C | [Azure AD B2C](/azure/active-directory-b2c/) |
+| SingleOrg       |  Uwierzytelnianie organizacyjne dla pojedynczej dzierżawy | [Azure AD](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp) |
+| MultiOrg        |  Uwierzytelnianie organizacyjne dla wielu dzierżawców | [Azure AD](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp) |
+| Windows         |  Uwierzytelnianie systemu Windows | [Uwierzytelnianie systemu Windows](xref:security/authentication/windowsauth)
+
+## <a name="visual-studio-new-webapp-authentication-options"></a>Opcje uwierzytelniania programu Visual Studio New webapp
+
+W poniższej tabeli przedstawiono opcje uwierzytelniania dostępne podczas tworzenia nowej aplikacji sieci Web przy użyciu programu Visual Studio:
+
+| Opcja | Typ uwierzytelniania | Link umożliwiający uzyskanie dodatkowych informacji |
+ | ----------------- | ------------ | ---------- |
+| Brak            |  Brak uwierzytelniania | | 
+| Konta użytkowników indywidualnych/konta użytkowników sklepu w aplikacji |  Uwierzytelnianie indywidualne | <xref:security/authentication/identity> |
+| Indywidualne konta użytkowników/łączenie z istniejącym magazynem użytkowników w chmurze |  Uwierzytelnianie indywidualne hostowane w chmurze za pomocą Azure AD B2C | [Azure AD B2C](/azure/active-directory-b2c/) |
+| Chmura służbowa/jedna organizacja  |  Uwierzytelnianie organizacyjne dla pojedynczej dzierżawy | [Azure AD](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp) |
+| Chmura służbowa/usługa szkoły i wiele organizacji |  Uwierzytelnianie organizacyjne dla wielu dzierżawców | [Azure AD](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp) |
+| Windows         |  Uwierzytelnianie systemu Windows | [Uwierzytelnianie systemu Windows](xref:security/authentication/windowsauth)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

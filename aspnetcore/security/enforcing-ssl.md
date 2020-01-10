@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/06/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: 032105c67e15ab94635ae6fadea103450c7eb0fb
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: d7d4eece935bd83b69a6a5d81898012b99d73193
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944242"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75828909"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Wymuszanie protokołu HTTPS w ASP.NET Core
 
@@ -313,7 +313,7 @@ Usuń zaznaczenie pola wyboru **Konfiguruj dla protokołu HTTPS** .
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
 
-Należy użyć opcji `--no-https`. Na przykład
+Użyj opcji `--no-https`. Na przykład
 
 ```dotnetcli
 dotnet new webapp --no-https
@@ -415,7 +415,7 @@ dotnet dev-certs https --trust
 
 Zamknij wszystkie otwarte wystąpienia przeglądarki. Otwórz nowe okno przeglądarki do aplikacji.
 
-Aby rozwiązać problemy z certyfikatami w programie Visual Studio, zobacz [błąd HTTPS przy użyciu IIS Express (ASPNET/AspNetCore #16892)](https://github.com/aspnet/AspNetCore/issues/16892) .
+Aby rozwiązać problemy z certyfikatami w programie Visual Studio, zobacz [błąd protokołu HTTPS przy użyciu IIS Express (#16892 dotnet/AspNetCore)](https://github.com/dotnet/AspNetCore/issues/16892) .
 
 ### <a name="iis-express-ssl-certificate-used-with-visual-studio"></a>IIS Express certyfikat SSL używany z programem Visual Studio
 

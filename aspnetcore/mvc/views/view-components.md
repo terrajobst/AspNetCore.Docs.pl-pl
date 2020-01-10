@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: a4583d49eb0b42f1fa6e3d8c444d263cba34da79
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 8df070b580b6125db6616b33a81f3ffebad69f3a
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75356845"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75828922"
 ---
 # <a name="view-components-in-aspnet-core"></a>Wyświetl składniki w ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="view-components"></a>Składniki widoku
 
@@ -337,7 +337,7 @@ Sygnatura metody `PriorityList.Invoke` jest synchroniczna, ale Razor odnalezieni
 
 ## <a name="all-view-component-parameters-are-required"></a>Wszystkie parametry składnika widoku są wymagane
 
-Każdy parametr w składniku widoku jest atrybutem wymaganym. Zobacz [ten problem](https://github.com/aspnet/AspNetCore/issues/5011)w serwisie GitHub. Jeśli dowolny parametr zostanie pominięty:
+Każdy parametr w składniku widoku jest atrybutem wymaganym. Zobacz [ten problem](https://github.com/dotnet/AspNetCore/issues/5011)w serwisie GitHub. Jeśli dowolny parametr zostanie pominięty:
 
 * Sygnatura metody `InvokeAsync` nie będzie zgodna, dlatego metoda nie zostanie wykonana.
 * ViewComponent nie renderuje żadnych znaczników.

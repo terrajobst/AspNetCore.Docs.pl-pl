@@ -5,12 +5,12 @@ description: W tym samouczku pokazano, jak zainstalować i używać narzędzia o
 ms.author: riande
 ms.date: 05/31/2018
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: a2a0bcdace67052975630f99aab23bbb0fd99bff
-ms.sourcegitcommit: 383017d7060a6d58f6a79cf4d7335d5b4b6c5659
+ms.openlocfilehash: 053c98ba032c85b61776d5b5644c5575cd4f890c
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72816137"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829000"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Opracowywanie aplikacji ASP.NET Core przy użyciu obserwatora plików
 
@@ -41,7 +41,7 @@ Now listening on: http://localhost:5000
 Application started. Press Ctrl+C to shut down.
 ```
 
-W przeglądarce sieci Web przejdź do `http://localhost:<port number>/api/math/sum?a=4&b=5`. Powinien zostać wyświetlony wynik `9`.
+W przeglądarce internetowej przejdź do adresu `http://localhost:<port number>/api/math/sum?a=4&b=5`. Powinien zostać wyświetlony wynik `9`.
 
 Przejdź do interfejsu API produktu (`http://localhost:<port number>/api/math/product?a=4&b=5`). Zwraca `9`, nie `20` zgodnie z oczekiwaniami. Ten problem został rozwiązany w dalszej części tego samouczka.
 
@@ -105,7 +105,7 @@ Sprawdź, czy `http://localhost:<port number>/api/math/product?a=4&b=5` zwraca p
 1. Zmień metodę `Product` *MathController.cs* z powrotem, aby zwracać sumę. Zapisz plik.
 1. W powłoce poleceń przejdź do folderu *WebAppTests* .
 1. Uruchom [dotnet Restore](/dotnet/core/tools/dotnet-restore).
-1. Uruchom `dotnet watch test`. Dane wyjściowe wskazują, że test zakończył się niepowodzeniem i że obserwator oczekuje na zmiany plików:
+1. Uruchom polecenie `dotnet watch test`. Dane wyjściowe wskazują, że test zakończył się niepowodzeniem i że obserwator oczekuje na zmiany plików:
 
      ```console
      Total tests: 2. Passed: 1. Failed: 1. Skipped: 0.
@@ -155,8 +155,8 @@ Więcej elementów można dodać do listy obserwacje, edytując plik *csproj* . 
 `dotnet-watch` nie jest ograniczony C# do projektów. Niestandardowe projekty czujki mogą być tworzone w celu obsługi różnych scenariuszy. Rozważmy następujący układ projektu:
 
 * **badan**
-  * *UnitTests/UnitTests. csproj*
-  * *IntegrationTests/IntegrationTests. csproj*
+  * *UnitTests/UnitTests.csproj*
+  * *IntegrationTests/IntegrationTests.csproj*
 
 Jeśli celem jest oglądanie obu projektów, Utwórz niestandardowy plik projektu, który został skonfigurowany do oglądania obu projektów:
 
@@ -185,4 +185,4 @@ VSTest wykonuje się, gdy jakiekolwiek zmiany pliku w każdym projekcie testowym
 
 ## <a name="dotnet-watch-in-github"></a>`dotnet-watch` w serwisie GitHub
 
-`dotnet-watch` jest częścią [repozytorium ASPNET/AspNetCore](https://github.com/aspnet/AspNetCore/tree/master/src/Tools/dotnet-watch)usługi GitHub.
+`dotnet-watch` jest częścią [repozytorium dotnet/AspNetCore](https://github.com/dotnet/AspNetCore/tree/master/src/Tools/dotnet-watch)usługi GitHub.

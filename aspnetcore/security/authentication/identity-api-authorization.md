@@ -7,22 +7,22 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/08/2019
 uid: security/authentication/identity/spa
-ms.openlocfilehash: f58d92634ce1ef6110533d56c40b7520dda90514
-ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
+ms.openlocfilehash: 31a5e47d772e7416646c4d83c3209d7d2b254199
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73897048"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829169"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Uwierzytelnianie i autoryzacja dla aplikacji jednostronicowych
 
 ASP.NET Core 3,0 lub nowszy oferuje uwierzytelnianie w aplikacjach jednostronicowych (aplikacji jednostronicowych) przy użyciu obsługi autoryzacji interfejsu API. ASP.NET Core tożsamość uwierzytelniania i przechowywania użytkowników jest połączona z [IdentityServer](https://identityserver.io/) w celu zaimplementowania połączenia Open ID Connect.
 
-Dodano parametr uwierzytelniania do szablonów projektów **kątowych** i **reagowania** , które są podobne do parametrów uwierzytelniania w **aplikacji sieci Web (Model-View-Controller)** (MVC) i **aplikacji sieci Web** (Razor Pages) Szablony projektów. Dozwolone wartości parametrów to **none** i **indywidualny**. Szablon projektu **re. js i Redux** nie obsługuje teraz parametru Authentication.
+Parametr uwierzytelniania został dodany do szablonów projektów **kątowych** i **reagowania** , które są podobne do parametrów uwierzytelniania w szablonach projektu **aplikacji sieci Web (Model-View-Controller)** (MVC) i **aplikacji sieci Web** (Razor Pages). Dozwolone wartości parametrów to **none** i **indywidualny**. Szablon projektu **re. js i Redux** nie obsługuje teraz parametru Authentication.
 
 ## <a name="create-an-app-with-api-authorization-support"></a>Tworzenie aplikacji z obsługą autoryzacji interfejsu API
 
-Uwierzytelnianie i autoryzacja użytkowników mogą być używane z aplikacji jednostronicowychą kątową i reagują. Otwórz powłokę poleceń i uruchom następujące polecenie:
+Uwierzytelnianie i autoryzacja użytkowników mogą być używane z aplikacji jednostronicowychą kątową i reagują. Otwórz powłokę wiersza polecenia, a następnie uruchom następujące polecenie:
 
 **Kątowy**:
 
@@ -95,7 +95,7 @@ Ta metoda pomocnika konfiguruje schemat zasad dla aplikacji jako domyślną proc
 
 ### <a name="weatherforecastcontroller"></a>WeatherForecastController
 
-W pliku *Controllers\WeatherForecastController.cs* Zwróć uwagę na atrybut `[Authorize]` stosowany do klasy, która wskazuje, że użytkownik musi być autoryzowany na podstawie domyślnych zasad dostępu do zasobu. Domyślne zasady autoryzacji mają być skonfigurowane tak, aby korzystały z domyślnego schematu uwierzytelniania, który jest konfigurowany przez `AddIdentityServerJwt` do schematu zasad, który został wymieniony powyżej, a `JwtBearerHandler` skonfigurowany przez taką metodę pomocnika domyślną procedurę obsługi żądań do aplikacja.
+W pliku *Controllers\WeatherForecastController.cs* Zwróć uwagę na atrybut `[Authorize]` stosowany do klasy, która wskazuje, że użytkownik musi być autoryzowany na podstawie domyślnych zasad dostępu do zasobu. Domyślne zasady autoryzacji są skonfigurowane tak, aby korzystały z domyślnego schematu uwierzytelniania, który jest konfigurowany przez `AddIdentityServerJwt` do schematu zasad, który został wymieniony powyżej, a `JwtBearerHandler` skonfigurowany przez taką metodę pomocnika domyślną procedurę obsługi dla żądań do aplikacji.
 
 ### <a name="applicationdbcontext"></a>ApplicationDbContext
 
@@ -107,7 +107,7 @@ Aby uzyskać pełną kontrolę nad schematem bazy danych, należy podziedziczyć
 
 W pliku *Controllers\OidcConfigurationController.cs* Zwróć uwagę na punkt końcowy, który jest wstępnie zainicjowany do obsługi parametrów OIDC wymaganych przez klienta.
 
-### <a name="appsettingsjson"></a>appSettings. JSON
+### <a name="appsettingsjson"></a>appsettings.json
 
 W pliku *appSettings. JSON* w katalogu głównym projektu znajduje się nowa sekcja `IdentityServer` opisująca listę skonfigurowanych klientów. W poniższym przykładzie istnieje pojedynczy klient. Nazwa klienta odpowiada nazwie aplikacji i jest zamapowana według Konwencji do parametru `ClientId` protokołu OAuth. Profil wskazuje konfigurowany typ aplikacji. Jest on używany wewnętrznie w przypadku Konwencji, które upraszczają proces konfiguracji serwera. Istnieje kilka dostępnych profilów, zgodnie z opisem w sekcji [Profile aplikacji](#application-profiles) .
 
@@ -121,7 +121,7 @@ W pliku *appSettings. JSON* w katalogu głównym projektu znajduje się nowa sek
 }
 ```
 
-### <a name="appsettingsdevelopmentjson"></a>sekcji. Plik Development. JSON
+### <a name="appsettingsdevelopmentjson"></a>appsettings.Development.json
 
 W pliku *appSettings. Plik Development. JSON* w katalogu głównym projektu zawiera sekcję `IdentityServer` opisującą klucz używany do podpisywania tokenów. Podczas wdrażania w środowisku produkcyjnym należy zainicjować i wdrożyć klucz wraz z aplikacją, jak wyjaśniono w sekcji [wdrażanie w środowisku produkcyjnym](#deploy-to-production) .
 
@@ -260,7 +260,7 @@ async populateWeatherData() {
 }
 ```
 
-## <a name="deploy-to-production"></a>Wdróż w środowisku produkcyjnym
+## <a name="deploy-to-production"></a>Wdrażanie w środowisku produkcyjnym
 
 Aby wdrożyć aplikację w środowisku produkcyjnym, należy zainicjować następujące zasoby:
 

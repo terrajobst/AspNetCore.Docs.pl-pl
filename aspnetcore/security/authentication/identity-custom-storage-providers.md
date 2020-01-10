@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/23/2019
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 6d0d9b5467d9d27b936a17fa86f73e7d8123b75b
-ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
+ms.openlocfilehash: 70951085474d88fd57f1b1496a41adcda520b91f
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73760968"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829157"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Niestandardowi dostawcy magazynu dla tożsamości ASP.NET Core
 
@@ -57,11 +57,11 @@ Podczas tworzenia nowego wystąpienia `UserManager` lub `RoleManager` podania ty
 
 Typy danych [tożsamości ASP.NET Core](https://github.com/aspnet/identity) są szczegółowo opisane w następujących sekcjach:
 
-### <a name="users"></a>Użytkownikowi
+### <a name="users"></a>Użytkownicy
 
 Zarejestrowani użytkownicy witryny sieci Web. Typ [IdentityUser](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuser) może być rozszerzony lub używany jako przykład dla własnego typu niestandardowego. Nie musisz dziedziczyć z określonego typu w celu zaimplementowania własnego niestandardowego rozwiązania do magazynowania tożsamości.
 
-### <a name="user-claims"></a>Oświadczenia użytkownika
+### <a name="user-claims"></a>Oświadczenia użytkowników
 
 Zestaw instrukcji (lub [oświadczeń](/dotnet/api/system.security.claims.claim)) o użytkowniku, który reprezentuje tożsamość użytkownika. Można włączyć lepsze wyrażenie tożsamości użytkownika, niż można osiągnąć za pomocą ról.
 
@@ -69,7 +69,7 @@ Zestaw instrukcji (lub [oświadczeń](/dotnet/api/system.security.claims.claim))
 
 Informacje o zewnętrznym dostawcy uwierzytelniania (na przykład Facebook lub konto Microsoft) do użycia podczas logowania użytkownika. [Przykład](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin)
 
-### <a name="roles"></a>Pełnione
+### <a name="roles"></a>Role
 
 Grupy autoryzacji dla witryny. Zawiera identyfikator roli i nazwę roli (na przykład "admin" lub "Employee"). [Przykład](/dotnet/api/microsoft.aspnet.identity.corecompat.identityrole)
 
@@ -238,4 +238,4 @@ public void ConfigureServices(IServiceCollection services)
 ## <a name="references"></a>Odwołania
 
 * [Niestandardowi dostawcy magazynu dla tożsamości ASP.NET 4. x](/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity)
-* [ASP.NET Core tożsamość](https://github.com/aspnet/AspNetCore/tree/master/src/Identity) &ndash; to repozytorium zawiera linki do dostawców sklepu obsługiwanego przez społeczność.
+* [ASP.NET Core tożsamość](https://github.com/dotnet/AspNetCore/tree/master/src/Identity) &ndash; to repozytorium zawiera linki do dostawców sklepu obsługiwanego przez społeczność.
