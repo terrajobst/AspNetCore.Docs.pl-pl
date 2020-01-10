@@ -6,18 +6,18 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: dea8564a1ee94d6ff1d96e9aab68205292765178
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: f3c20eb085fa5277dd37b7323b5a7d7d286bcd99
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881255"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866075"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Wprowadzenie do Swashbuckle i ASP.NET Core
 
 Autorzy [Shayne Boyer](https://twitter.com/spboyer) i [Scott Addie](https://twitter.com/Scott_Addie)
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 Pakiet Swashbuckle składa się z trzech głównych składników:
 
@@ -39,7 +39,7 @@ Swashbuckle można dodać przy użyciu następujących metod:
   * Wykonaj następujące polecenie:
 
     ```powershell
-    Install-Package Swashbuckle.AspNetCore -Version 5.0.0-rc4
+    Install-Package Swashbuckle.AspNetCore -Version 5.0.0-rc5
     ```
 
 * W oknie dialogowym **Zarządzanie pakietami NuGet** :

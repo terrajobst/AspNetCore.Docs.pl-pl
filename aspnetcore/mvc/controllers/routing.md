@@ -5,12 +5,12 @@ description: Dowiedz się, w jaki sposób ASP.NET Core MVC używa programów po�
 ms.author: riande
 ms.date: 12/05/2019
 uid: mvc/controllers/routing
-ms.openlocfilehash: b0cd3df6eb0efa90fc76d206413016d6c624285c
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 8cf7e74df292a614f287eff8561a22187f6558ce
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881073"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866062"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>Routing do akcji kontrolera w ASP.NET Core
 
@@ -111,7 +111,7 @@ routes.DefaultHandler = new MvcRouteHandler(...);
 app.UseRouter(routes.Build());
 ```
 
-`UseMvc` nie definiuje bezpośrednio żadnych tras, dodaje symbol zastępczy do kolekcji tras dla trasy `attribute`. `UseMvc(Action<IRouteBuilder>)` Przeciążenie umożliwia dodanie własnych tras, a także obsługuje routing atrybutów.  `UseMvc` i wszystkie jego Wariacje dodają symbol zastępczy dla atrybutu trasy — atrybut jest zawsze dostępny niezależnie od sposobu konfigurowania `UseMvc`. `UseMvcWithDefaultRoute` definiuje domyślną trasę i obsługuje routing atrybutów. Sekcja [Routing atrybutów](#attribute-routing-ref-label) zawiera więcej szczegółów dotyczących routingu atrybutów.
+`UseMvc` nie definiuje bezpośrednio żadnych tras, dodaje symbol zastępczy do kolekcji tras dla trasy `attribute`. `UseMvc(Action<IRouteBuilder>)` Przeciążenie umożliwia dodanie własnych tras, a także obsługuje routing atrybutów.  `UseMvc` i wszystkie jego odmiany dodają symbol zastępczy dla atrybutu trasa — atrybut jest zawsze dostępny niezależnie od sposobu konfigurowania `UseMvc`. `UseMvcWithDefaultRoute` definiuje domyślną trasę i obsługuje routing atrybutów. Sekcja [Routing atrybutów](#attribute-routing-ref-label) zawiera więcej szczegółów dotyczących routingu atrybutów.
 
 <a name="routing-conventional-ref-label"></a>
 
