@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 11/04/2019
 uid: performance/caching/response
-ms.openlocfilehash: 9246305e6979a6a7e006f567ee6bf9569029aef1
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: e20c197c7ce3334d4f4f0b917d1fc94174e6c615
+ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828311"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914197"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Buforowanie odpowiedzi w ASP.NET Core
 
@@ -66,7 +66,7 @@ Aby uzyskać więcej informacji, zobacz temat <xref:performance/caching/memory>.
 
 ### <a name="distributed-cache"></a>Rozproszona pamięć podręczna
 
-Użyj rozproszonej pamięci podręcznej do przechowywania danych w pamięci, gdy aplikacja jest hostowana w chmurze lub w farmie serwerów. Pamięć podręczna jest współdzielona przez serwery, które przetwarzają żądania. Klient może przesłać żądanie, które jest obsługiwane przez dowolny serwer w grupie, jeśli dane przechowywane w pamięci podręcznej dla klienta są dostępne. ASP.NET Core oferuje rozproszone pamięci podręczne SQL Server i Redis.
+Użyj rozproszonej pamięci podręcznej do przechowywania danych w pamięci, gdy aplikacja jest hostowana w chmurze lub w farmie serwerów. Pamięć podręczna jest współdzielona przez serwery, które przetwarzają żądania. Klient może przesłać żądanie, które jest obsługiwane przez dowolny serwer w grupie, jeśli dane przechowywane w pamięci podręcznej dla klienta są dostępne. ASP.NET Core współpracuje z rozproszonymi pamięciami podręcznymi SQL Server, [Redis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.StackExchangeRedis)i [NCache](https://www.nuget.org/packages/Alachisoft.NCache.OpenSource.SDK/) .
 
 Aby uzyskać więcej informacji, zobacz temat <xref:performance/caching/distributed>.
 
@@ -78,7 +78,7 @@ Aby uzyskać więcej informacji, zobacz temat <xref:mvc/views/tag-helpers/builti
 
 ### <a name="distributed-cache-tag-helper"></a>Pomocnik tagów rozproszonej pamięci podręcznej
 
-Zawartość pamięci podręcznej ze widoku MVC lub ze strony Razor w scenariuszach rozproszonej chmury lub kolektywu serwerów sieci Web za pomocą pomocnika tagów rozproszonej pamięci podręcznej. Pomocnik tagów rozproszonej pamięci podręcznej używa SQL Server lub Redis do przechowywania danych.
+Zawartość pamięci podręcznej ze widoku MVC lub ze strony Razor w scenariuszach rozproszonej chmury lub kolektywu serwerów sieci Web za pomocą pomocnika tagów rozproszonej pamięci podręcznej. Pomocnik tagów rozproszonej pamięci podręcznej używa SQL Server, [Redis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.StackExchangeRedis)lub [NCache](https://www.nuget.org/packages/Alachisoft.NCache.OpenSource.SDK/) do przechowywania danych.
 
 Aby uzyskać więcej informacji, zobacz temat <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>.
 

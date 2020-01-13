@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/08/2020
 uid: fundamentals/logging/index
-ms.openlocfilehash: d9ef6694b6c0b0a88b13d60915be6e04ebdffb28
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: f21559e43ae004c81abc18fe8a768d4145ffb184
+ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829052"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914227"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Rejestrowanie w programie .NET Core i ASP.NET Core
 
@@ -485,7 +485,7 @@ Poniższy kod tworzy `Information` i `Warning` dzienników:
 
 W powyższym kodzie pierwszy parametr jest [identyfikatorem zdarzenia dziennika](#log-event-id). Drugi parametr jest szablonem wiadomości z symbolami zastępczymi dla wartości argumentów dostarczonych przez pozostałe parametry metody. Parametry metody zostały wyjaśnione w [sekcji szablon komunikatu](#log-message-template) w dalszej części tego artykułu.
 
-Metody rejestrowania, które obejmują poziom w nazwie metody (na przykład `LogInformation` i `LogWarning`) są [metodami rozszerzenia dla ILogger](xref:Microsoft.Extensions.Logging.LoggerExtensions). Te metody wywołują metodę `Log`, która przyjmuje parametr `LogLevel`. Metodę `Log` można wywołać bezpośrednio zamiast jednej z tych metod rozszerzających, ale składnia jest stosunkowo skomplikowana. Aby uzyskać więcej informacji, zobacz <xref:Microsoft.Extensions.Logging.ILogger> i [kod źródłowy rozszerzeń rejestratora](https://github.com/aspnet/Extensions/blob/release/2.2/src/Logging/Logging.Abstractions/src/LoggerExtensions.cs).
+Metody rejestrowania, które obejmują poziom w nazwie metody (na przykład `LogInformation` i `LogWarning`) są [metodami rozszerzenia dla ILogger](xref:Microsoft.Extensions.Logging.LoggerExtensions). Te metody wywołują metodę `Log`, która przyjmuje parametr `LogLevel`. Metodę `Log` można wywołać bezpośrednio zamiast jednej z tych metod rozszerzających, ale składnia jest stosunkowo skomplikowana. Aby uzyskać więcej informacji, zobacz <xref:Microsoft.Extensions.Logging.ILogger> i [kod źródłowy rozszerzeń rejestratora](https://github.com/dotnet/extensions/blob/release/2.2/src/Logging/Logging.Abstractions/src/LoggerExtensions.cs).
 
 ASP.NET Core definiuje następujące poziomy dziennika uporządkowane w tym miejscu od najniższej do najwyższej wagi.
 
@@ -1030,7 +1030,7 @@ Aby uzyskać więcej informacji, zobacz:
 * [Śledzenie dla narzędzia analizy wydajności (dotnet-Trace)](https://github.com/dotnet/diagnostics/blob/master/documentation/dotnet-trace-instructions.md) (dokumentacja repozytorium dotnet/Diagnostics)
 * [LoggingEventSource — Klasa](xref:Microsoft.Extensions.Logging.EventSource.LoggingEventSource) (przeglądarka interfejsu API platformy .NET)
 * <xref:System.Diagnostics.Tracing.EventLevel>
-* [LoggingEventSource Reference Source (3,0 &ndash;)](https://github.com/aspnet/Extensions/blob/release/3.0/src/Logging/Logging.EventSource/src/LoggingEventSource.cs) , aby uzyskać Źródło odwołania dla innej wersji, Zmień gałąź na `release/{Version}`, gdzie `{Version}` jest wersją ASP.NET Core żądana.
+* [LoggingEventSource Reference Source (3,0 &ndash;)](https://github.com/dotnet/extensions/blob/release/3.0/src/Logging/Logging.EventSource/src/LoggingEventSource.cs) , aby uzyskać Źródło odwołania dla innej wersji, Zmień gałąź na `release/{Version}`, gdzie `{Version}` jest wersją ASP.NET Core żądana.
 * [Narzędzia perfview](#perfview) &ndash; przydatny do wyświetlania śladów źródła zdarzeń.
 
 #### <a name="perfview"></a>Narzędzia PerfView
