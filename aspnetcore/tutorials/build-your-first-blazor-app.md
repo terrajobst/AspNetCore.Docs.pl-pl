@@ -5,16 +5,16 @@ description: Kompiluj aplikację Blazor krok po kroku.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 01/13/2020
 no-loc:
 - Blazor
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: 11ff540a70ebdb8baa0c7adb98cb1dfe27d91e50
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 8830dcf26b58b5f5fdd36b60298e7b365f99bdd9
+ms.sourcegitcommit: 925cdbd94613243f33bc7613a62ea34006219931
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944190"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921289"
 ---
 # <a name="build-your-first-opno-locblazor-app"></a>Tworzenie pierwszej aplikacji Blazor
 
@@ -73,19 +73,19 @@ Uwzględnij składnik w innym składniku przy użyciu składni języka HTML.
 
 Składniki mogą także mieć parametry. Parametry składnika są definiowane przy użyciu właściwości publicznych w klasie składnika z atrybutem `[Parameter]`. Użyj atrybutów, aby określić argumenty dla składnika w znaczniku.
 
-1. Zaktualizuj kod `@code` C# składnika:
+1. Zaktualizuj kod `@code` C# składnika w następujący sposób:
 
    * Dodaj publiczną właściwość `IncrementAmount` z atrybutem `[Parameter]`.
-   * Zmień metodę `IncrementCount`, aby użyć `IncrementAmount` podczas zwiększania wartości `currentCount`.
+   * Zmień metodę `IncrementCount`, aby użyć właściwości `IncrementAmount` podczas zwiększania wartości `currentCount`.
 
    *Pages/Counter. Razor*:
 
    [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/Counter.razor?highlight=13,17)]
 
-<!-- Add back when supported.
-   > [!NOTE]
-   > From Visual Studio, you can quickly add a component parameter by using the `para` snippet. Type `para` and press the `Tab` key twice.
--->
+   <!-- Add back when supported.
+       > [!NOTE]
+       > From Visual Studio, you can quickly add a component parameter by using the `para` snippet. Type `para` and press the `Tab` key twice.
+   -->
 
 1. Określ parametr `IncrementAmount` w elemencie `<Counter>` składnika `Index` przy użyciu atrybutu. Ustaw wartość, aby zwiększyć licznik o dziesięć.
 
