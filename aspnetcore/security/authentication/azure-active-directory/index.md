@@ -3,22 +3,22 @@ title: Usługa Azure Active Directory z platformą ASP.NET Core
 author: rick-anderson
 description: Odkryj tematy związane z uwierzytelnianiem w usłudze Azure Active Directory w programie ASP.NET Core.
 ms.author: riande
-ms.date: 12/18/2019
+ms.date: 01/14/2020
 ms.custom: mvc, seodec18
 uid: security/authentication/azure-active-directory/index
-ms.openlocfilehash: 10a174bdb5f9eeed7606d4f0ebb17badc3bc4182
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: a856643216d423c791d3df47bd2206f9121b543f
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359189"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75951917"
 ---
 # <a name="azure-active-directory-with-aspnet-core"></a>Usługa Azure Active Directory z platformą ASP.NET Core
 
 ## <a name="azure-ad-v1-samples"></a>Przykłady programu Azure AD w wersji 1
 
 Poniższe przykłady przedstawiają sposób integracji usługi Azure AD w wersji 1, umożliwiając użytkownikom na logowanie się przy użyciu kont służbowych:
-* [Integrowanie usługi Azure AD z aplikacją internetową platformy ASP.NET Core](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial)
+* [Integrowanie usługi Azure AD z aplikacją internetową ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/tree/master) (zarchiwizowane i nieobsługiwane)
 * [Wywoływanie interfejsu Web API platformy ASP.NET Core z aplikacji WPF przy użyciu usługi Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore)
 * [Wywołanie interfejsu Web API z aplikacji internetowej platformy ASP.NET Core przy użyciu usługi Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
 

@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 no-loc:
 - SignalR
 uid: signalr/scale
-ms.openlocfilehash: 6506430202870ba9de2f8eb6f33d79c7c1fbbbd4
-ms.sourcegitcommit: e7d4fe6727d423f905faaeaa312f6c25ef844047
+ms.openlocfilehash: 8e7b7596fcfe2d6b7150fe1ab09a7ab1dc4a2e47
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608070"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75952123"
 ---
 # <a name="aspnet-core-opno-locsignalr-hosting-and-scaling"></a>ASP.NET Core SignalR hosting i skalowanie
 
@@ -86,7 +86,7 @@ Aby uzyskać więcej informacji, zobacz [dokumentację usługi Azure SignalR](/a
 
 ![Redis, wiadomości wysyłane z jednego serwera do wszystkich klientów](scale/_static/redis-backplane.png)
 
-Plan Redis to zalecane podejście skalowalne w poziomie dla aplikacji hostowanych we własnej infrastrukturze. Usługa Azure SignalR nie jest praktyczną opcją do użycia w środowisku produkcyjnym z aplikacjami lokalnymi ze względu na opóźnienie połączenia między centrum danych a centrum danych platformy Azure.
+Plan Redis to zalecane podejście skalowalne w poziomie dla aplikacji hostowanych we własnej infrastrukturze. Jeśli istnieje duże opóźnienie połączenia między centrum danych i centrum danych platformy Azure, usługa SignalR platformy Azure może nie być praktyczną opcją dla aplikacji lokalnych z małymi opóźnieniami lub wysokimi wymaganiami dotyczącymi przepływności.
 
 Zanotowane wcześniej zalety usługi Azure SignalR są niekorzystne dla planu Redis:
 

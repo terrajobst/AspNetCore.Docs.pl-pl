@@ -5,14 +5,14 @@ description: Dowiedz się, jak hostować wiele wystąpień aplikacji ASP.NET Cor
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/07/2019
+ms.date: 01/13/2020
 uid: host-and-deploy/web-farm
-ms.openlocfilehash: 16ec2162be8199857d0f2d0ff989ec4cdc6c3277
-ms.sourcegitcommit: 68d804d60e104c81fe77a87a9af70b5df2726f60
+ms.openlocfilehash: 5c13e9bc4c514f9b42871d55a430265c8ec2da23
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830705"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75951816"
 ---
 # <a name="host-aspnet-core-in-a-web-farm"></a>ASP.NET Core hosta w kolektywie serwerów sieci Web
 
@@ -52,7 +52,7 @@ Ochrona danych i buforowanie wymagają konfiguracji aplikacji wdrożonych w kole
 
 ### <a name="caching"></a>Buforowanie
 
-W środowisku kolektywu serwerów sieci Web mechanizm buforowania musi współdzielić elementy w pamięci podręcznej w węzłach kolektywu serwerów sieci Web. Buforowanie musi być zależne od typowej pamięci podręcznej Redis, udostępnionej bazy danych SQL Server lub niestandardowej implementacji buforowania, która udostępnia elementy w pamięci podręcznej w ramach kolektywu serwerów sieci Web. Aby uzyskać więcej informacji, zobacz <xref:performance/caching/distributed>.
+W środowisku kolektywu serwerów sieci Web mechanizm buforowania musi współdzielić elementy w pamięci podręcznej w węzłach kolektywu serwerów sieci Web. Buforowanie musi być zależne od typowej pamięci podręcznej Redis, udostępnionej bazy danych SQL Server lub niestandardowej implementacji buforowania, która udostępnia elementy w pamięci podręcznej w ramach kolektywu serwerów sieci Web. Aby uzyskać więcej informacji, zobacz temat <xref:performance/caching/distributed>.
 
 ## <a name="dependent-components"></a>Składniki zależne
 
@@ -61,10 +61,10 @@ Poniższe scenariusze nie wymagają dodatkowej konfiguracji, ale zależą od tec
 | Scenariusz | Zależy od &hellip; |
 | -------- | ------------------- |
 | Uwierzytelnianie | Ochrona danych (zobacz <xref:security/data-protection/configuration/overview>).<br><br>Aby uzyskać więcej informacji, zobacz <xref:security/authentication/cookie> i <xref:security/cookie-sharing>. |
-| Tożsamość | Konfiguracja uwierzytelniania i bazy danych.<br><br>Aby uzyskać więcej informacji, zobacz <xref:security/authentication/identity>. |
+| Tożsamość | Konfiguracja uwierzytelniania i bazy danych.<br><br>Aby uzyskać więcej informacji, zobacz temat <xref:security/authentication/identity>. |
 | Sesja | Ochrona danych (zaszyfrowane pliki cookie) (zobacz <xref:security/data-protection/configuration/overview>) i buforowanie (zobacz <xref:performance/caching/distributed>).<br><br>Aby uzyskać więcej informacji, zobacz informacje o [stanie sesji i aplikacji: stan sesji](xref:fundamentals/app-state#session-state). |
 | TempData | Ochrona danych (zaszyfrowane pliki cookie) (zobacz <xref:security/data-protection/configuration/overview>) lub sesja (zobacz [stan sesji i aplikacji: stan sesji](xref:fundamentals/app-state#session-state)).<br><br>Aby uzyskać więcej informacji, zobacz [sesja i stan aplikacji: TempData](xref:fundamentals/app-state#tempdata). |
-| Ochrona przed fałszowaniem | Ochrona danych (zobacz <xref:security/data-protection/configuration/overview>).<br><br>Aby uzyskać więcej informacji, zobacz <xref:security/anti-request-forgery>. |
+| Ochrona przed fałszowaniem | Ochrona danych (zobacz <xref:security/data-protection/configuration/overview>).<br><br>Aby uzyskać więcej informacji, zobacz temat <xref:security/anti-request-forgery>. |
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -92,3 +92,4 @@ Jeśli aplikacje kolektywu serwerów sieci Web mogą odpowiadać na żądania, u
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Rozszerzenie niestandardowego skryptu dla systemu Windows](/azure/virtual-machines/extensions/custom-script-windows) &ndash; pobiera i wykonuje skrypty na maszynach wirtualnych platformy Azure, co jest przydatne w przypadku konfiguracji po wdrożeniu i instalacji oprogramowania.
+* <xref:host-and-deploy/proxy-load-balancer>

@@ -5,14 +5,14 @@ description: Dowiedz się, jak zdiagnozować problemy z wdrożeniami Azure App S
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/20/2019
+ms.date: 01/10/2020
 uid: test/troubleshoot-azure-iis
-ms.openlocfilehash: b0f5d44f153a095a6108a12ee91f4cc46fe0a0de
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 23c90c33d197d26d1c4ad758449e318e20ef3760
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829013"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75952151"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service-and-iis"></a>Rozwiązywanie problemów ASP.NET Core na Azure App Service i usługach IIS
 
@@ -433,7 +433,7 @@ Aby uzyskać więcej informacji, zobacz [Włączanie rejestrowania diagnostyczne
 
 Dostęp do dziennika zdarzeń aplikacji:
 
-1. Otwieranie Start menu, wyszukaj **Podgląd zdarzeń**, a następnie wybierz pozycję **Podgląd zdarzeń** aplikacji.
+1. Otwórz menu Start, wyszukaj ciąg *Podgląd zdarzeń*i wybierz aplikację **Podgląd zdarzeń** .
 1. W **Podgląd zdarzeń**, otwórz **Dzienniki Windows** węzła.
 1. Wybierz **aplikacji** można otworzyć dziennika zdarzeń aplikacji.
 1. Wyszukaj błędy skojarzone z aplikacją się niepowodzeniem. Błędy mają wartość *moduł AspNetCore IIS* lub *usług IIS Express AspNetCore modułu* w *źródła* kolumny.
@@ -597,10 +597,10 @@ Zrzut można analizować przy użyciu kilku metod. Aby uzyskać więcej informac
 
 ## <a name="clear-package-caches"></a>Wyczyść pamięć podręczną pakietów
 
-Czasami działająca aplikacja kończy się natychmiast po uaktualnieniu zestaw .NET Core SDK na komputerze deweloperskim lub zmianie wersji pakietu w ramach aplikacji. W niektórych przypadkach niespójne pakietów może spowodować uszkodzenie aplikacji podczas przeprowadzania uaktualnienia głównych. Większość z tych problemów można naprawić, wykonując następujące instrukcje:
+Działająca aplikacja może zakończyć się niepowodzeniem natychmiast po uaktualnieniu zestaw .NET Core SDK na komputerze deweloperskim lub zmianie wersji pakietu w ramach aplikacji. W niektórych przypadkach niespójne pakietów może spowodować uszkodzenie aplikacji podczas przeprowadzania uaktualnienia głównych. Większość z tych problemów można naprawić, wykonując następujące instrukcje:
 
 1. Usuń *bin* i *obj* folderów.
-1. Wyczyść pamięć podręczną pakietów, wykonując `dotnet nuget locals all --clear` z poziomu powłoki poleceń.
+1. Wyczyść pamięć podręczną pakietów, wykonując [wszystkie elementy lokalne usługi NuGet programu dotnet--Wyczyść](/dotnet/core/tools/dotnet-nuget-locals) z poziomu powłoki poleceń.
 
    Czyszczenie pamięci podręcznych pakietów można również wykonać za pomocą narzędzia [NuGet. exe](https://www.nuget.org/downloads) i wykonując polecenie `nuget locals all -clear`. *nuget.exe* nie jest powiązane instalacji z pulpitu systemu operacyjnego Windows i należy uzyskać oddzielnie od [NuGet witryny sieci Web](https://www.nuget.org/downloads).
 

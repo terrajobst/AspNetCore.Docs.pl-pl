@@ -1,80 +1,80 @@
 ---
-title: Moduły usług IIS za pomocą programu ASP.NET Core
+title: Moduły usług IIS z ASP.NET Core
 author: guardrex
 description: Dowiedz się, aktywnych i nieaktywnych moduły IIS dla aplikacji platformy ASP.NET Core oraz jak zarządzać moduły usług IIS.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/12/2019
+ms.date: 01/13/2020
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: eb6cedfc572b4ffea969b3583ea6ec44cae1f575
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: ca6cf349aa05db97e145f1cd0cae97a107761fd8
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65970056"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75951810"
 ---
-# <a name="iis-modules-with-aspnet-core"></a>Moduły usług IIS za pomocą programu ASP.NET Core
+# <a name="iis-modules-with-aspnet-core"></a>Moduły usług IIS z ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-Niektóre moduły macierzyste usług IIS i wszystkie moduły usług IIS, zarządzane nie może przetworzyć żądania dla aplikacji platformy ASP.NET Core. W wielu przypadkach platformy ASP.NET Core oferuje alternatywa scenariusze obsługiwane przez natywne i zarządzane moduły usług IIS.
+Niektóre z natywnych modułów usług IIS i wszystkich modułów zarządzanych przez usługi IIS nie mogą przetwarzać żądań dla ASP.NET Core aplikacji. W wielu przypadkach ASP.NET Core oferuje alternatywę dla scenariuszy rozłożonych przez moduły natywne i zarządzane usług IIS.
 
 ## <a name="native-modules"></a>Moduły macierzyste
 
-Tabela zawiera moduły macierzyste usług IIS, które zachowują swoją funkcjonalność aplikacji platformy ASP.NET Core i modułu ASP.NET Core.
+Tabela wskazuje natywne moduły usług IIS, które działają w aplikacjach ASP.NET Core i ASP.NET Core Module.
 
-| Moduł | Funkcjonalność aplikacji platformy ASP.NET Core | Opcja platformy ASP.NET Core |
+| Module | Funkcjonalne z ASP.NET Core aplikacjami | Opcja ASP.NET Core |
 | --- | :---: | --- |
 | **Uwierzytelnianie anonimowe**<br>`AnonymousAuthenticationModule`                                  | Tak | |
 | **Uwierzytelnianie podstawowe**<br>`BasicAuthenticationModule`                                          | Tak | |
-| **Uwierzytelnianie mapowań certyfikacji klientów**<br>`CertificateMappingAuthenticationModule`      | Tak | |
-| **CGI**<br>`CgiModule`                                                                           | Nie  | |
+| **Uwierzytelnianie mapowań certyfikatów klientów**<br>`CertificateMappingAuthenticationModule`      | Tak | |
+| **Aplikacja**<br>`CgiModule`                                                                           | Nie  | |
 | **Weryfikacja konfiguracji**<br>`ConfigurationValidationModule`                                  | Tak | |
-| **Błędy HTTP**<br>`CustomErrorModule`                                                           | Nie  | [Oprogramowanie pośredniczące strony kodu stanu](xref:fundamentals/error-handling#usestatuscodepages) |
-| **Funkcja Rejestrowanie niestandardowe**<br>`CustomLoggingModule`                                                      | Tak | |
-| **Dokument domyślny**<br>`DefaultDocumentModule`                                                  | Nie  | [Oprogramowanie pośredniczące plików domyślne](xref:fundamentals/static-files#serve-a-default-document) |
+| **Błędy HTTP**<br>`CustomErrorModule`                                                           | Nie  | [Oprogramowanie pośredniczące stron kodu stanu](xref:fundamentals/error-handling#usestatuscodepages) |
+| **Rejestrowanie niestandardowe**<br>`CustomLoggingModule`                                                      | Tak | |
+| **Dokument domyślny**<br>`DefaultDocumentModule`                                                  | Nie  | [Pliki domyślne oprogramowania pośredniczącego](xref:fundamentals/static-files#serve-a-default-document) |
 | **Uwierzytelnianie szyfrowane**<br>`DigestAuthenticationModule`                                        | Tak | |
-| **Przeglądanie katalogów**<br>`DirectoryListingModule`                                               | Nie  | [Oprogramowanie pośredniczące przeglądania w katalogu](xref:fundamentals/static-files#enable-directory-browsing) |
+| **Przeglądanie katalogów**<br>`DirectoryListingModule`                                               | Nie  | [Oprogramowanie pośredniczące przeglądania katalogów](xref:fundamentals/static-files#enable-directory-browsing) |
 | **Kompresja dynamiczna**<br>`DynamicCompressionModule`                                            | Tak | [Oprogramowanie pośredniczące kompresji odpowiedzi](xref:performance/response-compression) |
-| **Śledzenie żądań zakończonych niepowodzeniem**<br>`FailedRequestsTracingModule`                                     | Yes | [Rejestrowanie platformy ASP.NET Core](xref:fundamentals/logging/index#tracesource-provider) |
+| **Śledzenie nieudanych żądań**<br>`FailedRequestsTracingModule`                                     | Tak | [Rejestrowanie ASP.NET Core](xref:fundamentals/logging/index#tracesource-provider) |
 | **Buforowanie plików**<br>`FileCacheModule`                                                            | Nie  | [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware) |
 | **Buforowanie HTTP**<br>`HttpCacheModule`                                                            | Nie  | [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware) |
-| **Rejestrowanie HTTP**<br>`HttpLoggingModule`                                                          | Tak | [Rejestrowanie platformy ASP.NET Core](xref:fundamentals/logging/index) |
-| **Przekierowywanie HTTP**<br>`HttpRedirectionModule`                                                  | Yes | [Oprogramowanie pośredniczące ponownego zapisywania adresów URL](xref:fundamentals/url-rewriting) |
-| **Śledzenia protokołu HTTP**<br>`TracingModule`                                                              | Tak | |
-| **Uwierzytelnianie mapowań certyfikatów klientów internetowych usług informacyjnych**<br>`IISCertificateMappingAuthenticationModule` | Tak | |
-| **Ograniczenia adresów IP i domen**<br>`IpRestrictionModule`                                          | Yes | |
-| **Filtry ISAPI**<br>`IsapiFilterModule`                                                         | Yes | [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index) |
+| **Rejestrowanie HTTP**<br>`HttpLoggingModule`                                                          | Tak | [Rejestrowanie ASP.NET Core](xref:fundamentals/logging/index) |
+| **Przekierowywanie HTTP**<br>`HttpRedirectionModule`                                                  | Tak | [Oprogramowanie pośredniczące ponownego zapisywania adresów URL](xref:fundamentals/url-rewriting) |
+| **Śledzenie HTTP**<br>`TracingModule`                                                              | Tak | |
+| **Uwierzytelnianie mapowania certyfikatu klienta usług IIS**<br>`IISCertificateMappingAuthenticationModule` | Tak | |
+| **Ograniczenia adresów IP i domen**<br>`IpRestrictionModule`                                          | Tak | |
+| **Filtry ISAPI**<br>`IsapiFilterModule`                                                         | Tak | [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index) |
 | **ISAPI**<br>`IsapiModule`                                                                       | Tak | [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index) |
-| **Obsługa protokołów**<br>`ProtocolSupportModule`                                                  | Tak | |
-| **Filtrowanie żądań**<br>`RequestFilteringModule`                                                | Tak | [Oprogramowanie pośredniczące ponownego zapisywania adresów URL `IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
+| **Obsługa protokołu**<br>`ProtocolSupportModule`                                                  | Tak | |
+| **Filtrowanie żądań**<br>`RequestFilteringModule`                                                | Tak | [Ponowne zapisywanie adresu URL `IRule` oprogramowania pośredniczącego](xref:fundamentals/url-rewriting#irule-based-rule) |
 | **Monitor żądań**<br>`RequestMonitorModule`                                                    | Tak | |
-| **Ponownego zapisywania adresów URL**&#8224;<br>`RewriteModule`                                                      | Tak | [Oprogramowanie pośredniczące ponownego zapisywania adresów URL](xref:fundamentals/url-rewriting) |
+| **Ponowne zapisywanie adresów URL**&#8224;<br>`RewriteModule`                                                      | Tak | [Oprogramowanie pośredniczące ponownego zapisywania adresów URL](xref:fundamentals/url-rewriting) |
 | **Server-Side Includes**<br>`ServerSideIncludeModule`                                            | Nie  | |
 | **Kompresja statyczna**<br>`StaticCompressionModule`                                              | Nie  | [Oprogramowanie pośredniczące kompresji odpowiedzi](xref:performance/response-compression) |
 | **Zawartość statyczna**<br>`StaticFileModule`                                                         | Nie  | [Oprogramowanie pośredniczące plików statycznych](xref:fundamentals/static-files) |
 | **Buforowanie tokenów**<br>`TokenCacheModule`                                                          | Tak | |
-| **Identyfikator URI w pamięci podręcznej**<br>`UriCacheModule`                                                              | Tak | |
+| **Buforowanie URI**<br>`UriCacheModule`                                                              | Tak | |
 | **Autoryzacja adresów URL**<br>`UrlAuthorizationModule`                                                | Tak | [ASP.NET Core Identity](xref:security/authentication/identity) |
-| **Uwierzytelnianie Windows**<br>`WindowsAuthenticationModule`                                      | Tak | |
+| **Uwierzytelnianie systemu Windows**<br>`WindowsAuthenticationModule`                                      | Tak | |
 
-&#8224;Adres URL Nadpisz modułu `isFile` i `isDirectory` typów dopasowania nie działają z aplikacji platformy ASP.NET Core z powodu zmian w [strukturę katalogów](xref:host-and-deploy/directory-structure).
+&#8224;Typ `isFile` i `isDirectory` dopasowania modułu ponownego zapisywania adresu URL nie działają z aplikacjami ASP.NET Core ze względu na zmiany w [strukturze katalogów](xref:host-and-deploy/directory-structure).
 
 ## <a name="managed-modules"></a>Moduły zarządzane
 
-Moduły zarządzane są *nie* funkcjonalność hostowanej aplikacji platformy ASP.NET Core, gdy wersja środowiska .NET CLR pula aplikacji jest równa **bez kodu zarządzanego**. Platforma ASP.NET Core oferuje oprogramowanie pośredniczące alternatywy w kilku przypadkach.
+Moduły zarządzane *nie* działają w przypadku hostowanych aplikacji ASP.NET Core, gdy wersja środowiska .NET CLR puli aplikacji jest ustawiona na **Brak kodu zarządzanego**. ASP.NET Core oferuje alternatywy dla oprogramowania pośredniczącego w kilku przypadkach.
 
-| Moduł                  | Opcja platformy ASP.NET Core |
+| Module                  | Opcja ASP.NET Core |
 | ----------------------- | ------------------- |
 | AnonymousIdentification | |
 | DefaultAuthentication   | |
 | FileAuthorization       | |
-| Uwierzytelniania formularzy     | [Oprogramowanie pośredniczące uwierzytelniania plików cookie](xref:security/authentication/cookie) |
+| FormsAuthentication     | [Oprogramowanie pośredniczące uwierzytelniania plików cookie](xref:security/authentication/cookie) |
 | OutputCache             | [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware) |
 | Profil                 | |
 | RoleManager             | |
-| ScriptModule-4.0        | |
+| ScriptModule-4,0        | |
 | Sesja                 | [Oprogramowanie pośredniczące sesji](xref:fundamentals/app-state) |
 | UrlAuthorization        | |
 | UrlMappingsModule       | [Oprogramowanie pośredniczące ponownego zapisywania adresów URL](xref:fundamentals/url-rewriting) |
@@ -83,15 +83,15 @@ Moduły zarządzane są *nie* funkcjonalność hostowanej aplikacji platformy AS
 
 ## <a name="iis-manager-application-changes"></a>Zmiany aplikacji Menedżera usług IIS
 
-W przypadku używania Menedżera usług IIS do konfigurowania ustawień, *web.config* zmodyfikowaniu pliku w aplikacji. Jeśli wdrażanie aplikacji, a jeśli tak, to w tym *web.config*, wszelkie zmiany wprowadzone za pomocą Menedżera usług IIS zostaną zastąpione przez wdrożonych *web.config* pliku. Jeśli zmiany zostaną wprowadzone na serwer *web.config* plików, skopiować zaktualizowane *web.config* plików na serwerze, aby od razu lokalnego projektu.
+W przypadku konfigurowania ustawień przy użyciu Menedżera usług IIS zostanie zmieniony plik *Web. config* aplikacji. W przypadku wdrażania aplikacji, w tym pliku *Web. config*, wszelkie zmiany wprowadzone za pomocą Menedżera usług IIS są zastępowane przez wdrożony plik *Web. config* . Jeśli w pliku *Web. config* serwera wprowadzono zmiany, skopiuj zaktualizowany plik *Web. config* na serwerze bezpośrednio do lokalnego projektu.
 
-## <a name="disabling-iis-modules"></a>Wyłączenie modułów usług IIS
+## <a name="disabling-iis-modules"></a>Wyłączanie modułów usług IIS
 
-Jeśli moduł IIS jest skonfigurowany na poziomie serwera, który musi zostać wyłączone dla aplikacji, dodawania do aplikacji *web.config* pliku można wyłączyć modułu. Pozostaw modułu w miejscu i dezaktywować go za pomocą ustawienia konfiguracji (jeśli jest dostępny) lub usunięcie modułu z poziomu aplikacji.
+Jeśli moduł IIS jest skonfigurowany na poziomie serwera, który musi być wyłączony dla aplikacji, dodanie do pliku *Web. config* aplikacji może spowodować wyłączenie modułu. Pozostaw moduł w miejscu i Dezaktywuj go przy użyciu ustawienia konfiguracji (jeśli jest dostępne) lub usuń moduł z aplikacji.
 
-### <a name="module-deactivation"></a>Moduł dezaktywacji
+### <a name="module-deactivation"></a>Dezaktywacja modułu
 
-Wiele modułów oferują ustawienia konfiguracji, pozwalające im na wyłączony bez usuwania modułu z poziomu aplikacji. Jest to najprostsza i najszybszym sposobem dezaktywować modułu. Na przykład moduł przekierowania HTTP, można wyłączyć za pomocą `<httpRedirect>` element *web.config*:
+Wiele modułów oferuje ustawienie konfiguracji umożliwiające wyłączenie go bez usuwania modułu z aplikacji. Jest to najprostszy i najszybszy sposób dezaktywowania modułu. Na przykład moduł przekierowania HTTP można wyłączyć za pomocą elementu `<httpRedirect>` w *pliku Web. config*:
 
 ```xml
 <configuration>
@@ -101,19 +101,19 @@ Wiele modułów oferują ustawienia konfiguracji, pozwalające im na wyłączony
 </configuration>
 ```
 
-Aby uzyskać więcej informacji o wyłączaniu modułów przy użyciu ustawień konfiguracyjnych, skorzystaj z łączy w *elementy podrzędne* części [IIS \<system.webServer >](/iis/configuration/system.webServer/).
+Aby uzyskać więcej informacji na temat wyłączania modułów z ustawieniami konfiguracji, postępuj zgodnie z linkami w sekcji *elementy podrzędne* [usług IIS \<system. WebServer >](/iis/configuration/system.webServer/).
 
 ### <a name="module-removal"></a>Usuwanie modułu
 
-Jeśli sposób, aby usunąć moduł z ustawieniem w *web.config*, odblokować moduł i odblokować `<modules>` części *web.config* pierwszy:
+Jeśli nie chcesz usunąć modułu z ustawieniem w *pliku Web. config*, Odblokuj moduł i odblokuj `<modules>` sekcji *Web. config* w pierwszej kolejności:
 
-1. Uzyskaj dostęp do modułu na poziomie serwera. Wybierz serwer usług IIS w Menedżerze usług IIS **połączeń** pasku bocznym. Otwórz **modułów** w **IIS** obszaru. Wybierz moduł z listy. W **akcje** pasku bocznym po prawej stronie, wybierz **Unlock**. Jeśli wpis akcji dla modułu, który jest wyświetlany jako **blokady**, moduł jest już odblokowane i jest wymagana żadna akcja. Odblokować dowolną liczbę modułów związanych z planowaniem do usunięcia z *web.config* później.
+1. Odblokuj moduł na poziomie serwera. Na pasku bocznym **połączenia** Menedżera usług IIS wybierz serwer IIS. Otwórz **moduły** w obszarze **IIS** . Wybierz moduł z listy. Na pasku bocznym **Akcje** po prawej stronie wybierz pozycję **Odblokuj**. Jeśli wpis akcji dla modułu pojawia się jako **Blokada**, moduł jest już odblokowany i nie jest wymagana żadna akcja. Odblokuj tyle modułów, ile planujesz usunąć z *pliku Web. config* później.
 
-2. Wdrażanie aplikacji bez `<modules>` sekcji *web.config*. Jeśli aplikacja jest wdrożona za pomocą *web.config* zawierający `<modules>` sekcji bez konieczności odblokować sekcji najpierw w Menedżerze programu IIS, programu Configuration Manager zgłasza wyjątek podczas próby odblokowania sekcji. W związku z tym, Wdróż aplikację bez `<modules>` sekcji.
+2. Wdróż aplikację bez sekcji `<modules>` w *pliku Web. config*. Jeśli aplikacja jest wdrażana za pomocą *pliku Web. config* zawierającego `<modules>` sekcji bez uprzedniego odblokowywania sekcji w Menedżerze usług IIS, Configuration Manager zgłasza wyjątek podczas próby odblokowania sekcji. W związku z tym Wdróż aplikację bez sekcji `<modules>`.
 
-3. Odblokuj `<modules>` części *web.config*. W **połączeń** pasku bocznym, wybierz witrynę internetową w **witryn**. W **zarządzania** obszarze Otwórz **edytora konfiguracji**. Użyj formantów nawigacji, aby wybrać `system.webServer/modules` sekcji. W **akcje** pasku bocznym po prawej stronie, wybierz, aby **Unlock** sekcji. Jeśli wpis akcji dla sekcji modułów pojawia się jako **Blokuj sekcję**sekcji modułu jest już odblokowane i jest wymagana żadna akcja.
+3. Odblokuj sekcję `<modules>` *pliku Web. config*. Na pasku bocznym **połączenia** wybierz witrynę sieci Web w obszarze **Lokacje**. W obszarze **Zarządzanie** Otwórz **Edytor konfiguracji**. Użyj kontrolek nawigacji, aby wybrać sekcję `system.webServer/modules`. Na pasku bocznym **Akcje** po prawej stronie wybierz opcję **odblokowania** sekcji. Jeśli wpis akcji dla sekcji modułu jest wyświetlany jako **sekcja blokady**, sekcja modułu jest już odblokowana i nie jest wymagana żadna akcja.
 
-4. Dodaj `<modules>` sekcji do aplikacji użytkownika lokalnego *web.config* plik z `<remove>` elementu do usunięcia modułu z poziomu aplikacji. Dodawanie wielu `<remove>` elementy, aby usunąć wiele modułów. Jeśli *web.config* zmian na serwerze, natychmiast wprowadzenie identycznych zmian w projekcie *web.config* plik lokalnie. Usuwanie modułu przy użyciu tej metody nie wpływa na użycie modułu w innych aplikacjach na serwerze.
+4. Dodaj sekcję `<modules>` do lokalnego pliku *Web. config* aplikacji z elementem `<remove>`, aby usunąć moduł z aplikacji. Dodaj wiele elementów `<remove>`, aby usunąć wiele modułów. Jeśli na serwerze wprowadzono zmiany w pliku *Web. config* , należy natychmiast wprowadzić te same zmiany w plikach *Web. config* projektu lokalnie. Usunięcie modułu korzystającego z tego podejścia nie ma wpływu na używanie modułu z innymi aplikacjami na serwerze.
 
    ```xml
    <configuration>
@@ -125,11 +125,11 @@ Jeśli sposób, aby usunąć moduł z ustawieniem w *web.config*, odblokować mo
    </configuration>
    ```
 
-Aby dodać lub usunąć moduły usług IIS Express przy użyciu *web.config*, zmodyfikuj *applicationHost.config* do odblokowania `<modules>` sekcji:
+Aby dodać lub usunąć moduły IIS Express przy użyciu *pliku Web. config*, zmodyfikuj *plik ApplicationHost. config* w celu odblokowania sekcji `<modules>`:
 
-1. Otwórz *{katalog główny aplikacji}\\.vs\config\applicationhost.config*.
+1. Otwórz *aplikację {Application root}\\. vs\config\applicationhost.config*.
 
-1. Znajdź `<section>` elementem moduły usług IIS i zmień `overrideModeDefault` z `Deny` do `Allow`:
+1. Znajdź `<section>` element dla modułów usług IIS i Zmień `overrideModeDefault` `Deny` na `Allow`:
 
    ```xml
    <section name="modules"
@@ -137,38 +137,37 @@ Aby dodać lub usunąć moduły usług IIS Express przy użyciu *web.config*, zm
             overrideModeDefault="Allow" />
    ```
 
-1. Znajdź `<location path="" overrideMode="Allow"><system.webServer><modules>` sekcji. W przypadku modułów, które chcesz usunąć, ustawić `lockItem` z `true` do `false`. W poniższym przykładzie moduł CGI jest odblokowany:
+1. Znajdź sekcję `<location path="" overrideMode="Allow"><system.webServer><modules>`. Dla wszystkich modułów, które chcesz usunąć, ustaw `lockItem` z `true` na `false`. W poniższym przykładzie moduł CGI jest odblokowany:
 
    ```xml
    <add name="CgiModule" lockItem="false" />
    ```
 
-1. Po `<modules>` sekcji i indywidualne moduły są odblokowane, możesz dodać lub usunąć moduły usług IIS przy użyciu aplikacji *web.config* pliku do uruchamiania aplikacji w usługach IIS Express.
+1. Po odblokowaniu sekcji `<modules>` i poszczególnych modułów można dodać lub usunąć moduły usług IIS przy użyciu pliku *Web. config* aplikacji na potrzeby uruchamiania aplikacji na IIS Express.
 
-Moduł usług IIS może zostać także usunięty z *Appcmd.exe*. Podaj `MODULE_NAME` i `APPLICATION_NAME` w poleceniu:
+Moduł IIS można także usunąć za pomocą narzędzia *Appcmd. exe*. Podaj `MODULE_NAME` i `APPLICATION_NAME` w poleceniu:
 
 ```console
 Appcmd.exe delete module MODULE_NAME /app.name:APPLICATION_NAME
 ```
 
-Na przykład usunąć `DynamicCompressionModule` z domyślna witryna sieci Web:
+Na przykład Usuń `DynamicCompressionModule` z domyślnej witryny sieci Web:
 
 ```console
 %windir%\system32\inetsrv\appcmd.exe delete module DynamicCompressionModule /app.name:"Default Web Site"
 ```
 
-## <a name="minimum-module-configuration"></a>Minimalną konfiguracją modułów
+## <a name="minimum-module-configuration"></a>Minimalna konfiguracja modułu
 
-Tylko moduły wymagane do uruchamiania aplikacji ASP.NET Core to moduł uwierzytelniania anonimowego i modułu ASP.NET Core.
+Jedyne moduły wymagane do uruchomienia aplikacji ASP.NET Core są modułem uwierzytelniania anonimowego i modułem ASP.NET Core.
 
-Moduł buforowania identyfikatora URI (`UriCacheModule`) umożliwia usługom IIS do pamięci podręcznej konfiguracji witryny sieci Web na poziomie adresu URL. Bez tego modułu IIS musi odczytywać i analizować konfiguracji na każde żądanie, nawet wtedy, gdy wymagane są wielokrotnie tego samego adresu URL. Każde żądanie podczas analizowania konfiguracji powoduje spadek istotnie poprawiającą wydajność. *Mimo że moduł buforowania identyfikatora URI nie jest bezwzględnie konieczne hostowanej aplikacji platformy ASP.NET Core uruchomić, zaleca się włączenie modułu pamięci podręcznej URI we wszystkich wdrożeniach platformy ASP.NET Core.*
+Moduł buforowania URI (`UriCacheModule`) umożliwia usługom IIS buforowanie konfiguracji witryny sieci Web na poziomie adresu URL. Bez tego modułu usługi IIS muszą odczytywać i analizować konfigurację dla każdego żądania, nawet jeśli ten sam adres URL jest wielokrotnie żądany. Analizowanie konfiguracji każde żądanie skutkuje znaczącą wydajnością. *Chociaż moduł buforowania URI nie jest ściśle wymagany do uruchomienia hostowanej aplikacji ASP.NET Core, zalecamy włączenie modułu buforowania URI dla wszystkich wdrożeń ASP.NET Core.*
 
-Moduł buforowanie HTTP (`HttpCacheModule`) implementuje wyjściowej pamięci podręcznej usług IIS, a także logikę buforowania elementów w pamięci podręcznej HTTP.sys. Bez tego modułu zawartość nie jest buforowany w trybie jądra, a pamięć podręczna profile są ignorowane. Usunięcie modułu buforowanie HTTP, zwykle ma negatywny wpływ na wydajność i użycie zasobów. *Mimo że moduł buforowanie HTTP nie jest bezwzględnie konieczne hostowanej aplikacji platformy ASP.NET Core uruchomić, zaleca się włączenie moduł buforowanie HTTP we wszystkich wdrożeniach platformy ASP.NET Core.*
+Moduł buforowania HTTP (`HttpCacheModule`) implementuje wyjściową pamięć podręczną programu IIS, a także logikę dla elementów buforowania w pamięci podręcznej HTTP. sys. Bez tego modułu zawartość nie jest już buforowana w trybie jądra, a profile pamięci podręcznej są ignorowane. Usunięcie modułu buforowania HTTP zwykle ma niekorzystne skutki dla wydajności i użycia zasobów. *Chociaż moduł buforowania HTTP nie jest ściśle wymagany do uruchomienia hostowanej aplikacji ASP.NET Core, zalecamy włączenie modułu buforowania HTTP we wszystkich wdrożeniach ASP.NET Core.*
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* <xref:host-and-deploy/iis/index>
-* [Wprowadzenie do architektury usługi IIS: Moduły w usługach IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#modules-in-iis)
-* [Przegląd moduły usług IIS](/iis/get-started/introduction-to-iis/iis-modules-overview)
-* [Dostosowywanie usług IIS 7.0 ról i modułów](https://technet.microsoft.com/library/cc627313.aspx)
-* [IIS `<system.webServer>`](/iis/configuration/system.webServer/)
+* [Wprowadzenie do architektury usług IIS: moduły w usługach IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#modules-in-iis)
+* [Przegląd modułów usług IIS](/iis/get-started/introduction-to-iis/iis-modules-overview)
+* [Dostosowywanie ról i modułów usług IIS 7,0](https://technet.microsoft.com/library/cc627313.aspx)
+* [Program IIS \<system. WebServer >](/iis/configuration/system.webServer/)

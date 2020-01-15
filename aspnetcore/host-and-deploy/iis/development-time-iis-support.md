@@ -5,14 +5,14 @@ description: Odkryj obsługę debugowania aplikacji ASP.NET Core podczas urucham
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/26/2019
+ms.date: 01/13/2020
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: 2d2c8d8e4b39d18a3a727e2a2bdef3be566897c1
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: 704a8dae9da904e4bbdfae0754a6fcdabee6dc82
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034141"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75952035"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Obsługa usług IIS w czasie projektowania w programie Visual Studio dla ASP.NET Core
 
@@ -30,7 +30,7 @@ W tym artykule opisano obsługę [programu Visual Studio](https://visualstudio.m
 ## <a name="enable-iis"></a>Włącz usługi IIS
 
 1. W systemie Windows przejdź do pozycji **Panel sterowania** > **programy** > **programy i funkcje** > **włączać lub wyłączać funkcje systemu Windows** (po lewej stronie ekranu).
-1. Zaznacz pole wyboru **Internet Information Services** . Wybierz **przycisk OK**.
+1. Zaznacz pole wyboru **Internet Information Services** . Wybierz **OK**.
 
 Instalacja usług IIS może wymagać ponownego uruchomienia systemu.
 
@@ -38,7 +38,7 @@ Instalacja usług IIS może wymagać ponownego uruchomienia systemu.
 
 Usługi IIS muszą mieć skonfigurowaną witrynę sieci Web z następującymi:
 
-* **Nazwa hosta** &ndash; zazwyczaj **Domyślna witryna sieci Web** jest używana z **nazwą hosta** `localhost`. Jednak każda prawidłowa witryna sieci Web usług IIS z unikatową nazwą hosta działa.
+* **Nazwa hosta** &ndash; zwykle, **Domyślna witryna sieci Web** jest używana z **nazwą hosta** `localhost`. Jednak każda prawidłowa witryna sieci Web usług IIS z unikatową nazwą hosta działa.
 * **Powiązanie witryny**
   * W przypadku aplikacji wymagających protokołu HTTPS Utwórz powiązanie z portem 443 z certyfikatem. Zwykle używany jest **certyfikat deweloperski IIS Express** , ale każdy prawidłowy certyfikat działa.
   * W przypadku aplikacji korzystających z protokołu HTTP upewnij się, że istnieje powiązanie do opublikowania 80 lub utwórz powiązanie z portem 80 dla nowej lokacji.
@@ -58,7 +58,7 @@ Usługi IIS muszą mieć skonfigurowaną witrynę sieci Web z następującymi:
 
 Dla nowego projektu, który wymaga protokołu HTTPS, zaznacz pole wyboru w celu **skonfigurowania protokołu HTTPS** w oknie **Tworzenie nowej ASP.NET Core aplikacji sieci Web** . Zaznaczenie tego pola wyboru powoduje dodanie [przekierowania https i HSTS oprogramowania](xref:security/enforcing-ssl) do aplikacji podczas jej tworzenia.
 
-W przypadku istniejącego projektu wymagającego protokołu HTTPS Użyj przekierowania HTTPS i oprogramowania pośredniczącego HSTS w `Startup.Configure`. Aby uzyskać więcej informacji, zobacz <xref:security/enforcing-ssl>.
+W przypadku istniejącego projektu wymagającego protokołu HTTPS Użyj przekierowania HTTPS i oprogramowania pośredniczącego HSTS w `Startup.Configure`. Aby uzyskać więcej informacji, zobacz temat <xref:security/enforcing-ssl>.
 
 W przypadku projektu korzystającego z protokołu HTTP, [przekierowania https i oprogramowania pośredniczącego HSTS](xref:security/enforcing-ssl) nie są dodawane do aplikacji. Nie jest wymagana żadna konfiguracja aplikacji.
 
@@ -68,7 +68,7 @@ Utwórz nowy profil uruchamiania, aby dodać obsługę usług IIS w czasie proje
 
 ::: moniker range=">= aspnetcore-3.0"
 
-1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań**. Wybierz pozycję **Właściwości**. Otwórz kartę **debugowanie** .
+1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań**. Wybierz **właściwości**. Otwórz kartę **debugowanie** .
 1. W obszarze **profil**wybierz przycisk **Nowy** . Nazwij profil "IIS" w oknie podręcznym. Wybierz **przycisk OK** , aby utworzyć profil.
 1. Dla ustawienia **uruchamiania** wybierz z listy pozycję **IIS** .
 1. Zaznacz pole wyboru dla opcji **Uruchom przeglądarkę** i podaj adres URL punktu końcowego.
@@ -82,14 +82,14 @@ Utwórz nowy profil uruchamiania, aby dodać obsługę usług IIS w czasie proje
    Na przykład `https://localhost/WebApplication1` (HTTPS) lub `http://localhost/WebApplication1` (HTTP) są prawidłowymi adresami URL punktów końcowych.
 1. W sekcji **zmienne środowiskowe** wybierz przycisk **Dodaj** . Podaj zmienną środowiskową o **nazwie** `ASPNETCORE_ENVIRONMENT` i **wartości** `Development`.
 1. W obszarze **Ustawienia serwera sieci Web** Ustaw **adres URL aplikacji** na wartość używaną dla adresu URL punktu końcowego **uruchamiania przeglądarki** .
-1. W przypadku ustawienia **model hostingu** w programie Visual Studio 2019 lub nowszym wybierz pozycję **domyślne** , aby użyć modelu hostingu używanego przez projekt. Jeśli projekt ustawia właściwość `<AspNetCoreHostingModel>` w pliku projektu, używana jest wartość właściwości (`InProcess` lub `OutOfProcess`). Jeśli właściwość nie jest obecna, używany jest domyślny model hostingu aplikacji, który jest w procesie. Jeśli aplikacja wymaga jawnego ustawienia modelu hostingu innego niż normalny model hostingu aplikacji, należy ustawić **model hostingu** na wartość `In Process` lub `Out Of Process` w razie potrzeby.
+1. W przypadku ustawienia **model hostingu** w programie Visual Studio 2019 lub nowszym wybierz pozycję **domyślne** , aby użyć modelu hostingu używanego przez projekt. Jeśli projekt ustawia właściwość `<AspNetCoreHostingModel>` w pliku projektu, używana jest wartość właściwości (`InProcess` lub `OutOfProcess`). Jeśli właściwość nie jest obecna, używany jest domyślny model hostingu aplikacji, który jest w procesie. Jeśli aplikacja wymaga jawnego ustawienia modelu hostingu innego niż normalny model hostingu aplikacji, należy ustawić **model hostingu** na `In Process` lub `Out Of Process` w razie potrzeby.
 1. Zapisz profil.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań**. Wybierz pozycję **Właściwości**. Otwórz kartę **debugowanie** .
+1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań**. Wybierz **właściwości**. Otwórz kartę **debugowanie** .
 1. W obszarze **profil**wybierz przycisk **Nowy** . Nazwij profil "IIS" w oknie podręcznym. Wybierz **przycisk OK** , aby utworzyć profil.
 1. Dla ustawienia **uruchamiania** wybierz z listy pozycję **IIS** .
 1. Zaznacz pole wyboru dla opcji **Uruchom przeglądarkę** i podaj adres URL punktu końcowego.
@@ -103,7 +103,7 @@ Utwórz nowy profil uruchamiania, aby dodać obsługę usług IIS w czasie proje
    Na przykład `https://localhost/WebApplication1` (HTTPS) lub `http://localhost/WebApplication1` (HTTP) są prawidłowymi adresami URL punktów końcowych.
 1. W sekcji **zmienne środowiskowe** wybierz przycisk **Dodaj** . Podaj zmienną środowiskową o **nazwie** `ASPNETCORE_ENVIRONMENT` i **wartości** `Development`.
 1. W obszarze **Ustawienia serwera sieci Web** Ustaw **adres URL aplikacji** na wartość używaną dla adresu URL punktu końcowego **uruchamiania przeglądarki** .
-1. W przypadku ustawienia **model hostingu** w programie Visual Studio 2019 lub nowszym wybierz pozycję **domyślne** , aby użyć modelu hostingu używanego przez projekt. Jeśli projekt ustawia właściwość `<AspNetCoreHostingModel>` w pliku projektu, używana jest wartość właściwości (`InProcess` lub `OutOfProcess`). Jeśli właściwość nie jest obecna, używany jest domyślny model hostingu aplikacji, który jest poza procesem. Jeśli aplikacja wymaga jawnego ustawienia modelu hostingu innego niż normalny model hostingu aplikacji, należy ustawić **model hostingu** na wartość `In Process` lub `Out Of Process` w razie potrzeby.
+1. W przypadku ustawienia **model hostingu** w programie Visual Studio 2019 lub nowszym wybierz pozycję **domyślne** , aby użyć modelu hostingu używanego przez projekt. Jeśli projekt ustawia właściwość `<AspNetCoreHostingModel>` w pliku projektu, używana jest wartość właściwości (`InProcess` lub `OutOfProcess`). Jeśli właściwość nie jest obecna, używany jest domyślny model hostingu aplikacji, który jest poza procesem. Jeśli aplikacja wymaga jawnego ustawienia modelu hostingu innego niż normalny model hostingu aplikacji, należy ustawić **model hostingu** na `In Process` lub `Out Of Process` w razie potrzeby.
 1. Zapisz profil.
 
 ::: moniker-end
@@ -133,9 +133,9 @@ Gdy nie korzystasz z programu Visual Studio, ręcznie Dodaj profil uruchamiania 
 }
 ```
 
-Upewnij się, że punkty końcowe `applicationUrl` i `launchUrl` są zgodne i używają tego samego protokołu, co Konfiguracja powiązania usług IIS, HTTP lub HTTPS.
+Upewnij się, że `applicationUrl` i `launchUrl` punktów końcowych pasują do tego samego protokołu, co Konfiguracja powiązania usług IIS, HTTP lub HTTPS.
 
-## <a name="run-the-project"></a>Uruchom projekt
+## <a name="run-the-project"></a>Uruchamianie projektu
 
 Uruchom program Visual Studio jako administrator:
 
@@ -152,6 +152,4 @@ Jeśli jest używany niezaufany certyfikat programistyczny, w przeglądarce moż
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Wprowadzenie z menedżerem usług IIS w usługach IIS](/iis/get-started/getting-started-with-iis/getting-started-with-the-iis-manager-in-iis-7-and-iis-8)
-* <xref:host-and-deploy/iis/index>
-* <xref:host-and-deploy/aspnet-core-module>
 * <xref:security/enforcing-ssl>
