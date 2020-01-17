@@ -133,7 +133,7 @@ Aplikacje, które współdziałają z witrynami zdalnymi, takie jak logowanie in
 * Przetestuj interakcję w wielu przeglądarkach.
 * Zastosuj [wykrywanie i środki zaradcze w przeglądarce CookiePolicy](#sob) omówione w tym dokumencie.
 
-Przetestuj aplikacje sieci Web przy użyciu wersji klienta, która może być zgodą na nowe zachowanie SameSite. Przeglądarki Chrome, Firefox i chrom Edge mają nowe flagi funkcji opt, których można użyć do testowania. Po zastosowaniu przez aplikację SameSite poprawek przetestuj ją ze starszymi wersjami klienta, szczególnie Safari. Aby uzyskać więcej informacji, zobacz [Obsługa starszych przeglądarek](#sob) w tym dokumencie.
+Przetestuj aplikacje sieci Web przy użyciu wersji klienta, która może być zgodą na nowe zachowanie SameSite. Przeglądarki Chrome, Firefox i Microsoft Edge mają nowe flagi funkcji opt, których można użyć do testowania. Po zastosowaniu przez aplikację SameSite poprawek przetestuj ją ze starszymi wersjami klienta, szczególnie Safari. Aby uzyskać więcej informacji, zobacz [Obsługa starszych przeglądarek](#sob) w tym dokumencie.
 
 ### <a name="test-with-chrome"></a>Testowanie za pomocą przeglądarki Chrome
 
@@ -152,9 +152,9 @@ Przeglądarka Safari 12 ściśle wdrożyła poprzednią wersję roboczą i końc
 
 Obsługę programu Firefox dla nowego standardu można przetestować w wersji 68 + przez wypróbowanie na stronie `about:config` z flagą funkcji `network.cookie.sameSite.laxByDefault`. Nie zgłoszono problemów ze zgodnością ze starszymi wersjami programu Firefox.
 
-### <a name="test-with-edge-browser"></a>Testowanie przy użyciu przeglądarki Edge
+### <a name="test-with-edge-browser"></a>Testowanie przy użyciu przeglądarki Microsoft Edge
 
-Program Edge obsługuje stary Standard SameSite. Wersja brzegowa 44 nie ma żadnych znanych problemów ze zgodnością z nowym standardem.
+Program Microsoft Edge obsługuje stary Standard SameSite. Wersja brzegowa 44 nie ma żadnych znanych problemów ze zgodnością z nowym standardem.
 
 ### <a name="test-with-edge-chromium"></a>Testowanie przy użyciu krawędzi (chrom)
 
