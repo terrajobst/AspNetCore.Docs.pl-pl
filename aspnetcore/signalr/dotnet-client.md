@@ -5,28 +5,28 @@ description: Informacje na temat ASP.NET Core SignalR klienta .NET
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 01/14/2020
 no-loc:
 - SignalR
 uid: signalr/dotnet-client
-ms.openlocfilehash: 28e8fcf808406cd0251ba94e2ef97ab04841fcd0
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 39d9eccdb1e0457b177e75e6f94f3dd185b0093d
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963966"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146319"
 ---
 # <a name="aspnet-core-opno-locsignalr-net-client"></a>ASP.NET Core SignalR klienta platformy .NET
 
 ASP.NET Core SignalR .NET Client Library umożliwia komunikowanie się z koncentratorami SignalR z poziomu aplikacji .NET.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/dotnet-client/sample) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/dotnet-client/sample) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 Przykładowy kod w tym artykule jest aplikacją WPF korzystającą z ASP.NET Core SignalR klienta platformy .NET.
 
 ## <a name="install-the-opno-locsignalr-net-client-package"></a>Zainstaluj pakiet klienta programu SignalR .NET
 
-[Microsoft. AspNetCore.SignalR. ](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR.Client)Do łączenia się z centrami SignalR jest wymagany pakiet klienta programu .NET.
+[Microsoft.AspNetCore.SignalR.](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR.Client)Do łączenia się z centrami SignalR jest wymagany pakiet klienta programu .NET.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -46,7 +46,7 @@ dotnet add package Microsoft.AspNetCore.SignalR.Client
 
 ---
 
-## <a name="connect-to-a-hub"></a>Nawiązywanie połączenia z centrum
+## <a name="connect-to-a-hub"></a>Połączenia z koncentratorem
 
 Aby nawiązać połączenie, Utwórz `HubConnectionBuilder` i Wywołaj `Build`. Podczas tworzenia połączenia można skonfigurować adres URL centrum, protokół, typ transportu, poziom dziennika, nagłówki i inne opcje. Skonfiguruj wszystkie wymagane opcje, wstawiając dowolne `HubConnectionBuilder` metod do `Build`. Rozpocznij połączenie z `StartAsync`.
 
@@ -179,7 +179,7 @@ public class RandomRetryPolicy : IRetryPolicy
         // wait between 0 and 10 seconds before the next reconnect attempt.
         if (retryContext.ElapsedTime < TimeSpan.FromSeconds(60))
         {
-            return TimeSpan.FromSeconds(_random.Next() * 10);
+            return TimeSpan.FromSeconds(_random.NextDouble() * 10);
         }
         else
         {
@@ -206,7 +206,7 @@ Alternatywnie można napisać kod, który ponownie podłącze klienta ręcznie, 
 ::: moniker range="< aspnetcore-3.0"
 
 > [!WARNING]
-> Przed 3,0m klient platformy .NET dla SignalR nie będzie automatycznie ponownie łączyć się. Musisz napisać kod, który ponownie podłącze klienta ręcznie.
+> Przed 3,0m klient platformy .NET dla SignalR nie będzie automatycznie ponownie łączyć się. Należy napisać kod, który zostanie nawiązana ponownie ręcznie klienta.
 
 ::: moniker-end
 
@@ -227,7 +227,7 @@ W programie obsługi `Closed`, który ponownie uruchamia połączenie, rozważ o
 
 [!code-csharp[Use Closed event handler to automate reconnection](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_ClosedRestart)]
 
-## <a name="call-hub-methods-from-client"></a>Wywoływanie metod centrów z klienta
+## <a name="call-hub-methods-from-client"></a>Wywoływanie metod koncentratora z klienta
 
 `InvokeAsync` wywołań metod w centrum. Przekaż nazwę metody Hub i wszystkie argumenty zdefiniowane w metodzie Hub, aby `InvokeAsync`. SignalR jest asynchroniczny, dlatego podczas wykonywania wywołań używaj `async` i `await`.
 
@@ -240,7 +240,7 @@ Metoda `SendAsync` zwraca `Task`, która kończy się, gdy komunikat został wys
 > [!NOTE]
 > Jeśli używasz usługi Azure SignalR w *trybie Bezserwerowym*, nie można wywoływać metod centralnych z poziomu klienta. Aby uzyskać więcej informacji, zobacz [dokumentację usługiSignalR](/azure/azure-signalr/signalr-concept-serverless-development-config).
 
-## <a name="call-client-methods-from-hub"></a>Wywoływanie metod klienta z centrum
+## <a name="call-client-methods-from-hub"></a>Wywoływanie metody klienta z Centrum
 
 Zdefiniuj metody wywołania przez centrum przy użyciu `connection.On` po skompilowaniu, ale przed rozpoczęciem połączenia.
 
@@ -250,7 +250,7 @@ Poprzedni kod w `connection.On` jest uruchamiany, gdy kod po stronie serwera wyw
 
 [!code-csharp[Call client method](dotnet-client/sample/signalrchat/hubs/chathub.cs?name=snippet_SendMessage)]
 
-## <a name="error-handling-and-logging"></a>Obsługa błędów i rejestrowanie
+## <a name="error-handling-and-logging"></a>Rejestrowanie i obsługa błędów
 
 Obsługa błędów przy użyciu instrukcji try-catch. Sprawdź obiekt `Exception`, aby określić poprawną akcję, która ma zostać podjęta po wystąpieniu błędu.
 
