@@ -7,22 +7,16 @@ ms.custom: mvc
 ms.date: 02/06/2019
 ms.topic: tutorial
 uid: data/ef-mvc/intro
-ms.openlocfilehash: a8909d391ae1a35e9c8155df767ab157701c8a51
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 42ce63d1a31e033cf97536935b6dc94e015f30fa
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259449"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146384"
 ---
 # <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>Samouczek: wprowadzenie do EF Core w aplikacji sieci Web ASP.NET MVC
 
-::: moniker range=">= aspnetcore-3.0"
-
 Ten samouczek **nie** został zaktualizowany do ASP.NET Core 3,0. Zaktualizowano [Razor Pages wersję](xref:data/ef-rp/intro) . Aby uzyskać informacje na temat aktualizacji, zobacz [ten problem](https://github.com/aspnet/AspNetCore.Docs/issues/13920)w usłudze GitHub.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
 
 [!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc.md)]
 
@@ -30,7 +24,7 @@ Przykładowa aplikacja internetowa Contoso University demonstruje sposób tworze
 
 Przykładowa aplikacja jest witryną internetową fikcyjnej firmy Contoso University. Obejmuje funkcje, takie jak czasowej dla uczniów, tworzenia kurs i przypisania instruktora. Jest to pierwsza z szeregu samouczków, które wyjaśniają, jak skompilować przykładową aplikację firmy Contoso University od podstaw.
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostały wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie aplikacji sieci Web ASP.NET Core MVC
@@ -87,7 +81,7 @@ Użytkownicy mogą przeglądać i aktualizacji dla uczniów, kursu i informacji 
 
 * Upewnij się, że **uwierzytelnianie** jest ustawione na wartość **bez uwierzytelniania**.
 
-* Wybierz **przycisk OK**
+* Wybierz przycisk **OK**.
 
   ![Nowe okno dialogowe projektu ASP.NET Core](intro/_static/new-aspnet2.png)
 
@@ -139,7 +133,7 @@ W folderze *modele* Utwórz plik klasy o nazwie *student.cs* i Zastąp kod szabl
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_Intro)]
 
-Właściwość `ID` stanie się kolumną klucza podstawowego tabeli bazy danych, która odnosi się do tej klasy. Domyślnie Entity Framework interpretuje właściwość o nazwie `ID` lub `classnameID` jako klucz podstawowy.
+Właściwość `ID` stanie się kolumną klucza podstawowego tabeli bazy danych, która odnosi się do tej klasy. Domyślnie platforma Entity Framework interpretuje właściwość o nazwie `ID` lub `classnameID` jako klucz podstawowy.
 
 `Enrollments` Właściwość [właściwość nawigacji](/ef/core/modeling/relationships). Właściwości nawigacji zawierają inne jednostki, które są powiązane z tą jednostką. W takim przypadku Właściwość `Enrollments` `Student entity` będzie zawierać wszystkie jednostki `Enrollment`, które są powiązane z tą jednostką `Student`. Innymi słowy, jeśli dany wiersz ucznia w bazie danych ma dwa powiązane wiersze rejestracji (wiersze, które zawierają wartość klucza podstawowego tego ucznia w kolumnie klucza obcego StudentID), `Enrollments` właściwość nawigacji tej jednostki `Student` będzie zawierać te dwie jednostki `Enrollment`.
 
@@ -255,7 +249,7 @@ Automatyczne tworzenie metod i widoków akcji CRUD jest znane jako rusztowania. 
 
   * Wybierz **kontroler MVC z widokami, używając Entity Framework**.
 
-  * Kliknij pozycję **Add** (Dodaj). Zostanie wyświetlone okno dialogowe **Dodawanie kontrolera MVC z widokami, przy użyciu Entity Framework** .
+  * Kliknij przycisk **Dodaj**. Zostanie wyświetlone okno dialogowe **Dodawanie kontrolera MVC z widokami, przy użyciu Entity Framework** .
 
     ![Student dla szkieletu](intro/_static/scaffold-student2.png)
 
@@ -265,7 +259,7 @@ Automatyczne tworzenie metod i widoków akcji CRUD jest znane jako rusztowania. 
 
   * Zaakceptuj domyślną **StudentsController** jako nazwę.
 
-  * Kliknij pozycję **Add** (Dodaj).
+  * Kliknij przycisk **Dodaj**.
 
   Po kliknięciu przycisku **Dodaj**aparat szkieletu programu Visual Studio tworzy plik *StudentsController.cs* i zestaw widoków (pliki *. cshtml* ), które współpracują z kontrolerem.
 
@@ -361,13 +355,13 @@ Niektóre kwestie, o których należy wiedzieć, gdy piszesz kod asynchroniczny,
 
 Aby uzyskać więcej informacji na temat programowania asynchronicznego w programie .NET, zobacz [asynchroniczne Omówienie](/dotnet/articles/standard/async).
 
-## <a name="get-the-code"></a>Pobierz kod
+## <a name="get-the-code"></a>Uzyskaj kod
 
 [Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostały wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Utworzono ASP.NET Core aplikacji sieci Web MVC
@@ -387,4 +381,3 @@ Przejdź do następnego samouczka, aby dowiedzieć się, jak wykonywać podstawo
 > [!div class="nextstepaction"]
 > [Zaimplementuj podstawowe funkcje CRUD](crud.md)
 
-::: moniker-end

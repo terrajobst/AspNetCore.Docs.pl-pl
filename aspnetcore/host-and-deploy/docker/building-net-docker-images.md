@@ -4,20 +4,20 @@ author: rick-anderson
 description: Dowiedz się, jak używać opublikowanych obrazów .NET Core Docker z rejestru platformy Docker. Ściągaj obrazy i Kompiluj własne obrazy.
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/18/2019
+ms.date: 01/15/2020
 uid: host-and-deploy/docker/building-net-docker-images
-ms.openlocfilehash: 64503ed55438b24f2d3d87092107408ddcb515d7
-ms.sourcegitcommit: fcdf9aaa6c45c1a926bd870ed8f893bdb4935152
+ms.openlocfilehash: 5bed5e9a4a6109a45badcef7c0d4e03eb2312bf0
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72165276"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146345"
 ---
 # <a name="docker-images-for-aspnet-core"></a>Obrazy platformy Docker dla ASP.NET Core
 
 W tym samouczku pokazano, jak uruchomić aplikację ASP.NET Core w kontenerach platformy Docker.
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostały wykonane następujące czynności:
 > [!div class="checklist"]
 > * Dowiedz się więcej na temat Microsoft .NET podstawowych obrazów platformy Docker
 > * Pobieranie przykładowej aplikacji ASP.NET Core
@@ -62,7 +62,7 @@ Przykładowy pliku dockerfile używa [funkcji budowania wielu etapów platformy 
   * [macOS](https://docs.docker.com/docker-for-mac/install/)
   * [Windows](https://docs.docker.com/docker-for-windows/install/)
 
-* [Usługa Git](https://git-scm.com/download)
+* [Git](https://git-scm.com/download)
 
 ## <a name="download-the-sample-app"></a>Pobieranie przykładowej aplikacji
 
@@ -72,7 +72,7 @@ Przykładowy pliku dockerfile używa [funkcji budowania wielu etapów platformy 
   git clone https://github.com/dotnet/dotnet-docker
   ```
 
-## <a name="run-the-app-locally"></a>Uruchamianie aplikacji lokalnie
+## <a name="run-the-app-locally"></a>Lokalne uruchamianie aplikacji
 
 * Przejdź do folderu projektu w programie *dotnet-Docker/Samples/aspnetapp/aspnetapp*.
 
@@ -104,10 +104,10 @@ Przykładowy pliku dockerfile używa [funkcji budowania wielu etapów platformy 
   * Wyszukaj pliku dockerfile w bieżącym folderze (okres na końcu).
 
   Argumenty polecenia Run:
-  * Przydziel pseudo-TTY i pozostaw go otwarty nawet wtedy, gdy nie jest dołączony. (Taki sam efekt jak `--interactive --tty`).
+  * Przydziel pseudo-TTY i pozostaw go otwarty nawet wtedy, gdy nie jest dołączony. (Ten sam efekt jest `--interactive --tty`.)
   * Automatycznie Usuń kontener, gdy zostanie on zakończony.
   * Mapuj port 5000 na komputerze lokalnym na port 80 w kontenerze.
-  * Nazwij kontener aspnetcore_sample.
+  * Nadaj nazwę kontenerowi aspnetcore_sample.
   * Określ obraz aspnetapp.
 
 * Przejdź do `http://localhost:5000` w przeglądarce, aby przetestować aplikację.
@@ -116,7 +116,7 @@ Przykładowy pliku dockerfile używa [funkcji budowania wielu etapów platformy 
 
 * W kliencie platformy Docker przejdź do kontenerów systemu Windows.
 
-Przejdź do folderu pliku platformy Docker pod adresem `dotnet-docker/samples/aspnetapp`.
+Przejdź do folderu Docker File w `dotnet-docker/samples/aspnetapp`.
 
 * Uruchom następujące polecenia, aby skompilować i uruchomić przykład w Docker:
 
@@ -160,13 +160,13 @@ W niektórych scenariuszach może zajść potrzeba wdrożenia aplikacji w konten
 
 * Uruchom aplikację.
 
-  * W systemie Windows:
+  * System Windows:
 
     ```dotnetcli
     dotnet published\aspnetapp.dll
     ```
 
-  * W systemie Linux:
+  * Linux:
 
     ```dotnetcli
     dotnet published/aspnetapp.dll
@@ -269,4 +269,4 @@ ENTRYPOINT ["dotnet", "aspnetapp.dll"]
 Repozytorium git zawierające przykładową aplikację zawiera również dokumentację. Aby zapoznać się z omówieniem zasobów dostępnych w repozytorium, zobacz [plik Readme](https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/README.md). W szczególności Dowiedz się, jak zaimplementować protokół HTTPS:
 
 > [!div class="nextstepaction"]
-> [Opracowywanie aplikacji ASP.NET Core przy użyciu platformy Docker za pośrednictwem protokołu HTTPS](https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/aspnetcore-docker-https-development.md)
+> [Opracowywanie aplikacji ASP.NET Core przy użyciu platformy Docker za pośrednictwem protokołu HTTPS](https://github.com/dotnet/dotnet-docker/blob/master/samples/run-aspnetcore-https-development.md)

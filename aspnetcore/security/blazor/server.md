@@ -2,20 +2,20 @@
 title: Bezpieczne ASP.NET Core aplikacje Blazor Server
 author: guardrex
 description: Dowiedz się, jak ograniczyć zagrożenia bezpieczeństwa do Blazor aplikacji serwera.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/server
-ms.openlocfilehash: 2d644b84b304a31ad0debc16164ad155c7f7da65
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: d87aac02137681e62cf8f5cbd4dc8b0be6f8431e
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944285"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146306"
 ---
 # <a name="secure-aspnet-core-opno-locblazor-server-apps"></a>Bezpieczne ASP.NET Core aplikacje Blazor Server
 
@@ -206,7 +206,7 @@ Poprzez dodanie `if (count < 3) { ... }` kontroli w ramach procedury obsługi, d
 
 ### <a name="guard-against-multiple-dispatches"></a>Ochrona przed wieloma operacjami wysyłania
 
-Jeśli wywołanie zwrotne zdarzenia wywołuje długotrwałą operację, taką jak pobieranie danych z zewnętrznej usługi lub bazy danych, należy rozważyć użycie funkcji Guard. Funkcja Guard może uniemożliwić użytkownikowi kolejkowanie wielu operacji, gdy operacja jest w toku i zawiera wizualne Opinie. Poniższy kod składnika ustawia `isLoading` do `true` podczas `GetForecastAsync` pobiera dane z serwera. Gdy `isLoading` jest `true`, przycisk jest wyłączony w interfejsie użytkownika:
+Jeśli wywołanie zwrotne zdarzenia wywołuje długotrwałą operację asynchroniczną, taką jak pobieranie danych z zewnętrznej usługi lub bazy danych, należy rozważyć użycie funkcji Guard. Funkcja Guard może uniemożliwić użytkownikowi kolejkowanie wielu operacji, gdy operacja jest w toku i zawiera wizualne Opinie. Poniższy kod składnika ustawia `isLoading` do `true` podczas `GetForecastAsync` pobiera dane z serwera. Gdy `isLoading` jest `true`, przycisk jest wyłączony w interfejsie użytkownika:
 
 ```razor
 @page "/fetchdata"
@@ -230,6 +230,8 @@ Jeśli wywołanie zwrotne zdarzenia wywołuje długotrwałą operację, taką ja
     }
 }
 ```
+
+Wzorzec Guard przedstawiony w poprzednim przykładzie działa, jeśli operacja w tle jest wykonywana asynchronicznie z wzorcem `async`-`await`.
 
 ### <a name="cancel-early-and-avoid-use-after-dispose"></a>Anuluj wczesne i Unikaj używania-After-Dispose
 

@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/03/2019
 uid: security/samesite
-ms.openlocfilehash: 988069a66cc4772583444303948bff2e47ff4310
-ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
+ms.openlocfilehash: b344ed8f539979210980b3421659207edd513f32
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74733989"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146436"
 ---
 # <a name="work-with-samesite-cookies-in-aspnet-core"></a>Pracuj z plikami cookie SameSite w ASP.NET Core
 
-Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [SameSite](https://tools.ietf.org/html/draft-west-first-party-cookies-07) jest projektem [IETF](https://ietf.org/about/) opracowanym w celu zapewnienia pewnej ochrony przed atakami na żądania bezlokacjowe (CSRF). [Wersja robocza SameSite 2019](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00):
 
@@ -36,7 +36,7 @@ Każdy składnik ASP.NET Core, który emituje pliki cookie, musi zdecydować, cz
 
 Wszystkie składniki ASP.NET Core, które emitują pliki cookie, zastępują poprzednie wartości domyślne przy użyciu ustawień odpowiednich dla ich scenariuszy. Zastąpione poprzednie wartości domyślne nie zostały zmienione.
 
-| Składnik | plików | Domyślny |
+| Składnik | cookie | Domyślny |
 | ------------- | ------------- |
 | <xref:Microsoft.AspNetCore.Http.CookieBuilder> | <xref:Microsoft.AspNetCore.Http.CookieBuilder.SameSite> | `Unspecified` |
 | <xref:Microsoft.AspNetCore.Http.HttpContext.Session>  | [SessionOptions. cookie](xref:Microsoft.AspNetCore.Builder.SessionOptions.Cookie) |`Lax` |
@@ -72,7 +72,7 @@ W ASP.NET Core 3,0 i nowszych wartości domyślnych SameSite zostały zmienione,
 
 Obsługa SameSite została najpierw zaimplementowana w ASP.NET Core w 2,0 przy użyciu [standardowego standardu 2016](https://tools.ietf.org/html/draft-west-first-party-cookies-07#section-4.1). Standard 2016 został zadecydować. ASP.NET Core wybierz opcję, ustawiając kilka plików cookie do `Lax` domyślnie. Po napotkaniu kilku [problemów](https://github.com/aspnet/Announcements/issues/318) z uwierzytelnianiem większość SameSite zostało [wyłączone](https://github.com/aspnet/Announcements/issues/348).
 
-Poprawki zostały wydane w listopadzie 2019, aby zaktualizować ze standardu 2016 do normy 2019. [Wersja robocza 2019 specyfikacji SameSite](https://github.com/aspnet/Announcements/issues/390):
+[Poprawki](https://devblogs.microsoft.com/dotnet/net-core-November-2019/) zostały wydane w listopadzie 2019, aby zaktualizować ze standardu 2016 do normy 2019. [Wersja robocza 2019 specyfikacji SameSite](https://github.com/aspnet/Announcements/issues/390):
 
 * **Nie** jest wstecznie zgodne z wersją roboczą 2016. Aby uzyskać więcej informacji, zobacz [Obsługa starszych przeglądarek](#sob) w tym dokumencie.
 * Określa, że pliki cookie są domyślnie traktowane jako `SameSite=Lax`.
@@ -168,3 +168,4 @@ Wersje elektronów obejmują starsze wersje chromu. Na przykład wersja elektron
 
 * [Blog chromu: deweloperzy: przygotowanie do nowego SameSite = none; Ustawienia bezpiecznego pliku cookie](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)
 * [Wyjaśniono pliki cookie SameSite](https://web.dev/samesite-cookies-explained/)
+* [Poprawki 2019 listopada](https://devblogs.microsoft.com/dotnet/net-core-November-2019/)

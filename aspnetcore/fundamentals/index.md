@@ -5,14 +5,14 @@ description: Poznaj podstawowe koncepcje tworzenia aplikacji ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/07/2019
+ms.date: 01/15/2020
 uid: fundamentals/index
-ms.openlocfilehash: 7173a732a04bf3e598adef298fa9120c15dd52fb
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: 3fbfc7c4c0d5e568339bc00a7cbe84a3932acf1f
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799368"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146358"
 ---
 # <a name="aspnet-core-fundamentals"></a>Podstawy ASP.NET Core
 
@@ -33,7 +33,7 @@ Oto przykładowa Klasa `Startup`:
 
 [!code-csharp[](index/snapshots/2.x/Startup1.cs?highlight=3,12)]
 
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/startup>.
+Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/startup>.
 
 ## <a name="dependency-injection-services"></a>Wstrzykiwanie zależności (usługi)
 
@@ -45,7 +45,7 @@ Oto Klasa, która używa funkcji DI do pobrania obiektu kontekstu Entity Framewo
 
 Podczas gdy program jest wbudowany, został zaprojektowany z myślą o umożliwieniu podłączenia kontenera kontroli (IoC) innej firmy.
 
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/dependency-injection>.
+Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/dependency-injection>.
 
 ## <a name="middleware"></a>Oprogramowanie pośredniczące
 
@@ -59,7 +59,7 @@ Wyróżniony kod w poniższym przykładzie konfiguruje potok obsługi żądań:
 
 ASP.NET Core zawiera rozbudowany zestaw wbudowanych programów pośredniczących i można napisać niestandardowe oprogramowanie pośredniczące.
 
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/middleware/index>.
+Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/middleware/index>.
 
 ## <a name="host"></a>Host
 
@@ -68,7 +68,7 @@ Aplikacja ASP.NET Core kompiluje *hosta* podczas uruchamiania. Host jest obiekte
 * Implementacja serwera HTTP
 * Składniki oprogramowania pośredniczącego
 * Rejestrowanie
-* FOSFORAN
+* DI
 * Konfiguracja
 
 Główną przyczyną uwzględnienia wszystkich zasobów zależnych od aplikacji w jednym obiekcie jest zarządzanie okresem istnienia: Kontrola uruchamiania aplikacji i bezpieczne zamykanie.
@@ -87,7 +87,7 @@ Metody `CreateDefaultBuilder` i `ConfigureWebHostDefaults` umożliwiają skonfig
 * Załaduj konfigurację z pliku *appSettings. JSON*, *appSettings. { Nazwa środowiska}. JSON*, zmienne środowiskowe, argumenty wiersza polecenia i inne źródła konfiguracji.
 * Wyślij dane wyjściowe rejestrowania do konsoli programu i dostawców debugowania.
 
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host>.
+Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/host/generic-host>.
 
 ::: moniker-end
 
@@ -105,7 +105,7 @@ Metoda `CreateDefaultBuilder` konfiguruje hosta z najczęściej używanymi opcja
 * Załaduj konfigurację z pliku *appSettings. JSON*, *appSettings. { Nazwa środowiska}. JSON*, zmienne środowiskowe, argumenty wiersza polecenia i inne źródła konfiguracji.
 * Wyślij dane wyjściowe rejestrowania do konsoli programu i dostawców debugowania.
 
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/web-host>.
+Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/host/web-host>.
 
 ::: moniker-end
 
@@ -131,7 +131,7 @@ ASP.NET Core udostępnia następujące implementacje serwera:
 
 ASP.NET Core udostępnia międzyplatformową implementację serwera *Kestrel* . W ASP.NET Core 2,0 lub nowszej Kestrel może być uruchamiany jako publiczny serwer graniczny uwidoczniony bezpośrednio w Internecie. Kestrel jest często uruchamiana w odwrotnej konfiguracji serwera proxy z [Nginx](https://nginx.org) lub [Apache](https://httpd.apache.org/).
 
-# <a name="linuxtablinux"></a>[System](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ASP.NET Core udostępnia międzyplatformową implementację serwera *Kestrel* . W ASP.NET Core 2,0 lub nowszej Kestrel może być uruchamiany jako publiczny serwer graniczny uwidoczniony bezpośrednio w Internecie. Kestrel jest często uruchamiana w odwrotnej konfiguracji serwera proxy z [Nginx](https://nginx.org) lub [Apache](https://httpd.apache.org/).
 
@@ -152,7 +152,7 @@ ASP.NET Core udostępnia następujące implementacje serwera:
 
 ASP.NET Core udostępnia międzyplatformową implementację serwera *Kestrel* . W ASP.NET Core 2,0 lub nowszej Kestrel może być uruchamiany jako publiczny serwer graniczny uwidoczniony bezpośrednio w Internecie. Kestrel jest często uruchamiana w odwrotnej konfiguracji serwera proxy z [Nginx](https://nginx.org) lub [Apache](https://httpd.apache.org/).
 
-# <a name="linuxtablinux"></a>[System](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ASP.NET Core udostępnia międzyplatformową implementację serwera *Kestrel* . W ASP.NET Core 2,0 lub nowszej Kestrel może być uruchamiany jako publiczny serwer graniczny uwidoczniony bezpośrednio w Internecie. Kestrel jest często uruchamiana w odwrotnej konfiguracji serwera proxy z [Nginx](https://nginx.org) lub [Apache](https://httpd.apache.org/).
 
@@ -160,7 +160,7 @@ ASP.NET Core udostępnia międzyplatformową implementację serwera *Kestrel* . 
 
 ::: moniker-end
 
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/servers/index>.
+Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/servers/index>.
 
 ## <a name="configuration"></a>Konfiguracja
 
@@ -170,7 +170,7 @@ Można na przykład określić, że konfiguracja pochodzi z pliku *appSettings. 
 
 Aby zarządzać poufnymi danymi konfiguracyjnymi, takimi jak hasła, ASP.NET Core zapewnia [Narzędzie tajnego Menedżera](xref:security/app-secrets). W przypadku wpisów tajnych produkcji zalecamy [Azure Key Vault](xref:security/key-vault-configuration).
 
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/index>.
+Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/configuration/index>.
 
 ## <a name="options"></a>Opcje
 
@@ -187,9 +187,9 @@ var options = new WebSocketOptions
 app.UseWebSockets(options);
 ```
 
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/options>.
+Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/configuration/options>.
 
-## <a name="environments"></a>Wiejski
+## <a name="environments"></a>Środowiska
 
 Środowiska wykonawcze, takie jak *programowanie*, *przemieszczanie*i *produkcja*, są pierwszą klasą koncepcji w ASP.NET Core. Aby określić środowisko, w którym działa aplikacja, należy ustawić zmienną środowiskową `ASPNETCORE_ENVIRONMENT`. ASP.NET Core odczytuje tę zmienną środowiskową przy uruchamianiu aplikacji i zapisuje wartość w implementacji `IHostingEnvironment`. Obiekt środowiska jest dostępny w dowolnym miejscu w aplikacji za pomocą funkcji DI.
 
@@ -197,19 +197,19 @@ Następujący przykładowy kod z klasy `Startup` konfiguruje aplikację w celu d
 
 [!code-csharp[](index/snapshots/2.x/Startup2.cs?highlight=3-6)]
 
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/environments>.
+Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/environments>.
 
 ## <a name="logging"></a>Rejestrowanie
 
 ASP.NET Core obsługuje interfejs API rejestrowania, który współpracuje z różnymi dostawcami rejestrowania wbudowanych i innych firm. Dostępne są następujące dostawcy:
 
-* Konsola
+* Konsola programu
 * Debugowanie
 * Śledzenie zdarzeń w systemie Windows
 * Dziennik zdarzeń systemu Windows
 * TraceSource
 * Azure App Service
-* Application Insights platformy Azure
+* Azure Application Insights
 
 Zapisuj dzienniki z dowolnego miejsca w kodzie aplikacji, pobierając `ILogger` obiekt z metod rejestrowania i wywoływania.
 
@@ -219,24 +219,24 @@ Poniżej przedstawiono przykładowy kod, który używa obiektu `ILogger`, z inie
 
 Interfejs `ILogger` umożliwia przekazanie dowolnej liczby pól dostawcy rejestrowania. Pola są często używane do konstruowania ciągu komunikatu, ale dostawcy mogą również wysyłać je jako oddzielne pola do magazynu danych. Ta funkcja umożliwia dostawcom rejestrowania implementowanie [rejestrowania semantycznego, znanego również jako rejestrowanie strukturalne](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/logging/index>.
+Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/logging/index>.
 
 ## <a name="routing"></a>Routing
 
 *Trasa* jest WZORCEM adresu URL, który jest mapowany do procedury obsługi. Procedura obsługi jest zazwyczaj stroną Razor, metodą akcji w kontrolerze MVC lub w oprogramowaniu pośredniczącym. Routing ASP.NET Core zapewnia kontrolę nad adresami URL używanymi przez aplikację.
 
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/routing>.
+Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/routing>.
 
 ## <a name="error-handling"></a>Obsługa błędów
 
 ASP.NET Core ma wbudowane funkcje do obsługi błędów, takie jak:
 
 * Strona wyjątków dla deweloperów
-* Niestandardowe strony błędów
+* Strony błędów niestandardowych
 * Statyczne strony kodów stanu
 * Obsługa wyjątków uruchamiania
 
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/error-handling>.
+Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/error-handling>.
 
 ## <a name="make-http-requests"></a>Zgłaszanie żądań HTTP
 
@@ -248,7 +248,7 @@ Implementacja `IHttpClientFactory` jest dostępna do tworzenia wystąpień `Http
 * Zarządza buforowaniem i okresem istnienia podstawowych wystąpień `HttpClientMessageHandler`, aby uniknąć typowych problemów z usługą DNS występujących podczas ręcznego zarządzania `HttpClient` okresów istnienia.
 * Dodaje konfigurowalne środowisko rejestrowania (za pośrednictwem `ILogger`) dla wszystkich żądań wysyłanych przez klientów utworzonych przez fabrykę.
 
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/http-requests>.
+Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/http-requests>.
 
 ## <a name="content-root"></a>Katalog główny zawartości
 
@@ -271,13 +271,13 @@ Podczas tworzenia:
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Alternatywna ścieżka katalogu głównego zawartości może być określona podczas [kompilowania hosta](#host). Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host#contentrootpath>.
+Alternatywna ścieżka katalogu głównego zawartości może być określona podczas [kompilowania hosta](#host). Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/host/generic-host#contentrootpath>.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-Alternatywna ścieżka katalogu głównego zawartości może być określona podczas [kompilowania hosta](#host). Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/web-host#content-root>.
+Alternatywna ścieżka katalogu głównego zawartości może być określona podczas [kompilowania hosta](#host). Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/host/web-host#content-root>.
 
 ::: moniker-end
 
@@ -293,7 +293,7 @@ Pliki statyczne są obsługiwane domyślnie tylko z katalogu głównego (i katal
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Ścieżka katalogu głównego sieci Web jest domyślnie ustawiona na *{Content root}/wwwroot*, ale podczas [kompilowania hosta](#host)można określić inny katalog internetowy w sieci Web. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/generic-host#webroot>.
+Ścieżka katalogu głównego sieci Web jest domyślnie ustawiona na *{Content root}/wwwroot*, ale podczas [kompilowania hosta](#host)można określić inny katalog internetowy w sieci Web. Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/host/generic-host#webroot>.
 
 ::: moniker-end
 
@@ -311,6 +311,12 @@ Zapobiegaj publikowaniu plików w pliku *wwwroot* przy użyciu [elementu projekt
 </ItemGroup>
 ```
 
+::: moniker range=">= aspnetcore-3.0"
+
+Aby zapobiec publikowaniu zasobów tożsamości statycznej do katalogu głównego sieci Web, zobacz <xref:security/authentication/identity#prevent-publish-of-static-identity-assets>.
+
+::: moniker-end
+
 W plikach Razor ( *. cshtml*), ukośnik (`~/`) wskazuje na katalog główny sieci Web. Ścieżka rozpoczynająca się od `~/` jest nazywana *ścieżką wirtualną*.
 
-Aby uzyskać więcej informacji, zobacz <xref:fundamentals/static-files>.
+Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/static-files>.
