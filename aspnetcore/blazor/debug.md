@@ -2,19 +2,20 @@
 title: Debuguj ASP.NET Core Blazor
 author: guardrex
 description: Dowiedz się, jak debugować aplikacje Blazor.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 01/16/2020
 no-loc:
 - Blazor
+- SignalR
 uid: blazor/debug
-ms.openlocfilehash: 3096ad9b3a6904804f239d61f374adcd4d851978
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 1b0035af48b82807a6ae14835a41a1ecbef06bb6
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963145"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76159992"
 ---
 # <a name="debug-aspnet-core-opno-locblazor"></a>Debuguj ASP.NET Core Blazor
 
@@ -22,18 +23,21 @@ ms.locfileid: "73963145"
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Istnieje *wczesna* pomoc techniczna dla debugowania Blazor aplikacje webassembly działające w zestawie webassembly w przeglądarce Chrome.
+Istnieje *wczesna* obsługa debugowania Blazor webassembly przy użyciu narzędzi deweloperskich przeglądarki w przeglądarkach opartych na chromie (Chrome/Edge). Prace są w toku do:
+
+* W pełni Włącz debugowanie w programie Visual Studio.
+* Włącz debugowanie w Visual Studio Code.
 
 Możliwości debugera są ograniczone. Dostępne scenariusze obejmują:
 
 * Ustawianie i usuwanie punktów przerwania.
-* Pojedynczy krok (`F10`) przez wykonanie kodu lub wznowienie (`F8`).
-* Na ekranie *Ustawienia lokalne* Obserwuj wartości wszelkich zmiennych lokalnych typu `int`, `string` i `bool`.
+* Pojedynczy krok (`F10`) za pomocą kodu lub wznowienia kodu (`F8`).
+* Na ekranie *Ustawienia lokalne* Obserwuj wartości wszelkich zmiennych lokalnych typu `int`, `string`i `bool`.
 * Zobacz stos wywołań, w tym łańcuchy wywołań, które pochodzą z języka JavaScript do platformy .NET i z programu .NET do języka JavaScript.
 
 *Nie*można:
 
-* Zwróć uwagę na wartości dowolnych ustawień regionalnych, które nie są `int`, `string` lub `bool`.
+* Obserwuj wartości dowolnych elementów lokalnych, które nie są `int`, `string`lub `bool`.
 * Obserwuj wartości właściwości lub pól klas.
 * Umieść kursor nad zmiennymi, aby zobaczyć ich wartości.
 * Oceń wyrażenia w konsoli programu.
@@ -51,16 +55,54 @@ Debugowanie wymaga jednej z następujących przeglądarek:
 
 ## <a name="procedure"></a>Procedura
 
-1. Uruchom aplikację Blazor webassembly w `Debug` Configuration. Przekaż opcję `--configuration Debug` do polecenia [Run dotnet](/dotnet/core/tools/dotnet-run) : `dotnet run --configuration Debug`.
-1. Uzyskaj dostęp do aplikacji w przeglądarce.
-1. Umieść fokus klawiatury w aplikacji, a nie na panelu Narzędzia deweloperskie. Po zainicjowaniu debugowania można zamknąć panel Narzędzia deweloperskie.
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+> [!WARNING]
+> Obsługa debugowania w programie Visual Studio jest wczesnym etapem opracowywania. Debugowanie **F5** nie jest obecnie obsługiwane.
+
+1. Uruchom aplikację Blazor webassembly w konfiguracji `Debug` bez debugowania (**Ctrl**+**F5** zamiast **F5**).
+1. Otwórz właściwości debugowania aplikacji (ostatni wpis w menu **debugowanie** ) i skopiuj **adres URL aplikacji**http. Przejdź do adresu HTTP (nie adresu HTTPS) aplikacji przy użyciu przeglądarki opartej na formacie chrom (Edge beta lub Chrome).
+1. Umieść fokus klawiatury w aplikacji w oknie przeglądarki, a nie na panelu Narzędzia deweloperskie. Najlepiej jest pozostawić zamkniętą panel Narzędzia deweloperskie w celu wykonania tej procedury. Po rozpoczęciu debugowania możesz ponownie otworzyć panel Narzędzia deweloperskie.
 1. Wybierz następujący Blazorskrót klawiaturowy:
-   * `Shift+Alt+D` w systemie Windows/Linux
+
+   * `Shift+Alt+D` w systemie Windows
    * `Shift+Cmd+D` w macOS
-1. Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie, aby ponownie uruchomić przeglądarkę z włączonym debugowaniem zdalnym.
-1. Ponownie wybierz następujący skrót klawiaturowy dla Blazor, aby rozpocząć sesję debugowania:
-   * `Shift+Alt+D` w systemie Windows/Linux
+
+   Jeśli zostanie wyświetlony komunikat **nie można znaleźć karty możliwością debugowania Browser**, zobacz [Włączanie debugowania zdalnego](#enable-remote-debugging).
+   
+   Po włączeniu debugowania zdalnego:
+   
+   1\. Zostanie otwarte nowe okno przeglądarki. Zamknij poprzednie okno.
+
+   2\. Umieść fokus klawiatury w aplikacji w oknie przeglądarki.
+
+   3 \. Wybierz skrót klawiaturowy określony Blazorw nowym oknie przeglądarki: `Shift+Alt+D` w systemie Windows lub `Shift+Cmd+D` na macOS.
+
+   4\. Zostanie otwarta karta **devtools** w przeglądarce. **Wybierz kartę aplikacji w oknie przeglądarki.**
+
+   Aby dołączyć aplikację do programu Visual Studio, zobacz sekcję [dołączanie do procesu w programie Visual Studio](#attach-to-process-in-visual-studio) .
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
+
+1. Uruchom Blazor aplikację webassembly w konfiguracji `Debug`, przekazując opcję `--configuration Debug` do polecenia [Run dotnet](/dotnet/core/tools/dotnet-run) : `dotnet run --configuration Debug`.
+1. Przejdź do aplikacji w adresie URL protokołu HTTP pokazanej w oknie powłoki.
+1. Umieść fokus klawiatury w aplikacji, a nie na panelu Narzędzia deweloperskie. Najlepiej jest pozostawić zamkniętą panel Narzędzia deweloperskie w celu wykonania tej procedury. Po rozpoczęciu debugowania możesz ponownie otworzyć panel Narzędzia deweloperskie.
+1. Wybierz następujący Blazorskrót klawiaturowy:
+
+   * `Shift+Alt+D` w systemie Windows
    * `Shift+Cmd+D` w macOS
+
+   Jeśli zostanie wyświetlony komunikat **nie można znaleźć karty możliwością debugowania Browser**, zobacz [Włączanie debugowania zdalnego](#enable-remote-debugging).
+   
+   Po włączeniu debugowania zdalnego:
+   
+   1\. Zostanie otwarte nowe okno przeglądarki. Zamknij poprzednie okno.
+
+   2\. Umieść fokus klawiatury w aplikacji w oknie przeglądarki, a nie na panelu Narzędzia deweloperskie.
+
+   3 \. Wybierz skrót klawiaturowy określony Blazorw nowym oknie przeglądarki: `Shift+Alt+D` w systemie Windows lub `Shift+Cmd+D` na macOS.
+
+---
 
 ## <a name="enable-remote-debugging"></a>Włącz debugowanie zdalne
 
@@ -68,15 +110,28 @@ Jeśli debugowanie zdalne jest wyłączone, **nie można odnaleźć strony błę
 
 ## <a name="debug-the-app"></a>Debugowanie aplikacji
 
-Gdy program Chrome jest uruchomiony z włączonym debugowaniem zdalnym, skrót klawiaturowy debugowania otwiera nową kartę debugera. Po chwili na karcie **źródła** zostanie wyświetlona lista zestawów .NET w aplikacji. Rozwiń każdy zestaw i Znajdź plik *. cs*/ *.* pliki źródłowe Razor dostępne do debugowania. Ustaw punkty przerwania, przełącz się z powrotem do karty aplikacji, a punkty przerwania są trafień, gdy kod jest wykonywany. Po trafieniu punktu przerwania pojedynczy krok (`F10`) za pomocą kodu lub wznowienia kodu (`F8`) normalnie.
+Gdy program Chrome jest uruchomiony z włączonym debugowaniem zdalnym, skrót klawiaturowy debugowania otwiera nową kartę debugera. Po chwili na karcie **źródła** zostanie wyświetlona lista zestawów .NET w aplikacji. Rozwiń każdy zestaw i Znajdź *pliki źródłowe/.* *CS* dostępne do debugowania. Ustaw punkty przerwania, przełącz się z powrotem do karty aplikacji, a punkty przerwania są trafień, gdy kod jest wykonywany. Po trafieniu punktu przerwania pojedynczy krok (`F10`) za pomocą kodu lub wznowienia kodu (`F8`) normalnie.
 
 Blazor udostępnia serwer proxy debugowania, który implementuje [Protokół Chrome devtools](https://chromedevtools.github.io/devtools-protocol/) i rozszerza protokół z. Informacje specyficzne dla sieci. Podczas naciskania skrótu klawiaturowego, Blazor wskazywał DevTools na serwerze proxy. Serwer proxy nawiązuje połączenie z oknem przeglądarki, które próbujesz debugować (w związku z tym trzeba włączyć debugowanie zdalne).
+
+## <a name="attach-to-process-in-visual-studio"></a>Dołącz do procesu w programie Visual Studio
+
+Dołączanie do procesu aplikacji w programie Visual Studio jest *tymczasowym* scenariuszem debugowania dla Blazor webassembly, podczas gdy debugowanie **F5** jest w trakcie projektowania.
+
+Aby dołączyć proces uruchomionej aplikacji do programu Visual Studio:
+
+1. W programie Visual Studio wybierz kolejno opcje **debuguj** > **Dołącz do procesu**.
+1. W polu **Typ połączenia**wybierz pozycję **Chrome devtools Protocol WebSocket (bez uwierzytelniania)** .
+1. W przypadku **celu połączenia**Wklej adres http (nie adres https) aplikacji.
+1. Wybierz pozycję **Odśwież** , aby odświeżyć wpisy w obszarze **dostępne procesy**.
+1. Wybierz proces przeglądarki do debugowania i wybierz pozycję **Dołącz**.
+1. W oknie dialogowym **Wybieranie typu kodu** wybierz typ kodu dla konkretnej przeglądarki, do której dołączasz (Edge lub Chrome), a następnie wybierz **przycisk OK**.
 
 ## <a name="browser-source-maps"></a>Mapy źródeł przeglądarki
 
 Mapy źródeł przeglądarki umożliwiają przeglądarce mapowanie skompilowanych plików z powrotem do ich oryginalnych plików źródłowych i są często używane do debugowania po stronie klienta. Jednak Blazor nie są obecnie mapowane C# bezpośrednio do języka JavaScript/WASM. Zamiast tego Blazor wykonuje interpretację IL w przeglądarce, dlatego mapy źródłowe nie są istotne.
 
-## <a name="troubleshooting-tip"></a>Porady dotyczące rozwiązywania problemów
+## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
 Jeśli występują błędy, Poniższa Wskazówka może pomóc:
 

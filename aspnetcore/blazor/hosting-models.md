@@ -2,20 +2,21 @@
 title: ASP.NET Core Blazor modele hostingowe
 author: guardrex
 description: Informacje na temat Blazor modeli hostingu i Blazor Server.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
 - SignalR
+- blazor.webassembly.js
 uid: blazor/hosting-models
-ms.openlocfilehash: 7676d16bddf146ea38619ed35c5e32c5bce731de
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: c9521acf40317c90d1197660bfa516710263cfc9
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74943774"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160044"
 ---
 # <a name="aspnet-core-opno-locblazor-hosting-models"></a>ASP.NET Core Blazor modele hostingowe
 
@@ -37,7 +38,7 @@ Aby utworzyć aplikację Blazor przy użyciu modelu hostingu po stronie klienta,
 
 Po wybraniu szablonu **aplikacjiBlazor webassembly** można skonfigurować aplikację do korzystania z zaplecza ASP.NET Core, zaznaczając pole wyboru **hostowane w ASP.NET Core** ([Nowy blazorwasm--Hosted](/dotnet/core/tools/dotnet-new)). Aplikacja ASP.NET Core obsługuje klientów Blazor aplikacji. Aplikacja webassembly Blazor może współdziałać z serwerem za pośrednictwem sieci przy użyciu wywołań interfejsu API sieci Web lub [SignalR](xref:signalr/introduction).
 
-Szablony obejmują skrypt *blazor. webassembly. js* , który obsługuje:
+Szablony obejmują skrypt `blazor.webassembly.js`, który obsługuje:
 
 * Pobieranie środowiska uruchomieniowego platformy .NET, aplikacji i zależności aplikacji.
 * Inicjowanie środowiska uruchomieniowego w celu uruchomienia aplikacji.
@@ -56,7 +57,7 @@ Istnieją downsides Blazor hostingu zestawu webassembly:
 * Rozmiar pobieranych plików jest większy i ładowanie aplikacji trwa dłużej.
 * Środowisko uruchomieniowe platformy .NET i obsługa narzędzi są mniej dojrzałe. Na przykład istnieją ograniczenia dotyczące obsługi [.NET Standard](/dotnet/standard/net-standard) i debugowania.
 
-## <a name="opno-locblazor-server"></a>Serwer programu Blazor
+## <a name="opno-locblazor-server"></a>Serwer Blazor
 
 W modelu hostingu serwera Blazor aplikacja jest wykonywana na serwerze z poziomu aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika, obsługa zdarzeń i wywołania języka JavaScript są obsługiwane przez połączenie [SignalR](xref:signalr/introduction) .
 
@@ -69,7 +70,7 @@ Aplikacja ASP.NET Core odwołuje się do klasy `Startup` aplikacji do dodania:
 * Usługi po stronie serwera.
 * Aplikacja do potoku obsługi żądania.
 
-Skrypt *blazor. Server. js*&dagger; nawiązuje połączenie z klientem. Jest on odpowiedzialny za utrzymanie i przywrócenie stanu aplikacji zgodnie z wymaganiami (na przykład w przypadku utraconego połączenia sieciowego).
+Skrypt `blazor.server.js`&dagger; nawiązuje połączenie z klientem. Jest on odpowiedzialny za utrzymanie i przywrócenie stanu aplikacji zgodnie z wymaganiami (na przykład w przypadku utraconego połączenia sieciowego).
 
 Model hostingu serwera Blazor oferuje kilka korzyści:
 
@@ -86,7 +87,7 @@ Istnieją downsides Blazor hostingu serwera:
 * Skalowalność jest wyzwaniem dla aplikacji z wieloma użytkownikami. Serwer musi zarządzać wieloma połączeniami klientów i obsługiwać stan klienta.
 * Do obsłużynia aplikacji wymagany jest serwer ASP.NET Core. Scenariusze wdrażania bez użycia serwera nie są możliwe (na przykład w celu obsługi aplikacji z sieci CDN).
 
-&dagger;skrypt *blazor. Server. js* jest obsługiwany z zasobów osadzonych w ASP.NET Core współdzielonej platformie.
+&dagger;skrypt `blazor.server.js` jest obsługiwany z zasobów osadzonych w ASP.NET Core udostępnionej platformie.
 
 ### <a name="comparison-to-server-rendered-ui"></a>Porównanie z renderowanym przez serwer interfejsem użytkownika
 
@@ -110,6 +111,187 @@ Aktualizacja interfejsu użytkownika w Blazor jest wyzwalana przez:
 Wykres jest ponownie renderowany i obliczana *jest różnica między interfejsami* użytkownika. Różnica ta jest najmniejszym zestawem zmian modelu DOM wymaganym do zaktualizowania interfejsu użytkownika na kliencie. Różnica jest wysyłana do klienta w formacie binarnym i stosowana przez przeglądarkę.
 
 Składnik jest usuwany po przejściu przez użytkownika na klienta. Gdy użytkownik korzysta ze składnika, stan składnika (usługi, zasoby) musi być przechowywany w pamięci serwera. Ponieważ stan wielu składników może być obsługiwany przez serwer współbieżnie, wyczerpanie pamięci jest problemem, który należy rozwiązać. Aby uzyskać wskazówki dotyczące sposobu tworzenia aplikacji serwera Blazor w celu zapewnienia optymalnego wykorzystania pamięci serwera, zobacz <xref:security/blazor/server>.
+
+### <a name="integrate-razor-components-into-razor-pages-and-mvc-apps"></a>Integrowanie składników Razor z aplikacjami Razor Pages i MVC
+
+#### <a name="use-components-in-pages-and-views"></a>Używanie składników na stronach i widokach
+
+Istniejąca aplikacja Razor Pages lub MVC może zintegrować składniki Razor ze stronami i widokami:
+
+1. W pliku układu aplikacji ( *_Layout. cshtml*):
+
+   * Dodaj następujący tag `<base>` do elementu `<head>`:
+
+     ```html
+     <base href="~/" />
+     ```
+
+     Wartość `href` ( *Ścieżka podstawowa aplikacji*) w poprzednim przykładzie założono, że aplikacja znajduje się w ścieżce adresu URL katalogu głównego (`/`). Jeśli aplikacja jest aplikacją podrzędną, postępuj zgodnie ze wskazówkami w sekcji *Ścieżka podstawowa aplikacji* w artykule <xref:host-and-deploy/blazor/index#app-base-path>.
+
+     Plik *_Layout. cshtml* znajduje się w folderze *Pages/shared* w aplikacji Razor Pages lub *widokach/folderze udostępnionym* w aplikacji MVC.
+
+   * Dodaj tag `<script>` dla skryptu *blazor. Server. js* wewnątrz tagu zamykającego `</body>`:
+
+     ```html
+     <script src="_framework/blazor.server.js"></script>
+     ```
+
+     Struktura dodaje skrypt *blazor. Server. js* do aplikacji. Nie trzeba ręcznie dodawać skryptu do aplikacji.
+
+1. Dodaj plik *_Imports. Razor* do folderu głównego projektu o następującej zawartości (Zmień ostatnią przestrzeń nazw, `MyAppNamespace`, na przestrzeń nazw aplikacji):
+
+   ```csharp
+   @using System.Net.Http
+   @using Microsoft.AspNetCore.Authorization
+   @using Microsoft.AspNetCore.Components.Authorization
+   @using Microsoft.AspNetCore.Components.Forms
+   @using Microsoft.AspNetCore.Components.Routing
+   @using Microsoft.AspNetCore.Components.Web
+   @using Microsoft.JSInterop
+   @using MyAppNamespace
+   ```
+
+1. W `Startup.ConfigureServices`Dodaj usługę Blazor Server:
+
+   ```csharp
+   services.AddServerSideBlazor();
+   ```
+
+1. W `Startup.Configure`Dodaj punkt końcowy centrum Blazor do `app.UseEndpoints`:
+
+   ```csharp
+   endpoints.MapBlazorHub();
+   ```
+
+1. Integruj składniki na dowolną stronę lub widok. Aby uzyskać więcej informacji, zobacz sekcję *integrowanie składników w Razor Pages i aplikacje MVC* w artykule <xref:blazor/components#integrate-components-into-razor-pages-and-mvc-apps>.
+
+#### <a name="use-routable-components-in-a-razor-pages-app"></a>Używanie składników rutowanych w aplikacji Razor Pages
+
+Aby obsługiwać Routing składników Razor w aplikacjach Razor Pages:
+
+1. Postępuj zgodnie ze wskazówkami zawartymi w sekcji [Używanie składników w stronach i widokach](#use-components-in-pages-and-views) .
+
+1. Dodaj plik *App. Razor* do katalogu głównego projektu z następującą zawartością:
+
+   ```razor
+   @using Microsoft.AspNetCore.Components.Routing
+
+   <Router AppAssembly="typeof(Program).Assembly">
+       <Found Context="routeData">
+           <RouteView RouteData="routeData" />
+       </Found>
+       <NotFound>
+           <h1>Page not found</h1>
+           <p>Sorry, but there's nothing here!</p>
+       </NotFound>
+   </Router>
+   ```
+
+1. Dodaj plik *_Host. cshtml* do folderu *stron* o następującej zawartości:
+
+   ```cshtml
+   @page "/blazor"
+   @{
+       Layout = "_Layout";
+   }
+
+   <app>
+       <component type="typeof(App)" render-mode="ServerPrerendered" />
+   </app>
+   ```
+
+   Składniki używają udostępnionego pliku *_Layout. cshtml* dla ich układu.
+
+1. Dodaj trasę o niskim priorytecie dla strony *_Host. cshtml* do konfiguracji punktu końcowego w `Startup.Configure`:
+
+   ```csharp
+   app.UseEndpoints(endpoints =>
+   {
+       ...
+
+       endpoints.MapFallbackToPage("/_Host");
+   });
+   ```
+
+1. Dodaj składniki routingu do aplikacji. Na przykład:
+
+   ```razor
+   @page "/counter"
+
+   <h1>Counter</h1>
+
+   ...
+   ```
+
+   W przypadku używania folderu niestandardowego do przechowywania składników aplikacji należy dodać przestrzeń nazw reprezentującą folder do pliku *Pages/_ViewImports. cshtml* . Aby uzyskać więcej informacji, zobacz temat <xref:blazor/components#integrate-components-into-razor-pages-and-mvc-apps>.
+
+#### <a name="use-routable-components-in-an-mvc-app"></a>Używanie składników rutowanych w aplikacji MVC
+
+Aby zapewnić obsługę routingu składników Razor w aplikacjach MVC:
+
+1. Postępuj zgodnie ze wskazówkami zawartymi w sekcji [Używanie składników w stronach i widokach](#use-components-in-pages-and-views) .
+
+1. Dodaj plik *App. Razor* do katalogu głównego projektu z następującą zawartością:
+
+   ```razor
+   @using Microsoft.AspNetCore.Components.Routing
+
+   <Router AppAssembly="typeof(Program).Assembly">
+       <Found Context="routeData">
+           <RouteView RouteData="routeData" />
+       </Found>
+       <NotFound>
+           <h1>Page not found</h1>
+           <p>Sorry, but there's nothing here!</p>
+       </NotFound>
+   </Router>
+   ```
+
+1. Dodaj plik *_Host. cshtml* do folderu *widoki/główne* z następującą zawartością:
+
+   ```cshtml
+   @{
+       Layout = "_Layout";
+   }
+
+   <app>
+       <component type="typeof(App)" render-mode="ServerPrerendered" />
+   </app>
+   ```
+
+   Składniki używają udostępnionego pliku *_Layout. cshtml* dla ich układu.
+
+1. Dodaj akcję do kontrolera macierzystego:
+
+   ```csharp
+   public IActionResult Blazor()
+   {
+      return View("_Host");
+   }
+   ```
+
+1. Dodaj trasę o niskim priorytecie dla akcji kontrolera, która zwraca widok *_Host. cshtml* do konfiguracji punktu końcowego w `Startup.Configure`:
+
+   ```csharp
+   app.UseEndpoints(endpoints =>
+   {
+       ...
+
+       endpoints.MapFallbackToController("Blazor", "Home");
+   });
+   ```
+
+1. Utwórz folder *strony* i Dodaj składniki do obsługi routingu do aplikacji. Na przykład:
+
+   ```razor
+   @page "/counter"
+
+   <h1>Counter</h1>
+
+   ...
+   ```
+
+   W przypadku używania folderu niestandardowego do przechowywania składników aplikacji należy dodać przestrzeń nazw reprezentującą folder do pliku *views/_ViewImports. cshtml* . Aby uzyskać więcej informacji, zobacz temat <xref:blazor/components#integrate-components-into-razor-pages-and-mvc-apps>.
 
 ### <a name="circuits"></a>Elektrycznych
 
@@ -169,8 +351,6 @@ W poniższej tabeli opisano klasy CSS stosowane do elementu `components-reconnec
 
 aplikacje serwera Blazor są domyślnie skonfigurowane, aby wyrównać interfejs użytkownika na serwerze przed nawiązaniem połączenia z serwerem. Ta konfiguracja jest ustawiana na stronie *_Host. cshtml* Razor:
 
-::: moniker range=">= aspnetcore-3.1"
-
 ```cshtml
 <body>
     <app>
@@ -181,44 +361,16 @@ aplikacje serwera Blazor są domyślnie skonfigurowane, aby wyrównać interfejs
 </body>
 ```
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.1"
-
-```cshtml
-<body>
-    <app>@(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))</app>
-
-    <script src="_framework/blazor.server.js"></script>
-</body>
-```
-
-::: moniker-end
-
 `RenderMode` określa, czy składnik:
 
 * Jest wstępnie renderowany na stronie.
 * Jest renderowany jako statyczny kod HTML na stronie lub zawiera informacje niezbędne do uruchomienia Blazor aplikacji z poziomu agenta użytkownika.
-
-::: moniker range=">= aspnetcore-3.1"
 
 | `RenderMode`        | Opis |
 | ------------------- | ----------- |
 | `ServerPrerendered` | Renderuje składnik do statycznego kodu HTML i zawiera znacznik dla aplikacji serwera Blazor. Po uruchomieniu agenta użytkownika ten znacznik jest używany do uruchamiania aplikacji Blazor. |
 | `Server`            | Renderuje znacznik dla aplikacji serwera Blazor. Dane wyjściowe ze składnika nie są uwzględniane. Po uruchomieniu agenta użytkownika ten znacznik jest używany do uruchamiania aplikacji Blazor. |
 | `Static`            | Renderuje składnik do statycznego kodu HTML. |
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.1"
-
-| `RenderMode`        | Opis |
-| ------------------- | ----------- |
-| `ServerPrerendered` | Renderuje składnik do statycznego kodu HTML i zawiera znacznik dla aplikacji serwera Blazor. Po uruchomieniu agenta użytkownika ten znacznik jest używany do uruchamiania aplikacji Blazor. Parametry nie są obsługiwane. |
-| `Server`            | Renderuje znacznik dla aplikacji serwera Blazor. Dane wyjściowe ze składnika nie są uwzględniane. Po uruchomieniu agenta użytkownika ten znacznik jest używany do uruchamiania aplikacji Blazor. Parametry nie są obsługiwane. |
-| `Static`            | Renderuje składnik do statycznego kodu HTML. Parametry są obsługiwane. |
-
-::: moniker-end
 
 Renderowanie składników serwera ze statyczną stroną HTML nie jest obsługiwane.
 
@@ -290,8 +442,6 @@ Gdy renderuje stronę lub widok:
 
 Następująca strona Razor renderuje składnik `Counter`:
 
-::: moniker range=">= aspnetcore-3.1"
-
 ```cshtml
 <h1>My Razor Page</h1>
 
@@ -304,28 +454,9 @@ Następująca strona Razor renderuje składnik `Counter`:
 }
 ```
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.1"
-
-```cshtml
-<h1>My Razor Page</h1>
-
-@(await Html.RenderComponentAsync<Counter>(RenderMode.ServerPrerendered))
-
-@code {
-    [BindProperty(SupportsGet=true)]
-    public int InitialValue { get; set; }
-}
-```
-
-::: moniker-end
-
 ### <a name="render-noninteractive-components-from-razor-pages-and-views"></a>Renderuj nieinteraktywne składniki ze stron Razor i widoków
 
 Na poniższej stronie Razor składnik `Counter` jest renderowany statycznie z wartością początkową określoną przy użyciu formularza:
-
-::: moniker range=">= aspnetcore-3.1"
 
 ```cshtml
 <h1>My Razor Page</h1>
@@ -344,29 +475,6 @@ Na poniższej stronie Razor składnik `Counter` jest renderowany statycznie z wa
 }
 ```
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.1"
-
-```cshtml
-<h1>My Razor Page</h1>
-
-<form>
-    <input type="number" asp-for="InitialValue" />
-    <button type="submit">Set initial value</button>
-</form>
-
-@(await Html.RenderComponentAsync<Counter>(RenderMode.Static, 
-    new { InitialValue = InitialValue }))
-
-@code {
-    [BindProperty(SupportsGet=true)]
-    public int InitialValue { get; set; }
-}
-```
-
-::: moniker-end
-
 Ponieważ `MyComponent` jest renderowany statycznie, składnik nie może być interaktywny.
 
 ### <a name="detect-when-the-app-is-prerendering"></a>Wykryj, kiedy aplikacja jest przedrenderowana
@@ -379,7 +487,7 @@ Czasami trzeba skonfigurować klienta SignalR używanego przez aplikacje Blazor 
 
 Aby skonfigurować klienta SignalR w pliku *Pages/_Host. cshtml* :
 
-* Dodaj atrybut `autostart="false"` do tagu `<script>` dla skryptu *blazor. Server. js* .
+* Dodaj atrybut `autostart="false"` do tagu `<script>` dla skryptu `blazor.server.js`.
 * Wywołaj `Blazor.start` i przekaż obiekt konfiguracji, który określa SignalR konstruktora.
 
 ```html

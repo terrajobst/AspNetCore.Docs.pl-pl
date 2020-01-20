@@ -2,28 +2,26 @@
 title: Obsługa błędów w aplikacjach Blazor ASP.NET Core
 author: guardrex
 description: Odkryj, jak ASP.NET Core Blazor sposób, w jaki Blazor zarządza nieobsługiwanymi wyjątkami i jak opracowywać aplikacje wykrywające i obsługujące błędy.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: d73eb9a0dd0ec7a4bec4b7b9aeaaa4a9ee888bce
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: fe4cc13b1efb8c70c9632f032626aa938fb65ea3
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74943709"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76159953"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>Obsługa błędów w aplikacjach Blazor ASP.NET Core
 
 [Steve Sanderson](https://github.com/SteveSandersonMS)
 
 W tym artykule opisano sposób, w jaki Blazor zarządza nieobsługiwanymi wyjątkami i jak opracowywać aplikacje wykrywające i obsługujące błędy.
-
-::: moniker range=">= aspnetcore-3.1"
 
 ## <a name="detailed-errors-during-development"></a>Szczegóły błędów podczas opracowywania
 
@@ -58,8 +56,6 @@ W aplikacji serwera Blazor Dostosuj środowisko w pliku *Pages/_Host. cshtml* :
 ```
 
 Element `blazor-error-ui` jest ukryty przez style dołączone do Blazor szablonów, a następnie pokazywany w przypadku wystąpienia błędu.
-
-::: moniker-end
 
 ## <a name="how-the-opno-locblazor-framework-reacts-to-unhandled-exceptions"></a>Jak struktura Blazor reaguje na Nieobsłużone wyjątki
 
@@ -213,8 +209,6 @@ Gdy obwód kończy się, ponieważ użytkownik odłączył się i struktura czy�
 
 ### <a name="prerendering"></a>Renderowanie prerenderingu
 
-::: moniker range=">= aspnetcore-3.1"
-
 składniki Blazor mogą być wstępnie renderowane przy użyciu pomocnika tagów `Component`, tak że renderowane znaczniki HTML są zwracane jako część początkowego żądania HTTP użytkownika. Działa to w następujący sposób:
 
 * Tworzenie nowego obwodu dla wszystkich wstępnie renderowanych składników, które są częścią tej samej strony.
@@ -229,27 +223,6 @@ Jeśli jakikolwiek składnik zgłasza nieobsłużony wyjątek podczas renderowan
 W normalnych warunkach w przypadku niepowodzenia wstępnego renderowania kontynuowanie kompilowania i renderowania składnika nie ma sensu, ponieważ nie można renderować składnika roboczego.
 
 Aby tolerować błędy, które mogą wystąpić podczas renderowania prerenderingu, logika obsługi błędów musi być umieszczona wewnątrz składnika, który może zgłaszać wyjątki. Używaj instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem. Zamiast zawijania pomocnika tagów `Component` w instrukcji `try-catch`, umieść logikę obsługi błędów w składniku renderowanym przez pomocnika tagów `Component`.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.1"
-
-składniki Blazor mogą być wstępnie renderowane przy użyciu `Html.RenderComponentAsync`, dzięki czemu renderowane znaczniki HTML są zwracane jako część początkowego żądania HTTP użytkownika. Działa to w następujący sposób:
-
-* Tworzenie nowego obwodu dla wszystkich wstępnie renderowanych składników, które są częścią tej samej strony.
-* Generowanie początkowego kodu HTML.
-* Podtraktowanie obwodu jako `disconnected`, dopóki przeglądarka użytkownika nie ustanowi połączenia SignalR z powrotem do tego samego serwera. Po nawiązaniu połączenia zostanie wznowione działanie międzydziałające w obwodzie i zostanie zaktualizowane oznaczenie HTML składników.
-
-Jeśli jakikolwiek składnik zgłasza nieobsłużony wyjątek podczas renderowania pre, na przykład podczas wykonywania metody cyklu życia lub logiki renderowania:
-
-* Wyjątek jest krytyczny dla obwodu.
-* Wyjątek jest generowany przez stos wywołań z wywołania `Html.RenderComponentAsync`. W związku z tym całe żądanie HTTP kończy się niepowodzeniem, chyba że wyjątek jest jawnie przechwycony przez kod dewelopera.
-
-W normalnych warunkach w przypadku niepowodzenia wstępnego renderowania kontynuowanie kompilowania i renderowania składnika nie ma sensu, ponieważ nie można renderować składnika roboczego.
-
-Aby tolerować błędy, które mogą wystąpić podczas renderowania prerenderingu, logika obsługi błędów musi być umieszczona wewnątrz składnika, który może zgłaszać wyjątki. Używaj instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem. Zamiast zawijać wywołanie do `RenderComponentAsync` w instrukcji `try-catch`, umieść logikę obsługi błędów w składniku renderowanym przez `RenderComponentAsync`.
-
-::: moniker-end
 
 ## <a name="advanced-scenarios"></a>Scenariusze zaawansowane
 

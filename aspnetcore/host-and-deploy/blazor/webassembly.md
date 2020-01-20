@@ -2,19 +2,20 @@
 title: Hostowanie i wdrażanie ASP.NET Core Blazor webassembly
 author: guardrex
 description: Dowiedz się, jak hostować i wdrażać aplikację Blazor przy użyciu ASP.NET Core, sieci dostarczania zawartości (CDN), serwerów plików i stron usługi GitHub.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
+- SignalR
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: 0fcefc3f1e51beb7cc29aef6dd4f4b8557e61965
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 8ed95cdb96804e08c3f1273bbea8f64a8e4f173c
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963631"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160252"
 ---
 # <a name="host-and-deploy-aspnet-core-opno-locblazor-webassembly"></a>Hostowanie i wdrażanie ASP.NET Core Blazor webassembly
 
@@ -36,8 +37,8 @@ Obsługiwane są następujące strategie wdrażania:
 
 Żądania routingu dla składników strony w Blazor aplikacji webassembly nie są tak proste jak żądania routingu na serwerze Blazor, hostowanej aplikacji. Weź pod uwagę Blazor aplikacji webassembly z dwoma składnikami:
 
-* *Główny. razor* &ndash; ładuje się w katalogu głównym aplikacji i zawiera link do składnika `About` (`href="About"`).
-* *Informacje o* składniku Razor &ndash; `About`.
+* *Główny. razor* &ndash; ładowany w katalogu głównym aplikacji i zawiera link do składnika `About` (`href="About"`).
+* *Informacje o* składniku `About` &ndash; Razor.
 
 Gdy zażądano dokumentu domyślnego aplikacji przy użyciu paska adresu przeglądarki (na przykład `https://www.contoso.com/`):
 
@@ -76,14 +77,14 @@ Program IIS jest możliwym do obsługi statycznego serwera plików dla Blazor ap
 
 Opublikowane zasoby są tworzone w folderze */bin/Release/{Target Framework}/Publish* . Hostowanie zawartości folderu *publikowania* na serwerze sieci Web lub w usłudze hostingu.
 
-#### <a name="webconfig"></a>plik Web. config
+#### <a name="webconfig"></a>web.config
 
 Po opublikowaniu Blazor projektu zostanie utworzony plik *Web. config* z następującą konfiguracją usług IIS:
 
 * Typy MIME są ustawiane dla następujących rozszerzeń plików:
-  * *. dll* &ndash; `application/octet-stream`
-  * *. json* &ndash; `application/json`
-  * *wasm* &ndash; `application/wasm`
+  * *.dll* &ndash; `application/octet-stream`
+  * *.json* &ndash; `application/json`
+  * *.wasm* &ndash; `application/wasm`
   * *woff* &ndash; `application/font-woff`
   * *woff2* &ndash; `application/font-woff`
 * Kompresja HTTP jest włączona dla następujących typów MIME:
@@ -121,7 +122,7 @@ Jeśli aplikacja autonomiczna jest hostowana jako podaplikacja usług IIS, wykon
   </handlers>
   ```
 
-* Wyłącz dziedziczenie dla sekcji `<system.webServer>` aplikacji głównej (nadrzędnej) przy użyciu elementu `<location>` z zestawem `inheritInChildApplications` ustawionym na `false`:
+* Wyłącz dziedziczenie sekcji `<system.webServer>` głównej (nadrzędnej) aplikacji przy użyciu elementu `<location>` z `inheritInChildApplications`m ustawionym na `false`:
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
@@ -262,7 +263,7 @@ Argument `--contentroot` ustawia ścieżkę bezwzględną do katalogu, który za
   "commandLineArgs": "--contentroot=/content-root-path"
   ```
 
-* W programie Visual Studio Określ argument w **właściwościach** > **Debuguj** > **argumenty aplikacji**. Ustawienie argumentu na stronie właściwości programu Visual Studio powoduje dodanie argumentu do pliku *profilu launchsettings. JSON* .
+* W programie Visual Studio Określ argument we **właściwościach** > **Debuguj** > **argumenty aplikacji**. Ustawienie argumentu na stronie właściwości programu Visual Studio powoduje dodanie argumentu do pliku *profilu launchsettings. JSON* .
 
   ```console
   --contentroot=/content-root-path
@@ -270,10 +271,10 @@ Argument `--contentroot` ustawia ścieżkę bezwzględną do katalogu, który za
 
 ### <a name="path-base"></a>Baza ścieżki
 
-Argument `--pathbase` ustawia ścieżkę bazową aplikacji dla aplikacji uruchamianej lokalnie z niegłówną względną ścieżką URL (znacznik `<base>` `href` jest ustawiany na ścieżkę inną niż `/` dla przemieszczania i produkcji). W poniższych przykładach `/relative-URL-path` to baza ścieżki aplikacji. Aby uzyskać więcej informacji, zobacz [Ścieżka podstawowa aplikacji](xref:host-and-deploy/blazor/index#app-base-path).
+`--pathbase` argument ustawia ścieżkę bazową aplikacji dla aplikacji uruchamianej lokalnie z niegłówną względną ścieżką URL (tag `<base>` `href` jest ustawiona na ścieżkę inną niż `/` do przemieszczania i produkcji). W poniższych przykładach `/relative-URL-path` jest baza ścieżki aplikacji. Aby uzyskać więcej informacji, zobacz [Ścieżka podstawowa aplikacji](xref:host-and-deploy/blazor/index#app-base-path).
 
 > [!IMPORTANT]
-> W przeciwieństwie do ścieżki podanej dla `href` znacznika `<base>`, nie dołączaj końcowego ukośnika (`/`) podczas przekazywania wartości argumentu `--pathbase`. Jeśli ścieżka podstawowa aplikacji znajduje się w tagu `<base>` jako `<base href="/CoolApp/">` (zawiera końcowy ukośnik), należy przekazać wartość argumentu wiersza polecenia jako `--pathbase=/CoolApp` (bez końcowego ukośnika).
+> W przeciwieństwie do ścieżki podanej do `href` tagu `<base>`, nie dodawaj końcowego ukośnika (`/`) podczas przekazywania wartości argumentu `--pathbase`. Jeśli ścieżka podstawowa aplikacji znajduje się w tagu `<base>` jako `<base href="/CoolApp/">` (zawiera końcowy ukośnik), należy przekazać wartość argumentu wiersza polecenia jako `--pathbase=/CoolApp` (bez ukośników końcowych).
 
 * Przekaż argument podczas lokalnego uruchamiania aplikacji w wierszu polecenia. W katalogu aplikacji wykonaj następujące polecenie:
 
@@ -287,15 +288,15 @@ Argument `--pathbase` ustawia ścieżkę bazową aplikacji dla aplikacji urucham
   "commandLineArgs": "--pathbase=/relative-URL-path"
   ```
 
-* W programie Visual Studio Określ argument w **właściwościach** > **Debuguj** > **argumenty aplikacji**. Ustawienie argumentu na stronie właściwości programu Visual Studio powoduje dodanie argumentu do pliku *profilu launchsettings. JSON* .
+* W programie Visual Studio Określ argument we **właściwościach** > **Debuguj** > **argumenty aplikacji**. Ustawienie argumentu na stronie właściwości programu Visual Studio powoduje dodanie argumentu do pliku *profilu launchsettings. JSON* .
 
   ```console
   --pathbase=/relative-URL-path
   ```
 
-### <a name="urls"></a>adresy URL
+### <a name="urls"></a>Adresy URL
 
-Argument `--urls` ustawia adresy IP lub adresy hosta z portami i protokołami, aby nasłuchiwać żądań.
+`--urls` argument ustawia adresy IP lub adresy hosta z portami i protokołami, aby nasłuchiwać żądań.
 
 * Przekaż argument podczas lokalnego uruchamiania aplikacji w wierszu polecenia. W katalogu aplikacji wykonaj następujące polecenie:
 
@@ -309,7 +310,7 @@ Argument `--urls` ustawia adresy IP lub adresy hosta z portami i protokołami, a
   "commandLineArgs": "--urls=http://127.0.0.1:0"
   ```
 
-* W programie Visual Studio Określ argument w **właściwościach** > **Debuguj** > **argumenty aplikacji**. Ustawienie argumentu na stronie właściwości programu Visual Studio powoduje dodanie argumentu do pliku *profilu launchsettings. JSON* .
+* W programie Visual Studio Określ argument we **właściwościach** > **Debuguj** > **argumenty aplikacji**. Ustawienie argumentu na stronie właściwości programu Visual Studio powoduje dodanie argumentu do pliku *profilu launchsettings. JSON* .
 
   ```console
   --urls=http://127.0.0.1:0
@@ -317,4 +318,4 @@ Argument `--urls` ustawia adresy IP lub adresy hosta z portami i protokołami, a
 
 ## <a name="configure-the-linker"></a>Konfigurowanie konsolidatora
 
-Blazor wykonuje konsolidację języka pośredniego (IL) dla każdej kompilacji, aby usunąć niepotrzebny kod IL z zestawów wyjściowych. Łączenie zestawu może być kontrolowane podczas kompilacji. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/blazor/configure-linker>.
+Blazor wykonuje konsolidację języka pośredniego (IL) dla każdej kompilacji, aby usunąć niepotrzebny kod IL z zestawów wyjściowych. Łączenie zestawu może być kontrolowane podczas kompilacji. Aby uzyskać więcej informacji, zobacz temat <xref:host-and-deploy/blazor/configure-linker>.

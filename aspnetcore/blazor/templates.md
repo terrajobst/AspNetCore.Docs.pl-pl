@@ -2,20 +2,20 @@
 title: Szablony Blazor ASP.NET Core
 author: guardrex
 description: Dowiedz się więcej na temat ASP.NET Core szablonów aplikacji Blazor i struktury projektu Blazor.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/25/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/templates
-ms.openlocfilehash: bc0ea4a777e8684a7b0925377b8a19a45c2b531c
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 2a95b986450471b474d93ead252255f2bd9d4918
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74879655"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160122"
 ---
 # <a name="aspnet-core-opno-locblazor-templates"></a>Szablony Blazor ASP.NET Core
 
@@ -43,20 +43,20 @@ Następujące pliki i foldery tworzą Blazor aplikację wygenerowaną na podstaw
   * `ConfigureServices` &ndash; konfiguruje usługi dla [iniekcji zależności](xref:fundamentals/dependency-injection) aplikacji. W Blazor aplikacji serwera usługi są dodawane przez wywoływanie <xref:Microsoft.Extensions.DependencyInjection.ComponentServiceCollectionExtensions.AddServerSideBlazor*>, a `WeatherForecastService` jest dodawane do kontenera usługi do użycia przez przykładowy składnik `FetchData`.
   * `Configure` &ndash; konfiguruje potok obsługi żądania aplikacji:
     * Blazor webassembly &ndash; dodaje składnik `App` (określony jako element `app` DOM do metody `AddComponent`), który jest głównym składnikiem aplikacji.
-    * Serwer programu Blazor
+    * Serwer Blazor
       * <xref:Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions.MapBlazorHub*> jest wywoływana w celu skonfigurowania punktu końcowego dla połączenia w czasie rzeczywistym z przeglądarką. Połączenie jest tworzone za pomocą [SignalR](xref:signalr/introduction), który jest strukturą do dodawania funkcji sieci Web w czasie rzeczywistym do aplikacji.
       * [MapFallbackToPage ("/_Host")](xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapFallbackToPage*) jest wywoływana w celu skonfigurowania strony głównej aplikacji (*strony/_Host. cshtml*) i włączenia nawigacji.
 
 * *wwwroot/index.html* (Blazor webassembly) &ndash; stronę główną aplikacji zaimplementowaną jako strona HTML:
   * Po wstępnym zażądaniu dowolnej strony aplikacji jest ona renderowana i zwracana w odpowiedzi.
   * Strona określa, gdzie jest renderowany główny składnik `App`. Składnik `App` (*App. Razor*) jest określony jako element `app` dom dla metody `AddComponent` w `Startup.Configure`.
-  * Plik JavaScript *_framework/blazor.webassembly.js* jest ładowany:
+  * `_framework/blazor.webassembly.js` plik JavaScript jest ładowany:
     * Pobiera środowisko uruchomieniowe platformy .NET, aplikację i zależności aplikacji.
     * Inicjuje środowisko uruchomieniowe, aby uruchomić aplikację.
 
 * *Pages/_Host. cshtml* (Blazor Server) &ndash; stronę główną aplikacji zaimplementowaną jako strona Razor:
   * Po wstępnym zażądaniu dowolnej strony aplikacji jest ona renderowana i zwracana w odpowiedzi.
-  * Plik JavaScript *_framework/blazor.Server.js* jest ładowany, który konfiguruje połączenie SignalR w czasie rzeczywistym między przeglądarką a serwerem.
+  * Plik JavaScript `_framework/blazor.server.js` jest ładowany, który konfiguruje połączenie SignalR w czasie rzeczywistym między przeglądarką a serwerem.
   * Strona hosta określa, gdzie jest renderowany główny składnik `App` (*App. Razor*).
 
 * *App. razor* &ndash; głównym składnikiem aplikacji, która konfiguruje Routing po stronie klienta za pomocą składnika <xref:Microsoft.AspNetCore.Components.Routing.Router>. Składnik `Router` przechwytuje nawigację przeglądarki i renderuje stronę pasującą do żądanego adresu.
