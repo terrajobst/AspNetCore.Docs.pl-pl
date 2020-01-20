@@ -2,19 +2,20 @@
 title: ASP.NET Core Blazor iniekcji zależności
 author: guardrex
 description: Zobacz, jak aplikacje Blazor mogą wstrzyknąć usługi do składników programu.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 01/08/2020
 no-loc:
 - Blazor
+- SignalR
 uid: blazor/dependency-injection
-ms.openlocfilehash: aad6cfee500b5cb502470f6a4a7cb5756df09dc4
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 6930d721f04fd5f7cad2ba472724497a157fda0f
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74943787"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76159979"
 ---
 # <a name="aspnet-core-opno-locblazor-dependency-injection"></a>ASP.NET Core Blazor iniekcji zależności
 
@@ -36,8 +37,8 @@ Domyślne usługi są automatycznie dodawane do kolekcji usług aplikacji.
 | NDES | Okres istnienia | Opis |
 | ------- | -------- | ----------- |
 | <xref:System.Net.Http.HttpClient> | Pojedynczego | Zapewnia metody wysyłania żądań HTTP i odbierania odpowiedzi HTTP z zasobu identyfikowanego przez identyfikator URI.<br><br>Wystąpienie `HttpClient` w aplikacji Blazor webassembly używa przeglądarki do obsługi ruchu HTTP w tle.<br><br>aplikacje serwera Blazor nie zawierają domyślnie `HttpClient` skonfigurowany jako usługa. Podaj `HttpClient` do aplikacji Blazor Server.<br><br>Aby uzyskać więcej informacji, zobacz temat <xref:blazor/call-web-api>. |
-| `IJSRuntime` | Pojedynczego | Reprezentuje wystąpienie środowiska uruchomieniowego JavaScript, w którym są wysyłane wywołania języka JavaScript. Aby uzyskać więcej informacji, zobacz temat <xref:blazor/javascript-interop>. |
-| `NavigationManager` | Pojedynczego | Zawiera pomocników do pracy z identyfikatorami URI i stanem nawigacji. Aby uzyskać więcej informacji, zobacz [identyfikatory URI i pomocnika stanu nawigacji](xref:blazor/routing#uri-and-navigation-state-helpers). |
+| `IJSRuntime` | Pojedyncze (Blazor webassembly)<br>Zakres (Blazor Server) | Reprezentuje wystąpienie środowiska uruchomieniowego JavaScript, w którym są wysyłane wywołania języka JavaScript. Aby uzyskać więcej informacji, zobacz temat <xref:blazor/javascript-interop>. |
+| `NavigationManager` | Pojedyncze (Blazor webassembly)<br>Zakres (Blazor Server) | Zawiera pomocników do pracy z identyfikatorami URI i stanem nawigacji. Aby uzyskać więcej informacji, zobacz [identyfikatory URI i pomocnika stanu nawigacji](xref:blazor/routing#uri-and-navigation-state-helpers). |
 
 Niestandardowy dostawca usług nie dostarcza automatycznie usług domyślnych wymienionych w tabeli. W przypadku użycia niestandardowego dostawcy usług i wymagania usług wymienionych w tabeli należy dodać wymagane usługi do nowego dostawcy usług.
 

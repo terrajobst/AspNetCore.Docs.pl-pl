@@ -2,19 +2,20 @@
 title: Hostowanie i wdrażanie ASP.NET Core Blazor
 author: guardrex
 description: Dowiedz się, jak hostować i wdrażać aplikacje Blazor.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/23/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
+- SignalR
 uid: host-and-deploy/blazor/index
-ms.openlocfilehash: 5c37c3d9f424f4c4b814e1955880623fd95179f2
-ms.sourcegitcommit: 918d7000b48a2892750264b852bad9e96a1165a7
+ms.openlocfilehash: 238e7fc8f8d64c7847dc8847fb66e22442a3c8e0
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74550371"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160265"
 ---
 # <a name="host-and-deploy-aspnet-core-opno-locblazor"></a>Hostowanie i wdrażanie ASP.NET Core Blazor
 
@@ -30,7 +31,7 @@ Aplikacje są publikowane do wdrożenia w konfiguracji wydania.
 
 1. Wybierz pozycję **kompilacja** > **Opublikuj aplikację {Application}** na pasku nawigacyjnym.
 1. Wybierz *element docelowy publikowania*. Aby opublikować lokalnie, wybierz pozycję **folder**.
-1. Zaakceptuj lokalizację domyślną w polu **Wybierz folder** lub określ inną lokalizację. Wybierz przycisk **Publikuj** .
+1. Zaakceptuj lokalizację domyślną w polu **Wybierz folder** lub określ inną lokalizację. Wybierz przycisk **Publikuj**.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 

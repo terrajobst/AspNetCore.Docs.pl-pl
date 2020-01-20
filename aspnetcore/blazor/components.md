@@ -2,19 +2,20 @@
 title: Tworzenie i używanie składników ASP.NET Core Razor
 author: guardrex
 description: Dowiedz się, jak tworzyć i używać składników Razor, w tym jak powiązać z danymi, obsługiwać zdarzenia i zarządzać cyklem życia składników.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 12/28/2019
 no-loc:
 - Blazor
+- SignalR
 uid: blazor/components
-ms.openlocfilehash: 9e796a23a0b24a9fee314051644703ef12bd7607
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: e73667925c04dd1b2360138343c4a2dcef0ee310
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828207"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160018"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
@@ -34,9 +35,6 @@ Interfejs użytkownika dla składnika jest definiowany przy użyciu języka HTML
 
 Elementy członkowskie klasy składnika są zdefiniowane w bloku `@code`. W bloku `@code` stan składnika (właściwości, pola) jest określany przy użyciu metod obsługi zdarzeń lub definiowania innej logiki składnika. Dozwolony jest więcej niż jeden blok `@code`.
 
-> [!NOTE]
-> We wcześniejszych wersjach ASP.NET Core 3,0 bloki `@functions` były używane do tego samego celu co `@code` bloków w składnikach Razor. bloki `@functions` nadal działają w składnikach Razor, ale zalecamy używanie bloku `@code` w ASP.NET Core 3,0 w wersji zapoznawczej 6 lub nowszej.
-
 Składowe składnika mogą być używane jako część logiki renderowania składnika przy użyciu C# wyrażeń, które zaczynają się od `@`. Na przykład C# pole jest renderowane przez utworzenie prefiksu `@` na nazwę pola. Poniższy przykład szacuje i renderuje:
 
 * `_headingFontStyle` wartość właściwości CSS dla `font-style`.
@@ -53,17 +51,37 @@ Składowe składnika mogą być używane jako część logiki renderowania skła
 
 Po pierwszym wyrenderowaniu składnika składnik generuje jego drzewo renderowania w odpowiedzi na zdarzenia. Blazor następnie porównuje nowe drzewo renderowania z poprzednią i zastosuje wszelkie modyfikacje Document Object Model (DOM) przeglądarki.
 
-Składniki są zwykłymi C# klasami i mogą być umieszczane w dowolnym miejscu w projekcie. Składniki, które generują strony sieci Web, zwykle znajdują się w folderze *strony* . Składniki niestronicowe są często umieszczane w folderze *udostępnionym* lub w folderze niestandardowym dodanym do projektu. Aby użyć folderu niestandardowego, należy dodać przestrzeń nazw folderu niestandardowego do składnika nadrzędnego lub pliku *_Imports. Razor* aplikacji. Na przykład następująca przestrzeń nazw sprawia, że składniki w folderze *Components* są dostępne, gdy główna przestrzeń nazw aplikacji jest `WebApplication`:
+Składniki są zwykłymi C# klasami i mogą być umieszczane w dowolnym miejscu w projekcie. Składniki, które generują strony sieci Web, zwykle znajdują się w folderze *strony* . Składniki niestronicowe są często umieszczane w folderze *udostępnionym* lub w folderze niestandardowym dodanym do projektu.
+
+Zazwyczaj przestrzeń nazw składnika pochodzi od głównej przestrzeni nazw aplikacji i lokalizacji składnika (folderu) w aplikacji. Jeśli główna przestrzeń nazw aplikacji jest `BlazorApp` a składnik `Counter` znajduje się w folderze *strony* :
+
+* Przestrzeń nazw składnika `Counter` jest `BlazorApp.Pages`.
+* W pełni kwalifikowana nazwa typu składnika jest `BlazorApp.Pages.Counter`.
+
+Aby uzyskać więcej informacji, zobacz sekcję [Importowanie składników](#import-components) .
+
+Aby użyć folderu niestandardowego, należy dodać przestrzeń nazw folderu niestandardowego do składnika nadrzędnego lub pliku *_Imports. Razor* aplikacji. Na przykład następująca przestrzeń nazw sprawia, że składniki w folderze *Components* są dostępne, gdy główna przestrzeń nazw aplikacji jest `BlazorApp`:
 
 ```razor
-@using WebApplication.Components
+@using BlazorApp.Components
 ```
 
 ## <a name="integrate-components-into-razor-pages-and-mvc-apps"></a>Integrowanie składników w aplikacjach Razor Pages i MVC
 
-Używaj składników z istniejącymi aplikacjami Razor Pages i MVC. Nie ma potrzeby ponownego zapisywania istniejących stron lub widoków w celu używania składników Razor. Gdy strona lub widok są renderowane, składniki są wstępnie renderowane w tym samym czasie.
+Składniki Razor można zintegrować z aplikacjami Razor Pages i MVC. Gdy strona lub widok jest renderowany, składniki mogą być wstępnie renderowane w tym samym czasie.
 
-::: moniker range=">= aspnetcore-3.1"
+Aby przygotować aplikację Razor Pages lub MVC do hostowania składników Razor, postępuj zgodnie ze wskazówkami zawartymi w sekcji *integrowanie składników Razor z aplikacjami Razor Pages i MVC* w artykule <xref:blazor/hosting-models#integrate-razor-components-into-razor-pages-and-mvc-apps>.
+
+W przypadku używania folderu niestandardowego do przechowywania składników aplikacji należy dodać przestrzeń nazw reprezentującą folder do strony/widoku lub pliku *_ViewImports. cshtml* . W poniższym przykładzie:
+
+* Zmień `MyAppNamespace` na przestrzeń nazw aplikacji.
+* Jeśli folder o nazwie *Components* nie jest używany do przechowywania składników, należy zmienić `Components` do folderu, w którym znajdują się składniki.
+
+```csharp
+@using MyAppNamespace.Components
+```
+
+Plik *_ViewImports. cshtml* znajduje się w folderze *strony* aplikacji Razor Pages lub folderu *widoki* aplikacji MVC.
 
 Aby renderować składnik ze strony lub widoku, użyj pomocnika tagów `Component`:
 
@@ -90,35 +108,6 @@ Podczas gdy strony i widoki mogą korzystać ze składników, wartość nie jest
 Renderowanie składników serwera ze statyczną stroną HTML nie jest obsługiwane.
 
 Aby uzyskać więcej informacji na temat sposobu renderowania składników, stanu składnika i pomocnika tagów `Component`, zobacz <xref:blazor/hosting-models>.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.1"
-
-Aby renderować składnik ze strony lub widoku, użyj metody pomocnika HTML `RenderComponentAsync<TComponent>`:
-
-```cshtml
-@(await Html.RenderComponentAsync<MyComponent>(RenderMode.ServerPrerendered))
-```
-
-`RenderMode` określa, czy składnik:
-
-* Jest wstępnie renderowany na stronie.
-* Jest renderowany jako statyczny kod HTML na stronie lub zawiera informacje niezbędne do uruchomienia Blazor aplikacji z poziomu agenta użytkownika.
-
-| `RenderMode`        | Opis |
-| ------------------- | ----------- |
-| `ServerPrerendered` | Renderuje składnik do statycznego kodu HTML i zawiera znacznik dla aplikacji serwera Blazor. Po uruchomieniu agenta użytkownika ten znacznik jest używany do uruchamiania aplikacji Blazor. Parametry nie są obsługiwane. |
-| `Server`            | Renderuje znacznik dla aplikacji serwera Blazor. Dane wyjściowe ze składnika nie są uwzględniane. Po uruchomieniu agenta użytkownika ten znacznik jest używany do uruchamiania aplikacji Blazor. Parametry nie są obsługiwane. |
-| `Static`            | Renderuje składnik do statycznego kodu HTML. Parametry są obsługiwane. |
-
-Podczas gdy strony i widoki mogą korzystać ze składników, wartość nie jest równa "true". Składniki nie mogą używać scenariuszy dotyczących widoków i stron, takich jak częściowe widoki i sekcje. Aby użyć logiki z widoku częściowego w składniku, należy rozłożyć logikę widoku częściowego na składnik.
-
-Renderowanie składników serwera ze statyczną stroną HTML nie jest obsługiwane.
-
-Aby uzyskać więcej informacji na temat sposobu renderowania składników, stanu składnika i pomocnika języka HTML `RenderComponentAsync`, zobacz <xref:blazor/hosting-models>.
-
-::: moniker-end
 
 ## <a name="use-components"></a>Używanie składników
 
@@ -353,6 +342,11 @@ Oprócz obsługi zdarzeń `onchange` ze składnią `@bind`, właściwość lub p
 
 W przeciwieństwie do `onchange`, które jest wyzwalane, gdy element utraci fokus, `oninput` uruchamiany, gdy wartość pola tekstowego ulegnie zmianie.
 
+`@bind-value` w powyższym przykładzie powiązania:
+
+* Określone wyrażenie (`CurrentValue`) do atrybutu `value` elementu.
+* Delegowanie zdarzenia zmiany do zdarzenia określonego przez `@bind-value:event`.
+
 **Wartości niemożliwy do przeanalizowania**
 
 Gdy użytkownik dostarczy wartość niemożliwy do przeanalizowania do elementu powiązanego z danymi, wartość niemożliwy do przeanalizowania jest automatycznie przywracana do poprzedniej wartości po wyzwoleniu zdarzenia bind.
@@ -522,6 +516,10 @@ Ogólnie rzecz biorąc, właściwość może być powiązana z odpowiednią obs�
 <MyComponent @bind-MyProp="MyValue" @bind-MyProp:event="MyEventHandler" />
 ```
 
+**Przyciski radiowe**
+
+Aby uzyskać informacje na temat tworzenia powiązań z przyciskami radiowymi w formularzu, zobacz <xref:blazor/forms-validation#work-with-radio-buttons>.
+
 ## <a name="event-handling"></a>Obsługa zdarzeń
 
 Składniki Razor zapewniają funkcje obsługi zdarzeń. Dla atrybutu elementu HTML o nazwie `on{EVENT}` (na przykład `onclick` i `onsubmit`) z wartością typu delegata składniki Razor traktują wartość atrybutu jako procedurę obsługi zdarzeń. Nazwa atrybutu jest zawsze sformatowana [`@on{EVENT}`](xref:mvc/views/razor#onevent).
@@ -592,7 +590,7 @@ Obsługiwane `EventArgs` przedstawiono w poniższej tabeli.
 | Postęp         | `ProgressEventArgs`  | `onabort`, `onload`, `onloadend`, `onloadstart`, `onprogress`, `ontimeout` |
 | Dotyk            | `TouchEventArgs`     | `ontouchstart`, `ontouchend`, `ontouchmove`, `ontouchenter`, `ontouchleave`, `ontouchcancel`<br><br>`TouchPoint` reprezentuje pojedynczy punkt kontaktu na urządzeniu dotykowym. |
 
-Aby uzyskać informacje o zachowaniu właściwości i obsłudze zdarzeń zdarzeń w powyższej tabeli, zobacz [EventArgs Classes (gałąź dotnet/AspNetCore Release/3.0)](https://github.com/dotnet/AspNetCore/tree/release/3.0/src/Components/Web/src/Web).
+Aby uzyskać informacje o zachowaniu właściwości i obsłudze zdarzeń zdarzeń w powyższej tabeli, zobacz [EventArgs Classes (gałąź dotnet/aspnetcore Release/3.1)](https://github.com/dotnet/aspnetcore/tree/release/3.1/src/Components/Web/src/Web).
 
 ### <a name="lambda-expressions"></a>Wyrażenia lambda
 
@@ -696,8 +694,6 @@ Użyj `EventCallback` i `EventCallback<T>` do obsługi zdarzeń i parametrów sk
 
 Preferuj silnie wpisaną `EventCallback<T>` przez `EventCallback`. `EventCallback<T>` zapewnia lepszą opinię o błędach dla użytkowników składnika. Podobnie jak w przypadku innych programów obsługi zdarzeń interfejsu użytkownika, określenie parametru zdarzenia jest opcjonalne. Użyj `EventCallback`, gdy nie zostanie przeniesiona wartość do wywołania zwrotnego.
 
-::: moniker range=">= aspnetcore-3.1"
-
 ### <a name="prevent-default-actions"></a>Zapobiegaj akcjom domyślnym
 
 Użyj atrybutu dyrektywy [`@on{EVENT}:preventDefault`](xref:mvc/views/razor#oneventpreventdefault) , aby zapobiec domyślnej akcji dla zdarzenia.
@@ -763,8 +759,6 @@ W poniższym przykładzie, zaznaczając pole wyboru, Zapobiegaj kliknięciu zdar
         Console.WriteLine($"A child div was selected. {DateTime.Now}");
 }
 ```
-
-::: moniker-end
 
 ## <a name="chained-bind"></a>Powiązanie łańcuchowe
 
@@ -1091,8 +1085,6 @@ Parametry opcjonalne nie są obsługiwane, więc dwie dyrektywy `@page` są stos
 
 Składnia *catch-all* (`*`/`**`), która przechwytuje ścieżkę między wieloma granicami folderów, **nie** jest obsługiwana w składnikach Razor ( *. Razor*).
 
-::: moniker range=">= aspnetcore-3.1"
-
 ## <a name="partial-class-support"></a>Obsługa klasy częściowej
 
 Składniki Razor są generowane jako klasy częściowe. Składniki Razor są tworzone przy użyciu jednej z następujących metod:
@@ -1154,43 +1146,16 @@ namespace BlazorApp.Pages
 }
 ```
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.1"
-
-## <a name="specify-a-component-base-class"></a>Określ klasę bazową składnika
-
-Dyrektywa `@inherits` może służyć do określania klasy bazowej dla składnika.
-
-[Przykładowa aplikacja](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) pokazuje, jak składnik może dziedziczyć klasę bazową `BlazorRocksBase`, aby zapewnić właściwości i metody składnika.
-
-*Strony/BlazorRocks. Razor*:
-
-```razor
-@page "/BlazorRocks"
-@inherits BlazorRocksBase
-
-<h1>@BlazorRocksText</h1>
-```
-
-*BlazorRocksBase.cs*:
+W razie potrzeby dodaj wszystkie wymagane przestrzenie nazw do pliku klasy częściowej. Typowe przestrzenie nazw używane przez składniki Razor obejmują:
 
 ```csharp
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
-
-namespace BlazorSample
-{
-    public class BlazorRocksBase : ComponentBase
-    {
-        public string BlazorRocksText { get; set; } = 
-            "Blazor rocks the browser!";
-    }
-}
+using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Components.Routing;
+using Microsoft.AspNetCore.Components.Web;
 ```
-
-Klasa bazowa powinna pochodzić od `ComponentBase`.
-
-::: moniker-end
 
 ## <a name="import-components"></a>Importuj składniki
 
@@ -1659,7 +1624,7 @@ Gdy kod jest wykonywany po raz pierwszy, jeśli `someFlag` jest `true`, Konstruk
 
 | Sequence | Typ      | Dane   |
 | :------: | --------- | :----: |
-| 0        | Węzeł tekstu | Pierwsze  |
+| 0        | Węzeł tekstu | First  |
 | 1        | Węzeł tekstu | Sekunda |
 
 Załóżmy, że `someFlag` `false`, a znaczniki są renderowane ponownie. Tym razem Konstruktor odbiera:
@@ -1691,7 +1656,7 @@ Teraz pierwsze dane wyjściowe to:
 
 | Sequence | Typ      | Dane   |
 | :------: | --------- | :----: |
-| 0        | Węzeł tekstu | Pierwsze  |
+| 0        | Węzeł tekstu | First  |
 | 1        | Węzeł tekstu | Sekunda |
 
 Ten wynik jest identyczny z poprzednim przypadkiem, dlatego nie istnieją żadne negatywne problemy. `someFlag` jest `false` podczas drugiego renderowania, a dane wyjściowe:
