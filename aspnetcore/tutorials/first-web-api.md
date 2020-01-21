@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 3bf930d19684e84365f0ff0255fccd2939fb3f39
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 73e547b014d78dcbcbf1c887ebec16e0743d10b9
+ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354920"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294748"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Samouczek: Tworzenie internetowego interfejsu API za pomocą ASP.NET Core
 
@@ -296,7 +296,6 @@ Poprzedniego polecenia:
 
 Wygenerowany kod:
 
-* Definiuje klasę kontrolera interfejsu API bez metody.
 * Oznacza klasę atrybutem [`[ApiController]`](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute) . Ten atrybut wskazuje, czy kontroler ma odpowiadać na żądania sieci web interfejsu API. Aby uzyskać informacje o określonych zachowaniach, które włącza atrybut, zobacz <xref:web-api/index>.
 * Używa DI iniekcję kontekst bazy danych (`TodoContext`) do kontrolera. Kontekst bazy danych jest używany we wszystkich [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) metodami w kontrolerze.
 
@@ -322,7 +321,7 @@ Ten samouczek używa narzędzia Postman do testowania internetowego interfejsu A
 * Uruchamiają aplikację sieci web.
 * Uruchom narzędzie Postman.
 * Wyłącz **weryfikacji certyfikatu SSL**
-* Z **ustawień** > **plików** (karta**Ogólne** ), wyłącz **weryfikację certyfikatu SSL**.
+  * Z **ustawień** > **plików** (karta**Ogólne** ), wyłącz **weryfikację certyfikatu SSL**.
     > [!WARNING]
     > Ponownie Włącz weryfikację certyfikatu SSL po przetestowaniu kontrolera.
 

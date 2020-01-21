@@ -5,16 +5,16 @@ description: Dowiedz się, jak korzystać z centrów w ASP.NET Core SignalR.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 01/16/2020
 no-loc:
 - SignalR
 uid: signalr/hubs
-ms.openlocfilehash: f95766cab84bddff2c7c62f30bce1e6d1e43deab
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: e5bc12c5ccafe2b5273d72e6bde0f631ca043428
+ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963800"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294624"
 ---
 # <a name="use-hubs-in-opno-locsignalr-for-aspnet-core"></a>Użyj centrów w SignalR dla ASP.NET Core
 
@@ -174,6 +174,8 @@ Zastąp metodę wirtualną `OnDisconnectedAsync`, aby wykonywać akcje po rozł�
 
 [!code-csharp[Handle disconnection](hubs/sample/hubs/chathub.cs?name=OnDisconnectedAsync)]
 
+[!INCLUDE[](~/includes/connectionid-signalr.md)]
+
 ## <a name="handle-errors"></a>Obsługa błędów
 
 Wyjątki zgłoszone w metodach centrum są wysyłane do klienta, który wywołał metodę. Na kliencie JavaScript metoda `invoke` zwraca [obietnicę języka JavaScript](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). Gdy klient otrzymuje błąd z obsługą dołączoną do obietnicy przy użyciu `catch`, zostanie wywołany i przeszedł jako obiekt `Error` JavaScript.
@@ -195,7 +197,7 @@ Jeśli *masz wyjątkowe warunki, które chcesz* propagować do klienta, możesz 
 > [!NOTE]
 > SignalR tylko wysyła Właściwość `Message` wyjątku do klienta. Ślad stosu i inne właściwości tego wyjątku nie są dostępne dla klienta.
 
-## <a name="related-resources"></a>Powiązane zasoby
+## <a name="related-resources"></a>Zasoby pokrewne
 
 * [Wprowadzenie do ASP.NET Core SignalR](xref:signalr/introduction)
 * [Klient JavaScript](xref:signalr/javascript-client)

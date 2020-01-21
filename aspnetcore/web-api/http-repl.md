@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/11/2019
 uid: web-api/http-repl
-ms.openlocfilehash: 34ec2b2eb511f33e1263cdad4a338183a3e4b83a
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 15899917826fb6559244998766d99d00f56e0521
+ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75356163"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294718"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Testowanie interfejsów API sieci Web przy użyciu protokołu HTTP REPL
 
@@ -42,23 +42,23 @@ Aby wykonać te czynności, [Wyświetl lub Pobierz przykładowy ASP.NET Core int
 
 ## <a name="installation"></a>Instalacja programu
 
-Aby zainstalować REPL HTTP, uruchom następujące polecenie:
+To install the HTTP REPL, run the following command:
 
 ```dotnetcli
 dotnet tool install -g Microsoft.dotnet-httprepl
 ```
 
-[Narzędzie globalne platformy .NET Core](/dotnet/core/tools/global-tools#install-a-global-tool) jest instalowane z pakietu NuGet [Microsoft. dotnet-httprepl](https://www.nuget.org/packages/Microsoft.dotnet-httprepl) .
+A [.NET Core Global Tool](/dotnet/core/tools/global-tools#install-a-global-tool) is installed from the [Microsoft.dotnet-httprepl](https://www.nuget.org/packages/Microsoft.dotnet-httprepl) NuGet package.
 
 ## <a name="usage"></a>Pomiar
 
-Po pomyślnej instalacji narzędzia Uruchom następujące polecenie, aby uruchomić REPL HTTP:
+After successful installation of the tool, run the following command to start the HTTP REPL:
 
 ```console
 httprepl
 ```
 
-Aby wyświetlić dostępne polecenia HTTP REPL, Uruchom jedno z następujących poleceń:
+To view the available HTTP REPL commands, run one of the following commands:
 
 ```console
 httprepl -h
@@ -68,7 +68,7 @@ httprepl -h
 httprepl --help
 ```
 
-Wyświetlane są następujące dane wyjściowe:
+The following output is displayed:
 
 ```console
 Usage:
@@ -124,23 +124,23 @@ Use `help <COMMAND>` for more detail on an individual command. e.g. `help get`.
 For detailed tool info, see https://aka.ms/http-repl-doc.
 ```
 
-REPL HTTP oferuje polecenie uzupełniania. Naciśnięcie klawisza <kbd>Tab</kbd> wykonuje iterację na liście poleceń, które uzupełniają wpisane znaki lub punkt końcowy interfejsu API. W poniższych sekcjach znajduje się opis dostępnych poleceń interfejsu wiersza polecenia.
+The HTTP REPL offers command completion. Pressing the <kbd>Tab</kbd> key iterates through the list of commands that complete the characters or API endpoint that you typed. The following sections outline the available CLI commands.
 
-## <a name="connect-to-the-web-api"></a>Nawiązywanie połączenia z interfejsem API sieci Web
+## <a name="connect-to-the-web-api"></a>Connect to the web API
 
-Połącz się z interfejsem API sieci Web, uruchamiając następujące polecenie:
+Connect to a web API by running the following command:
 
 ```console
 httprepl <ROOT URI>
 ```
 
-`<ROOT URI>` jest podstawowym identyfikatorem URI dla internetowego interfejsu API. Na przykład:
+`<ROOT URI>` is the base URI for the web API. Na przykład:
 
 ```console
 httprepl https://localhost:5001
 ```
 
-Alternatywnie Uruchom następujące polecenie w dowolnym momencie podczas działania REPL HTTP:
+Alternatively, run the following command at any time while the HTTP REPL is running:
 
 ```console
 connect <ROOT URI>
@@ -152,9 +152,9 @@ Na przykład:
 (Disconnected)~ connect https://localhost:5001
 ```
 
-## <a name="manually-point-to-the-swagger-document-for-the-web-api"></a>Ręcznie wskaż dokument struktury Swagger dla internetowego interfejsu API
+## <a name="manually-point-to-the-swagger-document-for-the-web-api"></a>Manually point to the Swagger document for the web API
 
-Powyższe polecenie Connect podejmie próbę automatycznego znalezienia dokumentu struktury Swagger. Jeśli z jakiegoś powodu nie można tego zrobić, możesz określić identyfikator URI dokumentu struktury Swagger dla internetowego interfejsu API przy użyciu opcji `--swagger`:
+The connect command above will attempt to find the Swagger document automatically. If for some reason it is unable to do so, you can specify the URI of the Swagger document for the web API by using the `--swagger` option:
 
 ```console
 connect <ROOT URI> --swagger <SWAGGER URI>
@@ -166,17 +166,17 @@ Na przykład:
 (Disconnected)~ connect https://localhost:5001 --swagger /swagger/v1/swagger.json
 ```
 
-## <a name="navigate-the-web-api"></a>Nawigowanie po interfejsie API sieci Web
+## <a name="navigate-the-web-api"></a>Navigate the web API
 
-### <a name="view-available-endpoints"></a>Wyświetl dostępne punkty końcowe
+### <a name="view-available-endpoints"></a>View available endpoints
 
-Aby wyświetlić listę różnych punktów końcowych (kontrolerów) na bieżącej ścieżce adresu internetowego interfejsu API, uruchom polecenie `ls` lub `dir`:
+To list the different endpoints (controllers) at the current path of the web API address, run the `ls` or `dir` command:
 
 ```console
 https://localhot:5001/~ ls
 ```
 
-Wyświetlany jest następujący format danych wyjściowych:
+The following output format is displayed:
 
 ```console
 .        []
@@ -186,9 +186,9 @@ People   [get|post]
 https://localhost:5001/~
 ```
 
-Powyższe dane wyjściowe wskazują, że dostępne są dwa kontrolery: `Fruits` i `People`. Oba kontrolery obsługują bez parametrów operacje GET i POST HTTP.
+The preceding output indicates that there are two controllers available: `Fruits` and `People`. Both controllers support parameterless HTTP GET and POST operations.
 
-Przechodzenie do określonego kontrolera ujawnia więcej szczegółów. Na przykład następujące dane wyjściowe polecenia pokazują kontroler `Fruits` obsługują również operacje GET, PUT i DELETE protokołu HTTP. Każda z tych operacji oczekuje `id` parametru w marszrucie:
+Navigating into a specific controller reveals more detail. For example, the following command's output shows the `Fruits` controller also supports HTTP GET, PUT, and DELETE operations. Each of these operations expects an `id` parameter in the route:
 
 ```console
 https://localhost:5001/fruits~ ls
@@ -199,21 +199,21 @@ https://localhost:5001/fruits~ ls
 https://localhost:5001/fruits~
 ```
 
-Alternatywnie Uruchom polecenie `ui`, aby otworzyć stronę interfejsu użytkownika programu Swagger interfejsu API sieci Web w przeglądarce. Na przykład:
+Alternatively, run the `ui` command to open the web API's Swagger UI page in a browser. Na przykład:
 
 ```console
 https://localhost:5001/~ ui
 ```
 
-### <a name="navigate-to-an-endpoint"></a>Przejdź do punktu końcowego
+### <a name="navigate-to-an-endpoint"></a>Navigate to an endpoint
 
-Aby przejść do innego punktu końcowego w internetowym interfejsie API, uruchom polecenie `cd`:
+To navigate to a different endpoint on the web API, run the `cd` command:
 
 ```console
 https://localhost:5001/~ cd people
 ```
 
-W ścieżce następującego polecenia `cd` nie jest rozróżniana wielkość liter. Wyświetlany jest następujący format danych wyjściowych:
+The path following the `cd` command is case insensitive. The following output format is displayed:
 
 ```console
 /people    [get|post]
@@ -221,35 +221,35 @@ W ścieżce następującego polecenia `cd` nie jest rozróżniana wielkość lit
 https://localhost:5001/people~
 ```
 
-## <a name="customize-the-http-repl"></a>Dostosowywanie REPL HTTP
+## <a name="customize-the-http-repl"></a>Customize the HTTP REPL
 
-Domyślne [kolory](#set-color-preferences) REPL http można dostosować. Ponadto można zdefiniować [domyślny edytor tekstu](#set-the-default-text-editor) . Preferencje HTTP REPL są utrwalane w bieżącej sesji i są honorowane w przyszłych sesjach. Po zmodyfikowaniu preferencje są przechowywane w następującym pliku:
+The HTTP REPL's default [colors](#set-color-preferences) can be customized. Additionally, a [default text editor](#set-the-default-text-editor) can be defined. The HTTP REPL preferences are persisted across the current session and are honored in future sessions. Once modified, the preferences are stored in the following file:
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-*% HOME%/.httpreplprefs*
+*%HOME%/.httpreplprefs*
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-*% HOME%/.httpreplprefs*
+*%HOME%/.httpreplprefs*
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-*% USERPROFILE%\\. httpreplprefs*
+*%USERPROFILE%\\.httpreplprefs*
 
 ---
 
-Plik *. httpreplprefs* jest ładowany podczas uruchamiania i nie jest monitorowany pod kątem zmian w czasie wykonywania. Ręczne modyfikacje pliku zaczną obowiązywać dopiero po ponownym uruchomieniu narzędzia.
+The *.httpreplprefs* file is loaded on startup and not monitored for changes at runtime. Manual modifications to the file take effect only after restarting the tool.
 
-### <a name="view-the-settings"></a>Wyświetlanie ustawień
+### <a name="view-the-settings"></a>View the settings
 
-Aby wyświetlić dostępne ustawienia, uruchom polecenie `pref get`. Na przykład:
+To view the available settings, run the `pref get` command. Na przykład:
 
 ```console
 https://localhost:5001/~ pref get
 ```
 
-Poprzednie polecenie wyświetla dostępne pary klucz-wartość:
+The preceding command displays the available key-value pairs:
 
 ```console
 colors.json=Green
@@ -262,22 +262,22 @@ colors.protocol=BoldGreen
 colors.status=BoldYellow
 ```
 
-### <a name="set-color-preferences"></a>Ustawianie preferencji koloru
+### <a name="set-color-preferences"></a>Set color preferences
 
-Kolorowanie odpowiedzi jest obecnie obsługiwane tylko w przypadku formatu JSON. Aby dostosować domyślne kolorowanie narzędzi HTTP REPL, Znajdź klucz odpowiadający kolorowi do zmiany. Aby uzyskać instrukcje dotyczące znajdowania kluczy, zobacz sekcję [Wyświetlanie ustawień](#view-the-settings) . Na przykład zmień wartość klucza `colors.json` z `Green` na `White` w następujący sposób:
+Response colorization is currently supported for JSON only. To customize the default HTTP REPL tool coloring, locate the key corresponding to the color to be changed. For instructions on how to find the keys, see the [View the settings](#view-the-settings) section. For example, change the `colors.json` key value from `Green` to `White` as follows:
 
 ```console
 https://localhost:5001/people~ pref set colors.json White
 ```
 
-Można używać tylko [dozwolonych kolorów](https://github.com/dotnet/HttpRepl/blob/01d5c3c3373e98fe566ff5ef8a17c571de880293/src/Microsoft.Repl/ConsoleHandling/AllowedColors.cs) . Kolejne żądania HTTP wyświetlają dane wyjściowe z nowym kolorem.
+Only the [allowed colors](https://github.com/dotnet/HttpRepl/blob/01d5c3c3373e98fe566ff5ef8a17c571de880293/src/Microsoft.Repl/ConsoleHandling/AllowedColors.cs) may be used. Subsequent HTTP requests display output with the new coloring.
 
-Jeśli określone klucze kolorów nie są ustawione, brane są więcej kluczy ogólnych. Aby zademonstrować to zachowanie rezerwowe, należy wziąć pod uwagę następujący przykład:
+When specific color keys aren't set, more generic keys are considered. To demonstrate this fallback behavior, consider the following example:
 
-* Jeśli `colors.json.name` nie ma wartości, używana jest `colors.json.string`.
-* Jeśli `colors.json.string` nie ma wartości, używana jest `colors.json.literal`.
-* Jeśli `colors.json.literal` nie ma wartości, używana jest `colors.json`. 
-* Jeśli `colors.json` nie ma wartości, używany jest domyślny kolor tekstu powłoki poleceń (`AllowedColors.None`).
+* If `colors.json.name` doesn't have a value, `colors.json.string` is used.
+* If `colors.json.string` doesn't have a value, `colors.json.literal` is used.
+* If `colors.json.literal` doesn't have a value, `colors.json` is used. 
+* If `colors.json` doesn't have a value, the command shell's default text color (`AllowedColors.None`) is used.
 
 ### <a name="set-indentation-size"></a>Ustaw rozmiar wcięcia
 
@@ -578,8 +578,9 @@ Aby wydać żądanie HTTP PUT:
         "data": "Strawberry"
       }
     ]
+    ```
 
-1. Run the `put` command on an endpoint that supports it:
+1. Uruchom `put` polecenie w punkcie końcowym, który go obsługuje:
 
     ```console
     https://localhost:5001/fruits~ put 2 -h Content-Type=application/json

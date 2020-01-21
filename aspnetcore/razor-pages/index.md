@@ -4,14 +4,14 @@ author: Rick-Anderson
 description: Dowiedz się, jak stron Razor w programie ASP.NET Core umożliwia kodowania scenariuszy skoncentrowane na stronie łatwiejsze i bardziej wydajne niż przy użyciu platformy MVC.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 12/05/2019
+ms.date: 01/18/2020
 uid: razor-pages/index
-ms.openlocfilehash: fbe6e307ff5f7388e91cc2276f22ae1672507587
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 69c9f09aa0e3dbdbe78720c573b5e1fc63464571
+ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880897"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294650"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do Razor Pages w ASP.NET Core
 
@@ -559,9 +559,7 @@ Użyj dyrektywy `@page`, aby:
 
 Ścieżka względna do elementu głównego wypisana przez tyldę (`~`) na początku ścieżki jest obsługiwana. Na przykład `@page "~/Some/Other/Path"` jest taka sama jak `@page "/Some/Other/Path"`.
 
-Można zmienić ciąg zapytania `?handler=JoinList` w adresie URL na segment trasy `/JoinList` przez określenie `@page "{handler?}"`szablonu trasy.
-
-Jeśli nie chcesz, aby ciąg zapytania `?handler=JoinList` w adresie URL, możesz zmienić trasę, aby umieścić nazwę programu obsługi w części adresu URL. Możesz dostosować trasę, dodając szablon trasy ujęty w podwójne cudzysłowy po dyrektywie `@page`.
+Jeśli nie chcesz, aby ciąg zapytania `?handler=JoinList` w adresie URL, Zmień trasę, aby umieścić nazwę programu obsługi w części adresu URL. Trasę można dostosować, dodając szablon trasy ujęty w podwójne cudzysłowy po dyrektywie `@page`.
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/Customers/CreateRoute.cshtml?highlight=1)]
 
@@ -1066,9 +1064,7 @@ Użyj dyrektywy `@page`, aby:
 
 Ścieżka względna do elementu głównego wypisana przez tyldę (`~`) na początku ścieżki jest obsługiwana. Na przykład `@page "~/Some/Other/Path"` jest taka sama jak `@page "/Some/Other/Path"`.
 
-Można zmienić ciąg zapytania `?handler=JoinList` w adresie URL na segment trasy `/JoinList` przez określenie `@page "{handler?}"`szablonu trasy.
-
-Jeśli nie chcesz, aby ciąg zapytania `?handler=JoinList` w adresie URL, możesz zmienić trasę, aby umieścić nazwę programu obsługi w części adresu URL. Możesz dostosować trasę, dodając szablon trasy ujęty w podwójne cudzysłowy po dyrektywie `@page`.
+Jeśli nie chcesz, aby ciąg zapytania `?handler=JoinList` w adresie URL, Zmień trasę, aby umieścić nazwę programu obsługi w części adresu URL. Trasę można dostosować, dodając szablon trasy ujęty w podwójne cudzysłowy po dyrektywie `@page`.
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/Customers/CreateRoute.cshtml?highlight=1)]
 

@@ -5,16 +5,16 @@ description: Dowiedz się, jak używać uwierzytelniania i autoryzacji w ASP.NET
 monikerRange: '>= aspnetcore-2.1'
 ms.author: anurse
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 01/16/2020
 no-loc:
 - SignalR
 uid: signalr/security
-ms.openlocfilehash: 1bdb8b10a24c65735f49f04285e4129cb77eb3fb
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 4b27d9abb36938ed8161ff0d3535204e3fa68765
+ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828948"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294704"
 ---
 # <a name="security-considerations-in-aspnet-core-opno-locsignalr"></a>Zagadnienia dotyczące zabezpieczeń w ASP.NET Core SignalR
 
@@ -112,16 +112,20 @@ W ASP.NET Core 2,1 i nowszych walidacji nagłówka można osiągnąć przy użyc
 
 ::: moniker-end
 
+## <a name="connectionid"></a>ConnectionId
+
+Uwidacznianie `ConnectionId` może prowadzić do złośliwej personifikacji, jeśli serwer SignalR lub wersja klienta ma ASP.NET Core 2,2 lub wcześniejszą. Jeśli serwer SignalR i wersja klienta są ASP.NET Core 3,0 lub nowsze, `ConnectionToken`, a nie `ConnectionId`, muszą być przechowywane jako tajne. `ConnectionToken` jest przeznaczeniem niewidocznym w żadnym interfejsie API.  Może być trudne, aby upewnić się, że starsze SignalR klienci nie będą łączyć się z serwerem, tak więc nawet jeśli wersja serwera SignalR ASP.NET Core 3,0 lub nowsza, `ConnectionId` nie powinna być ujawniona.
+
 ## <a name="access-token-logging"></a>Rejestrowanie tokenu dostępu
 
-W przypadku korzystania z usługi WebSockets lub zdarzeń wysyłanych przez serwer klient przeglądarki wysyła token dostępu w ciągu zapytania. Uzyskiwanie tokenu dostępu za pośrednictwem ciągu zapytania jest ogólnie bezpieczne, jak w przypadku standardowego nagłówka `Authorization`. Należy zawsze używać protokołu HTTPS, aby zapewnić bezpieczne połączenie między klientem a serwerem. Wiele serwerów sieci Web rejestruje adres URL dla każdego żądania, w tym ciąg zapytania. Rejestrowanie adresów URL może rejestrować token dostępu. ASP.NET Core domyślnie rejestruje adres URL dla każdego żądania, który będzie zawierać ciąg zapytania. Na przykład:
+W przypadku korzystania z usługi WebSockets lub zdarzeń wysyłanych przez serwer klient przeglądarki wysyła token dostępu w ciągu zapytania. Uzyskiwanie tokenu dostępu za pośrednictwem ciągu zapytania jest zazwyczaj bezpieczne przy użyciu standardowego nagłówka `Authorization`. Zawsze używaj protokołu HTTPS, aby zapewnić bezpieczne połączenie między klientem a serwerem. Wiele serwerów sieci Web rejestruje adres URL dla każdego żądania, w tym ciąg zapytania. Rejestrowanie adresów URL może rejestrować token dostępu. ASP.NET Core domyślnie rejestruje adres URL dla każdego żądania, który będzie zawierać ciąg zapytania. Na przykład:
 
 ```
 info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
       Request starting HTTP/1.1 GET http://localhost:5000/myhub?access_token=1234
 ```
 
-Jeśli masz problemy z rejestrowaniem tych danych w dziennikach serwera, możesz wyłączyć to rejestrowanie w całości poprzez skonfigurowanie rejestratora `Microsoft.AspNetCore.Hosting` na poziomie `Warning` lub wyższym (te komunikaty są zapisywane na poziomie `Info`). Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [filtrowania dzienników](xref:fundamentals/logging/index#log-filtering) . Jeśli nadal chcesz rejestrować pewne informacje o żądaniu, możesz [napisać oprogramowanie pośredniczące](xref:fundamentals/middleware/write) do rejestrowania wymaganych danych i odfiltrować `access_token` wartość ciągu zapytania (jeśli istnieje).
+Jeśli masz problemy z rejestrowaniem tych danych w dziennikach serwera, możesz wyłączyć to rejestrowanie w całości poprzez skonfigurowanie rejestratora `Microsoft.AspNetCore.Hosting` na poziomie `Warning` lub wyższym (te komunikaty są zapisywane na poziomie `Info`). Aby uzyskać więcej informacji, zobacz [filtrowanie dzienników](xref:fundamentals/logging/index#log-filtering) , aby uzyskać więcej informacji. Jeśli nadal chcesz rejestrować pewne informacje o żądaniu, możesz [napisać oprogramowanie pośredniczące](xref:fundamentals/middleware/write) do rejestrowania wymaganych danych i odfiltrować `access_token` wartość ciągu zapytania (jeśli istnieje).
 
 ## <a name="exceptions"></a>Wyjątki
 

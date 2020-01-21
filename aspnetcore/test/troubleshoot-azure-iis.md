@@ -5,14 +5,14 @@ description: Dowiedz się, jak zdiagnozować problemy z wdrożeniami Azure App S
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/10/2020
+ms.date: 01/18/2020
 uid: test/troubleshoot-azure-iis
-ms.openlocfilehash: 23c90c33d197d26d1c4ad758449e318e20ef3760
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: 071dba9e936351e201b7582b3d0667cd6fac54bb
+ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75952151"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294618"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service-and-iis"></a>Rozwiązywanie problemów ASP.NET Core na Azure App Service i usługach IIS
 
@@ -117,7 +117,10 @@ Proces roboczy kończy się niepowodzeniem. Nie zaczyna się aplikacja.
 
 [Moduł ASP.NET Core](xref:host-and-deploy/aspnet-core-module) próbuje uruchomić program .NET Core CLR w procesie, ale nie można go uruchomić. Przyczyna niepowodzenia uruchomienia procesu zwykle można ustalić na podstawie wpisów w dzienniku zdarzeń aplikacji i dzienniku modułu ASP.NET Core stdout.
 
-Aplikacja jest błędnie skonfigurowane z powodu przeznaczony dla wersji udostępnionej platformy ASP.NET Core, która nie jest obecny jest jakiś wspólny warunek błędu. Sprawdź, które wersje udostępnionej platformy ASP.NET Core są zainstalowane na komputerze docelowym.
+Typowe warunki awarii:
+
+* Aplikacja jest nieprawidłowo skonfigurowana z powodu docelowej wersji ASP.NET Core udostępnionej platformy, która nie istnieje. Sprawdź, które wersje udostępnionej platformy ASP.NET Core są zainstalowane na komputerze docelowym.
+* Za pomocą Azure Key Vault, brak uprawnień do Key Vault. Sprawdź zasady dostępu w Key Vault celem, aby upewnić się, że udzielono odpowiednich uprawnień.
 
 ### <a name="50031-ancm-failed-to-find-native-dependencies"></a>500,31 ANCM nie może odnaleźć natywnych zależności
 
@@ -237,7 +240,7 @@ Jeśli błąd wystąpi po nagłówki są wysyłane, jest za późno serwera wys�
 Aby uzyskać dostęp do dziennika zdarzeń aplikacji, użyj bloku **diagnozowanie i rozwiązywanie problemów** w Azure Portal:
 
 1. W Azure Portal Otwórz aplikację w **App Services**.
-1. Wybierz pozycję **Diagnozowanie i rozwiązywanie problemów**.
+1. Kliknij pozycję **Diagnozowanie i rozwiązywanie problemów**.
 1. Wybierz nagłówek **Narzędzia diagnostyczne** .
 1. W obszarze **Narzędzia obsługi**wybierz przycisk **zdarzenia aplikacji** .
 1. Zapoznaj się z najnowszym błędem podanym w pozycji *AspNetCoreModule IIS* lub *IIS AspNetCoreModule v2* w kolumnie **Źródło** .
