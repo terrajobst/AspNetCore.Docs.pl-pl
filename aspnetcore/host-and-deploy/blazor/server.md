@@ -5,17 +5,17 @@ description: Dowiedz się, jak hostować i wdrażać aplikację Blazor Server pr
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 01/17/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/server
-ms.openlocfilehash: c07cd05dd8e1c4384c6f8f019173b9b7a9a06fd0
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: e8b3a7faaf1dc88059a79abbc7e74657ebb2068c
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160226"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726731"
 ---
 # <a name="host-and-deploy-opno-locblazor-server"></a>Hostowanie i wdrażanie serwera Blazor
 
@@ -83,7 +83,7 @@ Zalecamy korzystanie z [usługi Azure SignalR](/azure/azure-signalr) dla aplikac
 
 1. Utwórz profil publikowania aplikacji platformy Azure w programie Visual Studio dla aplikacji serwera Blazor.
 1. Dodaj zależność **usługi SignalR platformy Azure** do profilu. Jeśli subskrypcja platformy Azure nie ma istniejącego wystąpienia usługi SignalR platformy Azure do przypisania do aplikacji, wybierz pozycję **Utwórz nowe wystąpienie usługi azure SignalR** , aby udostępnić nowe wystąpienie usługi.
-1. Publikowanie aplikacji na platformie Azure
+1. Opublikuj aplikację na platformie Azure.
 
 #### <a name="iis"></a>IIS
 
@@ -104,6 +104,17 @@ metadata:
     nginx.ingress.kubernetes.io/session-cookie-expires: "14400"
     nginx.ingress.kubernetes.io/session-cookie-max-age: "14400"
 ```
+
+#### <a name="linux-with-nginx"></a>System Linux z serwerem Nginx
+
+Aby SignalR obiekty WebSockets działały prawidłowo, należy ustawić `Upgrade` i `Connection` serwera proxy w następujący sposób:
+
+```
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Connection $connection_upgrade;
+```
+
+Aby uzyskać więcej informacji, zobacz [Nginx jako proxy protokołu WebSocket](https://www.nginx.com/blog/websocket-nginx/).
 
 ### <a name="measure-network-latency"></a>Mierzenie opóźnienia sieci
 

@@ -5,20 +5,20 @@ description: Dowiedz się więcej o kompresji odpowiedzi i sposobach używania o
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 01/22/2020
 uid: performance/response-compression
-ms.openlocfilehash: 04b2ffd7047e8b127968adb5d40e0141365fb5fe
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: b8a84418a3258e9ac43b4eadd8564c0708590bce
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880907"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726961"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Kompresja odpowiedzi w ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 Przepustowość sieci jest ograniczonym zasobem. Zmniejszenie rozmiaru odpowiedzi zwykle zwiększa czas odpowiedzi aplikacji, często znacząco. Jednym ze sposobów zmniejszenia rozmiaru ładunku jest kompresowanie odpowiedzi aplikacji.
 
@@ -139,7 +139,7 @@ public class Startup
 
 Uwagi:
 
-* przed `app.UseMvc`należy wywołać `app.UseResponseCompression`.
+* `app.UseResponseCompression` musi zostać wywołana przed jakimkolwiek oprogramowanie pośredniczące, które kompresuje odpowiedzi. Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/middleware/index#middleware-order>.
 * Użyj narzędzia, takiego jak [programu Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/)lub [Poster](https://www.getpostman.com/) , aby ustawić nagłówek żądania `Accept-Encoding` i zbadać nagłówki, rozmiar i treść odpowiedzi.
 
 Prześlij żądanie do przykładowej aplikacji bez nagłówka `Accept-Encoding` i zwróć uwagę na to, że odpowiedź jest nieskompresowana. Nagłówki `Content-Encoding` i `Vary` nie są obecne w odpowiedzi.

@@ -9,12 +9,12 @@ ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: signalr/messagepackhubprotocol
-ms.openlocfilehash: cd052a97db1e20d6c7aa00f47cf6a7d01a9bc305
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 1b01357233a9b95a5da052d92e30232c94e78a78
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963762"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76727225"
 ---
 # <a name="use-messagepack-hub-protocol-in-opno-locsignalr-for-aspnet-core"></a>Użyj protokołu MessagePack Hub w SignalR dla ASP.NET Core
 
@@ -173,7 +173,7 @@ Aby uzyskać więcej informacji na temat tego ograniczenia, zobacz [#2228 ASPNET
 
 ### <a name="messagepack-support-in-ahead-of-time-compilation-environment"></a>Obsługa MessagePack w środowisku kompilacji "z wyprzedzeniem"
 
-Biblioteka [MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp) używana przez klienta i serwer platformy .NET używa generowania kodu w celu optymalizacji serializacji. W związku z tym nie jest to obsługiwane domyślnie w środowiskach, w których jest używana Kompilacja "z wyprzedzeniem" (na przykład Xamarin iOS lub Unity). Można używać MessagePack w tych środowiskach przez "wstępne generowanie" kodu serializatora/deserializacji. Aby uzyskać więcej informacji, zobacz [dokumentację MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp#pre-code-generationunityxamarin-supports). Po wstępnym wygenerowaniu serializatorów można zarejestrować je za pomocą delegata konfiguracji przekazaną do `AddMessagePackProtocol`:
+Biblioteka [MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp/tree/v1.8) używana przez klienta i serwer platformy .NET używa generowania kodu w celu optymalizacji serializacji. W związku z tym nie jest to obsługiwane domyślnie w środowiskach, w których jest używana Kompilacja "z wyprzedzeniem" (na przykład Xamarin iOS lub Unity). Można używać MessagePack w tych środowiskach przez "wstępne generowanie" kodu serializatora/deserializacji. Aby uzyskać więcej informacji, zobacz [dokumentację MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp/tree/v1.8#pre-code-generationunityxamarin-supports). Po wstępnym wygenerowaniu serializatorów można zarejestrować je za pomocą delegata konfiguracji przekazaną do `AddMessagePackProtocol`:
 
 ```csharp
 services.AddSignalR()

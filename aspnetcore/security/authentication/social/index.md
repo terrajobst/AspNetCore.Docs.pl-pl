@@ -4,14 +4,14 @@ author: rick-anderson
 description: W tym samouczku przedstawiono sposób tworzenia aplikacji ASP.NET Core przy użyciu protokołu OAuth 2,0 z zewnętrznymi dostawcami uwierzytelniania.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/21/2019
+ms.date: 01/23/2020
 uid: security/authentication/social/index
-ms.openlocfilehash: 06ce9c72f43955345efb61afed2538158810005f
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 7d0f6647a6f5a4d41067b13acd3d294144027bb7
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358072"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76727335"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Uwierzytelnianie w serwisach Facebook, Google i dostawcy zewnętrznym w ASP.NET Core
 
@@ -34,8 +34,8 @@ Aby zapoznać się z przykładami sposobu, w jaki nazwy logowania społeczności
 
 * Utwórz nowy projekt.
 * Wybierz pozycję **ASP.NET Core aplikacja sieci Web** i przycisk **dalej**.
-* Podaj **nazwę projektu** i Potwierdź lub Zmień **lokalizację**. Wybierz **tworzenie**.
-* Na liście rozwijanej wybierz pozycję **ASP.NET Core 3,0** , a następnie wybierz pozycję **aplikacja sieci Web**.
+* Podaj **nazwę projektu** i Potwierdź lub Zmień **lokalizację**. Wybierz przycisk **Utwórz**.
+* Wybierz najnowszą wersję ASP.NET Core z listy rozwijanej (**ASP.NET Core {X. Y}** ), a następnie wybierz pozycję **aplikacja sieci Web**.
 * W obszarze **uwierzytelnianie**wybierz opcję **Zmień** i ustaw uwierzytelnianie na **konta poszczególnych użytkowników**. Wybierz **OK**.
 * W oknie **Tworzenie nowej ASP.NET Core aplikacji sieci Web** wybierz pozycję **Utwórz**.
 
@@ -45,7 +45,7 @@ Aby zapoznać się z przykładami sposobu, w jaki nazwy logowania społeczności
 
 * Zmień katalog (`cd`) do folderu, który będzie zawierać projekt.
 
-* W systemie Windows uruchom następujące polecenie:
+* W przypadku systemu Windows uruchom następujące polecenie:
 
   ```dotnetcli
   dotnet new webapp -o WebApp1 -au Individual -uld

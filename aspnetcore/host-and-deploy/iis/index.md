@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/13/2020
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: bf035bc65f0f120f52e55effe4d413bfecdf735d
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: 146a204509856186a2696b770cae2249d348fa34
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75952082"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726837"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -26,8 +26,19 @@ Aby zapoznać się z samouczkiem dotyczącym publikowania aplikacji ASP.NET Core
 
 Obsługiwane są następujące systemy operacyjne:
 
+::: moniker range=">= aspnetcore-3.0"
+
+* Windows 7 lub nowszy
+* System Windows Server 2012 R2 lub nowszy
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 * Windows 7 lub nowszy
 * Windows Server 2008 R2 lub nowszy
+
+::: moniker-end
 
 [Serwer http. sys](xref:fundamentals/servers/httpsys) (znany wcześniej jako webListener) nie działa w konfiguracji zwrotnego serwera proxy z usługami IIS. Użyj [serwera Kestrel](xref:fundamentals/servers/kestrel).
 
@@ -745,7 +756,7 @@ Użyj jednego z poniższych metod, aby włączyć moduł inicjowania aplikacji d
   </configuration>
   ```
 
-### <a name="idle-timeout"></a>Czas bezczynności
+### <a name="idle-timeout"></a>Limit czasu bezczynności
 
 *Dotyczy tylko aplikacji hostowanych w procesie.*
 

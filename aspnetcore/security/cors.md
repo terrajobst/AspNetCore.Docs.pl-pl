@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, w jaki sposób mechanizm CORS jest standardem umożliwiającym lub odrzucanie żądań między źródłami w aplikacji ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/13/2019
+ms.date: 01/23/2020
 uid: security/cors
-ms.openlocfilehash: 3a51d365626c858ad48298a1108e37eba9050fe7
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: 57098be73164c71d1b0d1fe2f3aee7ec41a32346
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391294"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76727315"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>Włącz żądania między źródłami (CORS) w ASP.NET Core
 
@@ -28,7 +28,7 @@ Zabezpieczenia przeglądarki uniemożliwiają stronom sieci Web wykonywanie żą
 * Zezwala serwerowi jawnie zezwolić na niektóre żądania między źródłami podczas odrzucania innych.
 * Jest bezpieczniejsze i bardziej elastyczne niż wcześniejsze techniki, takie jak [JSONP](/dotnet/framework/wcf/samples/jsonp).
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/cors/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/cors/sample) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="same-origin"></a>To samo źródło
 
@@ -502,6 +502,11 @@ Punkty końcowe z obsługą mechanizmu CORS można testować za pomocą narzędz
 * Nie ma potrzeby przetwarzania żądania przez oprogramowanie pośredniczące CORS.
 * Nagłówki CORS nie są zwracane w odpowiedzi.
 
+## <a name="cors-in-iis"></a>Mechanizm CORS w usługach IIS
+
+W przypadku wdrażania w programie IIS należy uruchomić funkcję CORS przed uwierzytelnianiem systemu Windows, jeśli serwer nie jest skonfigurowany do zezwalania na dostęp anonimowy. Aby zapewnić obsługę tego scenariusza, należy zainstalować i skonfigurować [moduł CORS usług IIS](https://www.iis.net/downloads/microsoft/iis-cors-module) dla aplikacji.
+
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Współużytkowanie zasobów między źródłami (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS)
+* [Wprowadzenie do modułu CORS usług IIS](https://blogs.iis.net/iisteam/getting-started-with-the-iis-cors-module)

@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/get-started
-ms.openlocfilehash: 09400a076849bdec35beb284a488d01feb8a84c2
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 642881b5400a70a99f6e7e262d2a2f1038389ce7
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160005"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726844"
 ---
 # <a name="get-started-with-aspnet-core-opno-locblazor"></a>Wprowadzenie do ASP.NET Core Blazor
 
@@ -39,7 +39,7 @@ Rozpocznij pracę z Blazor:
 
    # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-   1\. Zainstaluj [program Visual Studio 16,4 lub nowszy](https://visualstudio.microsoft.com/vs/preview/) przy użyciu obciążeń **ASP.NET i Web Development** .
+   1\. Zainstaluj [program Visual Studio 2019 w wersji 16,4 lub nowszej](https://visualstudio.microsoft.com/vs/preview/) przy użyciu obciążeń **ASP.NET i Web Development** .
 
    2\. Utwórz nowy projekt.
 
@@ -56,7 +56,7 @@ Rozpocznij pracę z Blazor:
 
    # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-   1\. Zainstalowanie programu [Visual Studio Code](https://code.visualstudio.com/).
+   1\. Zainstaluj [Visual Studio Code](https://code.visualstudio.com/).
 
    2\. Zainstaluj najnowsze [ C# rozszerzenie programu Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
@@ -76,7 +76,7 @@ Rozpocznij pracę z Blazor:
 
    4\. Otwórz folder *WebApplication1* w Visual Studio Code.
 
-   5 \. Dla projektu serwera Blazor, żądania IDE, które umożliwiają dodanie zasobów do kompilowania i debugowania projektu. Wybierz pozycję **Yes**.
+   5 \. Dla projektu serwera Blazor, żądania IDE, które umożliwiają dodanie zasobów do kompilowania i debugowania projektu. Wybierz pozycję **tak**.
 
    6 \. Jeśli używasz aplikacji serwera Blazor, uruchom aplikację przy użyciu debugera Visual Studio Code. Jeśli używasz aplikacji Blazor webassembly, wykonaj `dotnet run` z folderu projektu aplikacji.
 

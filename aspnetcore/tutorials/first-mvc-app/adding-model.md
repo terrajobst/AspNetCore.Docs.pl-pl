@@ -5,12 +5,12 @@ description: Dodaj model do prostej aplikacji ASP.NET Core.
 ms.author: riande
 ms.date: 01/13/2020
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: adf313418e82cc265304262f7a751273fa0e139f
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: 12429f1f381788569615a2a40e1ca13c4b3cfb6e
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75952110"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76727124"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Dodawanie modelu do aplikacji ASP.NET Core MVC
 
@@ -22,7 +22,7 @@ Te klasy są używane z [Entity Framework Core](/ef/core) (Ef Core) do pracy z b
 
 Klasy modelu, które tworzysz, są nazywane klasami POCO ( **z Lain** **P**LR **o**biekty), ponieważ nie mają żadnej zależności od EF Core. Po prostu definiują właściwości danych, które będą przechowywane w bazie danych.
 
-W tym samouczku najpierw napiszesz klasy modelu, a EF Core tworzy bazę danych. Alternatywnym podejściem nieopisanym w tym miejscu jest wygenerowanie klas modelu z istniejącej bazy danych. Aby uzyskać informacje na temat tego podejścia, zobacz [ASP.NET Core — istniejąca baza danych](/ef/core/get-started/aspnetcore/existing-db).
+W tym samouczku najpierw napiszesz klasy modelu, a EF Core tworzy bazę danych.
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -177,7 +177,7 @@ Ukończ okno dialogowe **Dodawanie kontrolera** :
 
 * **Widoki:** Zachowaj wartość domyślną dla każdej zaznaczonej opcji
 * **Nazwa kontrolera:** Zachowaj domyślną *MoviesController*
-* Wybierz pozycję **Dodaj**.
+* Wybierz pozycję **Dodaj**
 
 Program Visual Studio tworzy:
 
@@ -452,7 +452,7 @@ Ukończ okno dialogowe **Dodawanie kontrolera** :
 
 * **Widoki:** Zachowaj wartość domyślną dla każdej zaznaczonej opcji
 * **Nazwa kontrolera:** Zachowaj domyślną *MoviesController*
-* Wybierz pozycję **Dodaj**.
+* Wybierz pozycję **Dodaj**
 
 ![Okno dialogowe Dodawanie kontrolera](adding-model/_static/add_controller2.png)
 

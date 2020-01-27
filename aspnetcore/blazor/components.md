@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/components
-ms.openlocfilehash: e73667925c04dd1b2360138343c4a2dcef0ee310
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 6643ccd0fdb62243427bb0972d8deb3f7b57079d
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160018"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726923"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
@@ -581,12 +581,12 @@ Obsługiwane `EventArgs` przedstawiono w poniższej tabeli.
 | Przeciągnij             | `DragEventArgs`      | `ondrag`, `ondragstart`, `ondragenter`, `ondragleave`, `ondragover`, `ondrop`, `ondragend`<br><br>`DataTransfer` i `DataTransferItem` przechowywać przeciągane dane elementu. |
 | Błąd            | `ErrorEventArgs`     | `onerror` |
 | Zdarzenie            | `EventArgs`          | *Ogólne*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Schowek*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Dane wejściowe*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart`, `onsubmit`<br><br>*Multimedialny*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
-| Koncentracja            | `FocusEventArgs`     | `onfocus`, `onblur`, `onfocusin`, `onfocusout`<br><br>Nie obejmuje obsługi `relatedTarget`. |
+| Fokus            | `FocusEventArgs`     | `onfocus`, `onblur`, `onfocusin`, `onfocusout`<br><br>Nie obejmuje obsługi `relatedTarget`. |
 | Dane wejściowe            | `ChangeEventArgs`    | `onchange`, `oninput` |
 | Klawiatura         | `KeyboardEventArgs`  | `onkeydown`, `onkeypress`, `onkeyup` |
-| Mysz            | `MouseEventArgs`     | `onclick`, `oncontextmenu`, `ondblclick`, `onmousedown`, `onmouseup`, `onmouseover`, `onmousemove`, `onmouseout` |
+| Wskaźnik            | `MouseEventArgs`     | `onclick`, `oncontextmenu`, `ondblclick`, `onmousedown`, `onmouseup`, `onmouseover`, `onmousemove`, `onmouseout` |
 | Wskaźnik myszy    | `PointerEventArgs`   | `onpointerdown`, `onpointerup`, `onpointercancel`, `onpointermove`, `onpointerover`, `onpointerout`, `onpointerenter`, `onpointerleave`, `ongotpointercapture`, `onlostpointercapture` |
-| Kółka myszy      | `WheelEventArgs`     | `onwheel`, `onmousewheel` |
+| Kółko myszy      | `WheelEventArgs`     | `onwheel`, `onmousewheel` |
 | Postęp         | `ProgressEventArgs`  | `onabort`, `onload`, `onloadend`, `onloadstart`, `onprogress`, `ontimeout` |
 | Dotyk            | `TouchEventArgs`     | `ontouchstart`, `ontouchend`, `ontouchmove`, `ontouchenter`, `ontouchleave`, `ontouchcancel`<br><br>`TouchPoint` reprezentuje pojedynczy punkt kontaktu na urządzeniu dotykowym. |
 
@@ -603,7 +603,7 @@ Wyrażenia lambda mogą być również używane:
 Często wygodnie jest blisko dodatkowych wartości, na przykład podczas iteracji na zestawie elementów. Poniższy przykład tworzy trzy przyciski, z których każdy wywołuje `UpdateHeading` przekazywaniem argumentu zdarzenia (`MouseEventArgs`) i numerem przycisku (`buttonNumber`), po wybraniu w interfejsie użytkownika:
 
 ```razor
-<h2>@message</h2>
+<h2>@_message</h2>
 
 @for (var i = 1; i < 4; i++)
 {
@@ -616,11 +616,11 @@ Często wygodnie jest blisko dodatkowych wartości, na przykład podczas iteracj
 }
 
 @code {
-    private string message = "Select a button to learn its position.";
+    private string _message = "Select a button to learn its position.";
 
     private void UpdateHeading(MouseEventArgs e, int buttonNumber)
     {
-        message = $"You selected Button #{buttonNumber} at " +
+        _message = $"You selected Button #{buttonNumber} at " +
             $"mouse position: {e.ClientX} X {e.ClientY}.";
     }
 }
@@ -637,7 +637,7 @@ Typowym scenariuszem ze składnikami zagnieżdżonymi jest potrzeba uruchomienia
 
 [!code-razor[](common/samples/3.x/BlazorWebAssemblySample/Components/ChildComponent.razor?highlight=5-7,17-18)]
 
-`ParentComponent` ustawia `EventCallback<T>` elementu podrzędnego na `ShowMessage` metodę.
+`ParentComponent` ustawia `EventCallback<T>` elementu podrzędnego (`OnClick`) na jego metodę `ShowMessage`.
 
 *Strony/ParentComponent. Razor*:
 
@@ -652,36 +652,28 @@ Typowym scenariuszem ze składnikami zagnieżdżonymi jest potrzeba uruchomienia
     by the parent component.
 </ChildComponent>
 
-<p><b>@messageText</b></p>
+<p><b>@_messageText</b></p>
 
 @code {
-    private string messageText;
+    private string _messageText;
 
     private void ShowMessage(MouseEventArgs e)
     {
-        messageText = $"Blaze a new trail with Blazor! ({e.ScreenX}, {e.ScreenY})";
+        _messageText = $"Blaze a new trail with Blazor! ({e.ScreenX}, {e.ScreenY})";
     }
 }
 ```
 
 Gdy przycisk zostanie wybrany w `ChildComponent`:
 
-* Metoda `ShowMessage` `ParentComponent`jest wywoływana. `messageText` jest aktualizowany i wyświetlany w `ParentComponent`.
+* Metoda `ShowMessage` `ParentComponent`jest wywoływana. `_messageText` jest aktualizowany i wyświetlany w `ParentComponent`.
 * Wywołanie [StateHasChanged](xref:blazor/lifecycle#state-changes) nie jest wymagane w metodzie wywołania zwrotnego (`ShowMessage`). `StateHasChanged` jest automatycznie wywoływana w celu odrenderowania `ParentComponent`, podobnie jak zdarzenia podrzędne wyzwalają ponowne renderowanie składnika w obsłudze zdarzeń, które są wykonywane w ramach elementu podrzędnego.
 
 `EventCallback` i `EventCallback<T>` Zezwalaj na asynchroniczne Delegaty. `EventCallback<T>` jest silnie wpisana i wymaga określonego typu argumentu. `EventCallback` jest słabo wpisywany i dopuszcza każdy typ argumentu.
 
 ```razor
-<p><b>@messageText</b></p>
-
-@{ var message = "Default Text"; }
-
 <ChildComponent 
-    OnClick="@(async () => { await Task.Yield(); messageText = "Blaze It!"; })" />
-
-@code {
-    private string messageText;
-}
+    OnClick="@(async () => { await Task.Yield(); _messageText = "Blaze It!"; })" />
 ```
 
 Wywołaj `EventCallback` lub `EventCallback<T>` z `InvokeAsync` i oczekują na <xref:System.Threading.Tasks.Task>:
@@ -776,7 +768,7 @@ Password:
 
 <input @oninput="OnPasswordChanged" 
        required 
-       type="@(showPassword ? "text" : "password")" 
+       type="@(_showPassword ? "text" : "password")" 
        value="@Password" />
 
 <button class="btn btn-primary" @onclick="ToggleShowPassword">
@@ -784,7 +776,7 @@ Password:
 </button>
 
 @code {
-    private bool showPassword;
+    private bool _showPassword;
 
     [Parameter]
     public string Password { get; set; }
@@ -801,7 +793,7 @@ Password:
 
     private void ToggleShowPassword()
     {
-        showPassword = !showPassword;
+        _showPassword = !_showPassword;
     }
 }
 ```
@@ -809,16 +801,16 @@ Password:
 Składnik `PasswordField` jest używany w innym składniku:
 
 ```razor
-<PasswordField @bind-Password="password" />
+<PasswordField @bind-Password="_password" />
 
 @code {
-    private string password;
+    private string _password;
 }
 ```
 
 Aby przeprowadzić sprawdzenia lub błędy pułapki dla hasła w poprzednim przykładzie:
 
-* Utwórz pole zapasowe dla `Password` (`password` w poniższym przykładowym kodzie).
+* Utwórz pole zapasowe dla `Password` (`_password` w poniższym przykładowym kodzie).
 * Wykonaj testy lub błędy pułapki w metodzie ustawiającej `Password`.
 
 Poniższy przykład przedstawia natychmiastową opinię dla użytkownika, jeśli w wartości hasła jest używana spacja:
@@ -828,36 +820,36 @@ Password:
 
 <input @oninput="OnPasswordChanged" 
        required 
-       type="@(showPassword ? "text" : "password")" 
+       type="@(_showPassword ? "text" : "password")" 
        value="@Password" />
 
 <button class="btn btn-primary" @onclick="ToggleShowPassword">
     Show password
 </button>
 
-<span class="text-danger">@validationMessage</span>
+<span class="text-danger">@_validationMessage</span>
 
 @code {
-    private bool showPassword;
-    private string password;
-    private string validationMessage;
+    private bool _showPassword;
+    private string _password;
+    private string _validationMessage;
 
     [Parameter]
     public string Password
     {
-        get { return password ?? string.Empty; }
+        get { return _password ?? string.Empty; }
         set
         {
-            if (password != value)
+            if (_password != value)
             {
                 if (value.Contains(' '))
                 {
-                    validationMessage = "Spaces not allowed!";
+                    _validationMessage = "Spaces not allowed!";
                 }
                 else
                 {
-                    password = value;
-                    validationMessage = string.Empty;
+                    _password = value;
+                    _validationMessage = string.Empty;
                 }
             }
         }
@@ -875,7 +867,7 @@ Password:
 
     private void ToggleShowPassword()
     {
-        showPassword = !showPassword;
+        _showPassword = !_showPassword;
     }
 }
 ```
@@ -888,22 +880,22 @@ Odwołania do składników zapewniają sposób odwoływania się do wystąpienia
 * Zdefiniuj pole z tym samym typem co składnik podrzędny.
 
 ```razor
-<MyLoginDialog @ref="loginDialog" ... />
+<MyLoginDialog @ref="_loginDialog" ... />
 
 @code {
-    private MyLoginDialog loginDialog;
+    private MyLoginDialog _loginDialog;
 
     private void OnSomething()
     {
-        loginDialog.Show();
+        _loginDialog.Show();
     }
 }
 ```
 
-Gdy składnik jest renderowany, pole `loginDialog` jest wypełniane za pomocą `MyLoginDialog` podrzędnego wystąpienia składnika. Następnie można wywołać metody .NET w wystąpieniu składnika.
+Gdy składnik jest renderowany, pole `_loginDialog` jest wypełniane za pomocą `MyLoginDialog` podrzędnego wystąpienia składnika. Następnie można wywołać metody .NET w wystąpieniu składnika.
 
 > [!IMPORTANT]
-> Zmienna `loginDialog` jest wypełniana tylko po wyrenderowaniu składnika, a jego wyjście zawiera element `MyLoginDialog`. Do tego momentu nie ma niczego do odwołania. Aby manipulować odwołaniami do składników po zakończeniu renderowania składnika, należy użyć [metody OnAfterRenderAsync lub OnAfterRender](xref:blazor/lifecycle#after-component-render).
+> Zmienna `_loginDialog` jest wypełniana tylko po wyrenderowaniu składnika, a jego wyjście zawiera element `MyLoginDialog`. Do tego momentu nie ma niczego do odwołania. Aby manipulować odwołaniami do składników po zakończeniu renderowania składnika, należy użyć [metody OnAfterRenderAsync lub OnAfterRender](xref:blazor/lifecycle#after-component-render).
 
 Podczas przechwytywania odwołań do składników użycie podobnej składni do [przechwytywania odwołań do elementów](xref:blazor/javascript-interop#capture-references-to-elements)nie jest funkcją [międzyoperacyjności języka JavaScript](xref:blazor/javascript-interop) . Odwołania do składników nie są przesyłane do kodu JavaScript,&mdash;są używane tylko w kodzie platformy .NET.
 
@@ -939,10 +931,10 @@ Użycie `NotifierService` do zaktualizowania składnika:
 @inject NotifierService Notifier
 @implements IDisposable
 
-<p>Last update: @lastNotification.key = @lastNotification.value</p>
+<p>Last update: @_lastNotification.key = @_lastNotification.value</p>
 
 @code {
-    private (string key, int value) lastNotification;
+    private (string key, int value) _lastNotification;
 
     protected override void OnInitialized()
     {
@@ -953,7 +945,7 @@ Użycie `NotifierService` do zaktualizowania składnika:
     {
         await InvokeAsync(() =>
         {
-            lastNotification = (key, value);
+            _lastNotification = (key, value);
             StateHasChanged();
         });
     }
@@ -1101,16 +1093,16 @@ Poniższy przykład pokazuje domyślny składnik `Counter` z blokiem `@code` w a
 
 <h1>Counter</h1>
 
-<p>Current count: @currentCount</p>
+<p>Current count: @_currentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
-    int currentCount = 0;
+    private int _currentCount = 0;
 
     void IncrementCount()
     {
-        currentCount++;
+        _currentCount++;
     }
 }
 ```
@@ -1124,7 +1116,7 @@ Składnik `Counter` można również utworzyć przy użyciu pliku związanego z 
 
 <h1>Counter</h1>
 
-<p>Current count: @currentCount</p>
+<p>Current count: @_currentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 ```
@@ -1136,11 +1128,11 @@ namespace BlazorApp.Pages
 {
     public partial class Counter
     {
-        int currentCount = 0;
+        private int _currentCount = 0;
 
         void IncrementCount()
         {
-            currentCount++;
+            _currentCount++;
         }
     }
 }
@@ -1236,10 +1228,10 @@ Ciągi są zwykle renderowane przy użyciu węzłów tekstowych DOM, co oznacza,
 Poniższy przykład ilustruje użycie typu `MarkupString`, aby dodać blok statycznej zawartości HTML do renderowanego danych wyjściowych składnika:
 
 ```html
-@((MarkupString)myMarkup)
+@((MarkupString)_myMarkup)
 
 @code {
-    private string myMarkup = 
+    private string _myMarkup = 
         "<p class='markup'>This is a <em>markup string</em>.</p>";
 }
 ```
@@ -1365,7 +1357,7 @@ składnik `CascadingValuesParametersLayout`:
             <NavMenu />
         </div>
         <div class="col-sm-9">
-            <CascadingValue Value="theme">
+            <CascadingValue Value="_theme">
                 <div class="content px-4">
                     @Body
                 </div>
@@ -1375,7 +1367,7 @@ składnik `CascadingValuesParametersLayout`:
 </div>
 
 @code {
-    private ThemeInfo theme = new ThemeInfo { ButtonClass = "btn-success" };
+    private ThemeInfo _theme = new ThemeInfo { ButtonClass = "btn-success" };
 }
 ```
 
@@ -1392,7 +1384,7 @@ składnik `CascadingValuesParametersTheme`:
 
 <h1>Cascading Values & Parameters</h1>
 
-<p>Current count: @currentCount</p>
+<p>Current count: @_currentCount</p>
 
 <p>
     <button class="btn" @onclick="IncrementCount">
@@ -1407,14 +1399,14 @@ składnik `CascadingValuesParametersTheme`:
 </p>
 
 @code {
-    private int currentCount = 0;
+    private int _currentCount = 0;
 
     [CascadingParameter]
     protected ThemeInfo ThemeInfo { get; set; }
 
     private void IncrementCount()
     {
-        currentCount++;
+        _currentCount++;
     }
 }
 ```
@@ -1422,14 +1414,14 @@ składnik `CascadingValuesParametersTheme`:
 Aby przetworzyć kaskadowo wiele wartości tego samego typu w ramach tego samego poddrzewa, podaj unikatowy ciąg `Name` do każdego składnika `CascadingValue` i odpowiadający mu `CascadingParameter`. W poniższym przykładzie dwa składniki `CascadingValue` są kaskadowo różne wystąpienia `MyCascadingType` według nazwy:
 
 ```razor
-<CascadingValue Value=@ParentCascadeParameter1 Name="CascadeParam1">
+<CascadingValue Value=@_parentCascadeParameter1 Name="CascadeParam1">
     <CascadingValue Value=@ParentCascadeParameter2 Name="CascadeParam2">
         ...
     </CascadingValue>
 </CascadingValue>
 
 @code {
-    private MyCascadingType ParentCascadeParameter1;
+    private MyCascadingType _parentCascadeParameter1;
 
     [Parameter]
     public MyCascadingType ParentCascadeParameter2 { get; set; }
@@ -1509,14 +1501,13 @@ Fragmenty renderowania można definiować przy użyciu składni szablonu Razor. 
 Poniższy przykład ilustruje sposób określania wartości `RenderFragment` i `RenderFragment<T>` oraz renderowania szablonów bezpośrednio w składniku. Fragmenty renderowania mogą być również przekazane jako argumenty do [składników z szablonem](#templated-components).
 
 ```razor
-@timeTemplate
+@_timeTemplate
 
-@petTemplate(new Pet { Name = "Rex" })
+@_petTemplate(new Pet { Name = "Rex" })
 
 @code {
-    private RenderFragment timeTemplate = @<p>The time is @DateTime.Now.</p>;
-    private RenderFragment<Pet> petTemplate = 
-        (pet) => @<p>Your pet's name is @pet.Name.</p>;
+    private RenderFragment _timeTemplate = @<p>The time is @DateTime.Now.</p>;
+    private RenderFragment<Pet> _petTemplate = (pet) => @<p>Pet: @pet.Name</p>;
 
     private class Pet
     {
@@ -1530,7 +1521,7 @@ Renderowane dane wyjściowe poprzedniego kodu:
 ```html
 <p>The time is 10/04/2018 01:26:52.</p>
 
-<p>Your pet's name is Rex.</p>
+<p>Pet: Rex</p>
 ```
 
 ## <a name="manual-rendertreebuilder-logic"></a>Ręczna logika RenderTreeBuilder
@@ -1624,7 +1615,7 @@ Gdy kod jest wykonywany po raz pierwszy, jeśli `someFlag` jest `true`, Konstruk
 
 | Sequence | Typ      | Dane   |
 | :------: | --------- | :----: |
-| 0        | Węzeł tekstu | First  |
+| 0        | Węzeł tekstu | pierwszego  |
 | 1        | Węzeł tekstu | Sekunda |
 
 Załóżmy, że `someFlag` `false`, a znaczniki są renderowane ponownie. Tym razem Konstruktor odbiera:
@@ -1656,7 +1647,7 @@ Teraz pierwsze dane wyjściowe to:
 
 | Sequence | Typ      | Dane   |
 | :------: | --------- | :----: |
-| 0        | Węzeł tekstu | First  |
+| 0        | Węzeł tekstu | pierwszego  |
 | 1        | Węzeł tekstu | Sekunda |
 
 Ten wynik jest identyczny z poprzednim przypadkiem, dlatego nie istnieją żadne negatywne problemy. `someFlag` jest `false` podczas drugiego renderowania, a dane wyjściowe:
@@ -1697,7 +1688,7 @@ Aby uzyskać więcej informacji i przykładów, zobacz <xref:fundamentals/locali
 
 Domyślnie konfiguracja konsolidatora Blazordla Blazor aplikacji webassembly umożliwia rozłączenie informacji o danych wielojęzycznych z wyjątkiem lokalizacji lokalnych jawnie żądanych. Aby uzyskać więcej informacji i wskazówek dotyczących kontrolowania zachowania konsolidatora, zobacz <xref:host-and-deploy/blazor/configure-linker#configure-the-linker-for-internationalization>.
 
-### <a name="cookies"></a>Pliki cookie
+### <a name="cookies"></a>Cookie
 
 Plik cookie kultury lokalizacji może utrzymywać kulturę użytkownika. Plik cookie jest tworzony przez metodę `OnGet` strony hosta aplikacji (*strony/hosta. cshtml. cs*). Oprogramowanie pośredniczące lokalizacji odczytuje plik cookie na kolejnych żądaniach, aby ustawić kulturę użytkownika. 
 
@@ -1775,8 +1766,6 @@ Poniższy składnik przedstawia przykład sposobu wykonywania wstępnego przekie
 </select>
 
 @code {
-    private double textNumber;
-
     private void OnSelected(ChangeEventArgs e)
     {
         var culture = (string)e.Value;

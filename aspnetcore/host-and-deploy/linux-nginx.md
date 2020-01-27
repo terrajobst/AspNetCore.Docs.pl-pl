@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/13/2020
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: e718592127115e46df3154364957943a457b0b1b
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.openlocfilehash: 880d1762ebbea641c0b9c5a9f8bbca0b68a463c5
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146332"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726665"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hostowanie ASP.NET Core w systemie Linux za pomocą Nginx
 
@@ -124,7 +124,7 @@ sudo service nginx start
 
 Sprawdź, czy w przeglądarce jest wyświetlana domyślna strona docelowa dla Nginx. Strona docelowa jest dostępna w `http://<server_IP_address>/index.nginx-debian.html`.
 
-### <a name="configure-nginx"></a>Konfigurowanie serwera Nginx
+### <a name="configure-nginx"></a>Konfigurowanie Nginx
 
 Aby skonfigurować Nginx jako zwrotny serwer proxy do przesyłania dalej żądań do aplikacji ASP.NET Core, zmodyfikuj */etc/nginx/sites-available/default*. Otwórz go w edytorze tekstów i Zastąp zawartość następującym:
 
@@ -144,6 +144,8 @@ server {
     }
 }
 ```
+
+Jeśli aplikacja jest aplikacją serwera Blazor, która opiera się na gniazdach WebSockets, zobacz <xref:host-and-deploy/blazor/server#linux-with-nginx>, aby uzyskać informacje na temat sposobu ustawiania nagłówka `Connection`.
 
 Gdy `server_name` nie są zgodne, Nginx używa serwera domyślnego. W przypadku braku zdefiniowanego serwera domyślnego pierwszy serwer w pliku konfiguracji jest domyślnym serwerem. Najlepszym rozwiązaniem jest dodanie określonego serwera domyślnego, który zwraca kod stanu 444 w pliku konfiguracji. Domyślnym przykładem konfiguracji serwera jest:
 
@@ -336,7 +338,7 @@ static char ngx_http_server_string[] = "Server: Web Server" CRLF;
 static char ngx_http_server_full_string[] = "Server: Web Server" CRLF;
 ```
 
-#### <a name="configure-options"></a>Konfigurowanie opcji
+#### <a name="configure-options"></a>Konfiguruj opcje
 
 Skonfiguruj serwer przy użyciu dodatkowych wymaganych modułów. Rozważ użycie zapory aplikacji sieci Web, takiej jak [zapory ModSecurity](https://www.modsecurity.org/), aby zabezpieczyć aplikację.
 

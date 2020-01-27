@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 462f34664540b92ba6758224a722c7ca8f9c8de0
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 5e3ff65420b3c6769d52f8b96c216043cb1fdc1a
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829065"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76727004"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w ASP.NET Core
 
@@ -134,7 +134,7 @@ Metody zapewniane przez <xref:Microsoft.AspNetCore.Routing.LinkGenerator> obsłu
   * [UseRouting](xref:Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions.UseRouting*) dodaje dopasowanie trasy do potoku programu pośredniczącego. Musi ona występować przed wszelkimi wykorzystanymi przez trasę programem pośredniczącym, takim jak autoryzacja, wykonywaniem punktów końcowych itd.
   * [UseEndpoints](xref:Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions.UseEndpoints*) dodaje wykonywanie punktu końcowego do potoku programu pośredniczącego. Uruchamia delegata żądania, który obsługuje odpowiedź punktu końcowego.
   `UseEndpoints` jest również miejscem, w którym skonfigurowano punkty końcowe trasy, które mogą być dopasowane i wykonywane przez aplikację. Na przykład <xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapRazorPages*>, <xref:Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapControllers*>, <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapGet*>i <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapPost*>.
-* Aplikacje używają metod pomocnika ASP.NET Core, aby skonfigurować ich trasy. Struktury ASP.NET Core zapewniają metody pomocnika, takie jak <xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapRazorPages*>,, <xref:Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapControllers*> i `MapHub<THub>`. Istnieją również metody pomocnika do konfigurowania własnych niestandardowych punktów końcowych tras: <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapGet*>, <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapPost*>i [MapVerb](xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions). 
+* Aplikacje używają metod pomocnika ASP.NET Core, aby skonfigurować ich trasy. Struktury ASP.NET Core zapewniają metody pomocnika, takie jak <xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapRazorPages*>, <xref:Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapControllers*> i `MapHub<THub>`. Istnieją również metody pomocnika do konfigurowania własnych niestandardowych punktów końcowych tras: <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapGet*>, <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapPost*>i [MapVerb](xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions). 
 * Routing punktu końcowego obsługuje również punkty końcowe zmieniające się po uruchomieniu aplikacji. Aby można było obsługiwać ten element w aplikacji lub ASP.NET Core Framework, należy utworzyć i zarejestrować niestandardowy <xref:Microsoft.AspNetCore.Routing.EndpointDataSource>. Jest to funkcja zaawansowana i zazwyczaj nie jest wymagana. Punkty końcowe są zwykle konfigurowane podczas uruchamiania i są statyczne przez okres istnienia aplikacji. Ładowanie konfiguracji trasy z pliku lub bazy danych podczas uruchamiania nie jest dynamiczne.
 
 Poniższy kod przedstawia podstawowy przykład routingu punktów końcowych:
@@ -220,7 +220,7 @@ Istnieje kilka różnic między routingiem punktu końcowego i wersjami routingu
 
   Jedyna gwiazdka "catch-all" w poprzednich wersjach ASP.NET Core (`{*myparametername}`) pozostaje obsługiwana, a ukośniki są zakodowane.
 
-  | Trasa              | Wygenerowano łącze<br>`Url.Action(new { category = "admin/products" })`&hellip; |
+  | Szlak              | Wygenerowano łącze<br>`Url.Action(new { category = "admin/products" })`&hellip; |
   | ------------------ | --------------------------------------------------------------------- |
   | `/search/{*page}`  | `/search/admin%2Fproducts` (ukośnik zostanie zakodowany)             |
   | `/search/{**page}` | `/search/admin/products`                                              |
@@ -374,9 +374,9 @@ W poniższej tabeli przedstawiono odpowiedzi z podanym identyfikatorem URI.
 
 | {1&gt;URI&lt;1}                    | Odpowiedź                                          |
 | ---------------------- | ------------------------------------------------- |
-| `/package/create/3`    | Witamy. Wartości trasy: [Operation, Create], [ID, 3] |
-| `/package/track/-3`    | Witamy. Wartości trasy: [Operation, Track], [ID,-3] |
-| `/package/track/-3/`   | Witamy. Wartości trasy: [Operation, Track], [ID,-3] |
+| `/package/create/3`    | Cześć! Wartości trasy: [Operation, Create], [ID, 3] |
+| `/package/track/-3`    | Cześć! Wartości trasy: [Operation, Track], [ID,-3] |
+| `/package/track/-3/`   | Cześć! Wartości trasy: [Operation, Track], [ID,-3] |
 | `/package/track/`      | Żądanie przepada w, brak dopasowania.              |
 | `GET /hello/Joe`       | Witaj, Jan!                                          |
 | `POST /hello/Joe`      | Żądanie przepada w, dopasowuje tylko HTTP GET. |
@@ -503,11 +503,11 @@ Wyrażenia regularne używane w routingu często zaczynają się od znaku daszka
 
 | Wyrażenie   | String    | Dopasowanie | Komentarz               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | hello     | Tak   | Dopasowania podciągów     |
+| `[a-z]{2}`   | Cześć     | Tak   | Dopasowania podciągów     |
 | `[a-z]{2}`   | 123abc456 | Tak   | Dopasowania podciągów     |
 | `[a-z]{2}`   | mz        | Tak   | Wyrażenie dopasowania    |
 | `[a-z]{2}`   | MZ        | Tak   | Bez uwzględniania wielkości liter    |
-| `^[a-z]{2}$` | hello     | Nie    | Zobacz `^` i `$` powyżej |
+| `^[a-z]{2}$` | Cześć     | Nie    | Zobacz `^` i `$` powyżej |
 | `^[a-z]{2}$` | 123abc456 | Nie    | Zobacz `^` i `$` powyżej |
 
 Aby uzyskać więcej informacji na temat składni wyrażeń regularnych, zobacz [.NET Framework wyrażeń regularnych](/dotnet/standard/base-types/regular-expression-language-quick-reference).
@@ -881,7 +881,7 @@ Istnieje kilka różnic między routingiem punktu końcowego w ASP.NET Core 2,2 
 
   Jedyna gwiazdka "catch-all" w poprzednich wersjach ASP.NET Core (`{*myparametername}`) pozostaje obsługiwana, a ukośniki są zakodowane.
 
-  | Trasa              | Wygenerowano łącze<br>`Url.Action(new { category = "admin/products" })`&hellip; |
+  | Szlak              | Wygenerowano łącze<br>`Url.Action(new { category = "admin/products" })`&hellip; |
   | ------------------ | --------------------------------------------------------------------- |
   | `/search/{*page}`  | `/search/admin%2Fproducts` (ukośnik zostanie zakodowany)             |
   | `/search/{**page}` | `/search/admin/products`                                              |
@@ -1035,9 +1035,9 @@ W poniższej tabeli przedstawiono odpowiedzi z podanym identyfikatorem URI.
 
 | {1&gt;URI&lt;1}                    | Odpowiedź                                          |
 | ---------------------- | ------------------------------------------------- |
-| `/package/create/3`    | Witamy. Wartości trasy: [Operation, Create], [ID, 3] |
-| `/package/track/-3`    | Witamy. Wartości trasy: [Operation, Track], [ID,-3] |
-| `/package/track/-3/`   | Witamy. Wartości trasy: [Operation, Track], [ID,-3] |
+| `/package/create/3`    | Cześć! Wartości trasy: [Operation, Create], [ID, 3] |
+| `/package/track/-3`    | Cześć! Wartości trasy: [Operation, Track], [ID,-3] |
+| `/package/track/-3/`   | Cześć! Wartości trasy: [Operation, Track], [ID,-3] |
 | `/package/track/`      | Żądanie przepada w, brak dopasowania.              |
 | `GET /hello/Joe`       | Witaj, Jan!                                          |
 | `POST /hello/Joe`      | Żądanie przepada w, dopasowuje tylko HTTP GET. |
@@ -1164,11 +1164,11 @@ Wyrażenia regularne używane w routingu często zaczynają się od znaku daszka
 
 | Wyrażenie   | String    | Dopasowanie | Komentarz               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | hello     | Tak   | Dopasowania podciągów     |
+| `[a-z]{2}`   | Cześć     | Tak   | Dopasowania podciągów     |
 | `[a-z]{2}`   | 123abc456 | Tak   | Dopasowania podciągów     |
 | `[a-z]{2}`   | mz        | Tak   | Wyrażenie dopasowania    |
 | `[a-z]{2}`   | MZ        | Tak   | Bez uwzględniania wielkości liter    |
-| `^[a-z]{2}$` | hello     | Nie    | Zobacz `^` i `$` powyżej |
+| `^[a-z]{2}$` | Cześć     | Nie    | Zobacz `^` i `$` powyżej |
 | `^[a-z]{2}$` | 123abc456 | Nie    | Zobacz `^` i `$` powyżej |
 
 Aby uzyskać więcej informacji na temat składni wyrażeń regularnych, zobacz [.NET Framework wyrażeń regularnych](/dotnet/standard/base-types/regular-expression-language-quick-reference).
@@ -1487,9 +1487,9 @@ W poniższej tabeli przedstawiono odpowiedzi z podanym identyfikatorem URI.
 
 | {1&gt;URI&lt;1}                    | Odpowiedź                                          |
 | ---------------------- | ------------------------------------------------- |
-| `/package/create/3`    | Witamy. Wartości trasy: [Operation, Create], [ID, 3] |
-| `/package/track/-3`    | Witamy. Wartości trasy: [Operation, Track], [ID,-3] |
-| `/package/track/-3/`   | Witamy. Wartości trasy: [Operation, Track], [ID,-3] |
+| `/package/create/3`    | Cześć! Wartości trasy: [Operation, Create], [ID, 3] |
+| `/package/track/-3`    | Cześć! Wartości trasy: [Operation, Track], [ID,-3] |
+| `/package/track/-3/`   | Cześć! Wartości trasy: [Operation, Track], [ID,-3] |
 | `/package/track/`      | Żądanie przepada w, brak dopasowania.              |
 | `GET /hello/Joe`       | Witaj, Jan!                                          |
 | `POST /hello/Joe`      | Żądanie przepada w, dopasowuje tylko HTTP GET. |
@@ -1618,11 +1618,11 @@ Wyrażenia regularne używane w routingu często zaczynają się od znaku daszka
 
 | Wyrażenie   | String    | Dopasowanie | Komentarz               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | hello     | Tak   | Dopasowania podciągów     |
+| `[a-z]{2}`   | Cześć     | Tak   | Dopasowania podciągów     |
 | `[a-z]{2}`   | 123abc456 | Tak   | Dopasowania podciągów     |
 | `[a-z]{2}`   | mz        | Tak   | Wyrażenie dopasowania    |
 | `[a-z]{2}`   | MZ        | Tak   | Bez uwzględniania wielkości liter    |
-| `^[a-z]{2}$` | hello     | Nie    | Zobacz `^` i `$` powyżej |
+| `^[a-z]{2}$` | Cześć     | Nie    | Zobacz `^` i `$` powyżej |
 | `^[a-z]{2}$` | 123abc456 | Nie    | Zobacz `^` i `$` powyżej |
 
 Aby uzyskać więcej informacji na temat składni wyrażeń regularnych, zobacz [.NET Framework wyrażeń regularnych](/dotnet/standard/base-types/regular-expression-language-quick-reference).
