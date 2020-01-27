@@ -1,0 +1,2 @@
+> [!WARNING]
+> <span data-ttu-id="0a6be-101">Ostrzeżenie o zabezpieczeniach: ujawnienie `ConnectionId` może prowadzić do złośliwej personifikacji, jeśli serwer lub wersja klienta sygnalizującego to ASP.NET Core 2,2 lub wcześniejsza.</span><span class="sxs-lookup"><span data-stu-id="0a6be-101">Security warning: Exposing `ConnectionId` can lead to malicious impersonation if the SignalR server or client version is ASP.NET Core 2.2 or earlier.</span></span>
