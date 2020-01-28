@@ -1,5 +1,7 @@
 - name: Dokumentacja platformy ASP.NET Core
   href: '/aspnet/#pivot=core'
+- name: Co nowego w dokumentacji platformy ASP.NET Core
+  href: whats-new/index.yml
 - name: Omówienie
   items:
     - name: Informacje o programie ASP.NET Core
@@ -10,7 +12,7 @@
       href: /dotnet/standard/choosing-core-framework-server?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
 - name: Wprowadzenie
   uid: getting-started
-- name: Co nowego?
+- name: Uwagi do wersji
   items:
     - name: Co nowego w wersji 3.1
       uid: aspnetcore-3.1
@@ -885,15 +887,27 @@
             - name: Omówienie
               uid: security/authentication/azure-active-directory/index
             - name: Integrowanie usługi Azure AD z aplikacją internetową
-              href: 'https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial'
-            - name: Integrowanie usługi Azure AD B2C z aplikacją internetową
-              uid: security/authentication/azure-ad-b2c
-            - name: Integrowanie usługi Azure AD B2C z internetowym interfejsem API
-              uid: security/authentication/azure-ad-b2c-webapi
-            - name: Wywoływanie internetowego interfejsu API z podsystemu WPF
-              href: 'https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore'
-            - name: Wywoływanie internetowego interfejsu API w aplikacji internetowej przy użyciu usługi Azure AD
-              href: 'https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore'
+              href: /azure/active-directory/develop/quickstart-v2-aspnet-core-webapp
+            - name: Scenariusze
+              items:
+                - name: 'Aplikacja internetowa, która loguje użytkowników'
+                  href: /azure/active-directory/develop/scenario-web-app-sign-user-overview?tabs=aspnetcore
+                - name: 'Aplikacja internetowa, która wywołuje internetowe interfejsy API'
+                  href: /azure/active-directory/develop/scenario-web-app-call-api-overview
+                - name: Chroniony internetowy interfejs API
+                  href: /azure/active-directory/develop/scenario-protected-web-api-overview
+                - name: 'Internetowy interfejs API, który wywołuje inne internetowe interfejsy API'
+                  href: /azure/active-directory/develop/scenario-web-api-call-api-overview
+                - name: Integrowanie usługi Azure AD B2C z aplikacją internetową
+                  uid: security/authentication/azure-ad-b2c
+            - name: Przykłady
+              items:
+                - name: Logowanie użytkowników i wywoływanie internetowych interfejsów API przy użyciu usługi Azure AD w wersji 2
+                  href: /samples/azure-samples/active-directory-aspnetcore-webapp-openidconnect-v2/enable-webapp-signin/
+                - name: Wywoływanie internetowego interfejsu API platformy ASP.NET Core 2.0 z aplikacji WPF przy użyciu usługi Azure AD w wersji 2
+                  href: /samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/calling-an-aspnet-core-web-api-from-a-wpf-application-using-azure-ad-v2/
+                - name: Internetowy interfejs API z usługą Azure AD B2C
+                  href: 'https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapi/'
         - name: Zabezpieczanie aplikacji platformy ASP.NET Core za pomocą usługi IdentityServer4
           href: 'https://identityserver4.readthedocs.io/'
         - name: Zabezpieczanie aplikacji platformy ASP.NET Core za pomocą uwierzytelniania w usłudze Azure App Service (Easy Auth)
