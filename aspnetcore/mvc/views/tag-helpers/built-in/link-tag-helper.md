@@ -6,12 +6,12 @@ description: Odkryj atrybuty pomocnika znacznika łącza ASP.NET Core i rolę, j
 ms.custom: mvc
 ms.date: 09/24/2019
 uid: mvc/views/tag-helpers/builtin-th/link-tag-helper
-ms.openlocfilehash: e1e2e58b4ab9087e1f9de5b5c03b587feb88f1b9
-ms.sourcegitcommit: fae6f0e253f9d62d8f39de5884d2ba2b4b2a6050
+ms.openlocfilehash: d7514433bee8a138cd7d75bfd15c9798d4fd31a3
+ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71256520"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76809110"
 ---
 # <a name="link-tag-helper-in-aspnet-core"></a>Pomocnik tagu linku w ASP.NET Core
 
@@ -23,7 +23,7 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Pomocnik tagu linku umożliwia określenie sieci CDN dla pliku CSS i rezerwę, gdy sieć CDN jest niedostępna. Pomocnik tagu linku zapewnia wydajność sieci CDN z niezawodną obsługą hostingu lokalnego.
 
-Poniższy znacznik Razor pokazuje `head` element pliku układu utworzony za pomocą szablonu aplikacji sieci Web ASP.NET Core:
+Poniższy znacznik Razor przedstawia element `head` pliku układu utworzonego za pomocą szablonu ASP.NET Core aplikacji sieci Web:
 
 [!code-html[](link-tag-helper/sample/_Layout.cshtml?name=snippet)]
 
@@ -31,7 +31,7 @@ Następujące elementy są renderowane HTML z poprzedniego kodu (w środowisku i
 
 [!code-csharp[](link-tag-helper/sample/HtmlPage1.html)]
 
-W poprzednim kodzie pomocnik tagu linku wygenerował `<meta name="x-stylesheet-fallback-test" content="" class="sr-only" />` element i następujący kod JavaScript, który jest używany do weryfikowania żądanego pliku *Bootstrap. min. css* jest dostępny w sieci CDN. W takim przypadku plik CSS był dostępny, aby pomocnik tagów wygenerował `<link />` element z plikiem CSS usługi CDN.
+W poprzednim kodzie pomocnik tagu linku wygenerował element `<meta name="x-stylesheet-fallback-test" content="" class="sr-only" />` i następujący kod JavaScript, który jest używany do weryfikowania żądanego pliku *Bootstrap. min. css* jest dostępny w sieci CDN. W takim przypadku plik CSS był dostępny, aby pomocnik tagów wygenerował `<link />` element z plikiem CSS usługi CDN.
 
 ## <a name="commonly-used-link-tag-helper-attributes"></a>Atrybuty pomocnika często używanych tagów linków
 
@@ -47,19 +47,15 @@ Adres URL arkusza stylów CSS, do którego ma nastąpić powrót w przypadku nie
 
 ### <a name="asp-fallback-test-class"></a>ASP-Fallback-test-Klasa
 
-Nazwa klasy zdefiniowana w arkuszu stylów do użycia w teście Fallback. Aby uzyskać więcej informacji, zobacz <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestClass>.
+Nazwa klasy zdefiniowana w arkuszu stylów do użycia w teście Fallback. Aby uzyskać więcej informacji, zobacz temat <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestClass>.
 
 ### <a name="asp-fallback-test-property"></a>ASP-Fallback-test-Property
 
-Nazwa właściwości CSS do użycia w teście Fallback. Aby uzyskać więcej informacji, zobacz <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestProperty>.
+Nazwa właściwości CSS do użycia w teście Fallback. Aby uzyskać więcej informacji, zobacz temat <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestProperty>.
 
 ### <a name="asp-fallback-test-value"></a>ASP — wartość testowa
 
-Wartość właściwości CSS do użycia dla testu powrotu. Aby uzyskać więcej informacji, zobacz <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestValue>.
-
-### <a name="asp-fallback-test-value"></a>ASP — wartość testowa
-
-Wartość właściwości CSS do użycia dla testu powrotu. Aby uzyskać więcej informacji, zobacz<xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestValue>
+Wartość właściwości CSS do użycia dla testu powrotu. Aby uzyskać więcej informacji, zobacz temat <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestValue>.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
