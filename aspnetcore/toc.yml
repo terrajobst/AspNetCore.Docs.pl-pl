@@ -230,8 +230,6 @@
           uid: razor-pages/filter
         - name: Konwencje tras i aplikacji
           uid: razor-pages/razor-pages-conventions
-        - name: Zestaw Razor SDK
-          uid: razor-pages/sdk
     - name: MVC
       items:
         - name: Omówienie
@@ -409,21 +407,25 @@
               href: 'mvc/views/working-with-forms.md#the-validation-summary-tag-helper'
     - name: Zaawansowane
       items:
+        - name: Części aplikacji
+          uid: mvc/extensibility/app-parts
+        - name: Model aplikacji
+          uid: mvc/controllers/application-model
+        - name: Obszary
+          uid: mvc/controllers/areas
+        - name: Filtry
+          uid: mvc/controllers/filters
+        - name: Zestaw Razor SDK
+          uid: razor-pages/sdk
         - name: Składniki widoku
           uid: mvc/views/view-components
         - name: Kompilacja widoku
           uid: mvc/views/view-compilation
-        - name: Model aplikacji
-          uid: mvc/controllers/application-model
-        - name: Filtry
-          uid: mvc/controllers/filters
-        - name: Obszary
-          uid: mvc/controllers/areas
         - name: Przekazywanie plików
           uid: mvc/models/file-uploads
-        - name: Części aplikacji
-          uid: mvc/extensibility/app-parts
-        - name: aspnet-codegenerator
+        - name: Zestaw SDK sieci Web
+          uid: razor-pages/web-sdk
+        - name: aspnet-codegenerator (tworzenie szkieletów)
           uid: fundamentals/tools/dotnet-aspnet-codegenerator
 - name: Aplikacje internetowego interfejsu API
   items:
@@ -578,6 +580,8 @@
       uid: grpc/client
     - name: Integracja z fabryką klienta gRPC
       uid: grpc/clientfactory
+    - name: Używanie gRPC w aplikacjach przeglądarki
+      uid: grpc/browser
     - name: Konfiguracja
       uid: grpc/configuration
     - name: Uwierzytelnianie i autoryzacja
