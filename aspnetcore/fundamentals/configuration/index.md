@@ -5,14 +5,14 @@ description: Dowiedz się, jak skonfigurować aplikację ASP.NET Core przy użyc
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/23/2020
+ms.date: 01/29/2020
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 141ae5cda7672159032013cbda1ef4bfa7c142dd
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.openlocfilehash: df49286c3f050b8e90cb5427cf03e2b896a39294
+ms.sourcegitcommit: c81ef12a1b6e6ac838e5e07042717cf492e6635b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76726982"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885561"
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguracja w ASP.NET Core
 
@@ -54,6 +54,19 @@ using Microsoft.Extensions.Configuration;
 ## <a name="host-versus-app-configuration"></a>Host a konfiguracja aplikacji
 
 Przed skonfigurowaniem i uruchomieniem aplikacji *host* zostanie skonfigurowany i uruchomiony. Host jest odpowiedzialny za zarządzanie uruchamiania i czasu życia aplikacji. Zarówno aplikacja, jak i Host są konfigurowane przy użyciu dostawców konfiguracji opisanych w tym temacie. Klucz konfiguracji hosta — pary wartości są również uwzględnione w konfiguracji aplikacji. Aby uzyskać więcej informacji na temat tego, jak dostawcy konfiguracji są używani podczas kompilowania hosta i jak źródła konfiguracji wpływają na konfigurację hosta, zobacz <xref:fundamentals/index#host>.
+
+## <a name="other-configuration"></a>Inna konfiguracja
+
+Ten temat dotyczy tylko *konfiguracji aplikacji*. Inne aspekty uruchamiania i hostowania aplikacji ASP.NET Core są konfigurowane przy użyciu plików konfiguracji nieuwzględnionych w tym temacie:
+
+* plik *Launch. json*/*profilu launchsettings. JSON* to pliki konfiguracji narzędzi dla środowiska programistycznego, opisane w temacie:
+  * W <xref:fundamentals/environments#development>.
+  * W zestawie dokumentacji, w której pliki są używane do konfigurowania ASP.NET Core aplikacji na potrzeby scenariuszy programistycznych.
+* *Web. config* to plik konfiguracji serwera opisany w następujących tematach:
+  * <xref:host-and-deploy/iis/index>
+  * <xref:host-and-deploy/aspnet-core-module>
+
+Aby uzyskać więcej informacji na temat migrowania konfiguracji aplikacji z wcześniejszych wersji programu ASP.NET, zobacz <xref:migration/proper-to-2x/index#store-configurations>.
 
 ## <a name="default-configuration"></a>Konfiguracja domyślna
 

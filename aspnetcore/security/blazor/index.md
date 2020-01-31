@@ -5,48 +5,48 @@ description: Dowiedz się więcej na temat Blazor scenariuszy uwierzytelniania i
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 01/29/2020
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/index
-ms.openlocfilehash: 2ce2cff8d3ab77f21181070b6f1e48c50561036c
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: e9087c246f4805e5931180fa0869fc8a8d23a6c1
+ms.sourcegitcommit: c81ef12a1b6e6ac838e5e07042717cf492e6635b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160291"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885584"
 ---
-# <a name="aspnet-core-opno-locblazor-authentication-and-authorization"></a>ASP.NET Core Blazor uwierzytelniania i autoryzacji
+# <a name="aspnet-core-blazor-authentication-and-authorization"></a>ASP.NET Core uwierzytelnianie i autoryzacja Blazor
 
 [Steve Sanderson](https://github.com/SteveSandersonMS)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-ASP.NET Core obsługuje Konfigurowanie zabezpieczeń w aplikacjach Blazor i zarządzanie nimi.
+ASP.NET Core obsługuje konfigurację i zarządzanie zabezpieczeniami w aplikacjach Blazor.
 
-Scenariusze zabezpieczeń różnią się między Blazor Server i Blazor aplikacjami webassembly. Ponieważ aplikacje serwera Blazor są uruchamiane na serwerze, sprawdzenia autoryzacji mogą określić:
+Scenariusze zabezpieczeń różnią się w zależności od aplikacji Blazor Server i Blazor webassembly. Ponieważ aplikacje serwera Blazor są uruchamiane na serwerze, sprawdzenia autoryzacji mogą określić:
 
 * Opcje interfejsu użytkownika wyświetlane użytkownikowi (na przykład, które pozycje menu są dostępne dla użytkownika).
 * Reguły dostępu do obszarów aplikacji i składników.
 
-Blazor aplikacje webassembly działają na kliencie. Autoryzacja jest używana *tylko* do określenia opcji interfejsu użytkownika, które mają być wyświetlane. Ponieważ sprawdzenia po stronie klienta mogą być modyfikowane lub pomijane przez użytkownika, aplikacja Blazor webassembly nie może wymusić reguł dostępu autoryzacji.
+Blazor aplikacje webassembly są uruchamiane na kliencie. Autoryzacja jest używana *tylko* do określenia opcji interfejsu użytkownika, które mają być wyświetlane. Ponieważ sprawdzenia po stronie klienta mogą być modyfikowane lub pomijane przez użytkownika, aplikacja Blazor webassembly nie może wymusić reguł dostępu autoryzacji.
 
 ## <a name="authentication"></a>Uwierzytelnianie
 
 Blazor używa istniejących mechanizmów uwierzytelniania ASP.NET Core do ustanowienia tożsamości użytkownika. Dokładny mechanizm zależy od tego, w jaki sposób aplikacja Blazor jest hostowana, Blazor Server lub Blazor webassembly.
 
-### <a name="opno-locblazor-server-authentication"></a>Uwierzytelnianie serwera Blazor
+### <a name="blazor-server-authentication"></a>Uwierzytelnianie serwera Blazor
 
-aplikacje serwera Blazor działają za pośrednictwem połączenia w czasie rzeczywistym, które zostało utworzone przy użyciu SignalR. Podczas ustanawiania połączenia obsługiwane jest [uwierzytelnianie w aplikacjach opartych na SignalR](xref:signalr/authn-and-authz) . Uwierzytelnianie może opierać się na pliku cookie lub innym tokenie okaziciela.
+Aplikacje serwera Blazor działają przez połączenie w czasie rzeczywistym, które zostało utworzone za pomocą usługi Sygnalizującer. [Uwierzytelnianie w aplikacjach opartych na sygnalizacji](xref:signalr/authn-and-authz) jest obsługiwane po nawiązaniu połączenia. Uwierzytelnianie może opierać się na pliku cookie lub innym tokenie okaziciela.
 
 Szablon projektu serwera Blazor może skonfigurować uwierzytelnianie dla Ciebie podczas tworzenia projektu.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Postępuj zgodnie ze wskazówkami programu Visual Studio w artykule <xref:blazor/get-started>, aby utworzyć nowy projekt Blazor Server z mechanizmem uwierzytelniania.
+Postępuj zgodnie ze wskazówkami programu Visual Studio w artykule <xref:blazor/get-started>, aby utworzyć nowy projekt serwera Blazor z mechanizmem uwierzytelniania.
 
-Po wybraniu szablonu **aplikacjiBlazor Server** w oknie dialogowym **Tworzenie nowej ASP.NET Core aplikacji sieci Web** wybierz pozycję **Zmień** w obszarze **uwierzytelnianie**.
+Po wybraniu szablonu **aplikacji Blazor Server** w oknie dialogowym **Tworzenie nowej ASP.NET Core aplikacji sieci Web** wybierz pozycję **Zmień** w obszarze **uwierzytelnianie**.
 
 Zostanie otwarte okno dialogowe z zaoferowaniem tego samego zestawu mechanizmów uwierzytelniania dostępnych dla innych projektów ASP.NET Core:
 
@@ -70,8 +70,8 @@ W poniższej tabeli przedstawiono dozwolone wartości uwierzytelniania (`{AUTHEN
 | Mechanizm uwierzytelniania                                                                 | wartość `{AUTHENTICATION}` |
 | ---------------------------------------------------------------------------------------- | :----------------------: |
 | Bez uwierzytelniania                                                                        | `None`                   |
-| Pojedyncze<br>Użytkownicy przechowywani w aplikacji z tożsamością ASP.NET Core.                        | `Individual`             |
-| Pojedyncze<br>Użytkownicy przechowywani w [Azure AD B2C](xref:security/authentication/azure-ad-b2c). | `IndividualB2C`          |
+| Szczegółowe<br>Użytkownicy przechowywani w aplikacji z tożsamością ASP.NET Core.                        | `Individual`             |
+| Szczegółowe<br>Użytkownicy przechowywani w [Azure AD B2C](xref:security/authentication/azure-ad-b2c). | `IndividualB2C`          |
 | Konta służbowe<br>Uwierzytelnianie organizacyjne dla pojedynczej dzierżawy.            | `SingleOrg`              |
 | Konta służbowe<br>Uwierzytelnianie organizacyjne dla wielu dzierżawców.           | `MultiOrg`               |
 | Uwierzytelnianie systemu Windows                                                                   | `Windows`                |
@@ -191,13 +191,26 @@ namespace BlazorSample.Services
 }
 ```
 
-Usługa `CustomAuthStateProvider` jest zarejestrowana w `Startup.ConfigureServices`:
+W aplikacji Blazor webassembly usługa `CustomAuthStateProvider` jest zarejestrowana w `Main` *program.cs*:
 
 ```csharp
-// using Microsoft.AspNetCore.Components.Authorization;
-// using BlazorSample.Services;
+using Microsoft.AspNetCore.Blazor.Hosting;
+using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.Extensions.DependencyInjection;
+using BlazorSample.Services;
 
-services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
+public class Program
+{
+    public static async Task Main(string[] args)
+    {
+        var builder = WebAssemblyHostBuilder.CreateDefault(args);
+        builder.Services.AddScoped<AuthenticationStateProvider, 
+            CustomAuthStateProvider>();
+        builder.RootComponents.Add<App>("app");
+
+        await builder.Build().RunAsync();
+    }
+}
 ```
 
 Korzystając z `CustomAuthStateProvider`, wszyscy użytkownicy są uwierzytelniani przy użyciu nazwy użytkownika `mrfibuli`.
@@ -492,7 +505,7 @@ W programie Blazor aplikacje webassembly można ominąć sprawdzanie autoryzacji
 
 **Zawsze sprawdzaj autoryzację na serwerze w ramach dowolnych punktów końcowych interfejsu API, do których uzyskuje dostęp aplikacja po stronie klienta.**
 
-## <a name="troubleshoot-errors"></a>Rozwiązywanie problemów
+## <a name="troubleshoot-errors"></a>Rozwiązywanie problemów z błędami
 
 Typowe błędy:
 

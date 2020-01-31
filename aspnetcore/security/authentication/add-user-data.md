@@ -3,15 +3,15 @@ title: Dodawanie, pobieranie i usuwanie danych tożsamości użytkownika w proje
 author: rick-anderson
 description: Dowiedz się, jak dodać danych niestandardowych użytkownika w tożsamości w projektach programu ASP.NET Core. Usuń dane na RODO.
 ms.author: riande
-ms.date: 12/05/2019
+ms.date: 01/28/2020
 ms.custom: mvc, seodec18
 uid: security/authentication/add-user-data
-ms.openlocfilehash: f54df68834cd3e2493e558aaab9851f036f3f01b
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: e08c02e2e5d4a429aae10c59e7ae3ea48c975067
+ms.sourcegitcommit: c81ef12a1b6e6ac838e5e07042717cf492e6635b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880754"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885545"
 ---
 # <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>Dodawanie, pobieranie i usuwanie danych niestandardowych użytkownika w tożsamości w projektach programu ASP.NET Core
 
@@ -24,7 +24,7 @@ W tym artykule przedstawiono sposób:
 
 Przykładowy projekt jest tworzony na podstawie aplikacja internetowa ze stronami Razor, ale instrukcje są podobne dla aplikacji sieci web platformy ASP.NET Core MVC.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/add-user-data) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/add-user-data) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -78,15 +78,15 @@ dotnet new webapp -o WebApp1
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Z **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy na Projekt > **Dodaj** > **nowy element szkieletu**.
-* W okienku po lewej stronie **Dodawanie szkieletu** okno dialogowe, wybierz opcję **tożsamości** > **Dodaj**.
-* W **tożsamość usługi ADD** okno dialogowe, następujące opcje:
+* W lewym okienku okna dialogowego **Dodawanie szkieletu** wybierz pozycję **tożsamość** > **Dodaj**.
+* W oknie dialogowym **Dodawanie tożsamości** można wykonać następujące czynności:
   * Wybierz istniejący plik układu *~/Pages/Shared/_Layout.cshtml*
   * Wybierz następujące pliki do zastąpienia:
     * **Konto/rejestrowanie**
     * **Konto zarządzania/indeks**
   * Wybierz **+** przycisk, aby utworzyć nową **klasa kontekstu danych**. Akceptuje typu (**WebApp1.Models.WebApp1Context** Jeśli projekt nazwano **WebApp1**).
   * Wybierz **+** przycisk, aby utworzyć nową **klasy użytkownika**. Akceptuje typu (**WebApp1User** Jeśli projekt nazwano **WebApp1**) > **Dodaj**.
-* Wybierz **Dodaj**.
+* Wybierz pozycję **Dodaj**.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 

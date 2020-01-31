@@ -3,14 +3,14 @@ title: Omówienie platformy ASP.NET Core MVC
 author: ardalis
 description: Dowiedz się, jak ASP.NET Core MVC to rozbudowana platforma służąca do tworzenia aplikacji sieci Web i interfejsów API przy użyciu wzorca projektowego modelu widoku.
 ms.author: riande
-ms.date: 11/07/2019
+ms.date: 01/28/2020
 uid: mvc/overview
-ms.openlocfilehash: 4f4ea3da8563cabaaa6183c6835c2f1eb8c387b4
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: a147c2aa01f1440f8ac59f73eb7be734193f802a
+ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799494"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76869974"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Omówienie platformy ASP.NET Core MVC
 
@@ -41,7 +41,7 @@ Widoki są odpowiedzialne za prezentowanie zawartości za pomocą interfejsu uż
 
 ### <a name="controller-responsibilities"></a>Obowiązki kontrolera
 
-Kontrolery są składnikami, które obsługują interakcję z użytkownikiem, pracują z modelem i ostatecznie wybierają widok do renderowania. W aplikacji MVC widok wyświetla tylko informacje; kontroler obsługuje i reaguje na dane wejściowe użytkownika i interakcje. We wzorcu MVC kontroler jest punktem wejścia, który jest odpowiedzialny za wybór typów modelu do pracy i widok do renderowania (w związku z czym jego nazwa określa, jak aplikacja odpowiada na daną prośbę).
+Kontrolery są składnikami, które obsługują interakcję z użytkownikiem, pracują z modelem i ostatecznie wybierają widok do renderowania. W aplikacji MVC widok służy wyłącznie do wyświetlania informacji. Za obsługę danych wprowadzanych przez użytkownika i interakcję z użytkownikiem odpowiada kontroler. We wzorcu MVC kontroler jest punktem wejścia, który jest odpowiedzialny za wybór typów modelu do pracy i widok do renderowania (w związku z czym jego nazwa określa, jak aplikacja odpowiada na daną prośbę).
 
 > [!NOTE]
 > Kontrolery nie powinny być nadmiernie skomplikowane przez zbyt wiele obowiązków. Aby zachować logikę kontrolera przed nadmierną złożonością, wypychanie logiki biznesowej z kontrolera i do modelu domeny.
@@ -62,7 +62,7 @@ ASP.NET Core MVC obejmuje następujące elementy:
 * [Routing](#routing)
 * [Wiązanie modelu](#model-binding)
 * [Walidacja modelu](#model-validation)
-* [Iniekcja zależności](../fundamentals/dependency-injection.md)
+* [Wstrzykiwanie zależności](../fundamentals/dependency-injection.md)
 * [Filtry](#filters)
 * [Obszary](#areas)
 * [Interfejsy API sieci Web](#web-apis)
@@ -251,11 +251,12 @@ Pomocnicy tagów zapewniają przyjazne dla języka HTML środowisko programistyc
 
 ## <a name="compatibility-version"></a>Wersja zgodności
 
-Metoda <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> pozwala aplikacji na zgodę lub rezygnację z ewentualnych zmian w zachowaniu, które wprowadzono w ASP.NET Core MVC 2,1 lub nowszych.
+Metoda <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> umożliwia aplikacji włączenie wykorzystania lub rezygnację ze zmian zachowania wprowadzanych w programie ASP.NET Core MVC w wersji 2.1 lub nowszej, które potencjalnie mogą prowadzić do awarii.
 
-Aby uzyskać więcej informacji, zobacz <xref:mvc/compatibility-version>.
+Aby uzyskać więcej informacji, zobacz temat <xref:mvc/compatibility-version>.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Przetestowana Biblioteka testowania AspNetCore. MVC-Fluent dla ASP.NET Core Mvc](https://github.com/ivaylokenov/MyTested.AspNetCore.Mvc) &ndash; Biblioteka testów jednostkowych z silną typem, zapewniająca interfejs Fluent do testowania aplikacji MVC i Web API. (*Niekonserwowane lub obsługiwane przez firmę Microsoft).*
+* [Integrowanie składników Razor z aplikacjami Razor Pages i MVC](xref:blazor/hosting-models#integrate-razor-components-into-razor-pages-and-mvc-apps)
 

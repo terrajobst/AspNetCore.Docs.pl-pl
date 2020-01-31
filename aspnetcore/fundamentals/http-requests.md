@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/16/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: 482f8e28c23c621cecaf9ce111d89e9166ea6d85
-ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
+ms.openlocfilehash: 9b9da82191a587be0603ee114562e9a964f05250
+ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75722729"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76870401"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Wykonywanie żądań HTTP przy użyciu IHttpClientFactory w ASP.NET Core
 
@@ -42,7 +42,7 @@ Istnieje kilka sposobów, `IHttpClientFactory` mogą być używane w aplikacji:
 
 Najlepsze podejście zależy od wymagań aplikacji.
 
-### <a name="basic-usage"></a>Podstawowy sposób użycia
+### <a name="basic-usage"></a>Podstawowe użycie
 
 `IHttpClientFactory` można zarejestrować, wywołując `AddHttpClient`:
 
@@ -98,7 +98,7 @@ Klient z określonym typem akceptuje parametr `HttpClient` w jego konstruktorze:
 
 [!code-csharp[](http-requests/samples/3.x/HttpClientFactorySample/GitHub/GitHubService.cs?name=snippet1&highlight=5)]
 
-Powyższy kod ma następujące działanie:
+W powyższym kodzie:
 
 * Konfiguracja zostanie przeniesiona do określonego klienta.
 * Obiekt `HttpClient` jest udostępniany jako właściwość publiczna.
@@ -307,7 +307,7 @@ Powyższe podejścia rozwiązują problemy z zarządzaniem zasobami, które `IHt
 - `SocketsHttpHandler` udostępnia połączenia między wystąpieniami `HttpClient`. To udostępnianie uniemożliwia wyczerpanie gniazda.
 - `SocketsHttpHandler` cykluje połączenia zgodnie z `PooledConnectionLifetime`, aby uniknąć nieodświeżonych problemów z usługą DNS.
 
-### <a name="cookies"></a>Pliki cookie
+### <a name="cookies"></a>Cookie
 
 Wystąpienia `HttpMessageHandler` w puli powoduje, że obiekty `CookieContainer` są udostępniane. Nieoczekiwane udostępnianie obiektów `CookieContainer` często powoduje nieprawidłowy kod. W przypadku aplikacji wymagających plików cookie należy rozważyć następujące kwestie:
 
@@ -353,6 +353,22 @@ W poniższym przykładzie:
 
 [!code-csharp[](http-requests/samples/3.x/HttpClientFactoryConsoleSample/Program.cs?highlight=14-15,20,26-27,59-62)]
 
+## <a name="header-propagation-middleware"></a>Oprogramowanie pośredniczące propagacji nagłówka
+
+Propagacja nagłówka to ASP.NET Core oprogramowanie pośredniczące do propagowania nagłówków HTTP z przychodzącego żądania do wychodzących żądań klienta HTTP. Aby użyć propagacji nagłówka:
+
+* Odwołuje się do pakietu [Microsoft. AspNetCore. HeaderPropagation](https://www.nuget.org/packages/Microsoft.AspNetCore.HeaderPropagation) .
+* Skonfiguruj oprogramowanie pośredniczące i `HttpClient` w `Startup`:
+
+  [!code-csharp[](http-requests/samples/3.x/Startup.cs?highlight=5-9,21&name=snippet)]
+
+* Klient zawiera skonfigurowane nagłówki w żądaniach wychodzących:
+
+  ```C#
+  var client = clientFactory.CreateClient("MyForwardingClient");
+  var response = client.GetAsync(...);
+  ```
+
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Używanie elementu HttpClientFactory do implementowania odpornych na błędy żądań HTTP](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests)
@@ -386,7 +402,7 @@ Istnieje kilka sposobów, `IHttpClientFactory` mogą być używane w aplikacji:
 
 Żadna z nich nie jest ściśle wyższa od siebie. Najlepsze podejście zależy od ograniczeń aplikacji.
 
-### <a name="basic-usage"></a>Podstawowy sposób użycia
+### <a name="basic-usage"></a>Podstawowe użycie
 
 `IHttpClientFactory` można zarejestrować, wywołując metodę rozszerzenia `AddHttpClient` na `IServiceCollection`wewnątrz metody `Startup.ConfigureServices`.
 
@@ -609,7 +625,7 @@ Powyższe podejścia rozwiązują problemy z zarządzaniem zasobami, które `IHt
 - `SocketsHttpHandler` udostępnia połączenia między wystąpieniami `HttpClient`. To udostępnianie uniemożliwia wyczerpanie gniazda.
 - `SocketsHttpHandler` cykluje połączenia zgodnie z `PooledConnectionLifetime`, aby uniknąć nieodświeżonych problemów z usługą DNS.
 
-### <a name="cookies"></a>Pliki cookie
+### <a name="cookies"></a>Cookie
 
 Wystąpienia `HttpMessageHandler` w puli powoduje, że obiekty `CookieContainer` są udostępniane. Nieoczekiwane udostępnianie obiektów `CookieContainer` często powoduje nieprawidłowy kod. W przypadku aplikacji wymagających plików cookie należy rozważyć następujące kwestie:
 
@@ -691,7 +707,7 @@ Istnieje kilka sposobów, `IHttpClientFactory` mogą być używane w aplikacji:
 
 Żadna z nich nie jest ściśle wyższa od siebie. Najlepsze podejście zależy od ograniczeń aplikacji.
 
-### <a name="basic-usage"></a>Podstawowy sposób użycia
+### <a name="basic-usage"></a>Podstawowe użycie
 
 `IHttpClientFactory` można zarejestrować, wywołując metodę rozszerzenia `AddHttpClient` na `IServiceCollection`wewnątrz metody `Startup.ConfigureServices`.
 
@@ -917,7 +933,7 @@ Powyższe podejścia rozwiązują problemy z zarządzaniem zasobami, które `IHt
 - `SocketsHttpHandler` udostępnia połączenia między wystąpieniami `HttpClient`. To udostępnianie uniemożliwia wyczerpanie gniazda.
 - `SocketsHttpHandler` cykluje połączenia zgodnie z `PooledConnectionLifetime`, aby uniknąć nieodświeżonych problemów z usługą DNS.
 
-### <a name="cookies"></a>Pliki cookie
+### <a name="cookies"></a>Cookie
 
 Wystąpienia `HttpMessageHandler` w puli powoduje, że obiekty `CookieContainer` są udostępniane. Nieoczekiwane udostępnianie obiektów `CookieContainer` często powoduje nieprawidłowy kod. W przypadku aplikacji wymagających plików cookie należy rozważyć następujące kwestie:
 
@@ -962,6 +978,23 @@ W poniższym przykładzie:
 * `Main` tworzy zakres do wykonania metody `GetPage` usługi i zapisuje pierwsze 500 znaków zawartości strony sieci Web w konsoli programu.
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactoryConsoleSample/Program.cs?highlight=14-15,20,26-27,59-62)]
+
+## <a name="header-propagation-middleware"></a>Oprogramowanie pośredniczące propagacji nagłówka
+
+Propagacja nagłówka to społeczność obsługiwana przez oprogramowanie pośredniczące do propagowania nagłówków HTTP z przychodzącego żądania do wychodzących żądań klienta HTTP. Aby użyć propagacji nagłówka:
+
+* Odwołuje się do obsługiwanego przez społeczność portu [HeaderPropagation](https://www.nuget.org/packages/HeaderPropagation)pakietu. ASP.NET Core 3,1 i nowsze obsługuje [Microsoft. AspNetCore. HeaderPropagation](https://www.nuget.org/packages/Microsoft.AspNetCore.HeaderPropagation).
+
+* Skonfiguruj oprogramowanie pośredniczące i `HttpClient` w `Startup`:
+
+  [!code-csharp[](http-requests/samples/2.x/Startup21.cs?highlight=5-9,25&name=snippet)]
+
+* Klient zawiera skonfigurowane nagłówki w żądaniach wychodzących:
+
+  ```C#
+  var client = clientFactory.CreateClient("MyForwardingClient");
+  var response = client.GetAsync(...);
+  ```
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

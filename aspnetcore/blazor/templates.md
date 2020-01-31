@@ -5,17 +5,17 @@ description: Dowiedz się więcej na temat ASP.NET Core szablonów aplikacji Bla
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 01/29/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/templates
-ms.openlocfilehash: 2a95b986450471b474d93ead252255f2bd9d4918
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: acfa4b8a42cbd310c6fc6dc973573578e94ef999
+ms.sourcegitcommit: c81ef12a1b6e6ac838e5e07042717cf492e6635b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160122"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885511"
 ---
 # <a name="aspnet-core-opno-locblazor-templates"></a>Szablony Blazor ASP.NET Core
 
@@ -36,16 +36,20 @@ Instrukcje krok po kroku dotyczące tworzenia aplikacji Blazor na podstawie szab
 
 Następujące pliki i foldery tworzą Blazor aplikację wygenerowaną na podstawie szablonu Blazor:
 
-* *Program.cs* &ndash; punkt wejścia aplikacji, który konfiguruje ASP.NET Core [hosta](xref:fundamentals/host/generic-host). Kod w tym pliku jest wspólny dla wszystkich ASP.NET Core aplikacji wygenerowanych z szablonów ASP.NET Core.
+* *Program.cs* &ndash; punkt wejścia aplikacji, który konfiguruje:
 
-* *Startup.cs* &ndash; zawiera logikę uruchamiania aplikacji. Klasa `Startup` definiuje dwie metody:
+  * [Host](xref:fundamentals/host/generic-host) ASP.NET Core (Blazor Server)
+  * Host webassembly (Blazor webassembly) &ndash; kod w tym pliku jest unikatowy dla aplikacji utworzonych na podstawie szablonu Blazor webassembly (`blazorwasm`).
+    * Składnik `App`, który jest głównym składnikiem aplikacji, jest określony jako element `app` DOM dla metody `Add`.
+    * Usługi można skonfigurować za pomocą metody `ConfigureServices` w konstruktorze hosta (na przykład `builder.Services.AddSingleton<IMyDependency, MyDependency>();`).
+    * Konfigurację można dostarczyć za pośrednictwem konstruktora hosta (`builder.Configuration`).
+
+* *Startup.cs* (serwerBlazor) &ndash; zawiera logikę uruchamiania aplikacji. Klasa `Startup` definiuje dwie metody:
 
   * `ConfigureServices` &ndash; konfiguruje usługi dla [iniekcji zależności](xref:fundamentals/dependency-injection) aplikacji. W Blazor aplikacji serwera usługi są dodawane przez wywoływanie <xref:Microsoft.Extensions.DependencyInjection.ComponentServiceCollectionExtensions.AddServerSideBlazor*>, a `WeatherForecastService` jest dodawane do kontenera usługi do użycia przez przykładowy składnik `FetchData`.
   * `Configure` &ndash; konfiguruje potok obsługi żądania aplikacji:
-    * Blazor webassembly &ndash; dodaje składnik `App` (określony jako element `app` DOM do metody `AddComponent`), który jest głównym składnikiem aplikacji.
-    * Serwer Blazor
-      * <xref:Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions.MapBlazorHub*> jest wywoływana w celu skonfigurowania punktu końcowego dla połączenia w czasie rzeczywistym z przeglądarką. Połączenie jest tworzone za pomocą [SignalR](xref:signalr/introduction), który jest strukturą do dodawania funkcji sieci Web w czasie rzeczywistym do aplikacji.
-      * [MapFallbackToPage ("/_Host")](xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapFallbackToPage*) jest wywoływana w celu skonfigurowania strony głównej aplikacji (*strony/_Host. cshtml*) i włączenia nawigacji.
+    * <xref:Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions.MapBlazorHub*> jest wywoływana w celu skonfigurowania punktu końcowego dla połączenia w czasie rzeczywistym z przeglądarką. Połączenie jest tworzone za pomocą [SignalR](xref:signalr/introduction), który jest strukturą do dodawania funkcji sieci Web w czasie rzeczywistym do aplikacji.
+    * [MapFallbackToPage ("/_Host")](xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapFallbackToPage*) jest wywoływana w celu skonfigurowania strony głównej aplikacji (*strony/_Host. cshtml*) i włączenia nawigacji.
 
 * *wwwroot/index.html* (Blazor webassembly) &ndash; stronę główną aplikacji zaimplementowaną jako strona HTML:
   * Po wstępnym zażądaniu dowolnej strony aplikacji jest ona renderowana i zwracana w odpowiedzi.

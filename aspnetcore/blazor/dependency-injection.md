@@ -10,14 +10,14 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/dependency-injection
-ms.openlocfilehash: 6930d721f04fd5f7cad2ba472724497a157fda0f
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
-ms.translationtype: MT
+ms.openlocfilehash: fa6762522c831c7fbe2742dbfe4e25a377988e1e
+ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76159979"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76869567"
 ---
-# <a name="aspnet-core-opno-locblazor-dependency-injection"></a>ASP.NET Core Blazor iniekcji zależności
+# <a name="aspnet-core-blazor-dependency-injection"></a>ASP.NET Core iniekcja zależności Blazor
 
 Autor [Rainer Stropek](https://www.timecockpit.com)
 
@@ -25,7 +25,7 @@ Autor [Rainer Stropek](https://www.timecockpit.com)
 
 Blazor obsługuje [iniekcję zależności (di)](xref:fundamentals/dependency-injection). Aplikacje mogą używać wbudowanych usług, wprowadzając je do składników programu. Aplikacje mogą także definiować i rejestrować niestandardowe usługi i udostępniać je w całej aplikacji za pomocą funkcji DI.
 
-DI jest techniką uzyskiwania dostępu do usług skonfigurowanych w centralnej lokalizacji. Może to być przydatne w aplikacjach Blazor, aby:
+DI jest techniką uzyskiwania dostępu do usług skonfigurowanych w centralnej lokalizacji. Może to być przydatne w aplikacjach Blazor do:
 
 * Udostępnianie pojedynczego wystąpienia klasy usługi w wielu składnikach, znanej jako *pojedyncze usługi.*
 * Oddziel składniki od klas konkretnych usług za pomocą abstrakcji odwołań. Rozważmy na przykład `IDataAccess` interfejsu do uzyskiwania dostępu do danych w aplikacji. Interfejs jest implementowany przez konkretną klasę `DataAccess` i zarejestrowany jako usługa w kontenerze usługi aplikacji. Gdy składnik używa elementu DI do odbierania implementacji `IDataAccess`, składnik nie jest połączony z konkretnym typem. Implementacja może zostać zamieniony, być może dla implementacji makiety w testach jednostkowych.
@@ -36,9 +36,9 @@ Domyślne usługi są automatycznie dodawane do kolekcji usług aplikacji.
 
 | NDES | Okres istnienia | Opis |
 | ------- | -------- | ----------- |
-| <xref:System.Net.Http.HttpClient> | Pojedynczego | Zapewnia metody wysyłania żądań HTTP i odbierania odpowiedzi HTTP z zasobu identyfikowanego przez identyfikator URI.<br><br>Wystąpienie `HttpClient` w aplikacji Blazor webassembly używa przeglądarki do obsługi ruchu HTTP w tle.<br><br>aplikacje serwera Blazor nie zawierają domyślnie `HttpClient` skonfigurowany jako usługa. Podaj `HttpClient` do aplikacji Blazor Server.<br><br>Aby uzyskać więcej informacji, zobacz temat <xref:blazor/call-web-api>. |
-| `IJSRuntime` | Pojedyncze (Blazor webassembly)<br>Zakres (Blazor Server) | Reprezentuje wystąpienie środowiska uruchomieniowego JavaScript, w którym są wysyłane wywołania języka JavaScript. Aby uzyskać więcej informacji, zobacz temat <xref:blazor/javascript-interop>. |
-| `NavigationManager` | Pojedyncze (Blazor webassembly)<br>Zakres (Blazor Server) | Zawiera pomocników do pracy z identyfikatorami URI i stanem nawigacji. Aby uzyskać więcej informacji, zobacz [identyfikatory URI i pomocnika stanu nawigacji](xref:blazor/routing#uri-and-navigation-state-helpers). |
+| <xref:System.Net.Http.HttpClient> | Pojedynczego | Zapewnia metody wysyłania żądań HTTP i odbierania odpowiedzi HTTP z zasobu identyfikowanego przez identyfikator URI.<br><br>Wystąpienie `HttpClient` w aplikacji webassembly Blazor używa przeglądarki do obsługi ruchu HTTP w tle.<br><br>Aplikacje serwera Blazor nie domyślnie zawierają `HttpClient` skonfigurowany jako usługa. Podaj `HttpClient` do aplikacji serwera Blazor.<br><br>Aby uzyskać więcej informacji, zobacz temat <xref:blazor/call-web-api>. |
+| `IJSRuntime` | Singleton (Blazor webassembly)<br>W zakresie (serwer Blazor) | Reprezentuje wystąpienie środowiska uruchomieniowego JavaScript, w którym są wysyłane wywołania języka JavaScript. Aby uzyskać więcej informacji, zobacz temat <xref:blazor/javascript-interop>. |
+| `NavigationManager` | Singleton (Blazor webassembly)<br>W zakresie (serwer Blazor) | Zawiera pomocników do pracy z identyfikatorami URI i stanem nawigacji. Aby uzyskać więcej informacji, zobacz [identyfikatory URI i pomocnika stanu nawigacji](xref:blazor/routing#uri-and-navigation-state-helpers). |
 
 Niestandardowy dostawca usług nie dostarcza automatycznie usług domyślnych wymienionych w tabeli. W przypadku użycia niestandardowego dostawcy usług i wymagania usług wymienionych w tabeli należy dodać wymagane usługi do nowego dostawcy usług.
 
@@ -134,7 +134,7 @@ Wymagania wstępne dotyczące iniekcji konstruktora:
 
 W przypadku aplikacji ASP.NET Core usługi o określonym zakresie są zwykle objęte zakresem bieżącego żądania. Po zakończeniu żądania wszystkie usługi w zakresie lub przejściowym są usuwane przez system DI. W Blazor aplikacji serwerowych zakres żądań jest stosowany przez czas trwania połączenia klienta, co może spowodować, że usługi przejściowe i objęte zakresem będą dużo dłużej niż oczekiwano.
 
-Aby zasięgać usługi do okresu istnienia składnika, można użyć klas podstawowych `OwningComponentBase` i `OwningComponentBase<TService>`. Te klasy bazowe uwidaczniają Właściwość `ScopedServices` typu `IServiceProvider`, które rozwiązują usługi objęte zakresem czasu istnienia składnika. Aby utworzyć składnik, który dziedziczy z klasy podstawowej w Razor, użyj dyrektywy `@inherits`.
+Aby ograniczyć zakres usług do okresu istnienia składnika, można użyć klas podstawowych `OwningComponentBase` i `OwningComponentBase<TService>`. Te klasy bazowe uwidaczniają Właściwość `ScopedServices` typu `IServiceProvider`, które rozwiązują usługi objęte zakresem czasu istnienia składnika. Aby utworzyć składnik, który dziedziczy z klasy podstawowej w Razor, użyj dyrektywy `@inherits`.
 
 ```razor
 @page "/users"

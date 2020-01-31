@@ -5,20 +5,20 @@ description: Poznaj podstawy tworzenia internetowego interfejsu API w programie 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/22/2019
+ms.date: 01/27/2020
 uid: web-api/index
-ms.openlocfilehash: 5ef8b4d012f4ed90339ffea191612e4dc365d958
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 8609e2095c202643cdc905cc610298195b654215
+ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880527"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76870020"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>Tworzenie internetowych interfejsów API za pomocą ASP.NET Core
 
 Przez [Scott Addie](https://github.com/scottaddie) i [Tomasz Dykstra](https://github.com/tdykstra)
 
-Platforma ASP.NET Core obsługuje tworzenie usług RESTful, znanych także jako internetowe interfejsy API, za pomocą języka C#. Aby obsługiwać żądania, interfejs API sieci Web używa kontrolerów. *Kontrolery* w INTERNETowym interfejsie API są klasami pochodnymi od `ControllerBase`. W tym artykule pokazano, jak używać kontrolerów do obsługi żądań interfejsu API sieci Web.
+ASP.NET Core obsługuje tworzenie usług RESTful, znanych również jako interfejsy API sieci Web C#, przy użyciu programu. Aby obsługiwać żądania, interfejs API sieci Web używa kontrolerów. *Kontrolery* w INTERNETowym interfejsie API są klasami pochodnymi od `ControllerBase`. W tym artykule pokazano, jak używać kontrolerów do obsługi żądań interfejsu API sieci Web.
 
 [Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/index/samples). ([Jak pobrać](xref:index#how-to-download-a-sample)).
 
@@ -78,13 +78,28 @@ Aby zapoznać się z listą zawierającą dostępne atrybuty, zapoznaj się z pr
 
 Atrybut [`[ApiController]`](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) można zastosować do klasy kontrolera, aby włączyć następujące zachowania dotyczące interfejsów API ceniona:
 
+::: moniker range=">= aspnetcore-2.2"
+
 * [Wymagania dotyczące routingu atrybutów](#attribute-routing-requirement)
 * [Automatyczne odpowiedzi HTTP 400](#automatic-http-400-responses)
 * [Wnioskowanie parametru źródła powiązania](#binding-source-parameter-inference)
 * [Wieloczęściowe/formularz-wnioskowanie dotyczące danych](#multipartform-data-request-inference)
 * [Szczegóły problemu dotyczące kodów stanu błędu](#problem-details-for-error-status-codes)
 
+*Szczegóły problemu dotyczącego kodów stanu błędu* wymagają [wersji](xref:mvc/compatibility-version) 2,2 lub nowszej. Inne funkcje wymagają wersji 2,1 lub nowszej.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.1"
+
+* [Wymagania dotyczące routingu atrybutów](#attribute-routing-requirement)
+* [Automatyczne odpowiedzi HTTP 400](#automatic-http-400-responses)
+* [Wnioskowanie parametru źródła powiązania](#binding-source-parameter-inference)
+* [Wieloczęściowe/formularz-wnioskowanie dotyczące danych](#multipartform-data-request-inference)
+
 Te funkcje wymagają [wersji](xref:mvc/compatibility-version) 2,1 lub nowszej.
+
+::: moniker-end
 
 ### <a name="attribute-on-specific-controllers"></a>Atrybut na określonych kontrolerach
 
