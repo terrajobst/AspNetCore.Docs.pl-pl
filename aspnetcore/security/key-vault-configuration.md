@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/16/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: 37ba756cc4170c145d2ab1f9f0a465057cc826c1
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: cd31094884f53f34d55c0bceabae41ca2bacba4c
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358711"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928543"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault dostawcę konfiguracji w programie ASP.NET Core
 
@@ -23,7 +23,7 @@ W tym dokumencie wyjaśniono, jak za pomocą dostawcy konfiguracji [Key Vault Mi
 * Kontrolowanie dostępu do poufnych danych konfiguracyjnych.
 * Spełnienie wymagania dotyczącego sprawdzania poprawności sprzętowych modułów zabezpieczeń FIPS 140-2 Level 2 (HSM) podczas przechowywania danych konfiguracyjnych.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="packages"></a>Pakiety
 
@@ -77,7 +77,7 @@ Instrukcje dostępne w [przewodniku szybki start: Ustawianie i pobieranie wpisu 
    * Otwórz Cloud Shell w przeglądarce za pomocą przycisku **uruchom Cloud Shell** .
    * Wybierz przycisk **Cloud Shell** w menu w prawym górnym rogu Azure Portal.
 
-   Aby uzyskać więcej informacji, zobacz [interfejs wiersza polecenia platformy Azure (CLI)](/cli/azure/) i [Omówienie Azure Cloud Shell](/azure/cloud-shell/overview).
+   Aby uzyskać więcej informacji, zobacz [interfejs wiersza polecenia platformy Azure](/cli/azure/) i [Omówienie Azure Cloud Shell](/azure/cloud-shell/overview).
 
 1. Jeśli nie masz jeszcze uwierzytelnienia, zaloguj się za pomocą polecenia `az login`.
 
@@ -124,7 +124,7 @@ Przykładowa aplikacja używa identyfikatora aplikacji i certyfikatu X. 509, gdy
 1. Zapisz nazwę magazynu kluczy, identyfikator aplikacji i odcisk palca certyfikatu w pliku *appSettings. JSON* aplikacji.
 1. Przejdź do **magazynu kluczy** w Azure Portal.
 1. Wybierz magazyn kluczy utworzony w [magazynie wpisów tajnych w środowisku produkcyjnym z](#secret-storage-in-the-production-environment-with-azure-key-vault) sekcją Azure Key Vault.
-1. Wybierz pozycję **Zasady dostępu**.
+1. Wybierz pozycję **zasady dostępu**.
 1. Wybierz pozycję **Dodaj zasady dostępu**.
 1. Otwórz **uprawnienia do wpisów tajnych** i Udostępnij aplikację z uprawnieniami **pobierania** i **wyświetlania listy** .
 1. Wybierz pozycję **Wybierz podmiot zabezpieczeń** i wybierz zarejestrowaną aplikację według nazwy. Wybierz przycisk **Wybierz** .

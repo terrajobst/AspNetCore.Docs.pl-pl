@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 12/16/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 286d73d732b146fef15bbfc309caeb214cdbbe0d
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: ba9671f68a0faf99ff5232a6d5dd132d0a1d5ac5
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829182"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928431"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Wdróż aplikacje ASP.NET Core w Azure App Service
 
@@ -197,7 +197,7 @@ Jeśli wystąpi problem przy użyciu rozszerzenia witryny w wersji zapoznawczej,
 1. W witrynie Azure Portal przejdź do App Service.
 1. Wybierz aplikację sieci Web.
 1. Wpisz "ex" w polu wyszukiwania, aby odfiltrować "rozszerzenia", lub przewiń w dół listy narzędzi do zarządzania.
-1. Wybierz pozycję **Rozszerzenia**.
+1. Wybierz pozycję **rozszerzenia**.
 1. Wybierz pozycję **Dodaj**.
 1. Wybierz rozszerzenie **środowiska uruchomieniowego ASP.NET Core {X. Y} ({x64 | x86})** z listy, gdzie `{X.Y}` jest wersją ASP.NET Core wersji zapoznawczej i `{x64|x86}` Określa platformę.
 1. Wybierz **przycisk OK** , aby zaakceptować postanowienia prawne.
@@ -280,7 +280,7 @@ W przypadku wdrożenia 64-bitowego:
 
 ### <a name="deploy-the-app-self-contained"></a>Wdróż aplikację samodzielną
 
-Użyj programu Visual Studio lub narzędzi interfejsu wiersza polecenia (CLI) dla samodzielnego [wdrożenia (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
+Użyj programu Visual Studio lub interfejs wiersza polecenia platformy .NET Core dla [wdrożenia samodzielnego (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -326,7 +326,7 @@ Jeśli musisz przekształcić *plik Web. config* przy publikowaniu (na przykład
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Omówienie usługi App Service](/azure/app-service/app-service-web-overview)
+* [Przegląd App Service](/azure/app-service/app-service-web-overview)
 * [Azure App Service: najlepsze miejsce do hostowania aplikacji .NET (wideo z omówieniem 55 minut)](https://channel9.msdn.com/events/dotnetConf/2017/T222)
 * [Piątek Azure: Azure App Service środowisko diagnostyczne i rozwiązywania problemów (wideo 12-minutowy)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)
 * [Omówienie diagnostyki Azure App Service](/azure/app-service/app-service-diagnostics)

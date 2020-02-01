@@ -5,14 +5,14 @@ description: Dowiedz się, w jaki sposób ASP.NET Core implementuje iniekcję za
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 01/30/2020
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: fabc6df07d2d7beaa546b189bb7527f626fc669d
-ms.sourcegitcommit: 47d453f34b6fd0179119c572cb8be64c5365cbb6
+ms.openlocfilehash: a9d268489ebcef69d64c6fd65087bc38a3581821
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75597944"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928407"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Wstrzykiwanie zależności w ASP.NET Core
 
@@ -22,7 +22,7 @@ ASP.NET Core obsługuje wzorzec projektowania oprogramowania dla iniekcji zależ
 
 Aby uzyskać więcej informacji specyficznych dla iniekcji zależności w kontrolerach MVC, zobacz <xref:mvc/controllers/dependency-injection>.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="overview-of-dependency-injection"></a>Przegląd iniekcji zależności
 
@@ -613,6 +613,7 @@ Wbudowany kontener usług został zaprojektowany z myślą o potrzebach platform
 * Kontenery podrzędne
 * Niestandardowe zarządzanie okresem istnienia
 * Obsługa `Func<T>` w przypadku inicjowania z opóźnieniem
+* Rejestracja oparta na Konwencji
 
 Za pomocą aplikacji ASP.NET Core można używać następujących kontenerów innych firm:
 
@@ -640,7 +641,7 @@ Metoda fabryki pojedynczej usługi, taka jak drugi argument dla [AddSingleton\<T
 
 * Unikaj używania *wzorca lokalizatora usługi*. Na przykład nie należy wywoływać <xref:System.IServiceProvider.GetService*>, aby uzyskać wystąpienie usługi, gdy można użyć DI zamiast:
 
-  **Niepoprawnie:**
+  **Prawidłowy**
 
   ```csharp
   public class MyClass()

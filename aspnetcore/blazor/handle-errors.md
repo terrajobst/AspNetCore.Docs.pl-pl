@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: 7b5602d5ae5e58d1678762fe1cd2adec1f31c969
-ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
+ms.openlocfilehash: b987513e5410e95ab632b9935d858b648838d94f
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76809006"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928275"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>Obsługa błędów w aplikacjach Blazor ASP.NET Core
 
@@ -30,7 +30,9 @@ Gdy aplikacja Blazor nie działa prawidłowo podczas opracowywania, otrzymywanie
 * W trakcie programowania złoty pasek kieruje użytkownika do konsoli przeglądarki, gdzie można zobaczyć wyjątek.
 * W środowisku produkcyjnym złoty pasek powiadamia użytkownika o wystąpieniu błędu i zaleca odświeżenie przeglądarki.
 
-Interfejs użytkownika dla tego środowiska obsługi błędów jest częścią szablonów projektu Blazor. W aplikacji Blazor webassembly Dostosuj środowisko w pliku *wwwroot/index.html* :
+Interfejs użytkownika dla tego środowiska obsługi błędów jest częścią szablonów projektu Blazor.
+
+W aplikacji Blazor webassembly Dostosuj środowisko w pliku *wwwroot/index.html* :
 
 ```html
 <div id="blazor-error-ui">
@@ -57,7 +59,7 @@ W aplikacji serwera Blazor Dostosuj środowisko w pliku *Pages/_Host. cshtml* :
 
 Element `blazor-error-ui` jest ukryty przez style dołączone do Blazor szablonów, a następnie pokazywany w przypadku wystąpienia błędu.
 
-## <a name="how-the-opno-locblazor-framework-reacts-to-unhandled-exceptions"></a>Jak struktura Blazor reaguje na Nieobsłużone wyjątki
+## <a name="how-a-opno-locblazor-server-app-reacts-to-unhandled-exceptions"></a>Jak aplikacja serwera Blazor reaguje na Nieobsłużone wyjątki
 
 Serwer Blazor jest strukturą stanową. Gdy użytkownicy współpracują z aplikacją, utrzymują połączenie z serwerem znanym jako *obwód*. Obwód zawiera aktywne wystąpienia składnika, a także wiele innych aspektów stanu, takich jak:
 
@@ -101,9 +103,9 @@ Kod struktury i aplikacji może wyzwolić Nieobsłużone wyjątki w jednej z nas
 * [Programy obsługi zdarzeń](#event-handlers)
 * [Usuwanie składników](#component-disposal)
 * [Międzyoperacyjność JavaScript](#javascript-interop)
-* [Programy obsługi obwodu](#circuit-handlers)
-* [Usuwanie obwodu](#circuit-disposal)
-* [Renderowanie prerenderingu](#prerendering)
+* [procedury obsługi obwodu serwera Blazor](#blazor-server-circuit-handlers)
+* [Usuwanie obwodu serwera Blazor](#blazor-server-circuit-disposal)
+* [Renderowanie serwera Blazor](#blazor-server-prerendering)
 
 Poprzednie Nieobsłużone wyjątki zostały opisane w poniższych sekcjach tego artykułu.
 
@@ -114,7 +116,7 @@ Gdy Blazor tworzy wystąpienie składnika:
 * Konstruktor składnika jest wywoływany.
 * Konstruktory wszelkich niepojedynczych usług DI dostarczonych do konstruktora składnika za pośrednictwem dyrektywy [`@inject`](xref:blazor/dependency-injection#request-a-service-in-a-component) lub atrybutu [`[Inject]`](xref:blazor/dependency-injection#request-a-service-in-a-component) są wywoływane.
 
-Obwód kończy się niepowodzeniem, gdy dowolny wykonany Konstruktor lub setter dla każdej właściwości `[Inject]` zgłasza nieobsłużony wyjątek. Wyjątek jest krytyczny, ponieważ struktura nie może utworzyć wystąpienia składnika. Jeśli logika konstruktora może generować wyjątki, aplikacja powinna zalewkować wyjątki przy użyciu instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem.
+Obwód serwera Blazor kończy się niepowodzeniem, gdy dowolny wykonany Konstruktor lub Metoda ustawiająca dla żadnej właściwości `[Inject]` zgłasza nieobsłużony wyjątek. Wyjątek jest krytyczny, ponieważ struktura nie może utworzyć wystąpienia składnika. Jeśli logika konstruktora może generować wyjątki, aplikacja powinna zalewkować wyjątki przy użyciu instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem.
 
 ### <a name="lifecycle-methods"></a>Metody cyklu życia
 
@@ -125,7 +127,7 @@ W trakcie okresu istnienia składnika Blazor wywołuje następujące [metody cyk
 * `ShouldRender` / `ShouldRenderAsync`
 * `OnAfterRender` / `OnAfterRenderAsync`
 
-Jeśli jakakolwiek metoda cyklu życia zgłasza wyjątek, synchronicznie lub asynchronicznie, wyjątek jest krytyczny dla obwodu. Aby składniki zajmowały błędy w metodach cyklu życia, Dodaj logikę obsługi błędów.
+Jeśli jakakolwiek metoda cyklu życia zgłasza wyjątek, synchronicznie lub asynchronicznie, wyjątek jest krytyczny dla obwodu serwera Blazor. Aby składniki zajmowały błędy w metodach cyklu życia, Dodaj logikę obsługi błędów.
 
 W poniższym przykładzie, gdzie `OnParametersSetAsync` wywołuje metodę w celu uzyskania produktu:
 
@@ -140,7 +142,7 @@ W poniższym przykładzie, gdzie `OnParametersSetAsync` wywołuje metodę w celu
 
 Znaczniki deklaratywne w pliku składnika `.razor` są kompilowane do C# metody o nazwie `BuildRenderTree`. Gdy składnik jest renderowany, `BuildRenderTree` wykonuje i tworzy strukturę danych opisującą elementy, tekst i składniki podrzędne renderowanego składnika.
 
-Logika renderowania może zgłosić wyjątek. Przykład tego scenariusza występuje, gdy `@someObject.PropertyName` jest oceniane, ale `@someObject` `null`. Nieobsługiwany wyjątek zgłoszony przez logikę renderowania jest krytyczny dla obwodu.
+Logika renderowania może zgłosić wyjątek. Przykład tego scenariusza występuje, gdy `@someObject.PropertyName` jest oceniane, ale `@someObject` `null`. Nieobsługiwany wyjątek zgłoszony przez logikę renderowania jest krytyczny dla obwodu serwera Blazor.
 
 Aby zapobiec wystąpieniu wyjątku odwołania o wartości null w logice renderowania, przed uzyskaniem dostępu do elementów członkowskich Sprawdź, czy `null` obiektu. W poniższym przykładzie właściwości `person.Address` nie są dostępne w przypadku `null``person.Address`:
 
@@ -159,7 +161,7 @@ Kod po stronie klienta wyzwala wywołania kodu, C# gdy programy obsługi zdarze�
 
 Kod procedury obsługi zdarzeń może zgłosić nieobsługiwany wyjątek w tych scenariuszach.
 
-Jeśli procedura obsługi zdarzeń zgłasza nieobsługiwany wyjątek (na przykład kwerenda bazy danych kończy się niepowodzeniem), wyjątek jest krytyczny dla obwodu. Jeśli aplikacja wywołuje kod, który może zakończyć się niepowodzeniem z powodów zewnętrznych, należy zastosować wyjątek pułapki przy użyciu instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem.
+Jeśli procedura obsługi zdarzeń zgłasza nieobsługiwany wyjątek (na przykład kwerenda bazy danych kończy się niepowodzeniem), wyjątek jest krytyczny dla obwodu serwera Blazor. Jeśli aplikacja wywołuje kod, który może zakończyć się niepowodzeniem z powodów zewnętrznych, należy zastosować wyjątek pułapki przy użyciu instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem.
 
 Jeśli kod użytkownika nie jest pułapk i nie obsługuje wyjątku, struktura rejestruje wyjątek i kończy obwód.
 
@@ -167,7 +169,7 @@ Jeśli kod użytkownika nie jest pułapk i nie obsługuje wyjątku, struktura re
 
 Składnik może zostać usunięty z interfejsu użytkownika, na przykład, ponieważ użytkownik przeszedł do innej strony. Gdy składnik implementujący <xref:System.IDisposable?displayProperty=fullName> jest usuwany z interfejsu użytkownika, struktura wywołuje metodę <xref:System.IDisposable.Dispose*> składnika.
 
-Jeśli metoda `Dispose` składnika zgłasza nieobsługiwany wyjątek, wyjątek jest krytyczny dla obwodu. Jeśli logika usuwania może generować wyjątki, aplikacja powinna zalewkować wyjątki przy użyciu instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem.
+Jeśli metoda `Dispose` składnika zgłasza nieobsługiwany wyjątek, wyjątek jest krytyczny dla obwodu serwera Blazor. Jeśli logika usuwania może generować wyjątki, aplikacja powinna zalewkować wyjątki przy użyciu instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem.
 
 Aby uzyskać więcej informacji na temat usuwania składników, zobacz <xref:blazor/lifecycle#component-disposal-with-idisposable>.
 
@@ -177,20 +179,20 @@ Aby uzyskać więcej informacji na temat usuwania składników, zobacz <xref:bla
 
 Poniższe warunki dotyczą obsługi błędów w `InvokeAsync<T>`:
 
-* Jeśli wywołanie `InvokeAsync<T>` nie powiedzie się synchronicznie, wystąpi wyjątek programu .NET. Wywołanie `InvokeAsync<T>` może zakończyć się niepowodzeniem, na przykład dlatego, że nie można serializować dostarczonych argumentów. Kod dewelopera musi przechwycić wyjątek. Jeśli kod aplikacji w obsłudze zdarzeń lub metoda cyklu życia składnika nie obsługuje wyjątku, wynikający z nich wyjątek jest krytyczny dla obwodu.
-* Jeśli wywołanie `InvokeAsync<T>` nie powiedzie się asynchronicznie, <xref:System.Threading.Tasks.Task> .NET kończy się niepowodzeniem. Wywołanie `InvokeAsync<T>` może zakończyć się niepowodzeniem, na przykład ponieważ kod po stronie JavaScript zgłasza wyjątek lub zwraca `Promise`, który został ukończony jako `rejected`. Kod dewelopera musi przechwycić wyjątek. W przypadku użycia operatora [await](/dotnet/csharp/language-reference/keywords/await) Rozważ zapakowanie wywołania metody w instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem. W przeciwnym razie niepowodzenie kodu spowoduje nieobsłużony wyjątek, który jest krytyczny dla obwodu.
+* Jeśli wywołanie `InvokeAsync<T>` nie powiedzie się synchronicznie, wystąpi wyjątek programu .NET. Wywołanie `InvokeAsync<T>` może zakończyć się niepowodzeniem, na przykład dlatego, że nie można serializować dostarczonych argumentów. Kod dewelopera musi przechwycić wyjątek. Jeśli kod aplikacji w obsłudze zdarzeń lub metodzie cyklu życia składnika nie obsługuje wyjątku, wynikający z nich wyjątek jest krytyczny dla obwodu serwera Blazor.
+* Jeśli wywołanie `InvokeAsync<T>` nie powiedzie się asynchronicznie, <xref:System.Threading.Tasks.Task> .NET kończy się niepowodzeniem. Wywołanie `InvokeAsync<T>` może zakończyć się niepowodzeniem, na przykład ponieważ kod po stronie JavaScript zgłasza wyjątek lub zwraca `Promise`, który został ukończony jako `rejected`. Kod dewelopera musi przechwycić wyjątek. W przypadku użycia operatora [await](/dotnet/csharp/language-reference/keywords/await) Rozważ zapakowanie wywołania metody w instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem. W przeciwnym razie niepowodzenie kodu spowoduje nieobsłużony wyjątek krytyczny dla obwodu serwera Blazor.
 * Domyślnie wywołania do `InvokeAsync<T>` muszą zakończyć się w określonym czasie lub w przeciwnym razie upłynął limit czasu połączenia. Domyślny limit czasu wynosi jedną minutę. Limit czasu chroni kod przed utratą połączenia sieciowego lub kodem JavaScript, który nigdy nie odsyła komunikat uzupełniający. Jeśli wystąpiło przełączenie, wynikiem `Task` zakończy się niepowodzeniem z <xref:System.OperationCanceledException>. Zalewka i przetwórz wyjątek z rejestrowaniem.
 
 Podobnie kod JavaScript może inicjować wywołania metod .NET wskazywanych przez atrybut [`[JSInvokable]`](xref:blazor/javascript-interop#invoke-net-methods-from-javascript-functions) . Jeśli te metody .NET zgłaszają nieobsługiwany wyjątek:
 
-* Wyjątek nie jest traktowany jako krytyczny dla obwodu.
+* Wyjątek nie jest traktowany jako krytyczny dla obwodu serwera Blazor.
 * `Promise` po stronie JavaScript zostanie odrzucony.
 
 Istnieje możliwość użycia kodu obsługi błędów po stronie .NET lub stronie JavaScript wywołania metody.
 
 Aby uzyskać więcej informacji, zobacz temat <xref:blazor/javascript-interop>.
 
-### <a name="circuit-handlers"></a>Programy obsługi obwodu
+### <a name="opno-locblazor-server-circuit-handlers"></a>procedury obsługi obwodu serwera Blazor
 
 Serwer Blazor umożliwia kod definiujący *procedurę obsługi obwodu*, która umożliwia uruchamianie kodu na zmiany stanu obwodu użytkownika. Program obsługi obwodu jest implementowany przez wyprowadzanie z `CircuitHandler` i rejestrowanie klasy w kontenerze usługi aplikacji. Poniższy przykład obsługi obwodu śledzi otwarte SignalR połączenia:
 
@@ -236,11 +238,11 @@ public void ConfigureServices(IServiceCollection services)
 
 Jeśli metody obsługi niestandardowego obwodu zgłaszają nieobsługiwany wyjątek, wyjątek jest krytyczny dla obwodu serwera Blazor. Aby tolerować wyjątki w kodzie programu obsługi lub metodach wywoływanych, zawiń kod w co najmniej jednej instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem.
 
-### <a name="circuit-disposal"></a>Usuwanie obwodu
+### <a name="opno-locblazor-server-circuit-disposal"></a>Usuwanie obwodu serwera Blazor
 
 Gdy obwód kończy się, ponieważ użytkownik odłączył się i struktura czyści stan obwodu, struktura usuwa zakres DI obwodu. Oddysponowanie zakresu polega na usunięciu wszelkich usług w zakresie innych firm, które implementują <xref:System.IDisposable?displayProperty=fullName>. Jeśli jakakolwiek usługa nie zgłasza nieobsłużonego wyjątku podczas usuwania, struktura rejestruje wyjątek.
 
-### <a name="prerendering"></a>Renderowanie prerenderingu
+### <a name="opno-locblazor-server-prerendering"></a>Renderowanie preBlazor Server
 
 składniki Blazor mogą być wstępnie renderowane przy użyciu pomocnika tagów `Component`, tak że renderowane znaczniki HTML są zwracane jako część początkowego żądania HTTP użytkownika. Działa to w następujący sposób:
 
@@ -274,7 +276,7 @@ Nieskończone pętle podczas renderowania:
 * Powoduje, że proces renderowania kontynuuje działanie zawsze.
 * Jest równoznaczny z tworzeniem niezakończonej pętli.
 
-W tych scenariuszach obwód, którego to dotyczy, zawiesza się, a wątek zwykle próbuje wykonać:
+W tych scenariuszach uszkodzony obwód serwera Blazor nie powiedzie się, a wątek zwykle próbuje wykonać:
 
 * Zużywaj ilość czasu procesora CPU dozwoloną przez system operacyjny w nieskończoność.
 * Korzystaj z nieograniczonej ilości pamięci serwera. Zużywanie nieograniczonej pamięci jest równoważne scenariuszowi, w którym niezakończona pętla dodaje wpisy do kolekcji na każdej iteracji.

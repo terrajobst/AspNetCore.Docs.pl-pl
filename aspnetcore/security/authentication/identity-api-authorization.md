@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/08/2019
 uid: security/authentication/identity/spa
-ms.openlocfilehash: 31a5e47d772e7416646c4d83c3209d7d2b254199
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 623f739b17c0bed3ce929f562c9581ab26ecf5bc
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829169"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928562"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Uwierzytelnianie i autoryzacja dla aplikacji jednostronicowych
 
@@ -285,9 +285,9 @@ W tej sekcji opisano wdrażanie aplikacji w usłudze Azure Websites przy użyciu
 }
 ```
 
-* Właściwość Name certyfikatu odpowiada podmiotowi wyróżnionemu dla certyfikatu.
-* Lokalizacja magazynu reprezentuje miejsce, z którego ma zostać załadowany certyfikat (`CurrentUser` lub `LocalMachine`).
 * Nazwa magazynu reprezentuje nazwę magazynu certyfikatów, w którym przechowywany jest certyfikat. W tym przypadku wskazuje osobisty magazyn użytkownika.
+* Lokalizacja magazynu reprezentuje miejsce, z którego ma zostać załadowany certyfikat (`CurrentUser` lub `LocalMachine`).
+* Właściwość Name certyfikatu odpowiada podmiotowi wyróżnionemu dla certyfikatu.
 
 Aby wdrożyć usługę Azure Websites, wdróż aplikację zgodnie z instrukcjami w temacie [wdrażanie aplikacji na platformie Azure](xref:tutorials/publish-to-azure-webapp-using-vs#deploy-the-app-to-azure) w celu utworzenia niezbędnych zasobów platformy Azure i wdrożenia aplikacji w środowisku produkcyjnym.
 

@@ -1,1 +1,1 @@
-Aby uzyskać więcej informacji na temat narzędzi interfejsu wiersza polecenia dla EF Core, zobacz [narzędzia EF Core Tools dla interfejsu wiersza polecenia platformy .NET](/ef/core/miscellaneous/cli/dotnet).
+Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia dla EF Core, zobacz [narzędzia EF Core Tools dla interfejsu wiersza polecenia platformy .NET](/ef/core/miscellaneous/cli/dotnet).

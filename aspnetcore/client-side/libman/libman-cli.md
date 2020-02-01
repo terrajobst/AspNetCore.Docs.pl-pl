@@ -1,21 +1,21 @@
 ---
 title: Korzystanie z interfejsu wiersza polecenia LibMan z ASP.NET Core
 author: scottaddie
-description: Dowiedz się, jak używać interfejsu wiersza polecenia LibMan (CLI) w projekcie ASP.NET Core.
+description: Dowiedz się, jak używać interfejsu wiersza polecenia LibMan w projekcie ASP.NET Core.
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: client-side/libman/libman-cli
-ms.openlocfilehash: 8b2b1e45ab4685482554ac439b0276e0cf381609
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 02d88d09805bd23a86ef924766373245fec7ff52
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962803"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928365"
 ---
-# <a name="use-the-libman-command-line-interface-cli-with-aspnet-core"></a>Korzystanie z interfejsu wiersza polecenia LibMan z ASP.NET Core
+# <a name="use-the-libman-cli-with-aspnet-core"></a>Korzystanie z interfejsu wiersza polecenia LibMan z ASP.NET Core
 
 Przez [Scott Addie](https://twitter.com/Scott_Addie)
 
@@ -25,7 +25,7 @@ Interfejs wiersza polecenia [LibMan](xref:client-side/libman/index) to międzypl
 
 * [!INCLUDE [2.1-SDK](../../includes/2.1-SDK.md)]
 
-## <a name="installation"></a>Instalacja
+## <a name="installation"></a>Instalacja programu
 
 Aby zainstalować interfejs wiersza polecenia LibMan:
 
@@ -43,7 +43,7 @@ dotnet tool install -g Microsoft.Web.LibraryManager.Cli --version 1.0.94-g606058
 
 W poprzednim przykładzie jest instalowane narzędzie globalne .NET Core z pliku *C:\Temp\Microsoft.Web.LibraryManager.CLI.1.0.94-g606058a278.nupkg* lokalnego komputera z systemem Windows.
 
-## <a name="usage"></a>Użycie
+## <a name="usage"></a>Pomiar
 
 Po pomyślnej instalacji interfejsu wiersza polecenia może być używane następujące polecenie:
 
