@@ -17,13 +17,13 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76726772"
 ---
-# <a name="configure-the-linker-for-aspnet-core-opno-locblazor"></a>Skonfiguruj konsolidator dla ASP.NET Core Blazor
+# <a name="configure-the-linker-for-aspnet-core-opno-locblazor"></a>Skonfiguruj konsolidator dla ASP.NET Core [!OP.NO-LOC(Blazor)]
 
-Przez [Luke Latham](https://github.com/guardrex)
+Autor [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Blazor wykonuje konsolidację [języka pośredniego (IL)](/dotnet/standard/managed-code#intermediate-language--execution) podczas kompilacji, aby usunąć niepotrzebny kod IL z zestawów wyjściowych aplikacji.
+[!OP.NO-LOC(Blazor)] wykonuje konsolidację [języka pośredniego (IL)](/dotnet/standard/managed-code#intermediate-language--execution) podczas kompilacji, aby usunąć niepotrzebny kod IL z zestawów wyjściowych aplikacji.
 
 Łączenie zestawu sterującego przy użyciu jednej z następujących metod:
 
@@ -55,7 +55,7 @@ Kontroluj łączenie dla poszczególnych zestawów, dostarczając plik konfigura
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
-  This file specifies which parts of the BCL or Blazor packages must not be
+  This file specifies which parts of the BCL or [!OP.NO-LOC(Blazor)] packages must not be
   stripped by the IL Linker even if they aren't referenced by user code.
 -->
 <linker>
@@ -86,7 +86,7 @@ Aby uzyskać więcej informacji, zobacz [Il konsolidator: Składnia deskryptora 
 
 ### <a name="configure-the-linker-for-internationalization"></a>Konfigurowanie konsolidatora dla celów wielojęzycznych
 
-Domyślnie konfiguracja konsolidatora Blazordla Blazor aplikacji webassembly umożliwia rozłączenie informacji o danych wielojęzycznych z wyjątkiem lokalizacji lokalnych jawnie żądanych. Usunięcie tych zestawów minimalizuje rozmiar aplikacji.
+Domyślnie konfiguracja konsolidatora [!OP.NO-LOC(Blazor)]dla [!OP.NO-LOC(Blazor)] aplikacji webassembly umożliwia rozłączenie informacji o danych wielojęzycznych z wyjątkiem lokalizacji lokalnych jawnie żądanych. Usunięcie tych zestawów minimalizuje rozmiar aplikacji.
 
 Aby kontrolować, które zestawy I18N są zachowywane, ustaw właściwość `<MonoLinkerI18NAssemblies>` MSBuild w pliku projektu:
 

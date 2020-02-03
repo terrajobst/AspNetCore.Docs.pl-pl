@@ -15,14 +15,14 @@ ms.locfileid: "76727274"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Uwierzytelnianie w chmurze za pomocą Azure Active Directory B2C w ASP.NET Core
 
-Przez [Soper kamery](https://twitter.com/camsoper)
+Według [Soperu](https://twitter.com/camsoper)
 
-[Usługa Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) to rozwiązanie zarządzania tożsamością w chmurze dla aplikacji internetowych i mobilnych. Usługa zapewnia uwierzytelnianie dla aplikacji hostowanych w chmurze i lokalnych. Typy uwierzytelniania obejmują indywidualnych kont, kont sieci społecznościowych i federacyjnych konta przedsiębiorstwa. Ponadto Azure AD B2C może zapewnić uwierzytelnianie wieloskładnikowe z minimalną konfiguracją.
+[Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) to rozwiązanie do zarządzania tożsamościami w chmurze dla aplikacji internetowych i mobilnych. Usługa zapewnia uwierzytelnianie dla aplikacji hostowanych w chmurze i lokalnych. Typy uwierzytelniania obejmują indywidualnych kont, kont sieci społecznościowych i federacyjnych konta przedsiębiorstwa. Ponadto Azure AD B2C może zapewnić uwierzytelnianie wieloskładnikowe z minimalną konfiguracją.
 
 > [!TIP]
-> Usługa Azure Active Directory (Azure AD) i Azure AD B2C są osobne oferty. Dzierżawy usługi Azure AD organizacja, podczas gdy dzierżawy usługi Azure AD B2C reprezentuje kolekcję tożsamości do użycia z aplikacjami danej firmy. Aby dowiedzieć się więcej, zobacz [usługi Azure AD B2C: często zadawane pytania (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs).
+> Usługa Azure Active Directory (Azure AD) i Azure AD B2C są osobne oferty. Dzierżawy usługi Azure AD organizacja, podczas gdy dzierżawy usługi Azure AD B2C reprezentuje kolekcję tożsamości do użycia z aplikacjami danej firmy. Aby dowiedzieć się więcej, zobacz [Azure AD B2C: często zadawane pytania](/azure/active-directory-b2c/active-directory-b2c-faqs).
 
-W tym samouczku pokazano, jak:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie dzierżawy Azure Active Directory B2C
@@ -35,7 +35,7 @@ W tym samouczku pokazano, jak:
 Wymagane jest spełnienie następujących w ramach tego przewodnika:
 
 * [Subskrypcja Microsoft Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)
+* [Program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)
 
 ## <a name="create-the-azure-active-directory-b2c-tenant"></a>Tworzenie dzierżawy usługi Azure Active Directory B2C
 
@@ -43,23 +43,23 @@ Utwórz dzierżawę Azure Active Directory B2C [, zgodnie z opisem w dokumentacj
 
 ## <a name="register-the-app-in-azure-ad-b2c"></a>Zarejestruj aplikację w Azure AD B2C
 
-W nowo utworzonym dzierżawie Azure AD B2C Zarejestruj swoją aplikację, korzystając [z procedury opisanej w dokumentacji](/azure/active-directory-b2c/tutorial-register-applications#register-a-web-application) w sekcji **Rejestrowanie aplikacji sieci Web** . Zatrzyma **Tworzenie klucza tajnego klienta aplikacji sieci web** sekcji. Klucz tajny klienta nie jest wymagana na potrzeby tego samouczka. 
+W nowo utworzonym dzierżawie Azure AD B2C Zarejestruj swoją aplikację, korzystając [z procedury opisanej w dokumentacji](/azure/active-directory-b2c/tutorial-register-applications#register-a-web-application) w sekcji **Rejestrowanie aplikacji sieci Web** . Zatrzymaj w sekcji **Tworzenie wpisu tajnego klienta aplikacji sieci Web** . Klucz tajny klienta nie jest wymagana na potrzeby tego samouczka. 
 
-Użyj następujących wartości:
+Wprowadź następujące wartości:
 
 | Ustawienie                       | Wartość                     | Uwagi                                                                                                                                                                                              |
 |-------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Nazwa**                      | *Nazwa &lt;aplikacji&gt;*        | Wprowadź **nazwa** dla aplikacji, który opisuje aplikację dla użytkowników.                                                                                                                                 |
-| **Uwzględnij aplikację sieci web / interfejs API sieci web** | Tak                       |                                                                                                                                                                                                    |
+| **Nazwa**                      | *Nazwa &lt;aplikacji&gt;*        | Wprowadź **nazwę** aplikacji opisującą aplikację dla użytkowników.                                                                                                                                 |
+| **Uwzględnij aplikację internetową/internetowy interfejs API** | Tak                       |                                                                                                                                                                                                    |
 | **Zezwalaj na niejawny przepływ**       | Tak                       |                                                                                                                                                                                                    |
-| **Adres URL odpowiedzi**                 | `https://localhost:44300/signin-oidc` | Adresy URL odpowiedzi to punkty końcowe, w którym usługi Azure AD B2C zwraca wszelkie tokeny żądane przez aplikację. Program Visual Studio udostępnia adres URL odpowiedzi, który ma być używany. Na razie wprowadź `https://localhost:44300/signin-oidc`, aby zakończyć formularz. |
-| **Identyfikator URI Identyfikatora aplikacji**                | Pozostaw puste               | Nie jest wymagane na potrzeby tego samouczka.                                                                                                                                                                    |
+| **Adres URL odpowiedzi**                 | `https://localhost:44300/signin-oidc` | Adresy URL odpowiedzi to punkty końcowe, do których usługa Azure AD B2C zwraca wszelkie tokeny żądane przez aplikację. Program Visual Studio udostępnia adres URL odpowiedzi, który ma być używany. Na razie wprowadź `https://localhost:44300/signin-oidc`, aby zakończyć formularz. |
+| **Identyfikator URI identyfikatora aplikacji**                | Pozostaw puste               | Nie jest wymagane na potrzeby tego samouczka.                                                                                                                                                                    |
 | **Dołącz klienta natywnego**     | Nie                        |                                                                                                                                                                                                    |
 
 > [!WARNING]
 > Jeśli konfigurujesz adres URL odpowiedzi bez hosta lokalnego, weź pod uwagę [ograniczenia dotyczące tego, co jest dozwolone na liście adresów URL odpowiedzi](/azure/active-directory-b2c/tutorial-register-applications#register-a-web-application). 
 
-Po zarejestrowaniu aplikacji zostanie wyświetlona lista aplikacji w dzierżawie. Wybierz aplikację, która została właśnie zarejestrowana. Wybierz **kopiowania** ikony po prawej stronie **identyfikator aplikacji** pola, aby skopiować go do Schowka.
+Po zarejestrowaniu aplikacji zostanie wyświetlona lista aplikacji w dzierżawie. Wybierz aplikację, która została właśnie zarejestrowana. Wybierz ikonę **kopiowania** znajdującą się po prawej stronie pola **Identyfikator aplikacji** , aby skopiować ją do Schowka.
 
 W tej chwili nie można skonfigurować niczego w dzierżawie Azure AD B2C, ale pozostawić otwarte okno przeglądarki. Po utworzeniu aplikacji ASP.NET Core jest dostępna większa konfiguracja.
 
@@ -71,7 +71,7 @@ W programie Visual Studio:
 
 1. Tworzenie nowej aplikacji sieci Web platformy ASP.NET Core. 
 2. Z listy szablonów wybierz pozycję **aplikacja sieci Web** .
-3. Wybierz **Zmień uwierzytelnianie** przycisku.
+3. Wybierz przycisk **Zmień uwierzytelnianie** .
     
     ![Zmień przycisk uwierzytelniania](./azure-ad-b2c/_static/changeauth.png)
 
@@ -86,11 +86,11 @@ W programie Visual Studio:
     | **Nazwa domeny**               | *&lt;nazwę domeny dzierżawy B2C&gt;*          |
     | **Identyfikator aplikacji**            | *&lt;wkleić identyfikator aplikacji ze schowka&gt;* |
     | **Ścieżka wywołania zwrotnego**             | *&lt;użyć wartości domyślnej&gt;*                       |
-    | **Zasady tworzenia konta lub logowania** | `B2C_1_SiUpIn`                                        |
+    | **Zasady rejestracji lub logowania** | `B2C_1_SiUpIn`                                        |
     | **Zasady resetowania haseł**     | `B2C_1_SSPR`                                          |
     | **Edytowanie zasad profilu**       | *&lt;pozostawić puste&gt;*                                 |
     
-    Wybierz link **Kopiuj** obok **identyfikatora URI odpowiedzi** , aby skopiować identyfikator URI odpowiedzi do Schowka. Wybierz **OK** zamknąć **Zmień uwierzytelnianie** okna dialogowego. Wybierz **OK** umożliwiające utworzenie aplikacji sieci web.
+    Wybierz link **Kopiuj** obok **identyfikatora URI odpowiedzi** , aby skopiować identyfikator URI odpowiedzi do Schowka. Wybierz **przycisk OK** , aby zamknąć okno dialogowe **Zmienianie uwierzytelniania** . Wybierz **przycisk OK** , aby utworzyć aplikację sieci Web.
 
 ## <a name="finish-the-b2c-app-registration"></a>Kończenie rejestracji aplikacji B2C
 
@@ -101,7 +101,7 @@ Wróć do okna przeglądarki z wciąż otwartymi właściwościami aplikacji B2C
 
 ## <a name="configure-policies"></a>Konfigurowanie zasad
 
-Wykonaj kroki opisane w dokumentacji Azure AD B2C, aby [utworzyć zasady tworzenia konta lub logowania](/azure/active-directory-b2c/active-directory-b2c-reference-policies#user-flow-versions), a następnie [Utwórz zasady resetowania hasła](/azure/active-directory-b2c/active-directory-b2c-reference-policies#user-flow-versions). Użyj przykładowych wartości podane w dokumentacji dotyczącej **dostawców tożsamości**, **atrybuty tworzenia konta**, i **oświadczeń aplikacji**. Użycie przycisku **Uruchom teraz** w celu przetestowania zasad zgodnie z opisem w dokumentacji jest opcjonalne.
+Wykonaj kroki opisane w dokumentacji Azure AD B2C, aby [utworzyć zasady tworzenia konta lub logowania](/azure/active-directory-b2c/active-directory-b2c-reference-policies#user-flow-versions), a następnie [Utwórz zasady resetowania hasła](/azure/active-directory-b2c/active-directory-b2c-reference-policies#user-flow-versions). Użyj przykładowych wartości podanych w dokumentacji dotyczącej **dostawców tożsamości**, **atrybutów rejestracji**i **oświadczeń aplikacji**. Użycie przycisku **Uruchom teraz** w celu przetestowania zasad zgodnie z opisem w dokumentacji jest opcjonalne.
 
 > [!WARNING]
 > Upewnij się, że nazwy zasad są dokładnie zgodnie z opisem w dokumentacji, ponieważ te zasady były używane w oknie dialogowym **Zmienianie uwierzytelniania** w programie Visual Studio. Nazwy zasad można weryfikować w pliku *appSettings. JSON*.
@@ -136,7 +136,7 @@ W programie Visual Studio naciśnij klawisz **F5** , aby skompilować i uruchomi
 
 ![Zaloguj się do aplikacji](./azure-ad-b2c/_static/signin.png)
 
-Przeglądarka przekieruje do dzierżawy Azure AD B2C. Zaloguj się przy użyciu istniejącego konta, (Jeśli utworzono jedną testowania zasad) lub wybierz **Zarejestruj się teraz** do utworzenia nowego konta. **Nie pamiętasz hasła?** łącze służy do zresetować zapomniane hasło.
+Przeglądarka przekieruje do dzierżawy Azure AD B2C. Zaloguj się przy użyciu istniejącego konta (jeśli został utworzony test zasad) lub wybierz pozycję **zarejestruj się teraz** , aby utworzyć nowe konto. Nie **pamiętasz hasła?** link jest używany do resetowania zapomnianego hasła.
 
 ![Azure AD B2C logowanie](./azure-ad-b2c/_static/b2csts.png)
 
@@ -156,10 +156,10 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 Teraz, gdy aplikacja ASP.NET Core jest skonfigurowana do używania Azure AD B2C do uwierzytelniania, do zabezpieczenia aplikacji można użyć [atrybutu Autoryzuj](xref:security/authorization/simple) . Kontynuuj opracowywanie aplikacji, przepoznając się z:
 
-* [Dostosowywanie interfejsu użytkownika usługi Azure AD B2C](/azure/active-directory-b2c/active-directory-b2c-reference-ui-customization).
-* [Skonfiguruj wymagania dotyczące złożoności hasła](/azure/active-directory-b2c/active-directory-b2c-reference-password-complexity).
+* [Dostosuj interfejs użytkownika Azure AD B2C](/azure/active-directory-b2c/active-directory-b2c-reference-ui-customization).
+* [Skonfiguruj wymagania dotyczące złożoności haseł](/azure/active-directory-b2c/active-directory-b2c-reference-password-complexity).
 * [Włącz uwierzytelnianie wieloskładnikowe](/azure/active-directory-b2c/active-directory-b2c-reference-mfa).
-* Konfigurowanie dostawców tożsamości dodatkowe, takie jak [Microsoft](/azure/active-directory-b2c/active-directory-b2c-setup-msa-app), [Facebook](/azure/active-directory-b2c/active-directory-b2c-setup-fb-app), [Google](/azure/active-directory-b2c/active-directory-b2c-setup-goog-app), [Amazon](/azure/active-directory-b2c/active-directory-b2c-setup-amzn-app), [w usłudze Twitter ](/azure/active-directory-b2c/active-directory-b2c-setup-twitter-app)i innym osobom.
-* [Za pomocą interfejsu API programu Graph usługi Azure AD](/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet) do pobierania dodatkowych informacji dotyczących użytkowników, takich jak członkostwo w grupie z dzierżawy usługi Azure AD B2C.
+* Skonfiguruj dodatkowych dostawców tożsamości, takich jak [Microsoft](/azure/active-directory-b2c/active-directory-b2c-setup-msa-app), [Facebook](/azure/active-directory-b2c/active-directory-b2c-setup-fb-app), [Google](/azure/active-directory-b2c/active-directory-b2c-setup-goog-app), [Amazon](/azure/active-directory-b2c/active-directory-b2c-setup-amzn-app), [Twitter](/azure/active-directory-b2c/active-directory-b2c-setup-twitter-app)i inne.
+* [Użyj interfejs API programu Graph usługi Azure AD](/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet) , aby pobrać dodatkowe informacje o użytkowniku, takie jak członkostwo w grupie, z dzierżawy Azure AD B2C.
 * [Zabezpiecz internetowy interfejs API ASP.NET Core przy użyciu Azure AD B2C](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapi/).
-* [Wywoływanie interfejsu web API platformy .NET z aplikacji sieci web platformy .NET przy użyciu usługi Azure AD B2C](/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-api-dotnet).
+* [Wywołaj interfejs API sieci Web platformy .NET z aplikacji sieci Web platformy .NET przy użyciu Azure AD B2C](/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-api-dotnet).

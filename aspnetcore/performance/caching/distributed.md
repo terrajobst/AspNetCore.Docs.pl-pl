@@ -194,7 +194,7 @@ Aby skonfigurować NCache:
 
 1. Zainstaluj pakiet [NuGet NCache Open Source](https://www.nuget.org/packages/Alachisoft.NCache.OpenSource.SDK/).
 1. Skonfiguruj klaster pamięci podręcznej w programie [Client. ncconf](https://www.alachisoft.com/resources/docs/ncache-oss/admin-guide/client-config.html).
-1. Dodaj następujący kod do `Startup.ConfigureServices`:
+1. Dodaj następujący kod do pliku `Startup.ConfigureServices`:
 
    ```csharp
    services.AddNCacheDistributedCache(configuration =>    

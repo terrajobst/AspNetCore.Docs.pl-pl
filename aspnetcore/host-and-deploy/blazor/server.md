@@ -25,7 +25,7 @@ ms.locfileid: "76726731"
 
 [aplikacje serweraBlazor](xref:blazor/hosting-models#blazor-server) mogą akceptować [ogólne wartości konfiguracji hosta](xref:fundamentals/host/generic-host#host-configuration).
 
-## <a name="deployment"></a>Wdrażanie
+## <a name="deployment"></a>wdrażania
 
 Korzystając z [modelu hostinguBlazor Server](xref:blazor/hosting-models#blazor-server), Blazor jest wykonywane na serwerze z poziomu aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika, obsługa zdarzeń i wywołania języka JavaScript są obsługiwane przez połączenie [SignalR](xref:signalr/introduction) .
 
@@ -73,7 +73,7 @@ Zalecamy korzystanie z [usługi Azure SignalR](/azure/azure-signalr) dla aplikac
 
    * Konfiguracja (Użyj **jednej** z następujących metod):
   
-     * *appsettings.json*:
+     * *appSettings. JSON*:
 
        ```json
        "Azure:SignalR:ServerStickyMode": "Required"
@@ -83,7 +83,7 @@ Zalecamy korzystanie z [usługi Azure SignalR](/azure/azure-signalr) dla aplikac
 
 1. Utwórz profil publikowania aplikacji platformy Azure w programie Visual Studio dla aplikacji serwera Blazor.
 1. Dodaj zależność **usługi SignalR platformy Azure** do profilu. Jeśli subskrypcja platformy Azure nie ma istniejącego wystąpienia usługi SignalR platformy Azure do przypisania do aplikacji, wybierz pozycję **Utwórz nowe wystąpienie usługi azure SignalR** , aby udostępnić nowe wystąpienie usługi.
-1. Opublikuj aplikację na platformie Azure.
+1. Publikowanie aplikacji na platformie Azure
 
 #### <a name="iis"></a>IIS
 

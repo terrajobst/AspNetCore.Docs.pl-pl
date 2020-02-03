@@ -237,9 +237,9 @@ Następujący przykładowy dokument poprawek nie ma wpływu, jeśli początkowa 
 
 [!code-json[](jsonpatch/samples/2.2/JSON/test-fail.json)]
 
-## <a name="get-the-code"></a>Pobierz kod
+## <a name="get-the-code"></a>Uzyskiwanie kodu
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([Jak pobrać](xref:index#how-to-download-a-sample)).
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([Jak pobrać](xref:index#how-to-download-a-sample)).
 
 Aby przetestować przykład, uruchom aplikację i Wyślij żądania HTTP z następującymi ustawieniami:
 
@@ -449,9 +449,9 @@ Następujący przykładowy dokument poprawek nie ma wpływu, jeśli początkowa 
 
 [!code-json[](jsonpatch/samples/2.2/JSON/test-fail.json)]
 
-## <a name="get-the-code"></a>Pobierz kod
+## <a name="get-the-code"></a>Uzyskiwanie kodu
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([Jak pobrać](xref:index#how-to-download-a-sample)).
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([Jak pobrać](xref:index#how-to-download-a-sample)).
 
 Aby przetestować przykład, uruchom aplikację i Wyślij żądania HTTP z następującymi ustawieniami:
 

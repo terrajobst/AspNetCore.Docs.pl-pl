@@ -220,7 +220,7 @@ Istnieje kilka różnic między routingiem punktu końcowego i wersjami routingu
 
   Jedyna gwiazdka "catch-all" w poprzednich wersjach ASP.NET Core (`{*myparametername}`) pozostaje obsługiwana, a ukośniki są zakodowane.
 
-  | Szlak              | Wygenerowano łącze<br>`Url.Action(new { category = "admin/products" })`&hellip; |
+  | Trasa              | Wygenerowano łącze<br>`Url.Action(new { category = "admin/products" })`&hellip; |
   | ------------------ | --------------------------------------------------------------------- |
   | `/search/{*page}`  | `/search/admin%2Fproducts` (ukośnik zostanie zakodowany)             |
   | `/search/{**page}` | `/search/admin/products`                                              |
@@ -372,7 +372,7 @@ Trasy muszą być skonfigurowane w metodzie `Startup.Configure`. Przykładowa ap
 
 W poniższej tabeli przedstawiono odpowiedzi z podanym identyfikatorem URI.
 
-| {1&gt;URI&lt;1}                    | Odpowiedź                                          |
+| Identyfikator URI                    | Odpowiedź                                          |
 | ---------------------- | ------------------------------------------------- |
 | `/package/create/3`    | Cześć! Wartości trasy: [Operation, Create], [ID, 3] |
 | `/package/track/-3`    | Cześć! Wartości trasy: [Operation, Track], [ID,-3] |
@@ -881,7 +881,7 @@ Istnieje kilka różnic między routingiem punktu końcowego w ASP.NET Core 2,2 
 
   Jedyna gwiazdka "catch-all" w poprzednich wersjach ASP.NET Core (`{*myparametername}`) pozostaje obsługiwana, a ukośniki są zakodowane.
 
-  | Szlak              | Wygenerowano łącze<br>`Url.Action(new { category = "admin/products" })`&hellip; |
+  | Trasa              | Wygenerowano łącze<br>`Url.Action(new { category = "admin/products" })`&hellip; |
   | ------------------ | --------------------------------------------------------------------- |
   | `/search/{*page}`  | `/search/admin%2Fproducts` (ukośnik zostanie zakodowany)             |
   | `/search/{**page}` | `/search/admin/products`                                              |
@@ -1033,7 +1033,7 @@ Trasy muszą być skonfigurowane w metodzie `Startup.Configure`. Przykładowa ap
 
 W poniższej tabeli przedstawiono odpowiedzi z podanym identyfikatorem URI.
 
-| {1&gt;URI&lt;1}                    | Odpowiedź                                          |
+| Identyfikator URI                    | Odpowiedź                                          |
 | ---------------------- | ------------------------------------------------- |
 | `/package/create/3`    | Cześć! Wartości trasy: [Operation, Create], [ID, 3] |
 | `/package/track/-3`    | Cześć! Wartości trasy: [Operation, Track], [ID,-3] |
@@ -1485,7 +1485,7 @@ Trasy muszą być skonfigurowane w metodzie `Startup.Configure`. Przykładowa ap
 
 W poniższej tabeli przedstawiono odpowiedzi z podanym identyfikatorem URI.
 
-| {1&gt;URI&lt;1}                    | Odpowiedź                                          |
+| Identyfikator URI                    | Odpowiedź                                          |
 | ---------------------- | ------------------------------------------------- |
 | `/package/create/3`    | Cześć! Wartości trasy: [Operation, Create], [ID, 3] |
 | `/package/track/-3`    | Cześć! Wartości trasy: [Operation, Track], [ID,-3] |

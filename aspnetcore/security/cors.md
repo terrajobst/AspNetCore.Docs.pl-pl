@@ -15,7 +15,7 @@ ms.locfileid: "76727315"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>Włącz żądania między źródłami (CORS) w ASP.NET Core
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tym artykule pokazano, jak włączyć funkcję CORS w aplikacji ASP.NET Core.
 

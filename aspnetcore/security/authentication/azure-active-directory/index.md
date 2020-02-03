@@ -20,8 +20,8 @@ Te samouczki i przykłady przedstawiają uwierzytelnianie w ASP.NET Core przy u�
 ## <a name="application-scenarios"></a>Scenariusze aplikacji
 
 * [Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji internetowej ASP.NET Core](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp)
-* [Aplikacja sieci Web, która loguje użytkowników](/azure/active-directory/develop/scenario-web-app-sign-user-overview?tabs=aspnetcore)
-* [Aplikacja sieci Web, która wywołuje interfejsy API sieci Web](/azure/active-directory/develop/scenario-web-app-call-api-overview)
+* [Aplikacja internetowa z możliwością logowania użytkowników](/azure/active-directory/develop/scenario-web-app-sign-user-overview?tabs=aspnetcore)
+* [Aplikacja internetowa wywołująca internetowe interfejsy API](/azure/active-directory/develop/scenario-web-app-call-api-overview)
 * [Chroniony internetowy interfejs API](/azure/active-directory/develop/scenario-protected-web-api-overview)
 * [Internetowy interfejs API, który wywołuje inne interfejsy API sieci Web](/azure/active-directory/develop/scenario-web-api-call-api-overview)
 * [Aplikacja internetowa, która loguje użytkowników z Azure AD B2C](xref:security/authentication/azure-ad-b2c)
@@ -29,9 +29,9 @@ Te samouczki i przykłady przedstawiają uwierzytelnianie w ASP.NET Core przy u�
 ## <a name="samples"></a>Przykłady
 
 * [Zezwól aplikacji ASP.NET Core na logowanie użytkowników i wywoływanie interfejsów API sieci Web przy użyciu usługi Azure AD v2](/samples/azure-samples/active-directory-aspnetcore-webapp-openidconnect-v2/enable-webapp-signin/): 
-  * Zobacz [to skojarzony klip wideo](https://channel9.msdn.com/Events/Build/2018/THR5001)
+  * Obejrzyj [to powiązane wideo](https://channel9.msdn.com/Events/Build/2018/THR5001)
 
 * [Wywoływanie internetowego interfejsu API ASP.NET Core 2,0 z aplikacji WPF przy użyciu usługi Azure AD v2](/samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/calling-an-aspnet-core-web-api-from-a-wpf-application-using-azure-ad-v2/): 
-  * Zobacz [to skojarzony klip wideo](https://channel9.msdn.com/Events/Build/2018/THR5000)
+  * Obejrzyj [to powiązane wideo](https://channel9.msdn.com/Events/Build/2018/THR5000)
 
-* [Platforma ASP.NET Core interfejsu API sieci web za pomocą usługi Azure AD B2C](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapi/)
+* [ASP.NET Core Web API z Azure AD B2C](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapi/)

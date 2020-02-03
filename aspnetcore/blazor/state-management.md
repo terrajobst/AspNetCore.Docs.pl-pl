@@ -75,10 +75,10 @@ Trzy Popularne lokalizacje istnieją dla stanu utrwalania w aplikacji Blazor Ser
 
 ### <a name="server-side-in-a-database"></a>Po stronie serwera w bazie danych
 
-W przypadku trwałych trwałości danych lub wszelkich danych, które muszą obejmować wiele użytkowników lub urządzeń, niezależna baza danych po stronie serwera prawie najlepiej sprawdza się. Dostępne opcje:
+W przypadku trwałych trwałości danych lub wszelkich danych, które muszą obejmować wiele użytkowników lub urządzeń, niezależna baza danych po stronie serwera prawie najlepiej sprawdza się. Dostępne są następujące opcje:
 
 * Relacyjna baza danych SQL
-* Magazyn kluczy i wartości
+* Magazyn wartości klucza
 * Magazyn obiektów BLOB
 * Magazyn tabel
 
@@ -86,7 +86,7 @@ Po zapisaniu danych w bazie danych nowy obwód może być uruchamiany przez uży
 
 Aby uzyskać więcej informacji na temat opcji usługi Azure Data Storage, zobacz [dokumentację usługi Azure Storage](/azure/storage/) i [bazy danych platformy Azure](https://azure.microsoft.com/product-categories/databases/).
 
-### <a name="url"></a>{1&gt;URL&lt;1}
+### <a name="url"></a>Adres URL
 
 W przypadku danych przejściowych reprezentujących stan nawigacji należy modelować dane w ramach adresu URL. Przykłady stanu modelu w adresie URL obejmują:
 
@@ -139,7 +139,7 @@ Przykładem pakietu NuGet, który zapewnia [ochronę danych](xref:security/data-
 > [!WARNING]
 > `Microsoft.AspNetCore.ProtectedBrowserStorage` jest nieobsługiwanym pakietem eksperymentalnym nieodpowiedninym do użycia w środowisku produkcyjnym.
 
-### <a name="installation"></a>Instalacja programu
+### <a name="installation"></a>Instalacja
 
 Aby zainstalować pakiet `Microsoft.AspNetCore.ProtectedBrowserStorage`:
 
@@ -195,7 +195,7 @@ protected override async Task OnInitializedAsync()
 }
 ```
 
-Jeśli parametry składnika obejmują stan nawigacji, wywołaj `ProtectedSessionStore.GetAsync` i przypisz wynik do `OnParametersSetAsync`, a nie `OnInitializedAsync`. `OnInitializedAsync` jest wywoływana tylko raz podczas pierwszego wystąpienia składnika. `OnInitializedAsync` nie zostanie wywołane ponownie później, jeśli użytkownik przejdzie do innego adresu URL, a pozostałe na tej samej stronie. Aby uzyskać więcej informacji, zobacz temat <xref:blazor/lifecycle>.
+Jeśli parametry składnika obejmują stan nawigacji, wywołaj `ProtectedSessionStore.GetAsync` i przypisz wynik do `OnParametersSetAsync`, a nie `OnInitializedAsync`. `OnInitializedAsync` jest wywoływana tylko raz podczas pierwszego wystąpienia składnika. `OnInitializedAsync` nie zostanie wywołane ponownie później, jeśli użytkownik przejdzie do innego adresu URL, a pozostałe na tej samej stronie. Aby uzyskać więcej informacji, zobacz <xref:blazor/lifecycle>.
 
 > [!WARNING]
 > Przykłady w tej sekcji działają tylko wtedy, gdy serwer nie ma włączonej obsługi przed renderowaniem. Po włączeniu obsługi przed renderowaniem zostanie wygenerowany błąd podobny do:

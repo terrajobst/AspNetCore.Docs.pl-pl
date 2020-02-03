@@ -16,7 +16,7 @@ ms.locfileid: "76726961"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Kompresja odpowiedzi w ASP.NET Core
 
-Przez [Luke Latham](https://github.com/guardrex)
+Autor [Luke Latham](https://github.com/guardrex)
 
 [Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
@@ -80,7 +80,7 @@ Algorytmy kompresji są uzależnione od kompromisu między szybkością kompresj
 
 W poniższej tabeli opisano nagłówki dotyczące żądania, wysyłania, buforowania i otrzymywania zawartości skompresowanej.
 
-| nagłówek             | Role |
+| nagłówek             | Rola |
 | ------------------ | ---- |
 | `Accept-Encoding`  | Wysyłany z klienta do serwera w celu wskazania schematów kodowania zawartości akceptowalnych dla klienta. |
 | `Content-Encoding` | Wysyłany z serwera do klienta, aby wskazać kodowanie zawartości ładunku. |
@@ -139,7 +139,7 @@ public class Startup
 
 Uwagi:
 
-* `app.UseResponseCompression` musi zostać wywołana przed jakimkolwiek oprogramowanie pośredniczące, które kompresuje odpowiedzi. Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/middleware/index#middleware-order>.
+* `app.UseResponseCompression` musi zostać wywołana przed jakimkolwiek oprogramowanie pośredniczące, które kompresuje odpowiedzi. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/middleware/index#middleware-order>.
 * Użyj narzędzia, takiego jak [programu Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/)lub [Poster](https://www.getpostman.com/) , aby ustawić nagłówek żądania `Accept-Encoding` i zbadać nagłówki, rozmiar i treść odpowiedzi.
 
 Prześlij żądanie do przykładowej aplikacji bez nagłówka `Accept-Encoding` i zwróć uwagę na to, że odpowiedź jest nieskompresowana. Nagłówki `Content-Encoding` i `Vary` nie są obecne w odpowiedzi.
@@ -204,8 +204,8 @@ Ustaw poziom kompresji za pomocą <xref:Microsoft.AspNetCore.ResponseCompression
 
 | Poziom kompresji | Opis |
 | ----------------- | ----------- |
-| [CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel) | Kompresja powinna zostać ukończona tak szybko, jak to możliwe, nawet jeśli wynikowe dane wyjściowe nie są optymalnie skompresowane. |
-| [CompressionLevel.NoCompression](xref:System.IO.Compression.CompressionLevel) | Nie należy wykonywać kompresji. |
+| [CompressionLevel. najszybszy](xref:System.IO.Compression.CompressionLevel) | Kompresja powinna zostać ukończona tak szybko, jak to możliwe, nawet jeśli wynikowe dane wyjściowe nie są optymalnie skompresowane. |
+| [CompressionLevel. nocompression](xref:System.IO.Compression.CompressionLevel) | Nie należy wykonywać kompresji. |
 | [CompressionLevel. Optymalna](xref:System.IO.Compression.CompressionLevel) | Odpowiedzi powinny być kompresowane optymalnie, nawet jeśli kompresja zajmuje więcej czasu. |
 
 ```csharp
@@ -267,8 +267,8 @@ Ustaw poziom kompresji za pomocą <xref:Microsoft.AspNetCore.ResponseCompression
 
 | Poziom kompresji | Opis |
 | ----------------- | ----------- |
-| [CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel) | Kompresja powinna zostać ukończona tak szybko, jak to możliwe, nawet jeśli wynikowe dane wyjściowe nie są optymalnie skompresowane. |
-| [CompressionLevel.NoCompression](xref:System.IO.Compression.CompressionLevel) | Nie należy wykonywać kompresji. |
+| [CompressionLevel. najszybszy](xref:System.IO.Compression.CompressionLevel) | Kompresja powinna zostać ukończona tak szybko, jak to możliwe, nawet jeśli wynikowe dane wyjściowe nie są optymalnie skompresowane. |
+| [CompressionLevel. nocompression](xref:System.IO.Compression.CompressionLevel) | Nie należy wykonywać kompresji. |
 | [CompressionLevel. Optymalna](xref:System.IO.Compression.CompressionLevel) | Odpowiedzi powinny być kompresowane optymalnie, nawet jeśli kompresja zajmuje więcej czasu. |
 
 ```csharp
