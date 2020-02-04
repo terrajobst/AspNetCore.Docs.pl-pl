@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak buforować dane w pamięci w ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/2/2019
+ms.date: 02/02/2020
 uid: performance/caching/memory
-ms.openlocfilehash: eb40026bc9686357cc7cfb8a99f127a3b433cb70
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 23acc17c861c203a87b1c113940e7bf42b51e810
+ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866036"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972015"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Buforowanie w pamięci w ASP.NET Core
 
@@ -115,7 +115,7 @@ Na przykład:
 * Jeśli aplikacja sieci Web była przede wszystkim buforowania ciągów, każdy rozmiar wpisu pamięci podręcznej może być długością ciągu.
 * Aplikacja może określić rozmiar wszystkich wpisów jako 1, a limit rozmiaru to liczba wpisów.
 
-Jeśli <xref:Microsoft.Extensions.Caching.Memory.MemoryCacheOptions.SizeLimit> nie jest ustawiona, pamięć podręczna rośnie bez powiązana. Środowisko uruchomieniowe ASP.NET Core nie przycina pamięci podręcznej, gdy ilość pamięci systemowej jest niska. Aplikacje są w znacznym stopniu zaprojektowane pod kątem:
+Jeśli <xref:Microsoft.Extensions.Caching.Memory.MemoryCacheOptions.SizeLimit> nie jest ustawiona, pamięć podręczna rośnie bez powiązania. Środowisko uruchomieniowe ASP.NET Core nie przycina pamięci podręcznej, gdy ilość pamięci systemowej jest niska. Aplikacje muszą być zaprojektowane w celu:
 
 * Ogranicz wzrost rozmiaru pamięci podręcznej.
 * Wywołaj <xref:Microsoft.Extensions.Caching.Memory.MemoryCache.Compact*> lub <xref:Microsoft.Extensions.Caching.Memory.MemoryCache.Remove*>, gdy dostępna jest ograniczona ilość pamięci:
@@ -164,7 +164,7 @@ Poniższy przykład pokazuje, jak wygasa wpis pamięci podręcznej, Jeśli wpis 
 
 Użycie <xref:System.Threading.CancellationTokenSource> umożliwia wykluczenie wielu wpisów pamięci podręcznej jako grupy. Ze wzorcem `using` w powyższym kodzie, wpisy pamięci podręcznej utworzone wewnątrz bloku `using` będą dziedziczyć wyzwalacze i ustawienia wygasania.
 
-## <a name="additional-notes"></a>Uwagi dodatkowe
+## <a name="additional-notes"></a>Dodatkowe uwagi
 
 * Wygaśnięcie nie odbywa się w tle. Nie ma czasomierza, który aktywnie skanuje pamięć podręczną pod kątem wygasłych elementów. Wszystkie działania w pamięci podręcznej (`Get`, `Set`, `Remove`) mogą wyzwalać skanowanie w tle dla elementów, które utraciły ważność. Czasomierz na `CancellationTokenSource` (<xref:System.Threading.CancellationTokenSource.CancelAfter*>) usuwa również wpis i wyzwala skanowanie w poszukiwaniu elementów wygasłych. W poniższym przykładzie zastosowano [CancellationTokenSource (TimeSpan)](/dotnet/api/system.threading.cancellationtokensource.-ctor) dla zarejestrowanego tokenu. Gdy ten token wyzwala, usuwa wpis natychmiast i wyzwala wywołania zwrotne wykluczenia:
 
@@ -336,7 +336,7 @@ Poniższy przykład pokazuje, jak wygasa wpis pamięci podręcznej, Jeśli wpis 
 
 Użycie `CancellationTokenSource` umożliwia wykluczenie wielu wpisów pamięci podręcznej jako grupy. Ze wzorcem `using` w powyższym kodzie, wpisy pamięci podręcznej utworzone wewnątrz bloku `using` będą dziedziczyć wyzwalacze i ustawienia wygasania.
 
-## <a name="additional-notes"></a>Uwagi dodatkowe
+## <a name="additional-notes"></a>Dodatkowe uwagi
 
 * W przypadku użycia wywołania zwrotnego do ponownego wypełnienia elementu pamięci podręcznej:
 

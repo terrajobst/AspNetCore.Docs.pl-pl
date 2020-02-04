@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/13/2020
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 37fc0b7862db3280f9ade8d563feba28153ab79b
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: d4b540de50f4153f517f871f037521347fb5eb84
+ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75951839"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972002"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>ASP.NET Core hosta w usłudze systemu Windows
 
@@ -249,7 +249,7 @@ New-Service -Name {SERVICE NAME} -BinaryPathName {EXE FILE PATH} -Credential {DO
 * `{DESCRIPTION}` &ndash; Opis usługi (na przykład `My sample service`).
 * Nazwa wyświetlana usługi `{DISPLAY NAME}` &ndash; (na przykład `My Service`).
 
-### <a name="start-a-service"></a>Uruchamianie usługi
+### <a name="start-a-service"></a>Uruchom usługę
 
 Uruchom usługę za pomocą następującego polecenia programu PowerShell 6:
 
@@ -274,7 +274,7 @@ Stan jest raportowany jako jedna z następujących wartości:
 * `Stopping`
 * `Stopped`
 
-### <a name="stop-a-service"></a>Zatrzymywanie usługi
+### <a name="stop-a-service"></a>Zatrzymaj usługę
 
 Zatrzymaj usługę za pomocą następującego polecenia programu PowerShell 6:
 

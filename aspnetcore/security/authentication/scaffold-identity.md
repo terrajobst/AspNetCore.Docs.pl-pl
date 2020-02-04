@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/15/2020
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: a0e9603cbca8c7f5771b0acf1a60839dffc89d4e
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.openlocfilehash: b3e077aeac11e62d9e992884100476f7be35b59a
+ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146488"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972046"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>Tożsamość szkieletu w projektach ASP.NET Core
 
@@ -30,7 +30,7 @@ Zalecamy używanie systemu kontroli źródła, który pokazuje różnice plików
 
 Usługi są wymagane w przypadku korzystania z [uwierzytelniania dwuskładnikowego](xref:security/authentication/identity-enable-qrcodes), [potwierdzenia konta i odzyskiwania hasła](xref:security/authentication/accconfirm)oraz innych funkcji zabezpieczeń z tożsamością. Podczas tworzenia szkieletów tożsamości usługi lub usługi nie są generowane. Usługi umożliwiające włączenie tych funkcji należy dodać ręcznie. Na przykład zapoznaj się z tematem [Żądaj potwierdzenia wiadomości e-mail](xref:security/authentication/accconfirm#require-email-confirmation).
 
-Ten dokument zawiera dokładniejsze instrukcje niż plik *ScaffoldingReadme. txt* , który jest generowany podczas uruchamiania szkieletu.
+Ten dokument zawiera pełniejsze instrukcje niż plik *ScaffoldingReadme. txt* , który jest generowany podczas uruchamiania szkieletu.
 
 ## <a name="scaffold-identity-into-an-empty-project"></a>Tożsamość szkieletowa do pustego projektu
 
@@ -83,7 +83,7 @@ Tożsamość jest konfigurowana w *obszarach/Identity/IdentityHostingStartup. cs
 
 <a name="useauthentication"></a>
 
-### <a name="enable-authentication"></a>Włączanie uwierzytelniania
+### <a name="enable-authentication"></a>Włącz uwierzytelnianie
 
 Zaktualizuj klasę `Startup` przy użyciu kodu podobnego do poniższego:
 
@@ -325,7 +325,7 @@ Tożsamość jest konfigurowana w *obszarach/Identity/IdentityHostingStartup. cs
 
 <a name="useauthentication"></a>
 
-### <a name="enable-authentication"></a>Włączanie uwierzytelniania
+### <a name="enable-authentication"></a>Włącz uwierzytelnianie
 
 W metodzie `Configure` klasy `Startup` Wywołaj [UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) po `UseStaticFiles`:
 

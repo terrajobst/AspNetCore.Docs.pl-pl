@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 11/04/2019
 uid: performance/caching/response
-ms.openlocfilehash: e20c197c7ce3334d4f4f0b917d1fc94174e6c615
-ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
+ms.openlocfilehash: ab5d1414ae72edade81ab55aef6b0fa5af30f0f4
+ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914197"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76971979"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Buforowanie odpowiedzi w ASP.NET Core
 
@@ -21,7 +21,7 @@ ms.locfileid: "75914197"
 
 Buforowanie odpowiedzi zmniejsza liczbę żądań wysyłanych przez klienta lub serwer proxy do serwera sieci Web. Buforowanie odpowiedzi zmniejsza również ilość pracy wykonywanej przez serwer sieci Web w celu wygenerowania odpowiedzi. Buforowanie odpowiedzi jest kontrolowane przez nagłówki, które określają sposób, w jaki klient, serwer proxy i oprogramowanie pośredniczące buforują odpowiedzi.
 
-[Atrybut ResponseCache](#responsecache-attribute) uczestniczy w ustawianiu nagłówków buforowania odpowiedzi. Klienci i pośredniczące serwery proxy powinny przestrzegać nagłówków do buforowania odpowiedzi w [specyfikacji buforowania HTTP 1,1](https://tools.ietf.org/html/rfc7234).
+[Atrybut ResponseCache](#responsecache-attribute) uczestniczy w ustawianiu nagłówków buforowania odpowiedzi. Klienci i pośredniczące proxy powinny przestrzegać nagłówków do buforowania odpowiedzi w [specyfikacji buforowania HTTP 1,1](https://tools.ietf.org/html/rfc7234).
 
 W przypadku buforowania po stronie serwera, które następuje zgodnie ze specyfikacją buforowania HTTP 1,1, należy użyć [oprogramowania pośredniczącego buforowania odpowiedzi](xref:performance/caching/middleware). Oprogramowanie pośredniczące może użyć właściwości <xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute>, aby wpływać na zachowanie buforowania po stronie serwera.
 
