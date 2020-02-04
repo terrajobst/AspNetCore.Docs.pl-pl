@@ -702,7 +702,7 @@
         - name: Publikowanie za pomocą programu Visual Studio dla komputerów Mac
           displayName: 'azure, deploy, publish'
           href: /visualstudio/mac/publish-app-svc?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-        - name: Publikowanie za pomocą narzędzi interfejsu wiersza polecenia
+        - name: Publikowanie za pomocą interfejsu wiersza polecenia
           displayName: 'azure, deploy, publish'
           href: /azure/app-service/app-service-web-tutorial-dotnetcore-sqldb?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
         - name: Publikowanie za pomocą programu Visual Studio i usługi Git
