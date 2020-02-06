@@ -5,14 +5,14 @@ description: Dowiedz się, jak rozpocząć pracę z szablonem projektu aplikacji
 monikerRange: '>= aspnetcore-2.1'
 ms.author: stevesa
 ms.custom: mvc
-ms.date: 03/07/2019
+ms.date: 02/06/2020
 uid: spa/angular
-ms.openlocfilehash: 150b2176eac2e68c1ef9ec6deabb087836ff84ce
-ms.sourcegitcommit: cb6015f737b6a93127016ab0f21b58e34b624ff3
+ms.openlocfilehash: 11ad5d4c7cadcc582b3e288a331569f62f0b98ac
+ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77004269"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77044861"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Użyj szablonu projektu kątowego z ASP.NET Core
 
@@ -61,7 +61,7 @@ Szablon projektu tworzy aplikację ASP.NET Core i aplikację kątową. Aplikacja
 
 ## <a name="add-pages-images-styles-modules-etc"></a>Dodawanie stron, obrazów, stylów, modułów itp.
 
-Katalog *ClientApp* zawiera standardową aplikację interfejsu wiersza polecenia. Aby uzyskać więcej informacji, zobacz oficjalną [dokumentację kątową](https://https://angular.io) .
+Katalog *ClientApp* zawiera standardową aplikację interfejsu wiersza polecenia. Aby uzyskać więcej informacji, zobacz oficjalną [dokumentację kątową](https://angular.io) .
 
 Istnieją niewielkie różnice między aplikacją kątową utworzoną przez ten szablon a nią utworzoną przez skośny interfejs wiersza polecenia (za pośrednictwem `ng new`); jednak możliwości aplikacji nie są zmieniane. Aplikacja utworzona przez szablon zawiera układ oparty na [Bootstrap](https://getbootstrap.com/)i podstawowy przykład routingu.
 
@@ -98,7 +98,7 @@ Można użyć standardowych [ASP.NET Core metod hostingu i wdrażania](xref:host
 
 Projekt jest skonfigurowany tak, aby uruchamiał własne wystąpienie kątowego serwera interfejsu wiersza polecenia w tle podczas uruchamiania aplikacji ASP.NET Core w trybie tworzenia. Jest to wygodne, ponieważ nie trzeba ręcznie uruchamiać oddzielnego serwera.
 
-Istnieje zwrot do tej konfiguracji domyślnej. Za każdym razem, gdy C# modyfikujesz kod i aplikacja ASP.NET Core wymaga ponownego uruchomienia, serwer interfejsu wiersza polecenia jest uruchamiany ponownie. Aby rozpocząć tworzenie kopii zapasowej, wymagane jest około 10 sekund. Jeśli wprowadzasz częste C# zmiany kodu i nie chcesz czekać na ponowne uruchomienie interfejsu wiersza polecenia, uruchom skośny serwer interfejsu wiersza polecenia, niezależnie od procesu ASP.NET Core. Aby to zrobić:
+Istnieje zwrot do tej konfiguracji domyślnej. Za każdym razem, gdy C# modyfikujesz kod i aplikacja ASP.NET Core wymaga ponownego uruchomienia, serwer interfejsu wiersza polecenia jest uruchamiany ponownie. Aby rozpocząć tworzenie kopii zapasowej, wymagane jest około 10 sekund. Jeśli wprowadzasz częste C# zmiany kodu i nie chcesz czekać na ponowne uruchomienie interfejsu wiersza polecenia, uruchom skośny serwer interfejsu wiersza polecenia, niezależnie od procesu ASP.NET Core. W tym celu:
 
 1. W wierszu polecenia przejdź do podkatalogu *ClientApp* i uruchom kątowy serwer programistyczny CLI:
 

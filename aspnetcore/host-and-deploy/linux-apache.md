@@ -5,14 +5,14 @@ description: Dowiedz się, jak skonfigurować Apache jako zwrotny serwer proxy w
 monikerRange: '>= aspnetcore-2.1'
 ms.author: shboyer
 ms.custom: mvc
-ms.date: 01/13/2020
+ms.date: 02/05/2020
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 028f5112188e2b74f4f01409e25268aecdc761c0
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.openlocfilehash: f522c54fdc584845f18040bae1b2a2bda36d28fa
+ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146293"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77044843"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hostowanie ASP.NET Core w systemie Linux przy użyciu oprogramowania Apache
 
@@ -67,6 +67,8 @@ Wszelkie składniki, które są zależne od schematu, takie jak uwierzytelnianie
 Wywołaj metodę <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> w `Startup.Configure` przed wywołaniem <xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*> lub podobnego oprogramowania pośredniczącego schematu uwierzytelniania. Skonfiguruj oprogramowanie pośredniczące, aby przekazywać `X-Forwarded-For` i `X-Forwarded-Proto` nagłówki:
 
 ```csharp
+// using Microsoft.AspNetCore.HttpOverrides;
+
 app.UseForwardedHeaders(new ForwardedHeadersOptions
 {
     ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
@@ -80,13 +82,15 @@ Jeśli żadne <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> nie s�
 Serwery proxy uruchomione na adresach sprzężenia zwrotnego (127.0.0.0/8, [:: 1]), w tym standardowy adres localhost (127.0.0.1), są domyślnie zaufane. Jeśli inne zaufane serwery proxy lub sieci w organizacji obsługują żądania między Internetem a serwerem sieci Web, należy dodać je do listy <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownProxies*> lub <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownNetworks*> z <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions>. Poniższy przykład dodaje zaufany serwer proxy pod adresem IP 10.0.0.100 do przekazanych nagłówków pośredniczących `KnownProxies` w `Startup.ConfigureServices`:
 
 ```csharp
+// using System.Net;
+
 services.Configure<ForwardedHeadersOptions>(options =>
 {
     options.KnownProxies.Add(IPAddress.Parse("10.0.0.100"));
 });
 ```
 
-Aby uzyskać więcej informacji, zobacz temat <xref:host-and-deploy/proxy-load-balancer>.
+Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/proxy-load-balancer>.
 
 ### <a name="install-apache"></a>Instalowanie oprogramowania Apache
 
@@ -148,7 +152,7 @@ Utwórz plik konfiguracji o nazwie *helloapp. conf*dla aplikacji:
 Blok `VirtualHost` może występować wiele razy w co najmniej jednym pliku na serwerze. W poprzednim pliku konfiguracyjnym Apache akceptuje ruch publiczny na porcie 80. `www.example.com` domeny jest obsługiwany, a alias `*.example.com` jest rozpoznawany jako ta sama witryna sieci Web. Aby uzyskać więcej informacji, zobacz [Obsługa hosta wirtualnego opartego na nazwach](https://httpd.apache.org/docs/current/vhosts/name-based.html) . Żądania są przekazywane w katalogu głównym do portu 5000 serwera o wartości 127.0.0.1. W przypadku komunikacji dwukierunkowej wymagane są `ProxyPass` i `ProxyPassReverse`. Aby zmienić adres IP/port Kestrel, zobacz [Kestrel: Konfiguracja punktu końcowego](xref:fundamentals/servers/kestrel#endpoint-configuration).
 
 > [!WARNING]
-> Niepowodzenie określenia odpowiedniej [dyrektywy ServerName](https://httpd.apache.org/docs/current/mod/core.html#servername) w bloku **VirtualHost** uwidacznia aplikację pod kątem luk w zabezpieczeniach. Powiązanie symboli wieloznacznych w poddomenie (na przykład `*.example.com`) nie ma znaczenia dla tego zagrożenia bezpieczeństwa, jeśli kontrolujesz całą domenę nadrzędną (w przeciwieństwie do `*.com`, która jest narażona). Zobacz [rfc7230 sekcji-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) Aby uzyskać więcej informacji.
+> Niepowodzenie określenia odpowiedniej [dyrektywy ServerName](https://httpd.apache.org/docs/current/mod/core.html#servername) w bloku **VirtualHost** uwidacznia aplikację pod kątem luk w zabezpieczeniach. Powiązanie symboli wieloznacznych w poddomenie (na przykład `*.example.com`) nie ma znaczenia dla tego zagrożenia bezpieczeństwa, jeśli kontrolujesz całą domenę nadrzędną (w przeciwieństwie do `*.com`, która jest narażona). Aby uzyskać więcej informacji, zobacz [sekcję rfc7230-5,4](https://tools.ietf.org/html/rfc7230#section-5.4) .
 
 Rejestrowanie można skonfigurować na `VirtualHost` przy użyciu dyrektyw `ErrorLog` i `CustomLog`. `ErrorLog` to lokalizacja, w której serwer rejestruje błędy, a `CustomLog` ustawia nazwę pliku dziennika i jego format. W tym przypadku jest to miejsce, w którym rejestrowane są informacje o żądaniu. Jeden wiersz dla każdego żądania.
 
@@ -272,7 +276,7 @@ Jeśli pierścień klucz jest przechowywany w pamięci, po ponownym uruchomieniu
 
 * Wszystkie tokeny na podstawie plików cookie uwierzytelniania są unieważniane.
 * Użytkownicy muszą ponownie zaloguj się na ich następnego żądania.
-* Wszystkie dane chronione za pomocą pierścień klucz może już nie mogły być odszyfrowane. Może to obejmować [tokenów CSRF](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration) i [plików cookie programu ASP.NET Core MVC TempData](xref:fundamentals/app-state#tempdata).
+* Wszystkie dane chronione za pomocą pierścień klucz może już nie mogły być odszyfrowane. Może to obejmować [tokeny CSRF](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration) [ASP.NET Core i pliki cookie MVC TempData](xref:fundamentals/app-state#tempdata).
 
 Aby skonfigurować ochronę danych w celu utrwalenia i szyfrowania pierścienia kluczy, zobacz:
 

@@ -5,14 +5,14 @@ description: Dowiedz się, jak skonfigurować Nginx jako zwrotny serwer proxy w 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/13/2020
+ms.date: 02/05/2020
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 1a83b7d1b211862793e3ba086234b97248f9ae70
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.openlocfilehash: 7f17be1d883e8cce375487aa39f4d1ebbe8a95f4
+ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928502"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77044871"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hostowanie ASP.NET Core w systemie Linux za pomocą Nginx
 
@@ -88,6 +88,8 @@ Wszelkie składniki, które są zależne od schematu, takie jak uwierzytelnianie
 Wywołaj metodę <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> w `Startup.Configure` przed wywołaniem <xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*> lub podobnego oprogramowania pośredniczącego schematu uwierzytelniania. Skonfiguruj oprogramowanie pośredniczące, aby przekazywać `X-Forwarded-For` i `X-Forwarded-Proto` nagłówki:
 
 ```csharp
+// using Microsoft.AspNetCore.HttpOverrides;
+
 app.UseForwardedHeaders(new ForwardedHeadersOptions
 {
     ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
@@ -101,13 +103,15 @@ Jeśli żadne <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> nie s�
 Serwery proxy uruchomione na adresach sprzężenia zwrotnego (127.0.0.0/8, [:: 1]), w tym standardowy adres localhost (127.0.0.1), są domyślnie zaufane. Jeśli inne zaufane serwery proxy lub sieci w organizacji obsługują żądania między Internetem a serwerem sieci Web, należy dodać je do listy <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownProxies*> lub <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownNetworks*> z <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions>. Poniższy przykład dodaje zaufany serwer proxy pod adresem IP 10.0.0.100 do przekazanych nagłówków pośredniczących `KnownProxies` w `Startup.ConfigureServices`:
 
 ```csharp
+// using System.Net;
+
 services.Configure<ForwardedHeadersOptions>(options =>
 {
     options.KnownProxies.Add(IPAddress.Parse("10.0.0.100"));
 });
 ```
 
-Aby uzyskać więcej informacji, zobacz temat <xref:host-and-deploy/proxy-load-balancer>.
+Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/proxy-load-balancer>.
 
 ### <a name="install-nginx"></a>Zainstaluj Nginx
 
@@ -160,7 +164,7 @@ server {
 W przypadku powyższego pliku konfiguracji i domyślnego serwera Nginx akceptuje publiczny ruch na porcie 80 z nagłówkiem hosta `example.com` lub `*.example.com`. Żądania niepasujące do tych hostów nie zostaną przekazane do Kestrel. Nginx przekazuje pasujące żądania do Kestrel w `http://localhost:5000`. Zobacz [, jak Nginx przetwarza żądanie,](https://nginx.org/docs/http/request_processing.html) Aby uzyskać więcej informacji. Aby zmienić adres IP/port Kestrel, zobacz [Kestrel: Konfiguracja punktu końcowego](xref:fundamentals/servers/kestrel#endpoint-configuration).
 
 > [!WARNING]
-> Niepowodzenie określenia odpowiedniej [dyrektywy server_name](https://nginx.org/docs/http/server_names.html) uwidacznia aplikację pod kątem luk w zabezpieczeniach. Powiązanie symboli wieloznacznych w poddomenie (na przykład `*.example.com`) nie ma znaczenia dla tego zagrożenia bezpieczeństwa, jeśli kontrolujesz całą domenę nadrzędną (w przeciwieństwie do `*.com`, która jest narażona). Zobacz [rfc7230 sekcji-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) Aby uzyskać więcej informacji.
+> Niepowodzenie określenia odpowiedniej [dyrektywy server_name](https://nginx.org/docs/http/server_names.html) uwidacznia aplikację pod kątem luk w zabezpieczeniach. Powiązanie symboli wieloznacznych w poddomenie (na przykład `*.example.com`) nie ma znaczenia dla tego zagrożenia bezpieczeństwa, jeśli kontrolujesz całą domenę nadrzędną (w przeciwieństwie do `*.com`, która jest narażona). Aby uzyskać więcej informacji, zobacz [sekcję rfc7230-5,4](https://tools.ietf.org/html/rfc7230#section-5.4) .
 
 Po nawiązaniu konfiguracji Nginx Uruchom `sudo nginx -t`, aby sprawdzić składnię plików konfiguracji. Jeśli test pliku konfiguracji zakończy się pomyślnie, Wymuś Nginx, aby pobrać zmiany przez uruchomienie `sudo nginx -s reload`.
 
@@ -283,7 +287,7 @@ Jeśli pierścień klucz jest przechowywany w pamięci, po ponownym uruchomieniu
 
 * Wszystkie tokeny na podstawie plików cookie uwierzytelniania są unieważniane.
 * Użytkownicy muszą ponownie zaloguj się na ich następnego żądania.
-* Wszystkie dane chronione za pomocą pierścień klucz może już nie mogły być odszyfrowane. Może to obejmować [tokenów CSRF](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration) i [plików cookie programu ASP.NET Core MVC TempData](xref:fundamentals/app-state#tempdata).
+* Wszystkie dane chronione za pomocą pierścień klucz może już nie mogły być odszyfrowane. Może to obejmować [tokeny CSRF](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration) [ASP.NET Core i pliki cookie MVC TempData](xref:fundamentals/app-state#tempdata).
 
 Aby skonfigurować ochronę danych w celu utrwalenia i szyfrowania pierścienia kluczy, zobacz:
 
@@ -308,7 +312,7 @@ Ustawienia domyślne serwera proxy zwykle ograniczają pola nagłówka żądania
 
 Moduły zabezpieczeń systemu Linux (LSM) to struktura, która jest częścią jądra systemu Linux od systemu Linux 2,6. LSM obsługuje różne implementacje modułów zabezpieczeń. [AppArmor](https://wiki.ubuntu.com/AppArmor) to LSM, który implementuje obowiązkowy System Access Control, który umożliwia confining programu z ograniczonym zestawem zasobów. Upewnij się, że AppArmor jest włączona i prawidłowo skonfigurowana.
 
-### <a name="configure-the-firewall"></a>Konfiguracja zapory
+### <a name="configure-the-firewall"></a>Konfigurowanie zapory
 
 Zamknij wszystkie porty zewnętrzne, które nie są używane. Nieskomplikowana Zapora (UFW) zapewnia fronton dla `iptables` przez udostępnienie interfejsu wiersza polecenia w celu skonfigurowania zapory.
 
@@ -331,7 +335,7 @@ sudo ufw enable
 
 #### <a name="change-the-nginx-response-name"></a>Zmień nazwę odpowiedzi Nginx
 
-Edit *src/http/ngx_http_header_filter_module.c*:
+Edytuj *src/http/ngx_http_header_filter_module. c*:
 
 ```
 static char ngx_http_server_string[] = "Server: Web Server" CRLF;

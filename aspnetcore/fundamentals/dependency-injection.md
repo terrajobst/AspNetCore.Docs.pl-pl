@@ -5,14 +5,14 @@ description: Dowiedz się, w jaki sposób ASP.NET Core implementuje iniekcję za
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/30/2020
+ms.date: 02/05/2020
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: a9d268489ebcef69d64c6fd65087bc38a3581821
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.openlocfilehash: 7c0789dafcb7dfacd15ac448a39bad94649963c8
+ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928407"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77044920"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Wstrzykiwanie zależności w ASP.NET Core
 
@@ -176,7 +176,7 @@ public void Configure(IApplicationBuilder app, IOptions<MyOptions> options)
 }
 ```
 
-Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/startup>.
+Aby uzyskać więcej informacji, zobacz <xref:fundamentals/startup>.
 
 ## <a name="framework-provided-services"></a>Usługi udostępniane przez platformę
 
@@ -259,7 +259,7 @@ Przejściowe usługi okresu istnienia (<xref:Microsoft.Extensions.DependencyInje
 Usługi okresu istnienia w zakresie (<xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped*>) są tworzone raz dla każdego żądania klienta (połączenie).
 
 > [!WARNING]
-> W przypadku korzystania z usługi w zakresie w oprogramowaniu pośredniczącym należy wstrzyknąć usługę do metody `Invoke` lub `InvokeAsync`. Nie wprowadzaj przez iniekcję konstruktora, ponieważ wymusza ona zachowanie usługi jako pojedynczej. Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/middleware/write#per-request-middleware-dependencies>.
+> W przypadku korzystania z usługi w zakresie w oprogramowaniu pośredniczącym należy wstrzyknąć usługę do metody `Invoke` lub `InvokeAsync`. Nie wprowadzaj przez iniekcję konstruktora, ponieważ wymusza ona zachowanie usługi jako pojedynczej. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/middleware/write#per-request-middleware-dependencies>.
 
 ### <a name="singleton"></a>Pojedynczego
 
@@ -272,7 +272,7 @@ Pojedyncze usługi okresu istnienia (<xref:Microsoft.Extensions.DependencyInject
 
 Metody rozszerzenia rejestracji usług oferują przeciążenia, które są przydatne w określonych scenariuszach.
 
-| Metoda | Automatyczne<br>Obiekt programu<br>myśl | Wielokrotne<br>implementacje | Przekaż argumenty |
+| Metoda | Automatyczne<br>object<br>myśl | Wielokrotne<br>implementacje | Przekaż argumenty |
 | ------ | :-----------------------------: | :-------------------------: | :-------: |
 | `Add{LIFETIME}<{SERVICE}, {IMPLEMENTATION}>()`<br>Przykład:<br>`services.AddSingleton<IMyDep, MyDep>();` | Tak | Tak | Nie |
 | `Add{LIFETIME}<{SERVICE}>(sp => new {IMPLEMENTATION})`<br>Przykłady:<br>`services.AddSingleton<IMyDep>(sp => new MyDep());`<br>`services.AddSingleton<IMyDep>(sp => new MyDep("A string!"));` | Tak | Tak | Tak |
@@ -544,7 +544,17 @@ public class Program
 
 ## <a name="scope-validation"></a>Weryfikacja zakresu
 
-Gdy aplikacja jest uruchomiona w środowisku programistycznym, domyślny dostawca usług sprawdza, czy:
+::: moniker range=">= aspnetcore-3.0"
+
+Gdy aplikacja jest uruchomiona w środowisku deweloperskim i wywołuje [CreateDefaultBuilder](xref:fundamentals/host/generic-host#default-builder-settings) do skompilowania hosta, domyślny dostawca usług sprawdza, czy:
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Gdy aplikacja jest uruchomiona w środowisku deweloperskim i wywołuje [CreateDefaultBuilder](xref:fundamentals/host/web-host#set-up-a-host) do skompilowania hosta, domyślny dostawca usług sprawdza, czy:
+
+::: moniker-end
 
 * Usługi w zakresie nie są bezpośrednio lub pośrednio rozpoznawane przez dostawcę usług głównych.
 * Usługi w zakresie nie są bezpośrednio lub pośrednio wstrzykiwane do pojedynczych.
@@ -553,7 +563,7 @@ Główny dostawca usług jest tworzony, gdy zostanie wywołane <xref:Microsoft.E
 
 Usługi o określonym zakresie są usuwane przez kontener, który go utworzył. Jeśli w kontenerze głównym zostanie utworzona usługa o określonym zakresie, okres istnienia usługi zostanie skutecznie podwyższony do pojedynczej, ponieważ jest usuwany tylko przez kontener główny, gdy aplikacja/serwer jest wyłączony. Sprawdzanie poprawności zakresów usług przechwytuje te sytuacje w przypadku wywołania `BuildServiceProvider`.
 
-Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/host/web-host#scope-validation>.
+Aby uzyskać więcej informacji, zobacz <xref:fundamentals/host/web-host#scope-validation>.
 
 ## <a name="request-services"></a>Usługi żądania
 

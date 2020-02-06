@@ -5,14 +5,14 @@ description: Dowiedz się, jak używać struktury rejestrowania dostarczonej prz
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/08/2020
+ms.date: 02/05/2020
 uid: fundamentals/logging/index
-ms.openlocfilehash: f21559e43ae004c81abc18fe8a768d4145ffb184
-ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
+ms.openlocfilehash: 3c75fdc940701b8f4d367990b5073861467079b2
+ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914227"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77044914"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Rejestrowanie w programie .NET Core i ASP.NET Core
 
@@ -69,7 +69,7 @@ Poprzedzający kod wymaga odwołań do `Microsoft.Extensions.Logging` i `Microso
 
 Domyślny szablon projektu wywołuje <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A>, który dodaje następujących dostawców rejestrowania:
 
-* Konsola programu
+* Konsola
 * Debugowanie
 * EventSource (rozpoczęcie w ASP.NET Core 2,2)
 
@@ -728,7 +728,7 @@ Poniższy przykład pokazuje, jak zarejestrować reguły filtru w kodzie:
 
 ::: moniker range=">= aspnetcore-3.0"
 
-[!code-csharp[](index/samples/3.x/TodoApiSample/Program.cs?name=snippet_FilterInCode&highlight=4-5)]
+[!code-csharp[](index/samples/3.x/TodoApiSample/Program.cs?name=snippet_FilterInCode&highlight=2-3)]
 
 ::: moniker-end
 
@@ -744,13 +744,13 @@ Druga `AddFilter` określa dostawcę debugowania za pomocą nazwy typu. Pierwszy
 
 Dane konfiguracji i kod `AddFilter` przedstawiony w powyższych przykładach tworzą reguły przedstawione w poniższej tabeli. Pierwsze sześć pochodzi z przykładu konfiguracji, a ostatnie dwa pochodzą z przykładu kodu.
 
-| Wartość liczbowa | Provider      | Kategorie zaczynające się od...          | Minimalny poziom rejestrowania |
+| Wartość liczbowa | Dostawcy      | Kategorie zaczynające się od...          | Minimalny poziom rejestrowania |
 | :----: | ------------- | --------------------------------------- | ----------------- |
-| 1      | Debugowanie         | Wszystkie kategorie                          | Informacje programu       |
-| 2      | Konsola programu       | Microsoft.AspNetCore.Mvc.Razor.Internal | Ostrzeżenie           |
-| 3      | Konsola programu       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debugowanie             |
-| 4      | Konsola programu       | Microsoft.AspNetCore.Mvc.Razor          | Błąd             |
-| 5      | Konsola programu       | Wszystkie kategorie                          | Informacje programu       |
+| 1      | Debugowanie         | Wszystkie kategorie                          | Informacje       |
+| 2      | Konsola       | Microsoft.AspNetCore.Mvc.Razor.Internal | Ostrzeżenie           |
+| 3      | Konsola       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debugowanie             |
+| 4      | Konsola       | Microsoft.AspNetCore.Mvc.Razor          | Błąd             |
+| 5      | Konsola       | Wszystkie kategorie                          | Informacje       |
 | 6      | Wszyscy dostawcy | Wszystkie kategorie                          | Debugowanie             |
 | 7      | Wszyscy dostawcy | System                                  | Debugowanie             |
 | 8      | Debugowanie         | Microsoft                               | Ślad             |
@@ -775,7 +775,7 @@ Dane wystąpienie `ILogger` wysyła dzienniki poziomu `Trace` i powyżej do dost
 
 Każdy dostawca definiuje *alias* , który może być używany w konfiguracji zamiast w pełni kwalifikowanej nazwy typu.  W przypadku dostawców wbudowanych Użyj następujących aliasów:
 
-* Konsola programu
+* Konsola
 * Debugowanie
 * EventSource
 * Elemencie
@@ -891,7 +891,7 @@ ASP.NET Core dostarcza następujących dostawców:
 * [Console](#console-provider)
 * [Debugowanie](#debug-provider)
 * [EventSource](#event-source-provider)
-* [EventLog](#windows-eventlog-provider)
+* [Elemencie](#windows-eventlog-provider)
 * [TraceSource](#tracesource-provider)
 * [AzureAppServicesFile](#azure-app-service-provider)
 * [AzureAppServicesBlob](#azure-app-service-provider)
@@ -1136,7 +1136,7 @@ Usługa przesyłania strumieniowego w usłudze Azure log umożliwia wyświetlani
 
 * Serwer aplikacji
 * Serwer sieci Web
-* Śledzenie żądań nie powiodło się
+* Śledzenie nieudanych żądań
 
 Aby skonfigurować przesyłanie strumieniowe dzienników Azure:
 
@@ -1154,7 +1154,7 @@ Dostawca rejestrowania jest dołączony jako zależność [Microsoft. Applicatio
 
 Nie używaj pakietu [Microsoft. ApplicationInsights. Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) Package&mdash;, który jest przeznaczony dla ASP.NET 4. x.
 
-Więcej informacji można znaleźć w następujących zasobach:
+Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
 * [Przegląd Application Insights](/azure/application-insights/app-insights-overview)
 * [Application Insights dla ASP.NET Core aplikacji](/azure/azure-monitor/app/asp-net-core) — Zacznij tutaj, jeśli chcesz zaimplementować cały zakres Application Insights telemetrii wraz z rejestrowaniem.
