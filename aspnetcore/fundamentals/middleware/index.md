@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/02/2020
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 5c8e9e58ab222e482ef029f5099d0a8acd07d8a6
-ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
+ms.openlocfilehash: 47f465c00138acf434c6ec59f757e37361ad97db
+ms.sourcegitcommit: 0e21d4f8111743bcb205a2ae0f8e57910c3e8c25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972031"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77034107"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core oprogramowanie pośredniczące
 
@@ -162,6 +162,13 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
+W przypadku aplikacji jednostronicowych oprogramowanie pośredniczące SPA <xref:Microsoft.Extensions.DependencyInjection.SpaStaticFilesExtensions.UseSpaStaticFiles*> zwykle jest ostatnim węzłem potoku oprogramowania pośredniczącego. Oprogramowanie pośredniczące SPA jest ostatnie:
+
+* Aby zezwolić wszystkim innym middlewares na odpowiadanie na pasujące żądania.
+* Aby umożliwić uruchamianie aplikacji jednostronicowych z routingiem po stronie klienta dla wszystkich tras, które nie są rozpoznawane przez aplikację serwera.
+
+Aby uzyskać więcej informacji na temat aplikacji jednostronicowych, zapoznaj się z przewodnikami dla szablonów projektów [reagowanie](xref:spa/react) i [kątowych](xref: client-side/spa/angular) .
+
 ## <a name="branch-the-middleware-pipeline"></a>Rozgałęzianie potoku oprogramowania pośredniczącego
 
 rozszerzenia <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*> są używane jako konwencja rozgałęziania potoku. `Map` rozgałęziać potok żądania na podstawie dopasowań podanej ścieżki żądania. Jeśli ścieżka żądania rozpoczyna się od podaną ścieżką, rozgałęzienie jest wykonywane.
@@ -170,7 +177,7 @@ rozszerzenia <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*> są używane
 
 W poniższej tabeli przedstawiono żądania i odpowiedzi z `http://localhost:1234` przy użyciu poprzedniego kodu.
 
-| Request             | Odpowiedź                     |
+| Żądanie             | Odpowiedź                     |
 | ------------------- | ---------------------------- |
 | localhost:1234      | Witaj od delegata innego niż mapowanie. |
 | localhost:1234/map1 | Test mapy 1                   |
@@ -202,7 +209,7 @@ app.Map("/level1", level1App => {
 
 W poniższej tabeli przedstawiono żądania i odpowiedzi z `http://localhost:1234` przy użyciu poprzedniego kodu:
 
-| Request                       | Odpowiedź                     |
+| Żądanie                       | Odpowiedź                     |
 | ----------------------------- | ---------------------------- |
 | localhost:1234                | Witaj od delegata innego niż mapowanie. |
 | localhost:1234/?branch=master | Używane gałęzie = Master         |
@@ -236,7 +243,8 @@ ASP.NET Core dostarcza z następującymi składnikami oprogramowania pośrednicz
 | [Kompresja odpowiedzi](xref:performance/response-compression) | Zapewnia obsługę kompresowania odpowiedzi. | Przed składnikami wymagającymi kompresji. |
 | [Lokalizacja żądania](xref:fundamentals/localization) | Zapewnia obsługę lokalizacji. | Przed uwzględnieniem poufnych składników lokalizacji. |
 | [Routing punktów końcowych](xref:fundamentals/routing) | Definiuje trasy żądań i ogranicza je. | Terminal dla pasujących tras. |
-| [Sesja](xref:fundamentals/app-state) | Zapewnia obsługę zarządzania sesjami użytkowników. | Przed składnikami, które wymagają sesji. |
+| [HASŁA](xref:Microsoft.AspNetCore.Builder.SpaApplicationBuilderExtensions.UseSpa*) | Obsługuje wszystkie żądania z tego punktu w łańcuchu oprogramowania pośredniczącego, zwracając domyślną stronę aplikacji jednostronicowej (SPA) | Na koniec łańcucha, dzięki czemu inne oprogramowanie pośredniczące do obsługi plików statycznych, działania MVC itd., ma pierwszeństwo.|
+| [Sesja](xref:fundamentals/app-state) | Zapewnia obsługę zarządzania sesjami użytkowników. | Przed składnikami, które wymagają sesji. | 
 | [Pliki statyczne](xref:fundamentals/static-files) | Zapewnia obsługę plików statycznych i przeglądania katalogów. | Terminal, jeśli żądanie pasuje do pliku. |
 | [Ponowne zapisywanie adresów URL](xref:fundamentals/url-rewriting) | Zapewnia obsługę ponownego zapisywania adresów URL i Przekierowywanie żądań. | Przed składnikami, które używają adresu URL. |
 | [Obiekty WebSocket](xref:fundamentals/websockets) | Włącza protokół WebSockets. | Przed składnikami, które są wymagane do akceptowania żądań WebSocket. |
@@ -381,7 +389,7 @@ rozszerzenia <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*> są używane
 
 W poniższej tabeli przedstawiono żądania i odpowiedzi z `http://localhost:1234` przy użyciu poprzedniego kodu.
 
-| Request             | Odpowiedź                     |
+| Żądanie             | Odpowiedź                     |
 | ------------------- | ---------------------------- |
 | localhost:1234      | Witaj od delegata innego niż mapowanie. |
 | localhost:1234/map1 | Test mapy 1                   |
@@ -396,7 +404,7 @@ Gdy jest używana `Map`, dopasowane segmenty ścieżki są usuwane z `HttpReques
 
 W poniższej tabeli przedstawiono żądania i odpowiedzi z `http://localhost:1234` przy użyciu poprzedniego kodu.
 
-| Request                       | Odpowiedź                     |
+| Żądanie                       | Odpowiedź                     |
 | ----------------------------- | ---------------------------- |
 | localhost:1234                | Witaj od delegata innego niż mapowanie. |
 | localhost:1234/?branch=master | Używane gałęzie = Master         |
