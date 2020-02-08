@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/06/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: d7d4eece935bd83b69a6a5d81898012b99d73193
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 59883a8165040fa58edb2f6cf22d4d6b3abf6f3e
+ms.sourcegitcommit: 80286715afb93c4d13c931b008016d6086c0312b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828909"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77074552"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Wymuszanie protokołu HTTPS w ASP.NET Core
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tym dokumencie przedstawiono sposób:
 
@@ -277,7 +277,7 @@ Następujący kod:
 ::: moniker-end
 
 
-* Ustawia parametr Preload nagłówka Strict-Transport-Security. Wstępne ładowanie nie jest częścią [specyfikacji RFC HSTS](https://tools.ietf.org/html/rfc6797), ale jest obsługiwane przez przeglądarki sieci Web do wstępnego ładowania witryn HSTS w przypadku instalacji nowej. Aby uzyskać więcej informacji, zobacz [https://hstspreload.org/](https://hstspreload.org/).
+* Ustawia parametr Preload nagłówka Strict-Transport-Security. Wstępne ładowanie nie jest częścią [specyfikacji RFC HSTS](https://tools.ietf.org/html/rfc6797), ale jest obsługiwane przez przeglądarki sieci Web do wstępnego ładowania witryn HSTS w przypadku instalacji nowej. Aby uzyskać więcej informacji, zobacz [https://hstspreload.org/](https://hstspreload.org/) .
 * Włącza [includeSubDomain](https://tools.ietf.org/html/rfc6797#section-6.1.2), która stosuje zasady HSTS do hostowania poddomen.
 * Jawnie ustawia wartość maksymalnego wieku w nagłówku Strict-Transport-Security na 60 dni. Jeśli nie zostanie ustawiona, wartość domyślna to 30 dni. Aby uzyskać więcej informacji, zobacz [dyrektywę max-age](https://tools.ietf.org/html/rfc6797#section-6.1.1) .
 * Dodaje `example.com` do listy hostów do wykluczenia.
@@ -383,7 +383,7 @@ Powyższe polecenia rozwiązują większość problemów z zaufaniem do przeglą
 ### <a name="docker---certificate-not-trusted"></a>Zaufać certyfikatowi platformy Docker
 
 * Usuń folder *C:\Users\{User} \AppData\Roaming\ASP.NET\Https* .
-* Wyczyść rozwiązanie. Usuń *bin* i *obj* folderów.
+* Wyczyść rozwiązanie. Usuń foldery *bin* i *obj* .
 * Uruchom ponownie narzędzie programistyczne. Na przykład Visual Studio, Visual Studio Code lub Visual Studio dla komputerów Mac.
 
 ### <a name="windows---certificate-not-trusted"></a>Windows-certyfikat niezaufany
@@ -419,7 +419,7 @@ Aby rozwiązać problemy z certyfikatami w programie Visual Studio, zobacz [bł�
 
 ### <a name="iis-express-ssl-certificate-used-with-visual-studio"></a>IIS Express certyfikat SSL używany z programem Visual Studio
 
-Aby rozwiązać problemy z certyfikatem IIS Express, wybierz pozycję **napraw** w Instalatorze programu Visual Studio.
+Aby rozwiązać problemy z certyfikatem IIS Express, wybierz pozycję **napraw** w Instalatorze programu Visual Studio. Aby uzyskać więcej informacji, zobacz [ten problem](https://github.com/dotnet/aspnetcore/issues/16892)w serwisie GitHub.
 
 ## <a name="additional-information"></a>Dodatkowe informacje
 

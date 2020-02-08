@@ -5,14 +5,14 @@ description: Poznaj podstawy tworzenia internetowego interfejsu API w programie 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 01/27/2020
+ms.date: 02/02/2020
 uid: web-api/index
-ms.openlocfilehash: 8609e2095c202643cdc905cc610298195b654215
-ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
+ms.openlocfilehash: 3dca07db3d6be4ab219a2e05e3adcf1b24ee5c40
+ms.sourcegitcommit: 80286715afb93c4d13c931b008016d6086c0312b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76870020"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77074513"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>Tworzenie internetowych interfejsów API za pomocą ASP.NET Core
 
@@ -20,7 +20,7 @@ Przez [Scott Addie](https://github.com/scottaddie) i [Tomasz Dykstra](https://gi
 
 ASP.NET Core obsługuje tworzenie usług RESTful, znanych również jako interfejsy API sieci Web C#, przy użyciu programu. Aby obsługiwać żądania, interfejs API sieci Web używa kontrolerów. *Kontrolery* w INTERNETowym interfejsie API są klasami pochodnymi od `ControllerBase`. W tym artykule pokazano, jak używać kontrolerów do obsługi żądań interfejsu API sieci Web.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/index/samples). ([Jak pobrać](xref:index#how-to-download-a-sample)).
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/index/samples). ([Jak pobrać](xref:index#how-to-download-a-sample)).
 
 ## <a name="controllerbase-class"></a>Klasa ControllerBase
 
@@ -56,7 +56,7 @@ Poniżej przedstawiono kilka przykładów metod, które zapewnia `ControllerBase
 
 Aby uzyskać listę wszystkich dostępnych metod i właściwości, zobacz <xref:Microsoft.AspNetCore.Mvc.ControllerBase>.
 
-## <a name="attributes"></a>{1&gt;{2&gt;Atrybuty&lt;2}&lt;1}
+## <a name="attributes"></a>Atrybuty
 
 Przestrzeń nazw <xref:Microsoft.AspNetCore.Mvc> zawiera atrybuty, których można użyć do skonfigurowania zachowania kontrolerów internetowego interfejsu API i metod akcji. Poniższy przykład używa atrybutów, aby określić obsługiwane zlecenie akcji HTTP i wszystkie znane kody stanu HTTP, które mogą zostać zwrócone:
 
@@ -397,6 +397,30 @@ Automatyczne tworzenie wystąpienia `ProblemDetails` jest wyłączone, gdy wła�
 [!code-csharp[](index/samples/2.x/2.2/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=3,8)]
 
 ::: moniker-end
+
+<a name="consumes"></a>
+
+## <a name="define-supported-request-content-types-with-the-consumes-attribute"></a>Zdefiniuj obsługiwane typy zawartości żądania z atrybutem [Requests]
+
+Domyślnie akcja obsługuje wszystkie dostępne typy zawartości żądania. Na przykład jeśli aplikacja jest skonfigurowana do obsługi [danych wejściowych](xref:mvc/models/model-binding#input-formatters)JSON i XML, Akcja obsługuje wiele typów zawartości, w tym `application/json` i `application/xml`.
+
+Atrybut [[](<xref:Microsoft.AspNetCore.Mvc.ConsumesAttribute>) Requests] umożliwia akcja ograniczenia obsługiwanych typów zawartości żądania. Zastosuj atrybut `[Consumes]` do akcji lub kontrolera, określając jeden lub więcej typów zawartości:
+
+```csharp
+[HttpPost]
+[Consumes("application/xml")]
+public IActionResult CreateProduct(Product product)
+```
+
+W poprzednim kodzie akcja `CreateProduct` określa typ zawartości `application/xml`. Żądania kierowane do tej akcji muszą określać nagłówek `Content-Type` `application/xml`. Żądania, które nie określają nagłówka `Content-Type` `application/xml` powodują, że [nieobsługiwana odpowiedź typu multimediów 415](https://developer.mozilla.org/docs/Web/HTTP/Status/415) .
+
+Atrybut `[Consumes]` umożliwia również akcję, która ma wpływ na wybór w oparciu o typ zawartości przychodzącego żądania przez zastosowanie ograniczenia typu. Rozważmy następujący przykład:
+
+[!code-csharp[](index/samples/3.x/Controllers/ConsumesController.cs?name=snippet_Class)]
+
+W poprzednim kodzie `ConsumesController` jest skonfigurowany do obsługi żądań wysyłanych do `https://localhost:5001/api/Consumes` adresem URL. Obie akcje kontrolera, `PostJson` i `PostForm`, obsługują żądania POST z tym samym adresem URL. Bez atrybutu `[Consumes]` stosującego ograniczenie typu jest generowany niejednoznaczny wyjątek dopasowania.
+
+Atrybut `[Consumes]` jest stosowany do obu akcji. Akcja `PostJson` obsługuje żądania wysyłane z nagłówkiem `Content-Type` `application/json`. Akcja `PostForm` obsługuje żądania wysyłane z nagłówkiem `Content-Type` `application/x-www-form-urlencoded`. 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

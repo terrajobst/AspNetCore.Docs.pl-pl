@@ -4,14 +4,14 @@ author: Rick-Anderson
 description: Dowiedz się, jak działają filtry i jak korzystać z nich w ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 1/1/2020
+ms.date: 02/04/2020
 uid: mvc/controllers/filters
-ms.openlocfilehash: 759c150e7f35f3f6a52947edc5ef41448dc227fe
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: c4bb9d5746e494106ead6ad5bbf972bbcc5a39f1
+ms.sourcegitcommit: 0e21d4f8111743bcb205a2ae0f8e57910c3e8c25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828974"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77034068"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtry w ASP.NET Core
 
@@ -28,13 +28,16 @@ Filtry wbudowane obsługują zadania takie jak:
 
 Filtry niestandardowe mogą być tworzone w celu obsłużenia krzyżowego rozcinania. Przykłady zagadnień związanych z rozcinaniem obejmują obsługę błędów, buforowanie, konfigurację, autoryzację i rejestrowanie.  Filtry unikają duplikowania kodu. Na przykład filtr wyjątków obsługujący błędy może skonsolidować obsługę błędów.
 
-Ten dokument ma zastosowanie do Razor Pages, kontrolerów interfejsu API i kontrolerów z widokami.
+Ten dokument ma zastosowanie do Razor Pages, kontrolerów interfejsu API i kontrolerów z widokami. Filtry nie działają bezpośrednio ze [składnikami Razor](xref:blazor/components). Filtr może mieć tylko pośredni wpływ na składnik, gdy:
+
+* Składnik jest osadzony na stronie lub widoku.
+* Strona lub kontroler/widok używają filtru.
 
 [Wyświetl lub Pobierz przykład](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample) ([jak pobrać](xref:index#how-to-download-a-sample)).
 
 ## <a name="how-filters-work"></a>Jak działają filtry
 
-Filtry są uruchamiane w *potoku wywołania akcji ASP.NET Core*, czasami określane jako *potok filtru*.  Potok filtru jest uruchamiany po ASP.NET Core wybiera akcję do wykonania.
+Filtry są uruchamiane w *potoku wywołania akcji ASP.NET Core*, czasami określane jako *potok filtru*. Potok filtru jest uruchamiany po ASP.NET Core wybiera akcję do wykonania.
 
 ![Żądanie jest przetwarzane przez inne oprogramowanie pośredniczące, kierowanie oprogramowania pośredniczącego, wybór akcji i potok akcji wywołania. Przetwarzanie żądań jest kontynuowane przez wybór akcji, kierowanie oprogramowania pośredniczącego i różnych innych programów pośredniczących przed wysłaniem odpowiedzi do klienta.](filters/_static/filter-pipeline-1.png)
 
@@ -65,7 +68,7 @@ Na poniższym diagramie przedstawiono sposób, w jaki typy filtrów współdzia�
 
 ![Żądanie jest przetwarzane przez filtry autoryzacji, filtry zasobów, powiązania modelu, filtry akcji, wykonywanie akcji i konwersję wyników akcji, filtry wyjątków, filtry wynikowe i wykonywanie wyniku. W ten sposób żądanie jest przetwarzane tylko przez filtry wyników i filtry zasobów przed wysłaniem odpowiedzi do klienta.](filters/_static/filter-pipeline-2.png)
 
-## <a name="implementation"></a>Implementacja
+## <a name="implementation"></a>Wdrażanie
 
 Filtry obsługują implementacje synchroniczne i asynchroniczne za pomocą różnych definicji interfejsu.
 
@@ -175,12 +178,12 @@ Poniższy przykład ilustruje kolejność, w której metody filtrowania są wywo
 
 | Sequence | Zakres filtru | Filter — Metoda |
 |:--------:|:------------:|:-------------:|
-| 1 | Globalne | `OnActionExecuting` |
+| 1 | Globalny | `OnActionExecuting` |
 | 2 | Kontroler lub strona Razor| `OnActionExecuting` |
 | 3 | Metoda | `OnActionExecuting` |
 | 4 | Metoda | `OnActionExecuted` |
 | 5 | Kontroler lub strona Razor | `OnActionExecuted` |
-| 6 | Globalne | `OnActionExecuted` |
+| 6 | Globalny | `OnActionExecuted` |
 
 ### <a name="controller-level-filters"></a>Filtry na poziomie kontrolera
 
@@ -642,7 +645,7 @@ Na poniższym diagramie przedstawiono sposób, w jaki typy filtrów współdzia�
 
 ![Żądanie jest przetwarzane przez filtry autoryzacji, filtry zasobów, powiązania modelu, filtry akcji, wykonywanie akcji i konwersję wyników akcji, filtry wyjątków, filtry wynikowe i wykonywanie wyniku. W ten sposób żądanie jest przetwarzane tylko przez filtry wyników i filtry zasobów przed wysłaniem odpowiedzi do klienta.](filters/_static/filter-pipeline-2.png)
 
-## <a name="implementation"></a>Implementacja
+## <a name="implementation"></a>Wdrażanie
 
 Filtry obsługują implementacje synchroniczne i asynchroniczne za pomocą różnych definicji interfejsu.
 
@@ -716,12 +719,12 @@ Poniższy przykład ilustruje kolejność, w której metody filtrowania są wywo
 
 | Sequence | Zakres filtru | Filter — Metoda |
 |:--------:|:------------:|:-------------:|
-| 1 | Globalne | `OnActionExecuting` |
+| 1 | Globalny | `OnActionExecuting` |
 | 2 | Kontroler | `OnActionExecuting` |
 | 3 | Metoda | `OnActionExecuting` |
 | 4 | Metoda | `OnActionExecuted` |
 | 5 | Kontroler | `OnActionExecuted` |
-| 6 | Globalne | `OnActionExecuted` |
+| 6 | Globalny | `OnActionExecuted` |
 
 Ta sekwencja pokazuje:
 
@@ -778,8 +781,8 @@ Należy wziąć pod uwagę te same 3 filtry akcji, które przedstawiono w powyż
 |:--------:|:------------:|:-----------------:|:-------------:|
 | 1 | Metoda | 0 | `OnActionExecuting` |
 | 2 | Kontroler | 1  | `OnActionExecuting` |
-| 3 | Globalne | 2  | `OnActionExecuting` |
-| 4 | Globalne | 2  | `OnActionExecuted` |
+| 3 | Globalny | 2  | `OnActionExecuting` |
+| 4 | Globalny | 2  | `OnActionExecuted` |
 | 5 | Kontroler | 1  | `OnActionExecuted` |
 | 6 | Metoda | 0  | `OnActionExecuted` |
 
