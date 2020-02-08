@@ -101,6 +101,9 @@
         - name: Usługa SignalR za pomocą języka TypeScript
           displayName: tutorial
           uid: tutorials/signalr-typescript-webpack
+        - name: Usługa SignalR za pomocą zestawu WebAssembly Blazor
+          displayName: tutorial
+          uid: tutorials/signalr-blazor-webassembly
     - name: Aplikacje zdalnego wywołania procedury
       items:
         - name: Wprowadzenie do usługi gRPC
@@ -282,8 +285,12 @@
           uid: blazor/get-started
         - name: Modele hostingu
           uid: blazor/hosting-models
-        - name: Tworzenie pierwszej aplikacji
-          uid: tutorials/first-blazor-app
+        - name: Samouczki
+          items:
+            - name: Tworzenie pierwszej aplikacji
+              uid: tutorials/first-blazor-app
+            - name: Usługa SignalR za pomocą zestawu WebAssembly Blazor
+              uid: tutorials/signalr-blazor-webassembly
         - name: Szablony
           uid: blazor/templates
         - name: Składniki
@@ -477,6 +484,8 @@
           uid: tutorials/signalr
         - name: Usługa SignalR za pomocą języka TypeScript
           uid: tutorials/signalr-typescript-webpack
+        - name: Usługa SignalR za pomocą zestawu WebAssembly Blazor
+          uid: tutorials/signalr-blazor-webassembly
     - name: Przykłady
       href: 'https://github.com/aspnet/SignalR-samples'
       displayName: signalr
