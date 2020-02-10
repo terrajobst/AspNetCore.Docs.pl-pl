@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/02/2020
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 47f465c00138acf434c6ec59f757e37361ad97db
-ms.sourcegitcommit: 0e21d4f8111743bcb205a2ae0f8e57910c3e8c25
+ms.openlocfilehash: 6698e269e0a6480cd5a03c59f9a19da31e23bf69
+ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77034107"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77089152"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core oprogramowanie pośredniczące
 
@@ -167,7 +167,7 @@ W przypadku aplikacji jednostronicowych oprogramowanie pośredniczące SPA <xref
 * Aby zezwolić wszystkim innym middlewares na odpowiadanie na pasujące żądania.
 * Aby umożliwić uruchamianie aplikacji jednostronicowych z routingiem po stronie klienta dla wszystkich tras, które nie są rozpoznawane przez aplikację serwera.
 
-Aby uzyskać więcej informacji na temat aplikacji jednostronicowych, zapoznaj się z przewodnikami dla szablonów projektów [reagowanie](xref:spa/react) i [kątowych](xref: client-side/spa/angular) .
+Aby uzyskać więcej informacji na temat aplikacji jednostronicowych, zapoznaj się z przewodnikami dla szablonów projektów [reagowanie](xref:spa/react) i [kątowych](xref:spa/angular) .
 
 ## <a name="branch-the-middleware-pipeline"></a>Rozgałęzianie potoku oprogramowania pośredniczącego
 
