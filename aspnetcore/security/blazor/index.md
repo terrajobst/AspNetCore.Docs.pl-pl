@@ -5,17 +5,17 @@ description: Dowiedz się więcej na temat Blazor scenariuszy uwierzytelniania i
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/29/2020
+ms.date: 02/02/2020
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/index
-ms.openlocfilehash: e9087c246f4805e5931180fa0869fc8a8d23a6c1
-ms.sourcegitcommit: c81ef12a1b6e6ac838e5e07042717cf492e6635b
+ms.openlocfilehash: c7b3788b5737073100e7fa449fd6bb4a83c0043a
+ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885584"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114890"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>ASP.NET Core uwierzytelnianie i autoryzacja Blazor
 
@@ -329,7 +329,7 @@ W przypadku autoryzacji opartej na rolach Użyj parametru `Roles`:
 </AuthorizeView>
 ```
 
-Aby uzyskać więcej informacji, zobacz temat <xref:security/authorization/roles>.
+Aby uzyskać więcej informacji, zobacz <xref:security/authorization/roles>.
 
 W przypadku autoryzacji opartej na zasadach Użyj parametru `Policy`:
 
@@ -339,7 +339,7 @@ W przypadku autoryzacji opartej na zasadach Użyj parametru `Policy`:
 </AuthorizeView>
 ```
 
-Autoryzacja oparta na oświadczeniach jest specjalnym przypadkiem autoryzacji opartej na zasadach. Na przykład można zdefiniować zasady, które wymagają, aby użytkownicy mieli pewne wnioski. Aby uzyskać więcej informacji, zobacz temat <xref:security/authorization/policies>.
+Autoryzacja oparta na oświadczeniach jest specjalnym przypadkiem autoryzacji opartej na zasadach. Na przykład można zdefiniować zasady, które wymagają, aby użytkownicy mieli pewne wnioski. Aby uzyskać więcej informacji, zobacz <xref:security/authorization/policies>.
 
 Te interfejsy API mogą być używane na serwerze Blazor lub Blazor aplikacji webassembly.
 
@@ -505,7 +505,7 @@ W programie Blazor aplikacje webassembly można ominąć sprawdzanie autoryzacji
 
 **Zawsze sprawdzaj autoryzację na serwerze w ramach dowolnych punktów końcowych interfejsu API, do których uzyskuje dostęp aplikacja po stronie klienta.**
 
-## <a name="troubleshoot-errors"></a>Rozwiązywanie problemów z błędami
+## <a name="troubleshoot-errors"></a>Rozwiązywanie problemów
 
 Typowe błędy:
 
@@ -530,3 +530,4 @@ Prawdopodobnie projekt nie został utworzony przy użyciu szablonu serwera Blazo
 * <xref:security/index>
 * <xref:security/blazor/server>
 * <xref:security/authentication/windowsauth>
+* [Firma Awesome Blazor:](https://github.com/AdrienTorris/awesome-blazor#authentication) przykładowe linki społeczności uwierzytelniania

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/15/2019
 uid: mvc/models/validation
-ms.openlocfilehash: b697f02183c76b9a96471a748a86c144fde47bb0
-ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
+ms.openlocfilehash: c4fd16ef682627810c6d7629671de056f1cf3b3f
+ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76268744"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114760"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Walidacja modelu w ASP.NET Core MVC i Razor Pages
 
@@ -84,7 +84,9 @@ Aby dowiedzieć się, które parametry są przesyłane do `String.Format` dla ko
 
 System sprawdzania poprawności w programie .NET Core 3,0 lub nowszy traktuje parametry niedopuszczające wartości null lub właściwości powiązane tak, jakby miały atrybut `[Required]`. [Typy wartości](/dotnet/csharp/language-reference/keywords/value-types) , takie jak `decimal` i `int`, nie dopuszczają wartości null. To zachowanie można wyłączyć przez skonfigurowanie <xref:Microsoft.AspNetCore.Mvc.MvcOptions.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes> w `Startup.ConfigureServices`:
 
-usługi CSharp. Addcontrollers (Opcje = > Opcje. SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true); ...
+```csharp
+services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
+```
 
 ### <a name="required-validation-on-the-server"></a>[Wymagane] Walidacja na serwerze
 
@@ -374,7 +376,7 @@ Inne opcje wyłączenia weryfikacji po stronie klienta:
 * Dodaj komentarz do odwołania do `_ValidationScriptsPartial` we wszystkich plikach *. cshtml* .
 * Usuń zawartość pliku *Pages\Shared\_ValidationScriptsPartial. cshtml* .
 
-Poprzednie podejście nie zapobiega weryfikacji po stronie klienta w bibliotece klas Razor ASP.NET Core Identity. Aby uzyskać więcej informacji, zobacz temat <xref:security/authentication/scaffold-identity>.
+Poprzednie podejście nie zapobiega weryfikacji po stronie klienta w bibliotece klas Razor ASP.NET Core Identity. Aby uzyskać więcej informacji, zobacz <xref:security/authentication/scaffold-identity>.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
@@ -426,7 +428,7 @@ Wbudowane atrybuty walidacji obejmują:
 * `[Url]`: sprawdza, czy właściwość ma format adresu URL.
 * `[Remote]`: sprawdza poprawność danych wejściowych na kliencie przez wywołanie metody akcji na serwerze. Zobacz [`[Remote]` atrybutu](#remote-attribute) , aby uzyskać szczegółowe informacje o zachowaniu tego atrybutu.
 
-W przypadku korzystania z atrybutu `[RegularExpression]` z walidacją po stronie klienta wyrażenie regularne jest wykonywane w języku JavaScript na kliencie. Oznacza to, że będzie używane zachowanie zgodne ze standardem [ECMAScript](/dotnet/standard/base-types/regular-expression-options#ecmascript-matching-behavior) . Aby uzyskać więcej informacji, zobacz [problem w usłudze GitHub](https://github.com/dotnet/corefx/issues/42487).
+W przypadku korzystania z atrybutu `[RegularExpression]` z walidacją po stronie klienta wyrażenie regularne jest wykonywane w języku JavaScript na kliencie. Oznacza to, że będzie używane zachowanie zgodne ze standardem [ECMAScript](/dotnet/standard/base-types/regular-expression-options#ecmascript-matching-behavior) . Aby uzyskać więcej informacji, zobacz [ten problem](https://github.com/dotnet/corefx/issues/42487)w serwisie GitHub.
 
 Pełną listę atrybutów sprawdzania poprawności można znaleźć w przestrzeni nazw [System. ComponentModel. DataAnnotations](xref:System.ComponentModel.DataAnnotations) .
 

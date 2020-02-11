@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/26/2019
 uid: tutorials/web-api-javascript
-ms.openlocfilehash: 5a31aa2974eb41938db89f97c070c352a26290fd
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: 2a19a7d16ca8b8f5d6ac8eb99ad919b89f1e368b
+ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74681178"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114656"
 ---
 # <a name="tutorial-call-an-aspnet-core-web-api-with-javascript"></a>Samouczek: wywoływanie interfejsu API sieci Web ASP.NET Core przy użyciu języka JavaScript
 
-Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tym samouczku pokazano, jak wywołać interfejs API sieci Web ASP.NET Core przy użyciu [interfejsu API pobierania](https://developer.mozilla.org/docs/Web/API/Fetch_API).
 
@@ -36,7 +36,7 @@ Aby uzyskać ASP.NET Core 2,2, zobacz wersja 2,2 [wywołania interfejsu API siec
 
 W tej sekcji dodasz stronę HTML zawierającą formularze do tworzenia elementów do wykonania i zarządzania nimi. Programy obsługi zdarzeń są dołączone do elementów na stronie. Programy obsługi zdarzeń powodują żądania HTTP do metod akcji internetowego interfejsu API. Funkcja `fetch` interfejsu API pobierania inicjuje każde żądanie HTTP.
 
-Funkcja `fetch` zwraca obiekt `Promise`, który zawiera odpowiedź HTTP reprezentowane jako obiekt `Response`. Typowym wzorcem jest wyodrębnienie treści odpowiedzi JSON przez wywołanie funkcji `json` na obiekcie `Response`. Język JavaScript aktualizuje stronę ze szczegółowymi informacjami z odpowiedzi internetowego interfejsu API.
+Funkcja `fetch` zwraca obiekt [obietnicy](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) , który zawiera odpowiedź HTTP reprezentowane jako obiekt `Response`. Typowym wzorcem jest wyodrębnienie treści odpowiedzi JSON przez wywołanie funkcji `json` na obiekcie `Response`. Język JavaScript aktualizuje stronę ze szczegółowymi informacjami z odpowiedzi internetowego interfejsu API.
 
 Najprostszym wywołaniem `fetch` akceptuje pojedynczy parametr reprezentujący trasę. Drugi parametr, znany jako obiekt `init`, jest opcjonalny. `init` służy do konfigurowania żądania HTTP.
 
@@ -56,7 +56,7 @@ Najprostszym wywołaniem `fetch` akceptuje pojedynczy parametr reprezentujący t
 
     [!code-javascript[](first-web-api/samples/3.0/TodoApi/wwwroot/js/site.js?name=snippet_SiteJs)]
 
-Zmiana ustawień uruchamiania projektu ASP.NET Core może być wymagana do lokalnego przetestowania strony HTML:
+Zmiana ustawień uruchamiania projektów ASP.NET Core może być konieczne test lokalnie za pomocą strony HTML:
 
 1. Otwórz *Properties\launchSettings.JSON*.
 1. Usuń właściwość `launchUrl`, aby wymusić, że aplikacja zostanie otwarta w pliku *index. html*&mdash;domyślnym plikiem projektu.
@@ -86,7 +86,7 @@ W poniższym kodzie:
 
 Gdy internetowy interfejs API zwraca kod stanu pomyślnego, funkcja `getItems` jest wywoływana w celu zaktualizowania tabeli HTML. Jeśli żądanie internetowego interfejsu API nie powiedzie się, zostanie zarejestrowany błąd w konsoli przeglądarki.
 
-### <a name="update-a-to-do-item"></a>Aktualizowanie elementu do wykonania
+### <a name="update-a-to-do-item"></a>Zaktualizuj element do wykonania
 
 Aktualizowanie elementu do wykonania jest podobne do dodawania jednego z nich; Istnieją jednak dwie znaczące różnice:
 
