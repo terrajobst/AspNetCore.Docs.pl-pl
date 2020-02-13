@@ -5,16 +5,16 @@ description: Dodawanie widoku do prostej aplikacji ASP.NET Core MVC
 ms.author: riande
 ms.date: 8/04/2019
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: a25233968f115c6e3a214d97cf2ca5ab81df8d83
-ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
+ms.openlocfilehash: 5510fb6844452571ca764e21640f0bd16444c782
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76870431"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77171972"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Dodawanie widoku do aplikacji ASP.NET Core MVC
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -44,7 +44,7 @@ Poprzedni kod wywołuje metodę <xref:Microsoft.AspNetCore.Mvc.Controller.View*>
 
   * Zachowaj wartość pola **Nazwa** , *index. cshtml*.
 
-  * Wybierz pozycję **Dodaj**
+  * Wybierz pozycję **Dodaj**.
 
 ![Okno dialogowe Dodawanie nowego elementu](adding-view/_static/add_view.png)
 
@@ -59,7 +59,7 @@ Dodaj widok `Index` dla `HelloWorldController`.
 
 * Kliknij prawym przyciskiem myszy folder *widoki* , a następnie **Dodaj > nowy folder** i nadaj mu nazwę folder *HelloWorld*.
 * Kliknij prawym przyciskiem myszy folder *widoki/HelloWorld* , a następnie **Dodaj > nowy plik**.
-* W **nowy plik** okno dialogowe:
+* W oknie dialogowym **nowy plik** :
 
   * W lewym okienku wybierz pozycję **ASP .NET Core** .
   * Wybierz **stronę widok MVC** w środkowym okienku.
@@ -107,7 +107,7 @@ Wybierz link **domowy** i zwróć uwagę na to, że tytuł i tekst zakotwiczenia
 
 Przejrzyj plik *views/_ViewStart. cshtml* :
 
-```HTML
+```cshtml
 @{
     Layout = "_Layout";
 }
@@ -123,9 +123,9 @@ Tytuł i element `<h2>` są nieco inne, więc można zobaczyć, który bit kodu 
 
 `ViewData["Title"] = "Movie List";` w powyższym kodzie ustawia właściwość `Title` słownika `ViewData` na "Lista filmów". Właściwość `Title` jest używana w elemencie `<title>` HTML na stronie układ:
 
-```HTML
+```cshtml
 <title>@ViewData["Title"] - Movie App</title>
-   ```
+```
 
 Zapisz zmianę i przejdź do `https://localhost:{PORT}/HelloWorld`. Zwróć uwagę, że tytuł przeglądarki, nagłówek podstawowy i pomocnicze nagłówki zostały zmienione. (Jeśli w przeglądarce nie są widoczne zmiany, może być wyświetlana zawartość z pamięci podręcznej. Naciśnij kombinację klawiszy CTRL + F5 w przeglądarce, aby wymusić załadowanie odpowiedzi z serwera. Tytuł przeglądarki jest tworzony przy użyciu `ViewData["Title"]` ustawionych w szablonie *index. cshtml* , a dodatkowa "-Movie App" dodana w pliku układu.
 
@@ -168,8 +168,8 @@ W powyższym przykładzie słownik `ViewData` był używany do przekazywania dan
 W następnym samouczku zostanie utworzona baza danych filmów.
 
 > [!div class="step-by-step"]
-> [Poprzedni](adding-controller.md)
-> [Następny](adding-model.md)
+> [Poprzednie](adding-controller.md)
+> [dalej](adding-model.md)
 
 ::: moniker-end
 
@@ -201,7 +201,7 @@ Poprzedni kod wywołuje metodę <xref:Microsoft.AspNetCore.Mvc.Controller.View*>
 
   * Zachowaj wartość pola **Nazwa** , *index. cshtml*.
 
-  * Wybierz pozycję **Dodaj**
+  * Wybierz pozycję **Dodaj**.
 
 ![Okno dialogowe Dodawanie nowego elementu](adding-view/_static/add_view.png)
 
@@ -216,7 +216,7 @@ Dodaj widok `Index` dla `HelloWorldController`.
 
 * Kliknij prawym przyciskiem myszy folder *widoki* , a następnie **Dodaj > nowy folder** i nadaj mu nazwę folder *HelloWorld*.
 * Kliknij prawym przyciskiem myszy folder *widoki/HelloWorld* , a następnie **Dodaj > nowy plik**.
-* W **nowy plik** okno dialogowe:
+* W oknie dialogowym **nowy plik** :
 
   * W lewym okienku wybierz pozycję **Sieć Web** .
   * W środkowym okienku wybierz pozycję **pusty plik HTML** .
@@ -267,7 +267,7 @@ Wybierz link **domowy** i zwróć uwagę na to, że tytuł i tekst zakotwiczenia
 
 Przejrzyj plik *views/_ViewStart. cshtml* :
 
-```HTML
+```cshtml
 @{
     Layout = "_Layout";
 }
@@ -283,9 +283,9 @@ Tytuł i element `<h2>` są nieco inne, więc można zobaczyć, który bit kodu 
 
 `ViewData["Title"] = "Movie List";` w powyższym kodzie ustawia właściwość `Title` słownika `ViewData` na "Lista filmów". Właściwość `Title` jest używana w elemencie `<title>` HTML na stronie układ:
 
-```HTML
+```cshtml
 <title>@ViewData["Title"] - Movie App</title>
-   ```
+```
 
 Zapisz zmianę i przejdź do `https://localhost:{PORT}/HelloWorld`. Zwróć uwagę, że tytuł przeglądarki, nagłówek podstawowy i pomocnicze nagłówki zostały zmienione. (Jeśli w przeglądarce nie są widoczne zmiany, może być wyświetlana zawartość z pamięci podręcznej. Naciśnij kombinację klawiszy CTRL + F5 w przeglądarce, aby wymusić załadowanie odpowiedzi z serwera. Tytuł przeglądarki jest tworzony przy użyciu `ViewData["Title"]` ustawionych w szablonie *index. cshtml* , a dodatkowa "-Movie App" dodana w pliku układu.
 
@@ -328,7 +328,7 @@ W powyższym przykładzie słownik `ViewData` był używany do przekazywania dan
 W następnym samouczku zostanie utworzona baza danych filmów.
 
 > [!div class="step-by-step"]
-> [Poprzedni](adding-controller.md)
-> [Następny](adding-model.md)
+> [Poprzednie](adding-controller.md)
+> [dalej](adding-model.md)
 
 ::: moniker-end

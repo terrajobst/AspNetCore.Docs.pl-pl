@@ -5,12 +5,12 @@ description: Dowiedz się, jak ASP.NET Core MVC to rozbudowana platforma służ�
 ms.author: riande
 ms.date: 01/28/2020
 uid: mvc/overview
-ms.openlocfilehash: a147c2aa01f1440f8ac59f73eb7be734193f802a
-ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
+ms.openlocfilehash: a0d1e364bf4cda4ad30c5070c9e61e6972759bb0
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76869974"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77171814"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Omówienie platformy ASP.NET Core MVC
 
@@ -62,7 +62,7 @@ ASP.NET Core MVC obejmuje następujące elementy:
 * [Routing](#routing)
 * [Wiązanie modelu](#model-binding)
 * [Walidacja modelu](#model-validation)
-* [Wstrzykiwanie zależności](../fundamentals/dependency-injection.md)
+* [Iniekcja zależności](../fundamentals/dependency-injection.md)
 * [Filtry](#filters)
 * [Obszary](#areas)
 * [Interfejsy API sieci Web](#web-apis)
@@ -174,7 +174,7 @@ public class AccountController : Controller
 
 [Obszary](controllers/areas.md) umożliwiają partycjonowanie dużej aplikacji sieci Web MVC ASP.NET Core w mniejszych grupach funkcjonalnych. Obszar jest strukturą MVC wewnątrz aplikacji. W projekcie MVC składniki logiczne, takie jak model, kontroler i widok, są przechowywane w różnych folderach, a MVC używają konwencji nazewnictwa, aby utworzyć relację między tymi składnikami. W przypadku dużej aplikacji warto podzielić aplikację na oddzielne obszary wysokiego poziomu funkcji. Na przykład aplikacja handlu elektronicznego z wieloma jednostkami biznesowymi, takimi jak wyewidencjonowywanie, rozliczenia i wyszukiwanie, itp. Każda z tych jednostek ma własne widoki, kontrolery i modele logicznego składnika.
 
-### <a name="web-apis"></a>Interfejsy Web API
+### <a name="web-apis"></a>Interfejsy API sieci Web
 
 Poza doskonałym platformą do tworzenia witryn sieci Web, ASP.NET Core MVC ma doskonałą obsługę tworzenia interfejsów API sieci Web. Możesz tworzyć usługi, które docierają do szerokiego zakresu klientów, w tym przeglądarek i urządzeń przenośnych.
 
@@ -251,12 +251,12 @@ Pomocnicy tagów zapewniają przyjazne dla języka HTML środowisko programistyc
 
 ## <a name="compatibility-version"></a>Wersja zgodności
 
-Metoda <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> umożliwia aplikacji włączenie wykorzystania lub rezygnację ze zmian zachowania wprowadzanych w programie ASP.NET Core MVC w wersji 2.1 lub nowszej, które potencjalnie mogą prowadzić do awarii.
+Metoda <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> pozwala aplikacji na zgodę lub rezygnację z ewentualnych zmian w zachowaniu, które wprowadzono w ASP.NET Core MVC 2,1 lub nowszych.
 
-Aby uzyskać więcej informacji, zobacz temat <xref:mvc/compatibility-version>.
+Aby uzyskać więcej informacji, zobacz <xref:mvc/compatibility-version>.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Przetestowana Biblioteka testowania AspNetCore. MVC-Fluent dla ASP.NET Core Mvc](https://github.com/ivaylokenov/MyTested.AspNetCore.Mvc) &ndash; Biblioteka testów jednostkowych z silną typem, zapewniająca interfejs Fluent do testowania aplikacji MVC i Web API. (*Niekonserwowane lub obsługiwane przez firmę Microsoft).*
-* [Integrowanie składników Razor z aplikacjami Razor Pages i MVC](xref:blazor/hosting-models#integrate-razor-components-into-razor-pages-and-mvc-apps)
+* [Integrowanie składników Razor z aplikacjami Razor Pages i MVC](xref:blazor/hosting-model-configuration#integrate-razor-components-into-razor-pages-and-mvc-apps)
 

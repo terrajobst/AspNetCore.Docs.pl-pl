@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/15/2019
 uid: mvc/models/validation
-ms.openlocfilehash: c4fd16ef682627810c6d7629671de056f1cf3b3f
-ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
+ms.openlocfilehash: a39eeead10849d11349688c42fe814ede9e8a847
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114760"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172489"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Walidacja modelu w ASP.NET Core MVC i Razor Pages
 
@@ -146,7 +146,7 @@ Gdy użytkownik wprowadzi imię lub nazwisko, kod JavaScript wykonuje zdalne wyw
 
 Aby sprawdzić poprawność dwóch lub więcej pól, podaj je jako listę rozdzielaną przecinkami. Na przykład aby dodać właściwość `MiddleName` do modelu, należy ustawić atrybut `[Remote]`, jak pokazano w następującym przykładzie:
 
-```cs
+```csharp
 [Remote(action: "VerifyName", controller: "Users", AdditionalFields = nameof(FirstName) + "," + nameof(LastName))]
 public string MiddleName { get; set; }
 ```
@@ -271,7 +271,7 @@ Aby uzyskać informacje o niezauważalnej weryfikacji, zobacz [ten problem](http
 
 w przypadku niedyskretnego sprawdzania poprawności jest sprawdzana logika walidacji i parametry do jQuery podczas pierwszego ładowania strony. W związku z tym sprawdzanie poprawności nie działa automatycznie na formularzach generowanych dynamicznie. Aby włączyć weryfikację, poinformuj jQuery o niezauważalnej weryfikacji, aby przeanalizować formularz dynamiczny bezpośrednio po jego utworzeniu. Na przykład poniższy kod konfiguruje walidację po stronie klienta w formularzu dodanym przez AJAX.
 
-```js
+```javascript
 $.get({
     url: "https://url/that/returns/a/form",
     dataType: "html",
@@ -294,7 +294,7 @@ Metoda `$.validator.unobtrusive.parse()` akceptuje selektor jQuery dla jednego a
 
 Metoda `$.validator.unobtrusive.parse()` działa na całym formularzu, a nie na poszczególnych dynamicznie generowanych kontrolkach, takich jak `<input>` i `<select/>`. Aby przeanalizować formularz, Usuń dane sprawdzania poprawności, które zostały dodane, gdy formularz został wcześniej przeanalizowany, jak pokazano w następującym przykładzie:
 
-```js
+```javascript
 $.get({
     url: "https://url/that/returns/a/control",
     dataType: "html",
@@ -512,7 +512,7 @@ Gdy użytkownik wprowadzi imię lub nazwisko, kod JavaScript wykonuje zdalne wyw
 
 Aby sprawdzić poprawność dwóch lub więcej pól, podaj je jako listę rozdzielaną przecinkami. Na przykład aby dodać właściwość `MiddleName` do modelu, należy ustawić atrybut `[Remote]`, jak pokazano w następującym przykładzie:
 
-```cs
+```csharp
 [Remote(action: "VerifyName", controller: "Users", AdditionalFields = nameof(FirstName) + "," + nameof(LastName))]
 public string MiddleName { get; set; }
 ```
@@ -642,7 +642,7 @@ Walidacja typu danych jest oparta na typie .NET właściwości, chyba że zostan
 
 w przypadku niedyskretnego sprawdzania poprawności jest sprawdzana logika walidacji i parametry do jQuery podczas pierwszego ładowania strony. W związku z tym sprawdzanie poprawności nie działa automatycznie na formularzach generowanych dynamicznie. Aby włączyć weryfikację, poinformuj jQuery o niezauważalnej weryfikacji, aby przeanalizować formularz dynamiczny bezpośrednio po jego utworzeniu. Na przykład poniższy kod konfiguruje walidację po stronie klienta w formularzu dodanym przez AJAX.
 
-```js
+```javascript
 $.get({
     url: "https://url/that/returns/a/form",
     dataType: "html",
@@ -665,7 +665,7 @@ Metoda `$.validator.unobtrusive.parse()` akceptuje selektor jQuery dla jednego a
 
 Metoda `$.validator.unobtrusive.parse()` działa na całym formularzu, a nie na poszczególnych dynamicznie generowanych kontrolkach, takich jak `<input>` i `<select/>`. Aby przeanalizować formularz, Usuń dane sprawdzania poprawności, które zostały dodane, gdy formularz został wcześniej przeanalizowany, jak pokazano w następującym przykładzie:
 
-```js
+```javascript
 $.get({
     url: "https://url/that/returns/a/control",
     dataType: "html",

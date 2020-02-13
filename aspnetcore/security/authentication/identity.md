@@ -5,18 +5,18 @@ description: Użyj tożsamości z aplikacją ASP.NET Core. Dowiedz się, jak ust
 ms.author: riande
 ms.date: 01/15/2020
 uid: security/authentication/identity
-ms.openlocfilehash: 98fee261a741a20eed181ca5b9a4ebb693deeb63
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.openlocfilehash: 164ba10c1d1e2a73ebeb8240293a58f158055699
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146514"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172532"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Wprowadzenie do tożsamości na ASP.NET Core
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ASP.NET Core tożsamość:
 
@@ -49,7 +49,7 @@ Utwórz projekt aplikacji sieci Web ASP.NET Core przy użyciu poszczególnych ko
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Wybierz pozycję **plik** > **Nowy** > **projekt**.
-* Wybierz **aplikacji sieci Web platformy ASP.NET Core**. Nazwij projekt **WebApp1** tak, aby miał tę samą przestrzeń nazw co pobieranie projektu. Kliknij przycisk **OK**.
+* Wybierz **ASP.NET Core aplikacji sieci Web**. Nazwij projekt **WebApp1** tak, aby miał tę samą przestrzeń nazw co pobieranie projektu. Kliknij przycisk **OK**.
 * Wybierz **aplikację sieci Web**ASP.NET Core, a następnie wybierz pozycję **Zmień uwierzytelnianie**.
 * Wybierz pozycję **indywidualne konta użytkowników** , a następnie kliknij przycisk **OK**.
 
@@ -148,7 +148,7 @@ Jeśli użytkownik został utworzony pomyślnie, użytkownik jest zalogowany prz
 
 Zobacz [potwierdzenie konta](xref:security/authentication/accconfirm#prevent-login-at-registration) , aby zapobiec natychmiastowemu logowaniu przy rejestracji.
 
-### <a name="log-in"></a>Zaloguj się
+### <a name="log-in"></a>Logowanie
 
 Formularz logowania jest wyświetlany, gdy:
 
@@ -159,7 +159,7 @@ Po przesłaniu formularza na stronie logowania zostanie wywołana akcja `OnPostA
 
 [!code-csharp[](identity/sample/WebApp3/Areas/Identity/Pages/Account/Login.cshtml.cs?name=snippet&highlight=10-11)]
 
-Klasa bazowa `Controller` uwidacznia Właściwość `User`, do której można uzyskać dostęp z metod kontrolera. Na przykład można wyliczyć `User.Claims` i podejmować decyzje dotyczące autoryzacji. Aby uzyskać więcej informacji, zobacz temat <xref:security/authorization/introduction>.
+Klasa bazowa `Controller` uwidacznia Właściwość `User`, do której można uzyskać dostęp z metod kontrolera. Na przykład można wyliczyć `User.Claims` i podejmować decyzje dotyczące autoryzacji. Aby uzyskać więcej informacji, zobacz <xref:security/authorization/introduction>.
 
 ### <a name="log-out"></a>Wyloguj się
 
@@ -246,7 +246,7 @@ Aby zapobiec publikowaniu statycznych zasobów tożsamości (arkuszy stylów i p
 
 ::: moniker range="< aspnetcore-3.0"
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ASP.NET Core Identity to system członkostwa, który dodaje funkcje logowania do ASP.NET Core aplikacji. Użytkownicy mogą utworzyć konto z informacjami logowania przechowywanymi w tożsamości lub korzystać z zewnętrznego dostawcy logowania. Obsługiwane zewnętrzne dostawcy logowania obejmują [serwis Facebook, Google, konto Microsoft i Twitter](xref:security/authentication/social/index).
 
@@ -275,7 +275,7 @@ Utwórz projekt aplikacji sieci Web ASP.NET Core przy użyciu poszczególnych ko
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Wybierz pozycję **plik** > **Nowy** > **projekt**.
-* Wybierz **aplikacji sieci Web platformy ASP.NET Core**. Nazwij projekt **WebApp1** tak, aby miał tę samą przestrzeń nazw co pobieranie projektu. Kliknij przycisk **OK**.
+* Wybierz **ASP.NET Core aplikacji sieci Web**. Nazwij projekt **WebApp1** tak, aby miał tę samą przestrzeń nazw co pobieranie projektu. Kliknij przycisk **OK**.
 * Wybierz **aplikację sieci Web**ASP.NET Core, a następnie wybierz pozycję **Zmień uwierzytelnianie**.
 * Wybierz pozycję **indywidualne konta użytkowników** , a następnie kliknij przycisk **OK**.
 
@@ -301,7 +301,9 @@ Zastosuj migracje, aby zainicjować bazę danych.
 
 Uruchom następujące polecenie w konsoli Menedżera pakietów (PMC):
 
-```PM> Update-Database```
+```powershell
+Update-Database
+```
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
@@ -364,7 +366,7 @@ Jeśli użytkownik został utworzony pomyślnie, użytkownik jest zalogowany prz
 
 **Uwaga:** Zobacz [potwierdzenie konta](xref:security/authentication/accconfirm#prevent-login-at-registration) , aby zapobiec natychmiastowemu logowaniu przy rejestracji.
 
-### <a name="log-in"></a>Zaloguj się
+### <a name="log-in"></a>Logowanie
 
 Formularz logowania jest wyświetlany, gdy:
 
@@ -375,7 +377,7 @@ Po przesłaniu formularza na stronie logowania zostanie wywołana akcja `OnPostA
 
 [!code-csharp[](identity/sample/WebApp1/Areas/Identity/Pages/Account/Login.cshtml.cs?name=snippet&highlight=10-11)]
 
-Klasa bazowa `Controller` uwidacznia Właściwość `User`, do której można uzyskać dostęp z metod kontrolera. Na przykład można wyliczyć `User.Claims` i podejmować decyzje dotyczące autoryzacji. Aby uzyskać więcej informacji, zobacz temat <xref:security/authorization/introduction>.
+Klasa bazowa `Controller` uwidacznia Właściwość `User`, do której można uzyskać dostęp z metod kontrolera. Na przykład można wyliczyć `User.Claims` i podejmować decyzje dotyczące autoryzacji. Aby uzyskać więcej informacji, zobacz <xref:security/authorization/introduction>.
 
 ### <a name="log-out"></a>Wyloguj się
 

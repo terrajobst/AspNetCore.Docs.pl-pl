@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 01/28/2020
 uid: razor-pages/index
-ms.openlocfilehash: da30908b38d553405fd3f959f09a19eff750ed17
-ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
+ms.openlocfilehash: 402e11d653cf0e7433c63844cb7e2802abc61679
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76870525"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172605"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do Razor Pages w ASP.NET Core
 
@@ -220,7 +220,7 @@ Plik *index. cshtml* zawiera znaczniki umożliwiające utworzenie przycisku usuw
 
 Renderowany kod HTML:
 
-```HTML
+```html
 <button type="submit" formaction="/Customers?id=1&amp;handler=delete">delete</button>
 ```
 
@@ -235,7 +235,7 @@ Ponieważ `handler` jest `delete` w tym przykładzie, metoda obsługi `OnPostDel
 
 [!code-cs[](index/3.0sample/RazorPagesContacts/Pages/Customers/Index.cshtml.cs?name=snippet2)]
 
-`OnPostDeleteAsync` Metody:
+Metoda `OnPostDeleteAsync`:
 
 * Pobiera `id` z ciągu zapytania.
 * Wysyła zapytanie do bazy danych o kontakt z klientem z `FindAsync`.
@@ -424,13 +424,13 @@ Aplikacja ma następującą strukturę plików/folderów:
 
 * */Pages*
 
-  * *Index.cshtml*
+  * *Index. cshtml*
   * *Privacy. cshtml*
   * */Customers*
 
-    * *Create.cshtml*
-    * *Edit.cshtml*
-    * *Index.cshtml*
+    * *Create. cshtml*
+    * *Edytuj. cshtml*
+    * *Index. cshtml*
 
 Strony */Customers/Create. cshtml* i *Pages/Customers/Edit. cshtml* przekierowywać do *stron/Customers/index. cshtml* po powodzeniu. Ciąg `./Index` jest względną nazwą strony używaną w celu uzyskania dostępu do poprzedniej strony. Służy do generowania adresów URL na stronie *strony/klienci/index. cshtml* . Na przykład:
 
@@ -522,7 +522,7 @@ Następujące znaczniki w pliku *Pages/Customers/index. cshtml* wyświetlają wa
 
 Model strony *Pages/Customers/index. cshtml. cs* stosuje atrybut `[TempData]` do właściwości `Message`.
 
-```cs
+```csharp
 [TempData]
 public string Message { get; set; }
 ```
@@ -603,7 +603,7 @@ Dodaj <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBuilder
 * <xref:razor-pages/razor-pages-conventions>
 * <xref:test/razor-pages-tests>
 * <xref:mvc/views/partial>
-* [Integrowanie składników Razor z aplikacjami Razor Pages i MVC](xref:blazor/hosting-models#integrate-razor-components-into-razor-pages-and-mvc-apps)
+* [Integrowanie składników Razor z aplikacjami Razor Pages i MVC](xref:blazor/hosting-model-configuration#integrate-razor-components-into-razor-pages-and-mvc-apps)
 
 ::: moniker-end
 
@@ -804,7 +804,7 @@ Ponieważ `handler` jest `delete` w tym przykładzie, metoda obsługi `OnPostDel
 
 [!code-cs[](index/sample/RazorPagesContacts/Pages/Index.cshtml.cs?range=26-37)]
 
-`OnPostDeleteAsync` Metody:
+Metoda `OnPostDeleteAsync`:
 
 * Akceptuje `id` z ciągu zapytania. Jeśli dyrektywa strony *index. cshtml* zawiera ograniczenie routingu `"{id:int?}"`, `id` będzie pochodzić z danych tras. Dane trasy dla `id` są określone w identyfikatorze URI, takim jak `https://localhost:5001/Customers/2`.
 * Wysyła zapytanie do bazy danych o kontakt z klientem z `FindAsync`.
@@ -940,12 +940,12 @@ Aplikacja ma następującą strukturę plików/folderów:
 
 * */Pages*
 
-  * *Index.cshtml*
+  * *Index. cshtml*
   * */Customers*
 
-    * *Create.cshtml*
-    * *Edit.cshtml*
-    * *Index.cshtml*
+    * *Create. cshtml*
+    * *Edytuj. cshtml*
+    * *Index. cshtml*
 
 Strony */Customers/Create. cshtml* i *Pages/Customers/Edit. cshtml* przekierują do *stron/index. cshtml* po powodzeniu. Ciąg `/Index` jest częścią identyfikatora URI, aby uzyskać dostęp do poprzedniej strony. Ciąg `/Index` może służyć do generowania identyfikatorów URI na stronie *stron/index. cshtml* . Na przykład:
 
@@ -974,7 +974,7 @@ Aby przekierować do strony w innym [obszarze](xref:mvc/controllers/areas), okre
 RedirectToPage("/Index", new { area = "Services" });
 ```
 
-Aby uzyskać więcej informacji, zobacz temat <xref:mvc/controllers/areas>.
+Aby uzyskać więcej informacji, zobacz <xref:mvc/controllers/areas>.
 
 ## <a name="viewdata-attribute"></a>ViewData — atrybut
 
@@ -1026,7 +1026,7 @@ Następujące znaczniki w pliku *Pages/Customers/index. cshtml* wyświetlają wa
 
 Model strony *Pages/Customers/index. cshtml. cs* stosuje atrybut `[TempData]` do właściwości `Message`.
 
-```cs
+```csharp
 [TempData]
 public string Message { get; set; }
 ```

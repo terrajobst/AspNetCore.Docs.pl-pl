@@ -5,14 +5,14 @@ description: Dowiedz się więcej na temat Kestrel, międzyplatformowego serwera
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/06/2020
+ms.date: 02/10/2020
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 0c5d16b1901a8a8e5ae1914e5eaa86f71fa3a90b
-ms.sourcegitcommit: 80286715afb93c4d13c931b008016d6086c0312b
+ms.openlocfilehash: d026e1b6fc1a9ecc66014eacb8eb0b46dd9353ec
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77074539"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77171733"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci Web Kestrel w ASP.NET Core
 
@@ -346,7 +346,7 @@ Wartość domyślna to 96 KB (98 304).
 
 ### <a name="synchronous-io"></a>Synchroniczne we/wy
 
-<xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.AllowSynchronousIO> kontroluje, czy synchroniczna operacja we/wy jest dozwolona dla żądania i odpowiedzi. Wartość domyślna to `false`.
+<xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.AllowSynchronousIO> kontroluje, czy synchroniczna operacja we/wy jest dozwolona dla żądania i odpowiedzi. Wartością domyślną jest `false`.
 
 > [!WARNING]
 > Duża liczba blokowania synchronicznych operacji we/wy może prowadzić do zablokowania puli wątków, co sprawia, że aplikacja nie odpowiada. Włącz `AllowSynchronousIO` tylko w przypadku korzystania z biblioteki, która nie obsługuje asynchronicznych operacji we/wy.
@@ -662,6 +662,9 @@ Przykład konfiguruje HTTPS dla punktu końcowego z <xref:Microsoft.AspNetCore.S
 Nasłuchiwanie w gnieździe systemu UNIX za pomocą <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ListenUnixSocket*>, aby zwiększyć wydajność za pomocą Nginx, jak pokazano w tym przykładzie:
 
 [!code-csharp[](kestrel/samples/3.x/KestrelSample/Program.cs?name=snippet_UnixSocket)]
+
+* W pliku Nginx confiuguration Ustaw `proxy_pass` `server` > `location` > `http://unix:/tmp/{KESTREL SOCKET}:/;`. `{KESTREL SOCKET}` to nazwa gniazda dostarczanego do <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ListenUnixSocket*> (na przykład `kestrel-test.sock` w powyższym przykładzie).
+* Upewnij się, że gniazdo jest zapisywalne przez Nginx (na przykład `chmod go+w /tmp/kestrel-test.sock`).
 
 ### <a name="port-0"></a>Port 0
 
@@ -1661,6 +1664,9 @@ Nasłuchiwanie w gnieździe systemu UNIX za pomocą <xref:Microsoft.AspNetCore.S
 
 [!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_UnixSocket)]
 
+* W pliku Nginx confiuguration Ustaw `proxy_pass` `server` > `location` > `http://unix:/tmp/{KESTREL SOCKET}:/;`. `{KESTREL SOCKET}` to nazwa gniazda dostarczanego do <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ListenUnixSocket*> (na przykład `kestrel-test.sock` w powyższym przykładzie).
+* Upewnij się, że gniazdo jest zapisywalne przez Nginx (na przykład `chmod go+w /tmp/kestrel-test.sock`). 
+
 ### <a name="port-0"></a>Port 0
 
 Gdy `0` jest określony numer portu, Kestrel dynamicznie wiąże się z dostępnym portem. W poniższym przykładzie pokazano, jak określić, który port Kestrel faktycznie powiązany w czasie wykonywania:
@@ -2570,6 +2576,9 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             });
         });
 ```
+
+* W pliku Nginx confiuguration Ustaw `proxy_pass` `server` > `location` > `http://unix:/tmp/{KESTREL SOCKET}:/;`. `{KESTREL SOCKET}` to nazwa gniazda dostarczanego do <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ListenUnixSocket*> (na przykład `kestrel-test.sock` w powyższym przykładzie).
+* Upewnij się, że gniazdo jest zapisywalne przez Nginx (na przykład `chmod go+w /tmp/kestrel-test.sock`). 
 
 ### <a name="port-0"></a>Port 0
 

@@ -5,14 +5,14 @@ description: Dowiedz się, jak wdrożyć zadania w tle z usługami hostowanymi n
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/05/2020
+ms.date: 02/10/2020
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 6a88e56afc4fb1b4f673c362f83d948eda84b930
-ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
+ms.openlocfilehash: 9b7224c07df027c9466db34dcc23505410893f1f
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77044886"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77171797"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Zadania w tle z usługami hostowanymi w ASP.NET Core
 
@@ -40,7 +40,7 @@ Aby użyć szablonu jako podstawy dla aplikacji usług hostowanych:
 
 [!INCLUDE[](~/includes/worker-template-instructions.md)]
 
-## <a name="package"></a>Package
+## <a name="package"></a>Pakiet
 
 Aplikacja oparta na szablonie usługi procesu roboczego używa zestawu SDK `Microsoft.NET.Sdk.Worker` i ma jawne odwołanie do pakietu do pakietu [Microsoft. Extensions. hosting](https://www.nuget.org/packages/Microsoft.Extensions.Hosting) . Na przykład zapoznaj się z plikiem projektu przykładowej aplikacji (*BackgroundTasksSample. csproj*).
 
@@ -167,6 +167,10 @@ Usługi są zarejestrowane w `IHostBuilder.ConfigureServices` (*program.cs*). Us
 
 [!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Program.cs?name=snippet3)]
 
+`MontiorLoop` jest uruchamiany w `Program.Main`:
+
+[!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Program.cs?name=snippet4)]
+
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
@@ -179,7 +183,7 @@ W ASP.NET Core zadania w tle można zaimplementować jako *usługi hostowane*. U
 
 [Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
 
-## <a name="package"></a>Package
+## <a name="package"></a>Pakiet
 
 Odwołuje się do pakietu [Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app) lub Dodaj odwołanie do pakietu do pakietu [Microsoft. Extensions. hosting](https://www.nuget.org/packages/Microsoft.Extensions.Hosting) .
 

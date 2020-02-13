@@ -5,18 +5,20 @@ description: Więcej informacji na temat struktury katalogów opublikowane aplik
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/28/2020
+ms.date: 02/07/2020
 uid: host-and-deploy/directory-structure
-ms.openlocfilehash: ba5cb96dfdcdca10034299e3bbe662ce056af791
-ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
+ms.openlocfilehash: c3c05e6bc461ea4a3bfefa2c7a49d524562f7e5b
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76870269"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172258"
 ---
 # <a name="aspnet-core-directory-structure"></a>Struktura katalogów ASP.NET Core
 
-Przez [Luke Latham](https://github.com/guardrex)
+Autor [Luke Latham](https://github.com/guardrex)
+
+::: moniker range=">= aspnetcore-3.0"
 
 Katalog *publikowania* zawiera elementy możliwe do wdrożenia aplikacji wytwarzane przez polecenie [dotnet Publish](/dotnet/core/tools/dotnet-publish) . Katalog zawiera:
 
@@ -37,7 +39,35 @@ Katalog *publikowania* reprezentuje *ścieżkę katalogu głównego zawartości*
 
 Katalog *wwwroot* (jeśli istnieje) zawiera tylko zasoby statyczne.
 
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* [dotnet publish](/dotnet/core/tools/dotnet-publish)
+* [Wdrażanie aplikacji .NET Core](/dotnet/core/deploying/)
+* [Platformy docelowe](/dotnet/standard/frameworks)
+* [Katalog programu .NET Core RID](/dotnet/core/rid-catalog)
+
+::: moniker-end
+
 ::: moniker range="< aspnetcore-3.0"
+
+Katalog *publikowania* zawiera elementy możliwe do wdrożenia aplikacji wytwarzane przez polecenie [dotnet Publish](/dotnet/core/tools/dotnet-publish) . Katalog zawiera:
+
+* Pliki aplikacji
+* Pliki konfiguracji
+* Statyczne zasoby
+* Pakiety
+* Środowisko uruchomieniowe (tylko do[wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd) )
+
+| Typ aplikacji | Struktura katalogów |
+| -------- | ------------------- |
+| [Plik wykonywalny zależny od platformy (całego)](/dotnet/core/deploying/#framework-dependent-executables-fde) | <ul><li>Publikuj&dagger;<ul><li>Widoki&dagger; aplikacji MVC; Jeśli widoki nie są wstępnie skompilowane</li><li>Strony&dagger; aplikacji MVC lub Razor Pages, jeśli strony nie są wstępnie skompilowane</li><li>wwwroot&dagger;</li><li>*pliki. dll</li><li>{nazwa zestawu}. deps. json</li><li>{nazwa zestawu}. dll</li><li>{nazwa zestawu} {. Rozszerzenie} *. exe* w systemie Windows, brak rozszerzenia w systemie MacOS lub Linux</li><li>{nazwa zestawu}. pdb</li><li>{nazwa zestawu}. Widoki. dll</li><li>{nazwa zestawu}. Views. pdb</li><li>{nazwa zestawu}. runtimeconfig. JSON</li><li>plik Web. config (wdrożenia usług IIS)</li><li>zrzutu (narzędzie do zarządzania[zrzutem](https://github.com/dotnet/coreclr/blob/master/Documentation/botr/xplat-minidump-generation.md#configurationpolicy)* systemu Linux)</li><li>.</li><li>*. a (archiwum macOS)</li><li>* . DYLIB (macOS Dynamic Library)</li></ul></li></ul> |
+| [Wdrażanie samodzielne (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>Publikuj&dagger;<ul><li>Widoki&dagger; aplikacji MVC, jeśli widoki nie są wstępnie skompilowane</li><li>Strony&dagger; aplikacji MVC lub Razor Pages, jeśli strony nie są wstępnie skompilowane</li><li>wwwroot&dagger;</li><li>*. dll — pliki</li><li>{Nazwa zestawu}. deps. JSON</li><li>{Nazwa zestawu}. dll</li><li>{Nazwa zestawu}. exe</li><li>{Nazwa zestawu}. pdb</li><li>{NAZWA ZESTAWU}. Widoki. dll</li><li>{NAZWA ZESTAWU}. Widoki. pdb</li><li>{Nazwa zestawu}. runtimeconfig. JSON</li><li>Web. config (wdrożenia usług IIS)</li></ul></li></ul> |
+
+&dagger;wskazuje katalog
+
+Katalog *publikowania* reprezentuje *ścieżkę katalogu głównego zawartości*, nazywaną również *ścieżką bazową aplikacji*, wdrożenia. Dowolnych nazw do katalogu *publikacji* wdrożonej aplikacji na serwerze, jej lokalizacja służy jako ścieżka fizyczna serwera do hostowanej aplikacji.
+
+Katalog *wwwroot* (jeśli istnieje) zawiera tylko zasoby statyczne.
 
 Tworzenie folderu *dzienników* jest przydatne w przypadku [zaawansowanego rejestrowania debugowania modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs). Foldery w ścieżce przekazane do wartości `<handlerSetting>` nie są automatycznie tworzone przez moduł i powinny być wcześniej dostępne we wdrożeniu, aby umożliwić modułowi zapisanie dziennika debugowania.
 
@@ -62,11 +92,11 @@ Katalog *dzienników* można utworzyć dla wdrożenia przy użyciu jednego z nas
 
 Katalog wdrożenia wymaga uprawnień do odczytu/wykonania. Katalog *dzienników* wymaga uprawnień do odczytu/zapisu. Dodatkowe katalogi, w przypadku których zapisano pliki wymagają uprawnień do odczytu/zapisu.
 
-::: moniker-end
-
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [dotnet publish](/dotnet/core/tools/dotnet-publish)
-* [Wdrażanie aplikacji .NET core](/dotnet/core/deploying/)
+* [Wdrażanie aplikacji .NET Core](/dotnet/core/deploying/)
 * [Platformy docelowe](/dotnet/standard/frameworks)
 * [Katalog programu .NET Core RID](/dotnet/core/rid-catalog)
+
+::: moniker-end

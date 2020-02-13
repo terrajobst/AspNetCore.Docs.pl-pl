@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: 8ed95cdb96804e08c3f1273bbea8f64a8e4f173c
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 861935ff31652f923399a8aa5ae52baa6b77fa91
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160252"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172405"
 ---
 # <a name="host-and-deploy-aspnet-core-opno-locblazor-webassembly"></a>Hostowanie i wdrażanie ASP.NET Core Blazor webassembly
 
@@ -82,9 +82,9 @@ Opublikowane zasoby są tworzone w folderze */bin/Release/{Target Framework}/Pub
 Po opublikowaniu Blazor projektu zostanie utworzony plik *Web. config* z następującą konfiguracją usług IIS:
 
 * Typy MIME są ustawiane dla następujących rozszerzeń plików:
-  * *.dll* &ndash; `application/octet-stream`
-  * *.json* &ndash; `application/json`
-  * *.wasm* &ndash; `application/wasm`
+  * *dll* &ndash; `application/octet-stream`
+  * `application/json` &ndash; *JSON*
+  * *wasm* &ndash; `application/wasm`
   * *woff* &ndash; `application/font-woff`
   * *woff2* &ndash; `application/font-woff`
 * Kompresja HTTP jest włączona dla następujących typów MIME:
@@ -183,7 +183,7 @@ Aby hostować Blazor w programie Docker przy użyciu Nginx, skonfiguruj pliku do
 
 Dodaj jeden wiersz do pliku dockerfile, jak pokazano w następującym przykładzie:
 
-```Dockerfile
+```dockerfile
 FROM nginx:alpine
 COPY ./bin/Release/netstandard2.0/publish /usr/share/nginx/html/
 COPY nginx.conf /etc/nginx/nginx.conf
@@ -318,4 +318,4 @@ Argument `--contentroot` ustawia ścieżkę bezwzględną do katalogu, który za
 
 ## <a name="configure-the-linker"></a>Konfigurowanie konsolidatora
 
-Blazor wykonuje konsolidację języka pośredniego (IL) dla każdej kompilacji, aby usunąć niepotrzebny kod IL z zestawów wyjściowych. Łączenie zestawu może być kontrolowane podczas kompilacji. Aby uzyskać więcej informacji, zobacz temat <xref:host-and-deploy/blazor/configure-linker>.
+Blazor wykonuje konsolidację języka pośredniego (IL) dla każdej kompilacji, aby usunąć niepotrzebny kod IL z zestawów wyjściowych. Łączenie zestawu może być kontrolowane podczas kompilacji. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/blazor/configure-linker>.

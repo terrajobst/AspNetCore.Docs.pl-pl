@@ -5,12 +5,12 @@ description: Dodaj model do prostej aplikacji ASP.NET Core.
 ms.author: riande
 ms.date: 01/13/2020
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 2b656f316a25759456a1d00a9176ea160b2fe5bf
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.openlocfilehash: 3fe22511b4d887177d86013d080f307e16361d5b
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928569"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172169"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Dodawanie modelu do aplikacji ASP.NET Core MVC
 
@@ -134,7 +134,7 @@ Dodaj następujący wyróżniony kod w `Startup.ConfigureServices`:
 
 ---
 
-Nazwa ciągu połączenia jest przekazywany do kontekstu przez wywołanie metody na [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) obiektu. Na potrzeby lokalnego programowania dla [systemu konfiguracji platformy ASP.NET Core](xref:fundamentals/configuration/index) odczytuje parametry połączenia z *appsettings.json* pliku.
+Nazwa parametrów połączenia jest przenoszona do kontekstu przez wywołanie metody w obiekcie [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) . W przypadku lokalnego projektowania [system konfiguracji ASP.NET Core](xref:fundamentals/configuration/index) odczytuje parametry połączenia z pliku *appSettings. JSON* .
 
 <a name="cs"></a>
 
@@ -177,7 +177,7 @@ Ukończ okno dialogowe **Dodawanie kontrolera** :
 
 * **Widoki:** Zachowaj wartość domyślną dla każdej zaznaczonej opcji
 * **Nazwa kontrolera:** Zachowaj domyślną *MoviesController*
-* Wybierz pozycję **Dodaj**
+* Wybierz pozycję **Dodaj**.
 
 Program Visual Studio tworzy:
 
@@ -188,7 +188,7 @@ Automatyczne tworzenie tych plików jest znane jako *rusztowania*.
 
 ### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
 
-* Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
+* Otwórz okno polecenia w katalogu projektu (katalog zawierający pliki *program.cs*, *Startup.cs*i *. csproj* ).
 
 * W systemie Linux wyeksportuj ścieżkę narzędzia do tworzenia szkieletu:
 
@@ -206,7 +206,7 @@ Automatyczne tworzenie tych plików jest znane jako *rusztowania*.
 
 ### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
-* Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
+* Otwórz okno polecenia w katalogu projektu (katalog zawierający pliki *program.cs*, *Startup.cs*i *. csproj* ).
 
 * Uruchom następujące polecenie:
 
@@ -302,7 +302,7 @@ Metoda `Up` tworzy tabelę filmów i konfiguruje `Id` jako klucz podstawowy. Met
 * Przetestuj stronę **Tworzenie** . Wprowadź i prześlij dane.
 
   > [!NOTE]
-  > Nie można wprowadzić dziesiętna przecinkami w `Price` pola. Aby obsługiwać [dotyczącą weryfikacji jQuery](https://jqueryvalidation.org/) dla ustawień regionalnych innych niż angielski, które należy użyć przecinka (",") separator dziesiętny i formaty daty inne niż angielski, aplikacja musi globalizowana. Globalizacja instrukcje można znaleźć [problem w usłudze GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).
+  > W polu `Price` nie można wprowadzać przecinków dziesiętnych. Aby zapewnić obsługę [walidacji jQuery](https://jqueryvalidation.org/) dla ustawień regionalnych innych niż angielskie, które używają przecinka (",") dla przecinka dziesiętnego i dla formatów dat innych niż angielski, aplikacja musi być globalna. Aby uzyskać instrukcje dotyczące globalizacji, zobacz [ten problem](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420)w usłudze GitHub.
 
 * Przetestuj strony **Edytuj**, **szczegóły**i **Usuń** .
 
@@ -316,13 +316,13 @@ Otwórz plik *controllers/MoviesController. cs* i zapoznaj się z konstruktorem:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Controllers/MC1.cs?name=snippet_1)]
 
-Konstruktor używa [iniekcji zależności](xref:fundamentals/dependency-injection) do iniekcji kontekstu bazy danych (`MvcMovieContext`) do kontrolera. Kontekst bazy danych jest używany we wszystkich [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) metodami w kontrolerze.
+Konstruktor używa [iniekcji zależności](xref:fundamentals/dependency-injection) do iniekcji kontekstu bazy danych (`MvcMovieContext`) do kontrolera. Kontekst bazy danych jest używany w każdej z metod [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) w kontrolerze.
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Controllers/MC1.cs?name=snippet_1)]
 
-Konstruktor używa [iniekcji zależności](xref:fundamentals/dependency-injection) do iniekcji kontekstu bazy danych (`MvcMovieContext`) do kontrolera. Kontekst bazy danych jest używany we wszystkich [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) metodami w kontrolerze.
+Konstruktor używa [iniekcji zależności](xref:fundamentals/dependency-injection) do iniekcji kontekstu bazy danych (`MvcMovieContext`) do kontrolera. Kontekst bazy danych jest używany w każdej z metod [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) w kontrolerze.
 
 ### <a name="use-sqlite-for-development-sql-server-for-production"></a>Używanie oprogramowania SQLite do programowania, SQL Server do produkcji
 
@@ -416,13 +416,13 @@ Ponieważ obiekt `Model` jest silnie określony (jako obiekt `IEnumerable<Movie>
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Kliknij prawym przyciskiem myszy folder *modele* > **Dodaj** **klasy** > . Nazwa klasy **filmu**.
+Kliknij prawym przyciskiem myszy folder *modele* > **Dodaj** **klasy** > . Nazwij **film**klasy.
 
 [!INCLUDE [model 1b](~/includes/mvc-intro/model1b.md)]
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
-* Dodaj klasę umożliwiającą *modeli* folder o nazwie *Movie.cs*.
+* Dodaj klasę do folderu *models* o nazwie *Movie.cs*.
 
 [!INCLUDE [model 1b](~/includes/mvc-intro/model1b.md)]
 [!INCLUDE [model 2](~/includes/mvc-intro/model2.md)]
@@ -452,7 +452,7 @@ Ukończ okno dialogowe **Dodawanie kontrolera** :
 
 * **Widoki:** Zachowaj wartość domyślną dla każdej zaznaczonej opcji
 * **Nazwa kontrolera:** Zachowaj domyślną *MoviesController*
-* Wybierz pozycję **Dodaj**
+* Wybierz pozycję **Dodaj**.
 
 ![Okno dialogowe Dodawanie kontrolera](adding-model/_static/add_controller2.png)
 
@@ -469,7 +469,7 @@ Automatyczne tworzenie kontekstu bazy danych i metod akcji [CRUD](https://wikipe
 <!--  Until https://github.com/aspnet/Scaffolding/issues/582 is fixed windows needs backslash or the namespace is namespace RazorPagesMovie.Pages_Movies rather than namespace RazorPagesMovie.Pages.Movies
 -->
 
-* Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
+* Otwórz okno polecenia w katalogu projektu (katalog zawierający pliki *program.cs*, *Startup.cs*i *. csproj* ).
 * Zainstaluj narzędzia do tworzenia szkieletów:
 
   ```dotnetcli
@@ -494,7 +494,7 @@ Automatyczne tworzenie kontekstu bazy danych i metod akcji [CRUD](https://wikipe
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
-* Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
+* Otwórz okno polecenia w katalogu projektu (katalog zawierający pliki *program.cs*, *Startup.cs*i *. csproj* ).
 * Zainstaluj narzędzia do tworzenia szkieletów:
 
   ```dotnetcli
@@ -517,7 +517,7 @@ Jeśli uruchomisz aplikację i klikniesz link do **filmu MVC** , zostanie wyświ
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-``` error
+```
 An unhandled exception occurred while processing the request.
 
 SqlException: Cannot open database "MvcMovieContext-<GUID removed>" requested by the login. The login failed.
@@ -528,7 +528,7 @@ System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity id
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
-``` error
+```
 An unhandled exception occurred while processing the request.
 SqliteException: SQLite Error 1: 'no such table: Movie'.
 Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(int rc, sqlite3 db)
@@ -556,22 +556,22 @@ W tej sekcji zostały wykonane następujące zadania:
 
 1. W konsoli zarządzania Pakietami wprowadź następujące polecenia:
 
-   ```PMC
+   ```powershell
    Add-Migration Initial
    Update-Database
    ```
 
-   `Add-Migration` Polecenie generuje kod, aby utworzyć schemat początkowej bazy danych.
+   Polecenie `Add-Migration` generuje kod, aby utworzyć początkowy schemat bazy danych.
 
-   Schemat bazy danych jest oparty na modelu określonym w klasie `MvcMovieContext`. `Initial` argumentem jest nazwa migracji. Można użyć dowolnej nazwy, ale według Konwencji, nazwy opisującej migrację. Aby uzyskać więcej informacji, zobacz temat <xref:data/ef-mvc/migrations>.
+   Schemat bazy danych jest oparty na modelu określonym w klasie `MvcMovieContext`. `Initial` argumentem jest nazwa migracji. Można użyć dowolnej nazwy, ale według Konwencji, nazwy opisującej migrację. Aby uzyskać więcej informacji, zobacz <xref:data/ef-mvc/migrations>.
 
-   `Update-Database` Polecenia `Up` method in Class metoda *migracje / {sygnatura czasowa} _InitialCreate.cs* pliku, który tworzy bazę danych.
+   `Update-Database` polecenie uruchamia metodę `Up` w pliku *migracji/{sygnatura czasowa} _InitialCreate. cs* , który tworzy bazę danych.
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
 
-`ef migrations add InitialCreate` Polecenie generuje kod, aby utworzyć schemat początkowej bazy danych.
+Polecenie `ef migrations add InitialCreate` generuje kod, aby utworzyć początkowy schemat bazy danych.
 
 Schemat bazy danych jest oparty na modelu określonym w klasie `MvcMovieContext` (w pliku *Data/MvcMovieContext. cs* ). `InitialCreate` argumentem jest nazwa migracji. Można użyć dowolnej nazwy, ale według Konwencji została wybrana nazwa opisująca migrację.
 
@@ -589,13 +589,13 @@ Przeanalizuj poniższą metodę `Startup.ConfigureServices`. Wyróżniony wiersz
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=14-15)]
 
-`MvcMovieContext` Współrzędne funkcji EF Core (tworzenia, odczytu, aktualizacji, usuwania, itp.) `Movie` modelu. Kontekst danych (`MvcMovieContext`) jest tworzony na podstawie [Microsoft.EntityFrameworkCore.DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext). Kontekst danych określa, które jednostki są uwzględnione w modelu danych:
+`MvcMovieContext` koordynuje EF Core funkcji (tworzenie, odczytywanie, aktualizowanie, usuwanie itp.) dla modelu `Movie`. Kontekst danych (`MvcMovieContext`) pochodzi od elementu [Microsoft. EntityFrameworkCore. DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext). Kontekst danych określa, które jednostki są uwzględnione w modelu danych:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Data/MvcMovieContext.cs)]
 
 Poprzedni kod tworzy właściwość [nieogólnymi\<filmu >](/dotnet/api/microsoft.entityframeworkcore.dbset-1) dla zestawu jednostek. W terminologii programu Entity Framework zwykle zestaw jednostek odnosi się do tabeli bazy danych. Jednostki odnosi się do wiersza w tabeli.
 
-Nazwa ciągu połączenia jest przekazywany do kontekstu przez wywołanie metody na [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) obiektu. Na potrzeby lokalnego programowania dla [systemu konfiguracji platformy ASP.NET Core](xref:fundamentals/configuration/index) odczytuje parametry połączenia z *appsettings.json* pliku.
+Nazwa parametrów połączenia jest przenoszona do kontekstu przez wywołanie metody w obiekcie [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) . W przypadku lokalnego projektowania [system konfiguracji ASP.NET Core](xref:fundamentals/configuration/index) odczytuje parametry połączenia z pliku *appSettings. JSON* .
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
@@ -607,7 +607,7 @@ Utworzono kontekst bazy danych i zarejestrowano go przy użyciu DI Container.
 
 ### <a name="test-the-app"></a>Testowanie aplikacji
 
-* Uruchom aplikację i dołączyć `/Movies` do adresu URL w przeglądarce (`http://localhost:port/movies`).
+* Uruchom aplikację i Dołącz `/Movies` do adresu URL w przeglądarce (`http://localhost:port/movies`).
 
 Jeśli zostanie wyświetlony wyjątek bazy danych podobny do poniższego:
 
@@ -616,14 +616,14 @@ SqlException: Cannot open database "MvcMovieContext-GUID" requested by the login
 Login failed for user 'User-name'.
 ```
 
-Możesz pominąć [krok migracji](#pmc).
+Pominięto [krok migracji](#pmc).
 
-* Test **Utwórz** łącza. Wprowadź i prześlij dane.
+* Przetestuj link **tworzenia** . Wprowadź i prześlij dane.
 
   > [!NOTE]
-  > Nie można wprowadzić dziesiętna przecinkami w `Price` pola. Aby obsługiwać [dotyczącą weryfikacji jQuery](https://jqueryvalidation.org/) dla ustawień regionalnych innych niż angielski, które należy użyć przecinka (",") separator dziesiętny i formaty daty inne niż angielski, aplikacja musi globalizowana. Globalizacja instrukcje można znaleźć [problem w usłudze GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).
+  > W polu `Price` nie można wprowadzać przecinków dziesiętnych. Aby zapewnić obsługę [walidacji jQuery](https://jqueryvalidation.org/) dla ustawień regionalnych innych niż angielskie, które używają przecinka (",") dla przecinka dziesiętnego i dla formatów dat innych niż angielski, aplikacja musi być globalna. Aby uzyskać instrukcje dotyczące globalizacji, zobacz [ten problem](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420)w usłudze GitHub.
 
-* Test **Edytuj**, **szczegóły**, i **Usuń** łącza.
+* Przetestuj linki **Edytuj**, **Szczegóły** i **Usuń**.
 
 Zapoznaj się z klasą `Startup`:
 
@@ -640,7 +640,7 @@ Otwórz plik *controllers/MoviesController. cs* i zapoznaj się z konstruktorem:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Controllers/MC1.cs?name=snippet_1)]
 
-Konstruktor używa [iniekcji zależności](xref:fundamentals/dependency-injection) do iniekcji kontekstu bazy danych (`MvcMovieContext`) do kontrolera. Kontekst bazy danych jest używany we wszystkich [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) metodami w kontrolerze.
+Konstruktor używa [iniekcji zależności](xref:fundamentals/dependency-injection) do iniekcji kontekstu bazy danych (`MvcMovieContext`) do kontrolera. Kontekst bazy danych jest używany w każdej z metod [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) w kontrolerze.
 
 <a name="strongly-typed-models-keyword-label"></a>
 <a name="strongly-typed-models-and-the--keyword"></a>
@@ -686,9 +686,9 @@ Zapoznaj się z zawartością pliku *widoki/filmy/szczegóły. cshtml* :
 
 Dołączając instrukcję `@model` w górnej części pliku widoku, można określić typ obiektu, którego oczekuje widok. Po utworzeniu kontrolera filmu Poniższa instrukcja `@model` została automatycznie uwzględniona w górnej części pliku *details. cshtml* :
 
-```HTML
+```cshtml
 @model MvcMovie.Models.Movie
-   ```
+```
 
 Ta `@model` dyrektywa pozwala uzyskać dostęp do filmu, który kontroler przeszedł do widoku przy użyciu obiektu `Model`, który jest silnie określony. Na przykład w widoku *details. cshtml* kod przekazuje każde pole filmu do `DisplayNameFor` i `DisplayFor` pomocników HTML z silnie wpisaną `Model` obiektem. Metody `Create` i `Edit` i widoki również przekazują obiekt modelu `Movie`.
 

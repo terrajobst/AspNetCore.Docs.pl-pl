@@ -5,14 +5,14 @@ description: Dowiedz się więcej o używaniu interfejsu IHttpClientFactory do z
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/16/2019
+ms.date: 02/09/2020
 uid: fundamentals/http-requests
-ms.openlocfilehash: 9b9da82191a587be0603ee114562e9a964f05250
-ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
+ms.openlocfilehash: 93b75525e8a3f10c4e0b655baaff83c0f6e8131b
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76870401"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77171805"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Wykonywanie żądań HTTP przy użyciu IHttpClientFactory w ASP.NET Core
 
@@ -109,7 +109,12 @@ Następujący kod wywołuje <xref:Microsoft.Extensions.DependencyInjection.HttpC
 
 [!code-csharp[](http-requests/samples/3.x/HttpClientFactorySample/Startup.cs?name=snippet3)]
 
-Typ klienta jest rejestrowany jako przejściowy z DI. Określony klient może zostać dodany i wykorzystany bezpośrednio:
+Typ klienta jest rejestrowany jako przejściowy z DI. W poprzednim kodzie `AddHttpClient` rejestruje `GitHubService` jako usługę przejściową. Ta rejestracja używa metody fabryki do:
+
+1. Utwórz wystąpienie elementu `HttpClient`.
+1. Utwórz wystąpienie `GitHubService`, przekazując wystąpienie `HttpClient` do jego konstruktora.
+
+Określony klient może zostać dodany i wykorzystany bezpośrednio:
 
 [!code-csharp[](http-requests/samples/3.x/HttpClientFactorySample/Pages/TypedClient.cshtml.cs?name=snippet1&highlight=11-14,20)]
 
@@ -364,7 +369,7 @@ Propagacja nagłówka to ASP.NET Core oprogramowanie pośredniczące do propagow
 
 * Klient zawiera skonfigurowane nagłówki w żądaniach wychodzących:
 
-  ```C#
+  ```csharp
   var client = clientFactory.CreateClient("MyForwardingClient");
   var response = client.GetAsync(...);
   ```
@@ -991,7 +996,7 @@ Propagacja nagłówka to społeczność obsługiwana przez oprogramowanie pośre
 
 * Klient zawiera skonfigurowane nagłówki w żądaniach wychodzących:
 
-  ```C#
+  ```csharp
   var client = clientFactory.CreateClient("MyForwardingClient");
   var response = client.GetAsync(...);
   ```

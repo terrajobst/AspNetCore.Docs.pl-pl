@@ -6,16 +6,16 @@ description: Odkryj atrybuty pomocnika tagów ASP.NET Core i rolę, jaką każdy
 ms.custom: mvc
 ms.date: 12/02/2019
 uid: mvc/views/tag-helpers/builtin-th/script-tag-helper
-ms.openlocfilehash: 8a90eb5a74ff3f8178a47c59ad7ba1b6a389ab87
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: a037abb6a454e6d06305e7d7f6ecad0c2a0ca717
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717380"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77171842"
 ---
 # <a name="script-tag-helper-in-aspnet-core"></a>Pomocnik tagu skryptu w ASP.NET Core
 
-Autor [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [Pomocnik tagu skryptu](xref:Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper) generuje link do pliku skryptu podstawowego lub odwracania. Zazwyczaj podstawowy plik skryptu znajduje się w [Content Delivery Network](/office365/enterprise/content-delivery-networks#what-exactly-is-a-cdn) (CDN).
 
@@ -25,7 +25,7 @@ Pomocnik tagu skryptu pozwala określić sieć CDN dla pliku skryptu i rezerwę,
 
 Poniższy znacznik Razor pokazuje `script` element z rezerwą:
 
-```HTML
+```html
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
         asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
         asp-fallback-test="window.jQuery"
@@ -42,11 +42,11 @@ Zobacz [pomocnik tagów skryptów](xref:Microsoft.AspNetCore.Mvc.TagHelpers.Scri
 
 ### <a name="asp-fallback-test"></a>ASP — test Fallback
 
-Metoda skryptu zdefiniowana w podstawowym skrypcie do użycia dla testu powrotu. Aby uzyskać więcej informacji, zobacz temat <xref:Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper.FallbackTestExpression>.
+Metoda skryptu zdefiniowana w podstawowym skrypcie do użycia dla testu powrotu. Aby uzyskać więcej informacji, zobacz <xref:Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper.FallbackTestExpression>.
 
 ### <a name="asp-fallback-src"></a>ASP — Fallback-src
 
-Adres URL tagu skryptu, do którego ma zostać nastąpi powrót w przypadku niepowodzenia pierwszego planu. Aby uzyskać więcej informacji, zobacz temat <xref:Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper.FallbackSrc>.
+Adres URL tagu skryptu, do którego ma zostać nastąpi powrót w przypadku niepowodzenia pierwszego planu. Aby uzyskać więcej informacji, zobacz <xref:Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper.FallbackSrc>.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

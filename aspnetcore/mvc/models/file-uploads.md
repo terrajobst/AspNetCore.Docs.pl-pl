@@ -5,14 +5,14 @@ description: Jak używać powiązania modelu i przesyłania strumieniowego do pr
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/04/2019
+ms.date: 02/11/2020
 uid: mvc/models/file-uploads
-ms.openlocfilehash: b5433576ff3e997e6d80201236be2d8463a52d07
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 56fd26c1864089558f5cd89f693dc86ea30c3331
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829234"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172472"
 ---
 # <a name="upload-files-in-aspnet-core"></a>Przekaż pliki w ASP.NET Core
 
@@ -24,7 +24,7 @@ ASP.NET Core obsługuje przekazywanie co najmniej jednego pliku przy użyciu pow
 
 [Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
 
-## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
+## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
 
 Należy zachować ostrożność, zapewniając użytkownikom możliwość przekazywania plików na serwer. Osoby atakujące mogą próbować:
 
@@ -55,8 +55,8 @@ Kroki zabezpieczeń, które zmniejszają prawdopodobieństwo pomyślnego ataku:
 >
 > Instrukcje dotyczące zmniejszenie obszaru powierzchni ataku, akceptując pliki użytkowników zobacz następujące zasoby:
 >
-> * [Przekazywanie pliku bez ograniczeń](https://www.owasp.org/index.php/Unrestricted_File_Upload)
-> * [Zabezpieczenia platformy Azure: Upewnij się, że odpowiednie formanty są stosowane podczas akceptowania plików od użytkowników](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
+> * [Przekazywanie plików bez ograniczeń](https://www.owasp.org/index.php/Unrestricted_File_Upload)
+> * [Zabezpieczenia platformy Azure: Upewnij się, że podczas akceptowania plików od użytkowników są stosowane odpowiednie kontrolki](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
 
 Aby uzyskać więcej informacji na temat implementowania środków zabezpieczeń, w tym przykładów z przykładowej aplikacji, zobacz sekcję [Walidacja](#validation) .
 
@@ -64,7 +64,7 @@ Aby uzyskać więcej informacji na temat implementowania środków zabezpieczeń
 
 Typowe opcje magazynu dla plików to:
 
-* Baza danych programu
+* Baza danych
 
   * W przypadku małych operacji przekazywania plików baza danych jest często szybsza niż opcje magazynu fizycznego (systemu plików lub udziału sieciowego).
   * Baza danych jest często bardziej wygodna niż opcje magazynu fizycznego, ponieważ Pobieranie rekordu bazy danych dla danych użytkownika może jednocześnie dostarczyć zawartość pliku (na przykład obraz awatara).
@@ -83,7 +83,7 @@ Typowe opcje magazynu dla plików to:
   * Usługa zazwyczaj oferuje ulepszoną skalowalność i odporność w rozwiązaniach lokalnych, które zwykle podlegają pojedynczym punktom awarii.
   * Usługi są potencjalnie tańsze w dużych scenariuszach infrastruktury magazynu.
 
-  Aby uzyskać więcej informacji, zobacz [Szybki Start: korzystanie z platformy .NET do tworzenia obiektów BLOB w magazynie obiektów](/azure/storage/blobs/storage-quickstart-blobs-dotnet). Temat ilustruje <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromFileAsync*>, ale <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromStreamAsync*> może służyć do zapisywania <xref:System.IO.FileStream> do magazynu obiektów BLOB podczas pracy z <xref:System.IO.Stream>.
+  Aby uzyskać więcej informacji, zobacz [Szybki Start: korzystanie z platformy .NET do tworzenia obiektów BLOB w magazynie obiektów](/azure/storage/blobs/storage-quickstart-blobs-dotnet).
 
 ## <a name="file-upload-scenarios"></a>Scenariusze przekazywania plików
 
@@ -228,7 +228,7 @@ Do poszczególnych plików przekazanych do serwera można uzyskać dostęp za po
 >
 > Przykłady udostępnione w ten sposób nie uwzględniają zagadnień związanych z bezpieczeństwem. Dodatkowe informacje są dostarczane przez następujące sekcje i [Przykładowa aplikacja](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >
-> * [Zagadnienia dotyczące bezpieczeństwa](#security-considerations)
+> * [Zagadnienia związane z zabezpieczeniami](#security-considerations)
 > * [Walidacja](#validation)
 
 Podczas przekazywania plików przy użyciu powiązania modelu i <xref:Microsoft.AspNetCore.Http.IFormFile>, Metoda akcji może przyjmować:
@@ -399,7 +399,7 @@ Poprzedni przykład przypomina scenariusz przedstawiony w przykładowej aplikacj
 >
 > Podane przykłady nie uwzględniają zagadnień związanych z zabezpieczeniami. Dodatkowe informacje są dostarczane przez następujące sekcje i [Przykładowa aplikacja](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >
-> * [Zagadnienia dotyczące bezpieczeństwa](#security-considerations)
+> * [Zagadnienia związane z zabezpieczeniami](#security-considerations)
 > * [Walidacja](#validation)
 
 ### <a name="upload-large-files-with-streaming"></a>Przekazywanie dużych plików strumieniowo
@@ -753,7 +753,7 @@ ASP.NET Core obsługuje przekazywanie co najmniej jednego pliku przy użyciu pow
 
 [Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
 
-## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
+## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
 
 Należy zachować ostrożność, zapewniając użytkownikom możliwość przekazywania plików na serwer. Osoby atakujące mogą próbować:
 
@@ -784,8 +784,8 @@ Kroki zabezpieczeń, które zmniejszają prawdopodobieństwo pomyślnego ataku:
 >
 > Instrukcje dotyczące zmniejszenie obszaru powierzchni ataku, akceptując pliki użytkowników zobacz następujące zasoby:
 >
-> * [Przekazywanie pliku bez ograniczeń](https://www.owasp.org/index.php/Unrestricted_File_Upload)
-> * [Zabezpieczenia platformy Azure: Upewnij się, że odpowiednie formanty są stosowane podczas akceptowania plików od użytkowników](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
+> * [Przekazywanie plików bez ograniczeń](https://www.owasp.org/index.php/Unrestricted_File_Upload)
+> * [Zabezpieczenia platformy Azure: Upewnij się, że podczas akceptowania plików od użytkowników są stosowane odpowiednie kontrolki](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
 
 Aby uzyskać więcej informacji na temat implementowania środków zabezpieczeń, w tym przykładów z przykładowej aplikacji, zobacz sekcję [Walidacja](#validation) .
 
@@ -793,7 +793,7 @@ Aby uzyskać więcej informacji na temat implementowania środków zabezpieczeń
 
 Typowe opcje magazynu dla plików to:
 
-* Baza danych programu
+* Baza danych
 
   * W przypadku małych operacji przekazywania plików baza danych jest często szybsza niż opcje magazynu fizycznego (systemu plików lub udziału sieciowego).
   * Baza danych jest często bardziej wygodna niż opcje magazynu fizycznego, ponieważ Pobieranie rekordu bazy danych dla danych użytkownika może jednocześnie dostarczyć zawartość pliku (na przykład obraz awatara).
@@ -957,7 +957,7 @@ Do poszczególnych plików przekazanych do serwera można uzyskać dostęp za po
 >
 > Przykłady udostępnione w ten sposób nie uwzględniają zagadnień związanych z bezpieczeństwem. Dodatkowe informacje są dostarczane przez następujące sekcje i [Przykładowa aplikacja](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >
-> * [Zagadnienia dotyczące bezpieczeństwa](#security-considerations)
+> * [Zagadnienia związane z zabezpieczeniami](#security-considerations)
 > * [Walidacja](#validation)
 
 Podczas przekazywania plików przy użyciu powiązania modelu i <xref:Microsoft.AspNetCore.Http.IFormFile>, Metoda akcji może przyjmować:
@@ -1128,7 +1128,7 @@ Poprzedni przykład przypomina scenariusz przedstawiony w przykładowej aplikacj
 >
 > Podane przykłady nie uwzględniają zagadnień związanych z zabezpieczeniami. Dodatkowe informacje są dostarczane przez następujące sekcje i [Przykładowa aplikacja](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >
-> * [Zagadnienia dotyczące bezpieczeństwa](#security-considerations)
+> * [Zagadnienia związane z zabezpieczeniami](#security-considerations)
 > * [Walidacja](#validation)
 
 ### <a name="upload-large-files-with-streaming"></a>Przekazywanie dużych plików strumieniowo
@@ -1472,6 +1472,6 @@ Przykłady w tym temacie polegają na <xref:System.IO.MemoryStream> do przechowy
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Przekazywanie pliku bez ograniczeń](https://www.owasp.org/index.php/Unrestricted_File_Upload)
+* [Przekazywanie plików bez ograniczeń](https://www.owasp.org/index.php/Unrestricted_File_Upload)
 * [Zabezpieczenia platformy Azure: ramka zabezpieczeń: sprawdzanie poprawności danych wejściowych | Środki zaradcze](/azure/security/azure-security-threat-modeling-tool-input-validation)
 * [Wzorce projektowe chmury platformy Azure: wzorzec klucza portiera](/azure/architecture/patterns/valet-key)

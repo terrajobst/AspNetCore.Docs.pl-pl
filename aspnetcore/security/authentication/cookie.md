@@ -4,14 +4,14 @@ author: rick-anderson
 description: Dowiedz się, jak używać uwierzytelniania przy użyciu plików cookie bez tożsamości ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 08/20/2019
+ms.date: 02/11/2020
 uid: security/authentication/cookie
-ms.openlocfilehash: 288fa4317801544bf0d689280c56836431017c89
-ms.sourcegitcommit: 9e85c2562df5e108d7933635c830297f484bb775
+ms.openlocfilehash: 62a3d247dade6c83156a8378407d5e3891713fd1
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73462935"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172115"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>Korzystanie z uwierzytelniania plików cookie bez tożsamości ASP.NET Core
 
@@ -21,7 +21,7 @@ Autorzy [Rick Anderson](https://twitter.com/RickAndMSFT) i [Luke Latham](https:/
 
 ASP.NET Core Identity to kompletny, w pełni funkcjonalny Dostawca uwierzytelniania do tworzenia i obsługiwania logowań. Jednak można użyć dostawcy uwierzytelniania opartego na plikach cookie bez tożsamości ASP.NET Core. Aby uzyskać więcej informacji, zobacz <xref:security/authentication/identity>.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/cookie/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/cookie/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 W celach demonstracyjnych w przykładowej aplikacji konto użytkownika dla hipotetycznego użytkownika, Maria Rodriguez jest stałe do aplikacji. Użyj adresu **e-mail** `maria.rodriguez@contoso.com` i hasła do logowania użytkownika. Użytkownik jest uwierzytelniany w metodzie `AuthenticateUser` w pliku *Pages/Account/Login. cshtml. cs* . W świecie rzeczywistym użytkownik zostanie uwierzytelniony w odniesieniu do bazy danych.
 
@@ -76,11 +76,11 @@ var cookiePolicyOptions = new CookiePolicyOptions
 
 Ustawienie ustawienia pośredniczące zasad plików cookie dla `MinimumSameSitePolicy` może wpływać na ustawienie `Cookie.SameSite` w ustawieniach `CookieAuthenticationOptions` zgodnie z poniższą macierzą.
 
-| MinimumSameSitePolicy | Plik cookie. SameSite | Wynikowy plik cookie. SameSite ustawienie |
+| MinimumSameSitePolicy | Cookie.SameSite | Wynikowy plik cookie. SameSite ustawienie |
 | --------------------- | --------------- | --------------------------------- |
-| SameSiteMode. None     | SameSiteMode. None<br>SameSiteMode. swobodny<br>SameSiteMode. Strict | SameSiteMode. None<br>SameSiteMode. swobodny<br>SameSiteMode. Strict |
-| SameSiteMode. swobodny      | SameSiteMode. None<br>SameSiteMode. swobodny<br>SameSiteMode. Strict | SameSiteMode. swobodny<br>SameSiteMode. swobodny<br>SameSiteMode. Strict |
-| SameSiteMode. Strict   | SameSiteMode. None<br>SameSiteMode. swobodny<br>SameSiteMode. Strict | SameSiteMode. Strict<br>SameSiteMode. Strict<br>SameSiteMode. Strict |
+| SameSiteMode.None     | SameSiteMode.None<br>SameSiteMode.Lax<br>SameSiteMode.Strict | SameSiteMode.None<br>SameSiteMode.Lax<br>SameSiteMode.Strict |
+| SameSiteMode.Lax      | SameSiteMode.None<br>SameSiteMode.Lax<br>SameSiteMode.Strict | SameSiteMode.Lax<br>SameSiteMode.Lax<br>SameSiteMode.Strict |
+| SameSiteMode.Strict   | SameSiteMode.None<br>SameSiteMode.Lax<br>SameSiteMode.Strict | SameSiteMode.Strict<br>SameSiteMode.Strict<br>SameSiteMode.Strict |
 
 ## <a name="create-an-authentication-cookie"></a>Utwórz plik cookie uwierzytelniania
 
@@ -215,7 +215,7 @@ await HttpContext.SignInAsync(
 
 ## <a name="absolute-cookie-expiration"></a>Bezwzględne wygaśnięcie pliku cookie
 
-Bezwzględny czas wygaśnięcia można ustawić za pomocą <xref:Microsoft.AspNetCore.Authentication.AuthenticationProperties.ExpiresUtc>. Aby utworzyć trwały plik cookie, należy również ustawić `IsPersistent`. W przeciwnym razie plik cookie jest tworzony przy użyciu okresu istnienia sesji i może wygasnąć przed lub po posiadanym przez niego biletem uwierzytelniania. Gdy `ExpiresUtc` jest ustawiona, zastępuje wartość opcji <xref:Microsoft.AspNetCore.Builder.CookieAuthenticationOptions.ExpireTimeSpan> <xref:Microsoft.AspNetCore.Builder.CookieAuthenticationOptions>, jeśli jest ustawiona.
+Bezwzględny czas wygaśnięcia można ustawić za pomocą <xref:Microsoft.AspNetCore.Authentication.AuthenticationProperties.ExpiresUtc>. Aby utworzyć trwały plik cookie, należy również ustawić `IsPersistent`. W przeciwnym razie plik cookie jest tworzony przy użyciu okresu istnienia sesji i może wygasnąć przed lub po posiadanym przez niego biletem uwierzytelniania. Gdy `ExpiresUtc` jest ustawiona, zastępuje wartość opcji <xref:Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationOptions.ExpireTimeSpan> <xref:Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationOptions>, jeśli jest ustawiona.
 
 Poniższy fragment kodu tworzy tożsamość i odpowiedni plik cookie, który trwa przez 20 minut. Ignoruje to wszystkie ustawienia wygasania, które zostały wcześniej skonfigurowane.
 
@@ -238,7 +238,7 @@ await HttpContext.SignInAsync(
 
 ASP.NET Core Identity to kompletny, w pełni funkcjonalny Dostawca uwierzytelniania do tworzenia i obsługiwania logowań. Jednak można użyć dostawcy uwierzytelniania uwierzytelniania opartego na plikach cookie bez tożsamości ASP.NET Core. Aby uzyskać więcej informacji, zobacz <xref:security/authentication/identity>.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/cookie/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/cookie/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 W celach demonstracyjnych w przykładowej aplikacji konto użytkownika dla hipotetycznego użytkownika, Maria Rodriguez jest stałe do aplikacji. Użyj adresu **e-mail** `maria.rodriguez@contoso.com` i hasła do logowania użytkownika. Użytkownik jest uwierzytelniany w metodzie `AuthenticateUser` w pliku *Pages/Account/Login. cshtml. cs* . W świecie rzeczywistym użytkownik zostanie uwierzytelniony w odniesieniu do bazy danych.
 
@@ -293,11 +293,11 @@ var cookiePolicyOptions = new CookiePolicyOptions
 
 Ustawienie ustawienia pośredniczące zasad plików cookie dla `MinimumSameSitePolicy` może wpływać na ustawienie `Cookie.SameSite` w ustawieniach `CookieAuthenticationOptions` zgodnie z poniższą macierzą.
 
-| MinimumSameSitePolicy | Plik cookie. SameSite | Wynikowy plik cookie. SameSite ustawienie |
+| MinimumSameSitePolicy | Cookie.SameSite | Wynikowy plik cookie. SameSite ustawienie |
 | --------------------- | --------------- | --------------------------------- |
-| SameSiteMode. None     | SameSiteMode. None<br>SameSiteMode. swobodny<br>SameSiteMode. Strict | SameSiteMode. None<br>SameSiteMode. swobodny<br>SameSiteMode. Strict |
-| SameSiteMode. swobodny      | SameSiteMode. None<br>SameSiteMode. swobodny<br>SameSiteMode. Strict | SameSiteMode. swobodny<br>SameSiteMode. swobodny<br>SameSiteMode. Strict |
-| SameSiteMode. Strict   | SameSiteMode. None<br>SameSiteMode. swobodny<br>SameSiteMode. Strict | SameSiteMode. Strict<br>SameSiteMode. Strict<br>SameSiteMode. Strict |
+| SameSiteMode.None     | SameSiteMode.None<br>SameSiteMode.Lax<br>SameSiteMode.Strict | SameSiteMode.None<br>SameSiteMode.Lax<br>SameSiteMode.Strict |
+| SameSiteMode.Lax      | SameSiteMode.None<br>SameSiteMode.Lax<br>SameSiteMode.Strict | SameSiteMode.Lax<br>SameSiteMode.Lax<br>SameSiteMode.Strict |
+| SameSiteMode.Strict   | SameSiteMode.None<br>SameSiteMode.Lax<br>SameSiteMode.Strict | SameSiteMode.Strict<br>SameSiteMode.Strict<br>SameSiteMode.Strict |
 
 ## <a name="create-an-authentication-cookie"></a>Utwórz plik cookie uwierzytelniania
 
