@@ -5,12 +5,12 @@ description: W tym samouczku rozpocznie się korzystanie z funkcji migracji EF C
 ms.author: riande
 ms.date: 07/22/2019
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 4246d9d8f6e6ba9e9d735b944ed748720bcf3e16
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.openlocfilehash: f8e78cf7230528a4047eac1d52a12e2ed8392dec
+ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928372"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213446"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Razor Pages z EF Core w ASP.NET Core-migrations-4 z 8
 
@@ -180,7 +180,7 @@ Użyj **Eksplorator obiektów SQL Server** (SSOX) lub `database drop` polecenia:
 
 W **konsoli Menedżera pakietów** (PMC) Uruchom następujące polecenie:
 
-```PMC
+```powershell
 Drop-Database
 ```
 
@@ -204,7 +204,7 @@ Kompilowanie projektu i Tworzenie pierwszej migracji.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-```PMC
+```powershell
 Add-Migration InitialCreate
 Update-Database
 ```
@@ -317,8 +317,8 @@ Rozwiązanie: Uruchom `dotnet ef database update`
 
 
 > [!div class="step-by-step"]
-> [Poprzedni](xref:data/ef-rp/sort-filter-page)
-> [Następny](xref:data/ef-rp/complex-data-model)
+> [Poprzednie](xref:data/ef-rp/sort-filter-page)
+> [dalej](xref:data/ef-rp/complex-data-model)
 
 ::: moniker-end
 

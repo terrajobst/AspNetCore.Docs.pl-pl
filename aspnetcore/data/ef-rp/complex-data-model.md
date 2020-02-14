@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 1244b2e23a842538ff2fca01a513317a690afe7c
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: 411c0874d2b2c6ecadd1da9aff7a093f1e8e525a
+ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034031"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213431"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor Pages EF Core w ASP.NET Core — model danych-5 z 8
 
-Przez [Tom Dykstra](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autorzy [Dykstra](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE [about the series](~/includes/RP-EF/intro.md)]
 
@@ -632,7 +632,7 @@ Uruchom aplikację. Uruchomienie aplikacji uruchamia metodę `DbInitializer.Init
 Otwórz bazę danych w programie SSOX:
 
 * Jeśli SSOX został wcześniej otwarty, kliknij przycisk **Odśwież** .
-* Rozwiń **tabel** węzła. Zostaną wyświetlone utworzone tabele.
+* Rozwiń węzeł **tabele** . Zostaną wyświetlone utworzone tabele.
 
   ![Tabele w SSOX](complex-data-model/_static/ssox-tables.png)
 
@@ -821,7 +821,7 @@ Po powyższej zmianie `Student.FirstMidName` w aplikacji jest mapowany do kolumn
 
 Dodanie atrybutu `Column` powoduje zmianę modelu z kopią zapasową `SchoolContext`. Model wykonujący kopię zapasową `SchoolContext` nie jest już zgodny z bazą danych. Jeśli aplikacja jest uruchamiana przed zastosowaniem migracji, generowany jest następujący wyjątek:
 
-```SQL
+```
 SqlException: Invalid column name 'FirstName'.
 ```
 
@@ -832,7 +832,7 @@ Aby zaktualizować bazę danych:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-```PMC
+```powershell
 Add-Migration ColumnFirstName
 Update-Database
 ```
@@ -855,7 +855,7 @@ Please review the migration for accuracy.
 
 Ostrzeżenie jest generowane, ponieważ pola nazw są teraz ograniczone do 50 znaków. Jeśli nazwa w bazie danych ma więcej niż 50 znaków, zostanie utracony od 51 do ostatniego znaku.
 
-* Przetestuj aplikację.
+* Testowanie aplikacji.
 
 Otwórz tabelę uczniów w SSOX:
 
@@ -1290,7 +1290,7 @@ Kod w zaktualizowanym `DbInitializer` dodaje dane inicjatora dla nowych jednoste
 
 W **konsoli Menedżera pakietów** (PMC) Uruchom następujące polecenie:
 
-```PMC
+```powershell
 Drop-Database
 Update-Database
 ```
@@ -1315,7 +1315,7 @@ Uruchom aplikację. Uruchomienie aplikacji uruchamia metodę `DbInitializer.Init
 Otwórz bazę danych w programie SSOX:
 
 * Jeśli SSOX został wcześniej otwarty, kliknij przycisk **Odśwież** .
-* Rozwiń **tabel** węzła. Zostaną wyświetlone utworzone tabele.
+* Rozwiń węzeł **tabele** . Zostaną wyświetlone utworzone tabele.
 
 ![Tabele w SSOX](complex-data-model/_static/ssox-tables.png)
 
@@ -1373,7 +1373,7 @@ Następny samouczek obejmuje powiązane dane.
 * [Wersja usługi YouTube w tym samouczku (część 2)](https://www.youtube.com/watch?v=Je0Z5K1TNmY)
 
 > [!div class="step-by-step"]
-> [Poprzedni](xref:data/ef-rp/migrations)
-> [Następny](xref:data/ef-rp/read-related-data)
+> [Poprzednie](xref:data/ef-rp/migrations)
+> [dalej](xref:data/ef-rp/read-related-data)
 
 ::: moniker-end
