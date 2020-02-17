@@ -297,18 +297,20 @@
           uid: blazor/components
         - name: Cykl życia
           uid: blazor/lifecycle
-        - name: Formularze i walidacja
-          uid: blazor/forms-validation
-        - name: Biblioteki składników
-          uid: blazor/class-libraries
         - name: Układy
           uid: blazor/layouts
+        - name: Formularze i walidacja
+          uid: blazor/forms-validation
         - name: Wstrzykiwanie zależności
           uid: blazor/dependency-injection
         - name: Routing
           uid: blazor/routing
         - name: Międzyoperacyjność w języku JavaScript
           uid: blazor/javascript-interop
+        - name: Konfiguracja modelu hostingu
+          uid: blazor/hosting-model-configuration
+        - name: Biblioteki składników
+          uid: blazor/class-libraries
         - name: Zabezpieczenia i tożsamość
           items:
             - name: Omówienie

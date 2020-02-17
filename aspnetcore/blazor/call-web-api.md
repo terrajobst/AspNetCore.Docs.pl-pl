@@ -5,17 +5,17 @@ description: Dowiedz się, jak wywoływać interfejs API sieci Web z aplikacji B
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 01/22/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/call-web-api
-ms.openlocfilehash: 66605f38a6fcaedebc92b0946dca1e5f28b593c6
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 345fb6962e3376c22551eb7914c70c89cb7100d5
+ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160070"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213278"
 ---
 # <a name="call-a-web-api-from-aspnet-core-opno-locblazor"></a>Wywoływanie interfejsu API sieci Web z ASP.NET Core Blazor
 
@@ -23,9 +23,9 @@ ms.locfileid: "76160070"
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-[Blazor aplikacje Webassembly](xref:blazor/hosting-models#blazor-webassembly) wywołują interfejsy API sieci Web przy użyciu wstępnie skonfigurowanej usługi `HttpClient`. Twórz żądania, które mogą obejmować opcje [interfejsu API pobierania](https://developer.mozilla.org/docs/Web/API/Fetch_API) języka JavaScript, przy użyciu Blazor pomocy JSON lub <xref:System.Net.Http.HttpRequestMessage>.
+[Blazor aplikacje Webassembly](xref:blazor/hosting-models#blazor-webassembly) wywołują interfejsy API sieci Web przy użyciu wstępnie skonfigurowanej usługi `HttpClient`. Twórz żądania, które mogą obejmować opcje [interfejsu API pobierania](https://developer.mozilla.org/docs/Web/API/Fetch_API) języka JavaScript, przy użyciu Blazor pomocy JSON lub <xref:System.Net.Http.HttpRequestMessage>. Usługa `HttpClient` w aplikacjach Blazor webassembly koncentruje się na przesyłaniu żądań z powrotem do serwera pochodzenia. Wskazówki zawarte w tym temacie dotyczą tylko Blazor aplikacji webassembly.
 
-[Blazor aplikacje serwera](xref:blazor/hosting-models#blazor-server) wywołują interfejsy API sieci Web przy użyciu wystąpień <xref:System.Net.Http.HttpClient> zwykle utworzonych przy użyciu <xref:System.Net.Http.IHttpClientFactory>. Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/http-requests>.
+[Blazor aplikacje serwera](xref:blazor/hosting-models#blazor-server) wywołują interfejsy API sieci Web przy użyciu wystąpień <xref:System.Net.Http.HttpClient>, zwykle utworzonych przy użyciu <xref:System.Net.Http.IHttpClientFactory>. Wskazówki zawarte w tym temacie nie odnoszą się do aplikacji serwera Blazor. Podczas opracowywania aplikacji Blazor Server postępuj zgodnie ze wskazówkami w <xref:fundamentals/http-requests>.
 
 [Wyświetl lub Pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([jak pobrać](xref:index#how-to-download-a-sample)) &ndash; wybierz aplikację *BlazorWebAssemblySample* .
 
@@ -36,7 +36,7 @@ Zobacz następujące składniki w przykładowej aplikacji *BlazorWebAssemblySamp
 
 ## <a name="packages"></a>Pakiety
 
-Odwołuje się do *eksperymentalnej* [Microsoft. AspNetCore.Blazor. ](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.HttpClient/)Pakiet NuGet HttpClient w pliku projektu. `Microsoft.AspNetCore.Blazor.HttpClient` jest oparty na `HttpClient` i [System. Text. JSON](https://www.nuget.org/packages/System.Text.Json/).
+Odwołuje się do *eksperymentalnej* [Microsoft.AspNetCore.Blazor.](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.HttpClient/)Pakiet NuGet HttpClient w pliku projektu. `Microsoft.AspNetCore.Blazor.HttpClient` jest oparty na `HttpClient` i [System. Text. JSON](https://www.nuget.org/packages/System.Text.Json/).
 
 Aby użyć stabilnego interfejsu API, Użyj pakietu [Microsoft. ASPNET. WebApi. Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) , który używa [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json/)/[JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm). Korzystanie z stabilnego interfejsu API w `Microsoft.AspNet.WebApi.Client` nie zapewnia pomocników JSON opisanych w tym temacie, które są unikatowe dla eksperymentalnego `Microsoft.AspNetCore.Blazor.HttpClient` pakietu.
 
