@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/06/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: 9efd49bb246a10c4eb49fb1bb0374ae9442d55a1
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 43f3abfa4bc311ed246f6f2585d522661e492039
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172626"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447155"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Wymuszanie protokołu HTTPS w ASP.NET Core
 
@@ -237,7 +237,7 @@ Na [OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Securi
 * Przeglądarka przechowuje konfigurację dla domeny, która uniemożliwia wysyłanie komunikacji za pośrednictwem protokołu HTTP. Przeglądarka wymusza całą komunikację za pośrednictwem protokołu HTTPS.
 * Przeglądarka uniemożliwia użytkownikowi korzystanie z niezaufanych lub nieprawidłowych certyfikatów. Przeglądarka wyłącza wyświetlanie wierszy, które umożliwiają użytkownikowi tymczasowe zaufać temu certyfikatowi.
 
-Ponieważ HSTS jest wymuszany przez klienta, ma pewne ograniczenia:
+Ponieważ HSTS jest wymuszana przez klienta, ma pewne ograniczenia:
 
 * Klient musi obsługiwać HSTS.
 * HSTS wymaga co najmniej jednego pomyślnego żądania HTTPS do ustanowienia zasad HSTS.
@@ -259,7 +259,7 @@ ASP.NET Core 2,1 i nowsze implementują HSTS z metodą rozszerzenia `UseHsts`. N
 
 `UseHsts` nie jest zalecana w programowaniu, ponieważ ustawienia HSTS mają wysoką pamięć podręczną przez przeglądarki. Domyślnie `UseHsts` wyklucza lokalny adres sprzężenia zwrotnego.
 
-W przypadku środowisk produkcyjnych, które wdrażają protokół HTTPS po raz pierwszy, należy ustawić początkowy [HstsOptions. maxAge](xref:Microsoft.AspNetCore.HttpsPolicy.HstsOptions.MaxAge*) na niewielką wartość przy użyciu jednej z <xref:System.TimeSpan> metod. Ustaw wartość od godziny na nie więcej niż jeden dzień w przypadku konieczności przywrócenia infrastruktury HTTPS do protokołu HTTP. Po uzyskaniu pewności w trwałości konfiguracji protokołu HTTPS Zwiększ wartość HSTS Max-Age; najczęściej używana wartość wynosi jeden rok.
+W przypadku środowisk produkcyjnych, które wdrażają protokół HTTPS po raz pierwszy, należy ustawić początkowy [HstsOptions. maxAge](xref:Microsoft.AspNetCore.HttpsPolicy.HstsOptions.MaxAge*) na niewielką wartość przy użyciu jednej z <xref:System.TimeSpan> metod. Ustaw wartość od godziny na nie więcej niż jeden dzień w przypadku konieczności przywrócenia infrastruktury HTTPS do protokołu HTTP. Po upewnieniu się, że trwałość konfiguracji protokołu HTTPS jest stabilna, zwiększ wartość HSTS `max-age`. najczęściej używana wartość wynosi jeden rok.
 
 Następujący kod:
 
@@ -277,9 +277,9 @@ Następujący kod:
 ::: moniker-end
 
 
-* Ustawia parametr Preload nagłówka Strict-Transport-Security. Wstępne ładowanie nie jest częścią [specyfikacji RFC HSTS](https://tools.ietf.org/html/rfc6797), ale jest obsługiwane przez przeglądarki sieci Web do wstępnego ładowania witryn HSTS w przypadku instalacji nowej. Aby uzyskać więcej informacji, zobacz [https://hstspreload.org/](https://hstspreload.org/) .
+* Ustawia parametr wstępnego ładowania nagłówka `Strict-Transport-Security`. Wstępne ładowanie nie jest częścią [specyfikacji RFC HSTS](https://tools.ietf.org/html/rfc6797), ale jest obsługiwane przez przeglądarki sieci Web do wstępnego ładowania witryn HSTS w przypadku instalacji nowej. Aby uzyskać więcej informacji, zobacz [https://hstspreload.org/](https://hstspreload.org/).
 * Włącza [includeSubDomain](https://tools.ietf.org/html/rfc6797#section-6.1.2), która stosuje zasady HSTS do hostowania poddomen.
-* Jawnie ustawia wartość maksymalnego wieku w nagłówku Strict-Transport-Security na 60 dni. Jeśli nie zostanie ustawiona, wartość domyślna to 30 dni. Aby uzyskać więcej informacji, zobacz [dyrektywę max-age](https://tools.ietf.org/html/rfc6797#section-6.1.1) .
+* Jawnie Ustawia parametr `max-age` nagłówka `Strict-Transport-Security` na 60 dni. Jeśli nie zostanie ustawiona, wartość domyślna to 30 dni. Aby uzyskać więcej informacji, zobacz [dyrektywa max-age](https://tools.ietf.org/html/rfc6797#section-6.1.1).
 * Dodaje `example.com` do listy hostów do wykluczenia.
 
 `UseHsts` wyklucza następujące hosty sprzężenia zwrotnego:
@@ -294,7 +294,7 @@ W niektórych scenariuszach usługi zaplecza, w których zabezpieczenia połącz
 
 Aby zrezygnować z protokołu HTTPS/HSTS:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
 Usuń zaznaczenie pola wyboru **Konfiguruj dla protokołu HTTPS** .
 
@@ -311,7 +311,7 @@ Usuń zaznaczenie pola wyboru **Konfiguruj dla protokołu HTTPS** .
 ::: moniker-end
 
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
 
 Użyj opcji `--no-https`. Na przykład
 
@@ -325,7 +325,7 @@ dotnet new webapp --no-https
 
 ## <a name="trust-the-aspnet-core-https-development-certificate-on-windows-and-macos"></a>Ufaj certyfikatowi Deweloperskiemu protokołu HTTPS ASP.NET Core w systemach Windows i macOS
 
-Zestaw .NET Core SDK zawiera certyfikat programistyczny HTTPS. Certyfikat jest instalowany w ramach pierwszego uruchomienia. Na przykład `dotnet --info` generuje dane wyjściowe podobne do następujących:
+Zestaw .NET Core SDK zawiera certyfikat programistyczny HTTPS. Certyfikat jest instalowany w ramach pierwszego uruchomienia. Na przykład `dotnet --info` generuje odmianę następujących danych wyjściowych:
 
 ```
 ASP.NET Core
@@ -378,7 +378,7 @@ dotnet dev-certs https --trust
 
 Zamknij wszystkie otwarte wystąpienia przeglądarki. Otwórz nowe okno przeglądarki do aplikacji. Zaufanie certyfikatu jest buforowane przez przeglądarki.
 
-Powyższe polecenia rozwiązują większość problemów z zaufaniem do przeglądarki. Jeśli przeglądarka nadal nie ufa certyfikatowi, postępuj zgodnie z poniższymi sugestiami dotyczącymi platformy.
+Powyższe polecenia rozwiązują większość problemów z zaufaniem do przeglądarki. Jeśli przeglądarka nadal nie ufa certyfikatowi, postępuj zgodnie z sugestiami specyficznymi dla danej platformy.
 
 ### <a name="docker---certificate-not-trusted"></a>Zaufać certyfikatowi platformy Docker
 
@@ -404,7 +404,7 @@ Zamknij wszystkie otwarte wystąpienia przeglądarki. Otwórz nowe okno przeglą
 * Otwórz dostęp do łańcucha kluczy.
 * Wybierz system łańcucha kluczy.
 * Sprawdź obecność certyfikatu localhost.
-* Sprawdź, czy zawiera on symbol `+` na ikonie, aby wskazać jego zaufaną dla wszystkich użytkowników.
+* Sprawdź, czy zawiera on symbol `+` na ikonie, aby wskazać, że jest on zaufany dla wszystkich użytkowników.
 * Usuń certyfikat z łańcucha kluczy systemu.
 * Uruchom następujące polecenia:
 

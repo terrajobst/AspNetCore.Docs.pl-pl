@@ -4,17 +4,17 @@ author: rick-anderson
 description: Dowiedz się więcej o nowych funkcjach w ASP.NET Core 3,1.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 02/12/2020
 no-loc:
 - Blazor
 - SignalR
 uid: aspnetcore-3.1
-ms.openlocfilehash: 06c1d2596bff34bbfe3b55e782ea2d24321dd839
-ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
+ms.openlocfilehash: f375022ad3ebdea2990f626320ef295926f88c22
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75722755"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447441"
 ---
 # <a name="whats-new-in-aspnet-core-31"></a>Co nowego w ASP.NET Core 3,1
 
@@ -43,7 +43,7 @@ Na przykład wyprerender składnik `Counter` z ilością przyrostu (`IncrementAm
     param-IncrementAmount="10" />
 ```
 
-Aby uzyskać więcej informacji, zobacz [integrowanie składników w aplikacjach Razor Pages i MVC](xref:blazor/components#integrate-components-into-razor-pages-and-mvc-apps).
+Aby uzyskać więcej informacji, zobacz [integrowanie składników w aplikacjach Razor Pages i MVC](xref:blazor/integrate-components).
 
 ## <a name="support-for-shared-queues-in-httpsys"></a>Obsługa kolejek udostępnionych w pliku HTTP. sys
 
@@ -53,7 +53,7 @@ Aby uzyskać więcej informacji, zobacz [integrowanie składników w aplikacjach
 
 ## <a name="breaking-changes-for-samesite-cookies"></a>Istotne zmiany plików cookie SameSite
 
-Zachowanie plików cookie SameSite zostało zmienione w celu odzwierciedlenia przyszłych zmian przeglądarki. Może to mieć wpływ na scenariusze uwierzytelniania, takie jak AzureAd, OpenIdConnect lub WsFederation. Aby uzyskać więcej informacji, zobacz temat <xref:security/samesite>.
+Zachowanie plików cookie SameSite zostało zmienione w celu odzwierciedlenia przyszłych zmian przeglądarki. Może to mieć wpływ na scenariusze uwierzytelniania, takie jak AzureAd, OpenIdConnect lub WsFederation. Aby uzyskać więcej informacji, zobacz <xref:security/samesite>.
 
 ## <a name="prevent-default-actions-for-events-in-opno-locblazor-apps"></a>Zapobiegaj domyślnym akcjom dla zdarzeń w aplikacjach Blazor
 
@@ -63,7 +63,7 @@ Użyj atrybutu dyrektywy `@on{EVENT}:preventDefault`, aby zapobiec domyślnej ak
 <input value="@_count" @onkeypress="KeyHandler" @onkeypress:preventDefault />
 ```
 
-Aby uzyskać więcej informacji, zobacz [zapobieganie domyślnym akcjom](xref:blazor/components#prevent-default-actions).
+Aby uzyskać więcej informacji, zobacz [zapobieganie domyślnym akcjom](xref:blazor/event-handling#prevent-default-actions).
 
 ## <a name="stop-event-propagation-in-opno-locblazor-apps"></a>Zatrzymaj propagację zdarzeń w aplikacjach Blazor
 
@@ -83,7 +83,7 @@ Użyj atrybutu dyrektywy `@on{EVENT}:stopPropagation`, aby zatrzymać propagacj�
 }
 ```
 
-Aby uzyskać więcej informacji, zobacz sekcję [Zatrzymaj propagację zdarzeń](xref:blazor/components#stop-event-propagation).
+Aby uzyskać więcej informacji, zobacz sekcję [Zatrzymaj propagację zdarzeń](xref:blazor/event-handling#stop-event-propagation).
 
 ## <a name="detailed-errors-during-opno-locblazor-app-development"></a>Szczegóły błędów podczas tworzenia aplikacji Blazor
 

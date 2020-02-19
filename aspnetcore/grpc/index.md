@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 09/20/2019
 uid: grpc/index
-ms.openlocfilehash: 2f32bf6e8df2c5b3574c337682cdc2845991630c
-ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
+ms.openlocfilehash: d97eea1da28424680a3cfa38102637b1e20ff661
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71925177"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77446960"
 ---
 # <a name="introduction-to-grpc-on-net-core"></a>Wprowadzenie do gRPC na platformie .NET Core
 
@@ -33,7 +33,7 @@ Te korzyści sprawiają, że gRPC doskonale nadaje się do:
 
 ## <a name="c-tooling-support-for-proto-files"></a>C#Obsługa narzędzi dla plików. proto
 
-gRPC używa podejścia pierwszego kontraktu do programowania interfejsu API. Usługi i komunikaty są zdefiniowane w  *\*plikach. proto* :
+gRPC używa podejścia pierwszego kontraktu do programowania interfejsu API. Usługi i komunikaty są zdefiniowane w plikach *\*. proto* :
 
 ```protobuf
 syntax = "proto3";
@@ -51,10 +51,10 @@ message HelloReply {
 }
 ```
 
-Typy .NET dla usług, klientów i komunikatów są generowane automatycznie przez dołączenie  *\*plików PROTO* w projekcie:
+Typy .NET dla usług, klientów i komunikatów są generowane automatycznie przez dołączenie plików *\*. proto* w projekcie:
 
 * Dodaj odwołanie do pakietu do pakietu [GRPC. Tools](https://www.nuget.org/packages/Grpc.Tools/) .
-* `<Protobuf>` Dodaj  *\*pliki. proto* do grupy elementów.
+* Dodaj pliki *\*. proto* do grupy `<Protobuf>` elementów.
 
 ```xml
 <ItemGroup>
@@ -62,7 +62,7 @@ Typy .NET dla usług, klientów i komunikatów są generowane automatycznie prze
 </ItemGroup>
 ```
 
-Więcej informacji o obsłudze narzędzi gRPC można znaleźć w <xref:grpc/basics>temacie.
+Aby uzyskać więcej informacji na temat pomocy technicznej dotyczącej narzędzi gRPC, zobacz <xref:grpc/basics>.
 
 ## <a name="grpc-services-on-aspnet-core"></a>usługi gRPC Services na ASP.NET Core
 
@@ -92,7 +92,7 @@ public class GreeterService : Greeter.GreeterBase
 }
 ```
 
-`GreeterService`dziedziczy z `GreeterBase` typu, który jest generowany na `Greeter` podstawie usługi w  *\*pliku. proto* . Usługa jest dostępna dla klientów w *Startup.cs*:
+`GreeterService` dziedziczy z typu `GreeterBase`, który jest generowany przez usługę `Greeter` w pliku *\*. proto* . Usługa jest dostępna dla klientów w *Startup.cs*:
 
 ```csharp
 app.UseEndpoints(endpoints =>
@@ -101,17 +101,17 @@ app.UseEndpoints(endpoints =>
 });
 ```
 
-Aby dowiedzieć się więcej na temat usług gRPC Services <xref:grpc/aspnetcore>na ASP.NET Core, zobacz.
+Aby dowiedzieć się więcej na temat usług gRPC Services na ASP.NET Core, zobacz <xref:grpc/aspnetcore>.
 
 ## <a name="call-grpc-services-with-a-net-client"></a>Wywoływanie usług gRPC za pomocą klienta platformy .NET
 
-gRPC klienci są konkretnymi typami klientów, które są [generowane z  *\*plików. proto* ](xref:grpc/basics#generated-c-assets). Konkretny klient gRPC ma metody, które są tłumaczone na usługę gRPC w  *\*pliku. proto* .
+gRPC klienci są konkretnymi typami klientów, które są [generowane na podstawie plików *\*. proto* ](xref:grpc/basics#generated-c-assets). Konkretny klient gRPC ma metody, które są tłumaczone na usługę gRPC w pliku *\*. proto* .
 
 ```csharp
 var channel = GrpcChannel.ForAddress("https://localhost:5001");
 var client = new Greeter.GreeterClient(channel);
 
-var response = await client.SayHello(
+var response = await client.SayHelloAsync(
     new HelloRequest { Name = "World" });
 
 Console.WriteLine(response.Message);
@@ -119,7 +119,7 @@ Console.WriteLine(response.Message);
 
 Klient gRPC jest tworzony przy użyciu kanału, który reprezentuje długotrwałe połączenie z usługą gRPC. Kanał można utworzyć przy użyciu `GrpcChannel.ForAddress`.
 
-Aby uzyskać więcej informacji na temat tworzenia klientów i wywoływania różnych metod usługi, <xref:grpc/client>Zobacz.
+Aby uzyskać więcej informacji na temat tworzenia klientów i wywoływania różnych metod usługi, zobacz <xref:grpc/client>.
 
 [!INCLUDE[](~/includes/gRPCazure.md)]
 

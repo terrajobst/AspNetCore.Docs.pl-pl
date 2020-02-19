@@ -3,14 +3,14 @@ title: Dokumentacja składni razor dla platformy ASP.NET Core
 author: rick-anderson
 description: Więcej informacji na temat składni znacznikowania Razor do osadzania kodu na serwerze do stron sieci Web.
 ms.author: riande
-ms.date: 12/05/2019
+ms.date: 02/12/2020
 uid: mvc/views/razor
-ms.openlocfilehash: 2d47fbc33328ab454616bcabab796df089686d79
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 0b1eed2816329d62fca4bdb5719825a4197af353
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77171858"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447181"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Dokumentacja składni razor dla platformy ASP.NET Core
 
@@ -22,7 +22,7 @@ Razor jest znaczników składnię osadzania kodu na serwerze w stronach sieci We
 
 Domyślny język Razor ma format HTML. Renderowanie kodu HTML, z kodu znaczników Razor nie różni się od renderowania kodu HTML z pliku HTML. Znaczniki HTML w plikach Razor *. cshtml* są renderowane przez serwer bez zmian.
 
-## <a name="razor-syntax"></a>Składnia razor
+## <a name="razor-syntax"></a>Składnia Razor
 
 Razor obsługuje C# i używa symbolu `@`, aby przejść z formatu HTML C#do. Ocenia razor C# wyrażeń i renderuje je w danych wyjściowych HTML.
 
@@ -719,13 +719,13 @@ W [składnikach Razor](xref:blazor/components)`@using` również kontroluje skł
 
 *Ten scenariusz dotyczy tylko składników Razor (Razor).*
 
-Powiązanie danych w składnikach jest realizowane przy użyciu atrybutu `@bind`. Aby uzyskać więcej informacji, zobacz <xref:blazor/components#data-binding>.
+Powiązanie danych w składnikach jest realizowane przy użyciu atrybutu `@bind`. Aby uzyskać więcej informacji, zobacz <xref:blazor/data-binding>.
 
 ### <a name="onevent"></a>\@w {EVENT}
 
 *Ten scenariusz dotyczy tylko składników Razor (Razor).*
 
-Razor udostępnia funkcje obsługi zdarzeń dla składników. Aby uzyskać więcej informacji, zobacz <xref:blazor/components#event-handling>.
+Razor udostępnia funkcje obsługi zdarzeń dla składników. Aby uzyskać więcej informacji, zobacz <xref:blazor/event-handling>.
 
 ::: moniker-end
 
@@ -763,7 +763,7 @@ Odwołania do składników (`@ref`) umożliwiają odwoływanie się do wystąpie
 
 *Ten scenariusz dotyczy tylko składników Razor (Razor).*
 
-Dyrektywa `@typeparam` deklaruje parametr typu ogólnego dla wygenerowanej klasy składnika. Aby uzyskać więcej informacji, zobacz <xref:blazor/components#generic-typed-components>.
+Dyrektywa `@typeparam` deklaruje parametr typu ogólnego dla wygenerowanej klasy składnika. Aby uzyskać więcej informacji, zobacz <xref:blazor/templated-components#generic-typed-components>.
 
 ::: moniker-end
 
@@ -886,7 +886,7 @@ Istnieją trzy dyrektywy, które odnoszą się do [pomocników tagów](xref:mvc/
 * przestrzeń nazw
 * — funkcje
 * Inherits
-* {1&gt;model&lt;1}
+* model
 * section
 * Pomocnik (nie jest obecnie obsługiwane przez program ASP.NET Core)
 
@@ -901,7 +901,7 @@ Słowa kluczowe Razor są wyprowadzane przy użyciu `@(Razor Keyword)` (na przyk
 * foreach
 * if
 * else
-* Blokady
+* lock
 * — przełącznik
 * try
 * CATCH
@@ -913,7 +913,7 @@ C#Słowa kluczowe Razor muszą mieć podwójną sekwencję przy użyciu `@(@C# R
 
 ### <a name="reserved-keywords-not-used-by-razor"></a>Zastrzeżone słowa kluczowe nie użył ich Razor
 
-* Klasa
+* class
 
 ## <a name="inspect-the-razor-c-class-generated-for-a-view"></a>Zbadaj Razor C# klasa generowana dla widoku
 

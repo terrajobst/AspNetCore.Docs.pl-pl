@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: bdorrans
 ms.date: 01/02/2020
 uid: security/authentication/certauth
-ms.openlocfilehash: 9c175439c0313d62c75898f1af097774b06f353a
-ms.sourcegitcommit: e7d4fe6727d423f905faaeaa312f6c25ef844047
+ms.openlocfilehash: 280daa86510d4445c791b6952653122961f13aeb
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608148"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447285"
 ---
 # <a name="configure-certificate-authentication-in-aspnet-core"></a>Konfigurowanie uwierzytelniania certyfikatów w ASP.NET Core
 
@@ -28,7 +28,7 @@ Uwierzytelnianie certyfikatu jest scenariuszem stanowym głównie używanym w pr
 
 Alternatywą dla uwierzytelniania certyfikatu w środowiskach, w których są używane serwery proxy i moduły równoważenia obciążenia, są Active Directory usług federacyjnych (AD FS) za pomocą OpenID Connect Connect (OIDC).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczynanie pracy
 
 Uzyskaj certyfikat HTTPS, zastosuj go i [skonfiguruj hosta](#configure-your-host-to-require-certificates) , aby wymagał certyfikatów.
 
@@ -236,19 +236,26 @@ Zapoznaj się z [dokumentacją hosta i Wdróż](xref:host-and-deploy/proxy-load-
 
 ### <a name="use-certificate-authentication-in-azure-web-apps"></a>Używanie uwierzytelniania certyfikatów na platformie Azure Web Apps
 
+Na platformie Azure nie jest wymagana żadna konfiguracja przekazywania. Jest to już konfiguracja w oprogramowaniu pośredniczącym do przesyłania dalej certyfikatu.
+
+> [!NOTE]
+> Wymaga to obecności CertificateForwardingMiddleware.
+
+### <a name="use-certificate-authentication-in-custom-web-proxies"></a>Używanie uwierzytelniania certyfikatów w niestandardowych serwerach proxy sieci Web
+
 Metoda `AddCertificateForwarding` służy do określenia:
 
 * Nazwa nagłówka klienta.
 * Sposób ładowania certyfikatu (przy użyciu właściwości `HeaderConverter`).
 
-W usłudze Azure Web Apps certyfikat jest przenoszona jako niestandardowy nagłówek żądania o nazwie `X-ARR-ClientCert`. W tym celu należy skonfigurować przekazywanie certyfikatów w `Startup.ConfigureServices`:
+W niestandardowych proxy sieci Web certyfikat jest przekazywane jako niestandardowy nagłówek żądania, na przykład `X-SSL-CERT`. W tym celu należy skonfigurować przekazywanie certyfikatów w `Startup.ConfigureServices`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddCertificateForwarding(options =>
     {
-        options.CertificateHeader = "X-ARR-ClientCert";
+        options.CertificateHeader = "X-SSL-CERT";
         options.HeaderConverter = (headerValue) =>
         {
             X509Certificate2 clientCertificate = null;
@@ -326,46 +333,80 @@ namespace AspNetCoreCertificateAuthApi
 }
 ```
 
-#### <a name="implement-an-httpclient-using-a-certificate"></a>Implementowanie HttpClient przy użyciu certyfikatu
+#### <a name="implement-an-httpclient-using-a-certificate-and-the-httpclienthandler"></a>Implementowanie HttpClient przy użyciu certyfikatu i HttpClientHandler
 
-Klient internetowego interfejsu API używa `HttpClient`, który został utworzony przy użyciu wystąpienia `IHttpClientFactory`. To nie pozwala na zdefiniowanie programu obsługi dla `HttpClient`, dlatego użyj `HttpRequestMessage`, aby dodać certyfikat do nagłówka żądania `X-ARR-ClientCert`. Certyfikat jest dodawany jako ciąg za pomocą metody `GetRawCertDataString`. 
+HttpClientHandler można dodać bezpośrednio w konstruktorze klasy HttpClient. Należy zachować ostrożność podczas tworzenia wystąpień HttpClient. Następnie HttpClient wyśle certyfikat z każdym żądaniem.
 
 ```csharp
-private async Task<JsonDocument> GetApiDataAsync()
+private async Task<JsonDocument> GetApiDataUsingHttpClientHandler()
 {
-    try
+    var cert = new X509Certificate2(Path.Combine(_environment.ContentRootPath, "sts_dev_cert.pfx"), "1234");
+    var handler = new HttpClientHandler();
+    handler.ClientCertificates.Add(cert);
+    var client = new HttpClient(handler);
+     
+    var request = new HttpRequestMessage()
     {
-        // Do not hardcode passwords in production code
-        // Use thumbprint or key vault
-        var cert = new X509Certificate2(
-            Path.Combine(_environment.ContentRootPath, 
-                "sts_dev_cert.pfx"), "1234");
-        var client = _clientFactory.CreateClient();
-        var request = new HttpRequestMessage()
-        {
-            RequestUri = new Uri("https://localhost:44379/api/values"),
-            Method = HttpMethod.Get,
-        };
-
-        request.Headers.Add("X-ARR-ClientCert", cert.GetRawCertDataString());
-        var response = await client.SendAsync(request);
-
-        if (response.IsSuccessStatusCode)
-        {
-            var responseContent = await response.Content.ReadAsStringAsync();
-            var data = JsonDocument.Parse(responseContent);
-
-            return data;
-        }
-
-        throw new ApplicationException(
-            $"Status code: {response.StatusCode}, " +
-            $"Error: {response.ReasonPhrase}");
-    }
-    catch (Exception e)
+        RequestUri = new Uri("https://localhost:44379/api/values"),
+        Method = HttpMethod.Get,
+    };
+    var response = await client.SendAsync(request);
+    if (response.IsSuccessStatusCode)
     {
-        throw new ApplicationException($"Exception {e}");
+        var responseContent = await response.Content.ReadAsStringAsync();
+        var data = JsonDocument.Parse(responseContent);
+        return data;
     }
+ 
+    throw new ApplicationException($"Status code: {response.StatusCode}, Error: {response.ReasonPhrase}");
+}
+```
+
+#### <a name="implement-an-httpclient-using-a-certificate-and-a-named-httpclient-from-ihttpclientfactory"></a>Implementowanie HttpClient przy użyciu certyfikatu i nazwanego HttpClient z usługi IHttpClientFactory 
+
+W poniższym przykładzie certyfikat klienta jest dodawany do HttpClientHandler przy użyciu właściwości ClientCertificates z procedury obsługi. Tej procedury obsługi można następnie użyć w nazwanym wystąpieniu HttpClient przy użyciu metody ConfigurePrimaryHttpMessageHandler. Jest to konfiguracja w klasie startowej w metodzie ConfigureServices.
+
+```csharp
+var clientCertificate = 
+    new X509Certificate2(
+      Path.Combine(_environment.ContentRootPath, "sts_dev_cert.pfx"), "1234");
+ 
+var handler = new HttpClientHandler();
+handler.ClientCertificates.Add(clientCertificate);
+ 
+services.AddHttpClient("namedClient", c =>
+{
+}).ConfigurePrimaryHttpMessageHandler(() => handler);
+```
+
+IHttpClientFactory można następnie użyć do uzyskania nazwanego wystąpienia z obsługą i certyfikatem. Metoda onclient o nazwie klienta zdefiniowanej w klasie startowej jest używana do uzyskiwania wystąpienia. Żądanie HTTP można wysłać przy użyciu klienta zgodnie z wymaganiami.
+
+```csharp
+private readonly IHttpClientFactory _clientFactory;
+ 
+public ApiService(IHttpClientFactory clientFactory)
+{
+    _clientFactory = clientFactory;
+}
+ 
+private async Task<JsonDocument> GetApiDataWithNamedClient()
+{
+    var client = _clientFactory.CreateClient("namedClient");
+ 
+    var request = new HttpRequestMessage()
+    {
+        RequestUri = new Uri("https://localhost:44379/api/values"),
+        Method = HttpMethod.Get,
+    };
+    var response = await client.SendAsync(request);
+    if (response.IsSuccessStatusCode)
+    {
+        var responseContent = await response.Content.ReadAsStringAsync();
+        var data = JsonDocument.Parse(responseContent);
+        return data;
+    }
+ 
+    throw new ApplicationException($"Status code: {response.StatusCode}, Error: {response.ReasonPhrase}");
 }
 ```
 
