@@ -295,6 +295,16 @@
           uid: blazor/templates
         - name: Składniki
           uid: blazor/components
+        - name: Powiązanie danych
+          uid: blazor/data-binding
+        - name: Obsługa zdarzeń
+          uid: blazor/event-handling
+        - name: Składniki z szablonami
+          uid: blazor/templated-components
+        - name: Integracja składników
+          uid: blazor/integrate-components
+        - name: Globalizacja i lokalizacja
+          uid: blazor/globalization-localization
         - name: Cykl życia
           uid: blazor/lifecycle
         - name: Układy
@@ -335,6 +345,8 @@
               uid: host-and-deploy/blazor/server
             - name: Konfigurowanie konsolidatora
               uid: host-and-deploy/blazor/configure-linker
+        - name: Scenariusze zaawansowane
+          uid: blazor/advanced-scenarios
     - name: Programowanie po stronie klienta
       items:
         - name: Aplikacje jednostronicowe

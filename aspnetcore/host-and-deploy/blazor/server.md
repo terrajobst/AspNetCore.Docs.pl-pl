@@ -5,17 +5,17 @@ description: Dowiedz się, jak hostować i wdrażać aplikację Blazor Server pr
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/15/2020
+ms.date: 02/12/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/server
-ms.openlocfilehash: b928296c45ddb11efcd2c8912cc595c799e65037
+ms.openlocfilehash: a051d51e734fec4315da73d3c4df57706df7f363
 ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447259"
+ms.locfileid: "77465826"
 ---
 # <a name="host-and-deploy-opno-locblazor-server"></a>Hostowanie i wdrażanie serwera Blazor
 
@@ -87,10 +87,7 @@ Zalecamy korzystanie z [usługi Azure SignalR](/azure/azure-signalr) dla aplikac
 
 #### <a name="iis"></a>IIS
 
-W przypadku korzystania z usług IIS Włącz:
-
-* Obiekty [WebSockets w usługach IIS](xref:fundamentals/websockets#enabling-websockets-on-iis).
-* [Sesje programu Sticky w ramach routingu żądań aplikacji](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing).
+W przypadku korzystania z usług IIS sesje programu Sticky są włączane przy użyciu routingu żądań aplikacji. Aby uzyskać więcej informacji, zobacz [równoważenie obciążenia HTTP przy użyciu routingu żądań aplikacji](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing).
 
 #### <a name="kubernetes"></a>Kubernetes
 
