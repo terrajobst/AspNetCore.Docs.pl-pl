@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/28/2019
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 5feed175999bf021cadc7e18f14e00066b50db5b
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: d244ce1527486466bcbc6557ec35869aa206bc4f
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259681"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656577"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor Pages z EF Core w ASP.NET Core odczytu danych powiązanych — 6 z 8
 
@@ -69,7 +69,7 @@ Aby wyświetlić nazwę przypisanego działu dla kursu:
 
 ### <a name="scaffold-course-pages"></a>Strony kursu szkieletowego
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Postępuj zgodnie z instrukcjami na [stronach uczniów tworzenia szkieletów](xref:data/ef-rp/intro#scaffold-student-pages) z następującymi wyjątkami:
 
@@ -77,13 +77,13 @@ Aby wyświetlić nazwę przypisanego działu dla kursu:
   * Użyj `Course` dla klasy modelu.
   * Użyj istniejącej klasy kontekstu zamiast tworzenia nowej.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Utwórz folder *strony/kursy* .
 
 * Uruchom następujące polecenie, aby połączyć strony kursu.
 
-  **Na Windows:**
+  **W systemie Windows:**
 
   ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
@@ -141,7 +141,7 @@ Poniższy kod ładuje powiązane dane przy użyciu metody `Select`:
 
 [!code-csharp[](intro/samples/cu30snapshots/6-related/Models/SchoolViewModels/CourseViewModel.cs?name=snippet)]
 
-Zobacz [IndexSelect. cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu30snapshots/6-related/Pages/Courses/IndexSelect.cshtml) i [IndexSelect.cshtml.cs](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu30snapshots/6-related/Pages/Courses/IndexSelect.cshtml.cs) , aby zapoznać się z kompletnym przykładem.
+Zobacz [IndexSelect. cshtml](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu30snapshots/6-related/Pages/Courses/IndexSelect.cshtml) i [IndexSelect.cshtml.cs](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu30snapshots/6-related/Pages/Courses/IndexSelect.cshtml.cs) , aby zapoznać się z kompletnym przykładem.
 
 ## <a name="create-instructor-pages"></a>Utwórz strony instruktora
 
@@ -166,7 +166,7 @@ Utwórz *SchoolViewModels/InstructorIndexData. cs* przy użyciu następującego 
 
 ### <a name="scaffold-instructor-pages"></a>Strony instruktorów dla szkieletów
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Postępuj zgodnie z instrukcjami w temacie Tworzenie [szkieletu stron uczniów](xref:data/ef-rp/intro#scaffold-student-pages) z następującymi wyjątkami:
 
@@ -174,13 +174,13 @@ Utwórz *SchoolViewModels/InstructorIndexData. cs* przy użyciu następującego 
   * Użyj `Instructor` dla klasy modelu.
   * Użyj istniejącej klasy kontekstu zamiast tworzenia nowej.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Utwórz folder *stron/instruktorów* .
 
 * Uruchom następujące polecenie, aby połączyć strony instruktora.
 
-  **Na Windows:**
+  **W systemie Windows:**
 
   ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
@@ -241,7 +241,7 @@ Aktualizowanie *stron/instruktorów/index. cshtml* przy użyciu następującego 
 
 Poprzedni kod wprowadza następujące zmiany:
 
-* Aktualizacje `page` dyrektywy z `@page` do `@page "{id:int?}"`. `"{id:int?}"` jest szablonem trasy. Szablon trasy zmienia ciągi zapytań liczb całkowitych w adresie URL, aby przesyłać dane. Na przykład kliknięcie linku **Wybierz** dla instruktora z tylko dyrektywą `@page` generuje adres URL podobny do następującego:
+* Aktualizuje dyrektywę `page` z `@page` do `@page "{id:int?}"`. `"{id:int?}"` jest szablonem trasy. Szablon trasy zmienia ciągi zapytań liczb całkowitych w adresie URL, aby przesyłać dane. Na przykład kliknięcie linku **Wybierz** dla instruktora z tylko dyrektywą `@page` generuje adres URL podobny do następującego:
 
   `https://localhost:5001/Instructors?id=2`
 
@@ -297,7 +297,7 @@ Metoda `Single` może przekazać warunek `Where` zamiast wywoływania `Where` me
 
 Użycie `Single` z warunkiem WHERE jest kwestią preferencji osobistych. Nie oferuje żadnych korzyści z używania metody `Where`.
 
-## <a name="explicit-loading"></a>Jawne ładowanie
+## <a name="explicit-loading"></a>jawne ładowanie
 
 Bieżący kod określa eager ładowania dla `Enrollments` i `Students`:
 
@@ -316,7 +316,7 @@ Poprzedni kod odrzuca metody *ThenInclude* w celu uzyskania danych dotyczących 
 
 Zwróć uwagę, że powyższy kod komentarz ma `.AsNoTracking()`. Właściwości nawigacji można jawnie załadować tylko dla śledzonych jednostek.
 
-Przetestuj aplikację. Z perspektywy użytkownika aplikacja zachowuje się identycznie z poprzednią wersją.
+Testowanie aplikacji. Z perspektywy użytkownika aplikacja zachowuje się identycznie z poprzednią wersją.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -332,7 +332,7 @@ W następnym samouczku pokazano, jak zaktualizować powiązane dane.
 
 W tym samouczku dane pokrewne są odczytywane i wyświetlane. Powiązane dane to dane, które EF Core ładowane do właściwości nawigacji.
 
-Jeśli napotkasz problemy, nie można rozwiązać, [pobrania lub wyświetlenia ukończonej aplikacji.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Instrukcje pobierania](xref:index#how-to-download-a-sample).
+Jeśli występują problemy, których nie można rozwiązać, [Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Instrukcje pobierania](xref:index#how-to-download-a-sample).
 
 Na poniższych ilustracjach przedstawiono ukończone strony dla tego samouczka:
 
@@ -382,11 +382,11 @@ Aby wyświetlić nazwę przypisanego działu na liście kursów:
 
 ### <a name="scaffold-the-course-model"></a>Tworzenie szkieletu modelu kursu
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-Postępuj zgodnie z instrukcjami w [tworzenia szkieletu modelu uczniów](xref:data/ef-rp/intro#scaffold-the-student-model) i użyj `Course` dla klasy modelu.
+Postępuj zgodnie z instrukcjami w obszarze [szkieletem model studenta](xref:data/ef-rp/intro#scaffold-the-student-model) i użyj `Course` dla klasy model.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
  Uruchom następujące polecenie:
 
@@ -396,7 +396,7 @@ Postępuj zgodnie z instrukcjami w [tworzenia szkieletu modelu uczniów](xref:da
 
 ---
 
-Poprzedni szkielety mechanizmów polecenia `Course` modelu. Otwórz projekt w programie Visual Studio.
+Poprzednie polecenie szkieletuje model `Course`. Otwórz projekt w programie Visual Studio.
 
 Otwórz *stronę/kursy/index. cshtml. cs* i Przeanalizuj metodę `OnGetAsync`. Aparat szkieletu określony eager ładowania dla właściwości nawigacji `Department`. Metoda `Include` określa ładowanie eager.
 
@@ -444,7 +444,7 @@ Poniższy kod ładuje powiązane dane przy użyciu metody `Select`:
 
 [!code-csharp[](intro/samples/cu/Models/SchoolViewModels/CourseViewModel.cs?name=snippet)]
 
-Zobacz [IndexSelect. cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml) i [IndexSelect.cshtml.cs](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs) , aby zapoznać się z kompletnym przykładem.
+Zobacz [IndexSelect. cshtml](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml) i [IndexSelect.cshtml.cs](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs) , aby zapoznać się z kompletnym przykładem.
 
 ## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>Utwórz stronę instruktorów pokazującą kursy i rejestracje
 
@@ -469,11 +469,11 @@ W folderze *SchoolViewModels* Utwórz *InstructorIndexData.cs* przy użyciu nast
 
 ### <a name="scaffold-the-instructor-model"></a>Tworzenie szkieletu modelu instruktora
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-Postępuj zgodnie z instrukcjami w [tworzenia szkieletu modelu uczniów](xref:data/ef-rp/intro#scaffold-the-student-model) i użyj `Instructor` dla klasy modelu.
+Postępuj zgodnie z instrukcjami w obszarze [szkieletem model studenta](xref:data/ef-rp/intro#scaffold-the-student-model) i użyj `Instructor` dla klasy model.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
  Uruchom następujące polecenie:
 
@@ -483,7 +483,7 @@ Postępuj zgodnie z instrukcjami w [tworzenia szkieletu modelu uczniów](xref:da
 
 ---
 
-Poprzedni szkielety mechanizmów polecenia `Instructor` modelu. 
+Poprzednie polecenie szkieletuje model `Instructor`. 
 Uruchom aplikację i przejdź do strony instruktorzy.
 
 Zamień *strony/instruktorów/index. cshtml. cs* na następujący kod:
@@ -509,7 +509,7 @@ Aktualizowanie *stron/instruktorów/index. cshtml* przy użyciu następującego 
 
 Poprzedni kod znaczników wprowadza następujące zmiany:
 
-* Aktualizacje `page` dyrektywy z `@page` do `@page "{id:int?}"`. `"{id:int?}"` jest szablonem trasy. Szablon trasy zmienia ciągi zapytań liczb całkowitych w adresie URL, aby przesyłać dane. Na przykład kliknięcie linku **Wybierz** dla instruktora z tylko dyrektywą `@page` generuje adres URL podobny do następującego:
+* Aktualizuje dyrektywę `page` z `@page` do `@page "{id:int?}"`. `"{id:int?}"` jest szablonem trasy. Szablon trasy zmienia ciągi zapytań liczb całkowitych w adresie URL, aby przesyłać dane. Na przykład kliknięcie linku **Wybierz** dla instruktora z tylko dyrektywą `@page` generuje adres URL podobny do następującego:
 
   `http://localhost:1234/Instructors?id=2`
 
@@ -556,7 +556,7 @@ Zaktualizuj metodę `OnGetAsync` na *stronach/instruktorów/index. cshtml. cs* p
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_OnGetAsync&highlight=1,8,16-999)]
 
-Add `public int CourseID { get; set; }`
+Dodaj `public int CourseID { get; set; }`
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_1&highlight=12)]
 
@@ -589,7 +589,7 @@ Dodaj następujący znacznik na końcu strony */instruktorów/index. cshtml* Raz
 
 Powyższy znacznik wyświetla listę kursów związanych z instruktorem w przypadku wybrania instruktora.
 
-Przetestuj aplikację. Kliknij link **Wybierz** na stronie instruktorów.
+Testowanie aplikacji. Kliknij link **Wybierz** na stronie instruktorów.
 
 ### <a name="show-student-data"></a>Pokaż dane ucznia
 
@@ -617,7 +617,7 @@ Metoda `Single` może przekazać warunek `Where` zamiast wywoływania `Where` me
 
 Poprzednie podejście `Single` nie zapewnia żadnych korzyści z używania `Where`. Niektórzy deweloperzy preferują styl podejścia `Single`owego.
 
-## <a name="explicit-loading"></a>Jawne ładowanie
+## <a name="explicit-loading"></a>jawne ładowanie
 
 Bieżący kod określa eager ładowania dla `Enrollments` i `Students`:
 
@@ -636,7 +636,7 @@ Poprzedni kod odrzuca metody *ThenInclude* w celu uzyskania danych dotyczących 
 
 Zwróć uwagę na powyższy kod komentarza `.AsNoTracking()`. Właściwości nawigacji można jawnie załadować tylko dla śledzonych jednostek.
 
-Przetestuj aplikację. Z perspektywy użytkowników aplikacja zachowuje się identycznie z poprzednią wersją.
+Testowanie aplikacji. Z perspektywy użytkowników aplikacja zachowuje się identycznie z poprzednią wersją.
 
 W następnym samouczku pokazano, jak zaktualizować powiązane dane.
 
@@ -646,7 +646,7 @@ W następnym samouczku pokazano, jak zaktualizować powiązane dane.
 * [Wersja tego samouczka usługi YouTube (part2)](https://www.youtube.com/watch?v=xvDDrIHv5ko)
 
 >[!div class="step-by-step"]
->[Poprzedni](xref:data/ef-rp/complex-data-model)
->[Następny](xref:data/ef-rp/update-related-data)
+>[Poprzednie](xref:data/ef-rp/complex-data-model)
+>[dalej](xref:data/ef-rp/update-related-data)
 
 ::: moniker-end

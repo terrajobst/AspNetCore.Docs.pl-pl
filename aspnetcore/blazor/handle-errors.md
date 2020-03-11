@@ -5,17 +5,17 @@ description: Odkryj, jak ASP.NET Core Blazor sposób, w jaki Blazor zarządza ni
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/12/2020
+ms.date: 02/19/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: 7191ae50d64ebd6a9b23b391116aedf3a6d01de2
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.openlocfilehash: d8098db3977b7515f2665e4230c2d6d3e415dc58
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447025"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661701"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>Obsługa błędów w aplikacjach Blazor ASP.NET Core
 
@@ -103,8 +103,6 @@ Kod struktury i aplikacji może wyzwolić Nieobsłużone wyjątki w jednej z nas
 * [Programy obsługi zdarzeń](#event-handlers)
 * [Usuwanie składników](#component-disposal)
 * [Międzyoperacyjność JavaScript](#javascript-interop)
-* [procedury obsługi obwodu serwera Blazor](#blazor-server-circuit-handlers)
-* [Usuwanie obwodu serwera Blazor](#blazor-server-circuit-disposal)
 * [Renderowanie serwera Blazor](#blazor-server-prerendering)
 
 Poprzednie Nieobsłużone wyjątki zostały opisane w poniższych sekcjach tego artykułu.
@@ -183,64 +181,17 @@ Poniższe warunki dotyczą obsługi błędów w `InvokeAsync<T>`:
 * Jeśli wywołanie `InvokeAsync<T>` nie powiedzie się asynchronicznie, <xref:System.Threading.Tasks.Task> .NET kończy się niepowodzeniem. Wywołanie `InvokeAsync<T>` może zakończyć się niepowodzeniem, na przykład ponieważ kod po stronie JavaScript zgłasza wyjątek lub zwraca `Promise`, który został ukończony jako `rejected`. Kod dewelopera musi przechwycić wyjątek. W przypadku użycia operatora [await](/dotnet/csharp/language-reference/keywords/await) Rozważ zapakowanie wywołania metody w instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem. W przeciwnym razie niepowodzenie kodu spowoduje nieobsłużony wyjątek krytyczny dla obwodu serwera Blazor.
 * Domyślnie wywołania do `InvokeAsync<T>` muszą zakończyć się w określonym czasie lub w przeciwnym razie upłynął limit czasu połączenia. Domyślny limit czasu wynosi jedną minutę. Limit czasu chroni kod przed utratą połączenia sieciowego lub kodem JavaScript, który nigdy nie odsyła komunikat uzupełniający. Jeśli wystąpiło przełączenie, wynikiem `Task` zakończy się niepowodzeniem z <xref:System.OperationCanceledException>. Zalewka i przetwórz wyjątek z rejestrowaniem.
 
-Podobnie kod JavaScript może inicjować wywołania metod .NET wskazywanych przez atrybut [`[JSInvokable]`](xref:blazor/javascript-interop#invoke-net-methods-from-javascript-functions) . Jeśli te metody .NET zgłaszają nieobsługiwany wyjątek:
+Podobnie kod JavaScript może inicjować wywołania metod .NET wskazywanych przez atrybut [`[JSInvokable]`](xref:blazor/call-dotnet-from-javascript) . Jeśli te metody .NET zgłaszają nieobsługiwany wyjątek:
 
 * Wyjątek nie jest traktowany jako krytyczny dla obwodu serwera Blazor.
 * `Promise` po stronie JavaScript zostanie odrzucony.
 
 Istnieje możliwość użycia kodu obsługi błędów po stronie .NET lub stronie JavaScript wywołania metody.
 
-Aby uzyskać więcej informacji, zobacz <xref:blazor/javascript-interop>.
+Aby uzyskać więcej informacji zobacz następujące artykuły:
 
-### <a name="opno-locblazor-server-circuit-handlers"></a>procedury obsługi obwodu serwera Blazor
-
-Serwer Blazor umożliwia kod definiujący *procedurę obsługi obwodu*, która umożliwia uruchamianie kodu na zmiany stanu obwodu użytkownika. Program obsługi obwodu jest implementowany przez wyprowadzanie z `CircuitHandler` i rejestrowanie klasy w kontenerze usługi aplikacji. Poniższy przykład obsługi obwodu śledzi otwarte SignalR połączenia:
-
-```csharp
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components.Server.Circuits;
-
-public class TrackingCircuitHandler : CircuitHandler
-{
-    private HashSet<Circuit> _circuits = new HashSet<Circuit>();
-
-    public override Task OnConnectionUpAsync(Circuit circuit, 
-        CancellationToken cancellationToken)
-    {
-        _circuits.Add(circuit);
-
-        return Task.CompletedTask;
-    }
-
-    public override Task OnConnectionDownAsync(Circuit circuit, 
-        CancellationToken cancellationToken)
-    {
-        _circuits.Remove(circuit);
-
-        return Task.CompletedTask;
-    }
-
-    public int ConnectedCircuits => _circuits.Count;
-}
-```
-
-Procedury obsługi obwodu są rejestrowane przy użyciu funkcji DI. Wystąpienia w zakresie są tworzone na wystąpienie obwodu. Korzystając z `TrackingCircuitHandler` w poprzednim przykładzie, tworzona jest usługa singleton, ponieważ stan wszystkich obwodów musi być śledzony:
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    ...
-    services.AddSingleton<CircuitHandler, TrackingCircuitHandler>();
-}
-```
-
-Jeśli metody obsługi niestandardowego obwodu zgłaszają nieobsługiwany wyjątek, wyjątek jest krytyczny dla obwodu serwera Blazor. Aby tolerować wyjątki w kodzie programu obsługi lub metodach wywoływanych, zawiń kod w co najmniej jednej instrukcji [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) z obsługą błędów i rejestrowaniem.
-
-### <a name="opno-locblazor-server-circuit-disposal"></a>Usuwanie obwodu serwera Blazor
-
-Gdy obwód kończy się, ponieważ użytkownik odłączył się i struktura czyści stan obwodu, struktura usuwa zakres DI obwodu. Oddysponowanie zakresu polega na usunięciu wszelkich usług w zakresie innych firm, które implementują <xref:System.IDisposable?displayProperty=fullName>. Jeśli jakakolwiek usługa nie zgłasza nieobsłużonego wyjątku podczas usuwania, struktura rejestruje wyjątek.
+* <xref:blazor/call-javascript-from-dotnet>
+* <xref:blazor/call-dotnet-from-javascript>
 
 ### <a name="opno-locblazor-server-prerendering"></a>Renderowanie preBlazor Server
 

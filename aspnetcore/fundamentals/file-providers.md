@@ -1,22 +1,22 @@
 ---
 title: Dostawcy plików w ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Dowiedz się, jak ASP.NET Core abstrakcji dostępu do systemu plików przy użyciu dostawców plików.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 11/07/2019
 uid: fundamentals/file-providers
-ms.openlocfilehash: a454ca394546184968222ca2ca44d7159b19a12a
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 34a48bbcf9ffb20bb61f89c80adedc1cc4783988
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944311"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658789"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Dostawcy plików w ASP.NET Core
 
-[Steve Kowalski](https://ardalis.com/) i [Luke Latham](https://github.com/guardrex)
+Przez [Steve Smith](https://ardalis.com/)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -27,7 +27,7 @@ ASP.NET Core abstrakcję dostępu systemu plików przy użyciu dostawców plikó
 * [Razor](xref:mvc/views/razor) używa dostawców plików do lokalizowania stron i widoków.
 * Narzędzia .NET Core używają dostawców plików i wzorców globalizowania, aby określić, które pliki powinny zostać opublikowane.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="file-provider-interfaces"></a>Interfejsy dostawcy plików
 
@@ -53,7 +53,7 @@ Przykładowa aplikacja pokazuje, jak skonfigurować dostawcę plików w `Startup
 
 Dostępne są trzy implementacje `IFileProvider`.
 
-| Implementacja | Opis |
+| Wdrażanie | Opis |
 | -------------- | ----------- |
 | [PhysicalFileProvider](#physicalfileprovider) | Dostawca fizyczny jest używany do uzyskiwania dostępu do plików fizycznych systemu. |
 | [ManifestEmbeddedFileProvider](#manifestembeddedfileprovider) | Dostawca osadzony manifestu służy do uzyskiwania dostępu do plików osadzonych w zestawach. |
@@ -176,7 +176,7 @@ ASP.NET Core abstrakcję dostępu systemu plików przy użyciu dostawców plikó
 * [Razor](xref:mvc/views/razor) używa dostawców plików do lokalizowania stron i widoków.
 * Narzędzia .NET Core używają dostawców plików i wzorców globalizowania, aby określić, które pliki powinny zostać opublikowane.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="file-provider-interfaces"></a>Interfejsy dostawcy plików
 
@@ -202,7 +202,7 @@ Przykładowa aplikacja pokazuje, jak skonfigurować dostawcę plików w `Startup
 
 Dostępne są trzy implementacje `IFileProvider`.
 
-| Implementacja | Opis |
+| Wdrażanie | Opis |
 | -------------- | ----------- |
 | [PhysicalFileProvider](#physicalfileprovider) | Dostawca fizyczny jest używany do uzyskiwania dostępu do plików fizycznych systemu. |
 | [ManifestEmbeddedFileProvider](#manifestembeddedfileprovider) | Dostawca osadzony manifestu służy do uzyskiwania dostępu do plików osadzonych w zestawach. |

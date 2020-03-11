@@ -9,11 +9,11 @@ products:
 - vs
 urlFragment: create-grpc-client
 ms.openlocfilehash: b9feb9eed62177358fffc0d7da582f625a431e32
-ms.sourcegitcommit: 9e85c2562df5e108d7933635c830297f484bb775
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73463043"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660931"
 ---
 # <a name="create-a-grpc-client-and-server-in-aspnet-core-30-using-visual-studio"></a>Tworzenie gRPC klienta i serwera w ASP.NET Core 3,0 przy użyciu programu Visual Studio
 
@@ -31,7 +31,7 @@ W tym samouczku:
 
 * Z menu **plik** programu Visual Studio wybierz pozycję **Nowy** **projekt** > .
 * W oknie dialogowym **Tworzenie nowego projektu** wybierz pozycję **ASP.NET Core aplikacji sieci Web**.
-* Wybierz pozycję **dalej**
+* Wybierz pozycję **Dalej**
 * Nazwij projekt **GrpcGreeter**. Ważne jest, aby nazwa projektu *GrpcGreeter* , tak aby przestrzenie nazw były zgodne podczas kopiowania i wklejania kodu.
 * Wybierz pozycję **Utwórz**
 * W oknie dialogowym **Tworzenie nowej ASP.NET Core aplikacji sieci Web** :
@@ -77,7 +77,7 @@ info: Microsoft.Hosting.Lifetime[0]
 * Otwórz drugie wystąpienie programu Visual Studio.
 * Wybierz pozycję **plik** > **Nowy** > **projekt** na pasku menu.
 * W oknie dialogowym **Tworzenie nowego projektu** wybierz pozycję **Aplikacja konsolowa (.NET Core)** .
-* Wybierz pozycję **dalej**
+* Wybierz pozycję **Dalej**
 * W polu tekstowym **Nazwa** wprowadź wartość "GrpcGreeterClient".
 * Wybierz pozycję **Utwórz**.
 
@@ -87,7 +87,7 @@ Projekt klienta gRPC wymaga następujących pakietów:
 
 * [GRPC .NET. Client](https://www.nuget.org/packages/Grpc.Net.Client), który zawiera klienta .NET Core.
 * [Google. protobuf](https://www.nuget.org/packages/Google.Protobuf/), który zawiera interfejsy API komunikatów protobuf C#dla.
-* [GRPC. Tools](https://www.nuget.org/packages/Grpc.Tools/), która zawiera C# obsługę narzędzi dla plików protobuf. Pakiet narzędzi nie jest wymagany w czasie wykonywania, więc zależność jest oznaczona za pomocą `PrivateAssets="All"`.
+* [GRPC. Tools](https://www.nuget.org/packages/Grpc.Tools/), która zawiera C# obsługę narzędzi dla plików protobuf. Pakiet narzędzi nie jest wymagany w czasie wykonywania, dlatego zależność jest oznaczona za pomocą `PrivateAssets="All"`.
 
 Zainstaluj pakiety przy użyciu konsoli Menedżera pakietów (PMC) lub Zarządzaj pakietami NuGet.
 
@@ -106,7 +106,7 @@ Install-Package Grpc.Tools
 #### <a name="manage-nuget-packages-option-to-install-packages"></a>Opcja zarządzania pakietami NuGet w celu zainstalowania pakietów
 
 * Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** > **Zarządzanie pakietami NuGet**
-* Wybierz kartę **przeglądanie** .
+* Wybierz kartę **Przeglądaj**.
 * W polu wyszukiwania wprowadź **GRPC .NET. Client** .
 * Wybierz pakiet **GRPC .NET. Client** z karty **Przeglądaj** i wybierz pozycję **Zainstaluj**.
 * Powtórz dla `Google.Protobuf` i `Grpc.Tools`.

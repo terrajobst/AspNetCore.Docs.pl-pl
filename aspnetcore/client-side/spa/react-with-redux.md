@@ -1,23 +1,23 @@
 ---
-title: Szablon projektu platformy React z Redux za pomocą platformy ASP.NET Core
+title: Użyj szablonu projektu reakcję na Redux z ASP.NET Core
 author: SteveSandersonMS
-description: Dowiedz się, jak rozpocząć pracę przy użyciu szablonu projektu ASP.NET Core jednej strony aplikacji (SPA) dla platformy React z kontenera Redux i utworzyć react aplikacji.
+description: Dowiedz się, jak rozpocząć pracę z szablonem projektu aplikacji jednostronicowej (SPA, ASP.NET Core single page) w celu reagowania na aplikacje Redux i Create-reaguje na.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: spa/react-with-redux
 ms.openlocfilehash: ed2e9aea449ddb09fef049a391f40f57452786a8
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900004"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657641"
 ---
-# <a name="use-the-react-with-redux-project-template-with-aspnet-core"></a>Szablon projektu platformy React z Redux za pomocą platformy ASP.NET Core
+# <a name="use-the-react-with-redux-project-template-with-aspnet-core"></a>Użyj szablonu projektu reakcję na Redux z ASP.NET Core
 
-Zaktualizowany szablon projektu platformy React z kontenera Redux udostępnia dogodny punkt początkowy dla aplikacji platformy ASP.NET Core przy użyciu React i kontenera Redux, i [tworzenie platformy react aplikacji](https://github.com/facebookincubator/create-react-app) konwencje (CRA), aby zaimplementować interfejs rozbudowane, po stronie klienta użytkownika (UI).
+Zaktualizowany szablon projektu reagowanie na Redux zapewnia wygodny punkt początkowy dla aplikacji ASP.NET Core przy użyciu konwencji reagowania, Redux i Create-resideing [-App](https://github.com/facebookincubator/create-react-app) (CRA) w celu zaimplementowania rozbudowanego interfejsu użytkownika po stronie klienta.
 
-Z wyjątkiem polecenia tworzenia projektu wszystkie informacje dotyczące platformy React z Redux szablonu jest taka sama jak w szablonie platformy React. Aby utworzyć ten typ projektu, uruchom `dotnet new reactredux` zamiast `dotnet new react`. Aby uzyskać więcej informacji na temat funkcji, które są wspólne dla obu szablonów opartych na platformy React, zobacz [React dokumentacji dotyczącej szablonu](xref:spa/react).
+Z wyjątkiem polecenia tworzenia projektu wszystkie informacje o szablonie reakcję na Redux są takie same jak szablon reakcję. Aby utworzyć ten typ projektu, uruchom `dotnet new reactredux`, a nie `dotnet new react`. Aby uzyskać więcej informacji o funkcjach wspólnych dla obu szablonów opartych na reakcji, zobacz [dokumentację szablonu](xref:spa/react)dotyczącej reakcji.
 
-Aby uzyskać informacji o konfigurowaniu platformy React z Redux aplikacji podrzędnych w usługach IIS, zobacz [2.1 szablonu reactredux dla platformy: Nie można użyć SPA BIURA w usługach IIS (aspnet/szablonów &num;555)](https://github.com/aspnet/Templating/issues/555).
+Aby uzyskać informacje na temat konfigurowania aplikacji podrzędnej reagowanie na Redux w usługach IIS, zobacz [ReactRedux Template 2,1: nie można użyć Spa na serwerze IIS (ASPNET/tworzenia szablonów &num;555)](https://github.com/aspnet/Templating/issues/555).

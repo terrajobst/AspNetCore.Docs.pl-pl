@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: security/anti-request-forgery
-ms.openlocfilehash: 54e153af55f28d9a89bbf16bce1c17f876567b59
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 3da73b8fe3e3d73d5d7754e0642e55feeb785de3
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880807"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659160"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Uniemożliwiaj ataki między witrynami (XSRF/CSRF) w ASP.NET Core
 
@@ -79,7 +79,7 @@ Gdy użytkownik jest uwierzytelniany przy użyciu nazwy użytkownika i hasła, z
 
 ### <a name="token-based-authentication"></a>Uwierzytelnianie oparte na tokenach
 
-Po uwierzytelnieniu użytkownika są wystawiane tokeny (nie token antysfałszowany). Token zawiera informacje o użytkowniku w formie [oświadczeń](/dotnet/framework/security/claims-based-identity-model) lub Token odwołania, który wskazuje, że stan użytkownika w aplikacji jest obsługiwany przez aplikację. Gdy użytkownik próbuje uzyskać dostęp do zasobu wymagającego uwierzytelnienia, token jest wysyłany do aplikacji z dodatkowym nagłówkiem autoryzacji w postaci tokenu okaziciela. Powoduje to bezstanową aplikację. W każdym kolejnym żądaniu token jest przesyłany do żądania weryfikacji po stronie serwera. Ten token nie jest *szyfrowany*; jest ona *zaszyfrowana*. Na serwerze token jest zdekodowany w celu uzyskania dostępu do informacji. Aby wysłać token w kolejnych żądaniach, Zapisz token w lokalnym magazynie przeglądarki. Nie należy obawiać się o luki w zabezpieczeniach CSRF, jeśli token jest przechowywany w lokalnym magazynie przeglądarki. CSRF jest problemem, gdy token jest przechowywany w pliku cookie. Aby uzyskać więcej informacji, zobacz przykładowy kod rozchód spa w usłudze GitHub [dodaje dwa pliki cookie](https://github.com/aspnet/AspNetCore.Docs/issues/13369).
+Po uwierzytelnieniu użytkownika są wystawiane tokeny (nie token antysfałszowany). Token zawiera informacje o użytkowniku w formie [oświadczeń](/dotnet/framework/security/claims-based-identity-model) lub Token odwołania, który wskazuje, że stan użytkownika w aplikacji jest obsługiwany przez aplikację. Gdy użytkownik próbuje uzyskać dostęp do zasobu wymagającego uwierzytelnienia, token jest wysyłany do aplikacji z dodatkowym nagłówkiem autoryzacji w postaci tokenu okaziciela. Powoduje to bezstanową aplikację. W każdym kolejnym żądaniu token jest przesyłany do żądania weryfikacji po stronie serwera. Ten token nie jest *szyfrowany*; jest ona *zaszyfrowana*. Na serwerze token jest zdekodowany w celu uzyskania dostępu do informacji. Aby wysłać token w kolejnych żądaniach, Zapisz token w lokalnym magazynie przeglądarki. Nie należy obawiać się o luki w zabezpieczeniach CSRF, jeśli token jest przechowywany w lokalnym magazynie przeglądarki. CSRF jest problemem, gdy token jest przechowywany w pliku cookie. Aby uzyskać więcej informacji, zobacz przykładowy kod rozchód spa w usłudze GitHub [dodaje dwa pliki cookie](https://github.com/dotnet/AspNetCore.Docs/issues/13369).
 
 ### <a name="multiple-apps-hosted-at-one-domain"></a>Wiele aplikacji hostowanych w jednej domenie
 
@@ -238,7 +238,7 @@ services.AddAntiforgery(options =>
 | ------ | ----------- |
 | [Plików](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookie) | Określa ustawienia używane do tworzenia plików cookie z fałszerstwem. |
 | [CookieDomain](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiedomain) | Domena pliku cookie. Wartość domyślna to `null`. Ta właściwość jest przestarzała i zostanie usunięta w przyszłej wersji. Zalecaną alternatywą jest plik cookie. domena. |
-| [CookieName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiename) | Nazwa pliku cookie. Jeśli nie zostanie ustawiona, system generuje unikatową nazwę rozpoczynającą się od [DefaultCookiePrefix](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.defaultcookieprefix) (". AspNetCore. przed fałszerstwem "). Ta właściwość jest przestarzała i zostanie usunięta w przyszłej wersji. Zalecaną alternatywą jest Cookie.Name. |
+| [Plik CookieName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiename) | Nazwa pliku cookie. Jeśli nie zostanie ustawiona, system generuje unikatową nazwę rozpoczynającą się od [DefaultCookiePrefix](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.defaultcookieprefix) (". AspNetCore. przed fałszerstwem "). Ta właściwość jest przestarzała i zostanie usunięta w przyszłej wersji. Zalecaną alternatywą jest Cookie.Name. |
 | [CookiePath](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiepath) | Ścieżka ustawiona w pliku cookie. Ta właściwość jest przestarzała i zostanie usunięta w przyszłej wersji. Zalecaną alternatywą jest plik cookie. Path. |
 | [FormFieldName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.formfieldname) | Nazwa ukrytego pola formularza używanego przez system antysfałszowany do renderowania tokenów antysfałszowanych w widokach. |
 | [Nagłówek nagłówka](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.headername) | Nazwa nagłówka używanego przez system antysfałszowany. Jeśli `null`, system uwzględnia tylko dane formularza. |
@@ -315,7 +315,7 @@ Atrybut `ValidateAntiForgeryToken` wymaga tokenu dla żądań do metod akcji, kt
 Aplikacje ASP.NET Core nie generują tokenów antysfałszowanych dla bezpiecznych metod HTTP (GET, głowy, OPTIONS i TRACE). Zamiast szeroko stosowanego atrybutu `ValidateAntiForgeryToken`, a następnie przesłania go przy użyciu atrybutów `IgnoreAntiforgeryToken`, można użyć atrybutu [AutoValidateAntiforgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.autovalidateantiforgerytokenattribute) . Ten atrybut działa identycznie z atrybutem `ValidateAntiForgeryToken`, z tą różnicą, że nie wymagają tokenów dla żądań wysyłanych przy użyciu następujących metod HTTP:
 
 * GET
-* HEAD
+* MTP
 * OPCJE
 * TRACE
 
@@ -334,10 +334,20 @@ public class ManageController : Controller
 
 Przykład globalny:
 
+::: moniker range="< aspnetcore-3.0"
+
+Services. AddMvc (Opcje = > Opcje. Filters. Add (New AutoValidateAntiforgeryTokenAttribute ()));
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
 ```csharp
-services.AddMvc(options => 
+services.AddControllersWithViews(options =>
     options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()));
 ```
+
+::: moniker-end
 
 ### <a name="override-global-or-controller-antiforgery-attributes"></a>Zastąp atrybuty globalnym lub kontrolerem antyfałszowanym
 
@@ -465,7 +475,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/anti-request-forgery/sample/AngularSample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/anti-request-forgery/sample/AngularSample) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="extend-antiforgery"></a>Zwiększ fałszerstwo
 

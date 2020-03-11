@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: security/ip-safelist
-ms.openlocfilehash: ca5b0f8088773027f7403120247cbeca8900bcf5
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: d25c375f7e659168ab8cc9d8e11753cb7dfde831
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034341"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659776"
 ---
 # <a name="client-ip-safelist-for-aspnet-core"></a>Safelist IP klienta dla ASP.NET Core
 
@@ -25,7 +25,7 @@ W tym artykule przedstawiono trzy sposoby implementacji Safelist IP (znanego ró
 
 W każdym przypadku ciąg zawierający zatwierdzone adresy IP klienta jest przechowywany w ustawieniu aplikacji. Oprogramowanie pośredniczące lub Filtr analizuje ciąg w postaci listy i sprawdza, czy zdalny adres IP znajduje się na liście. W przeciwnym razie zwracany jest kod stanu zabroniony protokołu HTTP 403.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/ip-safelist/samples/2.x/ClientIpAspNetCore) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/ip-safelist/samples/2.x/ClientIpAspNetCore) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="the-safelist"></a>Safelist
 

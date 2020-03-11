@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/10/2020
 uid: fundamentals/configuration/index
-ms.openlocfilehash: d0ef670aa0ac4960318f86ea7888b9eab71f17fd
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 3dcabae3f76d81e641057c346dbb9097c2da42c7
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77171900"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656332"
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguracja w ASP.NET Core
 
@@ -41,7 +41,7 @@ using Microsoft.Extensions.Configuration;
 
 *Wzorzec opcji* jest rozszerzeniem pojęć konfiguracyjnych opisanych w tym temacie. Opcje używają klas do reprezentowania grup powiązanych ustawień. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/options>.
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="host-versus-app-configuration"></a>Host a konfiguracja aplikacji
 
@@ -185,7 +185,7 @@ Wartości konfiguracyjne przyjmują następujące konwencje:
 
 W poniższej tabeli przedstawiono dostawców konfiguracji dostępnych do ASP.NET Core aplikacji.
 
-| Provider | Zapewnia konfigurację z&hellip; |
+| Dostawca | Zapewnia konfigurację z&hellip; |
 | -------- | ----------------------------------- |
 | [Dostawca konfiguracji Azure Key Vault](xref:security/key-vault-configuration) (tematy dotyczące*zabezpieczeń* ) | W usłudze Azure Key Vault |
 | [Dostawca konfiguracji aplikacji platformy Azure](/azure/azure-app-configuration/quickstart-aspnet-core-app) (dokumentacja platformy Azure) | Azure App Configuration |
@@ -443,7 +443,7 @@ Podczas tworzenia konstruktora hostów Konfiguracja hosta jest zapewniana przez 
 
 Interfejs API konfiguracji ma specjalne reguły przetwarzania dla czterech zmiennych środowiskowych parametrów połączenia związanych z konfigurowaniem parametrów połączenia platformy Azure dla środowiska aplikacji. Zmienne środowiskowe z prefiksami podanymi w tabeli są ładowane do aplikacji, jeśli nie podano prefiksu do `AddEnvironmentVariables`.
 
-| Prefiks parametrów połączenia | Provider |
+| Prefiks parametrów połączenia | Dostawca |
 | ------------------------ | -------- |
 | `CUSTOMCONNSTR_` | Dostawca niestandardowy |
 | `MYSQLCONNSTR_` | [MySQL](https://www.mysql.com/) |
@@ -909,8 +909,8 @@ Należy wziąć pod uwagę klucze konfiguracji i wartości podane w poniższej t
 | Klucz             | Wartość  |
 | :-------------: | :----: |
 | Tablica: wpisy: 0 | value0 |
-| Tablica: wpisy: 1 | sekwencj |
-| Tablica: wpisy: 2 | wartość2 |
+| Tablica: wpisy: 1 | Sekwencj |
+| Tablica: wpisy: 2 | Wartość2 |
 | Tablica: wpisy: 4 | value4 |
 | Tablica: wpisy: 5 | value5 |
 
@@ -940,8 +940,8 @@ Obiekt powiązany, wystąpienie `ArrayExample`, otrzymuje dane tablicy z konfigu
 | Indeks `ArrayExample.Entries` | Wartość `ArrayExample.Entries` |
 | :--------------------------: | :--------------------------: |
 | 0                            | value0                       |
-| 1                            | sekwencj                       |
-| 2                            | wartość2                       |
+| 1                            | Sekwencj                       |
+| 2                            | Wartość2                       |
 | 3                            | value4                       |
 | 4                            | value5                       |
 
@@ -975,8 +975,8 @@ Jeśli wystąpienie klasy `ArrayExample` jest powiązane, gdy dostawca konfigura
 | Indeks `ArrayExample.Entries` | Wartość `ArrayExample.Entries` |
 | :--------------------------: | :--------------------------: |
 | 0                            | value0                       |
-| 1                            | sekwencj                       |
-| 2                            | wartość2                       |
+| 1                            | Sekwencj                       |
+| 2                            | Wartość2                       |
 | 3                            | Wartość3                       |
 | 4                            | value4                       |
 | 5                            | value5                       |
@@ -1155,7 +1155,7 @@ using Microsoft.Extensions.Configuration;
 
 *Wzorzec opcji* jest rozszerzeniem pojęć konfiguracyjnych opisanych w tym temacie. Opcje używają klas do reprezentowania grup powiązanych ustawień. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/options>.
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="host-versus-app-configuration"></a>Host a konfiguracja aplikacji
 
@@ -1294,7 +1294,7 @@ Wartości konfiguracyjne przyjmują następujące konwencje:
 
 W poniższej tabeli przedstawiono dostawców konfiguracji dostępnych do ASP.NET Core aplikacji.
 
-| Provider | Zapewnia konfigurację z&hellip; |
+| Dostawca | Zapewnia konfigurację z&hellip; |
 | -------- | ----------------------------------- |
 | [Dostawca konfiguracji Azure Key Vault](xref:security/key-vault-configuration) (tematy dotyczące*zabezpieczeń* ) | W usłudze Azure Key Vault |
 | [Dostawca konfiguracji aplikacji platformy Azure](/azure/azure-app-configuration/quickstart-aspnet-core-app) (dokumentacja platformy Azure) | Azure App Configuration |
@@ -1552,7 +1552,7 @@ Podczas tworzenia konstruktora hostów Konfiguracja hosta jest zapewniana przez 
 
 Interfejs API konfiguracji ma specjalne reguły przetwarzania dla czterech zmiennych środowiskowych parametrów połączenia związanych z konfigurowaniem parametrów połączenia platformy Azure dla środowiska aplikacji. Zmienne środowiskowe z prefiksami podanymi w tabeli są ładowane do aplikacji, jeśli nie podano prefiksu do `AddEnvironmentVariables`.
 
-| Prefiks parametrów połączenia | Provider |
+| Prefiks parametrów połączenia | Dostawca |
 | ------------------------ | -------- |
 | `CUSTOMCONNSTR_` | Dostawca niestandardowy |
 | `MYSQLCONNSTR_` | [MySQL](https://www.mysql.com/) |
@@ -2018,8 +2018,8 @@ Należy wziąć pod uwagę klucze konfiguracji i wartości podane w poniższej t
 | Klucz             | Wartość  |
 | :-------------: | :----: |
 | Tablica: wpisy: 0 | value0 |
-| Tablica: wpisy: 1 | sekwencj |
-| Tablica: wpisy: 2 | wartość2 |
+| Tablica: wpisy: 1 | Sekwencj |
+| Tablica: wpisy: 2 | Wartość2 |
 | Tablica: wpisy: 4 | value4 |
 | Tablica: wpisy: 5 | value5 |
 
@@ -2049,8 +2049,8 @@ Obiekt powiązany, wystąpienie `ArrayExample`, otrzymuje dane tablicy z konfigu
 | Indeks `ArrayExample.Entries` | Wartość `ArrayExample.Entries` |
 | :--------------------------: | :--------------------------: |
 | 0                            | value0                       |
-| 1                            | sekwencj                       |
-| 2                            | wartość2                       |
+| 1                            | Sekwencj                       |
+| 2                            | Wartość2                       |
 | 3                            | value4                       |
 | 4                            | value5                       |
 
@@ -2084,8 +2084,8 @@ Jeśli wystąpienie klasy `ArrayExample` jest powiązane, gdy dostawca konfigura
 | Indeks `ArrayExample.Entries` | Wartość `ArrayExample.Entries` |
 | :--------------------------: | :--------------------------: |
 | 0                            | value0                       |
-| 1                            | sekwencj                       |
-| 2                            | wartość2                       |
+| 1                            | Sekwencj                       |
+| 2                            | Wartość2                       |
 | 3                            | Wartość3                       |
 | 4                            | value4                       |
 | 5                            | value5                       |

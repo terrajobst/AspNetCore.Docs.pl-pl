@@ -4,14 +4,14 @@ author: mjrousos
 description: Informacje o uwierzytelnianiu w ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/04/2019
+ms.date: 03/03/2020
 uid: security/authentication/index
-ms.openlocfilehash: 40b2fb59b96486435a2ec0a7d69bee5ab4a814d2
-ms.sourcegitcommit: 76d7fff62014c3db02564191ab768acea00f1b26
+ms.openlocfilehash: 24113fd4f090cf76746a7b077212fdab012f82c1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852717"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659629"
 ---
 # <a name="overview-of-aspnet-core-authentication"></a>Omówienie uwierzytelniania ASP.NET Core
 
@@ -80,14 +80,14 @@ W oparciu o konfigurację schematu uwierzytelniania i kontekst żądania przycho
 
 ### <a name="authenticate"></a>Uwierzytelnianie
 
-Akcja uwierzytelniania schematu uwierzytelniania jest odpowiedzialna za konstruowanie tożsamości użytkownika na podstawie kontekstu żądania. Zwraca <xref:Microsoft.AspNetCore.Authentication.AuthenticateResult> wskazujący, czy uwierzytelnianie zakończyło się pomyślnie, a jeśli tak, tożsamość użytkownika w biletu uwierzytelniania. Zobacz `HttpContext.AuthenticateAsync`. Przykłady uwierzytelniania obejmują:
+Akcja uwierzytelniania schematu uwierzytelniania jest odpowiedzialna za konstruowanie tożsamości użytkownika na podstawie kontekstu żądania. Zwraca <xref:Microsoft.AspNetCore.Authentication.AuthenticateResult> wskazujący, czy uwierzytelnianie zakończyło się pomyślnie, a jeśli tak, tożsamość użytkownika w biletu uwierzytelniania. Zobacz: <xref:Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions.AuthenticateAsync%2A>. Przykłady uwierzytelniania obejmują:
 
 * Schemat uwierzytelniania plików cookie, który konstruuje tożsamość użytkownika z plików cookie.
 * Schemat okaziciela JWT deserializacji i weryfikacji tokenu okaziciela JWT w celu utworzenia tożsamości użytkownika.
 
-### <a name="challenge"></a>Zadanie
+### <a name="challenge"></a>Sprawdz
 
-Wyzwanie uwierzytelniania jest wywoływane przez autoryzację, gdy nieuwierzytelniony użytkownik żąda punktu końcowego wymagającego uwierzytelniania. Jest wystawiane wyzwanie uwierzytelniania, na przykład gdy użytkownik anonimowy żąda zasobu z ograniczeniami lub klika łącze logowania. Autoryzacja wywołuje wyzwanie przy użyciu określonych schematów uwierzytelniania lub wartość domyślną, jeśli nie została określona. Zobacz `HttpContext.ChallengeAsync`. Przykłady wyzwania uwierzytelniania obejmują:
+Wyzwanie uwierzytelniania jest wywoływane przez autoryzację, gdy nieuwierzytelniony użytkownik żąda punktu końcowego wymagającego uwierzytelniania. Jest wystawiane wyzwanie uwierzytelniania, na przykład gdy użytkownik anonimowy żąda zasobu z ograniczeniami lub klika łącze logowania. Autoryzacja wywołuje wyzwanie przy użyciu określonych schematów uwierzytelniania lub wartość domyślną, jeśli nie została określona. Zobacz: <xref:Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions.ChallengeAsync%2A>. Przykłady wyzwania uwierzytelniania obejmują:
 
 * Schemat uwierzytelniania plików cookie przekierowuje użytkownika do strony logowania.
 * Schemat okaziciela JWT zwracający wynik 401 z nagłówkiem `www-authenticate: bearer`.
@@ -96,7 +96,7 @@ Akcja wyzwania powinna dać użytkownikowi informacje o mechanizmie uwierzytelni
 
 ### <a name="forbid"></a>Uniemożliwia
 
-Akcja zabraniania schematu uwierzytelniania jest wywoływana przez autoryzację, gdy uwierzytelniony użytkownik próbuje uzyskać dostęp do zasobu, do którego nie ma dostępu. Zobacz `HttpContext.ForbidAsync`. Przykładem zabraniania uwierzytelniania są:
+Akcja zabraniania schematu uwierzytelniania jest wywoływana przez autoryzację, gdy uwierzytelniony użytkownik próbuje uzyskać dostęp do zasobu, do którego nie ma dostępu. Zobacz: <xref:Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions.ForbidAsync%2A>. Przykładem zabraniania uwierzytelniania są:
 * Schemat uwierzytelniania plików cookie przekierowuje użytkownika do strony wskazującej dostęp był zabroniony.
 * Schemat okaziciela JWT zwracający wynik 403.
 * Niestandardowy schemat uwierzytelniania przekierowuje do strony, na której użytkownik może zażądać dostępu do zasobu.

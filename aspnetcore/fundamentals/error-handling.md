@@ -7,20 +7,20 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: c20d8757eef80fdbb73b1b7a9933a3c0be9bb8ed
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 28b463bccfb8aff4d10b95aa9a984455b4f4b976
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358980"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658817"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Obsługa błędów w ASP.NET Core
 
-Autorzy [Dykstra](https://github.com/tdykstra/), [Luke Latham](https://github.com/guardrex)i [Steve Smith](https://ardalis.com/)
+Autorzy [Dykstra](https://github.com/tdykstra/) i [Steve Smith](https://ardalis.com/)
 
 W tym artykule opisano typowe podejścia do obsługi błędów w aplikacjach sieci Web ASP.NET Core. Zobacz <xref:web-api/handle-errors> interfejsów API sieci Web.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples). ([Jak pobrać](xref:index#how-to-download-a-sample)) Artykuł zawiera instrukcje dotyczące sposobu ustawiania dyrektyw preprocesora (`#if`, `#endif`, `#define`) w przykładowej aplikacji, aby umożliwić korzystanie z różnych scenariuszy.
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples). ([Jak pobrać](xref:index#how-to-download-a-sample)) Artykuł zawiera instrukcje dotyczące sposobu ustawiania dyrektyw preprocesora (`#if`, `#endif`, `#define`) w przykładowej aplikacji, aby umożliwić korzystanie z różnych scenariuszy.
 
 ## <a name="developer-exception-page"></a>Strona wyjątków dla deweloperów
 
@@ -40,7 +40,7 @@ Na stronie znajdują się następujące informacje o wyjątku i żądaniu:
 * Pliki cookie (jeśli istnieją)
 * Nagłówki
 
-Aby wyświetlić stronę wyjątku dla deweloperów w [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), użyj dyrektywy preprocesora `DevEnvironment` i wybierz pozycję **Wyzwól wyjątek** na stronie głównej.
+Aby wyświetlić stronę wyjątku dla deweloperów w [przykładowej aplikacji](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), użyj dyrektywy preprocesora `DevEnvironment` i wybierz pozycję **Wyzwól wyjątek** na stronie głównej.
 
 ## <a name="exception-handler-page"></a>Strona obsługi wyjątków
 
@@ -75,7 +75,7 @@ Użyj <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature>, aby 
 > [!WARNING]
 > **Nie** należy podawać poufnych informacji o błędach do klientów. Obsługa błędów stanowi zagrożenie bezpieczeństwa.
 
-Aby wyświetlić stronę obsługa wyjątków w [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), użyj dyrektyw preprocesora `ProdEnvironment` i `ErrorHandlerPage`, a następnie wybierz pozycję **Wyzwól wyjątek** na stronie głównej.
+Aby wyświetlić stronę obsługa wyjątków w [przykładowej aplikacji](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), użyj dyrektyw preprocesora `ProdEnvironment` i `ErrorHandlerPage`, a następnie wybierz pozycję **Wyzwól wyjątek** na stronie głównej.
 
 ## <a name="exception-handler-lambda"></a>Procedura obsługi wyjątków lambda
 
@@ -85,12 +85,12 @@ Oto przykład użycia wyrażenia lambda dla obsługi wyjątków:
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_HandlerPageLambda)]
 
-W poprzednim kodzie `await context.Response.WriteAsync(new string(' ', 512));` został dodany, aby przeglądarka Internet Explorer wyświetlała komunikat o błędzie zamiast komunikatu o błędzie programu IE. Aby uzyskać więcej informacji, zobacz [problem w usłudze GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/16144).
+W poprzednim kodzie `await context.Response.WriteAsync(new string(' ', 512));` został dodany, aby przeglądarka Internet Explorer wyświetlała komunikat o błędzie zamiast komunikatu o błędzie programu IE. Aby uzyskać więcej informacji, zobacz [ten problem](https://github.com/dotnet/AspNetCore.Docs/issues/16144)w serwisie GitHub.
 
 > [!WARNING]
 > **Nie** należy podawać poufnych informacji o błędach z <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> lub <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> do klientów. Obsługa błędów stanowi zagrożenie bezpieczeństwa.
 
-Aby zobaczyć wynik obsługi wyjątku lambda w [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), użyj dyrektyw preprocesora `ProdEnvironment` i `ErrorHandlerLambda`, a następnie wybierz pozycję **Wyzwól wyjątek** na stronie głównej.
+Aby zobaczyć wynik obsługi wyjątku lambda w [przykładowej aplikacji](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), użyj dyrektyw preprocesora `ProdEnvironment` i `ErrorHandlerLambda`, a następnie wybierz pozycję **Wyzwól wyjątek** na stronie głównej.
 
 ## <a name="usestatuscodepages"></a>UseStatusCodePages
 
@@ -110,7 +110,7 @@ Oto przykład tekstu wyświetlanego przez domyślne programy obsługi:
 Status Code: 404; Not Found
 ```
 
-Aby wyświetlić jeden z różnych formatów stron kodu stanu w [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), należy użyć jednej z dyrektyw preprocesora, która rozpoczyna się od `StatusCodePages`, a na stronie głównej wybierz pozycję **Wyzwól a 404** .
+Aby wyświetlić jeden z różnych formatów stron kodu stanu w [przykładowej aplikacji](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), należy użyć jednej z dyrektyw preprocesora, która rozpoczyna się od `StatusCodePages`, a na stronie głównej wybierz pozycję **Wyzwól a 404** .
 
 ## <a name="usestatuscodepages-with-format-string"></a>UseStatusCodePages z ciągiem formatu
 
@@ -133,7 +133,7 @@ Metoda rozszerzenia <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
-Szablon adresu URL może zawierać `{0}` symbol zastępczy dla kodu stanu, jak pokazano w przykładzie. Jeśli szablon adresu URL zaczyna się od tyldy (~), tylda jest zastępowana `PathBase`aplikacji. Jeśli wskażesz punkt końcowy w aplikacji, Utwórz widok MVC lub stronę Razor dla punktu końcowego. Aby uzyskać Razor Pages przykład, zobacz *Pages/StatusCode. cshtml* w [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).
+Szablon adresu URL może zawierać `{0}` symbol zastępczy dla kodu stanu, jak pokazano w przykładzie. Jeśli szablon adresu URL zaczyna się od tyldy (~), tylda jest zastępowana `PathBase`aplikacji. Jeśli wskażesz punkt końcowy w aplikacji, Utwórz widok MVC lub stronę Razor dla punktu końcowego. Aby uzyskać Razor Pages przykład, zobacz *Pages/StatusCode. cshtml* w [przykładowej aplikacji](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).
 
 Ta metoda jest często używana w przypadku aplikacji:
 
@@ -149,7 +149,7 @@ Metoda rozszerzenia <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithReExecute)]
 
-Jeśli wskażesz punkt końcowy w aplikacji, Utwórz widok MVC lub stronę Razor dla punktu końcowego. Aby uzyskać Razor Pages przykład, zobacz *Pages/StatusCode. cshtml* w [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).
+Jeśli wskażesz punkt końcowy w aplikacji, Utwórz widok MVC lub stronę Razor dla punktu końcowego. Aby uzyskać Razor Pages przykład, zobacz *Pages/StatusCode. cshtml* w [przykładowej aplikacji](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).
 
 Ta metoda jest często używana, gdy aplikacja powinna:
 
@@ -206,7 +206,7 @@ W warstwie hostingu może zostać wyświetlona strona błędu przechwyconego bł
 * Proces dotnet ulega awarii.
 * Nie zostanie wyświetlona strona błędu, gdy serwer HTTP jest [Kestrel](xref:fundamentals/servers/kestrel).
 
-W przypadku uruchamiania [programu w usługach IIS](/iis) (lub Azure App Service) lub [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), [moduł ASP.NET Core](xref:host-and-deploy/aspnet-core-module) zwrócił *błąd 502,5-proces* , jeśli nie można uruchomić procesu. Aby uzyskać więcej informacji, zobacz temat <xref:test/troubleshoot-azure-iis>.
+W przypadku uruchamiania [programu w usługach IIS](/iis) (lub Azure App Service) lub [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), [moduł ASP.NET Core](xref:host-and-deploy/aspnet-core-module) zwrócił *błąd 502,5-proces* , jeśli nie można uruchomić procesu. Aby uzyskać więcej informacji, zobacz <xref:test/troubleshoot-azure-iis>.
 
 ## <a name="database-error-page"></a>Strona błędu bazy danych
 
@@ -223,7 +223,7 @@ if (env.IsDevelopment())
 
 ## <a name="exception-filters"></a>Filtry wyjątków
 
-W aplikacjach MVC filtry wyjątków można konfigurować globalnie lub na podstawie poszczególnych kontrolerów lub akcji. W aplikacjach Razor Pages można je skonfigurować globalnie lub na model strony. Te filtry obsługują wszystkie Nieobsłużone wyjątki, które występują podczas wykonywania akcji kontrolera lub innego filtru. Aby uzyskać więcej informacji, zobacz temat <xref:mvc/controllers/filters#exception-filters>.
+W aplikacjach MVC filtry wyjątków można konfigurować globalnie lub na podstawie poszczególnych kontrolerów lub akcji. W aplikacjach Razor Pages można je skonfigurować globalnie lub na model strony. Te filtry obsługują wszystkie Nieobsłużone wyjątki, które występują podczas wykonywania akcji kontrolera lub innego filtru. Aby uzyskać więcej informacji, zobacz <xref:mvc/controllers/filters#exception-filters>.
 
 > [!TIP]
 > Filtry wyjątków są przydatne w przypadku zalewek wyjątków, które występują w akcjach MVC, ale nie są tak elastyczne, jak wyjątek obsługujący oprogramowanie pośredniczące. Zalecamy używanie oprogramowania pośredniczącego. Używaj filtrów tylko wtedy, gdy musisz wykonać obsługę błędów w różny sposób, w zależności od wybranej akcji MVC.

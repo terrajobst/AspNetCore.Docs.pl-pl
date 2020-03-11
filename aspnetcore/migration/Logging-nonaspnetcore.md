@@ -1,27 +1,27 @@
 ---
-title: Migracja z Microsoft.Extensions.Logging 2.1 lub 2.2 lub 3.0
+title: Migrowanie z Microsoft. Extensions. Logging 2,1 do 2,2 lub 3,0
 author: pakrym
-description: Dowiedz się, jak przeprowadzić migrację aplikacji bez platformy ASP.NET Core, która używa Microsoft.Extensions.Logging z 2.1 2.2 lub 3.0.
+description: Dowiedz się, jak przeprowadzić migrację aplikacji non-ASP.NET Core, która korzysta z Microsoft. Extensions. rejestrowanie z 2,1 do 2,2 lub 3,0.
 ms.author: pakrym
 ms.custom: mvc
 ms.date: 01/04/2019
 uid: migration/logging-nonaspnetcore
 ms.openlocfilehash: 2519ddc02cee5978483bcaef4341a52aad3ba2a6
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898840"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659321"
 ---
-# <a name="migrate-from-microsoftextensionslogging-21-to-22-or-30"></a>Migracja z Microsoft.Extensions.Logging 2.1 lub 2.2 lub 3.0
+# <a name="migrate-from-microsoftextensionslogging-21-to-22-or-30"></a>Migrowanie z Microsoft. Extensions. Logging 2,1 do 2,2 lub 3,0
 
-W tym artykule przedstawiono typowe kroki dotyczące migrowania aplikacji bez platformy ASP.NET Core, która używa `Microsoft.Extensions.Logging` z 2.1 2.2 lub 3.0.
+W tym artykule opisano typowe kroki migrowania aplikacji non-ASP.NET Core, która używa `Microsoft.Extensions.Logging` od 2,1 do 2,2 lub 3,0.
 
 ## <a name="21-to-22"></a>Z wersji 2.1 do 2.2
 
-Ręczne tworzenie `ServiceCollection` i wywołać `AddLogging`.
+Ręcznie Utwórz `ServiceCollection` i Wywołaj `AddLogging`.
 
-przykład 2.1:
+2,1 przykład:
 
 ```csharp
 using (var loggerFactory = new LoggerFactory())
@@ -32,7 +32,7 @@ using (var loggerFactory = new LoggerFactory())
 }
 ```
 
-przykład 2,2:
+2,2 przykład:
 
 ```csharp
 var serviceCollection = new ServiceCollection();
@@ -45,11 +45,11 @@ using (var loggerFactory = serviceProvider.GetService<ILoggerFactory>())
 }
 ```
 
-## <a name="21-to-30"></a>2.1 i 3.0
+## <a name="21-to-30"></a>2,1 do 3,0
 
-3.0, należy użyć `LoggingFactory.Create`.
+W 3,0 użyj `LoggingFactory.Create`.
 
-przykład 2.1:
+2,1 przykład:
 
 ```csharp
 using (var loggerFactory = new LoggerFactory())
@@ -60,7 +60,7 @@ using (var loggerFactory = new LoggerFactory())
 }
 ```
 
-przykład 3.0:
+3,0 przykład:
 
 ```csharp
 using (var loggerFactory = LoggerFactory.Create(builder => builder.AddConsole()))

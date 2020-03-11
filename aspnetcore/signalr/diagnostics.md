@@ -10,31 +10,31 @@ no-loc:
 - SignalR
 uid: signalr/diagnostics
 ms.openlocfilehash: c5bd2ac27f8ca486b0d75aed8439747f72448625
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963846"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660973"
 ---
-# <a name="logging-and-diagnostics-in-aspnet-core-opno-locsignalr"></a>Rejestrowanie i Diagnostyka w ASP.NET Core SignalR
+# <a name="logging-and-diagnostics-in-aspnet-core-signalr"></a>Rejestrowanie i Diagnostyka w ASP.NET Core sygnalizujący
 
 Według [Andrew Stanton-pielęgniarki](https://twitter.com/anurse)
 
-Ten artykuł zawiera wskazówki dotyczące zbierania danych diagnostycznych z aplikacji ASP.NET Core SignalR w celu ułatwienia rozwiązywania problemów.
+Ten artykuł zawiera wskazówki dotyczące zbierania danych diagnostycznych z aplikacji sygnalizującej ASP.NET Core, aby pomóc w rozwiązywaniu problemów.
 
 ## <a name="server-side-logging"></a>Rejestrowanie po stronie serwera
 
 > [!WARNING]
 > Dzienniki po stronie serwera mogą zawierać poufne informacje z aplikacji. **Nigdy nie** Publikuj nieprzetworzonych dzienników z aplikacji produkcyjnych na forach publicznych, takich jak GitHub.
 
-Ponieważ SignalR jest częścią ASP.NET Core, używa systemu rejestrowania ASP.NET Core. W domyślnej konfiguracji SignalR rejestrować bardzo małe informacje, ale można je skonfigurować. Szczegółowe informacje na temat konfigurowania rejestrowania ASP.NET Core można znaleźć w dokumentacji dotyczącej [rejestrowania ASP.NET Core](xref:fundamentals/logging/index#configuration) .
+Ponieważ sygnalizujący jest częścią ASP.NET Core, używa systemu rejestrowania ASP.NET Core. W konfiguracji domyślnej program sygnalizujący rejestruje bardzo mało informacji, ale może to być skonfigurowane. Szczegółowe informacje na temat konfigurowania rejestrowania ASP.NET Core można znaleźć w dokumentacji dotyczącej [rejestrowania ASP.NET Core](xref:fundamentals/logging/index#configuration) .
 
-SignalR używa dwóch kategorii rejestratora:
+Sygnalizujący używa dwóch kategorii rejestratora:
 
 * `Microsoft.AspNetCore.SignalR` &ndash; dzienników związanych z protokołami centrów, aktywowanie centrów, wywoływanie metod i innych działań związanych z centrum.
-* `Microsoft.AspNetCore.Http.Connections` &ndash; dzienników związanych z transportami, takimi jak obiekty WebSockets, długotrwałe sondowanie i zdarzenia wysyłane przez serwer oraz infrastruktura SignalR niskiego poziomu.
+* `Microsoft.AspNetCore.Http.Connections` &ndash; dzienników związanych z transportami, takimi jak obiekty WebSockets, długotrwałe sondowanie i zdarzenia wysyłane przez serwer oraz infrastruktura sygnałów niskiego poziomu.
 
-Aby włączyć szczegółowe dzienniki z SignalR, należy skonfigurować obie powyższe prefiksy na poziomie `Debug` w pliku *appSettings. JSON* przez dodanie następujących elementów do podsekcji `LogLevel` w `Logging`:
+Aby włączyć szczegółowe dzienniki od sygnalizującego, skonfiguruj obie powyższe prefiksy na poziomie `Debug` w pliku *appSettings. JSON* , dodając następujące elementy do podsekcji `LogLevel` w `Logging`:
 
 [!code-json[](diagnostics/logging-config.json?highlight=7-8)]
 
@@ -57,7 +57,7 @@ Sposób dostępu do dzienników po stronie serwera zależy od środowiska, w kt�
 
 ### <a name="as-a-console-app-outside-iis"></a>Jako Aplikacja konsolowa poza usługami IIS
 
-Jeśli używasz programu w aplikacji konsolowej, [Rejestrator konsoli](xref:fundamentals/logging/index#console-provider) powinien być domyślnie włączony. Dzienniki SignalR będą wyświetlane w konsoli programu.
+Jeśli używasz programu w aplikacji konsolowej, [Rejestrator konsoli](xref:fundamentals/logging/index#console-provider) powinien być domyślnie włączony. Dzienniki sygnalizujące będą wyświetlane w konsoli programu.
 
 ### <a name="within-iis-express-from-visual-studio"></a>W IIS Express z programu Visual Studio
 

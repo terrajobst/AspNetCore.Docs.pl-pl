@@ -1,58 +1,58 @@
 ---
-title: Ograniczanie okresu istnienia ładunków chronionych z platformy ASP.NET Core
+title: Ogranicz okres istnienia chronionych ładunków w ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, jak ograniczanie okresu istnienia ładunek chronionych za pomocą interfejsów API do ochrony danych usługi ASP.NET Core.
+description: Dowiedz się, jak ograniczyć okres istnienia chronionego ładunku przy użyciu interfejsów API ochrony danych ASP.NET Core.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/consumer-apis/limited-lifetime-payloads
 ms.openlocfilehash: 8dc3b856ec67477ec8ae777749c9bf3107eb4eda
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902911"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656059"
 ---
-# <a name="limit-the-lifetime-of-protected-payloads-in-aspnet-core"></a>Ograniczanie okresu istnienia ładunków chronionych z platformy ASP.NET Core
+# <a name="limit-the-lifetime-of-protected-payloads-in-aspnet-core"></a>Ogranicz okres istnienia chronionych ładunków w ASP.NET Core
 
-Istnieją scenariusze, w którym chce utworzyć chronionych ładunek, która wygaśnie po upływie czasu określonego Ustaw dewelopera aplikacji. Na przykład chronione ładunku może reprezentować token resetowania hasła, który powinien składać się wyłącznie prawidłową godzinę. Bez obaw można dla deweloperów do tworzenia własnych format ładunku, która zawiera datę wygaśnięcia osadzonego i zaawansowanych deweloperów mogą chcieć czy mimo to zrobić, ale dla większości deweloperów zarządzanie tymi wygaśnięcia można powiększać niewygodna.
+Istnieją scenariusze, w których Deweloper aplikacji chce utworzyć chroniony ładunek, który wygaśnie po upływie określonego czasu. Na przykład, chroniony ładunek może reprezentować token resetowania hasła, który powinien być prawidłowy tylko przez jedną godzinę. W przypadku deweloperów istnieje możliwość utworzenia własnego formatu ładunku zawierającego osadzoną datę wygaśnięcia, a zaawansowani deweloperzy mogą chcieć to zrobić mimo to, ale w przypadku większości deweloperów, którzy zarządzają tymi wygasami, mogą wzrosnąć żmudnym.
 
-Aby to ułatwić dla naszych użytkowników dla deweloperów pakietu [Microsoft.AspNetCore.DataProtection.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/) zawiera narzędzia interfejsów API do tworzenia ładunków, które automatycznie wygasają po upływie pewien okres czasu. Te interfejsy API zawieszanie się wylogować się z `ITimeLimitedDataProtector` typu.
+Aby ułatwić naszym użytkownikom deweloperów, pakiet [Microsoft. AspNetCore. dataprotection. Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/) zawiera interfejsy API narzędzi do tworzenia ładunków, które automatycznie wygasną po upływie określonego czasu. Te interfejsy API zawieszają się `ITimeLimitedDataProtector` typu.
 
 ## <a name="api-usage"></a>Użycie interfejsu API
 
-`ITimeLimitedDataProtector` Interfejs jest interfejsem core do ochrony i wyłączenie ochrony ograniczonej czasowo / własnym wygasające ładunków. Aby utworzyć wystąpienie `ITimeLimitedDataProtector`, musisz najpierw wystąpienie zwykły [interfejsu IDataProtector](xref:security/data-protection/consumer-apis/overview) skonstruowany z określonym przeznaczeniem. Gdy `IDataProtector` wystąpienia jest dostępny, wywołaj `IDataProtector.ToTimeLimitedDataProtector` metodę rozszerzenia, aby wrócić funkcję ochrony za pomocą funkcji wbudowanych wygaśnięcia.
+Interfejs `ITimeLimitedDataProtector` jest podstawowym interfejsem do ochrony i nieochrony ładunków z ograniczeniami czasowymi/z własnym wygaśnięciem. Aby utworzyć wystąpienie `ITimeLimitedDataProtector`, najpierw będzie potrzebne wystąpienie regularnego [IDataProtector](xref:security/data-protection/consumer-apis/overview) skonstruowane z określonym przeznaczeniem. Po udostępnieniu wystąpienia `IDataProtector` Wywołaj metodę rozszerzenia `IDataProtector.ToTimeLimitedDataProtector`, aby odzyskać funkcję ochrony z wbudowanymi funkcjami wygaśnięcia.
 
-`ITimeLimitedDataProtector` udostępnia następujące metody rozszerzenie i powierzchni interfejsu API:
+`ITimeLimitedDataProtector` udostępnia następujące metody:
 
-* CreateProtector (ciąg cel): ITimeLimitedDataProtector — ten interfejs API jest podobne do istniejących `IDataProtectionProvider.CreateProtector` , może służyć do tworzenia [zastosowania łańcuchów](xref:security/data-protection/consumer-apis/purpose-strings) z ochrony ograniczonej czasowo głównego.
+* Funkcja onprotecter (przeznaczenie ciągu): ITimeLimitedDataProtector — ten interfejs API jest podobny do istniejącego `IDataProtectionProvider.CreateProtector` w tym, że może służyć do tworzenia [łańcuchów celów](xref:security/data-protection/consumer-apis/purpose-strings) z poziomu głównego ochrony ograniczonego czasowo.
 
-* Ochrona (byte [] zwykłego tekstu, DateTimeOffset wygaśnięcia): byte]
+* Ochrona (Byte [] — zwykły tekst, wygaśnięcie DateTimeOffset): Byte []
 
-* Ochrona (byte [] postaci zwykłego tekstu, przedział czasu istnienia): byte]
+* Ochrona (Byte [] — zwykły tekst, okres istnienia przedziału czasu): Byte []
 
-* Ochrona (byte [] zwykły tekst): byte]
+* Chroń (Byte [] zwykły tekst): Byte []
 
-* Ochrona (ciągu zwykłego tekstu, DateTimeOffset wygaśnięcia): ciąg
+* Ochrona (tekst tekstowy, wygaśnięcie DateTimeOffset): ciąg
 
-* Ochrona (ciągu zwykłego tekstu, przedział czasu istnienia): ciąg
+* Ochrona (tekst tekstowy, okres istnienia przedziału): ciąg
 
-* Ochrona (ciąg zwykły tekst): ciąg
+* Ochrona (ciąg tekstowy): ciąg
 
-Oprócz podstawowych `Protect` metod, które zająć tylko zwykły tekst, istnieją nowe przeciążenia, które pozwala na stosowanie datę wygaśnięcia w ładunku. Data wygaśnięcia, można określić jako Data bezwzględna (za pośrednictwem `DateTimeOffset`) lub jako względne czasu (z obecną systemową godzina, za pośrednictwem `TimeSpan`). Przeciążenia, które nie przyjmuje wygaśnięcia nosi nazwę, ładunek jest traktowana jako nigdy nie wygasa.
+Oprócz podstawowych metod `Protect`, które pobierają tylko zwykły tekst, istnieją nowe przeciążenia, które umożliwiają określenie daty wygaśnięcia ładunku. Datę wygaśnięcia można określić jako datę bezwzględną (za pośrednictwem `DateTimeOffset`) lub jako względny czas (od bieżącego czasu systemowego za pośrednictwem `TimeSpan`). Jeśli zostanie wywołane Przeciążenie, które nie przyjmuje czasu wygaśnięcia, ładunek jest założono, że nigdy nie wygaśnie.
 
-* Wyłącz ochronę (byte [] protectedData, out DateTimeOffset wygaśnięcia): byte]
+* Unprotected (Byte [] protectedData, out — wygaśnięcie DateTimeOffset): Byte []
 
-* Wyłącz ochronę (protectedData byte []): byte]
+* Unprotected (Byte [] protectedData): Byte []
 
-* Wyłącz ochronę (out wygaśnięcia DateTimeOffset protectedData ciągu): ciąg
+* Wyłącz ochronę (ciąg protectedData, out — wygaśnięcie DateTimeOffset): ciąg
 
-* Wyłącz ochronę (ciąg protectedData): ciąg
+* Unprotected (String protectedData): ciąg
 
-`Unprotect` Metody zwracają oryginalne dane niechronione. Jeśli jeszcze nie upłynął ładunek, bezwzględnych wygaśnięcia jest zwracana jako opcjonalny parametr wraz z oryginalnym dane niechronione out. Jeżeli obciążenie jest uznawane za wygasłe, wszystkie przeciążenia metody Unprotect zgłosi cryptographicexception —.
+Metody `Unprotect` zwracają oryginalne niechronione dane. Jeśli ładunek jeszcze nie wygasł, bezwzględne wygaśnięcie jest zwracane jako opcjonalny parametr out wraz z oryginalnymi danymi niechronionymi. Jeśli ładunek wygasł, wszystkie przeciążenia metody unprotected będą generować CryptographicException.
 
 >[!WARNING]
-> Zalecane jest nie ochrony ładunków, wymagających długoterminowe lub nieokreślony trwałości za pomocą tych interfejsów API. "Można pozwolić sobie na ładunków chronionych trwale nie da się po upływie miesiąca?" może służyć jako regułą; Jeśli odpowiedź jest nie następnie deweloperzy należy rozważyć alternatywne interfejsy API.
+> Nie zaleca się używania tych interfejsów API do ochrony ładunków, które wymagają długoterminowej lub nieograniczonej trwałości. "Czy mogę zapewnić trwałe nieodwracalne odzyskanie chronionych ładunków po miesiącu?" może działać jako dobra zasada dla kciuka; Jeśli odpowiedź nie jest, deweloperzy powinni rozważyć alternatywne interfejsy API.
 
-Przykładowe poniżej został użyty [ścieżek kodu-DI](xref:security/data-protection/configuration/non-di-scenarios) podczas tworzenia wystąpienia system ochrony danych. Aby uruchomić ten przykład, upewnij się, że najpierw zostały dodane odwołanie do pakietu Microsoft.AspNetCore.DataProtection.Extensions.
+W poniższym przykładzie są stosowane [ścieżki kodu inne niż di](xref:security/data-protection/configuration/non-di-scenarios) do tworzenia wystąpienia systemu ochrony danych. Aby uruchomić ten przykład, upewnij się, że najpierw Dodano odwołanie do pakietu Microsoft. AspNetCore. dataprotection. Extensions.
 
 [!code-csharp[](limited-lifetime-payloads/samples/limitedlifetimepayloads.cs)]

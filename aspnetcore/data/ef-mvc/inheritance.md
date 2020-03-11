@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: c10df60a43f5d59f3ce13afd38aad42b88c80516
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: dab3d2b057162f6d986db10e74e3681acc0ada3b
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259401"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657242"
 ---
 # <a name="tutorial-implement-inheritance---aspnet-mvc-with-ef-core"></a>Samouczek: implementowanie dziedziczenia-ASP.NET MVC z EF Core
 
@@ -20,7 +20,7 @@ W poprzednim samouczku zostały obsłużone wyjątki współbieżności. W tym s
 
 W programowaniu zorientowanym obiektowo można użyć dziedziczenia, aby ułatwić ponowne użycie kodu. W tym samouczku zmienisz klasy `Instructor` i `Student` tak, aby znajdowały się one w `Person` klasie bazowej, która zawiera właściwości, takie jak `LastName`, które są wspólne dla instruktorów i studentów. Nie dodasz ani nie zmienisz żadnych stron sieci Web, ale zmienisz część kodu, a zmiany zostaną automatycznie odzwierciedlone w bazie danych.
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Dziedziczenie mapowania do bazy danych
@@ -148,9 +148,9 @@ Kliknij prawym przyciskiem myszy tabelę osoba, a następnie kliknij polecenie *
 
 ![Tabela osób w SSOX — dane tabeli](inheritance/_static/ssox-person-data.png)
 
-## <a name="get-the-code"></a>Pobierz kod
+## <a name="get-the-code"></a>Uzyskiwanie kodu
 
-[Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
@@ -158,7 +158,7 @@ Aby uzyskać więcej informacji na temat dziedziczenia w Entity Framework Core, 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Mapowane dziedziczenie do bazy danych

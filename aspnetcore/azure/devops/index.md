@@ -7,21 +7,21 @@ ms.date: 08/07/2018
 ms.custom: mvc, seodec18
 uid: azure/devops/index
 ms.openlocfilehash: f45bb2a5dd4b3d1a820085ede7ce3219045ed80b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898561"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658082"
 ---
 # <a name="devops-with-aspnet-core-and-azure"></a>Metodyka DevOps z platformami ASP.NET Core i Azure
 
-[![Obraz okładki](./media/cover-large.png)](https://aka.ms/devopsbook)
+[![obrazu okładki](./media/cover-large.png)](https://aka.ms/devopsbook)
 
-Przez [Soper kamera](https://twitter.com/camsoper) i [Scott Addie](https://twitter.com/scottaddie)
+Według [Soper](https://twitter.com/camsoper) i [Scott Addie](https://twitter.com/scottaddie)
 
-Ten przewodnik jest dostępny jako [do pobrania plików PDF Książka elektroniczna](https://aka.ms/devopsbook).
+Ten przewodnik jest dostępny jako [książka elektroniczna do pobrania](https://aka.ms/devopsbook).
 
-## <a name="welcome"></a>Witaj 
+## <a name="welcome"></a>Powitanie 
 
 Przewodnik cyklu tworzenia oprogramowania platformy Azure dla platformy .NET — Zapraszamy! Ten przewodnik wprowadzenie podstawowych pojęć dotyczących tworzenia cyklu życia na platformie Azure przy użyciu platformy .NET, narzędziami i procesami. Po zakończeniu tego przewodnika, możesz czerpać korzyści dojrzała łańcucha narzędzi DevOps.
 
@@ -37,23 +37,23 @@ Ten przewodnik koncentruje się na środowisko end-to-end ciągłego wdrażania 
 
 ## <a name="whats-in-this-guide"></a>Co to jest w tym przewodniku
 
-### <a name="tools-and-downloadsxrefazuredevopstools-and-downloads"></a>[Narzędzia i pliki do pobrania](xref:azure/devops/tools-and-downloads)
+### <a name="tools-and-downloads"></a>[Narzędzia i pliki do pobrania](xref:azure/devops/tools-and-downloads)
 
 Dowiedz się, gdzie można uzyskać narzędzia używane w tym przewodniku.
 
-### <a name="deploy-to-app-servicexrefazuredevopsdeploy-to-app-service"></a>[Wdrażanie w usłudze App Service](xref:azure/devops/deploy-to-app-service)
+### <a name="deploy-to-app-service"></a>[Wdrażanie do usługi App Service](xref:azure/devops/deploy-to-app-service)
 
 Dowiedz się, różne metody wdrażania aplikacji platformy ASP.NET Core w usłudze Azure App Service.
 
-### <a name="continuous-integration-and-deploymentxrefazuredevopscicd"></a>[Ciągła integracja i ciągłe wdrażanie](xref:azure/devops/cicd)
+### <a name="continuous-integration-and-deployment"></a>[Ciągła integracja i ciągłe wdrażanie](xref:azure/devops/cicd)
 
 Twórz end-to-end ciągłej integracji i wdrażania rozwiązania dla aplikacji platformy ASP.NET Core za pomocą usługi GitHub, usługom DevOps platformy Azure i platformy Azure.
 
-### <a name="monitor-and-debugxrefazuredevopsmonitor"></a>[Monitorowanie i debugowania](xref:azure/devops/monitor)
+### <a name="monitor-and-debug"></a>[Monitorowanie i debugowanie](xref:azure/devops/monitor)
 
 Narzędzia platformy Azure umożliwia monitorowanie, rozwiązywanie problemów i dostosowywanie aplikacji.
 
-### <a name="next-stepsxrefazuredevopsnext-steps"></a>[Następne kroki](xref:azure/devops/next-steps)
+### <a name="next-steps"></a>[Następne kroki](xref:azure/devops/next-steps)
 
 Inne ścieżki szkoleniowe dla deweloperów platformy ASP.NET Core poznawania platformy Azure.
 

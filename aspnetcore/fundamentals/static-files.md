@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/07/2019
 uid: fundamentals/static-files
-ms.openlocfilehash: 00bab51cb411552c884f85fa63d42d0691b401b1
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: 95a77defc7e98328e1f4e3615648b1d14485e51e
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717276"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660126"
 ---
 # <a name="static-files-in-aspnet-core"></a>Pliki statyczne w ASP.NET Core
 
@@ -19,7 +19,7 @@ Autorzy [Rick Anderson](https://twitter.com/RickAndMSFT) i [Scott Addie](https:/
 
 Pliki statyczne, takie jak HTML, CSS, images i JavaScript, są zasobami, które aplikacja ASP.NET Core może bezpośrednio obsługiwać klientów. Aby umożliwić obsługę tych plików, wymagana jest pewna konfiguracja.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/static-files/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/static-files/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="serve-static-files"></a>Obsługuj pliki statyczne
 
@@ -111,6 +111,7 @@ Następujące znaczniki odwołują się do *MyStaticFiles/images/banner1. SVG*:
 Obiekt [StaticFileOptions](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions) może służyć do ustawiania nagłówków odpowiedzi HTTP. Oprócz konfigurowania pliku statycznego z poziomu [katalogu głównego sieci Web](xref:fundamentals/index#web-root), poniższy kod ustawia nagłówek `Cache-Control`:
 
 [!code-csharp[](static-files/samples/1x/StartupAddHeader.cs?name=snippet_ConfigureMethod)]
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
 
 Metoda [HeaderDictionaryExtensions. Append](/dotnet/api/microsoft.aspnetcore.http.headerdictionaryextensions.append) istnieje w pakiecie [Microsoft. AspNetCore. http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/) .
 
@@ -206,9 +207,9 @@ należy wywołać `AddDirectoryBrowser`, gdy wartość właściwości `EnableDir
 
 Przy użyciu hierarchii plików i poprzedniego kodu adresy URL są rozpoznawane w następujący sposób:
 
-| {1&gt;URI&lt;1}            |                             Reakcji  |
+| Identyfikator URI            |                             Odpowiedź  |
 | ------- | ------|
-| *http://\<server_address >/StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1. SVG |
+| *http://\<server_address >/StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1.svg |
 | *http://\<server_address >/StaticFiles*             |     MyStaticFiles/default.html |
 
 Jeśli plik o nazwie Default nie istnieje w katalogu *MyStaticFiles* , *http://\<server_address >/StaticFiles* zwraca listę katalogów z linkami, które można kliknąć:
@@ -241,9 +242,9 @@ W powyższym kodzie żądanie dotyczące pliku z nieznanym typem zawartości jes
 
 ## <a name="serve-files-from-multiple-locations"></a>Obsługiwanie plików z wielu lokalizacji
 
-`UseStaticFiles` i `UseFileServer` domyślnie dostawcy plików wskazywanym w lokalizacji *wwwroot*. Możesz udostępnić dodatkowe wystąpienia `UseStaticFiles` i `UseFileServer` innym dostawcom plików, aby zapewnić obsługę plików z innych lokalizacji. Aby uzyskać więcej informacji, zobacz [ten problem](https://github.com/aspnet/AspNetCore.Docs/issues/15578)w serwisie GitHub.
+`UseStaticFiles` i `UseFileServer` domyślnie dostawcy plików wskazywanym w lokalizacji *wwwroot*. Możesz udostępnić dodatkowe wystąpienia `UseStaticFiles` i `UseFileServer` innym dostawcom plików, aby zapewnić obsługę plików z innych lokalizacji. Aby uzyskać więcej informacji, zobacz [ten problem](https://github.com/dotnet/AspNetCore.Docs/issues/15578)w serwisie GitHub.
 
-### <a name="considerations"></a>Uwagi
+### <a name="considerations"></a>Zagadnienia do rozważenia
 
 > [!WARNING]
 > `UseDirectoryBrowser` i `UseStaticFiles` mogą wyciekować poufne wpisy tajne. Wyłączenie przeglądania katalogów w środowisku produkcyjnym jest zdecydowanie zalecane. Uważnie Przejrzyj katalogi, które są włączone za pośrednictwem `UseStaticFiles` lub `UseDirectoryBrowser`. Cały katalog i jego katalogi podrzędne stają się publicznie dostępne. Pliki magazynu odpowiednie do obsłużenia publicznie w dedykowanym katalogu, takie jak *\<content_root >/wwwroot*. Oddziel te pliki od widoków MVC, Razor Pages (tylko 2. x), plików konfiguracji itp.

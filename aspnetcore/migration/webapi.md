@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: migration/webapi
-ms.openlocfilehash: c68cf83f427f53b110075168c6d5e4d021808782
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 7f61b78c589fc9d01061b50554e5a639e372c3d8
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881147"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661848"
 ---
 # <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>Migrowanie z interfejsu API sieci Web ASP.NET do ASP.NET Core
 
@@ -19,7 +19,7 @@ Przez [Scott Addie](https://twitter.com/scott_addie) i [Steve Smith](https://ard
 
 Internetowy interfejs API ASP.NET 4. x to usługa HTTP, która dociera do szerokiego zakresu klientów, w tym przeglądarek i urządzeń przenośnych. ASP.NET Core modele aplikacji MVC i Web API łączy ASP.NET 4. x w prostszy model programowania znany jako ASP.NET Core MVC. W tym artykule przedstawiono kroki wymagane do przeprowadzenia migracji z interfejsu API sieci Web ASP.NET 4. x do ASP.NET Core MVC.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/migration/webapi/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/migration/webapi/sample) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -61,7 +61,7 @@ Rozwiązanie zawiera teraz dwa projekty. W poniższych sekcjach opisano Migrowan
 
 ## <a name="migrate-configuration"></a>Migruj konfigurację
 
-ASP.NET Core nie używa folderu *App_Start* ani pliku *Global. asax* , a plik *Web. config* jest dodawany w czasie publikacji. *Startup.cs* jest zamiennikiem elementu *Global. asax* i znajduje się w katalogu głównym projektu. Klasa `Startup` obsługuje wszystkie zadania uruchamiania aplikacji. Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/startup>.
+ASP.NET Core nie używa folderu *App_Start* ani pliku *Global. asax* , a plik *Web. config* jest dodawany w czasie publikacji. *Startup.cs* jest zamiennikiem elementu *Global. asax* i znajduje się w katalogu głównym projektu. Klasa `Startup` obsługuje wszystkie zadania uruchamiania aplikacji. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/startup>.
 
 W ASP.NET Core MVC, routing atrybutu jest uwzględniany domyślnie, gdy <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc*> jest wywoływana w `Startup.Configure`. Następujące wywołanie `UseMvc` zastępuje plik */webapiconfig.cs App_Start* projektu *ProductsApp* :
 
@@ -78,12 +78,12 @@ Kopiuj przez kontroler projektu *ProductApp* oraz model, którego używa. Wykona
 W tym momencie Kompilowanie aplikacji powoduje szereg błędów kompilacji. Błędy występują, ponieważ następujące składniki nie istnieją w ASP.NET Core:
 
 * Klasa `ApiController`
-* Obszar nazw `System.Web.Http`
+* `System.Web.Http` przestrzeń nazw
 * Interfejs `IHttpActionResult`
 
 Usuń błędy w następujący sposób:
 
-1. Zmiana `ApiController` do <xref:Microsoft.AspNetCore.Mvc.ControllerBase>. Dodaj `using Microsoft.AspNetCore.Mvc;`, aby rozwiązać `ControllerBase` odwołanie.
+1. Zmień `ApiController`, aby <xref:Microsoft.AspNetCore.Mvc.ControllerBase>. Dodaj `using Microsoft.AspNetCore.Mvc;`, aby rozwiązać `ControllerBase` odwołanie.
 1. Usuń folder `using System.Web.Http;`.
 1. Zmień typ zwracany akcji `GetProduct` z `IHttpActionResult` na `ActionResult<Product>`.
 

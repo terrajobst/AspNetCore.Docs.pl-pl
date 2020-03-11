@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/roles
 ms.openlocfilehash: 28aa3df6aa661d0b762df78fe611cd827af43f75
-ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73660054"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658397"
 ---
 # <a name="role-based-authorization-in-aspnet-core"></a>Autoryzacja oparta na rolach w ASP.NET Core
 
@@ -165,7 +165,7 @@ options.AddPolicy("ElevatedRights", policy =>
 
 Ten przykład autoryzuje użytkowników, którzy należą do ról `Administrator`, `PowerUser` lub `BackupAdministrator`.
 
-### <a name="add-role-services-to-identity"></a>Dodawanie usług ról do tożsamości
+### <a name="add-role-services-to-identity"></a>Dodaj usługi ról do tożsamości
 
 Dołącz [Addroles](/dotnet/api/microsoft.aspnetcore.identity.identitybuilder.addroles#Microsoft_AspNetCore_Identity_IdentityBuilder_AddRoles__1) , aby dodać usługi ról:
 

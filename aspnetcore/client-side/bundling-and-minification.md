@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 06/17/2019
 uid: client-side/bundling-and-minification
 ms.openlocfilehash: a7a5c40d6c31c4416212c02c1b491dd794f2a1d3
-ms.sourcegitcommit: b3e1e31e5d8bdd94096cf27444594d4a7b065525
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803282"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658271"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Łączenie i zminifikować zasobów statycznych w ASP.NET Core
 
@@ -53,7 +53,7 @@ Oryginał | Zmiany
 
 W poniższej tabeli przedstawiono różnice między pojedynczym ładowaniem zasobów i użyciem grupowania i minifikacja:
 
-Akcja | Z B/M | Bez B/M | Zmiana
+Akcja | Z B/M | Bez B/M | Change
 --- | :---: | :---: | :---:
 Żądania plików  | 7   | 18     | 157%
 Przeniesiono KB | 156 | 264.68 | 70%
@@ -90,7 +90,7 @@ Opcje konfiguracji obejmują:
 * `minify`: opcje minifikacja dla typu danych wyjściowych. **opcjonalne**, *domyślne-`minify: { enabled: true }`*
   * Opcje konfiguracji są dostępne dla każdego typu pliku wyjściowego.
     * [Minifier CSS](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
-    * [JavaScript Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
+    * [Minifier JavaScript](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
     * [Minifier HTML](https://github.com/madskristensen/BundlerMinifier/wiki)
 * `includeInProject`: Flaga oznaczająca, czy dodać wygenerowane pliki do pliku projektu. **opcjonalne**, *Domyślnie-false*
 * `sourceMap`: Flaga oznaczająca, czy generować mapę źródłową dla powiązanego pliku. **opcjonalne**, *Domyślnie-false*
@@ -103,7 +103,7 @@ Pakiet NuGet [BuildBundlerMinifier](https://www.nuget.org/packages/BuildBundlerM
 > [!NOTE]
 > BuildBundlerMinifier należy do projektu opartego na społeczności w usłudze GitHub, dla którego firma Microsoft nie zapewnia pomocy technicznej. [Tutaj](https://github.com/madskristensen/BundlerMinifier/issues)należy zgłosić problemy.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Dodaj pakiet *BuildBundlerMinifier* do projektu.
 
@@ -130,7 +130,7 @@ Wyczyść projekt. W oknie dane wyjściowe pojawia się następujący komunikat:
 ========== Clean: 1 succeeded, 0 failed, 0 skipped ==========
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Dodaj pakiet *BuildBundlerMinifier* do projektu:
 
@@ -168,7 +168,7 @@ Wyczyść projekt:
 dotnet clean
 ```
 
-Zostaną wyświetlone następujące dane wyjściowe:
+Wyświetlane są następujące dane wyjściowe:
 
 ```console
 Microsoft (R) Build Engine version 15.4.8.50001 for .NET Core
@@ -218,7 +218,7 @@ Aby zminifikować *niestandardowy. css* i powiązać go z plikiem *site. css* w 
 >
 > Ten wzorzec obsługi symboli wieloznacznych dopasowuje wszystkie pliki CSS i wyklucza wzorzec pliku zminimalizowanego.
 
-Kompiluj aplikację. Otwórz *witrynę site. min. css* i zwróć uwagę na zawartość *Custom. css* , która jest dołączana na końcu pliku.
+Skompiluj aplikację. Otwórz *witrynę site. min. css* i zwróć uwagę na zawartość *Custom. css* , która jest dołączana na końcu pliku.
 
 ## <a name="environment-based-bundling-and-minification"></a>Tworzenie i minifikacja oparte na środowisku
 

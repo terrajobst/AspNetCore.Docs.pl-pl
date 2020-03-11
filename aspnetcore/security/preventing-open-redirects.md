@@ -1,51 +1,51 @@
 ---
-title: Zapobieganie atakom na otwarte przekierowywanie w programie ASP.NET Core
+title: Zapobiegaj atakom typu "Open redirect" w ASP.NET Core
 author: ardalis
-description: Pokazuje, jak zapobiegać atakom na otwarte przekierowywanie względem aplikacji ASP.NET Core
+description: Pokazuje, jak zapobiec atakom typu "Open redirect" w aplikacji ASP.NET Core
 ms.author: riande
 ms.date: 07/07/2017
 uid: security/preventing-open-redirects
 ms.openlocfilehash: 9d8cac8708fe9aeadba5af1287362a20df7f6bfe
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815499"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660525"
 ---
-# <a name="prevent-open-redirect-attacks-in-aspnet-core"></a>Zapobieganie atakom na otwarte przekierowywanie w programie ASP.NET Core
+# <a name="prevent-open-redirect-attacks-in-aspnet-core"></a>Zapobiegaj atakom typu "Open redirect" w ASP.NET Core
 
-Aplikację internetową, która przekierowuje do adresu URL, który jest określony za pomocą żądania, takie jak dane formularza lub querystring może potencjalnie naruszone przekierowywać użytkowników zewnętrznych, złośliwy adres URL. Tym naruszeniu nosi nazwę na otwarte przekierowywanie ataki.
+Aplikacja sieci Web, która przekierowuje do adresu URL, który jest określony za pośrednictwem żądania, takiego jak QueryString lub dane formularza, może zostać naruszona w celu przekierowania użytkowników do zewnętrznego, złośliwego adresu URL. Takie manipulowanie nazywa się atakiem typu Open przekierowania.
 
-Zawsze, gdy logika aplikacji przekierowuje pod określony adres URL, należy sprawdzić, czy adres URL przekierowania nie została zmieniona. Platforma ASP.NET Core ma wbudowaną funkcję, aby chronić aplikacje przed atakom na otwarte przekierowywanie (znany także jako otwarte przekierowywanie).
+Za każdym razem, gdy logika aplikacji przekieruje do określonego adresu URL, należy sprawdzić, czy adres URL przekierowania nie został naruszony. ASP.NET Core ma wbudowaną funkcję ułatwiającą ochronę aplikacji przed atakami typu Open redirect (nazywanymi także otwartym przekierowaniem).
 
-## <a name="what-is-an-open-redirect-attack"></a>Co to jest atak na otwarte przekierowywanie?
+## <a name="what-is-an-open-redirect-attack"></a>Co to jest atak typu "Open redirect"?
 
-Aplikacje sieci Web często przekierowywać użytkowników do strony logowania w przypadku uzyskiwania dostępu do zasobów, które wymagają uwierzytelniania. Zwykle obejmują przekierowanie `returnUrl` parametr querystring tak, aby użytkownika mogą być zwrócone do pierwotnie żądanego adresu URL, po ich pomyślnym zalogowaniu. Po użytkownik jest uwierzytelniany, są one przekierowanie do adresu URL, pierwszy poprosił.
+Aplikacje sieci Web często przekierowują użytkowników na stronę logowania, gdy uzyskują dostęp do zasobów wymagających uwierzytelniania. Przekierowanie zawiera zwykle parametr `returnUrl` QueryString, dzięki czemu użytkownik może zostać zwrócony do pierwotnie żądanego adresu URL po pomyślnym zalogowaniu się. Po uwierzytelnieniu użytkownik zostanie przekierowany do adresu URL, na który pierwotnie żądał.
 
-Ponieważ docelowy adres URL jest określona w zmiennej querystring żądania, złośliwy użytkownik może manipulować ciąg zapytania. Zmodyfikowany querystring umożliwiającej witryny przekierować użytkownika do witryny zewnętrznej, złośliwy. Technika ta jest zwana Otwórz atak przekierowania (lub przekierowania).
+Ponieważ docelowy adres URL jest określony w ciągu kwerendy żądania, złośliwy użytkownik może naruszać ten ciąg. Ciąg QueryString z naruszonymi komunikatami może pozwolić witrynie na przekierowanie użytkownika do zewnętrznej, szkodliwej lokacji. Ta technika jest nazywana atakiem typu Open redirect (lub przekierowaniem).
 
-### <a name="an-example-attack"></a>Na przykład ataki
+### <a name="an-example-attack"></a>Przykład ataku
 
-Złośliwy użytkownik może tworzyć ataku, aby umożliwić złośliwemu użytkownikowi dostęp do poświadczeń użytkownika lub informacji poufnych. Aby rozpocząć atak, złośliwy użytkownik convinces użytkownikowi kliknij link do strony logowania w witrynie za pomocą `returnUrl` wartości querystring dodany do adresu URL. Rozważmy na przykład aplikacji `contoso.com` zawierającą stronę logowania w `http://contoso.com/Account/LogOn?returnUrl=/Home/About`. Atak obejmuje następujące kroki:
+Złośliwy użytkownik może stworzyć atak przeznaczony do zezwalania złośliwemu użytkownikowi na dostęp do poświadczeń lub informacji poufnych. Aby rozpocząć atak, złośliwy użytkownik zakończył pracę użytkownika w celu kliknięcia linku do strony logowania do witryny z wartością `returnUrl` QueryString dodaną w adresie URL. Rozważmy na przykład aplikację w `contoso.com`, która obejmuje stronę logowania w `http://contoso.com/Account/LogOn?returnUrl=/Home/About`. Atakujący wykonuje następujące czynności:
 
-1. Użytkownik kliknie to łącze do `http://contoso.com/Account/LogOn?returnUrl=http://contoso1.com/Account/LogOn` (drugi adres URL to "contoso**1**.com", nie "contoso.com").
-2. Użytkownik, który loguje się pomyślnie.
-3. Użytkownik jest przekierowywany (przez witrynę) do `http://contoso1.com/Account/LogOn` (złośliwych witryn, który wygląda tak samo jak real lokacji).
-4. Użytkownik loguje się ponownie (dzięki czemu złośliwego lokacji poświadczeń) i jest przekierowywany do rzeczywistego witryny.
+1. Użytkownik klika złośliwe łącze do `http://contoso.com/Account/LogOn?returnUrl=http://contoso1.com/Account/LogOn` (drugi adres URL to "contoso**1**. com", a nie "contoso.com").
+2. Logowanie użytkownika zakończyło się pomyślnie.
+3. Użytkownik zostanie przekierowany (przez lokację) do `http://contoso1.com/Account/LogOn` (złośliwa witryna, która wygląda tak samo jak prawdziwa witryna).
+4. Użytkownik loguje się ponownie (podając złośliwe witryny jako poświadczenia) i zostaje przekierowany z powrotem do rzeczywistej lokacji.
 
-Prawdopodobnie użytkownik uważa, że pierwsza próba logowania nie powiodło się i że ich druga próba zakończyła się powodzeniem. Prawdopodobnie użytkownik pozostaje świadomości, że ich poświadczenia są naruszone.
+Użytkownik prawdopodobnie zauważa, że pierwsza próba zalogowania nie powiodła się, a druga próba zakończyła się pomyślnie. Użytkownik najprawdopodobniej nie będzie świadomy naruszenia bezpieczeństwa poświadczeń.
 
-![Proces ataku otwarte przekierowywanie](preventing-open-redirects/_static/open-redirection-attack-process.png)
+![Proces ataku typu Otwórz przekierowanie](preventing-open-redirects/_static/open-redirection-attack-process.png)
 
-Oprócz strony logowania niektóre witryny zapewniają przekierowania strony lub punktów końcowych. Wyobraź sobie, Twoja aplikacja ma stronę z otwarte przekierowywanie `/Home/Redirect`. Osoba atakująca może utworzyć na przykład łącze w wiadomości e-mail, który prowadzi do `[yoursite]/Home/Redirect?url=http://phishingsite.com/Home/Login`. Typowy użytkownik odczyta adres URL i zobacz zaczyna się od nazwy lokacji. Zaufanie, który, będzie kliknij łącze. Otwarte przekierowywanie będzie wysłać użytkownika do witryny wyłudzania informacji, który będzie taka sama jak należy do Ciebie, a użytkownik będzie prawdopodobnie Zaloguj się do będą uważali jest witryny.
+Oprócz stron logowania niektóre lokacje udostępniają strony lub punkty końcowe przekierowania. Wyobraź sobie, że aplikacja zawiera stronę z otwartym przekierowaniem, `/Home/Redirect`. Osoba atakująca może utworzyć na przykład link w wiadomości e-mail, który przechodzi do `[yoursite]/Home/Redirect?url=http://phishingsite.com/Home/Login`. Typowy użytkownik zobaczy adres URL i rozpocznie się po jego nazwie. Zaufanie to spowoduje kliknięcie linku. Otwarte przekierowanie spowoduje następnie wysłanie użytkownika do witryny wyłudzania informacji, która wygląda identycznie, a użytkownik może zalogować się do Twojej witryny.
 
-## <a name="protecting-against-open-redirect-attacks"></a>Ochrona przed atakom na otwarte przekierowywanie
+## <a name="protecting-against-open-redirect-attacks"></a>Ochrona przed atakami typu Open redirect
 
-Podczas tworzenia aplikacji sieci web, wszystkie dane dostarczane przez użytkownika należy traktować jako niezaufana. Jeśli aplikacja ma funkcji, która przekierowuje użytkownika, w oparciu o zawartość adresu URL, upewnij się, że takie przekierowuje tylko są wykonywane lokalnie w aplikacji (lub znany adres URL nie dowolnego adresu URL, które mogą być dostarczane w zmiennej querystring).
+Podczas tworzenia aplikacji sieci Web Traktuj wszystkie dane dostarczone przez użytkownika jako niezaufane. Jeśli aplikacja zawiera funkcję, która przekierowuje użytkownika na podstawie zawartości adresu URL, należy się upewnić, że takie przekierowania są wykonywane tylko lokalnie w aplikacji (lub na znanym adresie URL, nie na żadnym z adresów URL, które mogą być dostarczone w ciągu QueryString).
 
 ### <a name="localredirect"></a>LocalRedirect
 
-Użyj `LocalRedirect` metody pomocnika od podstawy `Controller` klasy:
+Użyj metody pomocnika `LocalRedirect` z klasy podstawowej `Controller`:
 
 ```csharp
 public IActionResult SomeAction(string redirectUrl)
@@ -54,13 +54,13 @@ public IActionResult SomeAction(string redirectUrl)
 }
 ```
 
-`LocalRedirect` spowoduje zgłoszenie wyjątku, jeśli określono adres URL inną niż lokalna. W przeciwnym razie działa podobnie jak `Redirect` metody.
+Jeśli określony adres URL nie jest adresem lokalnym, `LocalRedirect` zgłosi wyjątek. W przeciwnym razie zachowuje się tak jak Metoda `Redirect`.
 
 ### <a name="islocalurl"></a>IsLocalUrl
 
-Użyj [IsLocalUrl](/dotnet/api/Microsoft.AspNetCore.Mvc.IUrlHelper.islocalurl#Microsoft_AspNetCore_Mvc_IUrlHelper_IsLocalUrl_System_String_) metodę, aby przetestować, zanim zostaną przekierowywanie adresów URL:
+Użyj metody [IsLocalUrl](/dotnet/api/Microsoft.AspNetCore.Mvc.IUrlHelper.islocalurl#Microsoft_AspNetCore_Mvc_IUrlHelper_IsLocalUrl_System_String_) , aby przetestować adresy URL przed przekierowaniem:
 
-Poniższy przykład pokazuje, jak sprawdzić, czy adres URL jest lokalny, przed przekierowaniem.
+Poniższy przykład pokazuje, jak sprawdzić, czy adres URL jest lokalny przed przekierowaniem.
 
 ```csharp
 private IActionResult RedirectToLocal(string returnUrl)
@@ -76,4 +76,4 @@ private IActionResult RedirectToLocal(string returnUrl)
 }
 ```
 
-`IsLocalUrl` Metoda ochronę przypadkowo nastąpi przekierowanie do złośliwych witryn przez użytkowników. Można rejestrować szczegóły adresu URL, który został podany, gdy adres URL inną niż lokalna jest podany w sytuacji, gdy oczekiwany lokalny adres URL. Rejestrowanie przekierowania adresów URL może pomóc w diagnozowaniu ataków przekierowania.
+Metoda `IsLocalUrl` chroni użytkowników przed przypadkowym przekierowaniem do złośliwej witryny. Można rejestrować szczegółowe informacje o adresie URL, który został podany w przypadku podania nielokalnego adresu URL w sytuacji, w której oczekiwano lokalnego adresu URL. Adresy URL przekierowania rejestrowania mogą pomóc w diagnozowaniu ataków przekierowania.

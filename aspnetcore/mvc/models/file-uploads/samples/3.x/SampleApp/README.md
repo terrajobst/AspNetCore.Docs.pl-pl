@@ -8,27 +8,27 @@ Należy zachować ostrożność, zapewniając użytkownikom możliwość przekaz
 
 Kroki zabezpieczeń, które zmniejszają prawdopodobieństwo pomyślnego ataku:
 
-* Przekaż pliki do dedykowanego obszaru przekazywania plików w systemie, najlepiej do dysku niesystemowego. Użycie dedykowanej lokalizacji ułatwia nakładanie środków zabezpieczeń na przekazane pliki. Wyłącz uprawnienia do wykonywania w lokalizacji przekazywania pliku. &dagger;
-* Nigdy nie Utrwalaj przekazanych plików w tym samym drzewie katalogów co aplikacja. &dagger;
-* Użyj bezpiecznej nazwy pliku, która jest określana przez aplikację. Nie używaj nazwy pliku dostarczonej przez dane wejściowe użytkownika lub niezaufanej nazwy pliku przekazanego pliku. &dagger;
-* Zezwala tylko na określony zestaw zatwierdzonych rozszerzeń plików. &dagger;
-* Sprawdź podpis formatu pliku, aby uniemożliwić użytkownikowi przekazanie zamaskowanego pliku (na przykład przekazanie pliku *exe* z rozszerzeniem *txt* ). &dagger;
-* Sprawdź, czy na serwerze są również wykonywane sprawdzenia po stronie klienta. Sprawdzanie po stronie klienta można łatwo obejść. &dagger;
-* Sprawdź rozmiar przekazywania i Zapobiegaj przeciążom, które są większe niż oczekiwano. &dagger;
+* Przekaż pliki do dedykowanego obszaru przekazywania plików w systemie, najlepiej do dysku niesystemowego. Użycie dedykowanej lokalizacji ułatwia nakładanie środków zabezpieczeń na przekazane pliki. Wyłącz uprawnienia do wykonywania w lokalizacji przekazywania pliku.&dagger;
+* Nigdy nie Utrwalaj przekazanych plików w tym samym drzewie katalogów co aplikacja.&dagger;
+* Użyj bezpiecznej nazwy pliku, która jest określana przez aplikację. Nie używaj nazwy pliku dostarczonej przez dane wejściowe użytkownika lub niezaufanej nazwy pliku przekazanego pliku.&dagger;
+* Zezwala tylko na określony zestaw zatwierdzonych rozszerzeń plików.&dagger;
+* Sprawdź podpis formatu pliku, aby uniemożliwić użytkownikowi przekazywanie zamaskowanego pliku (na przykład przekazanie pliku *exe* z rozszerzeniem *. txt* ).&dagger;
+* Sprawdź, czy na serwerze są również wykonywane sprawdzenia po stronie klienta. Sprawdzanie po stronie klienta można łatwo obejść.&dagger;
+* Sprawdź rozmiar przekazywania i Zapobiegaj przeciążom, które są większe niż oczekiwano.&dagger;
 * Jeśli pliki nie powinny być zastąpione przez przekazany plik o tej samej nazwie, przed przekazaniem pliku Sprawdź nazwę pliku względem bazy danych lub magazynu fizycznego.
 * **Przed zapisaniem pliku Uruchom skaner wirusów/złośliwego oprogramowania dla przekazanej zawartości.**
 
-Przykładowa aplikacja &dagger;The ilustruje podejście, które spełnia kryteria.
+&dagger;przykładowej aplikacji przedstawiono podejście, które spełnia kryteria.
 
 > [!WARNING]
-> Przekazywanie złośliwego kodu do systemu jest często pierwszym krokiem do wykonania kodu, który może:
+> Przekazywanie złośliwego kodu do systemu często jest pierwszym krokiem do wykonywania kodu, która może być:
 >
-> * Całkowicie przejęcie systemu.
+> * Całkowicie przejęcia w systemie.
 > * Przeciąż system z wynikiem awarii systemu.
-> * Naruszanie danych użytkownika lub systemu.
+> * Naruszyć bezpieczeństwo danych użytkownika lub systemu.
 > * Zastosuj graffiti do publicznego interfejsu użytkownika.
 >
-> Aby uzyskać informacje na temat zmniejszania obszaru ataków podczas akceptowania plików od użytkowników, zobacz następujące zasoby:
+> Instrukcje dotyczące zmniejszenie obszaru powierzchni ataku, akceptując pliki użytkowników zobacz następujące zasoby:
 >
 > * [Przekazywanie plików bez ograniczeń](https://www.owasp.org/index.php/Unrestricted_File_Upload)
 > * [Zabezpieczenia platformy Azure: Upewnij się, że podczas akceptowania plików od użytkowników są stosowane odpowiednie kontrolki](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
@@ -41,9 +41,9 @@ W pliku *appSettings. JSON* :
 
 1. Ustaw ścieżkę dla przechowywanych plików (`StoredFilesPath`).
 
-   * Aplikacja Przykładowa ustawia wartość na `c:\\files`, która zakłada, że folder o nazwie *Files* istnieje na głównym dysku systemowym C:.
+   * Aplikacja Przykładowa ustawia wartość na `c:\\files`, w której znajduje się folder o nazwie *Files* w katalogu głównym dysku C:.
    * Ścieżka musi istnieć. Utwórz folder *Files* na dysku C: lub Ustaw ścieżkę do odpowiedniej lokalizacji.
    * Proces aplikacji wymaga uprawnień do odczytu/zapisu dla ścieżki.
    * **WAŻNE!** Wyłącz uprawnienia do wykonywania dla wszystkich użytkowników w ścieżce.
 
-1. Ustaw limit rozmiaru pliku (`FileSizeLimit`) w bajtach. Domyślna wartość `2097152` (2 097 152 bajtów) aplikacji umożliwia przekazywanie plików do 2 MB.
+1. Ustaw limit rozmiaru pliku (`FileSizeLimit`) w bajtach. Domyślna wartość `2097152` aplikacji przykładowej (2 097 152 bajtów) umożliwia przekazywanie plików do 2 MB.

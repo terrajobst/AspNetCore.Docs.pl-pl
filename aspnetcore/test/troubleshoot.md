@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/10/2019
 uid: test/troubleshoot
-ms.openlocfilehash: 73a73fb51571e5f7b706ff4b958217854750c1fb
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 042e1c84a7226cb4bf56bcc0ff4e576b67e68e1b
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354713"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78655303"
 ---
 # <a name="troubleshoot-and-debug-aspnet-core-projects"></a>Rozwiązywanie problemów i debugowanie ASP.NET Core projektów
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Poniższe linki udostępniają wskazówki dotyczące rozwiązywania problemów:
 
@@ -170,4 +170,4 @@ Poniższe linki zawierają informacje dotyczące debugowania ASP.NET Core aplika
 * [Debugowanie środowiska ASP Core w systemie Linux](https://devblogs.microsoft.com/premier-developer/debugging-asp-core-on-linux-with-visual-studio-2017/)
 * [Debugowanie programu .NET Core w systemie UNIX za pośrednictwem protokołu SSH](https://devblogs.microsoft.com/devops/debugging-net-core-on-unix-over-ssh/)
 * [Szybki Start: debugowanie ASP.NET z debugerem programu Visual Studio](/visualstudio/debugger/quickstart-debug-aspnet)
-* Aby uzyskać więcej informacji o debugowaniu, zobacz [ten problem](https://github.com/aspnet/AspNetCore.Docs/issues/2960) w usłudze GitHub.
+* Aby uzyskać więcej informacji o debugowaniu, zobacz [ten problem](https://github.com/dotnet/AspNetCore.Docs/issues/2960) w usłudze GitHub.

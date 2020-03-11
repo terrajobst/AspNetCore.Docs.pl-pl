@@ -6,15 +6,15 @@ ms.author: riande
 ms.date: 01/31/2019
 uid: security/authentication/samples
 ms.openlocfilehash: 3d7e28f6e501bd8bd3908ca4b314a63cee52ebe3
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828675"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658418"
 ---
 # <a name="authentication-samples-for-aspnet-core"></a>Przykłady uwierzytelniania dla ASP.NET Core
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -30,7 +30,7 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="run-the-samples"></a>Uruchamianie przykładów
 
-* Wybierz [gałąź](https://github.com/dotnet/AspNetCore). Na przykład:`Tag:v3.0.0`
+* Wybierz [gałąź](https://github.com/dotnet/AspNetCore). Na przykład: `Tag:v3.0.0`
 * Klonuj lub Pobierz [repozytorium ASP.NET Core](https://github.com/dotnet/AspNetCore).
 * Sprawdź, czy zainstalowano wersję [zestaw .NET Core SDK](https://www.microsoft.com/net/download/all) zgodną z klonem ASP.NET Core repozytorium.
 * Przejdź do przykładu w *AspNetCore/src/Security/Samples* i uruchom przykład za pomocą `dotnet run`.
@@ -51,7 +51,7 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="run-the-samples"></a>Uruchamianie przykładów
 
-* Wybierz [gałąź](https://github.com/dotnet/AspNetCore). Na przykład:`release/2.2`
+* Wybierz [gałąź](https://github.com/dotnet/AspNetCore). Na przykład: `release/2.2`
 * Klonuj lub Pobierz [repozytorium ASP.NET Core](https://github.com/dotnet/AspNetCore).
 * Sprawdź, czy zainstalowano wersję [zestaw .NET Core SDK](https://www.microsoft.com/net/download/all) zgodną z klonem ASP.NET Core repozytorium.
 * Przejdź do przykładu w *AspNetCore/src/Security/Samples* i uruchom przykład za pomocą `dotnet run`.

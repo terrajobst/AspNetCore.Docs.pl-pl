@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/07/2020
 uid: getting-started
-ms.openlocfilehash: 4f7e67e1e422afe3f7e2970e0c40380f065390ac
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.openlocfilehash: 047fd7a74d3d53f68a730d67b63c65fe6bda529f
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928315"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658467"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Samouczek: wprowadzenie do ASP.NET Core
 
-W tym samouczku pokazano, jak za pomocą interfejs wiersza polecenia platformy .NET Core utworzyć i uruchomić aplikację internetową ASP.NET Core.
+W tym samouczku pokazano, jak utworzyć i uruchomić aplikację sieci Web ASP.NET Core przy użyciu interfejs wiersza polecenia platformy .NET Core.
 
-Dowiesz się, jak:
+Omawiane tematy:
 
 > [!div class="checklist"]
 > * Utwórz projekt aplikacji sieci Web.
@@ -50,7 +50,7 @@ Poprzednie polecenie:
 
 Ufaj certyfikatowi deweloperskim HTTPS:
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 ```dotnetcli
 dotnet dev-certs https --trust
@@ -60,9 +60,9 @@ Poprzednie polecenie wyświetla następujące okno dialogowe:
 
 ![Okno dialogowe ostrzeżenia o zabezpieczeniach](~/getting-started/_static/cert.png)
 
-Wybierz **Tak**, jeśli zgadzasz się ufać certyfikatowi programistycznemu.
+Wybierz opcję **tak** , jeśli zgadzasz się ufać certyfikatowi Deweloperskiemu.
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 ```dotnetcli
 dotnet dev-certs https --trust
@@ -74,7 +74,7 @@ Poprzednie polecenie wyświetla następujący komunikat:
 
 To polecenie może wyświetlać monit o podanie hasła w celu zainstalowania certyfikatu w łańcuchu kluczy systemu. Wprowadź hasło, jeśli zgadzasz się ufać certyfikatowi programistycznemu.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 Sprawdź w dokumentacji dla Twojej dystrybucji systemu Linux informacje na temat dodania certyfikatu deweloperskiego do zaufanych certyfikatów protokołu HTTPS.
 

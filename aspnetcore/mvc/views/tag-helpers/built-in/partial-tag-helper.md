@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: 508f91cdcd93c149602223250520eecb73625b24
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 269be9ece674b39d03cb50720f4fb182c565a639
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880993"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659650"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>Pomocnik tagów częściowych w ASP.NET Core
 
@@ -20,7 +20,7 @@ Przez [Scott Addie](https://github.com/scottaddie)
 
 Aby zapoznać się z omówieniem pomocników tagów, zobacz <xref:mvc/views/tag-helpers/intro>.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="overview"></a>Omówienie
 
@@ -43,7 +43,7 @@ Model *produktu* jest używany w przykładach w tym dokumencie:
 
 Poniżej znajduje się spis atrybutów pomocnika tagów częściowych.
 
-## <a name="name"></a>{1&gt;nazwa&lt;1}
+## <a name="name"></a>name
 
 `name` Atrybut jest wymagany. Wskazuje nazwę lub ścieżkę widoku częściowego, który ma być renderowany. Po podaniu nazwy widoku częściowego zostanie zainicjowany proces [odnajdywania widoku](xref:mvc/views/overview#view-discovery) . Ten proces jest pomijany, gdy podano jawną ścieżkę. Aby uzyskać wszystkie akceptowalne wartości `name`, zobacz [odnajdywanie widoku częściowego](xref:mvc/views/partial#partial-view-discovery).
 
@@ -63,7 +63,7 @@ Widok częściowy jest powiązany z właściwością `Product` skojarzonego mode
 
 [!code-csharp[](samples/TagHelpersBuiltIn/Pages/Product.cshtml.cs?highlight=8)]
 
-## <a name="model"></a>{1&gt;model&lt;1}
+## <a name="model"></a>model
 
 Atrybut `model` przypisuje wystąpienie modelu do przekazania do widoku częściowego. Atrybut `model` nie może być używany z atrybutem [for](#for) .
 

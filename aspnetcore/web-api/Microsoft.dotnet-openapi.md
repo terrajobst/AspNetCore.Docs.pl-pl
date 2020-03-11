@@ -7,11 +7,11 @@ ms.date: 09/26/2019
 monikerRange: '>= aspnetcore-3.0'
 uid: web-api/Microsoft.dotnet-openapi
 ms.openlocfilehash: 079e36511b63c186ffa7726bdb1e3c3bcbda9d34
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829260"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78655268"
 ---
 # <a name="develop-aspnet-core-apps-using-openapi-tools"></a>Opracowywanie aplikacji ASP.NET Core przy użyciu narzędzi OpenAPI
 
@@ -19,7 +19,7 @@ Ryan Brandenburg
 
 [Microsoft. dotnet-openapi](https://www.nuget.org/packages/Microsoft.dotnet-openapi) to [globalne narzędzie platformy .NET Core](/dotnet/core/tools/global-tools) służące do zarządzania odwołaniami [openapi](https://github.com/OAI/OpenAPI-Specification) w ramach projektu.
 
-## <a name="installation"></a>Instalacja programu
+## <a name="installation"></a>Instalacja
 
 Aby zainstalować `Microsoft.dotnet-openapi`, uruchom następujące polecenie:
 
@@ -27,7 +27,7 @@ Aby zainstalować `Microsoft.dotnet-openapi`, uruchom następujące polecenie:
 dotnet tool install -g Microsoft.dotnet-openapi
 ```
 
-## <a name="add"></a>Dodaj
+## <a name="add"></a>Add
 
 Dodanie odwołania OpenAPI przy użyciu dowolnego polecenia na tej stronie spowoduje dodanie elementu `<OpenApiReference />` podobnego do poniższego do pliku *. csproj* :
 
@@ -85,7 +85,7 @@ Poprzednie odwołanie jest wymagane, aby aplikacja mogła wywołać wygenerowany
 |-------------|-------------|---------|
 | adres URL źródła | Źródło, z którego ma zostać utworzone odwołanie. Musi być adresem URL. |`https://contoso.com/openapi.json` dodawania adresu URL openapi dotnet |
 
-## <a name="remove"></a>Usuwanie
+## <a name="remove"></a>Remove
 
 Usuwa odwołanie OpenAPI pasujące do podanej nazwy pliku z pliku *csproj* . Po usunięciu odwołania OpenAPI klienci nie będą wygenerował. Pliki Local *. JSON* i *. YAML* są usuwane.
 
@@ -102,7 +102,7 @@ Usuwa odwołanie OpenAPI pasujące do podanej nazwy pliku z pliku *csproj* . Po 
 | ------------|------------|---------|
 | plik źródłowy | Źródło, do którego ma zostać usunięte odwołanie. |openapi/Usuń *.\OpenAPI.JSON* dotnet |
 
-## <a name="refresh"></a>Odśwież
+## <a name="refresh"></a>Odświeżanie
 
 Odświeża lokalną wersję pliku, który został pobrany przy użyciu najnowszej zawartości z adresu URL pobierania.
 

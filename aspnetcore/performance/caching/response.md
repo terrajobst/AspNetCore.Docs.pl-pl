@@ -6,18 +6,18 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 11/04/2019
 uid: performance/caching/response
-ms.openlocfilehash: ab5d1414ae72edade81ab55aef6b0fa5af30f0f4
-ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
+ms.openlocfilehash: 91358e2553d09c5e7366ba7a2301a798ad921d69
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76971979"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78655730"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Buforowanie odpowiedzi w ASP.NET Core
 
-[John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Kowalski](https://ardalis.com/)i [Luke Latham](https://github.com/guardrex)
+[John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT)i [Steve Smith](https://ardalis.com/)
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/response/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/response/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 Buforowanie odpowiedzi zmniejsza liczbę żądań wysyłanych przez klienta lub serwer proxy do serwera sieci Web. Buforowanie odpowiedzi zmniejsza również ilość pracy wykonywanej przez serwer sieci Web w celu wygenerowania odpowiedzi. Buforowanie odpowiedzi jest kontrolowane przez nagłówki, które określają sposób, w jaki klient, serwer proxy i oprogramowanie pośredniczące buforują odpowiedzi.
 
@@ -35,15 +35,15 @@ W poniższej tabeli przedstawiono wspólne dyrektywy `Cache-Control`.
 | --------------------------------------------------------------- | ------ |
 | [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | Pamięć podręczna może przechowywać odpowiedź. |
 | [private](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | Odpowiedź nie może być przechowywana w udostępnionej pamięci podręcznej. Prywatna pamięć podręczna może przechowywać i ponownie używać odpowiedzi. |
-| [max-age](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | Klient nie akceptuje odpowiedzi, której wiek jest większy niż określona liczba sekund. Przykłady: `max-age=60` (60 s), `max-age=2592000` (1 miesiąc) |
-| [no-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **Na**żądanie: pamięć podręczna nie może używać zapisanej odpowiedzi w celu spełnienia żądania. Serwer pierwotny ponownie generuje odpowiedź dla klienta, a oprogramowanie pośredniczące aktualizuje zapisaną odpowiedź w jej pamięci podręcznej.<br><br>**W odpowiedzi**: nie można używać odpowiedzi dla kolejnych żądań bez sprawdzania poprawności na serwerze źródłowym. |
-| [no-store](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **Żądania: pamięć**podręczna nie może przechowywać żądania.<br><br>**Odpowiedzi**: pamięć podręczna nie może przechowywać żadnej części odpowiedzi. |
+| [maks. wiek](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | Klient nie akceptuje odpowiedzi, której wiek jest większy niż określona liczba sekund. Przykłady: `max-age=60` (60 s), `max-age=2592000` (1 miesiąc) |
+| [nie-pamięć podręczna](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **Na**żądanie: pamięć podręczna nie może używać zapisanej odpowiedzi w celu spełnienia żądania. Serwer pierwotny ponownie generuje odpowiedź dla klienta, a oprogramowanie pośredniczące aktualizuje zapisaną odpowiedź w jej pamięci podręcznej.<br><br>**W odpowiedzi**: nie można używać odpowiedzi dla kolejnych żądań bez sprawdzania poprawności na serwerze źródłowym. |
+| [bez sklepu](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **Żądania: pamięć**podręczna nie może przechowywać żądania.<br><br>**Odpowiedzi**: pamięć podręczna nie może przechowywać żadnej części odpowiedzi. |
 
 W poniższej tabeli przedstawiono inne nagłówki pamięci podręcznej, które odgrywają rolę w buforowanie.
 
-| nagłówek                                                     | Funkcja |
+| Nagłówek                                                     | Funkcja |
 | ---------------------------------------------------------- | -------- |
-| [Wiek](https://tools.ietf.org/html/rfc7234#section-5.1)     | Oszacowanie czasu (w sekundach), po którym odpowiedź została wygenerowana lub pomyślnie zweryfikowana na serwerze pochodzenia. |
+| [Ważności](https://tools.ietf.org/html/rfc7234#section-5.1)     | Oszacowanie czasu (w sekundach), po którym odpowiedź została wygenerowana lub pomyślnie zweryfikowana na serwerze pochodzenia. |
 | [Wygasł](https://tools.ietf.org/html/rfc7234#section-5.3) | Czas, po którym odpowiedź jest uważana za przestarzałą. |
 | [Pragm](https://tools.ietf.org/html/rfc7234#section-5.4)  | Istnieje w celu zapewnienia zgodności z poprzednimi wersjami z pamięciami podręcznymi protokołu HTTP/1.0 na potrzeby ustawienia zachowania `no-cache`. Jeśli nagłówek `Cache-Control` jest obecny, nagłówek `Pragma` zostanie zignorowany. |
 | [Zmienia](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Określa, że buforowana odpowiedź nie może być wysyłana, chyba że wszystkie pola nagłówka `Vary` są zgodne z oryginalnym żądaniem odpowiedzi w pamięci podręcznej i nowym żądaniu. |
@@ -62,25 +62,25 @@ Nie ma kontroli nad tym zachowaniem buforowania podczas korzystania z [oprogramo
 
 Buforowanie w pamięci używa pamięci serwera do przechowywania buforowanych danych. Ten typ buforowania jest odpowiedni dla jednego serwera lub wielu serwerów używających *sesji programu Sticky Notes*. Sesje programu Sticky Notes oznaczają, że żądania od klienta są zawsze kierowane do tego samego serwera w celu przetworzenia.
 
-Aby uzyskać więcej informacji, zobacz temat <xref:performance/caching/memory>.
+Aby uzyskać więcej informacji, zobacz <xref:performance/caching/memory>.
 
 ### <a name="distributed-cache"></a>Rozproszona pamięć podręczna
 
 Użyj rozproszonej pamięci podręcznej do przechowywania danych w pamięci, gdy aplikacja jest hostowana w chmurze lub w farmie serwerów. Pamięć podręczna jest współdzielona przez serwery, które przetwarzają żądania. Klient może przesłać żądanie, które jest obsługiwane przez dowolny serwer w grupie, jeśli dane przechowywane w pamięci podręcznej dla klienta są dostępne. ASP.NET Core współpracuje z rozproszonymi pamięciami podręcznymi SQL Server, [Redis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.StackExchangeRedis)i [NCache](https://www.nuget.org/packages/Alachisoft.NCache.OpenSource.SDK/) .
 
-Aby uzyskać więcej informacji, zobacz temat <xref:performance/caching/distributed>.
+Aby uzyskać więcej informacji, zobacz <xref:performance/caching/distributed>.
 
 ### <a name="cache-tag-helper"></a>Pomocnik tagu pamięci podręcznej
 
 Zawartość pamięci podręcznej ze widoku MVC lub ze strony Razor za pomocą pomocnika tagu pamięci podręcznej. Pomocnik tagu pamięci podręcznej używa buforowania w pamięci do przechowywania danych.
 
-Aby uzyskać więcej informacji, zobacz temat <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>.
+Aby uzyskać więcej informacji, zobacz <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>.
 
 ### <a name="distributed-cache-tag-helper"></a>Pomocnik tagów rozproszonej pamięci podręcznej
 
 Zawartość pamięci podręcznej ze widoku MVC lub ze strony Razor w scenariuszach rozproszonej chmury lub kolektywu serwerów sieci Web za pomocą pomocnika tagów rozproszonej pamięci podręcznej. Pomocnik tagów rozproszonej pamięci podręcznej używa SQL Server, [Redis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.StackExchangeRedis)lub [NCache](https://www.nuget.org/packages/Alachisoft.NCache.OpenSource.SDK/) do przechowywania danych.
 
-Aby uzyskać więcej informacji, zobacz temat <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>.
+Aby uzyskać więcej informacji, zobacz <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>.
 
 ## <a name="responsecache-attribute"></a>ResponseCache — atrybut
 
@@ -93,7 +93,7 @@ Aby uzyskać więcej informacji, zobacz temat <xref:mvc/views/tag-helpers/builti
 
 [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware) musi być włączone, aby można było ustawić właściwość <xref:Microsoft.AspNetCore.Mvc.CacheProfile.VaryByQueryKeys>. W przeciwnym razie zostanie zgłoszony wyjątek czasu wykonywania. Brak odpowiadającego mu nagłówka HTTP dla właściwości <xref:Microsoft.AspNetCore.Mvc.CacheProfile.VaryByQueryKeys>. Właściwość jest funkcją HTTP, która jest obsługiwana przez oprogramowanie pośredniczące buforowania odpowiedzi. Aby oprogramowanie pośredniczące obsługiwało buforowaną odpowiedź, ciąg zapytania i wartość ciągu zapytania muszą być zgodne z poprzednim żądaniem. Rozważmy na przykład sekwencję żądań i wyniki przedstawione w poniższej tabeli.
 
-| Request                          | Wynik                    |
+| Żądanie                          | Wynik                    |
 | -------------------------------- | ------------------------- |
 | `http://example.com?key1=value1` | Zwrócone z serwera. |
 | `http://example.com?key1=value1` | Zwrócone z oprogramowania pośredniczącego. |
@@ -107,7 +107,7 @@ Pierwsze żądanie jest zwracane przez serwer i w pamięci podręcznej w oprogra
 * Zapisuje odpowiednie nagłówki na podstawie właściwości ustawionych w <xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute>.
 * Aktualizuje funkcję HTTP buforowania odpowiedzi, jeśli ustawiono <xref:Microsoft.AspNetCore.Mvc.CacheProfile.VaryByQueryKeys>.
 
-### <a name="vary"></a>Zmienia
+### <a name="vary"></a>zmienia
 
 Ten nagłówek jest zapisywana tylko po ustawieniu właściwości <xref:Microsoft.AspNetCore.Mvc.CacheProfile.VaryByHeader>. Właściwość ustawiona na wartość właściwości `Vary`. Poniższy przykład używa właściwości <xref:Microsoft.AspNetCore.Mvc.CacheProfile.VaryByHeader>:
 

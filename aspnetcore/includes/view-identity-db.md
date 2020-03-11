@@ -1,14 +1,14 @@
-### <a name="view-the-identity-database"></a>Widok bazy danych tożsamości
+### <a name="view-the-identity-database"></a>Wyświetlanie bazy danych tożsamości
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-* Z **widoku** menu, wybierz opcję **Eksplorator obiektów SQL Server** (SSOX).
-* Przejdź do **(localdb) MSSQLLocalDB (SQL Server 13)** . Kliknij prawym przyciskiem myszy **dbo. AspNetUsers** > **wyświetlania danych**:
+* Z menu **Widok** wybierz pozycję **Eksplorator obiektów SQL Server** (SSOX).
+* Przejdź do **(LocalDB) MSSQLLocalDB (SQL Server 13)** . Kliknij prawym przyciskiem myszy obiekt **dbo. AspNetUsers** > **Wyświetl dane**:
 
-![Menu kontekstowe tabeli AspNetUsers w Eksploratorze obiektów SQL Server](~/security/authentication/accconfirm/_static/ssox.png)
+![Menu kontekstowe w tabeli AspNetUsers w Eksplorator obiektów SQL Server](~/security/authentication/accconfirm/_static/ssox.png)
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Istnieje wiele narzędzi innych firm, które można pobrać do zarządzania oraz wyświetlić bazy danych SQLite, na przykład [przeglądarka bazy danych dla bazy danych SQLite](https://sqlitebrowser.org/).
+Istnieje wiele narzędzi innych firm, które można pobrać, aby zarządzać bazą danych oprogramowania SQLite i wyświetlać ją, na przykład [przeglądarkę bazy danych dla oprogramowania SQLite](https://sqlitebrowser.org/).
 
 ---

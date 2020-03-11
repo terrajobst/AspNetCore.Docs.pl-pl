@@ -9,11 +9,11 @@ no-loc:
 - Blazor
 uid: fundamentals/target-aspnetcore
 ms.openlocfilehash: 72096fc2f03033dfe8325b5129e074913a2fbd1f
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463889"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658068"
 ---
 # <a name="use-aspnet-core-apis-in-a-class-library"></a>Używanie ASP.NET Core interfejsów API w bibliotece klas
 
@@ -42,19 +42,19 @@ Aby odwołać się do ASP.NET Core, Dodaj następujący element `<FrameworkRefer
 
 Odwoływanie się ASP.NET Core w ten sposób jest obsługiwane tylko dla projektów przeznaczonych dla platformy .NET Core 3. x.
 
-## <a name="include-opno-locblazor-extensibility"></a>Uwzględnij rozszerzalność Blazor
+## <a name="include-blazor-extensibility"></a>Uwzględnij rozszerzalność Blazor
 
 Blazor obsługuje modele webassembly (WASM) i serwery [hostingowe](xref:blazor/hosting-models). O ile nie istnieje szczególny powód, który nie należy do, biblioteka [składników Razor](xref:blazor/components) powinna obsługiwać oba modele hostingu. Biblioteka składników Razor musi używać zestawu SDK [Microsoft. NET. Sdk. Razor](xref:razor-pages/sdk).
 
 ### <a name="support-both-hosting-models"></a>Obsługa obu modeli hostingu
 
-Aby zapewnić obsługę użycia składnika Razor zarówno z [Blazor serwera](xref:blazor/hosting-models#blazor-server) , jak i [Blazor projektów WASM](xref:blazor/hosting-models#blazor-webassembly) , należy wykonać następujące instrukcje dla edytora.
+Aby zapewnić obsługę użycia składnika Razor zarówno z projektów [Blazor Server](xref:blazor/hosting-models#blazor-server) , jak i [Blazor WASM](xref:blazor/hosting-models#blazor-webassembly) , należy wykonać poniższe instrukcje dla edytora.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Użyj szablonu projektu **biblioteki klas Razor** . Pole wyboru **strony obsługi i widoki** szablonu powinno zostać odwybrane.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Uruchom następujące polecenie w zintegrowanym terminalu:
 
@@ -62,7 +62,7 @@ Uruchom następujące polecenie w zintegrowanym terminalu:
 dotnet new razorclasslib
 ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 Użyj szablonu projektu **biblioteki klas Razor** .
 
@@ -82,7 +82,7 @@ Na przykład:
 
 ### <a name="support-a-specific-hosting-model"></a>Obsługa określonego modelu hostingu
 
-Jest to bardzo mniej powszechne do obsługi jednego Blazor modelu hostingu. Przykładowo, aby obsługiwać użycie składnika Razor tylko z projektów [serweraBlazor](xref:blazor/hosting-models#blazor-server) :
+Jest to bardzo mniej powszechne do obsługi jednego modelu hostingu Blazor. Przykładowo, aby obsługiwać użycie składnika Razor tylko z projektów [serwera Blazor](xref:blazor/hosting-models#blazor-server) :
 
 * Docelowy .NET Core 3. x.
 * Dodaj element `<FrameworkReference>` dla struktury udostępnionej.
@@ -114,11 +114,11 @@ Jeśli projekt jest przeznaczony dla platformy .NET Core 3. x, wymaga:
 
 Szablon projektu **biblioteki klas Razor** spełnia powyższe wymagania dotyczące projektów przeznaczonych dla platformy .NET Core 3. x. Wykonaj następujące instrukcje dla edytora.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Użyj szablonu projektu **biblioteki klas Razor** . Należy zaznaczyć pole wyboru **strony i widoki pomocy technicznej** szablonu.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Uruchom następujące polecenie w zintegrowanym terminalu:
 
@@ -126,7 +126,7 @@ Uruchom następujące polecenie w zintegrowanym terminalu:
 dotnet new razorclasslib -s
 ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 W tej chwili nie ma obsługi szablonu projektu.
 
@@ -214,7 +214,7 @@ Na przykład synchroniczne operacje odczytu i zapisu w strumieniach żądań HTT
 
 ## <a name="use-an-api-introduced-in-30"></a>Korzystanie z interfejsu API wprowadzonego w 3,0
 
-Załóżmy, że chcesz użyć interfejsu API ASP.NET Core, który został wprowadzony w ASP.NET Core 3,0. Zastanów się nad następującymi pytaniami:
+Załóżmy, że chcesz użyć interfejsu API ASP.NET Core, który został wprowadzony w ASP.NET Core 3,0. Weź pod uwagę następujące pytania:
 
 1. Czy biblioteka wymaga, aby nowy interfejs API był funkcjonalny?
 1. Czy biblioteka może zaimplementować tę funkcję w inny sposób?

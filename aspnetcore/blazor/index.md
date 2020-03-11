@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/index
-ms.openlocfilehash: 02c95c19ebfb5ea6ad722f9d49f4cddc7471f8e1
-ms.sourcegitcommit: 0e21d4f8111743bcb205a2ae0f8e57910c3e8c25
+ms.openlocfilehash: 038799564078c4d3e8a7aa3a9841c6303edf9d12
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77034088"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658278"
 ---
 # <a name="introduction-to-aspnet-core-opno-locblazor"></a>Wprowadzenie do ASP.NET Core Blazor
 
@@ -114,7 +114,7 @@ Uruchamianie kodu platformy .NET wewnątrz przeglądarek sieci Web jest możliwe
 
 Kod webassembly może uzyskać dostęp do pełnej funkcjonalności przeglądarki za pośrednictwem języka JavaScript, nazywanego *współdziałaniem JavaScript* (lub *międzyoperacyjną JavaScript*). Kod .NET wykonywany za pośrednictwem webassembly w przeglądarce jest uruchamiany w piaskownicy języka JavaScript przeglądarki z ochroną, którą piaskownica zapewnia przed złośliwymi działaniami na komputerze klienckim.
 
-![[! OP. NO-LOC (Blazor)] zestaw webassembly uruchamia kod platformy .NET w przeglądarce z zestawem webassembly.](index/_static/blazor-webassembly.png)
+![Blazor webassembly uruchamia kod platformy .NET w przeglądarce z zestawem webassembly.](index/_static/blazor-webassembly.png)
 
 Po skompilowaniu i uruchomieniu aplikacji Blazor webassembly w przeglądarce:
 
@@ -136,11 +136,14 @@ Blazor oddziela logikę renderowania składników od sposobu stosowania aktualiz
 
 Połączenie używane przez Blazor Server do komunikowania się z przeglądarką jest również używane do obsługi wywołań międzyoperacyjnych języka JavaScript.
 
-![[! OP. Nie-LOC (Blazor)] serwer uruchamia kod platformy .NET na serwerze i współdziała z Document Object Model na kliencie za pośrednictwem [! OP. Nie-LOC (sygnalizujący)] połączenie](index/_static/blazor-server.png)
+Serwer ![Blazor uruchamia kod platformy .NET na serwerze i współdziała z Document Object Model na kliencie przez połączenie SignalR](index/_static/blazor-server.png)
 
 ## <a name="javascript-interop"></a>Międzyoperacyjność w języku JavaScript
 
-W przypadku aplikacji, które wymagają bibliotek JavaScript innych firm i dostępu do interfejsów API przeglądarki, składniki współdziałają z JavaScript. Składniki mogą korzystać z dowolnej biblioteki lub interfejsu API, który może być używany przez język JavaScript. C#kod może wywołać kod JavaScript, a kod JavaScript może wywołać C# kod. Aby uzyskać więcej informacji, zobacz <xref:blazor/javascript-interop>.
+W przypadku aplikacji, które wymagają bibliotek JavaScript innych firm i dostępu do interfejsów API przeglądarki, składniki współdziałają z JavaScript. Składniki mogą korzystać z dowolnej biblioteki lub interfejsu API, który może być używany przez język JavaScript. C#kod może wywołać kod JavaScript, a kod JavaScript może wywołać C# kod. Aby uzyskać więcej informacji zobacz następujące artykuły:
+
+* <xref:blazor/call-javascript-from-dotnet>
+* <xref:blazor/call-dotnet-from-javascript>
 
 ## <a name="code-sharing-and-net-standard"></a>Udostępnianie kodu i .NET Standard
 

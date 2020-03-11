@@ -6,16 +6,16 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 11/08/2019
 uid: security/authorization/limitingidentitybyscheme
-ms.openlocfilehash: 9c173a4589279b03bc12b4b7dea594fae88cf471
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.openlocfilehash: a3be2b8171c146beef7e62c8f7e55883ca5dc687
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928386"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661820"
 ---
 # <a name="authorize-with-a-specific-scheme-in-aspnet-core"></a>Autoryzuj z określonym schematem w ASP.NET Core
 
-W niektórych scenariuszach, takich jak aplikacje jednostronicowe (aplikacji jednostronicowych), często używane są wiele metod uwierzytelniania. Na przykład aplikacja może używać uwierzytelniania opartego na plikach cookie do logowania się i uwierzytelniania JWT dla żądań języka JavaScript. W niektórych przypadkach aplikacja może mieć wiele wystąpień programu obsługi uwierzytelniania. Na przykład dwa programy obsługi plików cookie, w których jeden zawiera tożsamość podstawową, a jedna jest tworzona podczas wyzwalania uwierzytelniania wieloskładnikowego (MFA). Uwierzytelnianie wieloskładnikowe może być wyzwalane, ponieważ użytkownik zażądał operacji wymagającej dodatkowych zabezpieczeń. Aby uzyskać więcej informacji na temat wymuszania usługi MFA, gdy użytkownik zażąda zasobu wymagającego uwierzytelniania wieloskładnikowego, zobacz [sekcję dotyczącą ochrony za pomocą](https://github.com/aspnet/AspNetCore.Docs/issues/15791#issuecomment-580464195)usługi GitHub i usługi MFA
+W niektórych scenariuszach, takich jak aplikacje jednostronicowe (aplikacji jednostronicowych), często używane są wiele metod uwierzytelniania. Na przykład aplikacja może używać uwierzytelniania opartego na plikach cookie do logowania się i uwierzytelniania JWT dla żądań języka JavaScript. W niektórych przypadkach aplikacja może mieć wiele wystąpień programu obsługi uwierzytelniania. Na przykład dwa programy obsługi plików cookie, w których jeden zawiera tożsamość podstawową, a jedna jest tworzona podczas wyzwalania uwierzytelniania wieloskładnikowego (MFA). Uwierzytelnianie wieloskładnikowe może być wyzwalane, ponieważ użytkownik zażądał operacji wymagającej dodatkowych zabezpieczeń. Aby uzyskać więcej informacji na temat wymuszania usługi MFA, gdy użytkownik zażąda zasobu wymagającego uwierzytelniania wieloskładnikowego, zobacz [sekcję dotyczącą ochrony za pomocą](https://github.com/dotnet/AspNetCore.Docs/issues/15791#issuecomment-580464195)usługi GitHub i usługi MFA
 
 Schemat uwierzytelniania ma nazwę, gdy usługa uwierzytelniania jest konfigurowana podczas uwierzytelniania. Na przykład:
 

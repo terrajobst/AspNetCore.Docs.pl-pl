@@ -8,15 +8,15 @@ ms.custom: mvc
 ms.date: 09/05/2019
 uid: web-api/advanced/analyzers
 ms.openlocfilehash: 7b6a7328deb8718a2a1c67c104cec359a4f13497
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082524"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661918"
 ---
 # <a name="use-web-api-analyzers"></a>Korzystanie z analizatorów interfejsu API sieci Web
 
-ASP.NET Core 2,2 i nowsze udostępniają pakiet analizatorów MVC przeznaczony do użycia z projektami interfejsu API sieci Web. Analizatory współpracują z kontrolerami oznaczonymi przy użyciu programu, podczas kompilowania w ramach <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute> [Konwencji interfejsu API sieci Web](xref:web-api/advanced/conventions).
+ASP.NET Core 2,2 i nowsze udostępniają pakiet analizatorów MVC przeznaczony do użycia z projektami interfejsu API sieci Web. Analizatory współpracują z kontrolerami z adnotacją <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute>, podczas kompilowania w ramach [Konwencji interfejsu API sieci Web](xref:web-api/advanced/conventions).
 
 Pakiet analizatorów powiadamia użytkownika o każdej akcji kontrolera, która:
 
@@ -29,7 +29,7 @@ Pakiet analizatorów powiadamia użytkownika o każdej akcji kontrolera, która:
 
 ## <a name="reference-the-analyzer-package"></a>Odwoływanie się do pakietu analizatora
 
-W ASP.NET Core 3,0 lub nowszych analizatory są zawarte w zestaw .NET Core SDK. Aby włączyć analizator w projekcie, należy uwzględnić `IncludeOpenAPIAnalyzers` właściwość w pliku projektu:
+W ASP.NET Core 3,0 lub nowszych analizatory są zawarte w zestaw .NET Core SDK. Aby włączyć analizator w projekcie, należy uwzględnić Właściwość `IncludeOpenAPIAnalyzers` w pliku projektu:
 
 ```xml
 <PropertyGroup>
@@ -45,10 +45,10 @@ W ASP.NET Core 3,0 lub nowszych analizatory są zawarte w zestaw .NET Core SDK. 
 
 Zainstaluj pakiet NuGet [Microsoft. AspNetCore. MVC. API. analizatory](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Api.Analyzers) z jedną z następujących metod:
 
-### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 W oknie **konsola Menedżera pakietów** :
-  * Przejdź do pozycji **Wyświetl** > inną **konsolę Menedżera pakietów** **systemu Windows** > .
+  * Przejdź do **widoku** > **innej** **konsoli Menedżera pakietów**> Windows.
   * Przejdź do katalogu, w którym znajduje się plik *ApiConventions. csproj* .
   * Wykonaj następujące polecenie:
 
@@ -56,22 +56,22 @@ W oknie **konsola Menedżera pakietów** :
     Install-Package Microsoft.AspNetCore.Mvc.Api.Analyzers
     ```
 
-### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+### <a name="visual-studio-for-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
-* Kliknij prawym przyciskiem myszy folder *pakiety* w **okienko rozwiązania** > **Dodaj pakiety...** .
+* Kliknij prawym przyciskiem myszy folder *pakiety* w **okienko rozwiązania** > **Dodaj pakiety..** ..
 * Ustaw listę rozwijaną **Źródło** okna **Dodaj pakiety** na "NuGet.org".
 * W polu wyszukiwania wprowadź ciąg "Microsoft. AspNetCore. MVC. API. analizatory".
 * Wybierz pakiet "Microsoft. AspNetCore. MVC. API. analizatory" w okienku wyników, a następnie kliknij pozycję **Dodaj pakiet**.
 
-### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Uruchom następujące polecenie w zintegrowanym **terminalu**:
+Uruchom następujące polecenie w **zintegrowanym terminalu**:
 
 ```dotnetcli
 dotnet add ApiConventions.csproj package Microsoft.AspNetCore.Mvc.Api.Analyzers
 ```
 
-### <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+### <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Uruchom następujące polecenie:
 
@@ -85,9 +85,9 @@ dotnet add ApiConventions.csproj package Microsoft.AspNetCore.Mvc.Api.Analyzers
 
 ## <a name="analyzers-for-web-api-conventions"></a>Analizatory dla Konwencji interfejsu API sieci Web
 
-Dokumenty OpenAPI zawierają kody stanu i typy odpowiedzi, które może zwrócić akcja. W ASP.NET Core MVC atrybuty takie jak <xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute> i <xref:Microsoft.AspNetCore.Mvc.ProducesAttribute> są używane do dokumentowania akcji. <xref:tutorials/web-api-help-pages-using-swagger>Szczegółowe informacje na temat dokumentowania internetowego interfejsu API.
+Dokumenty OpenAPI zawierają kody stanu i typy odpowiedzi, które może zwrócić akcja. W ASP.NET Core MVC atrybuty, takie jak <xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute> i <xref:Microsoft.AspNetCore.Mvc.ProducesAttribute> są używane do dokumentowania akcji. <xref:tutorials/web-api-help-pages-using-swagger> prowadzi do dalszych szczegółowych informacji na temat dokumentowania internetowego interfejsu API.
 
-Jeden z analizatorów w pakiecie sprawdza kontrolery z <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute> adnotacją i identyfikuje akcje, które nie są w pełni udokumentowane. Rozważmy następujący przykład:
+Jeden z analizatorów w pakiecie sprawdza kontrolery z adnotacją <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute> i identyfikuje akcje, które nie są w całości udokumentowane w odpowiedziach. Rozważmy następujący przykład:
 
 [!code-csharp[](conventions/sample/Controllers/ContactsController.cs?name=missing404docs&highlight=10)]
 

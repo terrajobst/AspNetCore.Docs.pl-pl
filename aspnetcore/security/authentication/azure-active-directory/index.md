@@ -7,17 +7,17 @@ ms.date: 01/21/2020
 ms.custom: mvc, seodec18
 uid: security/authentication/azure-active-directory/index
 ms.openlocfilehash: 7829a062d4727238addca051d0599438c99e90dc
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76726757"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661421"
 ---
 # <a name="azure-active-directory-with-aspnet-core"></a>Usługa Azure Active Directory z platformą ASP.NET Core
 
 Te samouczki i przykłady przedstawiają uwierzytelnianie w ASP.NET Core przy użyciu platformy tożsamości firmy Microsoft i Azure Active Directory. Aby uzyskać dodatkowe samouczki i przykłady dotyczące korzystania z ASP.NET Core z usługą Azure AD, zobacz [Microsoft Identity platform](/azure/active-directory/develop/).
 
-## <a name="application-scenarios"></a>Scenariusze aplikacji
+## <a name="application-scenarios"></a>Scenariusze z aplikacjami
 
 * [Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji internetowej ASP.NET Core](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp)
 * [Aplikacja internetowa z możliwością logowania użytkowników](/azure/active-directory/develop/scenario-web-app-sign-user-overview?tabs=aspnetcore)

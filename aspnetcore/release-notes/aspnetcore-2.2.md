@@ -9,11 +9,11 @@ no-loc:
 - SignalR
 uid: aspnetcore-2.2
 ms.openlocfilehash: 97deafd520926476f7653fc3de40d577b394734b
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829130"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661050"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>Co nowego w ASP.NET Core 2,2
 
@@ -23,7 +23,7 @@ W tym artykule przedstawiono najbardziej znaczące zmiany w ASP.NET Core 2,2 z l
 
 OpenAPI (wcześniej znany jako Swagger) to specyfikacja języka niezależny od do opisywania interfejsów API REST. Ekosystem OpenAPI zawiera narzędzia, które umożliwiają odnajdywanie, testowanie i tworzenie kodu klienta przy użyciu specyfikacji. Obsługa generowania i wizualizacji dokumentów OpenAPI w ASP.NET Core MVC jest zapewniana za pośrednictwem projektów opartych na społeczności, takich jak [NSwag](https://github.com/RicoSuter/NSwag) i [Swashbuckle. AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore). ASP.NET Core 2,2 oferuje udoskonalone narzędzia i środowisko uruchomieniowe do tworzenia dokumentów OpenAPI.
 
-Więcej informacji można znaleźć w następujących zasobach:
+Więcej informacji zawierają następujące zasoby:
 
 * <xref:web-api/advanced/analyzers>
 * <xref:web-api/advanced/conventions>
@@ -37,7 +37,7 @@ ASP.NET Core 2,1 wprowadzono `ProblemDetails`na podstawie specyfikacji [RFC 7807
 
 ASP.NET Core 2,2 używa nowego systemu *routingu punktu końcowego* do ulepszonego wysyłania żądań. Zmiany obejmują nowe elementy członkowskie interfejsu API generacji linków i transformatory parametrów trasy.
 
-Więcej informacji można znaleźć w następujących zasobach:
+Więcej informacji zawierają następujące zasoby:
 
 * [Routing punktów końcowych w 2,2](https://blogs.msdn.microsoft.com/webdev/2018/08/27/asp-net-core-2-2-0-preview1-endpoint-routing/)
 * [Transformatory parametrów trasy](https://www.hanselman.com/blog/ASPNETCore22ParameterTransformersForCleanURLGenerationAndSlugsInRazorPagesOrMVC.aspx) (zobacz sekcję **routingu** )
@@ -70,7 +70,7 @@ Aby uzyskać więcej informacji, zobacz [Obsługa protokołu HTTP/2](xref:fundam
 
 ## <a name="kestrel-configuration"></a>Konfiguracja Kestrel
 
-We wcześniejszych wersjach ASP.NET Core opcje Kestrel są konfigurowane przez wywołanie `UseKestrel`. W 2,2 opcje Kestrel są konfigurowane przez wywołanie `ConfigureKestrel` w konstruktorze hosta. Ta zmiana rozwiązuje problem z kolejnością rejestracji `IServer` na potrzeby hostingu w procesie. Więcej informacji można znaleźć w następujących zasobach:
+We wcześniejszych wersjach ASP.NET Core opcje Kestrel są konfigurowane przez wywołanie `UseKestrel`. W 2,2 opcje Kestrel są konfigurowane przez wywołanie `ConfigureKestrel` w konstruktorze hosta. Ta zmiana rozwiązuje problem z kolejnością rejestracji `IServer` na potrzeby hostingu w procesie. Więcej informacji zawierają następujące zasoby:
 
 * [Eliminowanie konfliktu Iisurl](https://github.com/aspnet/KestrelHttpServer/issues/2760)
 * [Konfigurowanie opcji serwera Kestrel za pomocą ConfigureKestrel](xref:fundamentals/servers/kestrel?view=aspnetcore-2.2#how-to-use-kestrel-in-aspnet-core-apps)

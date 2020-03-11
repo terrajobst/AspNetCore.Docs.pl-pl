@@ -9,26 +9,26 @@ ms.date: 01/14/2020
 no-loc:
 - SignalR
 uid: signalr/dotnet-client
-ms.openlocfilehash: 39d9eccdb1e0457b177e75e6f94f3dd185b0093d
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.openlocfilehash: a9583c9d6df52ff81a402df03e663ccc3847e51f
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146319"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660042"
 ---
-# <a name="aspnet-core-opno-locsignalr-net-client"></a>ASP.NET Core SignalR klienta platformy .NET
+# <a name="aspnet-core-signalr-net-client"></a>Klient platformy .NET ASP.NET Core sygnalizujący
 
-ASP.NET Core SignalR .NET Client Library umożliwia komunikowanie się z koncentratorami SignalR z poziomu aplikacji .NET.
+Biblioteka kliencka ASP.NET Coreowego sygnalizującego platformę .NET umożliwia komunikowanie się z centrami sygnałów z aplikacji .NET.
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/dotnet-client/sample) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/dotnet-client/sample) ([jak pobrać](xref:index#how-to-download-a-sample))
 
-Przykładowy kod w tym artykule jest aplikacją WPF korzystającą z ASP.NET Core SignalR klienta platformy .NET.
+Przykładowy kod w tym artykule jest aplikacją WPF korzystającą z klienta programu ASP.NET Core sygnalizującego.
 
-## <a name="install-the-opno-locsignalr-net-client-package"></a>Zainstaluj pakiet klienta programu SignalR .NET
+## <a name="install-the-signalr-net-client-package"></a>Instalowanie pakietu klienckiego programu sygnalizującego
 
-[Microsoft.AspNetCore.SignalR.](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR.Client)Do łączenia się z centrami SignalR jest wymagany pakiet klienta programu .NET.
+Pakiet [Microsoft. AspNetCore. signaler. Client](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR.Client) jest wymagany do nawiązania połączenia z centrami sygnałów przez klientów platformy .NET.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Aby zainstalować bibliotekę kliencką, uruchom następujące polecenie w oknie **konsola Menedżera pakietów** :
 
@@ -36,7 +36,7 @@ Aby zainstalować bibliotekę kliencką, uruchom następujące polecenie w oknie
 Install-Package Microsoft.AspNetCore.SignalR.Client
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Aby zainstalować bibliotekę kliencką, uruchom następujące polecenie w powłoce poleceń:
 
@@ -259,6 +259,6 @@ Obsługa błędów przy użyciu instrukcji try-catch. Sprawdź obiekt `Exception
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Centra](xref:signalr/hubs)
-* [Klient JavaScript](xref:signalr/javascript-client)
+* [Klient środowiska JavaScript](xref:signalr/javascript-client)
 * [Publikowanie na platformie Azure](xref:signalr/publish-to-azure-web-app)
 * [Dokumentacja bezserwerowa usługi SignalR platformy Azure](/azure/azure-signalr/signalr-concept-serverless-development-config)

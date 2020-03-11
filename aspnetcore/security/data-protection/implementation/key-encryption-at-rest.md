@@ -1,29 +1,29 @@
 ---
-title: Szyfrowanie kluczy podczas magazynowania w programie ASP.NET Core
+title: Szyfrowanie klucza przechowywane w ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, szczegóły implementacji ochrony danych programu ASP.NET Core szyfrowanie kluczy podczas magazynowania.
+description: Zapoznaj się ze szczegółami implementacji szyfrowania klucza ochrony danych ASP.NET Core.
 ms.author: riande
 ms.date: 07/16/2018
 uid: security/data-protection/implementation/key-encryption-at-rest
 ms.openlocfilehash: 52c3137dbe467096364b42430c92aecc7c15e313
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898774"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658390"
 ---
-# <a name="key-encryption-at-rest-in-aspnet-core"></a>Szyfrowanie kluczy podczas magazynowania w programie ASP.NET Core
+# <a name="key-encryption-at-rest-in-aspnet-core"></a>Szyfrowanie klucza przechowywane w ASP.NET Core
 
-System ochrony danych [wykorzystuje mechanizm wykrywania domyślnie](xref:security/data-protection/configuration/default-settings) ustalenie, jak kryptograficzne klucze powinny być szyfrowane podczas przechowywania. Deweloper można zastąpić mechanizm odnajdywania i ręcznie określić, jak klucze powinny być szyfrowane podczas przechowywania.
+System ochrony danych [domyślnie stosuje mechanizm odnajdywania](xref:security/data-protection/configuration/default-settings) , aby określić, jak klucze kryptograficzne mają być szyfrowane w stanie spoczynku. Deweloper może przesłonić mechanizm odnajdywania i ręcznie określić, jak klucze mają być szyfrowane w stanie spoczynku.
 
 > [!WARNING]
-> Jeśli określisz jawnego [klucza lokalizacji trwałości](xref:security/data-protection/implementation/key-storage-providers), system ochrony danych deregisters domyślne szyfrowanie kluczy podczas mechanizm rest. W związku z tym klucze nie są szyfrowane, gdy. Zaleca się, że możesz [mechanizm jawne klucza szyfrowania określony](xref:security/data-protection/implementation/key-encryption-at-rest) we wdrożeniach produkcyjnych. Opcje mechanizmu szyfrowania podczas spoczynku są opisane w tym temacie.
+> Jeśli określisz jawną [lokalizację trwałości klucza](xref:security/data-protection/implementation/key-storage-providers), system ochrony danych wyrejestruje domyślne szyfrowanie klucza w mechanizmie Rest. W związku z tym klucze nie są już szyfrowane w stanie spoczynku. Zalecamy [określenie jawnego mechanizmu szyfrowania klucza](xref:security/data-protection/implementation/key-encryption-at-rest) dla wdrożeń produkcyjnych. Opcje mechanizmu szyfrowania w czasie spoczynku zostały opisane w tym temacie.
 
 ::: moniker range=">= aspnetcore-2.1"
 
 ## <a name="azure-key-vault"></a>W usłudze Azure Key Vault
 
-Do przechowywania kluczy w [usługi Azure Key Vault](https://azure.microsoft.com/services/key-vault/), skonfiguruj system z [ProtectKeysWithAzureKeyVault](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.protectkeyswithazurekeyvault) w `Startup` klasy:
+Aby przechowywać klucze w [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), skonfiguruj system przy użyciu [ProtectKeysWithAzureKeyVault](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.protectkeyswithazurekeyvault) w klasie `Startup`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -34,15 +34,15 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Aby uzyskać więcej informacji, zobacz [konfiguracji ochrony danych platformy ASP.NET Core: ProtectKeysWithAzureKeyVault](xref:security/data-protection/configuration/overview#protectkeyswithazurekeyvault).
+Aby uzyskać więcej informacji, zobacz [konfigurowanie ASP.NET Core ochrony danych: ProtectKeysWithAzureKeyVault](xref:security/data-protection/configuration/overview#protectkeyswithazurekeyvault).
 
 ::: moniker-end
 
 ## <a name="windows-dpapi"></a>Windows DPAPI
 
-**Dotyczy tylko wdrożenia Windows.**
+**Dotyczy tylko wdrożeń systemu Windows.**
 
-Gdy jest używany Windows DPAPI, materiału klucza jest szyfrowana za pomocą [CryptProtectData](/windows/desktop/api/dpapi/nf-dpapi-cryptprotectdata) przed są utrwalane w magazynie. DPAPI to mechanizm szyfrowania odpowiednie dla danych, które nie jest nigdy odczytywana poza bieżącej maszyny (choć jest możliwe utworzyć kopię tych kluczy do usługi Active Directory; zobacz [profilów mobilnych i interfejsu DPAPI](https://support.microsoft.com/kb/309408/#6)). Aby skonfigurować szyfrowanie klucza magazynowanych DPAPI, należy wywołać jedną z [ProtectKeysWithDpapi](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.protectkeyswithdpapi) metody rozszerzenia:
+Gdy jest używany system Windows DPAPI, materiał klucza jest szyfrowany przy użyciu funkcji [CryptProtectData](/windows/desktop/api/dpapi/nf-dpapi-cryptprotectdata) przed utrwaleniem do magazynu. DPAPI to odpowiedni mechanizm szyfrowania dla danych, które nigdy nie są odczytywane poza bieżącą maszyną (Chociaż istnieje możliwość przywrócenia tych kluczy do Active Directory; zobacz [Profile DPAPI i roaming](https://support.microsoft.com/kb/309408/#6)). Aby skonfigurować klucz DPAPI — szyfrowanie w spoczynku, należy wywołać jedną z metod rozszerzenia [ProtectKeysWithDpapi](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.protectkeyswithdpapi) :
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -53,7 +53,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Jeśli `ProtectKeysWithDpapi` jest wywoływana bez parametrów, tylko bieżącego konta użytkownika Windows, może odszyfrować utrwalonych pierścień klucza. Opcjonalnie możesz określić, że dowolne konto użytkownika na komputerze (nie tylko bieżącego konta użytkownika) można odszyfrować pierścień klucza:
+Jeśli `ProtectKeysWithDpapi` jest wywoływana bez parametrów, tylko bieżące konto użytkownika systemu Windows może odszyfrować trwały pierścień klucza. Opcjonalnie możesz określić, że każde konto użytkownika na komputerze (nie tylko bieżące konto użytkownika) będzie mogło odszyfrować pierścień klucza:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -66,9 +66,9 @@ public void ConfigureServices(IServiceCollection services)
 
 ::: moniker range=">= aspnetcore-2.0"
 
-## <a name="x509-certificate"></a>Certyfikat X.509
+## <a name="x509-certificate"></a>Certyfikat X. 509
 
-Aplikacja jest rozłożona się między wieloma maszynami, mogą być wygodne rozdystrybuować udostępnionego certyfikat X.509 używany przez maszyny i konfigurowanie aplikacji hostowanych na używanie certyfikatu do szyfrowania kluczy w stanie spoczynku:
+Jeśli aplikacja jest rozłożona na wiele maszyn, warto rozpowszechnić współużytkowany certyfikat X. 509 na maszynach i skonfigurować aplikacje hostowane tak, aby używały certyfikatu do szyfrowania kluczy w spoczynku:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -78,17 +78,17 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Ze względu na ograniczenia systemu .NET Framework obsługiwane są tylko certyfikatów z kluczami prywatnymi CAPI. Zobacz poniższą zawartość możliwe obejścia tych ograniczeń.
+Ze względu na ograniczenia .NET Framework obsługiwane są tylko certyfikaty z kluczami prywatnymi CAPI. Zapoznaj się z zawartością poniżej, aby zapoznać się z możliwymi obejściami tych ograniczeń.
 
 ::: moniker-end
 
-## <a name="windows-dpapi-ng"></a>Windows DPAPI-NG
+## <a name="windows-dpapi-ng"></a>Windows DPAPI — NG
 
-**Ten mechanizm jest dostępna tylko w systemie Windows 8/Windows Server 2012 lub nowszy.**
+**Ten mechanizm jest dostępny tylko w systemie Windows 8/Windows Server 2012 lub nowszym.**
 
-Począwszy od systemu Windows 8, systemu operacyjnego Windows obsługuje DPAPI-NG (nazywane również CNG DPAPI). Aby uzyskać więcej informacji, zobacz [o DPAPI CNG](/windows/desktop/SecCNG/cng-dpapi).
+Począwszy od systemu Windows 8, system operacyjny Windows obsługuje funkcję DPAPI-NG (nazywaną również usługą CNG DPAPI). Aby uzyskać więcej informacji, zobacz [about CNG DPAPI](/windows/desktop/SecCNG/cng-dpapi).
 
-Podmiot zabezpieczeń jest zakodowane jako regułę ochrony deskryptora. W poniższym przykładzie, który wywołuje [ProtectKeysWithDpapiNG](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.protectkeyswithdpaping)tylko użytkownika przyłączone do domeny przy użyciu określonego identyfikatora SID może odszyfrować pierścień klucza:
+Podmiot zabezpieczeń jest zakodowany jako reguła deskryptora ochrony. W poniższym przykładzie, który wywołuje [ProtectKeysWithDpapiNG](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.protectkeyswithdpaping), tylko użytkownik przyłączony do domeny z określonym identyfikatorem SID może odszyfrować pierścień klucza:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -100,7 +100,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Istnieje również przeciążenie bez parametrów `ProtectKeysWithDpapiNG`. Określ reguły przy użyciu tej metody jako udogodnienie "identyfikator SID = {CURRENT_ACCOUNT_SID}", gdzie *CURRENT_ACCOUNT_SID* jest identyfikator SID bieżącego konta użytkownika Windows:
+Istnieje również Przeciążenie bez parametrów `ProtectKeysWithDpapiNG`. Użyj tej wygodnej metody, aby określić regułę "SID = {CURRENT_ACCOUNT_SID}", gdzie *CURRENT_ACCOUNT_SID* jest identyfikatorem SID bieżącego konta użytkownika systemu Windows:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -111,11 +111,11 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-W tym scenariuszu kontroler domeny usługi AD jest odpowiedzialna za dystrybucję kluczy szyfrowania używany przez operacje DPAPI NG. Użytkownik docelowy może odszyfrować zaszyfrowanego ładunku z maszyn przyłączonych do domeny (pod warunkiem, że proces jest uruchomiony w ramach ich tożsamości).
+W tym scenariuszu kontroler domeny usługi AD jest odpowiedzialny za dystrybucję kluczy szyfrowania używanych przez operacje DPAPI-NG. Użytkownik docelowy może odszyfrować zaszyfrowany ładunek z dowolnego komputera przyłączonego do domeny (pod warunkiem, że proces jest uruchomiony w ramach jego tożsamości).
 
-## <a name="certificate-based-encryption-with-windows-dpapi-ng"></a>Na podstawie certyfikatu szyfrowania przy użyciu interfejsu DPAPI NG Windows
+## <a name="certificate-based-encryption-with-windows-dpapi-ng"></a>Szyfrowanie oparte na certyfikatach za pomocą interfejsu DPAPI systemu Windows
 
-Jeśli aplikacja jest uruchomiona w systemie Windows 8.1 / Windows Server 2012 R2 lub nowszy, można użyć Windows DPAPI-NG do szyfrowania opartego na certyfikatach. Użyj ciągu deskryptora reguły "certyfikat = HashId:THUMBPRINT", gdzie *odcisk PALCA* jest zakodowany w formacie szesnastkowy SHA1 odcisk palca certyfikatu:
+Jeśli aplikacja działa w systemie Windows 8.1/Windows Server 2012 R2 lub nowszym, można użyć interfejsu DPAPI systemu Windows do wykonywania szyfrowania opartego na certyfikatach. Użyj ciągu deskryptora reguły "CERTIFICATE = HashId: odcisk PALCa", gdzie *odcisk palca* to odciskiem palca szyfrowanego algorytmem szesnastkowym certyfikatu:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -126,8 +126,8 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Dowolna aplikacja wskazany w tym repozytorium musi działać na Windows 8.1 / Windows Server 2012 R2 lub nowszej, aby odszyfrować kluczy.
+Wszystkie aplikacje wskazywane w tym repozytorium muszą być uruchomione w systemie Windows 8.1/Windows Server 2012 R2 lub nowszym w celu odszyfrowania kluczy.
 
 ## <a name="custom-key-encryption"></a>Szyfrowanie klucza niestandardowego
 
-Jeśli mechanizmy wewnętrzne nie są odpowiednie, deweloper może określić ich własny mechanizm szyfrowania, podając własne [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor).
+Jeśli mechanizmy wbudowane nie są odpowiednie, deweloper może określić własny mechanizm szyfrowania kluczy, dostarczając niestandardowe [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor).
