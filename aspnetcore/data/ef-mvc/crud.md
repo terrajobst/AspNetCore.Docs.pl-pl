@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: f0c5bcff4c4b0808f9b4703e1429c3a6d1a7a2d7
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 2aa4ef48509b9a34f3b25eb657b1ecac51c1374b
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259718"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656864"
 ---
 # <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Samouczek: Implementowanie funkcji CRUD — ASP.NET MVC z EF Core
 
@@ -21,7 +21,7 @@ W poprzednim samouczku utworzono aplikację MVC, która przechowuje i wyświetla
 > [!NOTE]
 > Jest to typowa Metoda implementacji wzorca repozytorium w celu utworzenia warstwy abstrakcji między kontrolerem i warstwą dostępu do danych. Aby zachować te samouczki jako proste i skoncentrowane na tym, jak korzystać z Entity Framework, nie korzystają z repozytoriów. Aby uzyskać informacje o repozytoriach z EF, zobacz [ostatni samouczek w tej serii](advanced.md).
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Dostosuj stronę szczegółów
@@ -199,15 +199,15 @@ Kontekst bazy danych śledzi, czy jednostki w pamięci są zsynchronizowane z od
 
 Jednostka może być w jednym z następujących stanów:
 
-* `Added`., Jednostka jeszcze nie istnieje w bazie danych. Metoda `SaveChanges` wystawia instrukcję INSERT.
+* `Added`. Jednostka jeszcze nie istnieje w bazie danych. Metoda `SaveChanges` wystawia instrukcję INSERT.
 
-* `Unchanged`., Nie trzeba wykonywać żadnych czynności za pomocą tej jednostki za pomocą metody `SaveChanges`. Po odczytaniu jednostki z bazy danych jednostka zaczyna się od tego stanu.
+* `Unchanged`. Nie trzeba wykonywać żadnych czynności za pomocą tej jednostki za pomocą metody `SaveChanges`. Po odczytaniu jednostki z bazy danych jednostka zaczyna się od tego stanu.
 
-* `Modified`., Niektóre lub wszystkie wartości właściwości jednostki zostały zmodyfikowane. Metoda `SaveChanges` wystawia instrukcję UPDATE.
+* `Modified`. Niektóre lub wszystkie wartości właściwości jednostki zostały zmodyfikowane. Metoda `SaveChanges` wystawia instrukcję UPDATE.
 
-* `Deleted`., Jednostka została oznaczona do usunięcia. Metoda `SaveChanges` wystawia instrukcję DELETE.
+* `Deleted`. Jednostka została oznaczona do usunięcia. Metoda `SaveChanges` wystawia instrukcję DELETE.
 
-* `Detached`., Jednostka nie jest śledzona przez kontekst bazy danych.
+* `Detached`. Jednostka nie jest śledzona przez kontekst bazy danych.
 
 W aplikacji klasycznej zmiany stanu są zazwyczaj ustawiane automatycznie. Odczytywanie jednostki i wprowadzanie zmian w niektórych wartościach właściwości. Powoduje to, że stan jednostki jest automatycznie zmieniany na `Modified`. Po wywołaniu `SaveChanges`, Entity Framework generuje instrukcję SQL UPDATE, która aktualizuje tylko rzeczywiste właściwości, które zostały zmienione.
 
@@ -265,7 +265,7 @@ Uruchom aplikację, wybierz kartę **uczniowie** i kliknij hiperłącze **Usuń*
 
 ![Usuń stronę potwierdzenia](crud/_static/student-delete.png)
 
-Kliknij przycisk **Usuń**. Strona indeks zostanie wyświetlona bez usuniętego ucznia. (W samouczku współbieżności zostanie wyświetlony przykładowy kod obsługi błędu).
+Kliknij pozycję **Usuń**. Strona indeks zostanie wyświetlona bez usuniętego ucznia. (W samouczku współbieżności zostanie wyświetlony przykładowy kod obsługi błędu).
 
 ## <a name="close-database-connections"></a>Zamknij połączenia bazy danych
 
@@ -291,13 +291,13 @@ Można wyłączyć śledzenie obiektów jednostki w pamięci, wywołując metod�
 
 Aby uzyskać więcej informacji, zobacz [śledzenie a nie śledzenie](/ef/core/querying/tracking).
 
-## <a name="get-the-code"></a>Pobierz kod
+## <a name="get-the-code"></a>Uzyskiwanie kodu
 
-[Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Dostosowana Strona szczegółów

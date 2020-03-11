@@ -7,18 +7,18 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: abea9b189861954533b24cb73650af41952d1a86
-ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
+ms.openlocfilehash: fc6f8d8c4ab09848cf316be2e522bf5ce3b9ac76
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914113"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657039"
 ---
 # <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Samouczek: informacje na temat scenariuszy zaawansowanych — ASP.NET MVC z EF Core
 
 W poprzednim samouczku zaimplementowano dziedziczenie w hierarchii na poziomie tabeli. W tym samouczku przedstawiono kilka tematów, które są przydatne, gdy wykraczasz poza podstawowe informacje na temat tworzenia ASP.NET Core aplikacji sieci Web korzystających z Entity Framework Core.
 
-W tym samouczku zostały wykonane następujące czynności:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Wykonywanie nieprzetworzonych zapytań SQL
@@ -103,7 +103,7 @@ Uruchom metodę `UpdateCourseCredits`, wybierając kartę **kursy** , a następn
 
 ![Strona aktualizacji kredytów kursu](advanced/_static/update-credits.png)
 
-Kliknij przycisk **aktualizacji**. Zostanie wyświetlona liczba zaatakowanych wierszy:
+Kliknij przycisk **Update** (Aktualizuj). Zostanie wyświetlona liczba zaatakowanych wierszy:
 
 ![Aktualizuj środki na stronie kredytów kursu](advanced/_static/update-credits-rows-affected.png)
 
@@ -142,7 +142,7 @@ INNER JOIN (
 ORDER BY [t].[ID]
 ```
 
-Zobaczysz coś tutaj, co może się zdarzyć: kod SQL wybiera do 2 wierszy (`TOP(2)`) z tabeli Person. Metoda `SingleOrDefaultAsync` nie jest rozpoznawana jako 1 wiersz na serwerze. Poniżej przedstawiono przyczyny:
+Zobaczysz coś tutaj, co może się zdarzyć: kod SQL wybiera do 2 wierszy (`TOP(2)`) z tabeli Person. Metoda `SingleOrDefaultAsync` nie jest rozpoznawana jako 1 wiersz na serwerze. Oto dlaczego:
 
 * Jeśli zapytanie zwróci wiele wierszy, metoda zwraca wartość null.
 * Aby określić, czy zapytanie zwróci wiele wierszy, EF musi sprawdzić, czy zwraca co najmniej 2.
@@ -197,7 +197,7 @@ Aby odtworzyć model danych, w tym klasy jednostek z istniejącej bazy danych, u
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DynamicLinq)]
 
-## <a name="acknowledgments"></a>Podziękowania
+## <a name="acknowledgments"></a>Potwierdzeń
 
 Dykstra i Rick Anderson (Twitter @RickAndMSFT) zapisały ten samouczek. Rowan Miller, Diego Vega i inni członkowie zespołu Entity Framework mogą uzyskać przeglądy kodu i pomóc w debugowaniu problemów, które powstały podczas pisania kodu dla samouczków. Jan Goldman i Paul pracował nad aktualizacją samouczka dla ASP.NET Core 2,2.
 
@@ -243,15 +243,15 @@ dotnet ef database drop
 
 Komunikat o błędzie:
 
-> Podczas nawiązywania połączenia z serwerem SQL wystąpił błąd dotyczący sieci lub wystąpienia. Serwer nie został znaleziony lub nie był dostępny. Sprawdź, czy nazwa wystąpienia jest poprawna i czy SQL Server jest skonfigurowany do zezwalania na połączenia zdalne. (Dostawca: interfejsy sieciowe SQL, błąd: 26 — błąd lokalizowania określonego serwera/wystąpienia)
+> Podczas nawiązywania połączenia z serwerem SQL wystąpił błąd dotyczący sieci lub wystąpienia. Serwer nie został znaleziony lub był niedostępny. Sprawdź, czy nazwa wystąpienia jest poprawna i czy SQL Server jest skonfigurowany do zezwalania na połączenia zdalne. (Dostawca: interfejsy sieciowe SQL, błąd: 26 — błąd lokalizowania określonego serwera/wystąpienia)
 
 Rozwiązanie:
 
 Sprawdź parametry połączenia. Jeśli plik bazy danych został ręcznie usunięty, Zmień nazwę bazy danych w ciągu konstrukcyjnym, aby zacząć od nowa baza danych.
 
-## <a name="get-the-code"></a>Uzyskaj kod
+## <a name="get-the-code"></a>Uzyskiwanie kodu
 
-[Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
@@ -263,7 +263,7 @@ Aby uzyskać informacje dotyczące innych tematów odnoszących się do ASP.NET 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku zostały wykonane następujące czynności:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Wykonywanie nieprzetworzonych zapytań SQL
