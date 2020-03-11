@@ -1,13 +1,13 @@
-<span data-ttu-id="a7e4c-101">Dodaj następujące właściwości do `Movie` klasy:</span><span class="sxs-lookup"><span data-stu-id="a7e4c-101">Add the following properties to the `Movie` class:</span></span>
+<span data-ttu-id="7481f-101">Dodaj następujące właściwości do klasy `Movie`:</span><span class="sxs-lookup"><span data-stu-id="7481f-101">Add the following properties to the `Movie` class:</span></span>
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Models/Movie.cs?name=snippet1)]
 
-<span data-ttu-id="a7e4c-102">`Movie` Klasa zawiera:</span><span class="sxs-lookup"><span data-stu-id="a7e4c-102">The `Movie` class contains:</span></span>
+<span data-ttu-id="7481f-102">Klasa `Movie` zawiera:</span><span class="sxs-lookup"><span data-stu-id="7481f-102">The `Movie` class contains:</span></span>
 
-* <span data-ttu-id="a7e4c-103">`Id` Pola, które jest wymagane przez bazę danych dla klucza podstawowego.</span><span class="sxs-lookup"><span data-stu-id="a7e4c-103">The `Id` field which is required by the database for the primary key.</span></span>
-* <span data-ttu-id="a7e4c-104">`[DataType(DataType.Date)]`:  [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) atrybut określa typ danych (`Date`).</span><span class="sxs-lookup"><span data-stu-id="a7e4c-104">`[DataType(DataType.Date)]`:  The [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) attribute specifies the type of the data (`Date`).</span></span> <span data-ttu-id="a7e4c-105">Z tego atrybutu:</span><span class="sxs-lookup"><span data-stu-id="a7e4c-105">With this attribute:</span></span>
+* <span data-ttu-id="7481f-103">Pole `Id`, które jest wymagane przez bazę danych dla klucza podstawowego.</span><span class="sxs-lookup"><span data-stu-id="7481f-103">The `Id` field which is required by the database for the primary key.</span></span>
+* <span data-ttu-id="7481f-104">`[DataType(DataType.Date)]`: atrybut [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) określa typ danych (`Date`).</span><span class="sxs-lookup"><span data-stu-id="7481f-104">`[DataType(DataType.Date)]`:  The [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) attribute specifies the type of the data (`Date`).</span></span> <span data-ttu-id="7481f-105">Z tym atrybutem:</span><span class="sxs-lookup"><span data-stu-id="7481f-105">With this attribute:</span></span>
 
-  * <span data-ttu-id="a7e4c-106">Użytkownik nie musi wprowadzić informacje o czasie w polu daty.</span><span class="sxs-lookup"><span data-stu-id="a7e4c-106">The user is not required to enter time information in the date field.</span></span>
-  * <span data-ttu-id="a7e4c-107">Tylko data jest wyświetlany, nie czas informacji.</span><span class="sxs-lookup"><span data-stu-id="a7e4c-107">Only the date is displayed, not time information.</span></span>
+  * <span data-ttu-id="7481f-106">Użytkownik nie musi wprowadzać informacji o czasie w polu Data.</span><span class="sxs-lookup"><span data-stu-id="7481f-106">The user is not required to enter time information in the date field.</span></span>
+  * <span data-ttu-id="7481f-107">Tylko data jest wyświetlana, a nie informacje o czasie.</span><span class="sxs-lookup"><span data-stu-id="7481f-107">Only the date is displayed, not time information.</span></span>
 
-<span data-ttu-id="a7e4c-108">[DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) zostały omówione później w samouczku.</span><span class="sxs-lookup"><span data-stu-id="a7e4c-108">[DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) are covered in a later tutorial.</span></span>
+<span data-ttu-id="7481f-108">[Adnotacje DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) są omówione w kolejnym samouczku.</span><span class="sxs-lookup"><span data-stu-id="7481f-108">[DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) are covered in a later tutorial.</span></span>
