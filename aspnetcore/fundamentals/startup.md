@@ -7,16 +7,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 8d878d692f0488f99385b0bd6944fc6cd276c306
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: e3249df4b7388beeff13fe4b4e0ff481c35725c5
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355683"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667658"
 ---
 # <a name="app-startup-in-aspnet-core"></a>Uruchamianie aplikacji w ASP.NET Core
 
-[Rick Anderson](https://twitter.com/RickAndMSFT), [Tomasz Dykstra](https://github.com/tdykstra), [Luke Latham](https://github.com/guardrex)i [Steve Smith](https://ardalis.com)
+Autorzy [Rick Anderson](https://twitter.com/RickAndMSFT), [Tomasz Dykstra](https://github.com/tdykstra)i [Steve Smith](https://ardalis.com)
 
 Klasa `Startup` konfiguruje usługi i potok żądań aplikacji.
 
@@ -143,7 +143,7 @@ Kolejność wykonywania oprogramowania pośredniczącego jest ustawiana w kolejn
 
 ## <a name="add-configuration-at-startup-from-an-external-assembly"></a>Dodaj konfigurację podczas uruchamiania z zestawu zewnętrznego
 
-Implementacja <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> umożliwia dodawanie ulepszeń do aplikacji podczas uruchamiania z zestawu zewnętrznego poza klasą `Startup` aplikacji. Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/configuration/platform-specific-configuration>.
+Implementacja <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> umożliwia dodawanie ulepszeń do aplikacji podczas uruchamiania z zestawu zewnętrznego poza klasą `Startup` aplikacji. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/platform-specific-configuration>.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
@@ -275,7 +275,7 @@ Kolejność wykonywania oprogramowania pośredniczącego jest ustawiana w kolejn
 
 ## <a name="add-configuration-at-startup-from-an-external-assembly"></a>Dodaj konfigurację podczas uruchamiania z zestawu zewnętrznego
 
-Implementacja <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> umożliwia dodawanie ulepszeń do aplikacji podczas uruchamiania z zestawu zewnętrznego poza klasą `Startup` aplikacji. Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/configuration/platform-specific-configuration>.
+Implementacja <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> umożliwia dodawanie ulepszeń do aplikacji podczas uruchamiania z zestawu zewnętrznego poza klasą `Startup` aplikacji. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/platform-specific-configuration>.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

@@ -7,17 +7,17 @@ ms.custom: mvc
 ms.date: 01/15/2020
 uid: host-and-deploy/docker/building-net-docker-images
 ms.openlocfilehash: 5bed5e9a4a6109a45badcef7c0d4e03eb2312bf0
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146345"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664074"
 ---
 # <a name="docker-images-for-aspnet-core"></a>Obrazy platformy Docker dla ASP.NET Core
 
 W tym samouczku pokazano, jak uruchomić aplikację ASP.NET Core w kontenerach platformy Docker.
 
-W tym samouczku zostały wykonane następujące czynności:
+W tym samouczku zostaną wykonane następujące czynności:
 > [!div class="checklist"]
 > * Dowiedz się więcej na temat Microsoft .NET podstawowych obrazów platformy Docker
 > * Pobieranie przykładowej aplikacji ASP.NET Core
@@ -48,7 +48,7 @@ Przykładowy pliku dockerfile używa [funkcji budowania wielu etapów platformy 
 
 ::: moniker range=">= aspnetcore-3.0"
 
-* [.NET Core SDK 3.0](https://dotnet.microsoft.com/download)
+* [Zestaw .NET Core SDK 3,0](https://dotnet.microsoft.com/download)
 
 ::: moniker-end
 
@@ -62,7 +62,7 @@ Przykładowy pliku dockerfile używa [funkcji budowania wielu etapów platformy 
   * [macOS](https://docs.docker.com/docker-for-mac/install/)
   * [Windows](https://docs.docker.com/docker-for-windows/install/)
 
-* [Git](https://git-scm.com/download)
+* [Usługa Git](https://git-scm.com/download)
 
 ## <a name="download-the-sample-app"></a>Pobieranie przykładowej aplikacji
 
@@ -160,13 +160,13 @@ W niektórych scenariuszach może zajść potrzeba wdrożenia aplikacji w konten
 
 * Uruchom aplikację.
 
-  * System Windows:
+  * W systemie Windows:
 
     ```dotnetcli
     dotnet published\aspnetapp.dll
     ```
 
-  * Linux:
+  * W systemie Linux:
 
     ```dotnetcli
     dotnet published/aspnetapp.dll
@@ -262,7 +262,7 @@ ENTRYPOINT ["dotnet", "aspnetapp.dll"]
 * [ASP.NET Core Docker — przykład](https://github.com/dotnet/dotnet-docker) (używany w tym samouczku).
 * [Konfigurowanie ASP.NET Core do pracy z serwerami proxy i usługami równoważenia obciążenia](/aspnet/core/host-and-deploy/proxy-load-balancer)
 * [Praca z narzędziami platformy Docker programu Visual Studio](https://docs.microsoft.com/aspnet/core/publishing/visual-studio-tools-for-docker)
-* [Debugowanie za pomocą programu Visual Studio Code](https://code.visualstudio.com/docs/nodejs/debugging-recipes#_debug-nodejs-in-docker-containers) 
+* [Debugowanie za pomocą Visual Studio Code](https://code.visualstudio.com/docs/nodejs/debugging-recipes#_debug-nodejs-in-docker-containers) 
 
 ## <a name="next-steps"></a>Następne kroki
 

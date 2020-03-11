@@ -9,11 +9,11 @@ no-loc:
 - SignalR
 uid: grpc/comparison
 ms.openlocfilehash: 8935e665dfd5d8f9afa002f475c202ec0f0ee657
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880670"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667161"
 ---
 # <a name="compare-grpc-services-with-http-apis"></a>Porównanie usług gRPC za pomocą interfejsów API protokołu HTTP
 
@@ -25,15 +25,15 @@ W tym artykule wyjaśniono, jak [usługi gRPC Services](https://grpc.io/docs/gui
 
 Poniższa tabela zawiera porównanie funkcji między gRPC i interfejsami API protokołu HTTP z kodem JSON.
 
-| Funkcja          | gRPC                                               | Interfejsy API protokołu HTTP z JSON           |
+| Cecha          | gRPC                                               | Interfejsy API protokołu HTTP z JSON           |
 | ---------------- | -------------------------------------------------- | ----------------------------- |
 | Kontrakt         | Wymagane ( *. proto*)                                | Opcjonalnie (OpenAPI)            |
 | Protokół         | HTTP/2                                             | HTTP                          |
 | Ładunku          | [Protobuf (mały, binarny)](#performance)           | JSON (duże, czytelne dla ludzi)  |
 | Prescriptiveness | [Specyfikacja Strict](#strict-specification)      | Sypki. Wszystkie protokoły HTTP są prawidłowe.     |
 | Przesyłanie strumieniowe        | [Klient, serwer, dwukierunkowa](#streaming)       | Klient, serwer                |
-| Obsługa przeglądarki  | [Nie (wymaga GRPC-Web)](#limited-browser-support) | Tak                           |
-| Zabezpieczenia         | Transport (TLS)                                    | Transport (TLS)               |
+| Obsługa przeglądarki  | [Nie (wymaga GRPC-Web)](#limited-browser-support) | Yes                           |
+| Bezpieczeństwo         | Transport (TLS)                                    | Transport (TLS)               |
 | Generowanie kodu klienta | [Tak](#code-generation)                      | Narzędzia OpenAPI + inne firmy |
 
 ## <a name="grpc-strengths"></a>mocne gRPC

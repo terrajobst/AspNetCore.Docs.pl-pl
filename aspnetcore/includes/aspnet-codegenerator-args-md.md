@@ -1,11 +1,11 @@
 <!-- Options common to Razor Pages and Controller -->
 | Opcja               | Opis|
 | ----------------- | ------------ |
-| --model lub -m  | Klasa modelu do użycia. |
-| --dataContext lub -dc  | `DbContext` Klasy. |
-| --bootstrapVersion lub -b  | Określa wersję bootstrap. Prawidłowe wartości to `3` lub `4`. Wartość domyślna to `4`. Jeśli wymagane i nie występuje *wwwroot* utworzony katalog zawierający pliki ładowania określonej wersji. |
-| --referenceScriptLibraries lub - skryptów |  Odwołanie do biblioteki skryptów w wygenerowanych widoków. Dodaje `_ValidationScriptsPartial` to edytowanie i tworzenie stron. |
-| --układu lub -l | Niestandardowe strony układu do użycia. |
-| --useDefaultLayout lub - udl | Użyj domyślnego układu dla widoków. |
-| --force lub -f | Nadpisz istniejące pliki. |
-| --relativeFolderPath lub - outDir | Ścieżka folderu względne dane wyjściowe z projektu, w których są generowane pliku. Jeśli nie zostanie określony, pliki są generowane w folderze projektu. |
+| --model lub-m  | Klasa modelu do użycia. |
+| --DataContext lub-DC  | Klasa `DbContext` do użycia. |
+| --bootstrapVersion lub-b  | Określa wersję ładowania początkowego. Prawidłowe wartości to `3` lub `4`. Wartość domyślna to `4`. W razie konieczności i nieobecny katalog *wwwroot* zostanie utworzony, który zawiera pliki Bootstrap określonej wersji. |
+| --referenceScriptLibraries lub-scripts |  Odwołuj się do bibliotek skryptów w wygenerowanych widokach. Dodaje `_ValidationScriptsPartial` do edycji i tworzenia stron. |
+| --układ lub-l | Strona układu niestandardowego do użycia. |
+| --useDefaultLayout lub-UDL | Użyj domyślnego układu dla widoków. |
+| --Force lub-f | Zastąp istniejące pliki. |
+| --relativeFolderPath lub-outDir | Ścieżka względna folderu wyjściowego z projektu, w którym jest generowany plik. Jeśli nie zostanie określony, pliki są generowane w folderze projektu. |

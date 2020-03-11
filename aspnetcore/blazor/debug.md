@@ -11,19 +11,19 @@ no-loc:
 - SignalR
 uid: blazor/debug
 ms.openlocfilehash: 1b0035af48b82807a6ae14835a41a1ecbef06bb6
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76159992"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661708"
 ---
-# <a name="debug-aspnet-core-opno-locblazor"></a>Debuguj ASP.NET Core [!OP.NO-LOC(Blazor)]
+# <a name="debug-aspnet-core-blazor"></a>Debuguj ASP.NET Core Blazor
 
 [Daniel Roth](https://github.com/danroth27)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Istnieje *wczesna* obsługa debugowania [!OP.NO-LOC(Blazor)] webassembly przy użyciu narzędzi deweloperskich przeglądarki w przeglądarkach opartych na chromie (Chrome/Microsoft Edge). Prace są w toku do:
+Istnieje *wczesna* pomoc techniczna dla debugowania Blazor webassembly przy użyciu narzędzi deweloperskich przeglądarki w przeglądarkach opartych na chromie (Chrome/Edge). Prace są w toku do:
 
 * W pełni Włącz debugowanie w programie Visual Studio.
 * Włącz debugowanie w Visual Studio Code.
@@ -60,10 +60,10 @@ Debugowanie wymaga jednej z następujących przeglądarek:
 > [!WARNING]
 > Obsługa debugowania w programie Visual Studio jest wczesnym etapem opracowywania. Debugowanie **F5** nie jest obecnie obsługiwane.
 
-1. Uruchom aplikację [!OP.NO-LOC(Blazor)] webassembly w konfiguracji `Debug` bez debugowania (**Ctrl**+**F5** zamiast **F5**).
-1. Otwórz właściwości debugowania aplikacji (ostatni wpis w menu **debugowanie** ) i skopiuj **adres URL aplikacji**http. Przejdź do adresu HTTP (nie adresu HTTPS) aplikacji przy użyciu przeglądarki opartej na formacie chrom (Microsoft Edge beta lub Chrome).
+1. Uruchom aplikację webassembly Blazor w konfiguracji `Debug` bez debugowania (**Ctrl**+**F5** zamiast **F5**).
+1. Otwórz właściwości debugowania aplikacji (ostatni wpis w menu **debugowanie** ) i skopiuj **adres URL aplikacji**http. Przejdź do adresu HTTP (nie adresu HTTPS) aplikacji przy użyciu przeglądarki opartej na formacie chrom (Edge beta lub Chrome).
 1. Umieść fokus klawiatury w aplikacji w oknie przeglądarki, a nie na panelu Narzędzia deweloperskie. Najlepiej jest pozostawić zamkniętą panel Narzędzia deweloperskie w celu wykonania tej procedury. Po rozpoczęciu debugowania możesz ponownie otworzyć panel Narzędzia deweloperskie.
-1. Wybierz następujący [!OP.NO-LOC(Blazor)]skrót klawiaturowy:
+1. Wybierz następujący skrót klawiaturowy dotyczący Blazor:
 
    * `Shift+Alt+D` w systemie Windows
    * `Shift+Cmd+D` w macOS
@@ -76,7 +76,7 @@ Debugowanie wymaga jednej z następujących przeglądarek:
 
    2\. Umieść fokus klawiatury w aplikacji w oknie przeglądarki.
 
-   3 \. Wybierz skrót klawiaturowy określony [!OP.NO-LOC(Blazor)]w nowym oknie przeglądarki: `Shift+Alt+D` w systemie Windows lub `Shift+Cmd+D` na macOS.
+   3 \. Wybierz skrót klawiaturowy dotyczący Blazor w nowym oknie przeglądarki: `Shift+Alt+D` w systemie Windows lub `Shift+Cmd+D` na macOS.
 
    4\. Zostanie otwarta karta **devtools** w przeglądarce. **Wybierz kartę aplikacji w oknie przeglądarki.**
 
@@ -84,10 +84,10 @@ Debugowanie wymaga jednej z następujących przeglądarek:
 
 # <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
 
-1. Uruchom [!OP.NO-LOC(Blazor)] aplikację webassembly w konfiguracji `Debug`, przekazując opcję `--configuration Debug` do polecenia [Run dotnet](/dotnet/core/tools/dotnet-run) : `dotnet run --configuration Debug`.
+1. Uruchom aplikację webassembly Blazor w konfiguracji `Debug`, przekazując opcję `--configuration Debug` do polecenia [Run dotnet](/dotnet/core/tools/dotnet-run) : `dotnet run --configuration Debug`.
 1. Przejdź do aplikacji w adresie URL protokołu HTTP pokazanej w oknie powłoki.
 1. Umieść fokus klawiatury w aplikacji, a nie na panelu Narzędzia deweloperskie. Najlepiej jest pozostawić zamkniętą panel Narzędzia deweloperskie w celu wykonania tej procedury. Po rozpoczęciu debugowania możesz ponownie otworzyć panel Narzędzia deweloperskie.
-1. Wybierz następujący [!OP.NO-LOC(Blazor)]skrót klawiaturowy:
+1. Wybierz następujący skrót klawiaturowy dotyczący Blazor:
 
    * `Shift+Alt+D` w systemie Windows
    * `Shift+Cmd+D` w macOS
@@ -100,7 +100,7 @@ Debugowanie wymaga jednej z następujących przeglądarek:
 
    2\. Umieść fokus klawiatury w aplikacji w oknie przeglądarki, a nie na panelu Narzędzia deweloperskie.
 
-   3 \. Wybierz skrót klawiaturowy określony [!OP.NO-LOC(Blazor)]w nowym oknie przeglądarki: `Shift+Alt+D` w systemie Windows lub `Shift+Cmd+D` na macOS.
+   3 \. Wybierz skrót klawiaturowy dotyczący Blazor w nowym oknie przeglądarki: `Shift+Alt+D` w systemie Windows lub `Shift+Cmd+D` na macOS.
 
 ---
 
@@ -125,7 +125,7 @@ Aby dołączyć proces uruchomionej aplikacji do programu Visual Studio:
 1. W przypadku **celu połączenia**Wklej adres http (nie adres https) aplikacji.
 1. Wybierz pozycję **Odśwież** , aby odświeżyć wpisy w obszarze **dostępne procesy**.
 1. Wybierz proces przeglądarki do debugowania i wybierz pozycję **Dołącz**.
-1. W oknie dialogowym **Wybieranie typu kodu** wybierz typ kodu dla konkretnej przeglądarki, do której dołączasz (Microsoft Edge lub Chrome), a następnie wybierz **przycisk OK**.
+1. W oknie dialogowym **Wybieranie typu kodu** wybierz typ kodu dla konkretnej przeglądarki, do której dołączasz (Edge lub Chrome), a następnie wybierz **przycisk OK**.
 
 ## <a name="browser-source-maps"></a>Mapy źródeł przeglądarki
 

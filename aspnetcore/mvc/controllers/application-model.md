@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 12/05/2019
 uid: mvc/controllers/application-model
 ms.openlocfilehash: 4b6c978e5752eb320412a1c204df8e3d288fe4a1
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881089"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666433"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>Pracuj z modelem aplikacji w ASP.NET Core
 
@@ -69,7 +69,7 @@ Niektóre wbudowane zachowania są implementowane przez `DefaultApplicationModel
 
 `CorsApplicationModelProvider` implementuje zachowanie skojarzone z `IEnableCorsAttribute` i `IDisableCorsAttribute`i `DisableCorsAuthorizationFilter`. [Dowiedz się więcej na temat mechanizmu CORS](xref:security/cors).
 
-## <a name="conventions"></a>Konwencje
+## <a name="conventions"></a>Konwencja
 
 Model aplikacji definiuje abstrakcje Konwencji, które zapewniają prostszy sposób dostosowywania zachowania modeli niż zastępowanie całego modelu lub dostawcy. Te streszczenia są zalecanym sposobem modyfikacji zachowania aplikacji. Konwencje umożliwiają pisanie kodu, który będzie dynamicznie stosować dostosowania. [Filtry](xref:mvc/controllers/filters) umożliwiają modyfikowanie zachowania struktury, jednak dostosowania pozwalają kontrolować, jak cała aplikacja działa razem.
 

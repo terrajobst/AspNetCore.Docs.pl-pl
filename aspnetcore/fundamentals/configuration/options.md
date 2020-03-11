@@ -1,22 +1,20 @@
 ---
 title: Wzorzec opcji w ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Dowiedz się, jak używać wzorca opcji do reprezentowania grup powiązanych ustawień w aplikacjach ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/12/2020
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 1f3625380d816c7d4df5a7a24b0ac146500330de
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.openlocfilehash: 756d3d57122642ab10ab671c9accb75975c3799d
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447208"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78665460"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Wzorzec opcji w ASP.NET Core
-
-Autor [Luke Latham](https://github.com/guardrex)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -27,7 +25,7 @@ Wzorzec opcji używa klas do reprezentowania grup powiązanych ustawień. Gdy [U
 
 Opcje umożliwiają również mechanizm weryfikacji danych konfiguracyjnych. Aby uzyskać więcej informacji, zobacz sekcję [Opcje walidacji](#options-validation) .
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="package"></a>Pakiet
 
@@ -324,6 +322,8 @@ catch (OptionsValidationException e)
 }
 ```
 
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
+
 Poprzedni przykład ustawia nazwane wystąpienie opcji na `optionalOptionsName`. Domyślne wystąpienie opcji jest `Options.DefaultName`.
 
 Walidacja jest uruchamiana po utworzeniu wystąpienia opcji. Wystąpienie opcji gwarantuje przekazanie walidacji przy pierwszym dostępie do niego.
@@ -451,7 +451,7 @@ Wzorzec opcji używa klas do reprezentowania grup powiązanych ustawień. Gdy [U
 
 Opcje umożliwiają również mechanizm weryfikacji danych konfiguracyjnych. Aby uzyskać więcej informacji, zobacz sekcję [Opcje walidacji](#options-validation) .
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -873,7 +873,7 @@ Wzorzec opcji używa klas do reprezentowania grup powiązanych ustawień. Gdy [U
 
 Opcje umożliwiają również mechanizm weryfikacji danych konfiguracyjnych. Aby uzyskać więcej informacji, zobacz sekcję [Opcje walidacji](#options-validation) .
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

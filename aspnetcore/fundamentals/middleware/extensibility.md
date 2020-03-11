@@ -1,47 +1,45 @@
 ---
 title: Aktywacja oprogramowania pośredniczącego oparta na fabryce w ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Dowiedz się, jak używać silnego typu oprogramowania pośredniczącego z implementacją aktywacji opartej na fabryce w ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 09/22/2019
 uid: fundamentals/middleware/extensibility
-ms.openlocfilehash: 17018d2dd20ed7b26bd0aa1095fa720a73f77261
-ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
+ms.openlocfilehash: abc6268584d12fe43d972c79a99316b94e8bee4b
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71186945"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663094"
 ---
 # <a name="factory-based-middleware-activation-in-aspnet-core"></a>Aktywacja oprogramowania pośredniczącego oparta na fabryce w ASP.NET Core
 
-Przez [Luke Latham](https://github.com/guardrex)
-
 ::: moniker range=">= aspnetcore-3.0"
 
-<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory>/<xref:Microsoft.AspNetCore.Http.IMiddleware>jest punktem rozszerzalności dla aktywacji [oprogramowania pośredniczącego](xref:fundamentals/middleware/index) .
+<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory>/<xref:Microsoft.AspNetCore.Http.IMiddleware> jest punktem rozszerzalności dla aktywacji [oprogramowania pośredniczącego](xref:fundamentals/middleware/index) .
 
-<xref:Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.UseMiddleware*>metody rozszerzające sprawdzają, czy typ zarejestrowanego <xref:Microsoft.AspNetCore.Http.IMiddleware>oprogramowania pośredniczącego jest zaimplementowany. W takim przypadku <xref:Microsoft.AspNetCore.Http.IMiddleware> wystąpieniezarejestrowanewkontenerzejestużywanedorozpoznawaniaimplementacjizamiastkorzystaniazlogikiaktywacjioprogramowaniapośredniczącegoopartego<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> na Konwencji. Oprogramowanie pośredniczące jest rejestrowane jako [Usługa w zakresie lub przejściowym](xref:fundamentals/dependency-injection#service-lifetimes) w kontenerze usługi aplikacji.
+<xref:Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.UseMiddleware*> metody rozszerzenia sprawdzają, czy typ zarejestrowanego oprogramowania pośredniczącego implementuje <xref:Microsoft.AspNetCore.Http.IMiddleware>. W takim przypadku wystąpienie <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> zarejestrowane w kontenerze służy do rozpoznawania <xref:Microsoft.AspNetCore.Http.IMiddleware> implementacji zamiast korzystania z logiki aktywacji oprogramowania pośredniczącego opartego na Konwencji. Oprogramowanie pośredniczące jest rejestrowane jako [Usługa w zakresie lub przejściowym](xref:fundamentals/dependency-injection#service-lifetimes) w kontenerze usługi aplikacji.
 
 Korzysta
 
 * Aktywacja na żądanie klienta (iniekcja usług objętych zakresem)
 * Silne wpisywanie oprogramowania pośredniczącego
 
-<xref:Microsoft.AspNetCore.Http.IMiddleware>jest aktywowany dla żądania klienta (połączenie), więc usługi w zakresie mogą być wstrzykiwane do konstruktora oprogramowania pośredniczącego.
+<xref:Microsoft.AspNetCore.Http.IMiddleware> jest uaktywniana dla żądania klienta (połączenie), więc usługi w zakresie mogą być wstrzykiwane do konstruktora oprogramowania pośredniczącego.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="imiddleware"></a>IMiddleware
 
-<xref:Microsoft.AspNetCore.Http.IMiddleware>definiuje oprogramowanie pośredniczące dla potoku żądania aplikacji. Metoda [InvokeAsync (HttpContext, RequestDelegate)](xref:Microsoft.AspNetCore.Http.IMiddleware.InvokeAsync*) obsługuje żądania i zwraca <xref:System.Threading.Tasks.Task> wartość reprezentującą wykonywanie oprogramowania pośredniczącego.
+<xref:Microsoft.AspNetCore.Http.IMiddleware> definiuje oprogramowanie pośredniczące dla potoku żądania aplikacji. Metoda [InvokeAsync (HttpContext, RequestDelegate)](xref:Microsoft.AspNetCore.Http.IMiddleware.InvokeAsync*) obsługuje żądania i zwraca <xref:System.Threading.Tasks.Task>, które reprezentuje wykonanie oprogramowania pośredniczącego.
 
 Oprogramowanie pośredniczące aktywowane zgodnie z konwencją:
 
 [!code-csharp[](extensibility/samples/3.x/MiddlewareExtensibilitySample/Middleware/ConventionalMiddleware.cs?name=snippet1)]
 
-Oprogramowanie pośredniczące aktywowane <xref:Microsoft.AspNetCore.Http.MiddlewareFactory>przez:
+Oprogramowanie pośredniczące aktywowane przez <xref:Microsoft.AspNetCore.Http.MiddlewareFactory>:
 
 [!code-csharp[](extensibility/samples/3.x/MiddlewareExtensibilitySample/Middleware/FactoryActivatedMiddleware.cs?name=snippet1)]
 
@@ -60,7 +58,7 @@ public static IApplicationBuilder UseFactoryActivatedMiddleware(
 }
 ```
 
-Oprogramowanie pośredniczące aktywowane fabrycznie jest dodawane do wbudowanego kontenera w programie `Startup.ConfigureServices`:
+Oprogramowanie pośredniczące aktywowane fabrycznie jest dodawane do wbudowanego kontenera w `Startup.ConfigureServices`:
 
 [!code-csharp[](extensibility/samples/3.x/MiddlewareExtensibilitySample/Startup.cs?name=snippet1&highlight=6)]
 
@@ -70,36 +68,36 @@ Oba middlewares są rejestrowane w potoku przetwarzania żądań w `Startup.Conf
 
 ## <a name="imiddlewarefactory"></a>IMiddlewareFactory
 
-<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory>zapewnia metody tworzenia oprogramowania pośredniczącego. Implementacja fabryki oprogramowania pośredniczącego jest zarejestrowana w kontenerze jako usługa objęta zakresem.
+<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> udostępnia metody tworzenia oprogramowania pośredniczącego. Implementacja fabryki oprogramowania pośredniczącego jest zarejestrowana w kontenerze jako usługa objęta zakresem.
 
-Domyślna <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> implementacja, <xref:Microsoft.AspNetCore.Http.MiddlewareFactory>, znajduje się w pakiecie [Microsoft. AspNetCore. http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/) .
+Domyślna implementacja <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory>, <xref:Microsoft.AspNetCore.Http.MiddlewareFactory>, znajduje się w pakiecie [Microsoft. AspNetCore. http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/) .
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory>/<xref:Microsoft.AspNetCore.Http.IMiddleware>jest punktem rozszerzalności dla aktywacji [oprogramowania pośredniczącego](xref:fundamentals/middleware/index) .
+<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory>/<xref:Microsoft.AspNetCore.Http.IMiddleware> jest punktem rozszerzalności dla aktywacji [oprogramowania pośredniczącego](xref:fundamentals/middleware/index) .
 
-<xref:Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.UseMiddleware*>metody rozszerzające sprawdzają, czy typ zarejestrowanego <xref:Microsoft.AspNetCore.Http.IMiddleware>oprogramowania pośredniczącego jest zaimplementowany. W takim przypadku <xref:Microsoft.AspNetCore.Http.IMiddleware> wystąpieniezarejestrowanewkontenerzejestużywanedorozpoznawaniaimplementacjizamiastkorzystaniazlogikiaktywacjioprogramowaniapośredniczącegoopartego<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> na Konwencji. Oprogramowanie pośredniczące jest rejestrowane jako [Usługa w zakresie lub przejściowym](xref:fundamentals/dependency-injection#service-lifetimes) w kontenerze usługi aplikacji.
+<xref:Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.UseMiddleware*> metody rozszerzenia sprawdzają, czy typ zarejestrowanego oprogramowania pośredniczącego implementuje <xref:Microsoft.AspNetCore.Http.IMiddleware>. W takim przypadku wystąpienie <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> zarejestrowane w kontenerze służy do rozpoznawania <xref:Microsoft.AspNetCore.Http.IMiddleware> implementacji zamiast korzystania z logiki aktywacji oprogramowania pośredniczącego opartego na Konwencji. Oprogramowanie pośredniczące jest rejestrowane jako [Usługa w zakresie lub przejściowym](xref:fundamentals/dependency-injection#service-lifetimes) w kontenerze usługi aplikacji.
 
 Korzysta
 
 * Aktywacja na żądanie klienta (iniekcja usług objętych zakresem)
 * Silne wpisywanie oprogramowania pośredniczącego
 
-<xref:Microsoft.AspNetCore.Http.IMiddleware>jest aktywowany dla żądania klienta (połączenie), więc usługi w zakresie mogą być wstrzykiwane do konstruktora oprogramowania pośredniczącego.
+<xref:Microsoft.AspNetCore.Http.IMiddleware> jest uaktywniana dla żądania klienta (połączenie), więc usługi w zakresie mogą być wstrzykiwane do konstruktora oprogramowania pośredniczącego.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="imiddleware"></a>IMiddleware
 
-<xref:Microsoft.AspNetCore.Http.IMiddleware>definiuje oprogramowanie pośredniczące dla potoku żądania aplikacji. Metoda [InvokeAsync (HttpContext, RequestDelegate)](xref:Microsoft.AspNetCore.Http.IMiddleware.InvokeAsync*) obsługuje żądania i zwraca <xref:System.Threading.Tasks.Task> wartość reprezentującą wykonywanie oprogramowania pośredniczącego.
+<xref:Microsoft.AspNetCore.Http.IMiddleware> definiuje oprogramowanie pośredniczące dla potoku żądania aplikacji. Metoda [InvokeAsync (HttpContext, RequestDelegate)](xref:Microsoft.AspNetCore.Http.IMiddleware.InvokeAsync*) obsługuje żądania i zwraca <xref:System.Threading.Tasks.Task>, które reprezentuje wykonanie oprogramowania pośredniczącego.
 
 Oprogramowanie pośredniczące aktywowane zgodnie z konwencją:
 
 [!code-csharp[](extensibility/samples/2.x/MiddlewareExtensibilitySample/Middleware/ConventionalMiddleware.cs?name=snippet1)]
 
-Oprogramowanie pośredniczące aktywowane <xref:Microsoft.AspNetCore.Http.MiddlewareFactory>przez:
+Oprogramowanie pośredniczące aktywowane przez <xref:Microsoft.AspNetCore.Http.MiddlewareFactory>:
 
 [!code-csharp[](extensibility/samples/2.x/MiddlewareExtensibilitySample/Middleware/FactoryActivatedMiddleware.cs?name=snippet1)]
 
@@ -118,7 +116,7 @@ public static IApplicationBuilder UseFactoryActivatedMiddleware(
 }
 ```
 
-Oprogramowanie pośredniczące aktywowane fabrycznie jest dodawane do wbudowanego kontenera w programie `Startup.ConfigureServices`:
+Oprogramowanie pośredniczące aktywowane fabrycznie jest dodawane do wbudowanego kontenera w `Startup.ConfigureServices`:
 
 [!code-csharp[](extensibility/samples/2.x/MiddlewareExtensibilitySample/Startup.cs?name=snippet1&highlight=6)]
 
@@ -128,9 +126,9 @@ Oba middlewares są rejestrowane w potoku przetwarzania żądań w `Startup.Conf
 
 ## <a name="imiddlewarefactory"></a>IMiddlewareFactory
 
-<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory>zapewnia metody tworzenia oprogramowania pośredniczącego. Implementacja fabryki oprogramowania pośredniczącego jest zarejestrowana w kontenerze jako usługa objęta zakresem.
+<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> udostępnia metody tworzenia oprogramowania pośredniczącego. Implementacja fabryki oprogramowania pośredniczącego jest zarejestrowana w kontenerze jako usługa objęta zakresem.
 
-Domyślna <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> implementacja, <xref:Microsoft.AspNetCore.Http.MiddlewareFactory>, znajduje się w pakiecie [Microsoft. AspNetCore. http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/) .
+Domyślna implementacja <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory>, <xref:Microsoft.AspNetCore.Http.MiddlewareFactory>, znajduje się w pakiecie [Microsoft. AspNetCore. http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/) .
 
 ::: moniker-end
 

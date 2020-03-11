@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 01/21/2019
 uid: security/authentication/azure-ad-b2c
 ms.openlocfilehash: 136fa47788456492a9a7fe6d9d9e5996c13e8c20
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76727274"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663661"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Uwierzytelnianie w chmurze za pomocą Azure Active Directory B2C w ASP.NET Core
 
@@ -50,8 +50,8 @@ Wprowadź następujące wartości:
 | Ustawienie                       | Wartość                     | Uwagi                                                                                                                                                                                              |
 |-------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Nazwa**                      | *Nazwa &lt;aplikacji&gt;*        | Wprowadź **nazwę** aplikacji opisującą aplikację dla użytkowników.                                                                                                                                 |
-| **Uwzględnij aplikację internetową/internetowy interfejs API** | Tak                       |                                                                                                                                                                                                    |
-| **Zezwalaj na niejawny przepływ**       | Tak                       |                                                                                                                                                                                                    |
+| **Uwzględnij aplikację internetową/internetowy interfejs API** | Yes                       |                                                                                                                                                                                                    |
+| **Zezwalaj na niejawny przepływ**       | Yes                       |                                                                                                                                                                                                    |
 | **Adres URL odpowiedzi**                 | `https://localhost:44300/signin-oidc` | Adresy URL odpowiedzi to punkty końcowe, do których usługa Azure AD B2C zwraca wszelkie tokeny żądane przez aplikację. Program Visual Studio udostępnia adres URL odpowiedzi, który ma być używany. Na razie wprowadź `https://localhost:44300/signin-oidc`, aby zakończyć formularz. |
 | **Identyfikator URI identyfikatora aplikacji**                | Pozostaw puste               | Nie jest wymagane na potrzeby tego samouczka.                                                                                                                                                                    |
 | **Dołącz klienta natywnego**     | Nie                        |                                                                                                                                                                                                    |
@@ -138,7 +138,7 @@ W programie Visual Studio naciśnij klawisz **F5** , aby skompilować i uruchomi
 
 Przeglądarka przekieruje do dzierżawy Azure AD B2C. Zaloguj się przy użyciu istniejącego konta (jeśli został utworzony test zasad) lub wybierz pozycję **zarejestruj się teraz** , aby utworzyć nowe konto. Nie **pamiętasz hasła?** link jest używany do resetowania zapomnianego hasła.
 
-![Azure AD B2C logowanie](./azure-ad-b2c/_static/b2csts.png)
+![Logowanie do usługi Azure AD B2C](./azure-ad-b2c/_static/b2csts.png)
 
 Po pomyślnym zalogowaniu przeglądarka przekieruje ją do aplikacji sieci Web.
 

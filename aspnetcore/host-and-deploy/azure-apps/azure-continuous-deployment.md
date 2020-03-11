@@ -1,170 +1,170 @@
 ---
 title: Ciągłe wdrażanie na platformie Azure za pomocą programu Visual Studio i rozwiązania Git na platformie ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, jak utworzyć aplikację internetową platformy ASP.NET Core przy użyciu programu Visual Studio, a następnie wdrożyć ją w usłudze Azure App Service przy użyciu narzędzia Git do ciągłego wdrażania.
+description: Dowiedz się, jak utworzyć aplikację internetową ASP.NET Core przy użyciu programu Visual Studio i wdrożyć ją do Azure App Service przy użyciu narzędzia Git do ciągłego wdrażania.
 ms.author: riande
 ms.custom: mvc
 ms.date: 12/06/2018
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
 ms.openlocfilehash: 3b344505739bb4292ed1683c73ff314b6e4e01e9
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902332"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660854"
 ---
 # <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Ciągłe wdrażanie na platformie Azure za pomocą programu Visual Studio i rozwiązania Git na platformie ASP.NET Core
 
-przez [Erik Reitan](https://github.com/Erikre)
+Autor [Erik Reitan](https://github.com/Erikre)
 
 [!INCLUDE [Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
-Ten samouczek pokazuje, jak utworzyć aplikację internetową platformy ASP.NET Core przy użyciu programu Visual Studio i wdrożyć ją w programie Visual Studio w usłudze Azure App Service za pomocą ciągłego wdrażania.
+W tym samouczku pokazano, jak utworzyć aplikację internetową ASP.NET Core przy użyciu programu Visual Studio i wdrożyć ją z poziomu programu Visual Studio w celu Azure App Service korzystania z ciągłego wdrażania.
 
-Zobacz też [Tworzenie pierwszego potoku za pomocą potoków usługi Azure](/azure/devops/pipelines/get-started-yaml), który pokazuje, jak skonfigurować ciągłe dostarczanie (CD) przepływ pracy dla [usługi Azure App Service](/azure/app-service/app-service-web-overview) przy użyciu usługi DevOps platformy Azure. Potoki usługi Azure (usługa usługom DevOps platformy Azure) upraszcza konfigurowanie niezawodnego potoku wdrażania aktualizacji dla aplikacji hostowanych w usłudze Azure App Service. Potok można skonfigurować w witrynie Azure portal do kompilacji, uruchom testy, wdrożyć w miejscu przejściowym i następnie wdrażania w środowisku produkcyjnym.
+Zobacz również [Tworzenie pierwszego potoku za pomocą Azure Pipelines](/azure/devops/pipelines/get-started-yaml), który pokazuje, jak skonfigurować przepływ pracy ciągłego dostarczania (CD) dla [Azure App Service](/azure/app-service/app-service-web-overview) przy użyciu Azure DevOps Services. Azure Pipelines (usługa Azure DevOps Services) upraszcza Konfigurowanie niezawodnego potoku wdrażania w celu publikowania aktualizacji dla aplikacji hostowanych w Azure App Service. Potok można skonfigurować z poziomu Azure Portal, aby kompilować, uruchamiać testy, wdrażać w miejscu przejściowym, a następnie wdrażać je w środowisku produkcyjnym.
 
 > [!NOTE]
-> Do ukończenia tego samouczka, wymagane jest konto Microsoft Azure. Aby utworzyć konta [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A261C142F) lub [utworzyć konto bezpłatnej wersji próbnej](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+> Do ukończenia tego samouczka wymagane jest konto Microsoft Azure. Aby uzyskać konto, [Aktywuj korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A261C142F) lub [zarejestruj się w celu uzyskania bezpłatnej wersji próbnej](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym samouczku przyjęto założenie, że zainstalowano następujące oprogramowanie:
+W tym samouczku założono, że zainstalowano następujące oprogramowanie:
 
 * [Visual Studio](https://visualstudio.microsoft.com)
 * [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
-* [Git](https://git-scm.com/downloads) dla Windows
+* [Git](https://git-scm.com/downloads) dla systemu Windows
 
-## <a name="create-an-aspnet-core-web-app"></a>Tworzenie aplikacji internetowej platformy ASP.NET Core
+## <a name="create-an-aspnet-core-web-app"></a>Tworzenie aplikacji internetowej ASP.NET Core
 
 1. Uruchom program Visual Studio.
 
-1. Z **pliku** menu, wybierz opcję **New** > **projektu**.
+1. Z menu **plik** wybierz pozycję **Nowy** **projekt** > .
 
-1. Wybierz **aplikacji sieci Web programu ASP.NET Core** szablonu projektu. Wygląda na to, w obszarze **zainstalowane** > **szablony** > **Visual C#** > **platformy .NET Core**. Nadaj projektowi nazwę `SampleWebAppDemo`. Wybierz **Utwórz nowe repozytorium Git** opcji, a następnie kliknij przycisk **OK**.
+1. Wybierz szablon projektu **aplikacji sieci Web ASP.NET Core** . Jest on wyświetlany w obszarze **zainstalowane** > **Szablony** >  **C# Visual** >  **.NET Core**. Nadaj nazwę projektowi `SampleWebAppDemo`. Wybierz opcję **Utwórz nowe repozytorium git** , a następnie kliknij przycisk **OK**.
 
-   ![Okno dialogowe nowego projektu](azure-continuous-deployment/_static/01-new-project.png)
+   ![Okno dialogowe Nowy projekt](azure-continuous-deployment/_static/01-new-project.png)
 
-1. W **nowy projekt programu ASP.NET Core** okno dialogowe, wybierz pozycję ASP.NET Core **pusty** szablonu, następnie kliknij przycisk **OK**.
+1. W oknie dialogowym **Nowy projekt ASP.NET Core** wybierz ASP.NET Core **pusty** szablon, a następnie kliknij przycisk **OK**.
 
-   ![Okno dialogowe nowego projektu programu ASP.NET Core](azure-continuous-deployment/_static/02-web-site-template.png)
+   ![Nowe okno dialogowe projektu ASP.NET Core](azure-continuous-deployment/_static/02-web-site-template.png)
 
 > [!NOTE]
-> Najbardziej aktualną wersją platformy .NET Core jest w wersji 2.0.
+> Najnowsza wersja platformy .NET Core to 2,0.
 
-### <a name="running-the-web-app-locally"></a>Uruchamianie aplikacji sieci web lokalnie
+### <a name="running-the-web-app-locally"></a>Lokalne uruchamianie aplikacji sieci Web
 
-1. Po zakończeniu tworzenia aplikacji programu Visual Studio Uruchom aplikację, wybierając **debugowania** > **Rozpocznij debugowanie**. Alternatywnie, naciśnij klawisz **F5**.
+1. Po zakończeniu tworzenia aplikacji przez program Visual Studio Uruchom aplikację, wybierając pozycję **debuguj** > **Rozpocznij debugowanie**. Alternatywnie naciśnij klawisz **F5**.
 
-   Może potrwać do zainicjowania programu Visual Studio i nową aplikację. Po zakończeniu przeglądarce pokazuje uruchomionej aplikacji.
+   Zainicjowanie programu Visual Studio i nowej aplikacji może zająć trochę czasu. Po zakończeniu przeglądarka wyświetli działającą aplikację.
 
-   ![Wyświetlanie okna przeglądarki uruchomiona aplikacja, która wyświetla "Hello World!"](azure-continuous-deployment/_static/04-browser-runapp.png)
+   ![Okno przeglądarki z uruchomioną aplikacją, która wyświetla "Hello world!"](azure-continuous-deployment/_static/04-browser-runapp.png)
 
-1. Po zapoznaniu się z działającą aplikacją sieci Web, zamknij przeglądarkę, a następnie wybierz ikonę "Zatrzymaj debugowanie" na pasku narzędzi programu Visual Studio, aby zatrzymać aplikację.
+1. Po przejrzeniu działającej aplikacji sieci Web zamknij przeglądarkę i wybierz ikonę "Zatrzymaj debugowanie" na pasku narzędzi programu Visual Studio, aby zatrzymać aplikację.
 
-## <a name="create-a-web-app-in-the-azure-portal"></a>Tworzenie aplikacji internetowej w witrynie Azure Portal
+## <a name="create-a-web-app-in-the-azure-portal"></a>Tworzenie aplikacji sieci Web w witrynie Azure Portal
 
-Poniższe kroki umożliwiają utworzenie aplikacji sieci web w witrynie Azure Portal:
+Poniższe kroki tworzą aplikację sieci Web w witrynie Azure Portal:
 
-1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 
-1. Wybierz **NEW** w lewym górnym rogu portalu interfejsu.
+1. Wybierz pozycję **Nowy** w lewym górnym rogu interfejsu portalu.
 
-1. Wybierz **sieci Web i mobilność** > **aplikacja sieci Web**.
+1. Wybierz pozycję **Sieć Web + aplikacje mobilne** > **aplikacji sieci Web**.
 
-   ![Microsoft Azure Portal: Nowy przycisk: Sieć Web i mobilność w portalu Marketplace: Przycisk aplikacji sieci Web w obszarze polecane aplikacje](azure-continuous-deployment/_static/05-azure-newwebapp.png)
+   ![Portal Microsoft Azure: nowy przycisk: Sieć Web + aplikacje mobilne na rynku Marketplace: przycisk aplikacji sieci Web w obszarze Polecane aplikacje](azure-continuous-deployment/_static/05-azure-newwebapp.png)
 
-1. W **aplikacji sieci Web** bloku, należy wprowadzić unikatową wartość dla **nazwa usługi App Service**.
+1. W bloku **aplikacja sieci Web** wprowadź unikatową wartość dla **nazwy App Service**.
 
-   ![Bloku aplikacji sieci Web](azure-continuous-deployment/_static/06-azure-newappblade.png)
+   ![Blok aplikacji sieci Web](azure-continuous-deployment/_static/06-azure-newappblade.png)
 
    > [!NOTE]
-   > **Nazwa usługi App Service** nazwa musi być unikatowa. Portal wymusza tę regułę, gdy została podana nazwa. Jeśli podając inną wartość, Zastąp tę wartość dla każdego wystąpienia **SampleWebAppDemo** w ramach tego samouczka.
+   > Nazwa **App Service nazwa** musi być unikatowa. Portal wymusza tę regułę w przypadku podanej nazwy. W przypadku podania innej wartości należy zastąpić tę wartość dla każdego wystąpienia **SampleWebAppDemo** w tym samouczku.
 
-   Również w **aplikacji sieci Web** bloku, wybierz istniejącą **Plan App Service/lokalizacja** lub utworzyć nowy. W przypadku tworzenia nowego planu, wybierz warstwę cenową, lokalizacja i inne opcje. Aby uzyskać więcej informacji na temat planów usługi App Service, zobacz [szczegółowe omówienie planów usługi Azure App Service](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
+   W bloku **aplikacja sieci Web** wybierz istniejący **Plan/lokalizację App Service** lub Utwórz nowy. W przypadku tworzenia nowego planu wybierz warstwę cenową, lokalizację i inne opcje. Więcej informacji o planach App Service można znaleźć [w temacie Azure App Service planach szczegółowych](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
 
-1. Wybierz pozycję **Utwórz**. Platforma Azure będzie aprowizować i uruchomić aplikacji sieci web.
+1. Wybierz pozycję **Utwórz**. Na platformie Azure zostanie zainicjowana i uruchomiona aplikacja internetowa.
 
-   ![Azure Portal: Blok podstawy 01 wersji demonstracyjnej aplikacji sieci Web próbki](azure-continuous-deployment/_static/07-azure-webappblade.png)
+   ![Azure Portal: przykładowy Przykładowa aplikacja internetowa — Demonstracja 01 — blok](azure-continuous-deployment/_static/07-azure-webappblade.png)
 
-## <a name="enable-git-publishing-for-the-new-web-app"></a>Włączanie publikowania usługi Git dla nowej aplikacji sieci web
+## <a name="enable-git-publishing-for-the-new-web-app"></a>Włącz publikowanie git dla nowej aplikacji sieci Web
 
-Git to Rozproszony system kontroli wersji, który może służyć do wdrażania aplikacji sieci web usługi Azure App Service. Kod aplikacji internetowej jest przechowywany w lokalnym repozytorium Git, a kod jest wdrażany na platformie Azure przez wypchnięcie do repozytorium zdalnego.
+Git to rozproszony system kontroli wersji, którego można użyć do wdrożenia aplikacji sieci Web Azure App Service. Kod aplikacji sieci Web jest przechowywany w lokalnym repozytorium git, a kod jest wdrażany na platformie Azure przez wypychanie do repozytorium zdalnego.
 
-1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com).
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 
-1. Wybierz **App Services** Aby wyświetlić listę usług aplikacji skojarzonych z subskrypcją platformy Azure.
+1. Wybierz pozycję **App Services** , aby wyświetlić listę usług aplikacji skojarzonych z subskrypcją platformy Azure.
 
-1. Wybierz aplikację internetową utworzoną w poprzedniej sekcji tego samouczka.
+1. Wybierz aplikację sieci Web utworzoną w poprzedniej sekcji tego samouczka.
 
-1. W **wdrożenia** bloku wybierz **opcje wdrażania** > **wybierz źródło** > **lokalnego repozytorium Git**.
+1. W bloku **wdrożenie** wybierz pozycję **Opcje wdrażania** > **Wybierz źródło** > **lokalne repozytorium git**.
 
-   ![Blok ustawień: Blok źródła wdrożenia: Wybierz blok źródła](azure-continuous-deployment/_static/deployment-options.png)
+   ![Blok ustawień: blok źródła wdrożenia: Wybierz blok źródłowy](azure-continuous-deployment/_static/deployment-options.png)
 
 1. Kliknij przycisk **OK**.
 
-1. Jeśli poświadczenia wdrażania na potrzeby publikowania aplikacji sieci web lub innych aplikacji usługi app Service nie zostało jeszcze skonfigurowane, skonfiguruj je teraz:
+1. Jeśli nie skonfigurowano wcześniej poświadczeń wdrażania do publikowania aplikacji internetowej lub innej aplikacji App Service, skonfiguruj je teraz:
 
-   * Wybierz **ustawienia** > **poświadczenia wdrożenia**. **Ustaw poświadczenia wdrażania** zostanie wyświetlony blok.
-   * Utwórz nazwę użytkownika i hasło. Zapisz hasło do późniejszego użycia podczas konfigurowania usługi Git.
+   * Wybierz pozycję **ustawienia** > **poświadczenia wdrożenia**. Zostanie wyświetlony blok **Ustawianie poświadczeń wdrożenia** .
+   * Utwórz nazwę użytkownika i hasło. Zapisz hasło do późniejszego użycia podczas konfigurowania usługi git.
    * Wybierz pozycję **Zapisz**.
 
-1. W **aplikacji sieci Web** bloku wybierz **ustawienia** > **właściwości**. Adres URL zdalnego repozytorium Git do wdrożenia jest wyświetlany w obszarze **adres URL GIT**.
+1. W bloku **aplikacja sieci Web** wybierz pozycję **Ustawienia** > **Właściwości**. Adres URL zdalnego repozytorium git do wdrożenia zostanie wyświetlony w obszarze **adres URL usługi git**.
 
-1. Kopiuj **adres URL GIT** wartości do późniejszego użycia w tym samouczku.
+1. Skopiuj wartość **adresu URL usługi git** do późniejszego użycia w samouczku.
 
-   ![Witrynie Azure Portal: blok właściwości aplikacji](azure-continuous-deployment/_static/09-azure-giturl.png)
+   ![Azure Portal: blok właściwości aplikacji](azure-continuous-deployment/_static/09-azure-giturl.png)
 
-## <a name="publish-the-web-app-to-azure-app-service"></a>Publikowanie aplikacji sieci web w usłudze Azure App Service
+## <a name="publish-the-web-app-to-azure-app-service"></a>Publikowanie aplikacji internetowej w usłudze Azure App Service
 
-W tej sekcji należy utworzyć lokalne repozytorium Git przy użyciu programu Visual Studio i wypychania z tego repozytorium na platformie Azure do wdrożenia aplikacji sieci web. Następujące etapy:
+W tej sekcji Utwórz lokalne repozytorium git przy użyciu programu Visual Studio i wypchnij z tego repozytorium do platformy Azure, aby wdrożyć aplikację internetową. Obejmują one następujące czynności:
 
-* Dodaj ustawienie repozytorium zdalnego przy użyciu wartości adres URL usługi GIT, aby można było wdrożyć lokalne repozytorium na platformie Azure.
-* Zatwierdź zmiany w projekcie.
-* Wypchnij zmiany projektu z repozytorium lokalnego do repozytorium zdalnego na platformie Azure.
+* Dodaj ustawienie repozytorium zdalne przy użyciu wartości adresu URL usługi GIT, aby można było wdrożyć repozytorium lokalne na platformie Azure.
+* Zatwierdź zmiany projektu.
+* Wypychanie zmian projektu z repozytorium lokalnego do zdalnego repozytorium na platformie Azure.
 
-1. W **Eksploratora rozwiązań** kliknij prawym przyciskiem myszy **rozwiązania "SampleWebAppDemo"** i wybierz **zatwierdzić**. **Team Explorer** jest wyświetlana.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy **rozwiązanie "SampleWebAppDemo"** i wybierz pozycję **Zatwierdź**. Zostanie wyświetlone okno **Team Explorer**.
 
-   ![Team Explorer, Połącz kartę](azure-continuous-deployment/_static/10-team-explorer.png)
+   ![Karta Team Explorer Connect](azure-continuous-deployment/_static/10-team-explorer.png)
 
-1. W **Team Explorer**, wybierz opcję **macierzystego** (ikona macierzystego) > **ustawienia** > **ustawienia repozytorium**.
+1. W **Team Explorer**wybierz pozycję **Strona główna** (ikona główna) > **Ustawienia** > **Ustawienia repozytorium**.
 
-1. W **źródłami zdalnymi** części **ustawienia repozytorium**, wybierz opcję **Dodaj**. **Dodawanie elementu zdalnego** zostanie wyświetlone okno dialogowe.
+1. W sekcji **Elementy zdalne** obszaru **Ustawienia repozytorium** wybierz pozycję **Dodaj**. Zostanie wyświetlone okno dialogowe **Dodawanie elementu zdalnego**.
 
-1. Ustaw **nazwa** zdalnego do **Przykładowa aplikacja Azure**.
+1. Ustaw **nazwę** zdalnego na **Azure-SampleApp**.
 
-1. Ustaw wartość **pobrać** do **adres URL Git** , skopiowane z platformy Azure we wcześniejszej części tego samouczka. Należy pamiętać, że ten adres URL, który kończy się **.git**.
+1. Ustaw wartość w polu **Pobierz** na **adres URL usługi git** , który został skopiowany z platformy Azure wcześniej w tym samouczku. Należy zauważyć, że jest to adres URL kończący się na **. git**.
 
-   ![Zdalne okno dialogowe Edycja](azure-continuous-deployment/_static/11-add-remote.png)
+   ![Edytowanie okna dialogowego zdalnego](azure-continuous-deployment/_static/11-add-remote.png)
 
    > [!NOTE]
-   > Jako alternatywę, można określić zdalnego repozytorium z **okna polecenia** , otwierając **okna polecenia**zmiany do katalogu projektu i wprowadzając polecenie. Przykład:
+   > Alternatywnie należy określić repozytorium zdalne z **okna polecenia** , otwierając **okno wiersza polecenia**, zmieniając katalog projektu i wprowadzając polecenie. Przykład:
    >
    > `git remote add Azure-SampleApp https://me@sampleapp.scm.azurewebsites.net:443/SampleApp.git`
 
-1. Wybierz **macierzystego** (ikona macierzystego) > **ustawienia** > **ustawienia globalne**. Upewnij się, że nazwa i adres e-mail są ustawione. Wybierz **aktualizacji** w razie potrzeby.
+1. Wybierz pozycję **Strona główna** (ikona główna) > **Ustawienia** > **Ustawienia globalne**. Upewnij się, że nazwa i adres e-mail zostały ustawione. W razie potrzeby wybierz pozycję **Aktualizuj** .
 
-1. Wybierz **Home** > **zmiany** aby powrócić do **zmiany** widoku.
+1. Wybierz pozycję **Strona główna** > **zmiany** , aby powrócić do widoku **zmian** .
 
-1. Wprowadź wiadomość dotyczącą zatwierdzenia, taką jak **początkowej wypychania nr 1** i wybierz **zatwierdzenia**. Ta akcja powoduje utworzenie *zatwierdzenia* lokalnie.
+1. Wprowadź wiadomość dotyczącą zatwierdzenia, taką jak **początkowa #1 wypychania** i wybierz pozycję **Zatwierdź**. Ta akcja tworzy *zatwierdzenie* lokalnie.
 
-   ![Team Explorer, Połącz kartę](azure-continuous-deployment/_static/12-initial-commit.png)
+   ![Karta Team Explorer Connect](azure-continuous-deployment/_static/12-initial-commit.png)
 
    > [!NOTE]
-   > Jako alternatywę zatwierdzenia zmieni się z **okna polecenia** , otwierając **okna polecenia**zmiany do katalogu projektu i wprowadzania poleceń usługi git. Przykład:
+   > Alternatywnie Zatwierdź zmiany z **okna polecenia** , otwierając **okno poleceń**, zmieniając katalog projektu i wprowadzając polecenia git. Przykład:
    >
    > `git add .`
    >
    > `git commit -am "Initial Push #1"`
 
-1. Wybierz **Home** > **synchronizacji** > **akcje** > **Otwórz wiersz polecenia**. Wiersz polecenia otwiera się w katalogu projektu.
+1. Wybierz pozycję **Strona główna** > **synchronizacja** > **Akcje** > **Otwórz wiersz polecenia**. Zostanie otwarty wiersz polecenia w katalogu projektu.
 
-1. Wprowadź następujące polecenie w oknie wiersza polecenia:
+1. Wprowadź następujące polecenie w oknie polecenia:
 
    `git push -u Azure-SampleApp master`
 
-1. Wprowadź Azure **poświadczenia wdrożenia** hasło utworzone wcześniej na platformie Azure.
+1. Wprowadź hasło **poświadczeń wdrożenia** platformy Azure utworzone wcześniej na platformie Azure.
 
-   To polecenie uruchamia proces wypychania pliki projektu lokalnych na platformę Azure. Dane wyjściowe z powyższego polecenia kończy się z komunikatem, że wdrożenie zakończyło się pomyślnie.
+   To polecenie uruchamia proces wypychania plików projektu lokalnego do platformy Azure. Dane wyjściowe powyższego polecenia kończą się komunikatem, że wdrożenie zakończyło się pomyślnie.
 
    ```
    remote: Finished successfully.
@@ -176,58 +176,58 @@ W tej sekcji należy utworzyć lokalne repozytorium Git przy użyciu programu Vi
    ```
 
    > [!NOTE]
-   > Jeśli wymagana jest współpracy nad projektem, należy wziąć pod uwagę Wypychanie do [GitHub](https://github.com) przed wypchnięciem do platformy Azure.
+   > Jeśli wymagana jest współpraca w projekcie, przed rozpoczęciem wypychania do platformy Azure Rozważ przeprowadzenie wypychania do serwisu [GitHub](https://github.com) .
  
-### <a name="verify-the-active-deployment"></a>Sprawdź aktywne wdrożenie
+### <a name="verify-the-active-deployment"></a>Weryfikowanie aktywnego wdrożenia
 
-Sprawdź, czy powiodła się przesyłanie aplikacji sieci web ze środowiska lokalnego do platformy Azure.
+Sprawdź, czy transfer aplikacji sieci Web ze środowiska lokalnego na platformę Azure zakończył się pomyślnie.
 
-W [witryny Azure Portal](https://portal.azure.com), wybierz aplikację sieci web. Wybierz **wdrożenia** > **opcje wdrażania**.
+W [witrynie Azure Portal](https://portal.azure.com)wybierz aplikację internetową. Wybierz pozycję **wdrożenie** > **Opcje wdrażania**.
 
-![Azure Portal: Blok ustawień: Pomyślne wdrożenie przedstawiający bloku wdrożenia](azure-continuous-deployment/_static/13-verify-deployment.png)
+![Witryna Azure Portal: blok ustawień: blok wdrożenia przedstawiający pomyślne wdrożenie](azure-continuous-deployment/_static/13-verify-deployment.png)
 
-## <a name="run-the-app-in-azure"></a>Uruchom aplikację na platformie Azure
+## <a name="run-the-app-in-azure"></a>Uruchamianie aplikacji na platformie Azure
 
-Teraz, gdy aplikacja sieci web jest wdrażana na platformie Azure, uruchom aplikację.
+Teraz, gdy aplikacja sieci Web jest wdrożona na platformie Azure, uruchom aplikację.
 
 Można to zrobić na dwa sposoby:
 
-* W witrynie Azure Portal zlokalizuj bloku aplikacji sieci web dla aplikacji sieci web. Wybierz **Przeglądaj** do wyświetlania aplikacji w domyślnej przeglądarce.
-* Otwórz przeglądarkę i wprowadź adres URL aplikacji sieci web. Przykład: `http://SampleWebAppDemo.azurewebsites.net`
+* W witrynie Azure Portal Znajdź blok aplikacji sieci Web dla aplikacji sieci Web. Wybierz pozycję **Przeglądaj** , aby wyświetlić aplikację w domyślnej przeglądarce.
+* Otwórz przeglądarkę i wprowadź adres URL aplikacji sieci Web. Przykład: `http://SampleWebAppDemo.azurewebsites.net`
 
-## <a name="update-the-web-app-and-republish"></a>Aktualizowanie aplikacji internetowej i ponowne opublikowanie
+## <a name="update-the-web-app-and-republish"></a>Aktualizowanie aplikacji sieci Web i ponowne publikowanie
 
-Po wprowadzeniu zmian w kodzie lokalnych należy opublikować ponownie:
+Po wprowadzeniu zmian w kodzie lokalnym należy ponownie opublikować:
 
-1. W **Eksploratora rozwiązań** programu Visual Studio, otwórz *Startup.cs* pliku.
+1. W **Eksplorator rozwiązań** programu Visual Studio otwórz plik *Startup.cs* .
 
-1. W `Configure` metody, zmodyfikuj `Response.WriteAsync` metody, aby była ona wyświetlana w następujący sposób:
+1. W metodzie `Configure` zmodyfikuj metodę `Response.WriteAsync`, tak aby była wyświetlana w następujący sposób:
 
    ```csharp
    await context.Response.WriteAsync("Hello World! Deploy to Azure.");
    ```
 
-1. Czy zapisać zmiany *Startup.cs*.
+1. Zapisz zmiany w *Startup.cs*.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **rozwiązania "SampleWebAppDemo"** i wybierz **zatwierdzić**. **Team Explorer** jest wyświetlana.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy **rozwiązanie "SampleWebAppDemo"** i wybierz pozycję **Zatwierdź**. Zostanie wyświetlone okno **Team Explorer**.
 
-1. Wprowadź wiadomość dotyczącą zatwierdzenia, taką jak `Update #2`.
+1. Wprowadź komunikat dotyczący zatwierdzenia, taki jak `Update #2`.
 
-1. Naciśnij klawisz **zatwierdzenia** przycisk, aby zatwierdzić zmiany projektu.
+1. Naciśnij przycisk **Zatwierdź** , aby zatwierdzić zmiany projektu.
 
-1. Wybierz **Home** > **synchronizacji** > **akcje** > **wypychania**.
+1. Wybierz pozycję **Strona główna** > **synchronizacja** > **Akcje** > **wypychania**.
 
 > [!NOTE]
-> Jako alternatywę, Wypchnij zmiany z **okna polecenia** , otwierając **okna polecenia**zmiany do katalogu projektu i wprowadzając polecenie git. Przykład:
+> Alternatywnie wypchnij zmiany z **okna polecenia** , otwierając **okno wiersza polecenia**, zmieniając katalog projektu i wprowadzając polecenie git. Przykład:
 > 
 > `git push -u Azure-SampleApp master`
 
-## <a name="view-the-updated-web-app-in-azure"></a>Wyświetlanie zaktualizowanej aplikacji internetowej na platformie Azure
+## <a name="view-the-updated-web-app-in-azure"></a>Wyświetlanie zaktualizowanej aplikacji sieci Web na platformie Azure
 
-Wyświetlanie zaktualizowanej aplikacji internetowej, wybierając **Przeglądaj** z bloku aplikacji sieci web w witrynie Azure Portal lub otwierając przeglądarkę i wprowadź adres URL aplikacji sieci web. Przykład: `http://SampleWebAppDemo.azurewebsites.net`
+Aby wyświetlić zaktualizowaną aplikację sieci Web, wybierz pozycję **Przeglądaj** w bloku aplikacji sieci Web w witrynie Azure Portal lub przez otwarcie przeglądarki i wprowadzenie adresu URL aplikacji sieci Web. Przykład: `http://SampleWebAppDemo.azurewebsites.net`
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Tworzenie pierwszego potoku za pomocą potoków usługi Azure](/azure/devops/pipelines/get-started-yaml)
+* [Tworzenie pierwszego potoku za pomocą Azure Pipelines](/azure/devops/pipelines/get-started-yaml)
 * [Projekt Kudu](https://github.com/projectkudu/kudu/wiki)
 * <xref:host-and-deploy/visual-studio-publish-profiles>

@@ -1,28 +1,28 @@
 ---
-title: Hierarchia celów i obsługa wielu dzierżawców w programie ASP.NET Core
+title: Hierarchia przeznaczenia i Wielodostępność w ASP.NET Core
 author: rick-anderson
-description: Dowiedz się więcej o hierarchia ciągu celów i obsługa wielu dzierżawców w odniesieniu do interfejsów API do ochrony danych usługi ASP.NET Core.
+description: Dowiedz się więcej o hierarchii ciągów przeznaczenie i wielu dzierżawcach, które odnoszą się do ASP.NET Core interfejsów API ochrony danych.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/consumer-apis/purpose-strings-multitenancy
 ms.openlocfilehash: 1133d40e7b325d58b3f70e7387494dae36ff8ac9
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902740"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664753"
 ---
-# <a name="purpose-hierarchy-and-multi-tenancy-in-aspnet-core"></a>Hierarchia celów i obsługa wielu dzierżawców w programie ASP.NET Core
+# <a name="purpose-hierarchy-and-multi-tenancy-in-aspnet-core"></a>Hierarchia przeznaczenia i Wielodostępność w ASP.NET Core
 
-Ponieważ `IDataProtector` jest również niejawnie `IDataProtectionProvider`, celów można łączyć w łańcuch. W tym sensie `provider.CreateProtector([ "purpose1", "purpose2" ])` jest odpowiednikiem `provider.CreateProtector("purpose1").CreateProtector("purpose2")`.
+Ponieważ `IDataProtector` jest również niejawnie `IDataProtectionProvider`, cele mogą być łańcucha ze sobą. W tym sensie `provider.CreateProtector([ "purpose1", "purpose2" ])` jest równoznaczny z `provider.CreateProtector("purpose1").CreateProtector("purpose2")`.
 
-Dzięki temu w przypadku niektórych interesujące relacji hierarchicznych za pośrednictwem systemu ochrony danych. We wcześniejszym przykładzie z [Contoso.Messaging.SecureMessage](xref:security/data-protection/consumer-apis/purpose-strings#data-protection-contoso-purpose), można wywołać składnika SecureMessage `provider.CreateProtector("Contoso.Messaging.SecureMessage")` raz ponoszonych z góry i zbuforuj wynik do prywatnej `_myProvider` pola. Funkcje ochrony kluczy w przyszłości można będzie utworzyć za pomocą wywołania `_myProvider.CreateProtector("User: username")`, a te funkcje ochrony kluczy będzie używana do zabezpieczania poszczególnych wiadomości.
+Pozwala to na niektóre interesujące relacje hierarchiczne za pomocą systemu ochrony danych. W poprzednim przykładzie elementu [contoso. Messaging. SecureMessage](xref:security/data-protection/consumer-apis/purpose-strings#data-protection-contoso-purpose)składnik SecureMessage może wywoływać `provider.CreateProtector("Contoso.Messaging.SecureMessage")` po utworzeniu i zbuforowaniu wyniku w polu `_myProvider` prywatnym. Przyszłe funkcje ochrony można następnie tworzyć za pomocą wywołań do `_myProvider.CreateProtector("User: username")`, a te funkcje ochrony zostaną użyte do zabezpieczenia poszczególnych komunikatów.
 
-To również można odwrócić. Należy rozważyć jednej aplikacji logicznej hosta, którego można skonfigurować wiele dzierżaw (rozsądne wydaje CMS) i każdego dzierżawcy z własnym systemem uwierzytelniania i stanu zarządzania. Aplikacja parasola ma jednego dostawcy głównego i wywołuje `provider.CreateProtector("Tenant 1")` i `provider.CreateProtector("Tenant 2")` aby dać każdej dzierżawy własnego izolowanego wycinek system ochrony danych. Dzierżawcy mogą następnie pochodzić własne poszczególne funkcje ochrony kluczy na podstawie własnych potrzeb, ale niezależnie od tego, jaką użytkownik podejmie próbę nie mogą tworzyć funkcje ochrony kluczy, które kolidują z innymi dzierżawami w systemie. Graficzne jest reprezentowane poniżej.
+Można to również przerzucić. Rozważ użycie pojedynczej aplikacji logicznej, która hostuje wiele dzierżawców (w przypadku usługi CMS jest to uzasadnione), a każda dzierżawa może być skonfigurowana z własnym systemem zarządzania uwierzytelnianiem i stanem. Aplikacja parasola ma jednego dostawcę głównego i wywołuje `provider.CreateProtector("Tenant 1")` i `provider.CreateProtector("Tenant 2")`, aby przyznać każdej dzierżawy swój odizolowany wycink systemu ochrony danych. Dzierżawcy mogą następnie utworzyć własne osoby chroniące przed własnymi potrzebami, ale bez względu na to, w jaki sposób nie mogą oni tworzyć funkcji ochrony, które kolidują z innymi dzierżawcami w systemie. Graficznie jest to reprezentowane poniżej.
 
-![Obsługa wielu dzierżawców celów](purpose-strings-multitenancy/_static/purposes-multi-tenancy.png)
+![Cele z wielu dzierżawców](purpose-strings-multitenancy/_static/purposes-multi-tenancy.png)
 
 >[!WARNING]
-> Przy założeniu, parasola kontrolki aplikacji, które interfejsy API są dostępne dla poszczególnych dzierżawców i dzierżawcy nie można wykonać dowolnego kodu na serwerze. Jeśli Dzierżawca może wykonywać dowolny kod, wykonują prywatnej odbicia przerwanie gwarancje izolacji lub można po prostu bezpośrednio odczytywać materiał klucza głównego i pochodzić z dowolnych podkluczy działanie.
+> Przyjęto założenie, że aplikacja parasola kontroluje, które interfejsy API są dostępne dla poszczególnych dzierżawców, a dzierżawcy nie mogą wykonać dowolnego kodu na serwerze. Jeśli dzierżawca może wykonać dowolny kod, może wykonać prywatne odbicie, aby przerwać gwarancje izolacji lub bezpośrednio odczytać główny materiał kluczający, a także utworzyć wszystkie podklucze, których chcą.
 
-System ochrony danych faktycznie używa sortowania wielu dzierżawców w domyślnej konfiguracji poza pole. Domyślnie materiał klucza głównego są przechowywane w folderze profilu użytkownika konta procesu roboczego (lub rejestru dla tożsamości puli aplikacji IIS). Ale rzeczywiście dość często jest używać jednego konta do uruchomienia wielu aplikacji, a zatem te aplikacje pojawiłyby udostępnianie wzorzec materiału klucza. Aby rozwiązać ten problem, system ochrony danych automatycznie wstawia identyfikator unikatowy dla aplikacji jako pierwszy element w łańcuchu ogólnego przeznaczenia. W tym celu niejawne służy do [izolowania aplikacji poszczególnych](xref:security/data-protection/configuration/overview#per-application-isolation) od siebie nawzajem skutecznie traktując każdej aplikacji jako unikatowy dzierżawy w ramach systemu i proces tworzenia ochrony wygląda identyczne z powyższej ilustracji.
+System ochrony danych w rzeczywistości używa sortowania wielu dzierżawców w domyślnej konfiguracji wbudowanej. Domyślnie główny materiał klucza jest przechowywany w folderze profilu użytkownika konta procesu roboczego (lub w rejestrze dla tożsamości puli aplikacji IIS). Jest to jednak dość powszechne, aby użyć jednego konta do uruchamiania wielu aplikacji, a w związku z tym wszystkie te aplikacje spowodują utworzenie głównego materiału klucza. Aby rozwiązać ten problem, system ochrony danych automatycznie wstawia unikatowy identyfikator dla poszczególnych aplikacji jako pierwszy element w łańcuchu ogólnego przeznaczenia. To niejawne przeznaczenie służy do [izolowania poszczególnych aplikacji](xref:security/data-protection/configuration/overview#per-application-isolation) przez efektywne traktowanie każdej aplikacji jako unikatowej dzierżawy w systemie, a proces tworzenia funkcji ochrony jest identyczny z powyższym obrazem.

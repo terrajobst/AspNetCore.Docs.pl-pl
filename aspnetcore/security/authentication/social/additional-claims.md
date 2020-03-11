@@ -1,41 +1,39 @@
 ---
 title: Utrwalaj dodatkowe oświadczenia i tokeny od zewnętrznych dostawców w ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Dowiedz się, jak ustanowić dodatkowe oświadczenia i tokeny od zewnętrznych dostawców.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
 uid: security/authentication/social/additional-claims
-ms.openlocfilehash: 44b3e72085e6265319b53b548f7f7ddde2adbd14
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 9dfe5745125e34ed813d078529471a0ba2a53ab0
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828584"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666832"
 ---
 # <a name="persist-additional-claims-and-tokens-from-external-providers-in-aspnet-core"></a>Utrwalaj dodatkowe oświadczenia i tokeny od zewnętrznych dostawców w ASP.NET Core
-
-Przez [Luke Latham](https://github.com/guardrex)
 
 ::: moniker range=">= aspnetcore-3.0"
 
 Aplikacja ASP.NET Core może nawiązać dodatkowe oświadczenia i tokeny od zewnętrznych dostawców uwierzytelniania, takich jak Facebook, Google, Microsoft i Twitter. Każdy dostawca ujawnia różne informacje o użytkownikach na jego platformie, ale wzorzec do odbioru i przekształcania danych użytkownika w dodatkowe oświadczenia jest taki sam.
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/social/additional-claims/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/social/additional-claims/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zdecyduj, które zewnętrzne dostawcy uwierzytelniania mają być obsługiwane w aplikacji. Dla każdego dostawcy Zarejestruj aplikację i uzyskaj identyfikator klienta i klucz tajny klienta. Aby uzyskać więcej informacji, zobacz temat <xref:security/authentication/social/index>. Przykładowa aplikacja używa [dostawcy uwierzytelniania Google](xref:security/authentication/google-logins).
+Zdecyduj, które zewnętrzne dostawcy uwierzytelniania mają być obsługiwane w aplikacji. Dla każdego dostawcy Zarejestruj aplikację i uzyskaj identyfikator klienta i klucz tajny klienta. Aby uzyskać więcej informacji, zobacz <xref:security/authentication/social/index>. Przykładowa aplikacja używa [dostawcy uwierzytelniania Google](xref:security/authentication/google-logins).
 
 ## <a name="set-the-client-id-and-client-secret"></a>Ustawianie identyfikatora klienta i klucza tajnego klienta
 
 Dostawca uwierzytelniania OAuth ustanawia relację zaufania z aplikacją przy użyciu identyfikatora klienta i klucza tajnego klienta. Wartości identyfikator klienta i klucz tajny klienta są tworzone dla aplikacji przez zewnętrznego dostawcę uwierzytelniania, gdy aplikacja jest zarejestrowana w dostawcy. Każdy dostawca zewnętrzny, którego używa aplikacja, musi być skonfigurowany niezależnie od identyfikatora klienta dostawcy i klucza tajnego klienta. Aby uzyskać więcej informacji, zobacz tematy dotyczące zewnętrznego dostawcy uwierzytelniania, które dotyczą Twojego scenariusza:
 
-* [Uwierzytelnianie przy użyciu usługi Facebook](xref:security/authentication/facebook-logins)
-* [Uwierzytelnianie przy użyciu usługi Google](xref:security/authentication/google-logins)
+* [Uwierzytelnianie za pomocą konta Facebook](xref:security/authentication/facebook-logins)
+* [Uwierzytelnianie za pomocą konta Google](xref:security/authentication/google-logins)
 * [Uwierzytelnianie firmy Microsoft](xref:security/authentication/microsoft-logins)
-* [Uwierzytelnianie przy użyciu usługi Twitter](xref:security/authentication/twitter-logins)
+* [Uwierzytelnianie za pomocą konta Twitter](xref:security/authentication/twitter-logins)
 * [Inni dostawcy uwierzytelniania](xref:security/authentication/otherlogins)
 * [OpenIdConnect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2)
 
@@ -47,10 +45,10 @@ Przykładowa aplikacja konfiguruje dostawcę uwierzytelniania Google przy użyci
 
 Określ listę uprawnień do pobrania od dostawcy, określając <xref:Microsoft.AspNetCore.Authentication.OAuth.OAuthOptions.Scope*>. Zakresy uwierzytelniania dla typowych dostawców zewnętrznych są wyświetlane w poniższej tabeli.
 
-| Provider  | Zakres                                                            |
+| Dostawca  | Zakres                                                            |
 | --------- | ---------------------------------------------------------------- |
 | Facebook  | `https://www.facebook.com/dialog/oauth`                          |
-| {1&gt;{2&gt;Google&lt;2}&lt;1}    | `https://www.googleapis.com/auth/userinfo.profile`               |
+| Google    | `https://www.googleapis.com/auth/userinfo.profile`               |
 | Microsoft | `https://login.microsoftonline.com/common/oauth2/v2.0/authorize` |
 | Twitter   | `https://api.twitter.com/oauth/authenticate`                     |
 
@@ -110,7 +108,7 @@ Struktura zawiera typowe akcje i metody rozszerzające do tworzenia i dodawania 
 
 Użytkownicy mogą definiować niestandardowe akcje, wyprowadzając z <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims.ClaimAction> i implementując metodę abstrakcyjną <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims.ClaimAction.Run*>.
 
-Aby uzyskać więcej informacji, zobacz temat <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims>.
+Aby uzyskać więcej informacji, zobacz <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims>.
 
 ## <a name="removal-of-claim-actions-and-claims"></a>Usuwanie akcji oświadczeń i oświadczeń
 
@@ -162,20 +160,20 @@ Authentication Properties
 
 Aplikacja ASP.NET Core może nawiązać dodatkowe oświadczenia i tokeny od zewnętrznych dostawców uwierzytelniania, takich jak Facebook, Google, Microsoft i Twitter. Każdy dostawca ujawnia różne informacje o użytkownikach na jego platformie, ale wzorzec do odbioru i przekształcania danych użytkownika w dodatkowe oświadczenia jest taki sam.
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/social/additional-claims/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/social/additional-claims/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zdecyduj, które zewnętrzne dostawcy uwierzytelniania mają być obsługiwane w aplikacji. Dla każdego dostawcy Zarejestruj aplikację i uzyskaj identyfikator klienta i klucz tajny klienta. Aby uzyskać więcej informacji, zobacz temat <xref:security/authentication/social/index>. Przykładowa aplikacja używa [dostawcy uwierzytelniania Google](xref:security/authentication/google-logins).
+Zdecyduj, które zewnętrzne dostawcy uwierzytelniania mają być obsługiwane w aplikacji. Dla każdego dostawcy Zarejestruj aplikację i uzyskaj identyfikator klienta i klucz tajny klienta. Aby uzyskać więcej informacji, zobacz <xref:security/authentication/social/index>. Przykładowa aplikacja używa [dostawcy uwierzytelniania Google](xref:security/authentication/google-logins).
 
 ## <a name="set-the-client-id-and-client-secret"></a>Ustawianie identyfikatora klienta i klucza tajnego klienta
 
 Dostawca uwierzytelniania OAuth ustanawia relację zaufania z aplikacją przy użyciu identyfikatora klienta i klucza tajnego klienta. Wartości identyfikator klienta i klucz tajny klienta są tworzone dla aplikacji przez zewnętrznego dostawcę uwierzytelniania, gdy aplikacja jest zarejestrowana w dostawcy. Każdy dostawca zewnętrzny, którego używa aplikacja, musi być skonfigurowany niezależnie od identyfikatora klienta dostawcy i klucza tajnego klienta. Aby uzyskać więcej informacji, zobacz tematy dotyczące zewnętrznego dostawcy uwierzytelniania, które dotyczą Twojego scenariusza:
 
-* [Uwierzytelnianie przy użyciu usługi Facebook](xref:security/authentication/facebook-logins)
-* [Uwierzytelnianie przy użyciu usługi Google](xref:security/authentication/google-logins)
+* [Uwierzytelnianie za pomocą konta Facebook](xref:security/authentication/facebook-logins)
+* [Uwierzytelnianie za pomocą konta Google](xref:security/authentication/google-logins)
 * [Uwierzytelnianie firmy Microsoft](xref:security/authentication/microsoft-logins)
-* [Uwierzytelnianie przy użyciu usługi Twitter](xref:security/authentication/twitter-logins)
+* [Uwierzytelnianie za pomocą konta Twitter](xref:security/authentication/twitter-logins)
 * [Inni dostawcy uwierzytelniania](xref:security/authentication/otherlogins)
 * [OpenIdConnect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2)
 
@@ -187,10 +185,10 @@ Przykładowa aplikacja konfiguruje dostawcę uwierzytelniania Google przy użyci
 
 Określ listę uprawnień do pobrania od dostawcy, określając <xref:Microsoft.AspNetCore.Authentication.OAuth.OAuthOptions.Scope*>. Zakresy uwierzytelniania dla typowych dostawców zewnętrznych są wyświetlane w poniższej tabeli.
 
-| Provider  | Zakres                                                            |
+| Dostawca  | Zakres                                                            |
 | --------- | ---------------------------------------------------------------- |
 | Facebook  | `https://www.facebook.com/dialog/oauth`                          |
-| {1&gt;{2&gt;Google&lt;2}&lt;1}    | `https://www.googleapis.com/auth/userinfo.profile`               |
+| Google    | `https://www.googleapis.com/auth/userinfo.profile`               |
 | Microsoft | `https://login.microsoftonline.com/common/oauth2/v2.0/authorize` |
 | Twitter   | `https://api.twitter.com/oauth/authenticate`                     |
 
@@ -250,7 +248,7 @@ Struktura zawiera typowe akcje i metody rozszerzające do tworzenia i dodawania 
 
 Użytkownicy mogą definiować niestandardowe akcje, wyprowadzając z <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims.ClaimAction> i implementując metodę abstrakcyjną <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims.ClaimAction.Run*>.
 
-Aby uzyskać więcej informacji, zobacz temat <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims>.
+Aby uzyskać więcej informacji, zobacz <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims>.
 
 ## <a name="removal-of-claim-actions-and-claims"></a>Usuwanie akcji oświadczeń i oświadczeń
 

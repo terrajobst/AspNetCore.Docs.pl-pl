@@ -1,40 +1,40 @@
 ---
-title: Szczegóły uwierzytelnionego szyfrowania w programie ASP.NET Core
+title: Szczegóły uwierzytelnionego szyfrowania w ASP.NET Core
 author: rick-anderson
-description: Szczegóły dotyczące wykonania szyfrowania ochronę danych usługi ASP.NET Core uwierzytelniony.
+description: Poznaj szczegóły implementacji uwierzytelnionego szyfrowania ASP.NET Core ochrony danych.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/authenticated-encryption-details
 ms.openlocfilehash: 9def03e6b27e19fc34a839e923d6152e086889db
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902662"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667763"
 ---
-# <a name="authenticated-encryption-details-in-aspnet-core"></a>Szczegóły uwierzytelnionego szyfrowania w programie ASP.NET Core
+# <a name="authenticated-encryption-details-in-aspnet-core"></a>Szczegóły uwierzytelnionego szyfrowania w ASP.NET Core
 
 <a name="data-protection-implementation-authenticated-encryption-details"></a>
 
-Wywołania IDataProtector.Protect to operacje uwierzytelnione szyfrowanie. Metoda Chroń oferuje poufności i autentyczności i jest powiązany łańcuchem cel, który został użyty do wyprowadzenia tego konkretnego wystąpienia interfejsu IDataProtector od głównego IDataProtectionProvider.
+Wywołania do IDataProtector. Protect są uwierzytelnianymi operacjami szyfrowania. Metoda Protect zapewnia poufność i autentyczność oraz jest związana z łańcuchem przeznaczenia, który został użyty do wygenerowania tego konkretnego wystąpienia IDataProtector z jego głównego IDataProtectionProvideru.
 
-IDataProtector.Protect przyjmuje parametr byte [] zwykłego tekstu i tworzy byte [] chronionych ładunek, którego format został opisany poniżej. (Dostępna jest również przeciążenie metody rozszerzenia, która przyjmuje jako parametr ciągu w postaci zwykłego tekstu i zwraca ładunek chronionych ciągu. Jeśli jest używany ten interfejs API nadal będzie miał format ładunku chronionych poniżej struktury, ale będzie [zakodowane w formacie base64url](https://tools.ietf.org/html/rfc4648#section-5).)
+IDataProtector. Protect pobiera parametr zwykłego tekstu Byte [] i tworzy ładunek zabezpieczony bajtem [], którego format został opisany poniżej. (Istnieje również Przeciążenie metody rozszerzenia, które pobiera parametr w postaci zwykłego tekstu i zwraca ładunek w postaci ciągu tekstowego. Jeśli ten interfejs API jest używany, format chronionego ładunku nadal będzie miał poniższą strukturę, ale będzie [base64url](https://tools.ietf.org/html/rfc4648#section-5).
 
-## <a name="protected-payload-format"></a>Format ładunku chronionych
+## <a name="protected-payload-format"></a>Format chronionego ładunku
 
-Format ładunku chronionych obejmuje trzy główne składniki:
+Format chronionego ładunku składa się z trzech głównych składników:
 
-* Nagłówek magic 32-bitowy, który identyfikuje wersję system ochrony danych.
+* 32-bitowy nagłówek Magic, który identyfikuje wersję systemu ochrony danych.
 
-* 128-bitowego klucza identyfikatora, który identyfikuje klucz używany do ochrony tego konkretnego ładunku.
+* Identyfikator klucza 128-bitowego, który identyfikuje klucz używany do ochrony danego ładunku.
 
-* Pozostała część chronionej ładunku jest [specyficzne dla modułu szyfrującego zamknięte przez ten klucz](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation). W poniższym przykładzie klawisz reprezentuje AES-256-CBC + modułu szyfrującego HMACSHA256, a ładunek dalej podzielona następująco:
-  * 128-bitowego modyfikator klucza.
+* Pozostała część chronionego ładunku jest [specyficzna dla modułu szyfrującego hermetyzowanego przez ten klucz](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation). W poniższym przykładzie klucz reprezentuje szyfrowanie AES-256-CBC + HMACSHA256, a ładunek jest dalej podzielona w następujący sposób:
+  * Modyfikator klucza 128-bitowego.
   * Wektor inicjalizacji 128-bitowego.
-  * 48 bajtów danych wyjściowych AES-256-CBC.
-  * HMACSHA256 tag uwierzytelniania.
+  * 48 bajtów AES-256-CBC danych wyjściowych.
+  * Tag uwierzytelniania HMACSHA256.
 
-Poniżej przedstawiono przykładowy ładunek chronionych.
+Przykładowy zabezpieczony ładunek jest przedstawiony poniżej.
 
 ```
 09 F0 C9 F0 80 9C 81 0C 19 66 19 40 95 36 53 F8
@@ -48,11 +48,11 @@ AA FF EE 57 57 2F 40 4C 3F 7F CC 9D CC D9 32 3E
 52 C9 74 A0
 ```
 
-Z format ładunku powyżej pierwsze 32 bity lub 4 bajty są magic nagłówka, identyfikowanie wersji (09 F0 C9 F0)
+W formacie ładunku powyżej pierwszych 32 bitów lub 4 bajty to magiczny nagłówek identyfikujący wersję (09 F0 C9 F0)
 
-Następne 128 bitów lub 16-bajtowy jest identyfikator klucza (80 9C 81 0C 19 66 19 40 95 36 53 F8 AA FF EE 57)
+Następny 128 bitów lub 16 bajtów jest identyfikatorem klucza (80 9C 81 0C 19 66 19 40 95 36 53 F8 AA FF EE 57)
 
-Pozostała zawiera ładunek i zależy od formatu używanego.
+Pozostała część zawiera ładunek i jest zależna od użytego formatu.
 
 > [!WARNING]
-> Wszystkich ładunków chronionych przez podany klucz rozpocznie się za pomocą tego samego nagłówka 20-bajtowy (wartość magic, identyfikator klucza). Administratorzy mogą używać tego faktu w celach diagnostycznych zbliżenie podczas generowania ładunku. Na przykład ładunku powyżej odnosi się do klucza {0c819c80-6619-4019-9536-53f8aaffee57}. Jeśli po sprawdzeniu klucza repozytorium możesz znaleźć, Data aktywacji tego określonego klucza to 2015-01-01 i daty wygaśnięcia został 2015-03-01, a następnie jest uzasadnione założył, że ładunek (Jeśli nie naruszony) został wygenerowany w ramach tego okna, zapewniają lub wykonaj mały współczynnik grę fudge po obu stronach.
+> Wszystkie ładunki chronione w danym kluczu będą rozpoczynać się od tego samego, 20-bajtowego (Magiczna wartość, identyfikator klucza). Administratorzy mogą używać tego faktu w celach diagnostycznych do przybliżonego momentu wygenerowania ładunku. Na przykład powyższy ładunek odpowiada kluczowi {0c819c80-6619-4019-9536-53f8aaffee57}. Jeśli po sprawdzeniu repozytorium kluczy okaże się, że ten określony klucz jest w dniu 2015-01-01, a jego Data wygaśnięcia to 2015-03-01, uzasadnione jest założenie, że ładunek (jeśli nie naruszony) został wygenerowany w tym oknie, podaj lub Zrób małą Fudge po obu stronach.

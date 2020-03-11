@@ -1,15 +1,15 @@
 Uruchom szkielet tożsamości:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Z **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy na Projekt > **Dodaj** > **nowy element szkieletu**.
-* W okienku po lewej stronie **Dodawanie szkieletu** okno dialogowe, wybierz opcję **tożsamości** > **Dodaj**.
+* W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt > **Dodaj** > **nowy element szkieletowy**.
+* W lewym okienku okna dialogowego **Dodawanie szkieletu** wybierz pozycję **tożsamość** > **Dodaj**.
 * W oknie dialogowym **Dodawanie tożsamości** wybierz odpowiednie opcje.
   * Wybierz istniejącą stronę układu lub plik układu zostanie zastąpiony nieprawidłowym znacznikiem. Na przykład `~/Pages/Shared/_Layout.cshtml` dla Razor Pages `~/Views/Shared/_Layout.cshtml` dla projektów MVC
-  * Wybierz **+** przycisk, aby utworzyć nową **klasa kontekstu danych**.
-* Wybierz **Dodaj**.
+  * Wybierz przycisk **+** , aby utworzyć nową **klasę kontekstu danych**.
+* Wybierz pozycję **Dodaj**.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Jeśli nie zainstalowano wcześniej Generator szkieletu ASP.NET Core, zainstalowanie go teraz:
 

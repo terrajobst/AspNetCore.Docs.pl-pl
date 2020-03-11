@@ -1,22 +1,20 @@
 ---
 title: Informacje dotyczące typowych błędów dla Azure App Service i usług IIS z ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Uzyskaj porady dotyczące rozwiązywania problemów z typowymi błędami podczas hostowania aplikacji ASP.NET Core w usłudze Azure Apps i usługach IIS.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: dcc0f15c3f4a2747da744e98fe8fbcd3f325b709
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: dd74b451e396ae1dec61b6ccc9136218db39b949
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172429"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662415"
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Informacje dotyczące typowych błędów dla Azure App Service i usług IIS z ASP.NET Core
-
-Autor [Luke Latham](https://github.com/guardrex)
 
 ::: moniker range=">= aspnetcore-2.2"
 

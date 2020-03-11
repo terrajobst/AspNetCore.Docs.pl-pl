@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 10/07/2019
 uid: security/data-protection/configuration/overview
 ms.openlocfilehash: c0846aca4bb663b1d562ab0c877fefba02da460f
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829039"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666594"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>Konfigurowanie ochrony danych ASP.NET Core
 
@@ -389,7 +389,7 @@ W przypadku hostowania w kontenerze [platformy Docker](/dotnet/standard/microser
 
 ## <a name="persisting-keys-with-redis"></a>Utrwalanie kluczy za pomocą Redis
 
-Tylko wersje Redis obsługujące [trwałość danych Redis](/azure/azure-cache-for-redis/cache-how-to-premium-persistence) powinny być używane do przechowywania kluczy. [Magazyn obiektów blob platformy Azure](/azure/storage/blobs/storage-blobs-introduction) jest trwały i może służyć do przechowywania kluczy. Aby uzyskać więcej informacji, zobacz [problem w usłudze GitHub](https://github.com/dotnet/AspNetCore/issues/13476).
+Tylko wersje Redis obsługujące [trwałość danych Redis](/azure/azure-cache-for-redis/cache-how-to-premium-persistence) powinny być używane do przechowywania kluczy. [Magazyn obiektów blob platformy Azure](/azure/storage/blobs/storage-blobs-introduction) jest trwały i może służyć do przechowywania kluczy. Aby uzyskać więcej informacji, zobacz [ten problem](https://github.com/dotnet/AspNetCore/issues/13476)w serwisie GitHub.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

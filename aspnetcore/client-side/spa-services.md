@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: H1Hack27Feb2017
 ms.date: 09/06/2019
 uid: client-side/spa-services
-ms.openlocfilehash: caff1a735de3274b371f67e6e485dc42e579452c
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: c0c73882afd579510ad9cdf5b485c1d6fbeadd1c
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828220"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663780"
 ---
 # <a name="use-javascript-services-to-create-single-page-applications-in-aspnet-core"></a>Korzystanie z usług JavaScript do tworzenia aplikacji jednostronicowych w ASP.NET Core
 
@@ -33,8 +33,8 @@ Usługi JavaScript to zbiór technologii po stronie klienta dla ASP.NET Core. Je
 
 Usługi JavaScript składają się z dwóch różnych pakietów NuGet:
 
-* [Microsoft.AspNetCore.NodeServices](https://www.nuget.org/packages/Microsoft.AspNetCore.NodeServices/) (NodeServices)
-* [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) (SpaServices)
+* [Microsoft. AspNetCore. NodeServices](https://www.nuget.org/packages/Microsoft.AspNetCore.NodeServices/) (NodeServices)
+* [Microsoft. AspNetCore. SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) (SpaServices)
 
 Te pakiety są przydatne w następujących scenariuszach:
 
@@ -50,9 +50,9 @@ SpaServices utworzono pozwala platformy ASP.NET Core jako preferowaną platform�
 
 SpaServices zawiera przydatne infrastruktury, takich jak:
 
-* [Prerendering po stronie serwera](#server-side-prerendering)
-* [Oprogramowanie pośredniczące Dev Webpack](#webpack-dev-middleware)
-* [Zastąpienie gorąca modułu](#hot-module-replacement)
+* [Renderowanie wstępne po stronie serwera](#server-side-prerendering)
+* [Oprogramowanie pośredniczące dla deweloperów pakietu WebPack](#webpack-dev-middleware)
+* [Zastępowanie modułu gorącego](#hot-module-replacement)
 * [Pomocnicy routingu](#routing-helpers)
 
 Zbiorczo te składniki infrastruktury pozwala zwiększyć przepływ pracy tworzenia oprogramowania i środowiska czasu wykonywania. Składniki mogą przyjąć indywidualnie.
@@ -61,7 +61,7 @@ Zbiorczo te składniki infrastruktury pozwala zwiększyć przepływ pracy tworze
 
 Aby pracować z SpaServices, należy zainstalować następujące elementy:
 
-* [Node.js](https://nodejs.org/) (w wersji 6 lub nowszej) za pomocą pakietu npm
+* [Node. js](https://nodejs.org/) (w wersji 6 lub nowszej) z npm
 
   * Aby sprawdzić te składniki są zainstalowane i można go znaleźć, uruchom następujące polecenie w wierszu polecenia:
 
@@ -75,13 +75,13 @@ Aby pracować z SpaServices, należy zainstalować następujące elementy:
 
   * W systemie Windows przy użyciu programu Visual Studio 2017 zestaw SDK jest instalowany przez wybranie obciążenia **międzyplatformowego dla aplikacji .NET Core** .
 
-* [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) NuGet package
+* Pakiet NuGet [Microsoft. AspNetCore. SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/)
 
 ## <a name="server-side-prerendering"></a>Prerendering po stronie serwera
 
 Uniwersalnej aplikacji (nazywane również isomorphic) jest stanie działać zarówno serwer i klienta aplikacji w języku JavaScript. Platformy Angular, React i innych popularnych platform podanie tego stylu programowania aplikacji platformy uniwersalnej. Chodzi o to, aby najpierw przetworzyć składników framework na serwerze za pomocą środowiska Node.js, a następnie poprzez delegowanie przekazać dalsze wykonywanie do klienta.
 
-Platforma ASP.NET Core [pomocników tagów](xref:mvc/views/tag-helpers/intro) dostarczone przez SpaServices upraszczająca implementację elementów prerendering po stronie serwera za pomocą wywołania funkcji JavaScript na serwerze.
+ASP.NET Core [pomocników tagów](xref:mvc/views/tag-helpers/intro) zapewnianych przez SpaServices upraszczają implementację wstępnego renderowania po stronie serwera przez wywoływanie funkcji języka JavaScript na serwerze.
 
 ### <a name="server-side-prerendering-prerequisites"></a>Wymagania wstępne dotyczące renderowania po stronie serwera
 
@@ -93,7 +93,7 @@ npm i -S aspnet-prerendering
 
 ### <a name="server-side-prerendering-configuration"></a>Konfiguracja renderowania wstępnego po stronie serwera
 
-Pomocnicy tagów są wykrywalne za pośrednictwem rejestracji przestrzeni nazw w projekcie *_ViewImports.cshtml* pliku:
+Pomocników tagów są odnajdywani za pomocą rejestracji przestrzeni nazw w pliku *_ViewImports. cshtml* projektu:
 
 [!code-cshtml[](../client-side/spa-services/sample/SpaServicesSampleApp/Views/_ViewImports.cshtml?highlight=3)]
 
@@ -103,37 +103,37 @@ Te pomocników tagów natychmiast abstrakcji niewymagającego komunikować się 
 
 ### <a name="asp-prerender-module-tag-helper"></a>skrypt ASP-PreRender-module tagów modułu
 
-`asp-prerender-module` Wykonuje pomocnika tagów, używany w poprzednim przykładzie kodu *ClientApp/dist/main-server.js* na serwerze za pomocą środowiska Node.js. Dla jasności *main server.js* pliku jest pozostałością zadania transpilation TypeScript i JavaScript w [Webpack](https://webpack.github.io/) procesu kompilacji. Webpack definiuje alias punktu wejścia `main-server`; i przechodzenie wykres zależności dla tego aliasu, który rozpoczyna się od *ClientApp/rozruchu server.ts* pliku:
+Pomocnik tagu `asp-prerender-module`, użyty w poprzednim przykładzie kodu, wykonuje *ClientApp/dist/Main-Server. js* na serwerze za pośrednictwem środowiska Node. js. Na potrzeby przejrzystości plik *Main-Server. js* jest artefaktem zadania Transpilation języka TypeScript-to-JavaScript w procesie kompilacji [pakietu WebPack](https://webpack.github.io/) . Pakiet WebPack definiuje alias punktu wejścia `main-server`; i przechodzenie wykresu zależności dla tego aliasu zaczyna się od pliku *ClientApp/Boot-Server. TS* :
 
 [!code-javascript[](../client-side/spa-services/sample/SpaServicesSampleApp/webpack.config.js?range=53)]
 
-W poniższym przykładzie Angular *ClientApp/rozruchu server.ts* korzysta z pliku `createServerRenderer` funkcji i `RenderResult` typu `aspnet-prerendering` pakietu npm, aby skonfigurować renderowanie na serwerze za pomocą środowiska Node.js. Kod znaczników HTML przeznaczonej do renderowania po stronie serwera jest przekazywany do wywołanie funkcji rozwiązania jest opakowywany w języku JavaScript silnie typizowane `Promise` obiektu. `Promise` Znaczenie obiektu to, że asynchronicznie dostarcza kod znaczników HTML strony do iniekcji w elemencie symbolu zastępczego DOM w LICZBIE.
+W poniższym przykładzie kątowym plik *ClientApp/Boot-Server. TS* wykorzystuje funkcję `createServerRenderer` i `RenderResult` typ pakietu `aspnet-prerendering` npm do konfigurowania renderowania serwera za pomocą środowiska Node. js. Znaczniki HTML przeznaczone do renderowania po stronie serwera są przesyłane do wywołania funkcji rozpoznawania, które jest opakowane w obiekt `Promise` JavaScript o jednoznacznie określonym typie. Istotność obiektu `Promise` jest to, że asynchronicznie dostarcza znacznik HTML do strony w celu iniekcji w elemencie symbolu zastępczego modelu DOM.
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/boot-server.ts?range=6,10-34,79-)]
 
 ### <a name="asp-prerender-data-tag-helper"></a>ASP-PreRender — tag danych
 
-W połączeniu z `asp-prerender-module` Pomocnik tagu `asp-prerender-data` Pomocnik tagu może służyć do przekazywania informacji kontekstowych z widoku Razor w kodzie JavaScript po stronie serwera. Na przykład, następujący kod przekazuje dane użytkownika do `main-server` modułu:
+Po połączeniu z pomocnikiem tagów `asp-prerender-module`, pomocnik tagów `asp-prerender-data` może służyć do przekazywania informacji kontekstowych z widoku Razor do kodu JavaScript po stronie serwera. Na przykład następujące znaczniki przekazują dane użytkownika do modułu `main-server`:
 
 [!code-cshtml[](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=9-12)]
 
-Odebrano `UserName` argument jest serializowana, za pomocą wbudowanych serializator JSON i jest przechowywany w `params.data` obiektu. W poniższym przykładzie Angular danych służy do tworzenia spersonalizowanych powitania w ramach `h1` elementu:
+Odebrany argument `UserName` jest serializowany przy użyciu wbudowanego serializatora JSON i jest przechowywany w obiekcie `params.data`. W poniższym przykładzie kątowym dane są używane do konstruowania spersonalizowanego powitania w ramach elementu `h1`:
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/boot-server.ts?range=6,10-21,38-52,79-)]
 
-Nazwy właściwości przesyłane przez pomocników tagów są reprezentowane przy użyciu notacji **PascalCase** . Natomiast, w kodzie JavaScript, w których takie same nazwy właściwości są reprezentowane za pomocą **camelCase**. Domyślna konfiguracja serializacji JSON jest odpowiedzialny za tę różnicę.
+Nazwy właściwości przesyłane przez pomocników tagów są reprezentowane przy użyciu notacji **PascalCase** . Przeciwieństwo do języka JavaScript, gdzie te same nazwy właściwości są reprezentowane przez **CamelCase**. Domyślna konfiguracja serializacji JSON jest odpowiedzialny za tę różnicę.
 
-Aby rozszerzyć na poprzednim przykładzie kodu, dane mogą być przekazywane z serwera do widoku przez nawilżania `globals` właściwości udostępniane `resolve` funkcji:
+Aby rozwijać poprzedni przykład kodu, dane mogą być przekazywane z serwera do widoku przez Hydrating właściwości `globals` dostarczonej do funkcji `resolve`:
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/boot-server.ts?range=6,10-21,57-77,79-)]
 
-`postList` Zdefiniowane wewnątrz tablicy `globals` obiekt jest dołączony do przeglądarki globalnego `window` obiektu. Tej zmiennej podnoszenia do zakresu globalnego eliminuje dublowania działań, szczególnie w przypadku, ponieważ odnoszą się do ładowania tych samych danych, gdy na serwerze i ponownie na kliencie.
+Tablica `postList` zdefiniowana wewnątrz obiektu `globals` jest dołączona do globalnego obiektu `window` przeglądarki. Tej zmiennej podnoszenia do zakresu globalnego eliminuje dublowania działań, szczególnie w przypadku, ponieważ odnoszą się do ładowania tych samych danych, gdy na serwerze i ponownie na kliencie.
 
 ![Zmienna globalna postList dołączony do obiektu okna](spa-services/_static/global_variable.png)
 
 ## <a name="webpack-dev-middleware"></a>Oprogramowanie pośredniczące Dev Webpack
 
-[Oprogramowanie pośredniczące Dev Webpack](https://webpack.js.org/guides/development/#using-webpack-dev-middleware) wprowadza usprawnione Tworzenie przepływu pracy, według której Webpack kompilacji zasobów na żądanie. Oprogramowanie pośredniczące kompiluje i automatycznie obsługuje zasoby po stronie klienta po załadowaniu strony w przeglądarce. Alternatywne podejście jest ręcznie wywołać Webpack za pośrednictwem skryptu kompilacji npm projektu podczas zmiany zależności innych firm lub kod niestandardowy. Npm kompilacja skrypt w *package.json* plik jest wyświetlany w następującym przykładzie:
+[Oprogramowanie pośredniczące dla deweloperów pakietu WebPack](https://webpack.js.org/guides/development/#using-webpack-dev-middleware) wprowadza Ulepszony przepływ pracy programistycznej, dzięki czemu pakiet WebPack kompiluje zasoby na żądanie. Oprogramowanie pośredniczące kompiluje i automatycznie obsługuje zasoby po stronie klienta po załadowaniu strony w przeglądarce. Alternatywne podejście jest ręcznie wywołać Webpack za pośrednictwem skryptu kompilacji npm projektu podczas zmiany zależności innych firm lub kod niestandardowy. Skrypt kompilacji npm w pliku *Package. JSON* jest przedstawiony w poniższym przykładzie:
 
 ```json
 "build": "npm run build:vendor && npm run build:custom",
@@ -149,19 +149,19 @@ npm i -D aspnet-webpack
 
 ### <a name="webpack-dev-middleware-configuration"></a>Konfiguracja oprogramowania pośredniczącego WebPack dev
 
-Oprogramowanie pośredniczące Dev Webpack zostanie zarejestrowana w Potok żądań HTTP za pośrednictwem następujący kod w *Startup.cs* pliku `Configure` metody:
+Oprogramowanie pośredniczące programu WebPack dla deweloperów jest rejestrowane w potoku żądania HTTP przez następujący kod w metodzie `Configure` pliku *Startup.cs* :
 
 [!code-csharp[](../client-side/spa-services/sample/SpaServicesSampleApp/Startup.cs?name=snippet_WebpackMiddlewareRegistration&highlight=4)]
 
-`UseWebpackDevMiddleware` — Metoda rozszerzenia musi zostać wywołana przed [rejestrowanie hostowania plików statycznych](xref:fundamentals/static-files) za pośrednictwem `UseStaticFiles` — metoda rozszerzenia. Ze względów bezpieczeństwa należy zarejestrować oprogramowanie pośredniczące, tylko wtedy, gdy aplikacja jest uruchamiana w trybie projektowania.
+Przed [zarejestrowaniem hostingu pliku statycznego](xref:fundamentals/static-files) za pomocą metody rozszerzenia `UseStaticFiles` należy wywołać metodę rozszerzenia `UseWebpackDevMiddleware`. Ze względów bezpieczeństwa należy zarejestrować oprogramowanie pośredniczące, tylko wtedy, gdy aplikacja jest uruchamiana w trybie projektowania.
 
-*Webpack.config.js* pliku `output.publicPath` właściwość informuje oprogramowanie pośredniczące, aby obejrzeć `dist` folder zmiany:
+Właściwość `output.publicPath` pliku *WebPack. config. js* informuje oprogramowanie pośredniczące o zmianach w folderze `dist`:
 
 [!code-javascript[](../client-side/spa-services/sample/SpaServicesSampleApp/webpack.config.js?range=6,13-16)]
 
 ## <a name="hot-module-replacement"></a>Zastąpienie gorąca modułu
 
-Traktować firmy Webpack [gorąca zastąpienie modułu](https://webpack.js.org/concepts/hot-module-replacement/) funkcji (HMR) jako unowocześnienia funkcji [Webpack Dev w oprogramowaniu pośredniczącym](#webpack-dev-middleware). HMR wprowadza te same korzyści, ale dodatkowo upraszcza przepływ pracy tworzenia oprogramowania przez automatyczną aktualizację zawartość strony po kompilacji zmian. Nie pomyl go z odświeżaniem przeglądarki i mogące zakłócać bieżący stan w pamięci i sesji debugowania SPA. Istnieje aktywne łącze między usługą Webpack Dev w oprogramowaniu pośredniczącym i przeglądarki, co oznacza, że zmiany są przekazywane do przeglądarki.
+Zastanów się nad funkcją [zastępowania modułu](https://webpack.js.org/concepts/hot-module-replacement/) internetowego (HMR) elementu WebPack jako ewolucją [oprogramowania pośredniczącego dla deweloperów pakietu WebPack](#webpack-dev-middleware). HMR wprowadza te same korzyści, ale dodatkowo upraszcza przepływ pracy tworzenia oprogramowania przez automatyczną aktualizację zawartość strony po kompilacji zmian. Nie pomyl go z odświeżaniem przeglądarki i mogące zakłócać bieżący stan w pamięci i sesji debugowania SPA. Istnieje aktywne łącze między usługą Webpack Dev w oprogramowaniu pośredniczącym i przeglądarki, co oznacza, że zmiany są przekazywane do przeglądarki.
 
 ### <a name="hot-module-replacement-prerequisites"></a>Wymagania wstępne dotyczące zastępowania modułu aktywnego
 
@@ -173,7 +173,7 @@ npm i -D webpack-hot-middleware
 
 ### <a name="hot-module-replacement-configuration"></a>Konfiguracja wymiany modułu aktywnego
 
-Składnik HMR muszą być rejestrowane w Potok żądań HTTP MVC w `Configure` metody:
+Składnik HMR musi być zarejestrowany w potoku żądania HTTP MVC w metodzie `Configure`:
 
 ```csharp
 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
@@ -181,9 +181,9 @@ app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
 });
 ```
 
-Jak był prawdziwy z [oprogramowania pośredniczącego Dev Webpack](#webpack-dev-middleware), `UseWebpackDevMiddleware` — metoda rozszerzenia musi zostać wywołana przed `UseStaticFiles` — metoda rozszerzenia. Ze względów bezpieczeństwa należy zarejestrować oprogramowanie pośredniczące, tylko wtedy, gdy aplikacja jest uruchamiana w trybie projektowania.
+Podobnie jak w przypadku [oprogramowania pośredniczącego w pakiecie WebPack](#webpack-dev-middleware), metoda rozszerzenia `UseWebpackDevMiddleware` musi zostać wywołana przed metodą rozszerzenia `UseStaticFiles`. Ze względów bezpieczeństwa należy zarejestrować oprogramowanie pośredniczące, tylko wtedy, gdy aplikacja jest uruchamiana w trybie projektowania.
 
-*Webpack.config.js* musi definiować plik `plugins` tablicy, nawet wtedy, gdy zostanie pozostawiony pusty:
+Plik *WebPack. config. js* musi definiować tablicę `plugins`, nawet jeśli jest pusta:
 
 [!code-javascript[](../client-side/spa-services/sample/SpaServicesSampleApp/webpack.config.js?range=6,25)]
 
@@ -195,7 +195,7 @@ Po załadowaniu aplikacji w przeglądarce, karty konsoli narzędzi dla deweloper
 
 W większości aplikacji jednostronicowych opartych na ASP.NET Core, routing po stronie klienta jest często pożądany oprócz routingu po stronie serwera. Systemy routingu SPA i MVC może działać niezależnie bez zakłóceń. Brak, jednak jednej krawędzi przypadków stanowiące wyzwań: Identyfikowanie odpowiedzi HTTP 404.
 
-Rozważmy scenariusz, w którym będą trasę `/some/page` jest używany. Przyjęto założenie, żądanie nie-dopasowania do wzorca trasy po stronie serwera, ale jego dopasowanie do wzorca, trasę po stronie klienta. Teraz należy wziąć pod uwagę żądanie przychodzące dla `/images/user-512.png`, którego oczekuje ogólnie można znaleźć pliku obrazu na serwerze. Jeśli żądana ścieżka zasobu nie jest zgodna z żadną trasą po stronie serwera lub plikiem statycznym, jest mało prawdopodobne, że aplikacja po stronie klienta obsłuży jej&mdash;na ogół zwraca kod stanu HTTP 404.
+Rozważmy scenariusz, w którym jest używana trasa bezrozszerzająca `/some/page`. Przyjęto założenie, żądanie nie-dopasowania do wzorca trasy po stronie serwera, ale jego dopasowanie do wzorca, trasę po stronie klienta. Teraz Rozważmy żądanie przychodzące dla `/images/user-512.png`, które zwykle oczekuje na znalezienie pliku obrazu na serwerze. Jeśli żądana ścieżka zasobu nie jest zgodna z żadną trasą po stronie serwera lub plikiem statycznym, jest mało prawdopodobne, że aplikacja po stronie klienta obsłuży jej&mdash;na ogół zwraca kod stanu HTTP 404.
 
 ### <a name="routing-helpers-prerequisites"></a>Wymagania wstępne pomocników routingu
 
@@ -207,11 +207,11 @@ npm i -S @angular/router
 
 ### <a name="routing-helpers-configuration"></a>Konfiguracja pomocników routingu
 
-Metody rozszerzenia o nazwie `MapSpaFallbackRoute` jest używany w `Configure` metody:
+Metoda rozszerzająca o nazwie `MapSpaFallbackRoute` jest używana w metodzie `Configure`:
 
 [!code-csharp[](../client-side/spa-services/sample/SpaServicesSampleApp/Startup.cs?name=snippet_MvcRoutingTable&highlight=7-9)]
 
-Trasy są oceniane w kolejności, w jakiej są skonfigurowane. W związku z tym `default` trasy w poprzednim przykładzie kodu jest używana jako pierwsza dopasowywanie do wzorców.
+Trasy są oceniane w kolejności, w jakiej są skonfigurowane. W związku z tym `default` trasa w poprzednim przykładzie kodu jest najpierw używana do dopasowania do wzorca.
 
 ## <a name="create-a-new-project"></a>Tworzenie nowego projektu
 
@@ -225,13 +225,13 @@ dotnet new --install Microsoft.AspNetCore.SpaTemplates::*
 
 Zostanie wyświetlona lista dostępnych szablonów SPA:
 
-| Szablony                                 | Krótka nazwa | Język | Znaczniki        |
+| Szablony                                 | Krótka nazwa | Język | Tagi        |
 | ------------------------------------------| :--------: | :------: | :---------: |
 | MVC platformy ASP.NET Core przy użyciu usługi Angular             | Platformy angular    | [C#]     | Web/MVC/SPA |
 | MVC platformy ASP.NET Core z użyciem biblioteki React.js            | react      | [C#]     | Web/MVC/SPA |
 | MVC platformy ASP.NET Core z użyciem biblioteki React.js i Redux  | reactredux dla platformy | [C#]     | Web/MVC/SPA |
 
-Aby utworzyć nowy projekt za pomocą jednego z szablonów SPA, należy dołączyć **krótką nazwę** szablonu w [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia. Następujące polecenie tworzy aplikację platformy Angular z platformą ASP.NET Core MVC skonfigurowany po stronie serwera:
+Aby utworzyć nowy projekt przy użyciu jednego z szablonów SPA, należy dołączyć **krótką nazwę** szablonu do polecenia [dotnet New](/dotnet/core/tools/dotnet-new) . Następujące polecenie tworzy aplikację platformy Angular z platformą ASP.NET Core MVC skonfigurowany po stronie serwera:
 
 ```dotnetcli
 dotnet new angular
@@ -244,11 +244,11 @@ Istnieją dwa tryby konfiguracji podstawowego środowiska uruchomieniowego:
 * **Programowanie**:
   * Obejmuje map źródeł, aby ułatwić debugowanie.
   * Nie Optymalizuj kod po stronie klienta dla wydajności.
-* **Produkcji**:
+* **Produkcja**:
   * Wyklucza mapy źródła.
   * Optymalizuje kod po stronie klienta za pomocą funkcji grupowania i minifikacja.
 
-Platforma ASP.NET Core używa zmiennej środowiskowej o nazwie `ASPNETCORE_ENVIRONMENT` do przechowywania tryb konfiguracji. Aby uzyskać więcej informacji, zobacz [Ustawianie środowiska](xref:fundamentals/environments#set-the-environment).
+ASP.NET Core używa zmiennej środowiskowej o nazwie `ASPNETCORE_ENVIRONMENT` do przechowywania trybu konfiguracji. Aby uzyskać więcej informacji, zobacz [Ustawianie środowiska](xref:fundamentals/environments#set-the-environment).
 
 ### <a name="run-with-net-core-cli"></a>Uruchom z interfejs wiersza polecenia platformy .NET Core
 
@@ -264,35 +264,35 @@ Kompilowanie i uruchamianie aplikacji:
 dotnet run
 ```
 
-Aplikacja uruchamia się na hoście lokalnym, zgodnie z opisem w [tryb konfiguracji środowiska uruchomieniowego](#set-the-runtime-configuration-mode). Przejdź do `http://localhost:5000` w przeglądarce zostanie wyświetlona strona docelowa.
+Aplikacja jest uruchamiana na hoście lokalnym zgodnie z [trybem konfiguracji środowiska uruchomieniowego](#set-the-runtime-configuration-mode). Przechodzenie do `http://localhost:5000` w przeglądarce spowoduje wyświetlenie strony docelowej.
 
 ### <a name="run-with-visual-studio-2017"></a>Uruchamianie z programem Visual Studio 2017
 
-Otwórz *.csproj* pliku wygenerowanego przez [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia. Wymagane pakiety npm i NuGet zostaną przywrócone automatycznie po otwarty projekt. Ten proces przywracania może potrwać kilka minut, a aplikacja jest gotowa do uruchomienia po jego ukończeniu. Kliknij zielony przycisk uruchamiania lub naciśnij klawisz `Ctrl + F5`, i przeglądarce otworzy się Strona docelowa aplikacji. Aplikacja zostanie uruchomiona na hoście lokalnym, zgodnie z opisem w [tryb konfiguracji środowiska uruchomieniowego](#set-the-runtime-configuration-mode).
+Otwórz plik *. csproj* wygenerowany przez polecenie [dotnet New](/dotnet/core/tools/dotnet-new) . Wymagane pakiety npm i NuGet zostaną przywrócone automatycznie po otwarty projekt. Ten proces przywracania może potrwać kilka minut, a aplikacja jest gotowa do uruchomienia po jego ukończeniu. Kliknij przycisk z zielonym uruchomieniem lub naciśnij klawisz `Ctrl + F5`, a w przeglądarce zostanie otwarta strona docelowa aplikacji. Aplikacja jest uruchamiana na hoście lokalnym zgodnie z [trybem konfiguracji środowiska uruchomieniowego](#set-the-runtime-configuration-mode).
 
 ## <a name="test-the-app"></a>Testowanie aplikacji
 
-Jest wstępnie skonfigurowana do uruchamiania testów po stronie klienta za pomocą szablonów SpaServices [Karma](https://karma-runner.github.io/1.0/index.html) i [Jasmine](https://jasmine.github.io/). Jasmine to popularne testowania jednostkowego dla języka JavaScript, Karma jest moduł uruchamiający testy dla tych testów. Karma jest skonfigurowana do pracy z [oprogramowania pośredniczącego Dev Webpack](#webpack-dev-middleware) taki sposób, że deweloper nie jest wymagane do zatrzymywania i uruchamiania testu za każdym razem, gdy zostaną wprowadzone zmiany. Czy jest ono kod działających w odniesieniu do przypadku testowego lub sam przypadek testowy, test jest uruchamiany automatycznie.
+Szablony SpaServices są wstępnie skonfigurowane do uruchamiania testów po stronie klienta za pomocą [Karma](https://karma-runner.github.io/1.0/index.html) i [Jasmine](https://jasmine.github.io/). Jasmine to popularne testowania jednostkowego dla języka JavaScript, Karma jest moduł uruchamiający testy dla tych testów. Karma jest skonfigurowany do współdziałania z [pakietem pośredniczącym tworzenia pakietów WebPack](#webpack-dev-middleware) w taki sposób, aby deweloperzy nie musieli zatrzymywać i uruchamiać testów przy każdym wprowadzeniu zmian. Czy jest ono kod działających w odniesieniu do przypadku testowego lub sam przypadek testowy, test jest uruchamiany automatycznie.
 
-Korzystanie z aplikacji Angular jako przykład dwóch Jasmine przypadki testowe są już udostępniane dla `CounterComponent` w *counter.component.spec.ts* pliku:
+Używając aplikacji kątowej jako przykładu, dwa przypadki testowe Jasmine są już dostarczone dla `CounterComponent` w pliku *Counter. Component. spec. TS* :
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/app/components/counter/counter.component.spec.ts?range=15-28)]
 
-Otwórz wiersz polecenia w *ClientApp* katalogu. Uruchom następujące polecenie:
+Otwórz wiersz polecenia w katalogu *ClientApp* . Uruchom następujące polecenie:
 
 ```console
 npm test
 ```
 
-Skrypt uruchamia Karma narzędzie test runner, który odczytuje ustawienia zdefiniowane w *karma.conf.js* pliku. Wśród innych ustawień *karma.conf.js* identyfikuje pliki testowe, które mają być wykonane za pomocą jego `files` tablicy:
+Skrypt uruchamia moduł Karma Test Runner, który odczytuje ustawienia zdefiniowane w pliku *Karma. conf. js* . Oprócz innych ustawień *Karma. conf. js* identyfikuje pliki testowe do wykonania za pośrednictwem tablicy `files`:
 
 [!code-javascript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/test/karma.conf.js?range=4-5,8-11)]
 
 ## <a name="publish-the-app"></a>Publikowanie aplikacji
 
-Aby uzyskać więcej informacji na temat publikowania na platformie Azure, zobacz [ten problem](https://github.com/aspnet/AspNetCore.Docs/issues/12474) w usłudze GitHub.
+Aby uzyskać więcej informacji na temat publikowania na platformie Azure, zobacz [ten problem](https://github.com/dotnet/AspNetCore.Docs/issues/12474) w usłudze GitHub.
 
-Łączenie wygenerowanych elementów zawartości po stronie klienta i opublikowane artefaktów ASP.NET Core w gotowe do wdrożenia pakietu może być kłopotliwe. Szczęście SpaServices organizuje procesu całej publikacji z niestandardowy cel programu MSBuild, o nazwie `RunWebpack`:
+Łączenie wygenerowanych elementów zawartości po stronie klienta i opublikowane artefaktów ASP.NET Core w gotowe do wdrożenia pakietu może być kłopotliwe. Thankfully, SpaServices organizuje cały proces publikacji z niestandardowym elementem docelowym programu MSBuild o nazwie `RunWebpack`:
 
 [!code-xml[](../client-side/spa-services/sample/SpaServicesSampleApp/SpaServicesSampleApp.csproj?range=31-45)]
 
@@ -311,4 +311,4 @@ dotnet publish -c Release
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Dokumentacja usługi angular](https://angular.io/docs)
+* [Dokumenty kątowe](https://angular.io/docs)

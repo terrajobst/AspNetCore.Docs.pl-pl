@@ -10,20 +10,20 @@ no-loc:
 - SignalR
 uid: signalr/publish-to-azure-web-app
 ms.openlocfilehash: d03a007ca883b3d0391b848e3e92c90469ee640a
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963931"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661358"
 ---
-# <a name="publish-an-aspnet-core-opno-locsignalr-app-to-azure-app-service"></a>Opublikuj aplikację SignalR ASP.NET Core w Azure App Service
+# <a name="publish-an-aspnet-core-signalr-app-to-azure-app-service"></a>Opublikuj aplikację sygnalizującą ASP.NET Core, aby Azure App Service
 
 Autor [Brady gastera](https://twitter.com/bradygaster)
 
 [Azure App Service](/azure/app-service/app-service-web-overview) to usługa platformy [obliczeniowej w chmurze firmy Microsoft](https://azure.microsoft.com/) do hostowania aplikacji sieci web, w tym ASP.NET Core.
 
 > [!NOTE]
-> Ten artykuł odnosi się do publikowania aplikacji ASP.NET Core SignalR z poziomu programu Visual Studio. Aby uzyskać więcej informacji, zobacz [SignalR Service for Azure](https://azure.microsoft.com/services/signalr-service).
+> Ten artykuł odnosi się do publikowania aplikacji sygnalizującej ASP.NET Core z programu Visual Studio. Aby uzyskać więcej informacji, zobacz [Usługa signaler dla platformy Azure](https://azure.microsoft.com/services/signalr-service).
 
 ## <a name="publish-the-app"></a>Publikowanie aplikacji
 
@@ -40,13 +40,13 @@ W tym artykule opisano Publikowanie przy użyciu narzędzi w programie Visual St
    | Element               | Opis |
    | ------------------ | ----------- |
    | **Nazwa**           | Unikatowa nazwa aplikacji. |
-   | **Ramach**   | Subskrypcja platformy Azure, której używa aplikacja. |
+   | **Subskrypcja**   | Subskrypcja platformy Azure, której używa aplikacja. |
    | **Grupa zasobów** | Grupa powiązanych zasobów, do której należy aplikacja. |
    | **Plan hostingu**   | Plan cenowy dla aplikacji sieci Web. |
 
 1. Wybierz **usługę Azure SignalR** w obszarze **zależności** > **Dodaj** listę rozwijaną:
 
-   ![Obszar zależności pokazujący wybór platformy Azure [! OP. Usługa NO-LOC (Signaler)] na liście rozwijanej dodawania](publish-to-azure-web-app/_static/signalr-service-dependency.png)
+   ![obszar zależności pokazujący wybór usługi Azure SignalR z listy rozwijanej Dodaj](publish-to-azure-web-app/_static/signalr-service-dependency.png)
 
 1. W oknie dialogowym **usługa SignalR Azure** wybierz pozycję **Utwórz nowe wystąpienie usługi Azure SignalR** .
 

@@ -1,62 +1,62 @@
 ---
-title: Pomocnik tagu obrazu w programie ASP.NET Core
+title: Pomocnik tagu obrazu w ASP.NET Core
 author: pkellner
-description: Pokazuje, jak pracować z Pomocnik tagu obrazu.
+description: Pokazuje, jak korzystać z pomocnika tagów obrazu.
 ms.author: riande
 ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
 ms.openlocfilehash: 964072ad276f7e3e411ee41cb03a2efb9d05c585
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856116"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663997"
 ---
-# <a name="image-tag-helper-in-aspnet-core"></a>Pomocnik tagu obrazu w programie ASP.NET Core
+# <a name="image-tag-helper-in-aspnet-core"></a>Pomocnik tagu obrazu w ASP.NET Core
 
-Przez [Peter Kellner](https://peterkellner.net)
+Według [Peterowi Kellner](https://peterkellner.net)
 
-Pomocnik tagu obrazu zwiększa `<img>` tag, aby zapewnić zachowanie rozrywające pamięci podręcznej na pliki obraz statyczny.
+Pomocnik tagów obrazu ulepsza tag `<img>`, aby zapewnić zachowanie Busting pamięci podręcznej dla statycznych plików obrazu.
 
-Ciąg rozrywające pamięci podręcznej jest wartością unikatową, reprezentujący skrót pliku obraz statyczny dołączona do adresu URL zasobu. Unikatowy ciąg wyświetli klientów (i niektóre serwery proxy), aby ponownie załadować obrazu z hosta serwera sieci web, a nie z jego pamięci podręcznej.
+Busting pamięci podręcznej jest unikatową wartością reprezentującą skrót pliku obrazu statycznego dołączonego do adresu URL zasobu. Unikatowy ciąg będzie monitował klientów (i niektórych serwerów proxy) do ponownego załadowania obrazu z serwera hosta sieci Web, a nie z pamięci podręcznej klienta.
 
-Jeśli źródło obrazu (`src`) jest plikiem statycznym na serwerze sieci web hosta:
+Jeśli źródło obrazu (`src`) jest plikiem statycznym na serwerze sieci Web hosta:
 
-* Unikatowy ciąg rozrywające pamięci podręcznej jest dołączany jako parametr zapytania do źródła obrazu.
-* Jeśli zmian w plikach na serwerze sieci web hosta, generowany jest żądania unikatowy adres URL, zawierającą parametr zaktualizowane żądanie.
+* Unikatowy ciąg Busting jest dołączany jako parametr zapytania do źródła obrazu.
+* Jeśli plik na serwerze sieci Web hosta ulegnie zmianie, generowany jest unikatowy adres URL żądania, który obejmuje zaktualizowany parametr żądania.
 
-Aby zapoznać się z omówieniem pomocnicy tagów, zobacz <xref:mvc/views/tag-helpers/intro>.
+Aby zapoznać się z omówieniem pomocników tagów, zobacz <xref:mvc/views/tag-helpers/intro>.
 
-## <a name="image-tag-helper-attributes"></a>Atrybuty Pomocnik tagu obrazu
+## <a name="image-tag-helper-attributes"></a>Atrybuty pomocnika tagów obrazu
 
-### <a name="src"></a>src
+### <a name="src"></a>SRC
 
-Pomocnik tagu obrazu, aktywować `src` atrybut jest wymagany w `<img>` elementu.
+Aby uaktywnić pomocnika tagów obrazu, atrybut `src` jest wymagany dla elementu `<img>`.
 
-Źródło obrazu (`src`) musi wskazywać plik statyczny fizyczny na serwerze. Jeśli `src` jest zdalny identyfikator URI, nie są generowane przez parametr ciągu zapytania rozrywające pamięci podręcznej.
+Źródło obrazu (`src`) musi wskazywać fizyczny plik statyczny na serwerze. Jeśli `src` jest zdalnym identyfikatorem URI, parametr ciągu zapytania cache-Busting nie jest generowany.
 
-### <a name="asp-append-version"></a>asp-append-version
+### <a name="asp-append-version"></a>ASP — dołączanie wersji
 
-Gdy `asp-append-version` jest określony za pomocą `true` wartość wraz z `src` wywoływaną atrybutu, Pomocnik tagu obrazu.
+Gdy `asp-append-version` jest określony z wartością `true` wraz z atrybutem `src`, zostanie wywołana pomocnika znacznika obrazu.
 
-Pomocnik tagu obrazu można znaleźć w poniższym przykładzie:
+Poniższy przykład używa pomocnika tagu obrazu:
 
 ```cshtml
 <img src="~/images/asplogo.png" asp-append-version="true">
 ```
 
-Jeśli w katalogu istnieje plik statyczny */wwwroot/obrazy/* , wygenerowany kod HTML jest podobne do następujących (skrót będą się różnić):
+Jeśli plik statyczny istnieje w katalogu */wwwroot/images/* , wygenerowany kod HTML jest podobny do następującego (skrót będzie różny):
 
 ```html
 <img src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM">
 ```
 
-Wartość przypisana do parametru `v` jest wartość skrótu *asplogo.png* pliku na dysku. Jeśli serwer sieci web nie może uzyskać dostęp do odczytu do pliku statycznego nie `v` parametr jest dodawany do `src` atrybut renderowanego kodu znaczników.
+Wartość przypisana do parametru `v` jest wartością skrótu pliku *asplogo. png* na dysku. Jeśli serwer sieci Web nie może uzyskać dostępu do odczytu do pliku statycznego, nie zostanie dodany parametr `v` do atrybutu `src` w renderowanej adjustacji.
 
-## <a name="hash-caching-behavior"></a>Skrót zachowanie buforowania
+## <a name="hash-caching-behavior"></a>Zachowanie buforowania wartości skrótu
 
-Pomocnik tagu obrazu używa dostawcy pamięci podręcznej na serwerze sieci web w lokalnych do przechowywania obliczony `Sha512` skrótów danego pliku. Jeśli plik jest wymagane wiele razy, nie jest ponownie obliczyć wartość skrótu. Pamięć podręczna zostaje unieważniony przez obserwatora pliku, który jest dołączony do pliku podczas pliku `Sha512` wyznaczania wartości skrótu jest obliczana. Po zmianie pliku na dysku, nowy skrót jest obliczany i pamięci podręcznej.
+Pomocnik tagu obrazu używa dostawcy pamięci podręcznej na lokalnym serwerze sieci Web do przechowywania obliczonego skrótu `Sha512` danego pliku. Jeśli plik jest żądany wielokrotnie, skrót nie jest obliczany ponownie. Pamięć podręczna jest unieważniona przez obserwatora plików, który jest dołączony do pliku, gdy zostanie obliczony skrót `Sha512` pliku. Gdy plik zostanie zmieniony na dysku, zostanie obliczony i zbuforowany nowy skrót.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

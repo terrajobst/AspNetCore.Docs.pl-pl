@@ -1,3 +1,3 @@
-# <a name="aspnet-core-response-cache-sample"></a>ASP.NET Core Response Cache Sample
+# <a name="aspnet-core-response-cache-sample"></a>Przykład pamięci podręcznej odpowiedzi ASP.NET Core
 
-W tym przykładzie pokazano użycie buforowanie odpowiedzi w programie ASP.NET Core, która ma towarzyszyć [buforowanie odpowiedzi w programie ASP.NET Core](https://docs.microsoft.com/aspnet/core/performance/caching/response).
+Ten przykład ilustruje użycie buforowania odpowiedzi w ASP.NET Core, aby dołączyć [buforowanie odpowiedzi w ASP.NET Core](https://docs.microsoft.com/aspnet/core/performance/caching/response).

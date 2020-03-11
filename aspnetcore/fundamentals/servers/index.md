@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 11/07/2019
 uid: fundamentals/servers/index
 ms.openlocfilehash: d46793ef54c99fe609b5983c5a658fb7b20032fa
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74289062"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666342"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementacje serwera sieci Web w ASP.NET Core
 
@@ -40,7 +40,7 @@ Aby uzyskać wskazówki dotyczące konfiguracji Kestrel i informacje o tym, kied
 
 ::: moniker range=">= aspnetcore-2.2"
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 ASP.NET Core dostarcza następujące elementy:
 
@@ -53,7 +53,7 @@ W przypadku korzystania z [usług IIS](/iis/get-started/introduction-to-iis/intr
 * W tym samym procesie co proces roboczy usług IIS ( [model hostingu w procesie](#hosting-models)) z serwerem HTTP usług IIS. *W procesie* jest zalecana konfiguracja.
 * W procesie innym niż proces roboczy usług IIS ( [model hostingu poza procesem](#hosting-models)) z [serwerem Kestrel](#kestrel).
 
-[Moduł ASP.NET Core](xref:host-and-deploy/aspnet-core-module) jest natywnym modułem usług IIS, który obsługuje natywne żądania usług IIS między usługami IIS a serwerem HTTP lub Kestrel IIS w procesie. Aby uzyskać więcej informacji, zobacz temat <xref:host-and-deploy/aspnet-core-module>.
+[Moduł ASP.NET Core](xref:host-and-deploy/aspnet-core-module) jest natywnym modułem usług IIS, który obsługuje natywne żądania usług IIS między usługami IIS a serwerem HTTP lub Kestrel IIS w procesie. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/aspnet-core-module>.
 
 ## <a name="hosting-models"></a>Modele hostingu
 
@@ -66,11 +66,11 @@ Aby uzyskać więcej informacji i wskazówki dotyczące konfiguracji, zobacz nas
 * <xref:host-and-deploy/iis/index>
 * <xref:host-and-deploy/aspnet-core-module>
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 ASP.NET Core jest dostarczany z [serwerem Kestrel](xref:fundamentals/servers/kestrel), który jest domyślnym serwerem HTTP dla wielu platform.
 
-# <a name="linuxtablinux"></a>[System](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 ASP.NET Core jest dostarczany z [serwerem Kestrel](xref:fundamentals/servers/kestrel), który jest domyślnym serwerem HTTP dla wielu platform.
 
@@ -80,7 +80,7 @@ ASP.NET Core jest dostarczany z [serwerem Kestrel](xref:fundamentals/servers/kes
 
 ::: moniker range="< aspnetcore-2.2"
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 ASP.NET Core dostarcza następujące elementy:
 
@@ -106,11 +106,11 @@ Aby uzyskać wskazówki dotyczące konfiguracji modułu usług IIS i ASP.NET Cor
 * <xref:host-and-deploy/iis/index>
 * <xref:host-and-deploy/aspnet-core-module>
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 ASP.NET Core jest dostarczany z [serwerem Kestrel](xref:fundamentals/servers/kestrel), który jest domyślnym serwerem HTTP dla wielu platform.
 
-# <a name="linuxtablinux"></a>[System](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 ASP.NET Core jest dostarczany z [serwerem Kestrel](xref:fundamentals/servers/kestrel), który jest domyślnym serwerem HTTP dla wielu platform.
 
@@ -128,7 +128,7 @@ Aby uzyskać informacje na temat korzystania z usługi Apache w systemie Linux j
 
 ## <a name="httpsys"></a>HTTP.sys
 
-Jeśli ASP.NET Core aplikacje są uruchamiane w systemie Windows, HTTP. sys jest alternatywą dla Kestrel. Kestrel jest zwykle zalecana w celu uzyskania najlepszej wydajności. Protokołu HTTP. sys można używać w scenariuszach, w których aplikacja jest narażona na dostęp do Internetu, a wymagane możliwości są obsługiwane przez protokół HTTP. sys, ale nie Kestrel. Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/servers/httpsys>.
+Jeśli ASP.NET Core aplikacje są uruchamiane w systemie Windows, HTTP. sys jest alternatywą dla Kestrel. Kestrel jest zwykle zalecana w celu uzyskania najlepszej wydajności. Protokołu HTTP. sys można używać w scenariuszach, w których aplikacja jest narażona na dostęp do Internetu, a wymagane możliwości są obsługiwane przez protokół HTTP. sys, ale nie Kestrel. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/servers/httpsys>.
 
 ![Protokół HTTP. sys komunikuje się bezpośrednio z Internetem](httpsys/_static/httpsys-to-internet.png)
 

@@ -5,12 +5,12 @@ description: W tym artykule przedstawiono najczęstsze kroki migracji ASP.NET Co
 ms.author: scaddie
 ms.date: 06/21/2019
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: f3817fa1808c331f7e167618e3bb00d68ad08571
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: af905f1127d504839f66d9e0e1ca1dfc27e32772
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355177"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667609"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>Migrowanie uwierzytelniania i tożsamości do ASP.NET Core 2,0
 
@@ -177,7 +177,7 @@ Wprowadź następujące zmiany w programie *Startup.cs*:
     });
     ```
     
-### <a name="facebook-authentication"></a>Uwierzytelnianie przy użyciu usługi Facebook
+### <a name="facebook-authentication"></a>Uwierzytelnianie za pomocą konta Facebook
 
 Wprowadź następujące zmiany w programie *Startup.cs*:
 - Zastąp wywołanie metody `UseFacebookAuthentication` w metodzie `Configure` `UseAuthentication`:
@@ -197,7 +197,7 @@ Wprowadź następujące zmiany w programie *Startup.cs*:
             });
     ```
 
-### <a name="google-authentication"></a>Uwierzytelnianie przy użyciu usługi Google
+### <a name="google-authentication"></a>Uwierzytelnianie za pomocą konta Google
 
 Wprowadź następujące zmiany w programie *Startup.cs*:
 - Zastąp wywołanie metody `UseGoogleAuthentication` w metodzie `Configure` `UseAuthentication`:
@@ -219,7 +219,7 @@ Wprowadź następujące zmiany w programie *Startup.cs*:
 
 ### <a name="microsoft-account-authentication"></a>Uwierzytelnianie za pomocą konta Microsoft
 
-Aby uzyskać więcej informacji na temat uwierzytelniania konto Microsoft, zobacz [ten problem](https://github.com/aspnet/AspNetCore.Docs/issues/14455)w usłudze GitHub.
+Aby uzyskać więcej informacji na temat uwierzytelniania konto Microsoft, zobacz [ten problem](https://github.com/dotnet/AspNetCore.Docs/issues/14455)w usłudze GitHub.
 
 Wprowadź następujące zmiany w programie *Startup.cs*:
 - Zastąp wywołanie metody `UseMicrosoftAccountAuthentication` w metodzie `Configure` `UseAuthentication`:
@@ -239,7 +239,7 @@ Wprowadź następujące zmiany w programie *Startup.cs*:
             });
     ```
 
-### <a name="twitter-authentication"></a>Uwierzytelnianie przy użyciu usługi Twitter
+### <a name="twitter-authentication"></a>Uwierzytelnianie za pomocą konta Twitter
 
 Wprowadź następujące zmiany w programie *Startup.cs*:
 - Zastąp wywołanie metody `UseTwitterAuthentication` w metodzie `Configure` `UseAuthentication`:
@@ -330,7 +330,7 @@ Istnieją dwie różne warianty uwierzytelniania systemu Windows:
 
   > `System.InvalidOperationException`: nie określono authenticationScheme i nie znaleziono DefaultChallengeScheme.
 
-Aby uzyskać więcej informacji, zobacz temat <xref:security/authentication/windowsauth>.
+Aby uzyskać więcej informacji, zobacz <xref:security/authentication/windowsauth>.
 
 <a name="identity-cookie-options"></a>
 

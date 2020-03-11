@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/call-web-api
-ms.openlocfilehash: 345fb6962e3376c22551eb7914c70c89cb7100d5
-ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
+ms.openlocfilehash: e6996f0e6731b05038d0a9329152b8afd5f6796d
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77213278"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660147"
 ---
 # <a name="call-a-web-api-from-aspnet-core-opno-locblazor"></a>Wywoływanie interfejsu API sieci Web z ASP.NET Core Blazor
 
@@ -27,7 +27,7 @@ ms.locfileid: "77213278"
 
 [Blazor aplikacje serwera](xref:blazor/hosting-models#blazor-server) wywołują interfejsy API sieci Web przy użyciu wystąpień <xref:System.Net.Http.HttpClient>, zwykle utworzonych przy użyciu <xref:System.Net.Http.IHttpClientFactory>. Wskazówki zawarte w tym temacie nie odnoszą się do aplikacji serwera Blazor. Podczas opracowywania aplikacji Blazor Server postępuj zgodnie ze wskazówkami w <xref:fundamentals/http-requests>.
 
-[Wyświetl lub Pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([jak pobrać](xref:index#how-to-download-a-sample)) &ndash; wybierz aplikację *BlazorWebAssemblySample* .
+[Wyświetl lub Pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([jak pobrać](xref:index#how-to-download-a-sample)) &ndash; wybierz aplikację *BlazorWebAssemblySample* .
 
 Zobacz następujące składniki w przykładowej aplikacji *BlazorWebAssemblySample* :
 
@@ -36,7 +36,7 @@ Zobacz następujące składniki w przykładowej aplikacji *BlazorWebAssemblySamp
 
 ## <a name="packages"></a>Pakiety
 
-Odwołuje się do *eksperymentalnej* [Microsoft.AspNetCore.Blazor.](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.HttpClient/)Pakiet NuGet HttpClient w pliku projektu. `Microsoft.AspNetCore.Blazor.HttpClient` jest oparty na `HttpClient` i [System. Text. JSON](https://www.nuget.org/packages/System.Text.Json/).
+Odwołuje się do *eksperymentalnej* [Microsoft. AspNetCore.Blazor. ](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.HttpClient/)Pakiet NuGet HttpClient w pliku projektu. `Microsoft.AspNetCore.Blazor.HttpClient` jest oparty na `HttpClient` i [System. Text. JSON](https://www.nuget.org/packages/System.Text.Json/).
 
 Aby użyć stabilnego interfejsu API, Użyj pakietu [Microsoft. ASPNET. WebApi. Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) , który używa [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json/)/[JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm). Korzystanie z stabilnego interfejsu API w `Microsoft.AspNet.WebApi.Client` nie zapewnia pomocników JSON opisanych w tym temacie, które są unikatowe dla eksperymentalnego `Microsoft.AspNetCore.Blazor.HttpClient` pakietu.
 
@@ -160,7 +160,7 @@ W poniższym kodzie element Delete `<button>` wywołuje metodę `DeleteItem`. Po
 
 Zabezpieczenia przeglądarki uniemożliwiają stronom sieci Web wykonywanie żądań do innej domeny niż ta, która jest obsługiwana przez stronę sieci Web. To ograniczenie jest nazywane *zasadami tego samego źródła*. Zasady tego samego źródła uniemożliwiają złośliwej lokacji odczytywanie poufnych danych z innej lokacji. Aby żądania z przeglądarki były wysyłane do punktu końcowego z innym źródłem, *punkt końcowy* musi włączyć [udostępnianie zasobów między źródłami (CORS)](https://www.w3.org/TR/cors/).
 
-[Przykładowa aplikacjaBlazor webassembly (BlazorWebAssemblySample)](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) demonstruje użycie mechanizmu CORS w składniku API wywołania (*Pages/CallWebAPI. Razor*).
+[Przykładowa aplikacjaBlazor webassembly (BlazorWebAssemblySample)](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) demonstruje użycie mechanizmu CORS w składniku API wywołania (*Pages/CallWebAPI. Razor*).
 
 Aby umożliwić innym lokacjom wykonywanie żądań funkcji udostępniania zasobów między źródłami (CORS) w aplikacji, zobacz <xref:security/cors>.
 

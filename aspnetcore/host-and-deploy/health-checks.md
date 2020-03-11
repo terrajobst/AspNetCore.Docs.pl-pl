@@ -1,22 +1,22 @@
 ---
 title: Kontrole kondycji w ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Dowiedz się, jak skonfigurować Sprawdzanie kondycji infrastruktury ASP.NET Core, na przykład aplikacje i bazy danych.
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
 ms.date: 12/15/2019
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: 33e5e71983a55b4ee30436d8e9e1e04186259a5d
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 314e55c818cddf1dad2e3ec74d4d1e041ce7366f
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829221"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664886"
 ---
 # <a name="health-checks-in-aspnet-core"></a>Kontrole kondycji w ASP.NET Core
 
-Autorzy [Luke Latham](https://github.com/guardrex) i [Glenn Condron](https://github.com/glennc)
+Autor [Glenn Condron](https://github.com/glennc)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -28,7 +28,7 @@ Kontrole kondycji są udostępniane przez aplikację jako punkty końcowe HTTP. 
 * Użycie pamięci, dysku i innych zasobów serwera fizycznego może być monitorowane w celu zapewnienia prawidłowego stanu.
 * Kontrole kondycji umożliwiają testowanie zależności aplikacji, takich jak bazy danych i punkty końcowe usług zewnętrznych, w celu potwierdzenia dostępności i normalnego działania.
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 Przykładowa aplikacja zawiera przykłady scenariuszy opisanych w tym temacie. Aby uruchomić przykładową aplikację dla danego scenariusza, użyj polecenia [dotnet Run](/dotnet/core/tools/dotnet-run) z folderu projektu w powłoce poleceń. Zobacz plik *README.MD* aplikacji przykładowej i opisy scenariuszy w tym temacie, aby uzyskać szczegółowe informacje na temat korzystania z przykładowej aplikacji.
 
@@ -42,8 +42,8 @@ Przykładowa aplikacja zawiera kod uruchamiania, aby zademonstrować Sprawdzanie
 
 * Tworzy bazę danych i udostępnia jej parametry połączenia w pliku *appSettings. JSON* .
 * W pliku projektu znajdują się następujące odwołania do pakietów:
-  * [AspNetCore.HealthChecks.SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/)
-  * [Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/)
+  * [AspNetCore. HealthChecks. SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/)
+  * [Microsoft. Extensions. Diagnostics. HealthChecks. EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/)
 
 > [!NOTE]
 > [AspNetCore. Diagnostics. HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) nie jest obsługiwana przez firmę Microsoft lub nie są przez nią obsługiwane.
@@ -221,7 +221,7 @@ app.UseEndpoints(endpoints =>
 
 ### <a name="enable-cross-origin-requests-cors"></a>Włączanie żądań Cross-Origin (CORS)
 
-Mimo że sprawdzanie kondycji jest wykonywane ręcznie z przeglądarki nie jest typowym scenariuszem użycia, oprogramowanie do obsługi mechanizmu CORS można włączyć, wywołując `RequireCors` w punktach końcowych sprawdzania kondycji. Przeciążenie `RequireCors` akceptuje delegata konstruktora zasad CORS (`CorsPolicyBuilder`) lub nazwę zasady. Jeśli nie podano zasad, zostanie użyta domyślna zasada CORS. Aby uzyskać więcej informacji, zobacz temat <xref:security/cors>.
+Mimo że sprawdzanie kondycji jest wykonywane ręcznie z przeglądarki nie jest typowym scenariuszem użycia, oprogramowanie do obsługi mechanizmu CORS można włączyć, wywołując `RequireCors` w punktach końcowych sprawdzania kondycji. Przeciążenie `RequireCors` akceptuje delegata konstruktora zasad CORS (`CorsPolicyBuilder`) lub nazwę zasady. Jeśli nie podano zasad, zostanie użyta domyślna zasada CORS. Aby uzyskać więcej informacji, zobacz <xref:security/cors>.
 
 ## <a name="health-check-options"></a>Opcje sprawdzania kondycji
 
@@ -236,7 +236,7 @@ Mimo że sprawdzanie kondycji jest wykonywane ręcznie z przeglądarki nie jest 
 
 Domyślnie kontrole kondycji oprogramowania pośredniczącego uruchamia wszystkie zarejestrowane testy kondycji. Aby uruchomić podzestaw kontroli kondycji, podaj funkcję, która zwraca wartość logiczną do <xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.Predicate> opcji. W poniższym przykładzie Sprawdzanie kondycji `Bar` jest odfiltrowane przez tag (`bar_tag`) w instrukcji warunkowej funkcji, gdzie `true` jest zwracany tylko wtedy, gdy właściwość <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckRegistration.Tags> kontroli kondycji pasuje do `foo_tag` lub `baz_tag`:
 
-W systemie `Startup.ConfigureServices`:
+W pliku `Startup.ConfigureServices`:
 
 ```csharp
 services.AddHealthChecks()
@@ -265,7 +265,7 @@ app.UseEndpoints(endpoints =>
 
 Użyj <xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.ResultStatusCodes>, aby dostosować mapowanie stanu kondycji do kodów stanu HTTP. Następujące przypisania <xref:Microsoft.AspNetCore.Http.StatusCodes> są wartościami domyślnymi używanymi przez oprogramowanie pośredniczące. Zmień wartości kodów stanu, aby spełniały Twoje wymagania.
 
-W systemie `Startup.Configure`:
+W pliku `Startup.Configure`:
 
 ```csharp
 app.UseEndpoints(endpoints =>
@@ -286,7 +286,7 @@ app.UseEndpoints(endpoints =>
 
 <xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.AllowCachingResponses> kontroluje, czy program do sprawdzania kondycji dodaje do odpowiedzi sondy nagłówki HTTP, aby zapobiec buforowaniu odpowiedzi. Jeśli wartość jest `false` (domyślnie), oprogramowanie pośredniczące ustawia lub zastępuje nagłówki `Cache-Control`, `Expires`i `Pragma`, aby zapobiec buforowaniu odpowiedzi. Jeśli wartość jest `true`, oprogramowanie pośredniczące nie zmodyfikuje nagłówków pamięci podręcznej odpowiedzi.
 
-W systemie `Startup.Configure`:
+W pliku `Startup.Configure`:
 
 ```csharp
 app.UseEndpoints(endpoints =>
@@ -783,7 +783,7 @@ app.UseEndpoints(endpoints =>
 });
 ```
 
-Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/middleware/index#use-run-and-map>.
+Aby uzyskać więcej informacji, zobacz <xref:fundamentals/middleware/index#use-run-and-map>.
 
 ::: moniker-end
 
@@ -797,7 +797,7 @@ Kontrole kondycji są udostępniane przez aplikację jako punkty końcowe HTTP. 
 * Użycie pamięci, dysku i innych zasobów serwera fizycznego może być monitorowane w celu zapewnienia prawidłowego stanu.
 * Kontrole kondycji umożliwiają testowanie zależności aplikacji, takich jak bazy danych i punkty końcowe usług zewnętrznych, w celu potwierdzenia dostępności i normalnego działania.
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 Przykładowa aplikacja zawiera przykłady scenariuszy opisanych w tym temacie. Aby uruchomić przykładową aplikację dla danego scenariusza, użyj polecenia [dotnet Run](/dotnet/core/tools/dotnet-run) z folderu projektu w powłoce poleceń. Zobacz plik *README.MD* aplikacji przykładowej i opisy scenariuszy w tym temacie, aby uzyskać szczegółowe informacje na temat korzystania z przykładowej aplikacji.
 
@@ -811,8 +811,8 @@ Przykładowa aplikacja zawiera kod uruchamiania, aby zademonstrować Sprawdzanie
 
 * Tworzy bazę danych i udostępnia jej parametry połączenia w pliku *appSettings. JSON* .
 * W pliku projektu znajdują się następujące odwołania do pakietów:
-  * [AspNetCore.HealthChecks.SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/)
-  * [Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/)
+  * [AspNetCore. HealthChecks. SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/)
+  * [Microsoft. Extensions. Diagnostics. HealthChecks. EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/)
 
 > [!NOTE]
 > [AspNetCore. Diagnostics. HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) nie jest obsługiwana przez firmę Microsoft lub nie są przez nią obsługiwane.
@@ -974,7 +974,7 @@ public void Configure(IApplicationBuilder app)
 
 Użyj <xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.ResultStatusCodes>, aby dostosować mapowanie stanu kondycji do kodów stanu HTTP. Następujące przypisania <xref:Microsoft.AspNetCore.Http.StatusCodes> są wartościami domyślnymi używanymi przez oprogramowanie pośredniczące. Zmień wartości kodów stanu, aby spełniały Twoje wymagania.
 
-W systemie `Startup.Configure`:
+W pliku `Startup.Configure`:
 
 ```csharp
 //using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -995,7 +995,7 @@ app.UseHealthChecks("/health", new HealthCheckOptions()
 
 <xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.AllowCachingResponses> kontroluje, czy program do sprawdzania kondycji dodaje do odpowiedzi sondy nagłówki HTTP, aby zapobiec buforowaniu odpowiedzi. Jeśli wartość jest `false` (domyślnie), oprogramowanie pośredniczące ustawia lub zastępuje nagłówki `Cache-Control`, `Expires`i `Pragma`, aby zapobiec buforowaniu odpowiedzi. Jeśli wartość jest `true`, oprogramowanie pośredniczące nie zmodyfikuje nagłówków pamięci podręcznej odpowiedzi.
 
-W systemie `Startup.Configure`:
+W pliku `Startup.Configure`:
 
 ```csharp
 //using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -1011,7 +1011,7 @@ app.UseHealthChecks("/health", new HealthCheckOptions()
 
 Opcja <xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.ResponseWriter> Pobiera lub ustawia delegata używany do zapisywania odpowiedzi. Domyślnym delegatem jest zapisanie minimalnej odpowiedzi w postaci zwykłego tekstu z wartością ciągu [HealthReport. status](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthReport.Status).
 
-W systemie `Startup.Configure`:
+W pliku `Startup.Configure`:
 
 ```csharp
 // using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -1471,6 +1471,6 @@ app.MapWhen(
 app.UseMvc();
 ```
 
-Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/middleware/index#use-run-and-map>.
+Aby uzyskać więcej informacji, zobacz <xref:fundamentals/middleware/index#use-run-and-map>.
 
 ::: moniker-end

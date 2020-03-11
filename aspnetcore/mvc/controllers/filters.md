@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/04/2020
 uid: mvc/controllers/filters
-ms.openlocfilehash: c4bb9d5746e494106ead6ad5bbf972bbcc5a39f1
-ms.sourcegitcommit: 0e21d4f8111743bcb205a2ae0f8e57910c3e8c25
+ms.openlocfilehash: 03335811766ea3a1455901199863c6da0e35f7e4
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77034068"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662786"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtry w ASP.NET Core
 
@@ -33,7 +33,7 @@ Ten dokument ma zastosowanie do Razor Pages, kontrolerów interfejsu API i kontr
 * Składnik jest osadzony na stronie lub widoku.
 * Strona lub kontroler/widok używają filtru.
 
-[Wyświetl lub Pobierz przykład](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample) ([jak pobrać](xref:index#how-to-download-a-sample)).
+[Wyświetl lub Pobierz przykład](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample) ([jak pobrać](xref:index#how-to-download-a-sample)).
 
 ## <a name="how-filters-work"></a>Jak działają filtry
 
@@ -544,7 +544,7 @@ Filtr jest stosowany w następującym kodzie:
 
 [!code-csharp[](./filters/3.1sample/FiltersSample/Controllers/SampleController.cs?name=snippet3&highlight=21)]
 
-Przetestuj poprzedni kod, uruchamiając [przykład pobierania](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample):
+Przetestuj poprzedni kod, uruchamiając [przykład pobierania](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample):
 
 * Wywołaj narzędzia deweloperskie F12.
 * Przejdź do adresu `https://localhost:5001/Sample/HeaderWithFactory`.
@@ -596,7 +596,7 @@ Filtry oprogramowania pośredniczącego są uruchamiane na tym samym etapie poto
 ## <a name="next-actions"></a>Następne akcje
 
 * Zobacz [metody filtrowania dla Razor Pages](xref:razor-pages/filter).
-* Aby eksperymentować z filtrami, należy [pobrać, przetestować i zmodyfikować przykład usługi GitHub](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample).
+* Aby eksperymentować z filtrami, należy [pobrać, przetestować i zmodyfikować przykład usługi GitHub](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample).
 
 ::: moniker-end
 
@@ -615,7 +615,7 @@ Filtry niestandardowe mogą być tworzone w celu obsłużenia krzyżowego rozcin
 
 Ten dokument ma zastosowanie do Razor Pages, kontrolerów interfejsu API i kontrolerów z widokami.
 
-[Wyświetl lub Pobierz przykład](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample) ([jak pobrać](xref:index#how-to-download-a-sample)).
+[Wyświetl lub Pobierz przykład](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample) ([jak pobrać](xref:index#how-to-download-a-sample)).
 
 ## <a name="how-filters-work"></a>Jak działają filtry
 
@@ -1067,7 +1067,7 @@ Na przykład następujący filtr jest zawsze uruchamiany i ustawia wynik akcji (
 
 [!code-csharp[](./filters/sample/FiltersSample/Filters/AddHeaderWithFactoryAttribute.cs?name=snippet_IFilterFactory&highlight=1,4,5,6,7)]
 
-Poprzedni kod może być testowany przez uruchomienie [przykładu pobierania](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample):
+Poprzedni kod może być testowany przez uruchomienie [przykładu pobierania](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample):
 
 * Wywołaj narzędzia deweloperskie F12.
 * Przejdź do adresu `https://localhost:5001/Sample/HeaderWithFactory`.
@@ -1119,6 +1119,6 @@ Filtry oprogramowania pośredniczącego są uruchamiane na tym samym etapie poto
 ## <a name="next-actions"></a>Następne akcje
 
 * Zobacz [metody filtrowania dla Razor Pages](xref:razor-pages/filter).
-* Aby eksperymentować z filtrami, należy [pobrać, przetestować i zmodyfikować przykład usługi GitHub](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).
+* Aby eksperymentować z filtrami, należy [pobrać, przetestować i zmodyfikować przykład usługi GitHub](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).
 
 ::: moniker-end

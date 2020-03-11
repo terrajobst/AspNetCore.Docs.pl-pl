@@ -6,15 +6,15 @@ ms.author: riande
 ms.date: 08/05/2017
 uid: tutorials/first-mvc-app/adding-controller
 ms.openlocfilehash: fb670902b0dafa7dce2b3372e550095387844936
-ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914249"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666993"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>Dodawanie kontrolera do aplikacji ASP.NET Core MVC
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -32,7 +32,7 @@ Omawiamy te koncepcje w tej serii samouczków i pokazano, jak używać ich do ko
 
 ## <a name="add-a-controller"></a>Dodawanie kontrolera
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **Kontrolery > dodaj kontroler >** 
   ![menu kontekstowego](adding-controller/_static/add_controller.png)
@@ -43,13 +43,13 @@ Omawiamy te koncepcje w tej serii samouczków i pokazano, jak używać ich do ko
 
 * W **oknie dialogowym Dodaj pusty kontroler MVC**wpisz **HelloWorldController** i wybierz pozycję **Dodaj**.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Wybierz ikonę **Eksploratora** , a następnie kliknij przycisk Control (kliknij prawym przyciskiem myszy) **Kontrolery > nowy plik** i Nadaj nowemu plikowi nazwę *HelloWorldController.cs*.
 
   ![Menu kontekstowe](~/tutorials/first-mvc-app-xplat/adding-controller/_static/new_file.png)
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **kontrolery > Dodaj > nowy plik**.
 ](~/tutorials/first-mvc-app-mac/adding-controller/_static/add_controller.png) menu kontekstowe ![
@@ -125,8 +125,8 @@ Tym razem trzeci segment adresu URL pasuje do `id`parametru trasy. Metoda `Welco
 W tych przykładach kontroler wykonywał część "VC" MVC, czyli każ **V**i **C**ontroller Work. Kontroler zwraca bezpośrednio kod HTML. Zazwyczaj nie ma potrzeby, aby kontrolery zwracające kod HTML bezpośrednio, ponieważ staną się bardzo nieskomplikowane w kodzie i obsłudze. Zamiast tego zwykle używasz oddzielnego pliku szablonu widoku Razor do wygenerowania odpowiedzi HTML. Należy to zrobić w następnym samouczku.
 
 > [!div class="step-by-step"]
-> [Poprzedni](start-mvc.md)
-> [Następny](adding-view.md)
+> [Poprzednie](start-mvc.md)
+> [dalej](adding-view.md)
 
 ::: moniker-end
 
@@ -146,7 +146,7 @@ Omawiamy te koncepcje w tej serii samouczków i pokazano, jak używać ich do ko
 
 ## <a name="add-a-controller"></a>Dodawanie kontrolera
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **Kontrolery > dodaj kontroler >** 
   ![menu kontekstowego](adding-controller/_static/add_controller.png)
@@ -157,13 +157,13 @@ Omawiamy te koncepcje w tej serii samouczków i pokazano, jak używać ich do ko
 
 * W **oknie dialogowym Dodaj pusty kontroler MVC**wpisz **HelloWorldController** i wybierz pozycję **Dodaj**.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Wybierz ikonę **Eksploratora** , a następnie kliknij przycisk Control (kliknij prawym przyciskiem myszy) **Kontrolery > nowy plik** i Nadaj nowemu plikowi nazwę *HelloWorldController.cs*.
 
   ![Menu kontekstowe](~/tutorials/first-mvc-app-xplat/adding-controller/_static/new_file.png)
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **kontrolery > Dodaj > nowy plik**.
 ](~/tutorials/first-mvc-app-mac/adding-controller/_static/add_controller.png) menu kontekstowe ![
@@ -244,7 +244,7 @@ Tym razem trzeci segment adresu URL pasuje do `id`parametru trasy. Metoda `Welco
 W tych przykładach kontroler wykonywał część "VC" składnika MVC, czyli działania widoku i kontrolera. Kontroler zwraca bezpośrednio kod HTML. Zazwyczaj nie ma potrzeby, aby kontrolery zwracające kod HTML bezpośrednio, ponieważ staną się bardzo nieskomplikowane w kodzie i obsłudze. Zamiast tego zwykle używany jest oddzielny plik szablonu widoku Razor, aby ułatwić generowanie odpowiedzi HTML. Należy to zrobić w następnym samouczku.
 
 > [!div class="step-by-step"]
-> [Poprzedni](start-mvc.md)
-> [Następny](adding-view.md)
+> [Poprzednie](start-mvc.md)
+> [dalej](adding-view.md)
 
 ::: moniker-end

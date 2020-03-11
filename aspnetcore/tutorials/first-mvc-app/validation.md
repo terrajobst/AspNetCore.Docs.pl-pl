@@ -6,15 +6,15 @@ ms.author: riande
 ms.date: 04/13/2017
 uid: tutorials/first-mvc-app/validation
 ms.openlocfilehash: 2bb4ed173d154e3b7457ce3f8009f0f9406e36c4
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72334074"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661967"
 ---
 # <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Dodawanie walidacji do aplikacji ASP.NET Core MVC
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tej sekcji:
 
@@ -127,5 +127,5 @@ W następnej części serii analizujemy aplikację i wprowadzamy kilka ulepszeń
 * [Autorzy tagów](xref:mvc/views/tag-helpers/authoring)
 
 > [!div class="step-by-step"]
-> [Poprzedni](new-field.md)
-> [Następny](details.md)  
+> [Poprzednie](new-field.md)
+> [dalej](details.md)  

@@ -1,75 +1,75 @@
 ---
-title: LibMan za pomocą platformy ASP.NET Core w programie Visual Studio
+title: Używanie LibMan z ASP.NET Core w programie Visual Studio
 author: scottaddie
-description: Dowiedz się, jak używać LibMan w projektach programu ASP.NET Core z programem Visual Studio.
+description: Dowiedz się, jak używać LibMan w projekcie ASP.NET Core z programem Visual Studio.
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/20/2018
 uid: client-side/libman/libman-vs
-ms.openlocfilehash: ebfb405516d968bf5d5b8cff956a9892457027f2
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: e92e6bc28ec58b26785dd6c79e71512368202a26
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813459"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658313"
 ---
-# <a name="use-libman-with-aspnet-core-in-visual-studio"></a>LibMan za pomocą platformy ASP.NET Core w programie Visual Studio
+# <a name="use-libman-with-aspnet-core-in-visual-studio"></a>Używanie LibMan z ASP.NET Core w programie Visual Studio
 
 Przez [Scott Addie](https://twitter.com/Scott_Addie)
 
 Program Visual Studio ma wbudowaną obsługę [LibMan](xref:client-side/libman/index) w projektach ASP.NET Core, w tym:
 
 * Obsługa konfigurowania i uruchamiania operacji przywracania LibMan podczas kompilacji.
-* Elementy menu do wyzwalania przywracania LibMan i wyczyść operacji.
-* Okno dialogowe Wyszukiwanie do znajdowania bibliotek i dodawanie plików do projektu.
-* Edycję *libman.json*&mdash;LibMan pliku manifestu.
+* Elementy menu służące do wyzwalania operacji przywracania i czyszczenia LibMan.
+* Okno dialogowe wyszukiwania służące do znajdowania bibliotek i dodawania plików do projektu.
+* Edytowanie obsługi *Libman. json*&mdash;pliku manifestu Libman.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/client-side/libman/samples/) [(jak pobrać)](xref:index#how-to-download-a-sample)
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/client-side/libman/samples/) [(jak pobrać)](xref:index#how-to-download-a-sample)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) z **ASP.NET i tworzenie aplikacji internetowych** obciążenia
+* [Program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) z **ASP.NET i programowaniem aplikacji sieci Web**
 
-## <a name="add-library-files"></a>Dodaj pliki bibliotek
+## <a name="add-library-files"></a>Dodaj pliki biblioteki
 
-Pliki biblioteki mogą być dodawane do projektu programu ASP.NET Core na dwa sposoby:
+Pliki bibliotek można dodać do projektu ASP.NET Core na dwa różne sposoby:
 
-1. [Użyj okna dialogowego Dodawanie biblioteki po stronie klienta](#use-the-add-client-side-library-dialog)
-1. [Ręczne konfigurowanie LibMan we wpisach w plikach manifestu](#manually-configure-libman-manifest-file-entries)
+1. [Korzystanie z okna dialogowego Dodawanie biblioteki po stronie klienta](#use-the-add-client-side-library-dialog)
+1. [Ręczne konfigurowanie wpisów pliku manifestu LibMan](#manually-configure-libman-manifest-file-entries)
 
-### <a name="use-the-add-client-side-library-dialog"></a>Użyj okna dialogowego Dodawanie biblioteki po stronie klienta
+### <a name="use-the-add-client-side-library-dialog"></a>Korzystanie z okna dialogowego Dodawanie biblioteki po stronie klienta
 
-Wykonaj następujące kroki, aby zainstalować bibliotekę klienta:
+Wykonaj następujące kroki, aby zainstalować bibliotekę po stronie klienta:
 
-* W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy folder projektu, w którym można dodać plików. Wybierz **Dodaj** > **biblioteki po stronie klienta**. **Dodaj biblioteki po stronie klienta** zostanie wyświetlone okno dialogowe:
+* W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder projektu, w którym należy dodać pliki. Wybierz pozycję **dodaj** > **bibliotekę po stronie klienta**. Zostanie wyświetlone okno dialogowe **Dodawanie biblioteki po stronie klienta** :
 
-  ![Dodaj okno dialogowe biblioteki po stronie klienta](_static/add-library-dialog.png)
+  ![Okno dialogowe Dodawanie biblioteki po stronie klienta](_static/add-library-dialog.png)
 
-* Wybierz dostawcę biblioteki z **dostawcy** listy rozwijanej. CDNJS jest dostawcą domyślnym.
-* Wpisz nazwę biblioteki, aby pobrać w **biblioteki** pola tekstowego. Technologia IntelliSense zawiera listę bibliotek, począwszy od podany tekst.
-* Wybierz bibliotekę z listy technologii IntelliSense. Zwróć uwagę, jest sufiks nazwy biblioteki `@` symboli i najnowsza stabilna wersja znane z wybranym dostawcą.
-* Zdecyduj, które pliki do uwzględnienia:
-  * Wybierz **Dołącz wszystkie pliki biblioteki** przycisk radiowy, aby uwzględnić wszystkie pliki biblioteki.
-  * Wybierz **wybierz konkretne pliki** przycisk radiowy, aby uwzględnić podzbiór plików biblioteki programu. Po wybraniu przycisku radiowego drzewo selektora plików jest włączona. Zaznacz pola wyboru po lewej stronie nazwy plików do pobrania.
-* Określ folder projektu, do przechowywania plików w **lokalizacji docelowej** pola tekstowego. Jako zalecenie magazyn każdej biblioteki w oddzielnym folderze.
+* Wybierz dostawcę biblioteki z listy rozwijanej **dostawca** . CDNJS jest dostawcą domyślnym.
+* Wpisz nazwę biblioteki do pobrania w polu tekstowym **Biblioteka** . Technologia IntelliSense udostępnia listę bibliotek zaczynających się od podanego tekstu.
+* Wybierz bibliotekę z listy IntelliSense. Zwróć uwagę na to, że nazwa biblioteki jest poddana sufiksowi `@` i najnowszej stabilnej wersji znanej dla wybranego dostawcy.
+* Wybieranie plików do uwzględnienia:
+  * Zaznacz przycisk radiowy **Dołącz wszystkie pliki bibliotek** , aby uwzględnić wszystkie pliki biblioteki.
+  * Wybierz przycisk radiowy **Wybierz określone pliki** , aby dołączyć podzestaw plików biblioteki. Po wybraniu przycisku radiowego drzewo selektora plików jest włączone. Zaznacz pola po lewej stronie nazw plików do pobrania.
+* Określ folder projektu do przechowywania plików w polu tekstowym **Lokalizacja docelowa** . Zgodnie z zaleceniami należy przechowywać każdą bibliotekę w osobnym folderze.
 
-  Sugerowany **lokalizacji docelowej** folderu opiera się na lokalizację, z którego uruchomiono okno dialogowe:
+  Sugerowany folder **lokalizacji docelowej** jest oparty na lokalizacji, w której uruchomiono okno dialogowe:
 
-  * Jeśli uruchomionego z katalogu głównego projektu:
-    * *Wwwroot/lib* jest używany, gdy *wwwroot* istnieje.
-    * *lib* jest używany, gdy *wwwroot* nie istnieje.
-  * Jeśli uruchomionego z folderu projektu, nazwę odpowiedniego folderu jest używany.
+  * Jeśli jest uruchamiany z poziomu głównego projektu:
+    * plik *wwwroot/lib* jest używany, jeśli istnieje plik *wwwroot* .
+    * *Biblioteka lib* jest używana, jeśli plik *wwwroot* nie istnieje.
+  * W przypadku uruchomienia z folderu projektu zostanie użyta odpowiednia nazwa folderu.
 
-  Sugestia folderu jest sufiks nazwy biblioteki. W poniższej tabeli przedstawiono sugestie folderu podczas instalowania jQuery w projekcie stron Razor.
+  Sugestia folderu jest sufiksem z nazwą biblioteki. W poniższej tabeli przedstawiono sugestie dotyczące folderów podczas instalowania jQuery w projekcie Razor Pages.
   
-  |Uruchom lokalizacji                           |Sugerowane folderu      |
+  |Lokalizacja uruchamiania                           |Sugerowany folder      |
   |------------------------------------------|----------------------|
-  |katalog główny projektu (Jeśli *wwwroot* istnieje)        |*wwwroot/lib/jquery/* |
-  |katalog główny projektu (Jeśli *wwwroot* nie istnieje) |*lib/jquery/*         |
-  |*Strony* folderu w projekcie                 |*Pages/jquery/*       |
+  |Katalog główny projektu (Jeśli folder *wwwroot* istnieje)        |*wwwroot/lib/jQuery/* |
+  |Katalog główny projektu (Jeśli folder *wwwroot* nie istnieje) |*lib/jQuery/*         |
+  |Folder *stron* w projekcie                 |*Strony/jQuery/*       |
 
-* Kliknij przycisk **zainstalować** przycisk, aby pobrać pliki, na konfiguracji w *libman.json*.
-* Przegląd **Library Manager** kanału **dane wyjściowe** okna, aby uzyskać szczegółowe informacje dotyczące instalacji. Na przykład:
+* Kliknij przycisk **Instaluj** , aby pobrać pliki zgodnie z konfiguracją w pliku *Libman. JSON*.
+* Zapoznaj się z informacjami dotyczącymi instalacji w oknie **danych wyjściowych** programu **Library Manager** . Na przykład:
 
   ```console
   Restore operation started...
@@ -82,53 +82,53 @@ Wykonaj następujące kroki, aby zainstalować bibliotekę klienta:
   1 libraries restored in 2.32 seconds
   ```
 
-### <a name="manually-configure-libman-manifest-file-entries"></a>Ręczne konfigurowanie LibMan we wpisach w plikach manifestu
+### <a name="manually-configure-libman-manifest-file-entries"></a>Ręczne konfigurowanie wpisów pliku manifestu LibMan
 
-Wszystkie operacje LibMan w programie Visual Studio są oparte na zawartości manifestu LibMan katalog główny projektu (*libman.json*). Możesz ręcznie edytować *libman.json* konfigurowania plików biblioteki dla projektu. Visual Studio, przywraca raz wszystkie pliki biblioteki *libman.json* jest zapisywany.
+Wszystkie operacje LibMan w programie Visual Studio są oparte na zawartości manifestu LibMan elementu głównego projektu (*LibMan. JSON*). Można ręcznie edytować plik *Libman. JSON* w celu skonfigurowania plików biblioteki dla projektu. Program Visual Studio przywraca wszystkie pliki bibliotek po zapisaniu pliku *Libman. JSON* .
 
-Aby otworzyć *libman.json* do edycji, istnieją następujące opcje:
+Aby otworzyć plik *Libman. JSON* do edycji, istnieją następujące opcje:
 
-* Kliknij dwukrotnie *libman.json* w pliku **Eksploratora rozwiązań**.
-* Kliknij prawym przyciskiem myszy projekt w **Eksploratora rozwiązań** i wybierz **zarządzanie bibliotekami po stronie klienta**. **&#8224;**
-* Wybierz **zarządzanie bibliotekami po stronie klienta** z programu Visual Studio **projektu** menu. **&#8224;**
+* Kliknij dwukrotnie plik *Libman. JSON* w **Eksplorator rozwiązań**.
+* Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz pozycję **Zarządzaj bibliotekami po stronie klienta**. **&#8224;**
+* Wybierz pozycję **Zarządzaj bibliotekami po stronie klienta** z menu **projektu** programu Visual Studio. **&#8224;**
 
-**&#8224;** Jeśli *libman.json* plik jeszcze nie istnieje w katalogu głównym projektu, zostanie on utworzony za pomocą szablonu elementu domyślnej zawartości.
+**&#8224;** Jeśli plik *Libman. JSON* nie istnieje już w katalogu głównym projektu, zostanie utworzony przy użyciu domyślnej zawartości szablonu elementu.
 
-Visual Studio oferuje bogate JSON edycję pomocy technicznej, takie jak kolorowanie, formatowanie, IntelliSense i sprawdzanie poprawności schematu. Schemat JSON manifestu LibMan znajduje się na [ https://json.schemastore.org/libman ](https://json.schemastore.org/libman).
+Program Visual Studio oferuje zaawansowane funkcje edycji JSON, takie jak kolorowanie, formatowanie, IntelliSense i walidacja schematu. Schemat JSON manifestu LibMan został znaleziony w [https://json.schemastore.org/libman](https://json.schemastore.org/libman).
 
-Za pomocą następującego pliku manifestu, LibMan pobiera pliki na konfiguracją zdefiniowaną w `libraries` właściwości. Wyjaśnienie literałów obiektu zdefiniowany w ramach `libraries` poniżej:
+Przy użyciu następującego pliku manifestu LibMan pobiera pliki według konfiguracji zdefiniowanej we właściwości `libraries`. Wyjaśnienie literałów obiektów zdefiniowanych w `libraries` następujące:
 
-* Podzbiór [jQuery](https://jquery.com/) w wersji 3.3.1 jest pobierana z CDNJS dostawcy. Podzbiór jest zdefiniowany w `files` właściwość&mdash;*jquery.min.js*, *jquery.js*, i *jquery.min.map*. Pliki są umieszczane w projekcie *wwwroot/lib/jquery* folderu.
-* Całość [Bootstrap](https://getbootstrap.com/) wersji 4.1.3 jest pobierana i umieszczana w *wwwroot/lib/bootstrap* folderu. Literał obiektu `provider` zastąpienia właściwości `defaultProvider` wartości właściwości. LibMan pobiera ładowania plików od dostawcy unpkg.
-* Podzbiór [Lodash](https://lodash.com/) została zatwierdzona przez jednostkę zarządzającej w organizacji. *Lodash.js* i *lodash.min.js* pliki są pobierane z lokalnego systemu plików w *C:\\temp\\lodash\\* . Pliki są kopiowane w projekcie *wwwroot/lib/lodash* folderu.
+* Podzestaw [jQuery](https://jquery.com/) w wersji 3.3.1 jest pobierany z dostawcy CDNJS. Podzestaw jest zdefiniowany we właściwości `files`&mdash;*jQuery. min. js*, *jQuery. js*i *jQuery. min. map*. Pliki są umieszczane w folderze *wwwroot/lib/jQuery* projektu.
+* W [całości wersja 4.1.3](https://getbootstrap.com/) jest pobierana i umieszczana w folderze *wwwroot/lib/Bootstrap* . Właściwość `provider` literału obiektu zastępuje wartość właściwości `defaultProvider`. LibMan pobiera pliki Bootstrap z dostawcy unpkg.
+* Podzbiór [Lodash](https://lodash.com/) został zatwierdzony przez organ regulujący w organizacji. *Lodash. js* i *lodash. min. js* są pobierane z lokalnego systemu plików w lokalizacji *C:\\temp\\lodash\\* . Pliki są kopiowane do folderu *wwwroot/lib/lodash* projektu.
 
 [!code-json[](samples/LibManSample/libman.json)]
 
 > [!NOTE]
-> LibMan obsługuje tylko jedną wersję każdego biblioteki z każdego dostawcy. *Libman.json* pliku zakończy się niepowodzeniem podczas sprawdzania poprawności schematu zawiera dwie biblioteki o takiej samej nazwie biblioteki dla danego dostawcy.
+> LibMan obsługuje tylko jedną wersję każdej biblioteki z każdego dostawcy. Walidacja schematu pliku *Libman. JSON* kończy się niepowodzeniem, jeśli zawiera dwie biblioteki o tej samej nazwie biblioteki dla danego dostawcy.
 
-## <a name="restore-library-files"></a>Przywróć pliki bibliotek
+## <a name="restore-library-files"></a>Przywróć pliki biblioteki
 
-Aby przywrócić pliki biblioteki z poziomu programu Visual Studio, musi być prawidłowym *libman.json* plik w folderze głównym projektu. Przywróconych plików są umieszczane w projekcie w lokalizacji określonej dla każdej biblioteki.
+Aby przywrócić pliki bibliotek z programu Visual Studio, w katalogu głównym projektu musi istnieć prawidłowy plik *Libman. JSON* . Przywrócone pliki są umieszczane w projekcie w lokalizacji określonej dla każdej biblioteki.
 
-Pliki biblioteki mogą zostać przywrócone w projektach programu ASP.NET Core na dwa sposoby:
+Pliki bibliotek można przywrócić w projekcie ASP.NET Core na dwa sposoby:
 
-1. [Przywracanie plików podczas kompilacji](#restore-files-during-build)
-1. [Przywróć pliki ręcznie](#restore-files-manually)
+1. [Przywróć pliki podczas kompilacji](#restore-files-during-build)
+1. [Ręczne przywracanie plików](#restore-files-manually)
 
-### <a name="restore-files-during-build"></a>Przywracanie plików podczas kompilacji
+### <a name="restore-files-during-build"></a>Przywróć pliki podczas kompilacji
 
-LibMan można przywrócić pliki biblioteki zdefiniowane jako część procesu kompilacji. Domyślnie *przywracania na kompilacji* zachowania jest wyłączone.
+LibMan może przywrócić zdefiniowane pliki biblioteki w ramach procesu kompilacji. Domyślnie zachowanie funkcji *Przywróć przy kompilacji* jest wyłączone.
 
-Aby włączyć i testowanie zachowania przywracania w kompilacji:
+Aby włączyć i przetestować zachowanie funkcji przywracania po kompilacji:
 
-* Kliknij prawym przyciskiem myszy *libman.json* w **Eksploratora rozwiązań** i wybierz **włączyć Przywracanie biblioteki po stronie klienta, podczas kompilacji** z menu kontekstowego.
-* Kliknij przycisk **tak** przycisku po wyświetleniu monitu można zainstalować pakietu NuGet. [Microsoft.Web.LibraryManager.Build](https://www.nuget.org/packages/Microsoft.Web.LibraryManager.Build/) pakiet NuGet zostanie dodany do projektu:
+* Kliknij prawym przyciskiem myszy plik *Libman. JSON* w **Eksplorator rozwiązań** i wybierz opcję **Włącz przywracanie bibliotek po stronie klienta w kompilacji** z menu kontekstowego.
+* Po wyświetleniu monitu o zainstalowanie pakietu NuGet kliknij przycisk **tak** . Pakiet NuGet [Microsoft. Web. librarymanager. Build](https://www.nuget.org/packages/Microsoft.Web.LibraryManager.Build/) został dodany do projektu:
 
   [!code-xml[](samples/LibManSample/LibManSample.csproj?name=snippet_RestoreOnBuildPackage)]
 
-* Skompiluj projekt, aby potwierdzić, że występuje LibMan Przywracanie plików. `Microsoft.Web.LibraryManager.Build` Pakietu wprowadza obiekt docelowy programu MSBuild, działającego LibMan podczas operacji tworzenia projektu.
-* Przegląd **kompilacji** kanału **dane wyjściowe** okno Dziennik aktywności LibMan:
+* Skompiluj projekt, aby upewnić się, że następuje przywracanie pliku LibMan. Pakiet `Microsoft.Web.LibraryManager.Build` wprowadza obiekt docelowy MSBuild, który uruchamia LibMan podczas operacji kompilowania projektu.
+* Przejrzyj źródło danych **kompilacji** w oknie **danych wyjściowych** dla dziennika aktywności LibMan:
 
   ```console
   1>------ Build started: Project: LibManSample, Configuration: Debug Any CPU ------
@@ -142,25 +142,25 @@ Aby włączyć i testowanie zachowania przywracania w kompilacji:
   ========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
   ```
 
-Po włączeniu zachowanie przywracania na kompilacji *libman.json* menu kontekstowe wyświetla **Wyłącz Przywracanie biblioteki po stronie klienta, podczas kompilacji** opcji. Wybranie tej opcji spowoduje usunięcie `Microsoft.Web.LibraryManager.Build` pakietu odwołania z pliku projektu. W związku z tym biblioteki po stronie klienta nie są już przywracane na każdej kompilacji.
+Gdy włączone jest zachowanie przywracania po kompilacji, w menu kontekstowym *Libman. JSON* zostanie wyświetlona opcja **Wyłącz Przywracanie bibliotek po stronie klienta w ramach kompilacji** . Wybranie tej opcji spowoduje usunięcie odwołania do pakietu `Microsoft.Web.LibraryManager.Build` z pliku projektu. W związku z tym biblioteki po stronie klienta nie są już przywracane dla każdej kompilacji.
 
-Bez względu na ustawienie przywracania w kompilacji, można przywrócić ręcznie w dowolnym momencie z *libman.json* menu kontekstowego. Aby uzyskać więcej informacji, zobacz [ręcznie przywrócić pliki](#restore-files-manually).
+Niezależnie od ustawienia Przywróć na kompilację można ręcznie przywrócić w dowolnym momencie z menu kontekstowego *Libman. JSON* . Aby uzyskać więcej informacji, zobacz [Przywracanie plików ręcznie](#restore-files-manually).
 
-### <a name="restore-files-manually"></a>Przywróć pliki ręcznie
+### <a name="restore-files-manually"></a>Ręczne przywracanie plików
 
 Aby ręcznie przywrócić pliki biblioteki:
 
 * Dla wszystkich projektów w rozwiązaniu:
-  * Kliknij prawym przyciskiem myszy nazwę rozwiązania w **Eksploratora rozwiązań**.
-  * Wybierz **przywrócenia biblioteki po stronie klienta** opcji.
+  * Kliknij prawym przyciskiem myszy nazwę rozwiązania w **Eksplorator rozwiązań**.
+  * Wybierz opcję **Przywróć biblioteki po stronie klienta** .
 * Dla określonego projektu:
-  * Kliknij prawym przyciskiem myszy *libman.json* w pliku **Eksploratora rozwiązań**.
-  * Wybierz **przywrócenia biblioteki po stronie klienta** opcji.
+  * Kliknij prawym przyciskiem myszy plik *Libman. JSON* w **Eksplorator rozwiązań**.
+  * Wybierz opcję **Przywróć biblioteki po stronie klienta** .
 
-Operacja przywracania jest uruchomiona:
+Podczas gdy operacja przywracania jest uruchomiona:
 
-* Ikona Centrum stanu zadań (TSC) na pasku stanu programu Visual Studio będzie animowana i odczyta *uruchomiona operacja przywracania*. Klikając ikonę Otwiera listę zadań w tle znanych etykietka narzędzia.
-* Wiadomości zostaną wysłane do paska stanu i **Library Manager** kanału **dane wyjściowe** okna. Na przykład:
+* Ikona centrum stanu zadań (TSC) na pasku stanu programu Visual Studio zostanie animowana i zostanie *rozpoczęta operacja przywracania*. Kliknięcie ikony powoduje otwarcie etykietki narzędzia zawierającego listę znanych zadań w tle.
+* Komunikaty będą wysyłane do paska stanu i źródła danych programu **Library Manager** okna **danych wyjściowych** . Na przykład:
 
   ```console
   Restore operation started...
@@ -173,19 +173,19 @@ Operacja przywracania jest uruchomiona:
   1 libraries restored in 2.32 seconds
   ```
 
-## <a name="delete-library-files"></a>Usuń pliki bibliotek
+## <a name="delete-library-files"></a>Usuń pliki biblioteki
 
-Aby wykonać *czyste* operacji, który usuwa pliki biblioteki wcześniej przywrócona w programie Visual Studio:
+Aby wykonać operację *czyszczenia* , która spowoduje usunięcie plików biblioteki, które zostały wcześniej przywrócone w programie Visual Studio:
 
-* Kliknij prawym przyciskiem myszy *libman.json* w pliku **Eksploratora rozwiązań**.
-* Wybierz **czystej biblioteki po stronie klienta** opcji.
+* Kliknij prawym przyciskiem myszy plik *Libman. JSON* w **Eksplorator rozwiązań**.
+* Wybierz opcję **Wyczyść biblioteki po stronie klienta** .
 
-Aby zapobiec przypadkowemu usunięciu plików nienależącym do biblioteki, operacji czyszczenia nie powoduje usunięcia całej katalogów. Powoduje usunięcie tylko pliki, które występowały w poprzednich przywracania.
+Aby zapobiec przypadkowemu usunięciu plików nienależących do biblioteki, operacja czyszczenia nie usuwa całych katalogów. Usuwa tylko te pliki, które zostały uwzględnione w poprzednim przywracaniu.
 
-Po uruchomieniu operacji czyszczenia:
+Podczas gdy operacja czyszczenia jest uruchomiona:
 
-* Ikona TSC na pasku stanu programu Visual Studio będzie animowana i odczyta *rozpoczęcia operacji biblioteki klienta*. Klikając ikonę Otwiera listę zadań w tle znanych etykietka narzędzia.
-* Komunikaty są wysyłane do paska stanu i **Library Manager** kanału **dane wyjściowe** okna. Na przykład:
+* Ikona TSC na pasku stanu programu Visual Studio będzie animowana i zostanie *rozpoczęta operacja odczytywania bibliotek klienckich*. Kliknięcie ikony powoduje otwarcie etykietki narzędzia zawierającego listę znanych zadań w tle.
+* Komunikaty są wysyłane do paska stanu i źródła danych programu **Library Manager** okna **danych wyjściowych** . Na przykład:
 
 ```console
 Clean libraries operation started...
@@ -193,43 +193,43 @@ Clean libraries operation completed
 2 libraries were successfully deleted in 1.91 secs
 ```
 
-Operacji czyszczenia usuwa tylko pliki z projektu. Pliki biblioteki pozostać w pamięci podręcznej szybsze pobieranie na operacje przywracania w przyszłości. Aby zarządzać plikami biblioteki przechowywanych w pamięci podręcznej na komputerze lokalnym, użyj [LibMan interfejsu wiersza polecenia](xref:client-side/libman/libman-cli).
+Operacja czyszczenia usuwa tylko pliki z projektu. Pliki biblioteki znajdują się w pamięci podręcznej w celu szybszego pobierania podczas przyszłych operacji przywracania. Aby zarządzać plikami biblioteki przechowywanymi w pamięci podręcznej komputera lokalnego, użyj [interfejsu wiersza polecenia LibMan](xref:client-side/libman/libman-cli).
 
 ## <a name="uninstall-library-files"></a>Odinstaluj pliki biblioteki
 
-Aby odinstalować plików biblioteki:
+Aby odinstalować pliki biblioteki:
 
-* Otwórz *libman.json*.
-* Położenie karetki wewnątrz odpowiadającego `libraries` literału obiektu.
-* Kliknij ikonę żarówki, która pojawia się na lewym marginesie, a następnie wybierz pozycję **Odinstaluj \<library_name > @\<library_version >** :
+* Otwórz plik *Libman. JSON*.
+* Umieść karetkę wewnątrz odpowiedniego literału obiektu `libraries`.
+* Kliknij ikonę żarówki, która pojawia się na lewym marginesie, a następnie wybierz pozycję **odinstaluj \<library_name > @\<library_version >** :
 
-  ![Odinstaluj menu kontekstowego biblioteki](_static/uninstall-menu-option.png)
+  ![Opcja menu kontekstowego odinstalowywania biblioteki](_static/uninstall-menu-option.png)
 
-Można też ręcznie edytować i zapisać manifestu LibMan (*libman.json*). [Operacja przywracania](#restore-library-files) jest uruchamiany, gdy plik jest zapisywany. Pliki bibliotek, które są już zdefiniowane w *libman.json* zostaną usunięte z projektu.
+Alternatywnie możesz ręcznie edytować i zapisać manifest LibMan (*LibMan. JSON*). [Operacja przywracania](#restore-library-files) jest uruchamiana, gdy plik zostanie zapisany. Pliki bibliotek, które nie są już zdefiniowane w *Libman. JSON* , są usuwane z projektu.
 
 ## <a name="update-library-version"></a>Zaktualizuj wersję biblioteki
 
-Aby sprawdzić wersję zaktualizowanej biblioteki:
+Aby sprawdzić dostępność zaktualizowanej wersji biblioteki:
 
-* Otwórz *libman.json*.
-* Położenie karetki wewnątrz odpowiadającego `libraries` literału obiektu.
-* Kliknij ikonę żarówki, która pojawia się na lewym marginesie. Umieść kursor nad **sprawdzać dostępność aktualizacji**.
+* Otwórz plik *Libman. JSON*.
+* Umieść karetkę wewnątrz odpowiedniego literału obiektu `libraries`.
+* Kliknij ikonę żarówki, która pojawia się na lewym marginesie. Umieść kursor nad **sprawdzaniem dostępności aktualizacji**.
 
-LibMan sprawdza, czy biblioteka nowsza wersja niż zainstalowana wersja. Mogą wystąpić następujące wyniki:
+LibMan sprawdza, czy wersja biblioteki jest nowsza niż zainstalowana wersja. Mogą wystąpić następujące wyniki:
 
-* A **nie odnaleziono żadnych aktualizacji** zostanie wyświetlony komunikat, jeśli jest już zainstalowana najnowsza wersja.
-* Najnowsza stabilna wersja jest wyświetlana, jeśli nie jeszcze zainstalowany.
+* Jeśli Najnowsza wersja jest już zainstalowana, zostanie wyświetlony komunikat " **nie znaleziono aktualizacji** ".
+* Najnowsza stabilna wersja jest wyświetlana, jeśli nie została jeszcze zainstalowana.
 
-  ![Sprawdź, czy są aktualizacje menu kontekstowego](_static/update-menu-option.png)
+  ![Opcja menu kontekstowego wyszukiwania aktualizacji](_static/update-menu-option.png)
 
-* Jeśli wstępna jest nowsza niż zainstalowana wersja jest dostępna, jest wyświetlany w wersji wstępnej.
+* Jeśli dostępna jest wersja wstępna nowsza niż zainstalowana, zostanie wyświetlona wersja wstępna.
 
-Zmiany na starszą starszej wersji biblioteki, należy ręcznie zmodyfikować *libman.json* pliku. Gdy plik jest zapisywany, LibMan [operacja przywracania](#restore-library-files):
+Aby dokonać obniżenia poziomu do starszej wersji biblioteki, ręcznie Edytuj plik *Libman. JSON* . Po zapisaniu pliku LibMan [operacji przywracania](#restore-library-files):
 
-* Usuwa zbędne pliki z poprzedniej wersji.
+* Usuwa nadmiarowe pliki z poprzedniej wersji.
 * Dodaje nowe i zaktualizowane pliki z nowej wersji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * <xref:client-side/libman/libman-cli>
-* [Repozytorium LibMan GitHub](https://github.com/aspnet/LibraryManager)
+* [Repozytorium GitHub LibMan](https://github.com/aspnet/LibraryManager)

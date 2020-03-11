@@ -9,17 +9,17 @@ products:
 - vs
 urlFragment: aspnetcore-webapi-mongodb
 ms.openlocfilehash: 01f9cf237dcf2a9b95c181c2cb87ef9f59102244
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881169"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663500"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core i usługi MongoDB
 
-Ten samouczek tworzy internetowego interfejsu API, która wykonuje operacje tworzenia, odczytu, aktualizowania lub usuwania (CRUD) [bazy danych MongoDB](https://www.mongodb.com/what-is-mongodb) bazy danych NoSQL.
+W tym samouczku przedstawiono Tworzenie interfejsu API sieci Web, który wykonuje operacje tworzenia, odczytu, aktualizacji i usuwania (CRUD) w bazie danych [MongoDB](https://www.mongodb.com/what-is-mongodb) NoSQL.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 * Konfigurowanie bazy danych MongoDB
 * Tworzenie bazy danych MongoDB
@@ -37,10 +37,10 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 W przypadku korzystania z systemu Windows MongoDB jest instalowany w lokalizacji *C:\\Program Files\\* domyślnie. Dodaj *plik C:\\programów\\MongoDB\\Server\\\<* version_number >\\bin do zmiennej środowiskowej `Path`. Dzięki tej zmianie bazy danych MongoDB dostęp z dowolnego miejsca na komputerze deweloperskim.
 
-Użyj powłoki mongo w poniższych krokach umożliwia tworzenie bazy danych, wprowadzanie kolekcje i przechowywanie dokumentów. Aby uzyskać więcej informacji na temat poleceń powłoki mongo, zobacz [Praca z powłoki mongo](https://docs.mongodb.com/manual/mongo/#working-with-the-mongo-shell).
+Użyj powłoki mongo w poniższych krokach umożliwia tworzenie bazy danych, wprowadzanie kolekcje i przechowywanie dokumentów. Aby uzyskać więcej informacji na temat poleceń powłoki Mongo, zobacz [Praca z powłoką Mongo](https://docs.mongodb.com/manual/mongo/#working-with-the-mongo-shell).
 
 1. Wybierz katalog na komputerze deweloperskim do przechowywania danych. Na przykład *C:\\BooksData* w systemie Windows. Utwórz katalog, jeśli nie istnieje. Powłoki mongo nie tworzyć nowe katalogi.
-1. Otwórz powłokę wiersza polecenia. Uruchom następujące polecenie, aby nawiązać połączenie z bazą danych MongoDB na domyślnym porcie 27017. Pamiętaj, aby zastąpić `<data_directory_path>` z katalogu, który został wybrany w poprzednim kroku.
+1. Otwórz powłokę wiersza polecenia. Uruchom następujące polecenie, aby nawiązać połączenie z bazą danych MongoDB na domyślnym porcie 27017. Pamiętaj, aby zamienić `<data_directory_path>` na katalog wybrany w poprzednim kroku.
 
     ```console
     mongod --dbpath <data_directory_path>
@@ -58,9 +58,9 @@ Użyj powłoki mongo w poniższych krokach umożliwia tworzenie bazy danych, wpr
     use BookstoreDb
     ```
 
-    Jeśli jeszcze nie istnieje, bazę danych o nazwie *BookstoreDb* zostanie utworzony. Jeśli baza danych istnieje, jego połączenie jest otwarte dla transakcji.
+    Jeśli jeszcze nie istnieje, zostanie utworzona baza danych o nazwie *BookstoreDb* . Jeśli baza danych istnieje, jego połączenie jest otwarte dla transakcji.
 
-1. Utwórz `Books` kolekcji za pomocą następującego polecenia:
+1. Utwórz kolekcję `Books` przy użyciu następującego polecenia:
 
     ```console
     db.createCollection('Books')
@@ -72,7 +72,7 @@ Użyj powłoki mongo w poniższych krokach umożliwia tworzenie bazy danych, wpr
     { "ok" : 1 }
     ```
 
-1. Zdefiniować schemat `Books` kolekcji i Wstaw dwa dokumenty, używając następującego polecenia:
+1. Zdefiniuj schemat dla kolekcji `Books` i Wstaw dwa dokumenty przy użyciu następującego polecenia:
 
     ```console
     db.Books.insertMany([{'Name':'Design Patterns','Price':54.93,'Category':'Computers','Author':'Ralph Johnson'}, {'Name':'Clean Code','Price':43.15,'Category':'Computers','Author':'Robert C. Martin'}])
@@ -118,17 +118,17 @@ Użyj powłoki mongo w poniższych krokach umożliwia tworzenie bazy danych, wpr
     }
     ```
 
-    Schemat dodaje wygenerowany automatycznie `_id` właściwości typu `ObjectId` dla każdego dokumentu.
+    Schemat dodaje automatycznie wygenerowaną Właściwość `_id` typu `ObjectId` dla każdego dokumentu.
 
 Baza danych jest gotowy. Możesz rozpocząć tworzenie interfejsu API sieci web platformy ASP.NET Core.
 
 ## <a name="create-the-aspnet-core-web-api-project"></a>Utwórz projekt interfejsu API sieci web platformy ASP.NET Core
 
-1. Przejdź do **pliku** > **nowe** > **projektu**.
+1. Przejdź do **pliku** > **nowym** > **projekcie**.
 1. Wybierz typ projektu **aplikacja sieci Web ASP.NET Core** a następnie wybierz przycisk **dalej**.
 1. Nazwij projekt *BooksApi*, a następnie wybierz pozycję **Utwórz**.
 1. Wybierz platformę docelową **.NET Core** i **ASP.NET Core 3,0**. Wybierz szablon projektu **interfejsu API** i wybierz pozycję **Utwórz**.
-1. Odwiedź [galerię NuGet: MongoDB. Driver](https://www.nuget.org/packages/MongoDB.Driver/) , aby określić najnowszą stabilną wersję sterownika .NET dla usługi MongoDB. W **Konsola Menedżera pakietów** okna, przejdź do katalogu głównego projektu. Uruchom następujące polecenie, aby zainstalować sterownik platformy .NET dla bazy danych MongoDB:
+1. Odwiedź [galerię NuGet: MongoDB. Driver](https://www.nuget.org/packages/MongoDB.Driver/) , aby określić najnowszą stabilną wersję sterownika .NET dla usługi MongoDB. W oknie **konsola Menedżera pakietów** przejdź do katalogu głównego projektu. Uruchom następujące polecenie, aby zainstalować sterownik platformy .NET dla bazy danych MongoDB:
 
     ```powershell
     Install-Package MongoDB.Driver -Version {VERSION}
@@ -136,8 +136,8 @@ Baza danych jest gotowy. Możesz rozpocząć tworzenie interfejsu API sieci web 
 
 ## <a name="add-an-entity-model"></a>Dodaj model jednostki
 
-1. Dodaj *modeli* katalogu głównym projektu.
-1. Dodaj `Book` klasy *modeli* katalogu z następującym kodem:
+1. Dodaj katalog *models* do katalogu głównego projektu.
+1. Dodaj klasę `Book` do katalogu *models* przy użyciu następującego kodu:
 
     ```csharp
     using MongoDB.Bson;
@@ -223,7 +223,7 @@ Baza danych jest gotowy. Możesz rozpocząć tworzenie interfejsu API sieci web 
     }
     ```
 
-    Powyższy kod ma następujące działanie:
+    W powyższym kodzie:
 
     * Wystąpienie konfiguracji, do którego są powiązane sekcja `BookstoreDatabaseSettings` pliku *appSettings. JSON* , jest zarejestrowane w kontenerze iniekcji zależności (di). Na przykład właściwość `ConnectionString` obiektu `BookstoreDatabaseSettings` jest wypełniana właściwością `BookstoreDatabaseSettings:ConnectionString` w pliku *appSettings. JSON*.
     * Interfejs `IBookstoreDatabaseSettings` jest rejestrowany przy użyciu programu DI z pojedynczym [okresem istnienia usługi](xref:fundamentals/dependency-injection#service-lifetimes). Po dowstrzykiwaniu wystąpienie interfejsu jest rozpoznawane jako obiekt `BookstoreDatabaseSettings`.
@@ -236,8 +236,8 @@ Baza danych jest gotowy. Możesz rozpocząć tworzenie interfejsu API sieci web 
 
 ## <a name="add-a-crud-operations-service"></a>Dodawanie usługi operacji CRUD
 
-1. Dodaj *usług* katalogu głównym projektu.
-1. Dodaj `BookService` klasy *usług* katalogu z następującym kodem:
+1. Dodaj katalog *usług* do katalogu głównego projektu.
+1. Dodaj klasę `BookService` do katalogu *usług* , korzystając z następującego kodu:
 
     ```csharp
     using BooksApi.Models;
@@ -311,7 +311,7 @@ Baza danych jest gotowy. Możesz rozpocząć tworzenie interfejsu API sieci web 
     using BooksApi.Services;
     ```
 
-`BookService` Klasa używa następujących `MongoDB.Driver` elementy członkowskie do wykonywania operacji CRUD w odniesieniu do bazy danych:
+Klasa `BookService` używa następujących członków `MongoDB.Driver` do wykonywania operacji CRUD w bazie danych:
 
 * [MongoClient](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoClient.htm) &ndash; odczytuje wystąpienie serwera na potrzeby wykonywania operacji bazy danych. Konstruktor obiektu tej klasy znajduje się ciąg połączenia bazy danych MongoDB:
 
@@ -325,9 +325,9 @@ Baza danych jest gotowy. Możesz rozpocząć tworzenie interfejsu API sieci web 
     }
     ```
 
-* [IMongoDatabase](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_IMongoDatabase.htm) &ndash; reprezentuje bazę danych Mongo do wykonywania operacji. W tym samouczku do uzyskiwania dostępu do danych w określonej kolekcji jest stosowana Metoda ogólna [getcollection\<TDocument > (Collection)](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoDatabase_GetCollection__1.htm) . Wykonaj operacje CRUD w odniesieniu do kolekcji po wywołaniu tej metody. W `GetCollection<TDocument>(collection)` wywołanie metody:
+* [IMongoDatabase](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_IMongoDatabase.htm) &ndash; reprezentuje bazę danych Mongo do wykonywania operacji. W tym samouczku do uzyskiwania dostępu do danych w określonej kolekcji jest stosowana Metoda ogólna [getcollection\<TDocument > (Collection)](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoDatabase_GetCollection__1.htm) . Wykonaj operacje CRUD w odniesieniu do kolekcji po wywołaniu tej metody. W wywołaniu metody `GetCollection<TDocument>(collection)`:
   * `collection` reprezentuje nazwę kolekcji.
-  * `TDocument` reprezentuje typ obiektu CLR, które są przechowywane w kolekcji.
+  * `TDocument` reprezentuje typ obiektu CLR przechowywany w kolekcji.
 
 `GetCollection<TDocument>(collection)` zwraca obiekt [MongoCollection](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoCollection.htm) reprezentujący kolekcję. W tym samouczku następujące metody są wywoływane w kolekcji:
 
@@ -338,7 +338,7 @@ Baza danych jest gotowy. Możesz rozpocząć tworzenie interfejsu API sieci web 
 
 ## <a name="add-a-controller"></a>Dodawanie kontrolera
 
-Dodaj `BooksController` klasy *kontrolerów* katalogu z następującym kodem:
+Dodaj klasę `BooksController` do katalogu *controllers* przy użyciu następującego kodu:
 
 ```csharp
 using BooksApi.Models;
@@ -419,7 +419,7 @@ namespace BooksApi.Controllers
 
 Poprzedni kontroler internetowego interfejsu API:
 
-* Używa `BookService` klasy w celu wykonywania operacji CRUD.
+* Używa klasy `BookService` do wykonywania operacji CRUD.
 * Zawiera metody akcji w celu obsługi żądań GET, POST, PUT i DELETE protokołu HTTP.
 * Wywołuje <xref:System.Web.Http.ApiController.CreatedAtRoute*> w metodzie `Create`, aby zwrócić odpowiedź [HTTP 201](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) . Kod stanu 201 jest standardową odpowiedzią dla metody POST protokołu HTTP, która tworzy nowy zasób na serwerze. `CreatedAtRoute` dodaje również nagłówek `Location` do odpowiedzi. Nagłówek `Location` określa identyfikator URI nowo utworzonej książki.
 

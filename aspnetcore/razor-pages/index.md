@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 02/12/2020
 uid: razor-pages/index
-ms.openlocfilehash: 30e2cde03236bae4c3ca06a91c56586d8c9f2bff
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.openlocfilehash: 42ffb0d4d2e49663dd53ffeee5d9fa2a931ee5b7
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447454"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667581"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do Razor Pages w ASP.NET Core
 
@@ -101,7 +101,7 @@ Uwagi:
 
 Razor Pages zaprojektowano tak, aby wspólne wzorce używane z przeglądarkami sieci Web były łatwe do wdrożenia podczas kompilowania aplikacji. [Powiązania modelu](xref:mvc/models/model-binding), [pomocników tagów](xref:mvc/views/tag-helpers/intro)i pomocników HTML same *działają* z właściwościami zdefiniowanymi w klasie strony Razor. Rozważmy stronę implementującą podstawowy formularz "contact us" (kontakt z nami) dla modelu `Contact`:
 
-W przypadku przykładów w tym dokumencie `DbContext` jest inicjowana w pliku [Startup.cs](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/razor-pages/index/3.0sample/RazorPagesContacts/Startup.cs#L23-L24) .
+W przypadku przykładów w tym dokumencie `DbContext` jest inicjowana w pliku [Startup.cs](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/razor-pages/index/3.0sample/RazorPagesContacts/Startup.cs#L23-L24) .
 
 [!code-cs[](index/3.0sample/RazorPagesContacts/Startup.cs?name=snippet)]
 
@@ -594,7 +594,7 @@ Dodaj <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBuilder
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * Zobacz Rozpoczynanie [pracy z usługą Razor Pages](xref:tutorials/razor-pages/razor-pages-start), która kompiluje się w tym wprowadzeniu
-* [Pobieranie lub wyświetlanie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/index/3.0sample)
+* [Pobieranie lub wyświetlanie przykładowego kodu](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/index/3.0sample)
 * <xref:index>
 * <xref:mvc/views/razor>
 * <xref:mvc/controllers/areas>
@@ -693,7 +693,7 @@ Uwagi:
 
 Razor Pages zaprojektowano tak, aby wspólne wzorce używane z przeglądarkami sieci Web były łatwe do wdrożenia podczas kompilowania aplikacji. [Powiązania modelu](xref:mvc/models/model-binding), [pomocników tagów](xref:mvc/views/tag-helpers/intro)i pomocników HTML same *działają* z właściwościami zdefiniowanymi w klasie strony Razor. Rozważmy stronę implementującą podstawowy formularz "contact us" (kontakt z nami) dla modelu `Contact`:
 
-W przypadku przykładów w tym dokumencie `DbContext` jest inicjowana w pliku [Startup.cs](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/razor-pages/index/sample/RazorPagesContacts/Startup.cs#L15-L16) .
+W przypadku przykładów w tym dokumencie `DbContext` jest inicjowana w pliku [Startup.cs](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/razor-pages/index/sample/RazorPagesContacts/Startup.cs#L15-L16) .
 
 [!code-cs[](index/sample/RazorPagesContacts/Startup.cs?highlight=15-16)]
 
@@ -1083,7 +1083,7 @@ Obecnie można użyć `RazorPagesOptions`, aby ustawić katalog główny dla str
 
 Aby wstępnie skompilować widoki, zobacz [kompilacja widoku Razor](xref:mvc/views/view-compilation) .
 
-[Pobierz lub Wyświetl przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/index/sample).
+[Pobierz lub Wyświetl przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/index/sample).
 
 Zobacz Rozpoczynanie [pracy z usługą Razor Pages](xref:tutorials/razor-pages/razor-pages-start), która kompiluje się w tym wprowadzeniu.
 

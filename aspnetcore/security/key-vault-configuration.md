@@ -1,22 +1,22 @@
 ---
 title: Azure Key Vault dostawcę konfiguracji w programie ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Informacje dotyczące konfigurowania aplikacji przy użyciu par nazwa-wartość ładowanych w czasie wykonywania przy użyciu dostawcy konfiguracji Azure Key Vault.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: security/key-vault-configuration
-ms.openlocfilehash: 7eb8cf5dcd6b9f112a2ef30e694b6223a7d1f2fe
-ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
+ms.openlocfilehash: d617627154e3125a6a59d082fd401fc69c25fcb3
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114877"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660350"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault dostawcę konfiguracji w programie ASP.NET Core
 
-Autorzy [Luke Latham](https://github.com/guardrex) i [Andrew Stanton-pielęgniarki](https://github.com/anurse)
+Według [Andrew Stanton-pielęgniarki](https://github.com/anurse)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -25,7 +25,7 @@ W tym dokumencie wyjaśniono, jak za pomocą dostawcy konfiguracji [Key Vault Mi
 * Kontrolowanie dostępu do poufnych danych konfiguracyjnych.
 * Spełnienie wymagania dotyczącego sprawdzania poprawności sprzętowych modułów zabezpieczeń FIPS 140-2 Level 2 (HSM) podczas przechowywania danych konfiguracyjnych.
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="packages"></a>Pakiety
 
@@ -289,7 +289,7 @@ Gdy takie podejście jest zaimplementowane:
 
 Dostawca może odczytać wartości konfiguracyjne w tablicy w celu powiązania z tablicą POCO.
 
-Podczas odczytywania ze źródła konfiguracji, które pozwala na używanie kluczy zawierających dwukropek (`:`) separatory, segment klucza numerycznego służy do odróżniania kluczy tworzących tablicę (`:0:`, `:1:`,... `:{n}:`). Aby uzyskać więcej informacji, zobacz [Konfiguracja: Powiąż tablicę z klasą](xref:fundamentals/configuration/index#bind-an-array-to-a-class).
+Podczas odczytywania ze źródła konfiguracji, które pozwala na używanie kluczy zawierających dwukropek (`:`) separatory, segment klucza numerycznego służy do odróżniania kluczy tworzących tablicę (`:0:`, `:1:`&hellip; `:{n}:`). Aby uzyskać więcej informacji, zobacz [Konfiguracja: Powiąż tablicę z klasą](xref:fundamentals/configuration/index#bind-an-array-to-a-class).
 
 Klucze Azure Key Vault nie mogą używać dwukropka jako separatora. Metoda opisana w tym temacie używa podwójnych kresek (`--`) jako separatora wartości hierarchicznych (sekcji). Klucze tablic są przechowywane w Azure Key Vault przy użyciu podwójnych kresek i segmentów kluczy numerycznych (`--0--`, `--1--`, &hellip; `--{n}--`).
 
@@ -318,7 +318,7 @@ Zapoznaj się z następującą konfiguracją dostawcy rejestrowania [Serilog](ht
 
 Konfiguracja pokazana w poprzednim pliku JSON jest przechowywana w Azure Key Vault przy użyciu notacji podwójnej kreski (`--`) i segmentów liczbowych:
 
-| Key | Wartość |
+| Klucz | Wartość |
 | --- | ----- |
 | `Serilog--WriteTo--0--Name` | `AzureTableStorage` |
 | `Serilog--WriteTo--0--Args--storageTableName` | `logs` |
@@ -371,7 +371,7 @@ W tym dokumencie wyjaśniono, jak za pomocą dostawcy konfiguracji [Key Vault Mi
 * Kontrolowanie dostępu do poufnych danych konfiguracyjnych.
 * Spełnienie wymagania dotyczącego sprawdzania poprawności sprzętowych modułów zabezpieczeń FIPS 140-2 Level 2 (HSM) podczas przechowywania danych konfiguracyjnych.
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="packages"></a>Pakiety
 
@@ -616,7 +616,7 @@ Gdy takie podejście jest zaimplementowane:
 
 Dostawca może odczytać wartości konfiguracyjne w tablicy w celu powiązania z tablicą POCO.
 
-Podczas odczytywania ze źródła konfiguracji, które pozwala na używanie kluczy zawierających dwukropek (`:`) separatory, segment klucza numerycznego służy do odróżniania kluczy tworzących tablicę (`:0:`, `:1:`,... `:{n}:`). Aby uzyskać więcej informacji, zobacz [Konfiguracja: Powiąż tablicę z klasą](xref:fundamentals/configuration/index#bind-an-array-to-a-class).
+Podczas odczytywania ze źródła konfiguracji, które pozwala na używanie kluczy zawierających dwukropek (`:`) separatory, segment klucza numerycznego służy do odróżniania kluczy tworzących tablicę (`:0:`, `:1:`&hellip; `:{n}:`). Aby uzyskać więcej informacji, zobacz [Konfiguracja: Powiąż tablicę z klasą](xref:fundamentals/configuration/index#bind-an-array-to-a-class).
 
 Klucze Azure Key Vault nie mogą używać dwukropka jako separatora. Metoda opisana w tym temacie używa podwójnych kresek (`--`) jako separatora wartości hierarchicznych (sekcji). Klucze tablic są przechowywane w Azure Key Vault przy użyciu podwójnych kresek i segmentów kluczy numerycznych (`--0--`, `--1--`, &hellip; `--{n}--`).
 
@@ -645,7 +645,7 @@ Zapoznaj się z następującą konfiguracją dostawcy rejestrowania [Serilog](ht
 
 Konfiguracja pokazana w poprzednim pliku JSON jest przechowywana w Azure Key Vault przy użyciu notacji podwójnej kreski (`--`) i segmentów liczbowych:
 
-| Key | Wartość |
+| Klucz | Wartość |
 | --- | ----- |
 | `Serilog--WriteTo--0--Name` | `AzureTableStorage` |
 | `Serilog--WriteTo--0--Args--storageTableName` | `logs` |

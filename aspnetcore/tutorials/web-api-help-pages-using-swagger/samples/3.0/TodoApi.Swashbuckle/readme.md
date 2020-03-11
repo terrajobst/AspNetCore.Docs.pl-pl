@@ -11,15 +11,15 @@ products:
 - vs-mac
 urlFragment: getstarted-swashbuckle-aspnetcore
 ms.openlocfilehash: e02247325f430b0ce23dbb3f5bc344a60a1a164a
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74879727"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659937"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Wprowadzenie do Swashbuckle i ASP.NET Core
 
-Podczas korzystania z internetowego interfejsu API, informacje o jego różne metody może stanowić wyzwanie dla dewelopera. [Struktury swagger](https://swagger.io/), znane również jako [OpenAPI](https://www.openapis.org/), rozwiązuje problem Generowanie przydatne stron pomocy i dokumentacji dla interfejsów API sieci Web. Zapewnia korzyści, takich jak dokumentacja interaktywne, generowanie zestawów SDK klienta i odnajdywania interfejsu API.
+Podczas korzystania z internetowego interfejsu API, informacje o jego różne metody może stanowić wyzwanie dla dewelopera. Struktura [Swagger](https://swagger.io/), znana również jako [openapi](https://www.openapis.org/), rozwiązuje problem związany z generowaniem użytecznej dokumentacji i stron pomocy dla interfejsów API sieci Web. Zapewnia korzyści, takich jak dokumentacja interaktywne, generowanie zestawów SDK klienta i odnajdywania interfejsu API.
 
 W tym przykładzie pokazano [Swashbuckle. AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) implementacja platformy .NET.
 
@@ -130,7 +130,7 @@ Interfejs użytkownika struktury Swagger wyświetla informacje o wersji:
 
 Komentarze XML można włączyć przy użyciu następujących metod:
 
-#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+#### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** a następnie wybierz polecenie **edytuj < Project_Name >. csproj**.
 * Ręcznie Dodaj wyróżnione wiersze do pliku *csproj* :
@@ -142,7 +142,7 @@ Komentarze XML można włączyć przy użyciu następujących metod:
 </PropertyGroup>
 ```
 
-#### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+#### <a name="visual-studio-for-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 * W *okienko rozwiązania*naciśnij klawisz **Control** i kliknij nazwę projektu. Przejdź do **menu narzędzia** > **Edytuj plik**.
 * Ręcznie Dodaj wyróżnione wiersze do pliku *csproj* :
@@ -154,7 +154,7 @@ Komentarze XML można włączyć przy użyciu następujących metod:
 </PropertyGroup>
 ```
 
-#### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+#### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Ręcznie Dodaj wyróżnione wiersze do pliku *csproj* :
 
@@ -241,7 +241,7 @@ public void ConfigureServices(IServiceCollection services)
 
 W poprzednim kodzie [odbicie](/dotnet/csharp/programming-guide/concepts/reflection) jest używane do kompilowania nazwy pliku XML pasującego do projektu interfejsu API sieci Web. Właściwość [AppContext. BaseDirectory](/dotnet/api/system.appcontext.basedirectory) służy do konstruowania ścieżki do pliku XML. Niektóre funkcje struktury Swagger (na przykład schematu parametrów wejściowych lub metod HTTP i kodów odpowiedzi z odpowiednich atrybutów) działają bez użycia pliku dokumentacji XML. W przypadku większości funkcji, a mianowicie podsumowania metod i opisów parametrów i kodów odpowiedzi, użycie pliku XML jest obowiązkowe.
 
-Dodawanie do akcji komentarzy z potrójnym ukośnikiem ulepsza wyniki narzędzia Swagger UI przez dodanie opisu do nagłówka sekcji. Dodaj element `Delete` powyżej akcji: [\<podsumowania>](/dotnet/csharp/programming-guide/xmldoc/summary)
+Dodawanie komentarzy z potrójnym ukośnikiem do akcji rozszerza interfejs użytkownika struktury Swagger, dodając opis do nagłówka sekcji. Dodaj element [>\<podsumowania](/dotnet/csharp/programming-guide/xmldoc/summary) powyżej akcji `Delete`:
 
 ```csharp
 /// <summary>

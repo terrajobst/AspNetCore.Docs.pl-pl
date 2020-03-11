@@ -1,6 +1,6 @@
-# <a name="gdpr-sample"></a>Przykładowe RODO
+# <a name="gdpr-sample"></a>Przykład Rodo
 
-* W *appsettings.json*ustaw `CheckNotConsentNeeded` do `false` wymagające zgody; w przeciwnym razie wartość true lub pominąć. Testowanie aplikacji w usłudze `CheckNotConsentNeeded` równa `false` i ustaw `true`.
-* Utwórz podstawowe i inne niż niezbędne pliki cookie z każdej wersji `CheckConsentNeeded` i udzielono zgody.
+* W pliku *appSettings. JSON*Ustaw `CheckNotConsentNeeded` na `false`, aby wymagać zgody; w przeciwnym razie ustaw wartość true lub Pomiń. Przetestuj aplikację, korzystając z `CheckNotConsentNeeded` ustawionej na `false` i Ustaw jako `true`.
+* Twórz podstawowe i nieistotne pliki cookie z uwzględnieniem każdej zmiany `CheckConsentNeeded` i zgody.
 * Zarejestruj użytkownika.
 * Usuń pliki cookie.

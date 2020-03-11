@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: c4d50b72c5508d52b17c6754b6d8e77c1a3903b6
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 99bf9ed59b47e8fbba838b97c3e032b9808f6a94
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259345"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657137"
 ---
 # <a name="tutorial-add-sorting-filtering-and-paging---aspnet-mvc-with-ef-core"></a>Samouczek: Dodawanie sortowania, filtrowania i stronicowania — ASP.NET MVC z EF Core
 
@@ -45,7 +45,7 @@ W *StudentsController.cs*Zastąp metodę `Index` następującym kodem:
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly)]
 
-Ten kod odbiera parametr `sortOrder` z ciągu zapytania w adresie URL. Wartość ciągu zapytania jest dostarczana przez ASP.NET Core MVC jako parametr do metody akcji. Parametr będzie ciągiem "name" lub "date", opcjonalnie po znaku podkreślenia i ciągu "DESC" w celu określenia kolejności malejącej. Domyślna kolejność sortowania to Ascending.
+Ten kod otrzymuje parametr `sortOrder` z ciągu zapytania w adresie URL. Wartość ciągu zapytania jest dostarczana przez ASP.NET Core MVC jako parametr do metody akcji. Parametr będzie ciągiem "name" lub "date", opcjonalnie po znaku podkreślenia i ciągu "DESC" w celu określenia kolejności malejącej. Domyślna kolejność sortowania to Ascending.
 
 Podczas pierwszego żądania strony indeksu nie ma ciągu zapytania. Studenci są wyświetlani w kolejności rosnącej według nazwiska, która jest wartością domyślną ustanowioną przez przypadek przypadania w instrukcji `switch`. Gdy użytkownik kliknie hiperlink nagłówka kolumny, odpowiednia wartość `sortOrder` jest podawana w ciągu zapytania.
 
@@ -57,12 +57,12 @@ Są to "Trzyelementowy". Pierwszy z nich określa, że jeśli parametr `sortOrde
 
 |  Bieżący porządek sortowania  | Hiperłącze nazwisko | Hiperłącze daty |
 |:--------------------:|:-------------------:|:--------------:|
-| Nazwisko — rosnąco  | Najważniejsze          | rosnąco      |
-| Nazwisko malejąco | rosnąco           | rosnąco      |
-| Data rosnąca       | rosnąco           | Najważniejsze     |
-| Data malejąca      | rosnąco           | rosnąco      |
+| Nazwisko — rosnąco  | descending          | ascending      |
+| Nazwisko malejąco | ascending           | ascending      |
+| Data rosnąca       | ascending           | descending     |
+| Data malejąca      | ascending           | ascending      |
 
-Metoda używa LINQ to Entities, aby określić kolumnę, według której ma zostać wykonane sortowanie. Kod tworzy zmienną `IQueryable` przed instrukcją Switch, modyfikuje ją w instrukcji switch i wywołuje metodę `ToListAsync` po instrukcji `switch`. Podczas tworzenia i modyfikowania zmiennych `IQueryable` żadne zapytanie nie jest wysyłane do bazy danych. Zapytanie nie jest wykonywane do momentu przekonwertowania obiektu `IQueryable` do kolekcji przez wywołanie metody, takiej jak `ToListAsync`. W związku z tym ten kod skutkuje pojedynczym zapytaniem, które nie jest wykonywane do momentu wykonania instrukcji `return View`.
+Metoda używa LINQ to Entities, aby określić kolumnę, według której ma zostać wykonane sortowanie. Kod tworzy zmienną `IQueryable` przed instrukcją Switch, modyfikuje ją w instrukcji switch i wywołuje metodę `ToListAsync` po instrukcji `switch`. Gdy tworzysz i modyfikujesz zmienne `IQueryable`, żadne zapytanie nie jest wysyłane do bazy danych. Zapytanie nie jest wykonywane do momentu przekonwertowania obiektu `IQueryable` do kolekcji przez wywołanie metody, takiej jak `ToListAsync`. W związku z tym ten kod skutkuje pojedynczym zapytaniem, które nie jest wykonywane do momentu instrukcji `return View`.
 
 Ten kod może uzyskać pełne informacje z dużą liczbą kolumn. W [ostatnim samouczku w tej serii](advanced.md#dynamic-linq) pokazano, jak napisać kod, który umożliwia przekazanie nazwy kolumny `OrderBy` w zmiennej ciągu.
 
@@ -72,7 +72,7 @@ Zastąp kod w *widokach/uczniów/index. cshtml*, używając poniższego kodu do 
 
 [!code-html[](intro/samples/cu/Views/Students/Index2.cshtml?highlight=16,22)]
 
-Ten kod używa informacji w `ViewData` właściwości do konfigurowania hiperłączy z odpowiednimi wartościami ciągu zapytania.
+Ten kod używa informacji w `ViewData` właściwości, aby skonfigurować hiperłącza z odpowiednimi wartościami ciągu zapytania.
 
 Uruchom aplikację, wybierz kartę **studenci** , a następnie kliknij nagłówek kolumny **nazwisko** i **Data rejestracji** , aby sprawdzić, czy sortowanie działa.
 
@@ -88,12 +88,12 @@ W *StudentsController.cs*Zastąp metodę `Index` następującym kodem (zmiany s�
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
 
-Dodano parametr `searchString` do metody `Index`. Wartość ciągu wyszukiwania jest odbierana z pola tekstowego, które zostanie dodane do widoku indeksu. Dodano również do instrukcji LINQ klauzula WHERE, która wybiera tylko uczniów, których imię lub nazwisko zawiera ciąg wyszukiwania. Instrukcja, która dodaje klauzulę WHERE, jest wykonywana tylko wtedy, gdy istnieje wartość do wyszukania.
+Do metody `Index` został dodany parametr `searchString`. Wartość ciągu wyszukiwania jest odbierana z pola tekstowego, które zostanie dodane do widoku indeksu. Dodano również do instrukcji LINQ klauzula WHERE, która wybiera tylko uczniów, których imię lub nazwisko zawiera ciąg wyszukiwania. Instrukcja, która dodaje klauzulę WHERE, jest wykonywana tylko wtedy, gdy istnieje wartość do wyszukania.
 
 > [!NOTE]
-> W tym miejscu wywoływana jest metoda `Where` w obiekcie `IQueryable`, a filtr zostanie przetworzony na serwerze. W niektórych scenariuszach może być wywoływana metoda `Where` jako metoda rozszerzająca w kolekcji w pamięci. (Na przykład załóżmy, że zmienisz odwołanie do `_context.Students`, tak że zamiast EF `DbSet` odwołuje się do metody repozytorium, która zwraca kolekcję `IEnumerable`). Wyniki byłyby zwykle takie same, ale w niektórych przypadkach mogą być różne.
+> W tym miejscu wywoływana jest metoda `Where` na obiekcie `IQueryable`, a filtr zostanie przetworzony na serwerze. W niektórych scenariuszach może być wywoływana metoda `Where` jako metoda rozszerzająca w kolekcji w pamięci. (Na przykład załóżmy, że zmienisz odwołanie do `_context.Students` tak, aby zamiast EF `DbSet` odwołuje się do metody repozytorium, która zwraca kolekcję `IEnumerable`.) Wyniki byłyby zwykle takie same, ale w niektórych przypadkach mogą być różne.
 >
->Na przykład .NET Framework implementacja metody `Contains` domyślnie wykonuje porównanie z uwzględnieniem wielkości liter, ale w SQL Server jest to określane przez ustawienie sortowania wystąpienia SQL Server. Ustawienie domyślne nie uwzględnia wielkości liter. Można wywołać metodę `ToUpper`, aby test jawnie nie uwzględniał wielkości liter: *gdzie (s = > s. LastName. ToUpper (). Zawiera (Ciągwyszukiwania. ToUpper ())* . Dzięki temu wyniki są takie same, jeśli później zmienisz kod w celu użycia repozytorium, które zwraca kolekcję `IEnumerable`, a nie obiekt `IQueryable`. (W przypadku wywołania metody `Contains` w kolekcji `IEnumerable` uzyskasz .NET Framework implementację. po wywołaniu dla obiektu `IQueryable` zostanie zaimplementowana implementacja dostawcy bazy danych). Istnieje jednak spadek wydajności dla tego rozwiązania. Kod `ToUpper` spowoduje umieszczenie funkcji w klauzuli WHERE instrukcji SELECT TSQL. Uniemożliwi to Optymalizatorowi użycie indeksu. Mając na względzie, że program SQL jest głównie instalowany jako bez uwzględniania wielkości liter, najlepszym rozwiązaniem jest uniknięcie `ToUpper` kodu do momentu migracji do magazynu danych z uwzględnieniem wielkości liter.
+>Na przykład .NET Framework implementacja metody `Contains` domyślnie wykonuje porównanie z uwzględnieniem wielkości liter, ale w SQL Server jest to określane przez ustawienie sortowania wystąpienia SQL Server. Ustawienie domyślne nie uwzględnia wielkości liter. Można wywołać metodę `ToUpper`, aby test jawnie nie uwzględniał wielkości liter: *gdzie (s = > s. LastName. ToUpper (). Zawiera (Ciągwyszukiwania. ToUpper ())* . Dzięki temu wyniki są takie same, jeśli później zmienisz kod w celu użycia repozytorium, które zwraca kolekcję `IEnumerable`, a nie `IQueryable` obiektu. (W przypadku wywołania metody `Contains` w kolekcji `IEnumerable` zostanie .NET Framework implementacja. po wywołaniu dla obiektu `IQueryable` zostanie wykorzystana implementacja dostawcy bazy danych). Istnieje jednak spadek wydajności dla tego rozwiązania. Kod `ToUpper` mógłby umieścić funkcję w klauzuli WHERE instrukcji SELECT TSQL. Uniemożliwi to Optymalizatorowi użycie indeksu. Mając na względzie, że program SQL jest głównie instalowany jako bez uwzględniania wielkości liter, najlepszym rozwiązaniem jest uniknięcie `ToUpper` kodu do momentu migracji do magazynu danych z uwzględnieniem wielkości liter.
 
 ### <a name="add-a-search-box-to-the-student-index-view"></a>Dodawanie pola wyszukiwania do widoku indeksu ucznia
 
@@ -101,7 +101,7 @@ W obszarze *widoki/uczniów/index. cshtml*Dodaj wyróżniony kod bezpośrednio p
 
 [!code-html[](intro/samples/cu/Views/Students/Index3.cshtml?range=9-23&highlight=5-13)]
 
-Ten kod używa [pomocnika tagów](xref:mvc/views/tag-helpers/intro) `<form>` w celu dodania pola tekstowego wyszukiwania i przycisku. Domyślnie pomocnik tagów `<form>` przesyła dane formularza z WPISem, co oznacza, że parametry są przesyłane w treści wiadomości HTTP, a nie w adresie URL jako ciągi zapytań. Po określeniu protokołu HTTP GET dane formularza są przesyłane w adresie URL jako ciągi zapytań, co umożliwia użytkownikom tworzenie zakładek w adresie URL. Wskazówki dotyczące W3C zaleca się użycie GET, gdy akcja nie spowoduje aktualizacji.
+Ten kod używa [pomocnika tagów](xref:mvc/views/tag-helpers/intro) `<form>`, aby dodać pole tekstowe wyszukiwania i przycisk. Domyślnie pomocnik tagów `<form>` przesyła dane formularza z WPISem, co oznacza, że parametry są przesyłane w treści wiadomości HTTP, a nie w adresie URL jako ciągi zapytań. Po określeniu protokołu HTTP GET dane formularza są przesyłane w adresie URL jako ciągi zapytań, co umożliwia użytkownikom tworzenie zakładek w adresie URL. Wskazówki dotyczące W3C zaleca się użycie GET, gdy akcja nie spowoduje aktualizacji.
 
 Uruchom aplikację, wybierz kartę **studenci** , wprowadź ciąg wyszukiwania, a następnie kliknij przycisk Wyszukaj, aby sprawdzić, czy filtrowanie działa.
 
@@ -127,9 +127,9 @@ W folderze projektu Utwórz `PaginatedList.cs`, a następnie zastąp kod szablon
 
 [!code-csharp[](intro/samples/cu/PaginatedList.cs)]
 
-Metoda `CreateAsync` w tym kodzie przyjmuje rozmiar strony i numer strony oraz stosuje odpowiednie instrukcje `Skip` i `Take` do `IQueryable`. Gdy `ToListAsync` jest wywoływana dla `IQueryable`, zwróci listę zawierającą tylko żądaną stronę. Właściwości `HasPreviousPage` i `HasNextPage` mogą służyć do włączania lub wyłączania **poprzednich** i **następnych** przycisków stronicowania.
+Metoda `CreateAsync` w tym kodzie przyjmuje rozmiar strony i numer strony oraz stosuje odpowiednie instrukcje `Skip` i `Take` do `IQueryable`. Gdy `ToListAsync` jest wywoływana na `IQueryable`, zwróci listę zawierającą tylko żądaną stronę. Właściwości `HasPreviousPage` i `HasNextPage` mogą służyć do włączania lub wyłączania przycisków **poprzedniego** i **następnego** stronicowania.
 
-Metoda `CreateAsync` jest używana zamiast konstruktora, aby utworzyć obiekt `PaginatedList<T>`, ponieważ konstruktory nie mogą uruchamiać kodu asynchronicznego.
+Metoda `CreateAsync` jest używana zamiast konstruktora do utworzenia obiektu `PaginatedList<T>`, ponieważ konstruktory nie mogą uruchamiać kodu asynchronicznego.
 
 ## <a name="add-paging-to-index-method"></a>Dodaj stronicowanie do metody index
 
@@ -149,7 +149,7 @@ public async Task<IActionResult> Index(
 
 Gdy strona jest wyświetlana po raz pierwszy lub jeśli użytkownik nie kliknął linku stronicowania ani sortowania, wszystkie parametry będą mieć wartość null.  Jeśli zostanie kliknięty link stronicowania, zmienna strony będzie zawierać numer strony do wyświetlenia.
 
-Element `ViewData` o nazwie CurrentSort zapewnia widok z bieżącą kolejnością sortowania, ponieważ musi on być uwzględniony w łączach stronicowania, aby zachować porządek sortowania w tym samym czasie podczas stronicowania.
+`ViewData` element o nazwie CurrentSort zapewnia widok z bieżącą kolejnością sortowania, ponieważ musi on być uwzględniony w łączach stronicowania, aby zachować porządek sortowania w tym samym czasie podczas stronicowania.
 
 Element `ViewData` o nazwie CurrentFilter zapewnia widok z bieżącym ciągiem filtru. Ta wartość musi być uwzględniona w łączach stronicowania, aby zachować ustawienia filtru podczas stronicowania, i musi zostać przywrócone do pola tekstowego, gdy strona jest ponownie wyświetlana.
 
@@ -172,7 +172,7 @@ Na końcu metody `Index` Metoda `PaginatedList.CreateAsync` konwertuje zapytanie
 return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), pageNumber ?? 1, pageSize));
 ```
 
-Metoda `PaginatedList.CreateAsync` przyjmuje numer strony. Dwa znaki zapytania reprezentują operator łączenia wartości null. Operator łączenia wartości null definiuje wartość domyślną dla typu dopuszczającego wartość null; wyrażenie `(pageNumber ?? 1)` oznacza zwrócenie wartości `pageNumber`, jeśli ma wartość, lub zwraca wartość 1, jeśli `pageNumber` jest równa null.
+Metoda `PaginatedList.CreateAsync` przyjmuje numer strony. Dwa znaki zapytania reprezentują operator łączenia wartości null. Operator łączenia wartości null definiuje wartość domyślną dla typu dopuszczającego wartość null; wyrażenie `(pageNumber ?? 1)` oznacza zwrócenie wartości `pageNumber`, jeśli ma wartość, lub zwraca wartość 1, jeśli `pageNumber` jest wartością null.
 
 ## <a name="add-paging-links"></a>Dodaj linki stronicowania
 
@@ -232,11 +232,11 @@ Dodaj zmienną klasy dla kontekstu bazy danych bezpośrednio po otwierającym na
 
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_AddContext&highlight=3,5,7)]
 
-Dodaj metodę `About` z następującym kodem:
+Dodaj metodę `About` przy użyciu następującego kodu:
 
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
-Instrukcja LINQ grupuje jednostki studenta według daty rejestracji, oblicza liczbę jednostek w każdej grupie i zapisuje wyniki w kolekcji obiektów modelu widoku `EnrollmentDateGroup`.
+Instrukcja LINQ grupuje jednostki uczniów według daty rejestracji, oblicza liczbę jednostek w każdej grupie i zapisuje wyniki w kolekcji `EnrollmentDateGroup` widoku obiektów modelu.
 
 ### <a name="create-the-about-view"></a>Tworzenie widoku informacje
 
@@ -246,9 +246,9 @@ Dodaj plik *views/Home/about. cshtml* o następującym kodzie:
 
 Uruchom aplikację i przejdź do strony informacje. W tabeli zostanie wyświetlona liczba uczniów dla każdej daty rejestracji.
 
-## <a name="get-the-code"></a>Uzyskaj kod
+## <a name="get-the-code"></a>Uzyskiwanie kodu
 
-[Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>Następne kroki
 

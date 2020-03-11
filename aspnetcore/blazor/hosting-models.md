@@ -5,17 +5,17 @@ description: Informacje na temat Blazor modeli hostingu i Blazor Server.
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/12/2020
+ms.date: 02/18/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/hosting-models
-ms.openlocfilehash: 54be0e032a60c69880f428e52f9d778032385dc5
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.openlocfilehash: e6ce2be53c35268854e0e8d408b649a8c6ef497e
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447051"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658320"
 ---
 # <a name="aspnet-core-opno-locblazor-hosting-models"></a>ASP.NET Core Blazor modele hostingowe
 
@@ -33,7 +33,7 @@ Aby uzyskać konfigurację zaawansowaną, zobacz <xref:blazor/hosting-model-conf
 
 Główny model hostingu dla Blazor jest uruchamiany po stronie klienta w przeglądarce w zestawie webassembly. Aplikacja Blazor, jej zależności i środowisko uruchomieniowe platformy .NET są pobierane do przeglądarki. Aplikacja jest wykonywana bezpośrednio w wątku interfejsu użytkownika przeglądarki. Aktualizacje interfejsu użytkownika i obsługa zdarzeń są wykonywane w ramach tego samego procesu. Zasoby aplikacji są wdrażane jako pliki statyczne na serwerze sieci Web lub usłudze obsługującej zawartość statyczną dla klientów.
 
-![[! OP. NO-LOC (Blazor)] webassembly: [! OP. Aplikacja NO-LOC (Blazor)] jest uruchamiana w wątku interfejsu użytkownika w przeglądarce.](hosting-models/_static/blazor-webassembly.png)
+![Blazor webassembly: aplikacja Blazor jest uruchamiana w wątku interfejsu użytkownika w przeglądarce.](hosting-models/_static/blazor-webassembly.png)
 
 Aby utworzyć aplikację Blazor przy użyciu modelu hostingu po stronie klienta, użyj szablonu **aplikacjiBlazor webassembly** ([dotnet New blazorwasm](/dotnet/core/tools/dotnet-new)).
 
@@ -62,7 +62,7 @@ Istnieją downsides Blazor hostingu zestawu webassembly:
 
 W modelu hostingu serwera Blazor aplikacja jest wykonywana na serwerze z poziomu aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika, obsługa zdarzeń i wywołania języka JavaScript są obsługiwane przez połączenie [SignalR](xref:signalr/introduction) .
 
-![Przeglądarka współdziała z aplikacją (hostowaną wewnątrz aplikacji ASP.NET Core) na serwerze za pośrednictwem [! OP. Nie-LOC (sygnalizujący)] połączenie.](hosting-models/_static/blazor-server.png)
+![przeglądarka współdziała z aplikacją (hostowaną wewnątrz aplikacji ASP.NET Core) na serwerze przez połączenie SignalR.](hosting-models/_static/blazor-server.png)
 
 Aby utworzyć aplikację Blazor przy użyciu modelu hostingu Blazor Server, użyj szablonu aplikacji ASP.NET Core **Blazor Server** ([dotnet New blazorserver](/dotnet/core/tools/dotnet-new)). Aplikacja ASP.NET Core obsługuje aplikację serwera Blazor i tworzy punkt końcowy SignalR, w którym klienci nawiązują połączenie.
 
@@ -122,6 +122,8 @@ Aplikacja serwera Blazor jest oparta na [ASP.NET Core SignalR](xref:signalr/intr
 Każdy ekran przeglądarki (karta przeglądarki lub iframe), który jest połączony z aplikacją serwera Blazor używa połączenia SignalR. Jest to jeszcze inna ważna różnica w porównaniu z typowymi aplikacjami renderowanymi przez serwer. W aplikacji renderowanej na serwerze otwieranie tej samej aplikacji na wielu ekranach przeglądarki zazwyczaj nie jest przeważnie uwzględniane w dodatkowych wymaganiach dotyczących zasobów na serwerze. W aplikacji serwera Blazor, każdy ekran przeglądarki wymaga oddzielnego obwodu i oddzielnych wystąpień stanu składnika, które mają być zarządzane przez serwer programu.
 
 Blazor uważa *, że zamyka* kartę przeglądarki lub przechodzenie do zewnętrznego adresu URL. W przypadku bezpiecznego zakończenia obwód i skojarzone zasoby są natychmiast uwalniane. Klient może również odłączyć się niebezpiecznie, na przykład z powodu przerwy w działaniu sieci. Serwer Blazor przechowuje rozłączone obwody przez konfigurowalny interwał, aby umożliwić klientowi Ponowne nawiązywanie połączenia.
+
+Serwer Blazor umożliwia kod definiujący *procedurę obsługi obwodu*, która umożliwia uruchamianie kodu na zmiany stanu obwodu użytkownika. Aby uzyskać więcej informacji, zobacz <xref:blazor/advanced-scenarios#blazor-server-circuit-handler>.
 
 ### <a name="ui-latency"></a>Opóźnienie interfejsu użytkownika
 

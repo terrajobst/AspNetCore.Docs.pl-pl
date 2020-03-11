@@ -30,8 +30,8 @@ Kroki zabezpieczeń, które zmniejszają prawdopodobieństwo pomyślnego ataku:
 >
 > Instrukcje dotyczące zmniejszenie obszaru powierzchni ataku, akceptując pliki użytkowników zobacz następujące zasoby:
 >
-> * [Przekazywanie pliku bez ograniczeń](https://www.owasp.org/index.php/Unrestricted_File_Upload)
-> * [Zabezpieczenia platformy Azure: Upewnij się, że odpowiednie formanty są stosowane podczas akceptowania plików od użytkowników](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
+> * [Przekazywanie plików bez ograniczeń](https://www.owasp.org/index.php/Unrestricted_File_Upload)
+> * [Zabezpieczenia platformy Azure: Upewnij się, że podczas akceptowania plików od użytkowników są stosowane odpowiednie kontrolki](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
 
 Aby uzyskać dodatkowe informacje, zobacz [przekazywanie plików w ASP.NET Core](https://docs.microsoft.com/aspnet/core/mvc/models/file-uploads).
 

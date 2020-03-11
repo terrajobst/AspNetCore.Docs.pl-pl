@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 12/18/2018
 ms.custom: mvc, seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: 65c72d4dd457f85451796c5713bedebafec7a7de
-ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
+ms.openlocfilehash: 7710a8965771db02e601dafb7da752906bcd43e5
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74239831"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659580"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Tworzenie aplikacji platformy ASP.NET Core przy użyciu danych użytkownika chronionych przez autoryzację
 
@@ -19,7 +19,7 @@ Autorzy [Rick Anderson](https://twitter.com/RickAndMSFT) i Jan [Audette](https:/
 
 ::: moniker range="<= aspnetcore-1.1"
 
-[Ten plik PDF](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) jest wyświetlany w wersji ASP.NET Core MVC. Wersja ASP.NET Core 1,1 tego samouczka znajduje się w [tym](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data) folderze. Przykład 1,1 ASP.NET Core znajduje się w [próbkach](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2).
+[Ten plik PDF](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) jest wyświetlany w wersji ASP.NET Core MVC. Wersja ASP.NET Core 1,1 tego samouczka znajduje się w [tym](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data) folderze. Przykład 1,1 ASP.NET Core znajduje się w [próbkach](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2).
 
 ::: moniker-end
 
@@ -81,11 +81,11 @@ W tym samouczku jest zaawansowany. Należy zapoznać się z:
 
 ## <a name="the-starter-and-completed-app"></a>Starter i ukończonej aplikacji
 
-[Pobierz](xref:index#how-to-download-a-sample) [ukończoną](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) aplikację. [Przetestuj](#test-the-completed-app) ukończoną aplikację, aby zapoznać się z jej funkcjami zabezpieczeń.
+[Pobierz](xref:index#how-to-download-a-sample) [ukończoną](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) aplikację. [Przetestuj](#test-the-completed-app) ukończoną aplikację, aby zapoznać się z jej funkcjami zabezpieczeń.
 
 ### <a name="the-starter-app"></a>Aplikację startową
 
-[Pobierz](xref:index#how-to-download-a-sample) aplikację [startową](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/) .
+[Pobierz](xref:index#how-to-download-a-sample) aplikację [startową](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/) .
 
 Uruchom aplikację, naciśnij link **ContactManager** i sprawdź, czy można tworzyć, edytować i usuwać kontakty.
 
@@ -267,7 +267,7 @@ Aktualizowanie modelu strony szczegółów:
 
 ## <a name="add-or-remove-a-user-to-a-role"></a>Dodawanie lub usuwanie użytkownika do roli
 
-Zobacz [ten problem](https://github.com/aspnet/AspNetCore.Docs/issues/8502) , aby uzyskać informacje na temat:
+Zobacz [ten problem](https://github.com/dotnet/AspNetCore.Docs/issues/8502) , aby uzyskać informacje na temat:
 
 * Usuwanie uprawnień z użytkownikiem. Na przykład wyciszenie użytkownika w aplikacji czatu.
 * Dodawanie uprawnień dla użytkownika.
@@ -311,8 +311,8 @@ Jeśli aplikacja ma kontaktów:
 | Użytkownik                | Zasilany przez aplikację | Opcje                                  |
 | ------------------- | :---------------: | ---------------------------------------- |
 | test@example.com    | Nie                | Edytowanie/usuwanie własnych danych.                |
-| manager@contoso.com | Tak               | Zatwierdź/Odrzuć i edytowanie/usuwanie własnych danych. |
-| admin@contoso.com   | Tak               | Zatwierdź/Odrzuć i edytowanie/usuwanie wszystkich danych. |
+| manager@contoso.com | Yes               | Zatwierdź/Odrzuć i edytowanie/usuwanie własnych danych. |
+| admin@contoso.com   | Yes               | Zatwierdź/Odrzuć i edytowanie/usuwanie wszystkich danych. |
 
 Utwórz kontakt w przeglądarce administratora. Skopiuj adres URL do usunięcia, a następnie Edytuj z skontaktowanie się z administratorem. Wklej te linki do przeglądarki użytkownika testowego, aby sprawdzić, czy użytkownik testu nie może wykonywać te operacje.
 
@@ -355,7 +355,7 @@ Jeśli wystąpi błąd przy użyciu polecenia `dotnet aspnet-codegenerator razor
 
 ### <a name="seed-the-database"></a>Inicjowanie bazy danych
 
-Dodaj klasę [SeedData](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter3/Data/SeedData.cs) do folderu *danych* :
+Dodaj klasę [SeedData](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter3/Data/SeedData.cs) do folderu *danych* :
 
 [!code-csharp[](secure-data/samples/starter3/Data/SeedData.cs)]
 
@@ -417,11 +417,11 @@ W tym samouczku jest zaawansowany. Należy zapoznać się z:
 
 ## <a name="the-starter-and-completed-app"></a>Starter i ukończonej aplikacji
 
-[Pobierz](xref:index#how-to-download-a-sample) [ukończoną](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) aplikację. [Przetestuj](#test-the-completed-app) ukończoną aplikację, aby zapoznać się z jej funkcjami zabezpieczeń.
+[Pobierz](xref:index#how-to-download-a-sample) [ukończoną](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) aplikację. [Przetestuj](#test-the-completed-app) ukończoną aplikację, aby zapoznać się z jej funkcjami zabezpieczeń.
 
 ### <a name="the-starter-app"></a>Aplikację startową
 
-[Pobierz](xref:index#how-to-download-a-sample) aplikację [startową](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/) .
+[Pobierz](xref:index#how-to-download-a-sample) aplikację [startową](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/) .
 
 Uruchom aplikację, naciśnij link **ContactManager** i sprawdź, czy można tworzyć, edytować i usuwać kontakty.
 
@@ -603,7 +603,7 @@ Aktualizowanie modelu strony szczegółów:
 
 ## <a name="add-or-remove-a-user-to-a-role"></a>Dodawanie lub usuwanie użytkownika do roli
 
-Zobacz [ten problem](https://github.com/aspnet/AspNetCore.Docs/issues/8502) , aby uzyskać informacje na temat:
+Zobacz [ten problem](https://github.com/dotnet/AspNetCore.Docs/issues/8502) , aby uzyskać informacje na temat:
 
 * Usuwanie uprawnień z użytkownikiem. Na przykład wyciszenie użytkownika w aplikacji czatu.
 * Dodawanie uprawnień dla użytkownika.
@@ -638,8 +638,8 @@ Jeśli nie ustawiono jeszcze hasła dla kont użytkowników, użyj [Narzędzia M
 | Użytkownik                | Zasilany przez aplikację | Opcje                                  |
 | ------------------- | :---------------: | ---------------------------------------- |
 | test@example.com    | Nie                | Edytowanie/usuwanie własnych danych.                |
-| manager@contoso.com | Tak               | Zatwierdź/Odrzuć i edytowanie/usuwanie własnych danych. |
-| admin@contoso.com   | Tak               | Zatwierdź/Odrzuć i edytowanie/usuwanie wszystkich danych. |
+| manager@contoso.com | Yes               | Zatwierdź/Odrzuć i edytowanie/usuwanie własnych danych. |
+| admin@contoso.com   | Yes               | Zatwierdź/Odrzuć i edytowanie/usuwanie wszystkich danych. |
 
 Utwórz kontakt w przeglądarce administratora. Skopiuj adres URL do usunięcia, a następnie Edytuj z skontaktowanie się z administratorem. Wklej te linki do przeglądarki użytkownika testowego, aby sprawdzić, czy użytkownik testu nie może wykonywać te operacje.
 
@@ -678,7 +678,7 @@ Utwórz kontakt w przeglądarce administratora. Skopiuj adres URL do usunięcia,
 
 ### <a name="seed-the-database"></a>Inicjowanie bazy danych
 
-Dodaj klasę [SeedData](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2.1/Data/SeedData.cs) do folderu *danych* .
+Dodaj klasę [SeedData](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2.1/Data/SeedData.cs) do folderu *danych* .
 
 Wywołaj `SeedData.Initialize` z `Main`:
 

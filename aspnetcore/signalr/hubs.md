@@ -9,32 +9,32 @@ ms.date: 01/16/2020
 no-loc:
 - SignalR
 uid: signalr/hubs
-ms.openlocfilehash: e5bc12c5ccafe2b5273d72e6bde0f631ca043428
-ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
+ms.openlocfilehash: 54ffd8614c1cec4cfeba0878e910ed25fc6ba7d2
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294624"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662954"
 ---
-# <a name="use-hubs-in-opno-locsignalr-for-aspnet-core"></a>Użyj centrów w SignalR dla ASP.NET Core
+# <a name="use-hubs-in-signalr-for-aspnet-core"></a>Użyj centrów w sygnalizacji dla ASP.NET Core
 
 Autor [Rachel Appel](https://twitter.com/rachelappel) i [Jan Griffin](https://twitter.com/1kevgriff)
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/hubs/sample/ ) [(jak pobrać)](xref:index#how-to-download-a-sample)
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/hubs/sample/ ) [(jak pobrać)](xref:index#how-to-download-a-sample)
 
-## <a name="what-is-a-opno-locsignalr-hub"></a>Co to jest centrum SignalR
+## <a name="what-is-a-signalr-hub"></a>Co to jest centrum sygnałów
 
-Interfejs API centrów SignalR umożliwia wywoływanie metod na podłączonych klientach z serwera. W kodzie serwera należy zdefiniować metody, które są wywoływane przez klienta. W kodzie klienta należy zdefiniować metody, które są wywoływane z serwera programu. SignalR zajmuje się wszystkimi wszystkimi scenami, które umożliwiają komunikację między klientem i serwerem a klientem w czasie rzeczywistym.
+Interfejs API centrów sygnałów umożliwia wywoływanie metod na podłączonych klientach z serwera. W kodzie serwera należy zdefiniować metody, które są wywoływane przez klienta. W kodzie klienta należy zdefiniować metody, które są wywoływane z serwera programu. Program sygnalizujący zajmuje się wszystkimi wszystkimi scenami, które umożliwiają komunikację między klientem i serwerem a klientem w czasie rzeczywistym.
 
-## <a name="configure-opno-locsignalr-hubs"></a>Konfigurowanie centrów SignalR
+## <a name="configure-signalr-hubs"></a>Konfigurowanie centrów sygnałów
 
-Oprogramowanie pośredniczące SignalR wymaga pewnych usług, które są konfigurowane przez wywoływanie `services.AddSignalR`.
+Oprogramowanie pośredniczące sygnalizujące wymaga pewnych usług, które są konfigurowane przez wywołanie `services.AddSignalR`.
 
 [!code-csharp[Configure service](hubs/sample/startup.cs?range=38)]
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Podczas dodawania funkcji SignalR do aplikacji ASP.NET Core, skonfiguruj SignalR trasy, wywołując `endpoint.MapHub` w `Startup.Configure` wywołaniu metody `app.UseEndpoints`.
+Podczas dodawania funkcji sygnalizującego do aplikacji ASP.NET Core należy skonfigurować trasy sygnałów przez wywołanie `endpoint.MapHub` w `app.UseEndpoints` wywołaniu zwrotnym metody `Startup.Configure`.
 
 ```csharp
 app.UseRouting();
@@ -48,7 +48,7 @@ app.UseEndpoints(endpoints =>
 
 ::: moniker range="<= aspnetcore-2.2"
 
-Podczas dodawania funkcji SignalR do aplikacji ASP.NET Core, skonfiguruj SignalR trasy, wywołując `app.UseSignalR` w metodzie `Startup.Configure`.
+Podczas dodawania funkcji sygnału do aplikacji ASP.NET Core należy skonfigurować trasy sygnałów przez wywołanie `app.UseSignalR` w metodzie `Startup.Configure`.
 
 [!code-csharp[Configure routes to hubs](hubs/sample/startup.cs?range=57-60)]
 
@@ -68,7 +68,7 @@ public class ChatHub : Hub
 }
 ```
 
-Można określić typ zwracany i parametry, w tym typy złożone i tablice, tak jak w przypadku dowolnej C# metody. SignalR obsługuje serializacji i deserializacji złożonych obiektów i tablic w parametrach i zwracanych wartości.
+Można określić typ zwracany i parametry, w tym typy złożone i tablice, tak jak w przypadku dowolnej C# metody. Sygnalizujący obsługuje serializacji i deserializacji złożonych obiektów i tablic w parametrach i zwracanych wartości.
 
 > [!NOTE]
 > Centra są przejściowe:
@@ -82,8 +82,8 @@ Klasa `Hub` ma właściwość `Context`, która zawiera następujące właściwo
 
 | Właściwość | Opis |
 | ------ | ----------- |
-| `ConnectionId` | Pobiera unikatowy identyfikator połączenia przypisany przez SignalR. Istnieje jeden identyfikator połączenia dla każdego połączenia.|
-| `UserIdentifier` | Pobiera [Identyfikator użytkownika](xref:signalr/groups). Domyślnie SignalR używa `ClaimTypes.NameIdentifier` z `ClaimsPrincipal` skojarzonego z połączeniem jako identyfikatorem użytkownika. |
+| `ConnectionId` | Pobiera unikatowy identyfikator połączenia przypisany przez Sygnalizującer. Istnieje jeden identyfikator połączenia dla każdego połączenia.|
+| `UserIdentifier` | Pobiera [Identyfikator użytkownika](xref:signalr/groups). Domyślnie program sygnalizujący używa `ClaimTypes.NameIdentifier` z `ClaimsPrincipal` skojarzonego z połączeniem jako identyfikatorem użytkownika. |
 | `User` | Pobiera `ClaimsPrincipal` skojarzoną z bieżącym użytkownikiem. |
 | `Items` | Pobiera kolekcję klucz/wartość, której można użyć do udostępniania danych w zakresie tego połączenia. Dane można przechowywać w tej kolekcji i będzie ona trwała dla połączenia między różnymi wywołaniami metody centrum. |
 | `Features` | Pobiera kolekcję funkcji dostępnych w ramach połączenia. Na razie ta kolekcja nie jest wymagana w większości scenariuszy, więc nie jest jeszcze udokumentowana. |
@@ -197,8 +197,8 @@ Jeśli *masz wyjątkowe warunki, które chcesz* propagować do klienta, możesz 
 > [!NOTE]
 > SignalR tylko wysyła Właściwość `Message` wyjątku do klienta. Ślad stosu i inne właściwości tego wyjątku nie są dostępne dla klienta.
 
-## <a name="related-resources"></a>Zasoby pokrewne
+## <a name="related-resources"></a>Powiązane zasoby
 
 * [Wprowadzenie do ASP.NET Core SignalR](xref:signalr/introduction)
-* [Klient JavaScript](xref:signalr/javascript-client)
+* [Klient środowiska JavaScript](xref:signalr/javascript-client)
 * [Publikowanie na platformie Azure](xref:signalr/publish-to-azure-web-app)

@@ -1,18 +1,18 @@
 ---
-title: Interfejsów API ochrony danych różne platformy ASP.NET Core
+title: Różne interfejsy API ochrony danych ASP.NET Core
 author: rick-anderson
-description: Informacje o interfejsie ASP.NET Core Data Protection ISecret.
+description: Dowiedz się więcej o interfejsie ISecret ochrony danych ASP.NET Core.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/extensibility/misc-apis
 ms.openlocfilehash: 114cdd6209970e46b827e403fbe79b95692d0242
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902659"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666083"
 ---
-# <a name="miscellaneous-aspnet-core-data-protection-apis"></a>Interfejsów API ochrony danych różne platformy ASP.NET Core
+# <a name="miscellaneous-aspnet-core-data-protection-apis"></a>Różne interfejsy API ochrony danych ASP.NET Core
 
 <a name="data-protection-extensibility-mics-apis"></a>
 
@@ -21,7 +21,7 @@ ms.locfileid: "64902659"
 
 ## <a name="isecret"></a>ISecret
 
-`ISecret` Interfejs reprezentuje wartość wpisu tajnego, takich jak materiału klucza kryptograficznego. Zawiera on następujące powierzchni interfejsu API:
+Interfejs `ISecret` reprezentuje wartość tajną, taką jak materiał klucza kryptograficznego. Zawiera następującą powierzchnię interfejsu API:
 
 * `Length`: `int`
 
@@ -29,6 +29,6 @@ ms.locfileid: "64902659"
 
 * `WriteSecretIntoBuffer(ArraySegment<byte> buffer)`: `void`
 
-`WriteSecretIntoBuffer` Metoda wypełni dostarczony bufor o pierwotne wartości klucza tajnego. Przyczyna tego interfejsu API przyjmuje buforu jako parametr zamiast zwracanie `byte[]` bezpośrednio jest możliwość przypiąć obiektu buforu, ograniczenie klucza tajnego narażenia na moduł odśmiecania pamięci zarządzanej dzięki temu obiekt wywołujący.
+Metoda `WriteSecretIntoBuffer` wypełnia podany bufor wartością surowego klucza tajnego. Dlatego ten interfejs API przyjmuje bufor jako parametr zamiast zwracać `byte[]` bezpośrednio polega na tym, że obiekt wywołujący może przypiąć obiekt buforu, ograniczając tajne narażenie na zarządzane odzyskiwanie pamięci.
 
-`Secret` Typ jest konkretną implementację `ISecret` gdzie wartość wpisu tajnego jest przechowywany w pamięci w procesie. Na platformach Windows, wartość wpisu tajnego jest szyfrowany za pomocą [CryptProtectMemory](https://msdn.microsoft.com/library/windows/desktop/aa380262(v=vs.85).aspx).
+Typ `Secret` jest konkretną implementacją `ISecret`, gdzie wartość klucza tajnego jest przechowywana w pamięci w procesie. Na platformach systemu Windows wartość klucza tajnego jest szyfrowana za pośrednictwem [CryptProtectMemory](https://msdn.microsoft.com/library/windows/desktop/aa380262(v=vs.85).aspx).

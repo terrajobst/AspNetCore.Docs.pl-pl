@@ -1,28 +1,26 @@
 ---
 title: Kompresja odpowiedzi w ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Dowiedz się więcej o kompresji odpowiedzi i sposobach używania oprogramowania pośredniczącego kompresji odpowiedzi w aplikacjach ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: performance/response-compression
-ms.openlocfilehash: d37b05edd55ac0d3910855563b819114cf815b43
-ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
+ms.openlocfilehash: aae0b8d74fc424cc81c046e9042279856865bf6a
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114812"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78665978"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Kompresja odpowiedzi w ASP.NET Core
-
-Autor [Luke Latham](https://github.com/guardrex)
 
 ::: moniker range=">= aspnetcore-3.0"
 
 Przepustowość sieci jest ograniczonym zasobem. Zmniejszenie rozmiaru odpowiedzi zwykle zwiększa czas odpowiedzi aplikacji, często znacząco. Jednym ze sposobów zmniejszenia rozmiaru ładunku jest kompresowanie odpowiedzi aplikacji.
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-response-compression-middleware"></a>Kiedy używać oprogramowania pośredniczącego kompresji odpowiedzi
 
@@ -49,10 +47,10 @@ Gdy klient może przetwarzać skompresowaną zawartość, klient musi poinformow
 | `br`                            | Tak (domyślnie)        | [Format skompresowanych danych Brotli](https://tools.ietf.org/html/rfc7932) |
 | `deflate`                       | Nie                   | [WKLĘŚNIĘCIE — skompresowany format danych](https://tools.ietf.org/html/rfc1951) |
 | `exi`                           | Nie                   | [Wydajna wymiana XML](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
-| `gzip`                          | Tak                  | [Format pliku gzip](https://tools.ietf.org/html/rfc1952) |
-| `identity`                      | Tak                  | Identyfikator "bez kodowania": odpowiedź nie może być zaszyfrowana. |
+| `gzip`                          | Yes                  | [Format pliku gzip](https://tools.ietf.org/html/rfc1952) |
+| `identity`                      | Yes                  | Identyfikator "bez kodowania": odpowiedź nie może być zaszyfrowana. |
 | `pack200-gzip`                  | Nie                   | [Format transferu sieciowego dla archiwów języka Java](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
-| `*`                             | Tak                  | Wszystkie dostępne kodowanie zawartości nie jest jawnie wymagane |
+| `*`                             | Yes                  | Wszystkie dostępne kodowanie zawartości nie jest jawnie wymagane |
 
 Aby uzyskać więcej informacji, zapoznaj się z [listą oficjalnych kodowania zawartości organizacji Iana](https://www.iana.org/assignments/http-parameters/http-parameters.xml#http-content-coding-registry).
 
@@ -64,7 +62,7 @@ Algorytmy kompresji są uzależnione od kompromisu między szybkością kompresj
 
 W poniższej tabeli opisano nagłówki dotyczące żądania, wysyłania, buforowania i otrzymywania zawartości skompresowanej.
 
-| nagłówek             | Rola |
+| Nagłówek             | Rola |
 | ------------------ | ---- |
 | `Accept-Encoding`  | Wysyłany z klienta do serwera w celu wskazania schematów kodowania zawartości akceptowalnych dla klienta. |
 | `Content-Encoding` | Wysyłany z serwera do klienta, aby wskazać kodowanie zawartości ładunku. |
@@ -73,12 +71,12 @@ W poniższej tabeli opisano nagłówki dotyczące żądania, wysyłania, buforow
 | `Content-Type`     | Określa typ MIME zawartości. Każda odpowiedź powinna określać `Content-Type`. Oprogramowanie pośredniczące sprawdza tę wartość, aby określić, czy odpowiedź powinna być skompresowana. Oprogramowanie pośredniczące określa zestaw [domyślnych typów MIME](#mime-types) , które mogą być kodowane, ale można zastąpić lub dodać typy MIME. |
 | `Vary`             | W przypadku wysłania przez serwer z wartością `Accept-Encoding` do klientów i serwerów proxy, nagłówek `Vary` wskazuje na klienta lub serwer proxy, który powinien buforować (Zróżnicuj) odpowiedzi na podstawie wartości nagłówka `Accept-Encoding` żądania. Wynik zwrócenia zawartości z nagłówkiem `Vary: Accept-Encoding` polega na tym, że skompresowane i nieskompresowane odpowiedzi są buforowane osobno. |
 
-Poznaj funkcje oprogramowania pośredniczącego kompresji odpowiedzi z [przykładową aplikacją](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples). Przykład ilustruje:
+Poznaj funkcje oprogramowania pośredniczącego kompresji odpowiedzi z [przykładową aplikacją](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples). Przykład ilustruje:
 
 * Kompresja odpowiedzi aplikacji przy użyciu strumienia gzip i niestandardowych dostawców kompresji.
 * Jak dodać typ MIME do domyślnej listy typów MIME do kompresji.
 
-## <a name="package"></a>Package
+## <a name="package"></a>Pakiet
 
 Oprogramowanie pośredniczące kompresji odpowiedzi jest dostarczane przez pakiet [Microsoft. AspNetCore. ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) , który jest niejawnie uwzględniony w aplikacjach ASP.NET Core.
 
@@ -268,7 +266,7 @@ Użyj narzędzia, takiego jak [programu Fiddler](https://www.telerik.com/fiddler
 
 Przepustowość sieci jest ograniczonym zasobem. Zmniejszenie rozmiaru odpowiedzi zwykle zwiększa czas odpowiedzi aplikacji, często znacząco. Jednym ze sposobów zmniejszenia rozmiaru ładunku jest kompresowanie odpowiedzi aplikacji.
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-response-compression-middleware"></a>Kiedy używać oprogramowania pośredniczącego kompresji odpowiedzi
 
@@ -295,10 +293,10 @@ Gdy klient może przetwarzać skompresowaną zawartość, klient musi poinformow
 | `br`                            | Tak (domyślnie)        | [Format skompresowanych danych Brotli](https://tools.ietf.org/html/rfc7932) |
 | `deflate`                       | Nie                   | [WKLĘŚNIĘCIE — skompresowany format danych](https://tools.ietf.org/html/rfc1951) |
 | `exi`                           | Nie                   | [Wydajna wymiana XML](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
-| `gzip`                          | Tak                  | [Format pliku gzip](https://tools.ietf.org/html/rfc1952) |
-| `identity`                      | Tak                  | Identyfikator "bez kodowania": odpowiedź nie może być zaszyfrowana. |
+| `gzip`                          | Yes                  | [Format pliku gzip](https://tools.ietf.org/html/rfc1952) |
+| `identity`                      | Yes                  | Identyfikator "bez kodowania": odpowiedź nie może być zaszyfrowana. |
 | `pack200-gzip`                  | Nie                   | [Format transferu sieciowego dla archiwów języka Java](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
-| `*`                             | Tak                  | Wszystkie dostępne kodowanie zawartości nie jest jawnie wymagane |
+| `*`                             | Yes                  | Wszystkie dostępne kodowanie zawartości nie jest jawnie wymagane |
 
 Aby uzyskać więcej informacji, zapoznaj się z [listą oficjalnych kodowania zawartości organizacji Iana](https://www.iana.org/assignments/http-parameters/http-parameters.xml#http-content-coding-registry).
 
@@ -310,7 +308,7 @@ Algorytmy kompresji są uzależnione od kompromisu między szybkością kompresj
 
 W poniższej tabeli opisano nagłówki dotyczące żądania, wysyłania, buforowania i otrzymywania zawartości skompresowanej.
 
-| nagłówek             | Rola |
+| Nagłówek             | Rola |
 | ------------------ | ---- |
 | `Accept-Encoding`  | Wysyłany z klienta do serwera w celu wskazania schematów kodowania zawartości akceptowalnych dla klienta. |
 | `Content-Encoding` | Wysyłany z serwera do klienta, aby wskazać kodowanie zawartości ładunku. |
@@ -319,12 +317,12 @@ W poniższej tabeli opisano nagłówki dotyczące żądania, wysyłania, buforow
 | `Content-Type`     | Określa typ MIME zawartości. Każda odpowiedź powinna określać `Content-Type`. Oprogramowanie pośredniczące sprawdza tę wartość, aby określić, czy odpowiedź powinna być skompresowana. Oprogramowanie pośredniczące określa zestaw [domyślnych typów MIME](#mime-types) , które mogą być kodowane, ale można zastąpić lub dodać typy MIME. |
 | `Vary`             | W przypadku wysłania przez serwer z wartością `Accept-Encoding` do klientów i serwerów proxy, nagłówek `Vary` wskazuje na klienta lub serwer proxy, który powinien buforować (Zróżnicuj) odpowiedzi na podstawie wartości nagłówka `Accept-Encoding` żądania. Wynik zwrócenia zawartości z nagłówkiem `Vary: Accept-Encoding` polega na tym, że skompresowane i nieskompresowane odpowiedzi są buforowane osobno. |
 
-Poznaj funkcje oprogramowania pośredniczącego kompresji odpowiedzi z [przykładową aplikacją](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples). Przykład ilustruje:
+Poznaj funkcje oprogramowania pośredniczącego kompresji odpowiedzi z [przykładową aplikacją](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples). Przykład ilustruje:
 
 * Kompresja odpowiedzi aplikacji przy użyciu strumienia gzip i niestandardowych dostawców kompresji.
 * Jak dodać typ MIME do domyślnej listy typów MIME do kompresji.
 
-## <a name="package"></a>Package
+## <a name="package"></a>Pakiet
 
 Aby uwzględnić oprogramowanie pośredniczące w projekcie, Dodaj odwołanie do pakietu [Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app), który obejmuje pakiet [Microsoft. AspNetCore. ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) .
 
@@ -513,7 +511,7 @@ Użyj narzędzia, takiego jak [programu Fiddler](https://www.telerik.com/fiddler
 
 Przepustowość sieci jest ograniczonym zasobem. Zmniejszenie rozmiaru odpowiedzi zwykle zwiększa czas odpowiedzi aplikacji, często znacząco. Jednym ze sposobów zmniejszenia rozmiaru ładunku jest kompresowanie odpowiedzi aplikacji.
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-response-compression-middleware"></a>Kiedy używać oprogramowania pośredniczącego kompresji odpowiedzi
 
@@ -541,9 +539,9 @@ Gdy klient może przetwarzać skompresowaną zawartość, klient musi poinformow
 | `deflate`                       | Nie                   | [WKLĘŚNIĘCIE — skompresowany format danych](https://tools.ietf.org/html/rfc1951) |
 | `exi`                           | Nie                   | [Wydajna wymiana XML](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
 | `gzip`                          | Tak (domyślnie)        | [Format pliku gzip](https://tools.ietf.org/html/rfc1952) |
-| `identity`                      | Tak                  | Identyfikator "bez kodowania": odpowiedź nie może być zaszyfrowana. |
+| `identity`                      | Yes                  | Identyfikator "bez kodowania": odpowiedź nie może być zaszyfrowana. |
 | `pack200-gzip`                  | Nie                   | [Format transferu sieciowego dla archiwów języka Java](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
-| `*`                             | Tak                  | Wszystkie dostępne kodowanie zawartości nie jest jawnie wymagane |
+| `*`                             | Yes                  | Wszystkie dostępne kodowanie zawartości nie jest jawnie wymagane |
 
 Aby uzyskać więcej informacji, zapoznaj się z [listą oficjalnych kodowania zawartości organizacji Iana](https://www.iana.org/assignments/http-parameters/http-parameters.xml#http-content-coding-registry).
 
@@ -555,7 +553,7 @@ Algorytmy kompresji są uzależnione od kompromisu między szybkością kompresj
 
 W poniższej tabeli opisano nagłówki dotyczące żądania, wysyłania, buforowania i otrzymywania zawartości skompresowanej.
 
-| nagłówek             | Rola |
+| Nagłówek             | Rola |
 | ------------------ | ---- |
 | `Accept-Encoding`  | Wysyłany z klienta do serwera w celu wskazania schematów kodowania zawartości akceptowalnych dla klienta. |
 | `Content-Encoding` | Wysyłany z serwera do klienta, aby wskazać kodowanie zawartości ładunku. |
@@ -564,12 +562,12 @@ W poniższej tabeli opisano nagłówki dotyczące żądania, wysyłania, buforow
 | `Content-Type`     | Określa typ MIME zawartości. Każda odpowiedź powinna określać `Content-Type`. Oprogramowanie pośredniczące sprawdza tę wartość, aby określić, czy odpowiedź powinna być skompresowana. Oprogramowanie pośredniczące określa zestaw [domyślnych typów MIME](#mime-types) , które mogą być kodowane, ale można zastąpić lub dodać typy MIME. |
 | `Vary`             | W przypadku wysłania przez serwer z wartością `Accept-Encoding` do klientów i serwerów proxy, nagłówek `Vary` wskazuje na klienta lub serwer proxy, który powinien buforować (Zróżnicuj) odpowiedzi na podstawie wartości nagłówka `Accept-Encoding` żądania. Wynik zwrócenia zawartości z nagłówkiem `Vary: Accept-Encoding` polega na tym, że skompresowane i nieskompresowane odpowiedzi są buforowane osobno. |
 
-Poznaj funkcje oprogramowania pośredniczącego kompresji odpowiedzi z [przykładową aplikacją](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples). Przykład ilustruje:
+Poznaj funkcje oprogramowania pośredniczącego kompresji odpowiedzi z [przykładową aplikacją](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples). Przykład ilustruje:
 
 * Kompresja odpowiedzi aplikacji przy użyciu strumienia gzip i niestandardowych dostawców kompresji.
 * Jak dodać typ MIME do domyślnej listy typów MIME do kompresji.
 
-## <a name="package"></a>Package
+## <a name="package"></a>Pakiet
 
 Aby uwzględnić oprogramowanie pośredniczące w projekcie, Dodaj odwołanie do pakietu [Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app), który obejmuje pakiet [Microsoft. AspNetCore. ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) .
 

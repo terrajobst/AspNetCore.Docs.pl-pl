@@ -1,22 +1,22 @@
 ---
 title: Implementacja serwera sieci Web Kestrel w ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Dowiedz się więcej na temat Kestrel, międzyplatformowego serwera sieci Web dla ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/10/2020
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: d026e1b6fc1a9ecc66014eacb8eb0b46dd9353ec
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 8d96118800c47b2c551726342bf4cfba9671a09e
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77171733"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667371"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci Web Kestrel w ASP.NET Core
 
-Autorzy [Dykstra](https://github.com/tdykstra), [Krzysztof Ross](https://github.com/Tratcher), [Stephen](https://twitter.com/halter73), i [Luke Latham](https://github.com/guardrex)
+Autorzy [Dykstra](https://github.com/tdykstra), [Krzysztof Ross](https://github.com/Tratcher)i [Stephen](https://twitter.com/halter73)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -33,7 +33,7 @@ Kestrel obsługuje następujące scenariusze:
 
 Kestrel jest obsługiwana na wszystkich platformach i wersjach obsługiwanych przez platformę .NET Core.
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="http2-support"></a>Obsługa protokołu HTTP/2
 
@@ -986,7 +986,7 @@ Kestrel obsługuje następujące scenariusze:
 
 Kestrel jest obsługiwana na wszystkich platformach i wersjach obsługiwanych przez platformę .NET Core.
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="http2-support"></a>Obsługa protokołu HTTP/2
 
@@ -1934,7 +1934,7 @@ Kestrel obsługuje następujące scenariusze:
 
 Kestrel jest obsługiwana na wszystkich platformach i wersjach obsługiwanych przez platformę .NET Core.
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-kestrel-with-a-reverse-proxy"></a>Kiedy używać Kestrel z zwrotnym serwerem proxy
 
@@ -2714,6 +2714,7 @@ Programowe filtrowanie hosta jest domyślnie wyłączone. Aby włączyć oprogra
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
+* W przypadku korzystania z gniazd systemu UNIX w systemie Linux gniazdo nie jest automatycznie usuwane podczas zamykania aplikacji. Aby uzyskać więcej informacji, zobacz [ten problem](https://github.com/dotnet/aspnetcore/issues/14134)w serwisie GitHub.
 * <xref:test/troubleshoot>
 * <xref:security/enforcing-ssl>
 * <xref:host-and-deploy/proxy-load-balancer>

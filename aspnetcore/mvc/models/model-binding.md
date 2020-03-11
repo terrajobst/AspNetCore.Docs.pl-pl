@@ -6,12 +6,12 @@ ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: riande
 ms.date: 12/18/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: a389afe46636155e4703677d362d879a18ea5864
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 19580768679f30131683717792252c03aade68f9
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829208"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666279"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Powiązanie modelu w ASP.NET Core
 
@@ -19,7 +19,7 @@ ms.locfileid: "75829208"
 
 W tym artykule wyjaśniono, co to jest powiązanie modelu, jak to działa i jak dostosować jego zachowanie.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/model-binding/samples) ([jak pobrać](xref:index#how-to-download-a-sample)).
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/model-binding/samples) ([jak pobrać](xref:index#how-to-download-a-sample)).
 
 ## <a name="what-is-model-binding"></a>Co to jest powiązanie modelu
 
@@ -81,7 +81,7 @@ Domyślnie właściwości nie są powiązane z żądaniami HTTP GET. Zazwyczaj w
 
 [!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Pages/Instructors/Index.cshtml.cs?name=snippet_SupportsGet)]
 
-## <a name="sources"></a>Źródła
+## <a name="sources"></a>Źródeł
 
 Domyślnie powiązanie modelu pobiera dane w postaci par klucz-wartość z następujących źródeł w żądaniu HTTP:
 
@@ -153,7 +153,7 @@ Dane źródłowe są dostarczane do systemu powiązań modelu przez *dostawców 
 * Utwórz klasę, która implementuje `IValueProviderFactory`.
 * Zarejestruj klasę fabryki w `Startup.ConfigureServices`.
 
-Przykładowa aplikacja zawiera [dostawcę wartości](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProvider.cs) i przykład [fabryki](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProviderFactory.cs) , który pobiera wartości z plików cookie. Oto kod rejestracyjny w `Startup.ConfigureServices`:
+Przykładowa aplikacja zawiera [dostawcę wartości](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProvider.cs) i przykład [fabryki](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProviderFactory.cs) , który pobiera wartości z plików cookie. Oto kod rejestracyjny w `Startup.ConfigureServices`:
 
 [!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=4)]
 
@@ -195,17 +195,17 @@ Typy proste, które tworzą spinacz modelu mogą konwertować ciągi źródłowe
 * [Wartość logiczna](xref:System.ComponentModel.BooleanConverter)
 * [Byte, bajty](xref:System.ComponentModel.ByteConverter) [](xref:System.ComponentModel.SByteConverter)
 * [Delikatn](xref:System.ComponentModel.CharConverter)
-* [DateTime](xref:System.ComponentModel.DateTimeConverter)
+* [Datę](xref:System.ComponentModel.DateTimeConverter)
 * [DateTimeOffset](xref:System.ComponentModel.DateTimeOffsetConverter)
-* [Decimal](xref:System.ComponentModel.DecimalConverter)
+* [Dokładności](xref:System.ComponentModel.DecimalConverter)
 * [Double](xref:System.ComponentModel.DoubleConverter)
-* [Enum](xref:System.ComponentModel.EnumConverter)
+* [Podstawowe](xref:System.ComponentModel.EnumConverter)
 * [Ident](xref:System.ComponentModel.GuidConverter)
 * [Int16](xref:System.ComponentModel.Int16Converter), [Int32](xref:System.ComponentModel.Int32Converter), [Int64](xref:System.ComponentModel.Int64Converter)
-* [Single](xref:System.ComponentModel.SingleConverter)
-* [TimeSpan](xref:System.ComponentModel.TimeSpanConverter)
+* [Wiersz](xref:System.ComponentModel.SingleConverter)
+* [Czasu](xref:System.ComponentModel.TimeSpanConverter)
 * [UInt16](xref:System.ComponentModel.UInt16Converter), [UInt32](xref:System.ComponentModel.UInt32Converter), [UInt64](xref:System.ComponentModel.UInt64Converter)
-* [Identyfikator URI](xref:System.UriTypeConverter)
+* [Adresu](xref:System.UriTypeConverter)
 * [Wersja](xref:System.ComponentModel.VersionConverter)
 
 ## <a name="complex-types"></a>Typy złożone
@@ -412,7 +412,7 @@ Istnieją specjalne typy danych, które może obsłużyć powiązanie modelu.
 
 Przekazany plik uwzględniony w żądaniu HTTP.  Obsługiwane są również `IEnumerable<IFormFile>` dla wielu plików.
 
-### <a name="cancellationtoken"></a>CancellationToken
+### <a name="cancellationtoken"></a>cancellationToken
 
 Służy do anulowania działania w kontrolerach asynchronicznych.
 
@@ -505,7 +505,7 @@ Nazwa tego atrybutu jest zgodna ze wzorcem atrybutów powiązania modelu, które
 
 W tym artykule wyjaśniono, co to jest powiązanie modelu, jak to działa i jak dostosować jego zachowanie.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/model-binding/samples) ([jak pobrać](xref:index#how-to-download-a-sample)).
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/model-binding/samples) ([jak pobrać](xref:index#how-to-download-a-sample)).
 
 ## <a name="what-is-model-binding"></a>Co to jest powiązanie modelu
 
@@ -567,7 +567,7 @@ Domyślnie właściwości nie są powiązane z żądaniami HTTP GET. Zazwyczaj w
 
 [!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Pages/Instructors/Index.cshtml.cs?name=snippet_SupportsGet)]
 
-## <a name="sources"></a>Źródła
+## <a name="sources"></a>Źródeł
 
 Domyślnie powiązanie modelu pobiera dane w postaci par klucz-wartość z następujących źródeł w żądaniu HTTP:
 
@@ -639,7 +639,7 @@ Dane źródłowe są dostarczane do systemu powiązań modelu przez *dostawców 
 * Utwórz klasę, która implementuje `IValueProviderFactory`.
 * Zarejestruj klasę fabryki w `Startup.ConfigureServices`.
 
-Przykładowa aplikacja zawiera [dostawcę wartości](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProvider.cs) i przykład [fabryki](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProviderFactory.cs) , który pobiera wartości z plików cookie. Oto kod rejestracyjny w `Startup.ConfigureServices`:
+Przykładowa aplikacja zawiera [dostawcę wartości](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProvider.cs) i przykład [fabryki](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProviderFactory.cs) , który pobiera wartości z plików cookie. Oto kod rejestracyjny w `Startup.ConfigureServices`:
 
 [!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=3)]
 
@@ -681,17 +681,17 @@ Typy proste, które tworzą spinacz modelu mogą konwertować ciągi źródłowe
 * [Wartość logiczna](xref:System.ComponentModel.BooleanConverter)
 * [Byte, bajty](xref:System.ComponentModel.ByteConverter) [](xref:System.ComponentModel.SByteConverter)
 * [Delikatn](xref:System.ComponentModel.CharConverter)
-* [DateTime](xref:System.ComponentModel.DateTimeConverter)
+* [Datę](xref:System.ComponentModel.DateTimeConverter)
 * [DateTimeOffset](xref:System.ComponentModel.DateTimeOffsetConverter)
-* [Decimal](xref:System.ComponentModel.DecimalConverter)
+* [Dokładności](xref:System.ComponentModel.DecimalConverter)
 * [Double](xref:System.ComponentModel.DoubleConverter)
-* [Enum](xref:System.ComponentModel.EnumConverter)
+* [Podstawowe](xref:System.ComponentModel.EnumConverter)
 * [Ident](xref:System.ComponentModel.GuidConverter)
 * [Int16](xref:System.ComponentModel.Int16Converter), [Int32](xref:System.ComponentModel.Int32Converter), [Int64](xref:System.ComponentModel.Int64Converter)
-* [Single](xref:System.ComponentModel.SingleConverter)
-* [TimeSpan](xref:System.ComponentModel.TimeSpanConverter)
+* [Wiersz](xref:System.ComponentModel.SingleConverter)
+* [Czasu](xref:System.ComponentModel.TimeSpanConverter)
 * [UInt16](xref:System.ComponentModel.UInt16Converter), [UInt32](xref:System.ComponentModel.UInt32Converter), [UInt64](xref:System.ComponentModel.UInt64Converter)
-* [Identyfikator URI](xref:System.UriTypeConverter)
+* [Adresu](xref:System.UriTypeConverter)
 * [Wersja](xref:System.ComponentModel.VersionConverter)
 
 ## <a name="complex-types"></a>Typy złożone
@@ -898,7 +898,7 @@ Istnieją specjalne typy danych, które może obsłużyć powiązanie modelu.
 
 Przekazany plik uwzględniony w żądaniu HTTP.  Obsługiwane są również `IEnumerable<IFormFile>` dla wielu plików.
 
-### <a name="cancellationtoken"></a>CancellationToken
+### <a name="cancellationtoken"></a>cancellationToken
 
 Służy do anulowania działania w kontrolerach asynchronicznych.
 

@@ -5,12 +5,12 @@ description: W tym samouczku pokazano, jak zainstalować i używać narzędzia o
 ms.author: riande
 ms.date: 05/31/2018
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: 053c98ba032c85b61776d5b5644c5575cd4f890c
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: bedb3e6a65839db915ca7bc821a267a14d34bf30
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829000"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667413"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Opracowywanie aplikacji ASP.NET Core przy użyciu obserwatora plików
 
@@ -20,7 +20,7 @@ Autorzy [Rick Anderson](https://twitter.com/RickAndMSFT) i [Victor Hurdugaci](ht
 
 W tym samouczku jest wykorzystywany istniejący internetowy interfejs API z dwoma punktami końcowymi: jeden, który zwraca sumę i jeden z nich zwraca produkt. Metoda produktu zawiera usterkę, która została rozwiązana w tym samouczku.
 
-Pobierz [przykładową aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample). Składa się z dwóch projektów: *webapp* (ASP.NET Core Web API) i *WebAppTests* (testy jednostkowe dla internetowego interfejsu API).
+Pobierz [przykładową aplikację](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample). Składa się z dwóch projektów: *webapp* (ASP.NET Core Web API) i *WebAppTests* (testy jednostkowe dla internetowego interfejsu API).
 
 W powłoce poleceń przejdź do folderu *webapp* . Uruchom następujące polecenie:
 
@@ -41,7 +41,7 @@ Now listening on: http://localhost:5000
 Application started. Press Ctrl+C to shut down.
 ```
 
-W przeglądarce internetowej przejdź do adresu `http://localhost:<port number>/api/math/sum?a=4&b=5`. Powinien zostać wyświetlony wynik `9`.
+W przeglądarce sieci Web przejdź do `http://localhost:<port number>/api/math/sum?a=4&b=5`. Powinien zostać wyświetlony wynik `9`.
 
 Przejdź do interfejsu API produktu (`http://localhost:<port number>/api/math/product?a=4&b=5`). Zwraca `9`, nie `20` zgodnie z oczekiwaniami. Ten problem został rozwiązany w dalszej części tego samouczka.
 
@@ -155,8 +155,8 @@ Więcej elementów można dodać do listy obserwacje, edytując plik *csproj* . 
 `dotnet-watch` nie jest ograniczony C# do projektów. Niestandardowe projekty czujki mogą być tworzone w celu obsługi różnych scenariuszy. Rozważmy następujący układ projektu:
 
 * **badan**
-  * *UnitTests/UnitTests.csproj*
-  * *IntegrationTests/IntegrationTests.csproj*
+  * *UnitTests/UnitTests. csproj*
+  * *IntegrationTests/IntegrationTests. csproj*
 
 Jeśli celem jest oglądanie obu projektów, Utwórz niestandardowy plik projektu, który został skonfigurowany do oglądania obu projektów:
 

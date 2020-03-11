@@ -6,15 +6,15 @@ ms.author: riande
 ms.date: 12/05/2019
 uid: mvc/controllers/actions
 ms.openlocfilehash: 715a73863513870d1cbd522e75013d41830da1e7
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881106"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662793"
 ---
 # <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>Obsługa żądań z kontrolerami w ASP.NET Core MVC
 
-Przez [Steve Smith](https://ardalis.com/) i [Scott Addie](https://github.com/scottaddie)
+[Steve Kowalski](https://ardalis.com/) i [Scott Addie](https://github.com/scottaddie)
 
 Kontrolery, akcje i wyniki akcji są podstawową częścią sposobu, w jaki deweloperzy tworzą aplikacje przy użyciu ASP.NET Core MVC.
 
@@ -77,7 +77,7 @@ Większość metod pomocniczych w tej kategorii zawiera właściwość `ContentT
 
 W tej kategorii istnieją dwa typy wyników: [Wyświetl](xref:mvc/views/overview) i [sformatowaną odpowiedź](xref:web-api/advanced/formatting).
 
-* **Widok**
+* **Widokiem**
 
     Ten typ zwraca widok, który używa modelu do renderowania kodu HTML. Na przykład `return View(customer);` przekazuje model do widoku dla powiązania danych.
 

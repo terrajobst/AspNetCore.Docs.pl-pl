@@ -1,30 +1,28 @@
 ---
 title: Aktywacja oprogramowania pośredniczącego za pomocą kontenera innej firmy w ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Dowiedz się, jak używać silnego typu oprogramowania pośredniczącego z aktywacją opartą na fabryce i kontenerem innej firmy w ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 09/22/2019
 uid: fundamentals/middleware/extensibility-third-party-container
-ms.openlocfilehash: e54a2bd366457fa2d898b7ee26e95021aec5389b
-ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
+ms.openlocfilehash: a5c5bf6dff6ef795add075df932dd625129ef793
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71187095"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663136"
 ---
 # <a name="middleware-activation-with-a-third-party-container-in-aspnet-core"></a>Aktywacja oprogramowania pośredniczącego za pomocą kontenera innej firmy w ASP.NET Core
 
-Przez [Luke Latham](https://github.com/guardrex)
-
 ::: moniker range=">= aspnetcore-3.0"
 
-W tym artykule przedstawiono sposób użycia <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> i <xref:Microsoft.AspNetCore.Http.IMiddleware> jako punktu rozszerzalności aktywacji [oprogramowania pośredniczącego](xref:fundamentals/middleware/index) przy użyciu kontenera innej firmy. Aby uzyskać informacje wprowadzające `IMiddleware`w systemach <xref:fundamentals/middleware/extensibility> `IMiddlewareFactory` i, zobacz.
+W tym artykule pokazano, jak używać <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> i <xref:Microsoft.AspNetCore.Http.IMiddleware> jako punktu rozszerzalności dla aktywacji [oprogramowania pośredniczącego](xref:fundamentals/middleware/index) za pomocą kontenera innej firmy. Aby uzyskać informacje wprowadzające dotyczące `IMiddlewareFactory` i `IMiddleware`, zobacz <xref:fundamentals/middleware/extensibility>.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility-third-party-container/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility-third-party-container/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
 
-Przykładowa aplikacja pokazuje aktywację oprogramowania pośredniczącego przez `IMiddlewareFactory` `SimpleInjectorMiddlewareFactory`implementację. Przykład używa elementu prostego wtrysku zależności [iniektora](https://simpleinjector.org) (di).
+Przykładowa aplikacja pokazuje aktywację oprogramowania pośredniczącego przez implementację `IMiddlewareFactory`, `SimpleInjectorMiddlewareFactory`. Przykład używa elementu prostego wtrysku zależności [iniektora](https://simpleinjector.org) (di).
 
 Implementacja przykładowego oprogramowania pośredniczącego rejestruje wartość podaną przez parametr ciągu zapytania (`key`). Oprogramowanie pośredniczące używa wstrzykniętego kontekstu bazy danych (usługi w zakresie) do rejestrowania wartości ciągu zapytania w bazie danych w pamięci.
 
@@ -33,17 +31,17 @@ Implementacja przykładowego oprogramowania pośredniczącego rejestruje wartoś
 
 ## <a name="imiddlewarefactory"></a>IMiddlewareFactory
 
-<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory>zapewnia metody tworzenia oprogramowania pośredniczącego.
+<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> udostępnia metody tworzenia oprogramowania pośredniczącego.
 
-W przykładowej aplikacji jest zaimplementowana fabryka oprogramowania pośredniczącego w celu `SimpleInjectorActivatedMiddleware` utworzenia wystąpienia. Fabryka programów pośredniczących używa prostego kontenera iniektora do rozpoznawania oprogramowania pośredniczącego:
+W przykładowej aplikacji jest zaimplementowana fabryka oprogramowania pośredniczącego w celu utworzenia wystąpienia `SimpleInjectorActivatedMiddleware`. Fabryka programów pośredniczących używa prostego kontenera iniektora do rozpoznawania oprogramowania pośredniczącego:
 
 [!code-csharp[](extensibility-third-party-container/samples/3.x/SampleApp/Middleware/SimpleInjectorMiddlewareFactory.cs?name=snippet1&highlight=5-8,12)]
 
 ## <a name="imiddleware"></a>IMiddleware
 
-<xref:Microsoft.AspNetCore.Http.IMiddleware>definiuje oprogramowanie pośredniczące dla potoku żądania aplikacji.
+<xref:Microsoft.AspNetCore.Http.IMiddleware> definiuje oprogramowanie pośredniczące dla potoku żądania aplikacji.
 
-Oprogramowanie pośredniczące aktywowane przez `IMiddlewareFactory` implementację (*oprogramowanie pośredniczące/SimpleInjectorActivatedMiddleware. cs*):
+Oprogramowanie pośredniczące aktywowane przez implementację `IMiddlewareFactory` (*oprogramowanie pośredniczące/SimpleInjectorActivatedMiddleware. cs*):
 
 [!code-csharp[](extensibility-third-party-container/samples/3.x/SampleApp/Middleware/SimpleInjectorActivatedMiddleware.cs?name=snippet1)]
 
@@ -51,7 +49,7 @@ Utworzono rozszerzenie dla oprogramowania pośredniczącego (*oprogramowanie po�
 
 [!code-csharp[](extensibility-third-party-container/samples/3.x/SampleApp/Middleware/MiddlewareExtensions.cs?name=snippet1)]
 
-`Startup.ConfigureServices`należy wykonać kilka zadań:
+`Startup.ConfigureServices` musi wykonać kilka zadań:
 
 * Skonfiguruj prosty kontener iniektora.
 * Zarejestruj fabrykę i oprogramowanie pośredniczące.
@@ -67,11 +65,11 @@ Oprogramowanie pośredniczące jest zarejestrowane w potoku przetwarzania żąda
 
 ::: moniker range="< aspnetcore-3.0"
 
-W tym artykule przedstawiono sposób użycia <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> i <xref:Microsoft.AspNetCore.Http.IMiddleware> jako punktu rozszerzalności aktywacji [oprogramowania pośredniczącego](xref:fundamentals/middleware/index) przy użyciu kontenera innej firmy. Aby uzyskać informacje wprowadzające `IMiddleware`w systemach <xref:fundamentals/middleware/extensibility> `IMiddlewareFactory` i, zobacz.
+W tym artykule pokazano, jak używać <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> i <xref:Microsoft.AspNetCore.Http.IMiddleware> jako punktu rozszerzalności dla aktywacji [oprogramowania pośredniczącego](xref:fundamentals/middleware/index) za pomocą kontenera innej firmy. Aby uzyskać informacje wprowadzające dotyczące `IMiddlewareFactory` i `IMiddleware`, zobacz <xref:fundamentals/middleware/extensibility>.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility-third-party-container/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility-third-party-container/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
 
-Przykładowa aplikacja pokazuje aktywację oprogramowania pośredniczącego przez `IMiddlewareFactory` `SimpleInjectorMiddlewareFactory`implementację. Przykład używa elementu prostego wtrysku zależności [iniektora](https://simpleinjector.org) (di).
+Przykładowa aplikacja pokazuje aktywację oprogramowania pośredniczącego przez implementację `IMiddlewareFactory`, `SimpleInjectorMiddlewareFactory`. Przykład używa elementu prostego wtrysku zależności [iniektora](https://simpleinjector.org) (di).
 
 Implementacja przykładowego oprogramowania pośredniczącego rejestruje wartość podaną przez parametr ciągu zapytania (`key`). Oprogramowanie pośredniczące używa wstrzykniętego kontekstu bazy danych (usługi w zakresie) do rejestrowania wartości ciągu zapytania w bazie danych w pamięci.
 
@@ -80,17 +78,17 @@ Implementacja przykładowego oprogramowania pośredniczącego rejestruje wartoś
 
 ## <a name="imiddlewarefactory"></a>IMiddlewareFactory
 
-<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory>zapewnia metody tworzenia oprogramowania pośredniczącego.
+<xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> udostępnia metody tworzenia oprogramowania pośredniczącego.
 
-W przykładowej aplikacji jest zaimplementowana fabryka oprogramowania pośredniczącego w celu `SimpleInjectorActivatedMiddleware` utworzenia wystąpienia. Fabryka programów pośredniczących używa prostego kontenera iniektora do rozpoznawania oprogramowania pośredniczącego:
+W przykładowej aplikacji jest zaimplementowana fabryka oprogramowania pośredniczącego w celu utworzenia wystąpienia `SimpleInjectorActivatedMiddleware`. Fabryka programów pośredniczących używa prostego kontenera iniektora do rozpoznawania oprogramowania pośredniczącego:
 
 [!code-csharp[](extensibility-third-party-container/samples/2.x/SampleApp/Middleware/SimpleInjectorMiddlewareFactory.cs?name=snippet1&highlight=5-8,12)]
 
 ## <a name="imiddleware"></a>IMiddleware
 
-<xref:Microsoft.AspNetCore.Http.IMiddleware>definiuje oprogramowanie pośredniczące dla potoku żądania aplikacji.
+<xref:Microsoft.AspNetCore.Http.IMiddleware> definiuje oprogramowanie pośredniczące dla potoku żądania aplikacji.
 
-Oprogramowanie pośredniczące aktywowane przez `IMiddlewareFactory` implementację (*oprogramowanie pośredniczące/SimpleInjectorActivatedMiddleware. cs*):
+Oprogramowanie pośredniczące aktywowane przez implementację `IMiddlewareFactory` (*oprogramowanie pośredniczące/SimpleInjectorActivatedMiddleware. cs*):
 
 [!code-csharp[](extensibility-third-party-container/samples/2.x/SampleApp/Middleware/SimpleInjectorActivatedMiddleware.cs?name=snippet1)]
 
@@ -98,7 +96,7 @@ Utworzono rozszerzenie dla oprogramowania pośredniczącego (*oprogramowanie po�
 
 [!code-csharp[](extensibility-third-party-container/samples/2.x/SampleApp/Middleware/MiddlewareExtensions.cs?name=snippet1)]
 
-`Startup.ConfigureServices`należy wykonać kilka zadań:
+`Startup.ConfigureServices` musi wykonać kilka zadań:
 
 * Skonfiguruj prosty kontener iniektora.
 * Zarejestruj fabrykę i oprogramowanie pośredniczące.

@@ -1,21 +1,21 @@
-# <a name="aspnet-core-built-in-tag-helpers-sample"></a>Przykładowe pomocników wbudowany Tag platformy ASP.NET Core
+# <a name="aspnet-core-built-in-tag-helpers-sample"></a>Przykład wbudowanych pomocników tagów ASP.NET Core
 
-W tym przykładzie pokazano odmiany wbudowanych pomocników tagów za pomocą MVC i stron Razor:
+Ten przykład ilustruje różnice wbudowanych pomocników tagów z zarówno MVC, jak i Razor Pages:
 
 - [Pomocnik tagu kotwicy](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper)
-  - [asp-action](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-action)
-  - [asp-all-route-data](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-all-route-data)
-  - [asp-area](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-area)
-  - [asp-controller](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-controller)
-  - [asp-fragment](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-fragment)
-  - [asp-host](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-host)
-  - [asp-page](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-page)
-  - [asp-page-handler](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-page-handler)
-  - [asp-protocol](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-protocol)
-  - [asp-route](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-route)
-  - [asp-route-{value}](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-route-value)
+  - [ASP — akcja](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-action)
+  - [ASP — wszystkie trasy — dane](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-all-route-data)
+  - [obszar ASP](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-area)
+  - [ASP-Controller](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-controller)
+  - [ASP — fragment](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-fragment)
+  - [ASP — Host](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-host)
+  - [ASP — Strona](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-page)
+  - [ASP — obsługa stron](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-page-handler)
+  - [ASP — protokół](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-protocol)
+  - [ASP — Route](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-route)
+  - [ASP-Route-{Value}](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper#asp-route-value)
 - [Pomocnik tagu częściowego](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper)
   - [for](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper#for)
-  - [model](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper#model)
-  - [name](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper#name)
-  - [view-data](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper#view-data)
+  - [wzorów](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper#model)
+  - [Nazwij](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper#name)
+  - [Widok — dane](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper#view-data)

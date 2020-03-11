@@ -1,28 +1,28 @@
 ---
 title: Wstrzykiwanie zależności w ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Dowiedz się, w jaki sposób ASP.NET Core implementuje iniekcję zależności i jak z niej korzystać.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/05/2020
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 7c0789dafcb7dfacd15ac448a39bad94649963c8
-ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
+ms.openlocfilehash: 3080d1a19bb48996e2bc7a3ce824f48bfc1bcbce
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77044920"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663766"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Wstrzykiwanie zależności w ASP.NET Core
 
-[Steve Kowalski](https://ardalis.com/), [Scott Addie](https://scottaddie.com)i [Luke Latham](https://github.com/guardrex)
+[Steve Kowalski](https://ardalis.com/) i [Scott Addie](https://scottaddie.com)
 
 ASP.NET Core obsługuje wzorzec projektowania oprogramowania dla iniekcji zależności, który jest techniką do osiągnięcia [niewersji kontroli (IOC)](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) między klasami i ich zależnościami.
 
 Aby uzyskać więcej informacji specyficznych dla iniekcji zależności w kontrolerach MVC, zobacz <xref:mvc/controllers/dependency-injection>.
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="overview-of-dependency-injection"></a>Przegląd iniekcji zależności
 
@@ -72,7 +72,7 @@ Iniekcja zależności eliminuje te problemy w następujący sposób:
 * Rejestracja zależności w kontenerze usługi. ASP.NET Core zawiera wbudowany kontener usługi <xref:System.IServiceProvider>. Usługi są zarejestrowane w metodzie `Startup.ConfigureServices` aplikacji.
 * *Iniekcja* usługi do konstruktora klasy, w której jest używana. Struktura przejmuje odpowiedzialność za utworzenie wystąpienia zależności i jego likwidację, gdy nie jest już potrzebny.
 
-W [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples)interfejs `IMyDependency` definiuje metodę dostarczaną przez usługę do aplikacji:
+W [przykładowej aplikacji](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples)interfejs `IMyDependency` definiuje metodę dostarczaną przez usługę do aplikacji:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -187,19 +187,19 @@ Metoda `Startup.ConfigureServices` jest odpowiedzialna za Definiowanie usług, z
 | Typ usługi | Okres istnienia |
 | ------------ | -------- |
 | <xref:Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory?displayProperty=fullName> | Przejściowe |
-| `IHostApplicationLifetime` | Pojedynczego |
-| `IWebHostEnvironment` | Pojedynczego |
-| <xref:Microsoft.AspNetCore.Hosting.IStartup?displayProperty=fullName> | Pojedynczego |
+| `IHostApplicationLifetime` | pojedynczego |
+| `IWebHostEnvironment` | pojedynczego |
+| <xref:Microsoft.AspNetCore.Hosting.IStartup?displayProperty=fullName> | pojedynczego |
 | <xref:Microsoft.AspNetCore.Hosting.IStartupFilter?displayProperty=fullName> | Przejściowe |
-| <xref:Microsoft.AspNetCore.Hosting.Server.IServer?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.AspNetCore.Hosting.Server.IServer?displayProperty=fullName> | pojedynczego |
 | <xref:Microsoft.AspNetCore.Http.IHttpContextFactory?displayProperty=fullName> | Przejściowe |
-| <xref:Microsoft.Extensions.Logging.ILogger`1?displayProperty=fullName> | Pojedynczego |
-| <xref:Microsoft.Extensions.Logging.ILoggerFactory?displayProperty=fullName> | Pojedynczego |
-| <xref:Microsoft.Extensions.ObjectPool.ObjectPoolProvider?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.Extensions.Logging.ILogger`1?displayProperty=fullName> | pojedynczego |
+| <xref:Microsoft.Extensions.Logging.ILoggerFactory?displayProperty=fullName> | pojedynczego |
+| <xref:Microsoft.Extensions.ObjectPool.ObjectPoolProvider?displayProperty=fullName> | pojedynczego |
 | <xref:Microsoft.Extensions.Options.IConfigureOptions`1?displayProperty=fullName> | Przejściowe |
-| <xref:Microsoft.Extensions.Options.IOptions`1?displayProperty=fullName> | Pojedynczego |
-| <xref:System.Diagnostics.DiagnosticSource?displayProperty=fullName> | Pojedynczego |
-| <xref:System.Diagnostics.DiagnosticListener?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.Extensions.Options.IOptions`1?displayProperty=fullName> | pojedynczego |
+| <xref:System.Diagnostics.DiagnosticSource?displayProperty=fullName> | pojedynczego |
+| <xref:System.Diagnostics.DiagnosticListener?displayProperty=fullName> | pojedynczego |
 
 ::: moniker-end
 
@@ -208,19 +208,19 @@ Metoda `Startup.ConfigureServices` jest odpowiedzialna za Definiowanie usług, z
 | Typ usługi | Okres istnienia |
 | ------------ | -------- |
 | <xref:Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory?displayProperty=fullName> | Przejściowe |
-| <xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime?displayProperty=fullName> | Pojedynczego |
-| <xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment?displayProperty=fullName> | Pojedynczego |
-| <xref:Microsoft.AspNetCore.Hosting.IStartup?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime?displayProperty=fullName> | pojedynczego |
+| <xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment?displayProperty=fullName> | pojedynczego |
+| <xref:Microsoft.AspNetCore.Hosting.IStartup?displayProperty=fullName> | pojedynczego |
 | <xref:Microsoft.AspNetCore.Hosting.IStartupFilter?displayProperty=fullName> | Przejściowe |
-| <xref:Microsoft.AspNetCore.Hosting.Server.IServer?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.AspNetCore.Hosting.Server.IServer?displayProperty=fullName> | pojedynczego |
 | <xref:Microsoft.AspNetCore.Http.IHttpContextFactory?displayProperty=fullName> | Przejściowe |
-| <xref:Microsoft.Extensions.Logging.ILogger`1?displayProperty=fullName> | Pojedynczego |
-| <xref:Microsoft.Extensions.Logging.ILoggerFactory?displayProperty=fullName> | Pojedynczego |
-| <xref:Microsoft.Extensions.ObjectPool.ObjectPoolProvider?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.Extensions.Logging.ILogger`1?displayProperty=fullName> | pojedynczego |
+| <xref:Microsoft.Extensions.Logging.ILoggerFactory?displayProperty=fullName> | pojedynczego |
+| <xref:Microsoft.Extensions.ObjectPool.ObjectPoolProvider?displayProperty=fullName> | pojedynczego |
 | <xref:Microsoft.Extensions.Options.IConfigureOptions`1?displayProperty=fullName> | Przejściowe |
-| <xref:Microsoft.Extensions.Options.IOptions`1?displayProperty=fullName> | Pojedynczego |
-| <xref:System.Diagnostics.DiagnosticSource?displayProperty=fullName> | Pojedynczego |
-| <xref:System.Diagnostics.DiagnosticListener?displayProperty=fullName> | Pojedynczego |
+| <xref:Microsoft.Extensions.Options.IOptions`1?displayProperty=fullName> | pojedynczego |
+| <xref:System.Diagnostics.DiagnosticSource?displayProperty=fullName> | pojedynczego |
+| <xref:System.Diagnostics.DiagnosticListener?displayProperty=fullName> | pojedynczego |
 
 ::: moniker-end
 
@@ -261,7 +261,7 @@ Usługi okresu istnienia w zakresie (<xref:Microsoft.Extensions.DependencyInject
 > [!WARNING]
 > W przypadku korzystania z usługi w zakresie w oprogramowaniu pośredniczącym należy wstrzyknąć usługę do metody `Invoke` lub `InvokeAsync`. Nie wprowadzaj przez iniekcję konstruktora, ponieważ wymusza ona zachowanie usługi jako pojedynczej. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/middleware/write#per-request-middleware-dependencies>.
 
-### <a name="singleton"></a>Pojedynczego
+### <a name="singleton"></a>pojedynczego
 
 Pojedyncze usługi okresu istnienia (<xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton*>) są tworzone podczas pierwszego żądania (lub po uruchomieniu `Startup.ConfigureServices`, a wystąpienie jest określone przy rejestracji usługi). Każde kolejne żądanie używa tego samego wystąpienia. Jeśli aplikacja wymaga pojedynczych zachowań, zaleca się, aby można było zarządzać okresem istnienia usługi przez kontener usługi. Nie Wdrażaj wzorca projektu singleton i podaj kod użytkownika, aby zarządzać okresem istnienia obiektu w klasie.
 
@@ -272,13 +272,13 @@ Pojedyncze usługi okresu istnienia (<xref:Microsoft.Extensions.DependencyInject
 
 Metody rozszerzenia rejestracji usług oferują przeciążenia, które są przydatne w określonych scenariuszach.
 
-| Metoda | Automatyczne<br>object<br>myśl | Wielokrotne<br>implementacje | Przekaż argumenty |
+| Metoda | Automatyczny<br>obiekt<br>myśl | Wiele<br>implementacje | Przekaż argumenty |
 | ------ | :-----------------------------: | :-------------------------: | :-------: |
-| `Add{LIFETIME}<{SERVICE}, {IMPLEMENTATION}>()`<br>Przykład:<br>`services.AddSingleton<IMyDep, MyDep>();` | Tak | Tak | Nie |
-| `Add{LIFETIME}<{SERVICE}>(sp => new {IMPLEMENTATION})`<br>Przykłady:<br>`services.AddSingleton<IMyDep>(sp => new MyDep());`<br>`services.AddSingleton<IMyDep>(sp => new MyDep("A string!"));` | Tak | Tak | Tak |
-| `Add{LIFETIME}<{IMPLEMENTATION}>()`<br>Przykład:<br>`services.AddSingleton<MyDep>();` | Tak | Nie | Nie |
-| `AddSingleton<{SERVICE}>(new {IMPLEMENTATION})`<br>Przykłady:<br>`services.AddSingleton<IMyDep>(new MyDep());`<br>`services.AddSingleton<IMyDep>(new MyDep("A string!"));` | Nie | Tak | Tak |
-| `AddSingleton(new {IMPLEMENTATION})`<br>Przykłady:<br>`services.AddSingleton(new MyDep());`<br>`services.AddSingleton(new MyDep("A string!"));` | Nie | Nie | Tak |
+| `Add{LIFETIME}<{SERVICE}, {IMPLEMENTATION}>()`<br>Przykład:<br>`services.AddSingleton<IMyDep, MyDep>();` | Yes | Yes | Nie |
+| `Add{LIFETIME}<{SERVICE}>(sp => new {IMPLEMENTATION})`<br>Przykłady:<br>`services.AddSingleton<IMyDep>(sp => new MyDep());`<br>`services.AddSingleton<IMyDep>(sp => new MyDep("A string!"));` | Yes | Yes | Yes |
+| `Add{LIFETIME}<{IMPLEMENTATION}>()`<br>Przykład:<br>`services.AddSingleton<MyDep>();` | Yes | Nie | Nie |
+| `AddSingleton<{SERVICE}>(new {IMPLEMENTATION})`<br>Przykłady:<br>`services.AddSingleton<IMyDep>(new MyDep());`<br>`services.AddSingleton<IMyDep>(new MyDep("A string!"));` | Nie | Yes | Yes |
+| `AddSingleton(new {IMPLEMENTATION})`<br>Przykłady:<br>`services.AddSingleton(new MyDep());`<br>`services.AddSingleton(new MyDep("A string!"));` | Nie | Nie | Yes |
 
 Aby uzyskać więcej informacji na temat usuwania typów, zobacz sekcję [dotyczącą usuwania usług](#disposal-of-services) . Typowym scenariuszem dla wielu implementacji jest [imitacja typów do testowania](xref:test/integration-tests#inject-mock-services).
 

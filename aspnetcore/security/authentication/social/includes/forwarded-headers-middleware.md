@@ -1,9 +1,9 @@
-## <a name="forward-request-information-with-a-proxy-or-load-balancer"></a>Do przodu żądają informacji z serwerem proxy lub moduł równoważenia obciążenia
+## <a name="forward-request-information-with-a-proxy-or-load-balancer"></a>Przekazywanie informacji o żądaniu za pomocą serwera proxy lub modułu równoważenia obciążenia
 
-Jeśli aplikacja jest wdrażana za serwerem proxy lub moduł równoważenia obciążenia, niektóre żądania informacji może być przekazywany do aplikacji w nagłówkach żądania. Informacje te obejmują zazwyczaj schemat żądania bezpieczne (`https`), hosta i adresu IP klienta. Aplikacje nie automatycznie odczytać te nagłówki żądania do użytku oryginalne informacje o żądaniu.
+Jeśli aplikacja jest wdrażana za serwerem proxy lub modułem równoważenia obciążenia, niektóre z oryginalnych informacji o żądaniu mogą zostać przekazane do aplikacji w nagłówkach żądania. Te informacje zazwyczaj obejmują schemat bezpiecznego żądania (`https`), hosta i adres IP klienta. Aplikacje nie odczytuje automatycznie tych nagłówków żądań w celu odnalezienia i użycia oryginalnych informacji o żądaniu.
 
-Schemat jest używana podczas generowania łącza, który wpływa na przepływ uwierzytelniania przy użyciu dostawców zewnętrznych. Utraty bezpiecznego schematu (`https`) skutkuje aplikacji generowania adresów URL przekierowania niezabezpieczone niepoprawne.
+Schemat jest używany w generacji linków, który ma wpływ na przepływ uwierzytelniania z dostawcami zewnętrznymi. Utrata bezpiecznego schematu (`https`) powoduje generowanie nieprawidłowych niezabezpieczonych adresów URL przekierowań.
 
-Użyj przekazywane nagłówki oprogramowaniu pośredniczącym, aby udostępnić oryginalne informacje o żądaniu aplikacji na potrzeby przetwarzania żądania.
+Używaj przekierowanych nagłówków pośredniczących, aby udostępnić oryginalne informacje o żądaniu dla aplikacji na potrzeby przetwarzania żądań.
 
 Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/proxy-load-balancer>.

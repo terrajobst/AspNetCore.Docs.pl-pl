@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 09/03/2019
 uid: grpc/aspnetcore
-ms.openlocfilehash: 2507ce6df05403cb19e8bfa2565d410d6140b144
-ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
+ms.openlocfilehash: 6107704a4b4d9c629a7abe907efd5b1932019130
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71925065"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667630"
 ---
 # <a name="grpc-services-with-aspnet-core"></a>Usługi gRPC na platformie ASP.NET Core
 
@@ -19,15 +19,15 @@ W tym dokumencie przedstawiono sposób rozpoczynania pracy z usługami gRPC Serv
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!INCLUDE[](~/includes/net-core-prereqs-vs-3.0.md)]
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-3.0.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-3.0.md)]
 
@@ -35,15 +35,15 @@ W tym dokumencie przedstawiono sposób rozpoczynania pracy z usługami gRPC Serv
 
 ## <a name="get-started-with-grpc-service-in-aspnet-core"></a>Wprowadzenie do usługi gRPC na platformie ASP.NET Core
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/grpc/grpc-start/sample) ([jak pobrać](xref:index#how-to-download-a-sample)).
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/grpc/grpc-start/sample) ([jak pobrać](xref:index#how-to-download-a-sample)).
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Szczegółowe instrukcje dotyczące tworzenia projektu gRPC można znaleźć w temacie Wprowadzenie do [usług gRPC Services](xref:tutorials/grpc/grpc-start) .
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
-Uruchom `dotnet new grpc -o GrpcGreeter` polecenie w wierszu polecenia.
+Uruchom `dotnet new grpc -o GrpcGreeter` z wiersza polecenia.
 
 ---
 
@@ -55,10 +55,11 @@ gRPC wymaga pakietu [gRPC. AspNetCore](https://www.nuget.org/packages/Grpc.AspNe
 
 W *Startup.cs*:
 
-* gRPC jest włączona z `AddGrpc` metodą.
-* Każda usługa gRPC jest dodawana do potoku routingu za `MapGrpcService` pomocą metody.
+* gRPC jest włączona z użyciem metody `AddGrpc`.
+* Każda usługa gRPC jest dodawana do potoku routingu za pomocą metody `MapGrpcService`.
 
 [!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=7,24)]
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
 
 ASP.NET Core middlewares i funkcje korzystają z potoku routingu, w związku z czym aplikacja może być skonfigurowana w taki sposób, aby obsługiwała dodatkowe procedury obsługi żądań. Dodatkowe programy obsługi żądań, takie jak kontrolery MVC, pracują równolegle ze skonfigurowanymi usługami gRPC.
 
@@ -77,7 +78,7 @@ Kestrel [obsługuje protokół HTTP/2](xref:fundamentals/servers/kestrel#http2-s
 
 #### <a name="tls"></a>TLS
 
-Punkty końcowe Kestrel używane dla gRPC powinny być zabezpieczone przy użyciu protokołu TLS. W trakcie opracowywania, punkt końcowy zabezpieczony przy użyciu protokołu TLS `https://localhost:5001` jest automatycznie tworzony na czas, gdy obecny jest ASP.NET Core certyfikat deweloperski. Nie jest wymagana żadna konfiguracja. `https` Prefiks sprawdza, czy punkt końcowy Kestrel korzysta z protokołu TLS.
+Punkty końcowe Kestrel używane dla gRPC powinny być zabezpieczone przy użyciu protokołu TLS. W trakcie opracowywania, punkt końcowy zabezpieczony przy użyciu protokołu TLS jest automatycznie tworzony w `https://localhost:5001`, gdy istnieje ASP.NET Core certyfikat deweloperski. Nie jest wymagana żadna konfiguracja. Prefiks `https` sprawdza, czy punkt końcowy Kestrel korzysta z protokołu TLS.
 
 W środowisku produkcyjnym należy jawnie skonfigurować protokół TLS. W poniższym przykładzie pliku *appSettings. JSON* jest dostępny punkt końcowy HTTP/2 zabezpieczony przy użyciu protokołu TLS:
 
@@ -91,7 +92,7 @@ Alternatywnie można skonfigurować punkty końcowe Kestrel w *program.cs*:
 
 Protokół TLS jest używany przez więcej niż Zabezpieczanie komunikacji. Uzgadnianie [protokołu warstwy aplikacji TLS (ClientHello alpn)](https://tools.ietf.org/html/rfc7301#section-3) służy do negocjowania protokołu połączenia między klientem a serwerem, gdy punkt końcowy obsługuje wiele protokołów. Ta negocjacja określa, czy połączenie używa protokołu HTTP/1.1 czy HTTP/2.
 
-Jeśli punkt końcowy protokołu HTTP/2 jest skonfigurowany bez protokołu TLS, [ListenOptions. protokoły](xref:fundamentals/servers/kestrel#listenoptionsprotocols) punktu końcowego muszą mieć ustawioną wartość `HttpProtocols.Http2`. Punkt końcowy z wieloma protokołami (na przykład `HttpProtocols.Http1AndHttp2`) nie może być używany bez protokołu TLS, ponieważ nie ma negocjacji. Wszystkie połączenia z niezabezpieczonym punktem końcowym domyślne do protokołu HTTP/1.1 i wywołania gRPC kończą się niepowodzeniem.
+Jeśli punkt końcowy protokołu HTTP/2 jest skonfigurowany bez protokołu TLS, [ListenOptions. protokoły](xref:fundamentals/servers/kestrel#listenoptionsprotocols) punktu końcowego muszą mieć wartość `HttpProtocols.Http2`. Punkt końcowy z wieloma protokołami (na przykład `HttpProtocols.Http1AndHttp2`) nie może być używany bez protokołu TLS, ponieważ nie ma negocjacji. Wszystkie połączenia z niezabezpieczonym punktem końcowym domyślne do protokołu HTTP/1.1 i wywołania gRPC kończą się niepowodzeniem.
 
 Aby uzyskać więcej informacji na temat włączania protokołów HTTP/2 i TLS przy użyciu usługi Kestrel, zobacz [Konfiguracja punktu końcowego Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration).
 
@@ -115,11 +116,11 @@ Domyślnie implementacja usługi gRPC może rozwiązywać inne usługi DI z dowo
 
 ### <a name="resolve-httpcontext-in-grpc-methods"></a>Rozwiąż element HttpContext w metodach gRPC
 
-Interfejs API gRPC zapewnia dostęp do niektórych danych komunikatów HTTP/2, takich jak metoda, host, nagłówek i przyczepy. Dostęp odbywa się za `ServerCallContext` pomocą argumentu przesłanego do każdej metody gRPC:
+Interfejs API gRPC zapewnia dostęp do niektórych danych komunikatów HTTP/2, takich jak metoda, host, nagłówek i przyczepy. Dostęp odbywa się za pomocą argumentu `ServerCallContext` przekazaną do każdej metody gRPC:
 
 [!code-csharp[](~/grpc/aspnetcore/sample/GrcpService/GreeterService.cs?highlight=3-4&name=snippet)]
 
-`ServerCallContext`nie zapewnia pełnego dostępu do `HttpContext` wszystkich interfejsów API ASP.NET. Metoda rozszerzająca zapewnia pełny dostęp `HttpContext` do reprezentowania podstawowego komunikatu http/2 w interfejsach API ASP.NET: `GetHttpContext`
+`ServerCallContext` nie zapewnia pełnego dostępu do `HttpContext` we wszystkich interfejsach API ASP.NET. Metoda rozszerzenia `GetHttpContext` zapewnia pełny dostęp do `HttpContext` reprezentujących podstawowy komunikat HTTP/2 w interfejsie API ASP.NET:
 
 [!code-csharp[](~/grpc/aspnetcore/sample/GrcpService/GreeterService2.cs?highlight=6-7&name=snippet)]
 

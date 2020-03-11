@@ -1,43 +1,43 @@
 ---
-title: Pomocnik tagu w programie ASP.NET Core MVC pamięci podręcznej
+title: Pomocnik tagu pamięci podręcznej w ASP.NET Core MVC
 author: pkellner
-description: Dowiedz się, jak używać Pomocnik tagu pamięci podręcznej.
+description: Dowiedz się, jak używać pomocnika tagów pamięci podręcznej.
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 0273a9805dd5db5450f57dcf3fd4d952308df074
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: db9e1a968588410f11e5f137dfdd4542df505ebc
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856211"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662737"
 ---
-# <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Pomocnik tagu w programie ASP.NET Core MVC pamięci podręcznej
+# <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Pomocnik tagu pamięci podręcznej w ASP.NET Core MVC
 
-Przez [Peter Kellner](https://peterkellner.net) i [Luke Latham](https://github.com/guardrex) 
+Według [Peterowi Kellner](https://peterkellner.net)
 
-Pomocnik tagu pamięci podręcznej umożliwia poprawę wydajności aplikacji platformy ASP.NET Core przez buforowanie jego zawartości, wewnętrznego dostawcy pamięci podręcznej platformy ASP.NET Core.
+Pomocnik tagu pamięci podręcznej umożliwia zwiększenie wydajności aplikacji ASP.NET Core przez buforowanie jej zawartości dla dostawcy wewnętrznej ASP.NET Core pamięci podręcznej.
 
-Aby zapoznać się z omówieniem pomocnicy tagów, zobacz <xref:mvc/views/tag-helpers/intro>.
+Aby zapoznać się z omówieniem pomocników tagów, zobacz <xref:mvc/views/tag-helpers/intro>.
 
-Następujący kod Razor buforuje bieżącą datą:
+Następujący znacznik Razor buforuje bieżącą datę:
 
 ```cshtml
 <cache>@DateTime.Now</cache>
 ```
 
-Pierwsze żądanie strony, która zawiera Pomocnik tagu Wyświetla bieżącą datę. Wartość w pamięci podręcznej umożliwia wyświetlenie dodatkowych żądań do momentu wygaśnięcia pamięci podręcznej (domyślnie 20 minut) lub daty pamięci podręcznej zostanie usunięty z pamięci podręcznej.
+Pierwsze żądanie do strony zawierającej pomocnika tagów wyświetla bieżącą datę. Dodatkowe żądania pokazują wartość buforowaną, aż do momentu wygaśnięcia pamięci podręcznej (domyślnie 20 minut) lub do momentu wykluczenia z pamięci podręcznej.
 
-## <a name="cache-tag-helper-attributes"></a>Atrybuty pomocnika tagów w pamięci podręcznej
+## <a name="cache-tag-helper-attributes"></a>Atrybuty pomocnika tagu pamięci podręcznej
 
-### <a name="enabled"></a>Włączone
+### <a name="enabled"></a>dostępny
 
-| Typ atrybutu  | Przykłady        | Domyślny |
+| Typ atrybutu  | Przykłady        | Domyślne |
 | --------------- | --------------- | ------- |
-| Boolean         | `true`, `false` | `true`  |
+| Wartość logiczna         | `true`, `false` | `true`  |
 
-`enabled` Określa, jeśli zawartość ujęta w Pomocnik tagu pamięci podręcznej są buforowane. Wartość domyślna to `true`. Jeśli ustawiono `false`, jest wyniku renderowania **nie** pamięci podręcznej.
+`enabled` określa, czy zawartość ujęta w pomocnika znacznika pamięci podręcznej jest buforowana. Wartość domyślna to `true`. W przypadku wybrania wartości `false`renderowane dane wyjściowe **nie** są buforowane.
 
 Przykład:
 
@@ -53,9 +53,9 @@ Przykład:
 | ---------------- | ---------------------------------- |
 | `DateTimeOffset` | `@new DateTime(2025,1,29,17,02,0)` |
 
-`expires-on` Ustawia bezwzględnych wygaśnięcia elementu pamięci podręcznej.
+`expires-on` ustawia bezwzględną datę wygaśnięcia dla elementu w pamięci podręcznej.
 
-Poniższy przykład zapisuje w pamięci podręcznej zawartość Pomocnik tagu pamięci podręcznej aż do 17:02:00 w dniu 29 stycznia 2025:
+Poniższy przykład pamięci podręcznej zawartości pomocnika tagów pamięci podręcznej do 5:02 PM dnia 29 stycznia 2025:
 
 ```cshtml
 <cache expires-on="@new DateTime(2025,1,29,17,02,0)">
@@ -65,11 +65,11 @@ Poniższy przykład zapisuje w pamięci podręcznej zawartość Pomocnik tagu pa
 
 ### <a name="expires-after"></a>expires-after
 
-| Typ atrybutu | Przykład                      | Domyślny    |
+| Typ atrybutu | Przykład                      | Domyślne    |
 | -------------- | ---------------------------- | ---------- |
 | `TimeSpan`     | `@TimeSpan.FromSeconds(120)` | 20 minut |
 
-`expires-after` Określa długość czasu od pierwszego żądania, aby buforować zawartość.
+`expires-after` Ustawia długość czasu od pierwszego żądania do buforowania zawartości.
 
 Przykład:
 
@@ -79,15 +79,15 @@ Przykład:
 </cache>
 ```
 
-Aparat widoku Razor ustawiana domyślnie `expires-after` wartość do 20 minut.
+Aparat widoku Razor ustawia wartość domyślną `expires-after` na dwadzieścia minuty.
 
-### <a name="expires-sliding"></a>Przedłużanie wygasa
+### <a name="expires-sliding"></a>wygasa — przesuwanie
 
 | Typ atrybutu | Przykład                     |
 | -------------- | --------------------------- |
 | `TimeSpan`     | `@TimeSpan.FromSeconds(60)` |
 
-Ustawia czas, który powinien zostać wykluczony wpisu pamięci podręcznej, jeśli jego wartość nie uzyskano.
+Określa czas, w którym wpis pamięci podręcznej powinien zostać wykluczony, jeśli nie uzyskano dostępu do jego wartości.
 
 Przykład:
 
@@ -97,15 +97,15 @@ Przykład:
 </cache>
 ```
 
-### <a name="vary-by-header"></a>różnią się w nagłówku
+### <a name="vary-by-header"></a>Zróżnicuj według nagłówka
 
 | Typ atrybutu | Przykłady                                    |
 | -------------- | ------------------------------------------- |
-| String         | `User-Agent`, `User-Agent,content-encoding` |
+| Ciąg         | `User-Agent`, `User-Agent,content-encoding` |
 
-`vary-by-header` akceptuje rozdzielana przecinkami lista wartości nagłówka, które wyzwalać odświeżanie pamięci podręcznej po zmianie.
+`vary-by-header` akceptuje rozdzielaną przecinkami listę wartości nagłówka, które wyzwalają Odświeżanie pamięci podręcznej, gdy zmienią się.
 
-Poniższy przykład monitoruje wartość nagłówka `User-Agent`. Przykład buforuje zawartość dla każdego innego `User-Agent` przesłanym do serwera sieci web:
+Poniższy przykład monitoruje wartość nagłówka `User-Agent`. Przykład buforuje zawartość dla każdej innej `User-Agent` prezentowanej na serwerze sieci Web:
 
 ```cshtml
 <cache vary-by-header="User-Agent">
@@ -113,15 +113,15 @@ Poniższy przykład monitoruje wartość nagłówka `User-Agent`. Przykład bufo
 </cache>
 ```
 
-### <a name="vary-by-query"></a>różnią się przez zapytanie
+### <a name="vary-by-query"></a>Zróżnicuj według zapytania
 
 | Typ atrybutu | Przykłady             |
 | -------------- | -------------------- |
-| String         | `Make`, `Make,Model` |
+| Ciąg         | `Make`, `Make,Model` |
 
-`vary-by-query` akceptuje rozdzielaną przecinkami listę <xref:Microsoft.AspNetCore.Http.IQueryCollection.Keys*> w ciągu zapytania (<xref:Microsoft.AspNetCore.Http.HttpRequest.Query*>) który wyzwolić odświeżanie pamięci podręcznej w przypadku wartości dowolnych zmian klucza na liście.
+`vary-by-query` akceptuje rozdzieloną przecinkami listę <xref:Microsoft.AspNetCore.Http.IQueryCollection.Keys*> w ciągu zapytania (<xref:Microsoft.AspNetCore.Http.HttpRequest.Query*>), które wyzwalają Odświeżanie pamięci podręcznej, gdy zostanie zmieniona wartość któregokolwiek z wymienionych kluczy.
 
-Poniższy przykład monitoruje wartości `Make` i `Model`. Przykład buforuje zawartość dla każdego innego `Make` i `Model` przesłanym do serwera sieci web:
+Poniższy przykład monitoruje wartości `Make` i `Model`. Przykład buforuje zawartość dla każdej różnych `Make` i `Model` przedstawionych na serwerze sieci Web:
 
 ```cshtml
 <cache vary-by-query="Make,Model">
@@ -129,13 +129,13 @@ Poniższy przykład monitoruje wartości `Make` i `Model`. Przykład buforuje za
 </cache>
 ```
 
-### <a name="vary-by-route"></a>różnią się przez trasy
+### <a name="vary-by-route"></a>Zróżnicuj według trasy
 
 | Typ atrybutu | Przykłady             |
 | -------------- | -------------------- |
-| String         | `Make`, `Make,Model` |
+| Ciąg         | `Make`, `Make,Model` |
 
-`vary-by-route` akceptuje rozdzielaną przecinkami listę nazw parametrów trasy, które mogą powodować odświeżanie pamięci podręcznej po zmianie wartości parametru danych trasy.
+`vary-by-route` akceptuje rozdzielaną przecinkami listę nazw parametrów trasy, które wyzwalają Odświeżanie pamięci podręcznej, gdy wartość parametru dane trasy zostanie zmieniona.
 
 Przykład:
 
@@ -147,7 +147,7 @@ routes.MapRoute(
     template: "{controller=Home}/{action=Index}/{Make?}/{Model?}");
 ```
 
-*Index.cshtml*:
+*Index. cshtml*:
 
 ```cshtml
 <cache vary-by-route="Make,Model">
@@ -155,15 +155,15 @@ routes.MapRoute(
 </cache>
 ```
 
-### <a name="vary-by-cookie"></a>różnią się przez cookie
+### <a name="vary-by-cookie"></a>Różne pliki cookie
 
 | Typ atrybutu | Przykłady                                                                         |
 | -------------- | -------------------------------------------------------------------------------- |
-| String         | `.AspNetCore.Identity.Application`, `.AspNetCore.Identity.Application,HairColor` |
+| Ciąg         | `.AspNetCore.Identity.Application`, `.AspNetCore.Identity.Application,HairColor` |
 
-`vary-by-cookie` akceptuje rozdzielana przecinkami lista nazw plików cookie, które wyzwalać odświeżanie pamięci podręcznej po zmianie wartości pliku cookie.
+`vary-by-cookie` akceptuje rozdzielaną przecinkami listę nazw plików cookie, które wyzwalają Odświeżanie pamięci podręcznej, gdy zmieniają się wartości plików cookie.
 
-Poniższy przykład monitoruje pliki cookie skojarzone z tożsamości platformy ASP.NET Core. Gdy użytkownik jest uwierzytelniany, zmiany w pliku cookie tożsamości wyzwala odświeżanie pamięci podręcznej:
+Poniższy przykład monitoruje plik cookie skojarzony z tożsamością ASP.NET Core. Po uwierzytelnieniu użytkownika zmiana w pliku cookie tożsamości wyzwala odświeżenie pamięci podręcznej:
 
 ```cshtml
 <cache vary-by-cookie=".AspNetCore.Identity.Application">
@@ -171,15 +171,15 @@ Poniższy przykład monitoruje pliki cookie skojarzone z tożsamości platformy 
 </cache>
 ```
 
-### <a name="vary-by-user"></a>różnią się przez użytkownika
+### <a name="vary-by-user"></a>Zróżnicuj według użytkownika
 
-| Typ atrybutu  | Przykłady        | Domyślny |
+| Typ atrybutu  | Przykłady        | Domyślne |
 | --------------- | --------------- | ------- |
-| Boolean         | `true`, `false` | `true`  |
+| Wartość logiczna         | `true`, `false` | `true`  |
 
-`vary-by-user` Określa, czy pamięć podręczna resetuje po zmianie zalogowanego użytkownika (lub w kontekście jednostki). Bieżący użytkownik jest także znana jako jednostki kontekstu żądania i mogą być wyświetlane w widoku Razor, odwołując się do `@User.Identity.Name`.
+`vary-by-user` określa, czy pamięć podręczna jest resetowana, gdy zostanie zmieniony zalogowany użytkownik (lub podmiot zabezpieczeń kontekstu). Bieżący użytkownik jest również znany jako podmiot zabezpieczeń kontekstu żądania i może być wyświetlany w widoku Razor przez odwołanie `@User.Identity.Name`.
 
-Poniższy przykład monitoruje bieżącego zalogowanego użytkownika, aby wyzwolić odświeżanie pamięci podręcznej:
+Poniższy przykład monitoruje bieżącego zalogowanego użytkownika, aby wyzwolić Odświeżanie pamięci podręcznej:
 
 ```cshtml
 <cache vary-by-user="true">
@@ -187,17 +187,17 @@ Poniższy przykład monitoruje bieżącego zalogowanego użytkownika, aby wyzwol
 </cache>
 ```
 
-Za pomocą tego atrybutu przechowuje zawartość w pamięci podręcznej, za pośrednictwem logowania i wylogowania cyklu. Jeśli wartość jest równa `true`, cyklu uwierzytelniania unieważnia zawartość pamięci podręcznej dla tego uwierzytelnionego użytkownika. Pamięć podręczna jest unieważnione, ponieważ nowa wartość unikatowego pliku cookie jest generowany, gdy użytkownik jest uwierzytelniany. Pamięć podręczna jest zachowywana na potrzeby stanu anonimowe pliki cookie nie są obecne lub plik cookie utracił ważność. Jeśli użytkownik jest **nie** uwierzytelniony, pamięci podręcznej jest utrzymywana.
+Użycie tego atrybutu zachowuje zawartość w pamięci podręcznej przez proces logowania i wylogowywania. Gdy wartość jest ustawiona na `true`, cykl uwierzytelniania unieważnia pamięć podręczną dla uwierzytelnionego użytkownika. Pamięć podręczna jest unieważniona, ponieważ podczas uwierzytelniania użytkownika jest generowana Nowa unikatowa wartość cookie. Pamięć podręczna jest utrzymywana dla stanu anonimowego, gdy plik cookie nie istnieje lub plik cookie utracił ważność. Jeśli użytkownik **nie** jest uwierzytelniony, pamięć podręczna jest utrzymywana.
 
-### <a name="vary-by"></a>różnią się przez
+### <a name="vary-by"></a>Zróżnicuj według
 
 | Typ atrybutu | Przykład  |
 | -------------- | -------- |
-| String         | `@Model` |
+| Ciąg         | `@Model` |
 
-`vary-by` Umożliwia dostosowanie jakie dane są buforowane. Gdy zostanie zaktualizowany obiekt odwołuje się ten atrybut ciągu wartości zmiany, zawartość Pomocnik tagu pamięci podręcznej. Często ciągów wartości modelu są przypisane do tego atrybutu. Skutecznie powoduje to scenariusz, w którym aktualizacji do dowolnej wartości łączonych unieważnia zawartość pamięci podręcznej.
+`vary-by` umożliwia dostosowanie danych przechowywanych w pamięci podręcznej. Gdy obiekt, do którego odwołuje się wartość ciągu atrybutu, zmienia się zawartość pomocnika tagu pamięci podręcznej. Często łączenie ciągów wartości modelu jest przypisywane do tego atrybutu. Efektywnie jest to scenariusz, w którym aktualizacja dowolnej z połączonych wartości unieważnia pamięć podręczną.
 
-W poniższym przykładzie założono metody kontrolera renderowania sum widoku wartość całkowitą dwa parametry trasy `myParam1` i `myParam2`i zwraca sumę jako właściwość pojedynczego modelu. Po zmianie tej sumy zawartość Pomocnik tagu pamięci podręcznej jest renderowana i ponownie buforowany.  
+W poniższym przykładzie przyjęto założenie, że metoda kontrolera renderuje widok sumuje wartość całkowitą dwóch parametrów trasy, `myParam1` i `myParam2`i zwraca sumę jako właściwość pojedynczego modelu. Po zmianie tej sumy zawartość pomocnika tagu pamięci podręcznej jest renderowana i buforowana ponownie.  
 
 Akcja:
 
@@ -212,7 +212,7 @@ public IActionResult Index(string myParam1, string myParam2, string myParam3)
 }
 ```
 
-*Index.cshtml*:
+*Index. cshtml*:
 
 ```cshtml
 <cache vary-by="@Model">
@@ -222,11 +222,11 @@ public IActionResult Index(string myParam1, string myParam2, string myParam3)
 
 ### <a name="priority"></a>priority
 
-| Typ atrybutu      | Przykłady                               | Domyślny  |
+| Typ atrybutu      | Przykłady                               | Domyślne  |
 | ------------------- | -------------------------------------- | -------- |
 | `CacheItemPriority` | `High`, `Low`, `NeverRemove`, `Normal` | `Normal` |
 
-`priority` Znajdują się wskazówki eksmisji pamięci podręcznej dostawcy wbudowaną pamięć podręczną. Wyklucza serwer sieci web mogą `Low` najpierw pamięci podręcznej wpisów, po duże wykorzystanie pamięci.
+`priority` zapewnia wskazówki dotyczące wykluczenia pamięci podręcznej dla wbudowanego dostawcy pamięci podręcznej. Serwer sieci Web najpierw wyklucza `Low` wpisy pamięci podręcznej, gdy jest on w trakcie naciskania pamięci.
 
 Przykład:
 
@@ -236,9 +236,9 @@ Przykład:
 </cache>
 ```
 
-`priority` Atrybutu nie gwarantuje określony poziom przechowywania w pamięci podręcznej. `CacheItemPriority` jest tylko sugestię. Ustawienie tego atrybutu na `NeverRemove` nie gwarantuje, że elementy pamięci podręcznej są zawsze zachowywane. Zobacz Tematy w [dodatkowe zasoby](#additional-resources) sekcji, aby uzyskać więcej informacji.
+Atrybut `priority` nie gwarantuje określonego poziomu przechowywania pamięci podręcznej. `CacheItemPriority` jest tylko sugestią. Ustawienie tego atrybutu na `NeverRemove` nie gwarantuje, że buforowane elementy są zawsze zachowywane. Aby uzyskać więcej informacji, zobacz tematy w sekcji [dodatkowe zasoby](#additional-resources) .
 
-Pomocnik tagu pamięci podręcznej jest zależny od [usługa pamięci podręcznej pamięci](xref:performance/caching/memory). Pomocnik tagu pamięci podręcznej dodaje usługę, jeśli nie została dodana.
+Pomocnik tagu pamięci podręcznej jest zależny od [usługi pamięci podręcznej](xref:performance/caching/memory). Pomocnik tagu pamięci podręcznej dodaje usługę, jeśli nie została dodana.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

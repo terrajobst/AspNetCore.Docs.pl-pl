@@ -9,11 +9,11 @@ no-loc:
 - SignalR
 uid: performance/performance-best-practices
 ms.openlocfilehash: c74adf7479d176c41dc26c7e77acfc3dc9cdcb88
-ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75693963"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666398"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core najlepszych rozwiązań dotyczących wydajności
 
@@ -23,7 +23,7 @@ Ten artykuł zawiera wskazówki dotyczące najlepszych rozwiązań dotyczących 
 
 ## <a name="cache-aggressively"></a>Agresywne buforowanie
 
-Buforowanie jest omówione w kilku częściach tego dokumentu. Aby uzyskać więcej informacji, zobacz temat <xref:performance/caching/response>.
+Buforowanie jest omówione w kilku częściach tego dokumentu. Aby uzyskać więcej informacji, zobacz <xref:performance/caching/response>.
 
 ## <a name="understand-hot-code-paths"></a>Informacje na temat ścieżek kodu gorącego
 
@@ -75,7 +75,7 @@ Mając
 
 * Wywołuj asynchronicznie wszystkie interfejsy API **dostępu do danych** .
 * **Nie** Pobieraj większej ilości danych niż jest to konieczne. Zapisz zapytania, aby zwrócić tylko dane niezbędne dla bieżącego żądania HTTP.
-* **Należy rozważyć buforowanie** często używanych danych pobieranych z bazy danych lub usługi zdalnej w przypadku niewielkich nieaktualnych danych. W zależności od scenariusza użyj elementu [elemencie MemoryCache](xref:performance/caching/memory) lub [DistributedCache](xref:performance/caching/distributed). Aby uzyskać więcej informacji, zobacz temat <xref:performance/caching/response>.
+* **Należy rozważyć buforowanie** często używanych danych pobieranych z bazy danych lub usługi zdalnej w przypadku niewielkich nieaktualnych danych. W zależności od scenariusza użyj elementu [elemencie MemoryCache](xref:performance/caching/memory) lub [DistributedCache](xref:performance/caching/distributed). Aby uzyskać więcej informacji, zobacz <xref:performance/caching/response>.
 * **Minimalizacja** podróży sieci. Celem jest pobranie wymaganych danych w jednym wywołaniu, a nie w kilku wywołaniach.
 * Podczas uzyskiwania dostępu do danych w celach tylko do **odczytu używaj** [zapytań bez śledzenia](/ef/core/querying/tracking#no-tracking-queries) w Entity Framework Core. EF Core może zwrócić wyniki niewydajnego śledzenia zapytań.
 * **Wykonaj** filtrowanie i agregowanie zapytań LINQ (na przykład przy użyciu instrukcji `.Where`, `.Select`lub `.Sum`), aby filtrowanie było wykonywane przez bazę danych.
@@ -186,7 +186,7 @@ Poprzedni kod asynchronicznie deserializacji treści żądania do C# obiektu.
 
 ## <a name="prefer-readformasync-over-requestform"></a>Preferuj ReadFormAsync przez żądanie. formularz
 
-Użyj `HttpContext.Request.ReadFormAsync` zamiast `HttpContext.Request.Form`.
+Użyj `HttpContext.Request.ReadFormAsync`, a nie `HttpContext.Request.Form`.
 `HttpContext.Request.Form` mogą być bezpiecznie odczytywane tylko z następującymi warunkami:
 
 * Formularz został odczytany przez wywołanie `ReadFormAsync`i

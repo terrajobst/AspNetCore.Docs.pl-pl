@@ -7,11 +7,11 @@ ms.author: jamesnk
 ms.date: 09/23/2019
 uid: grpc/diagnostics
 ms.openlocfilehash: 17607b734e6d777de9516aa14e81c97f87b61023
-ms.sourcegitcommit: 80286715afb93c4d13c931b008016d6086c0312b
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77074526"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667343"
 ---
 # <a name="logging-and-diagnostics-in-grpc-on-net"></a>Rejestrowanie i Diagnostyka w programie gRPC na platformie .NET
 
@@ -165,7 +165,7 @@ Metryki są reprezentacją miar danych przez przedziały czasu, na przykład ż�
 
 metryki serwera gRPC są zgłaszane w `Grpc.AspNetCore.Server` źródle zdarzeń.
 
-| Nazwa                      | Opis                   |
+| Name (Nazwa)                      | Opis                   |
 | --------------------------|-------------------------------|
 | `total-calls`             | Łączna liczba wywołań                   |
 | `current-calls`           | Bieżące wywołania                 |
@@ -181,7 +181,7 @@ ASP.NET Core również udostępnia własne metryki `Microsoft.AspNetCore.Hosting
 
 metryki klienta gRPC są zgłaszane w `Grpc.Net.Client` źródle zdarzeń.
 
-| Nazwa                      | Opis                   |
+| Name (Nazwa)                      | Opis                   |
 | --------------------------|-------------------------------|
 | `total-calls`             | Łączna liczba wywołań                   |
 | `current-calls`           | Bieżące wywołania                 |

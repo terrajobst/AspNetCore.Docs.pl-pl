@@ -5,20 +5,20 @@ description: Udostępnianie kontrolerów, przeglądanie, Razor Pages i nie tylko
 ms.author: riande
 ms.date: 11/11/2019
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: a95c344410db0651b9f8f1c1eb7551029f084c25
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 0156c94bc6d0b83d0e14b8ef49468cfdf106d7e6
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829078"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667133"
 ---
 # <a name="share-controllers-views-razor-pages-and-more-with-application-parts"></a>Udostępnianie kontrolerów, widoków, Razor Pages i innych elementów aplikacji
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 *Część aplikacji* to Abstrakcja zasobów aplikacji. Części aplikacji umożliwiają ASP.NET Core odnajdywania kontrolerów, wyświetlania składników, pomocników tagów, Razor Pages, źródeł kompilacji Razor i nie tylko. <xref:Microsoft.AspNetCore.Mvc.ApplicationParts.AssemblyPart> jest częścią aplikacji. `AssemblyPart` hermetyzuje odwołanie do zestawu i udostępnia typy i odwołania do kompilacji.
 
@@ -36,7 +36,7 @@ Poniższy kod stanowi alternatywny sposób konfigurowania `ApplicationPartManage
 
 [!code-csharp[](./app-parts/3.0sample1/WebAppParts/Startup2.cs?name=snippet)]
 
-Powyższe dwa przykłady kodu ładują `SharedController` z zestawu. `SharedController` nie znajduje się w projekcie aplikacji. Zobacz Pobieranie przykładowego [rozwiązania WebAppParts](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/3.0sample1/WebAppParts) .
+Powyższe dwa przykłady kodu ładują `SharedController` z zestawu. `SharedController` nie znajduje się w projekcie aplikacji. Zobacz Pobieranie przykładowego [rozwiązania WebAppParts](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/3.0sample1/WebAppParts) .
 
 ### <a name="include-views"></a>Dołącz widoki
 
@@ -74,7 +74,7 @@ Funkcje dostępne dla aplikacji można wyliczyć, żądając `ApplicationPartMan
 
 [!code-csharp[](./app-parts/sample2/AppPartsSample/Controllers/FeaturesController.cs?highlight=16,25-27)]
 
-[Przykład pobierania](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample2) używa powyższego kodu, aby wyświetlić funkcje aplikacji:
+[Przykład pobierania](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample2) używa powyższego kodu, aby wyświetlić funkcje aplikacji:
 
 ```text
 Controllers:
@@ -106,9 +106,9 @@ Błędy HTTP 404 nie są rzadko stosowane podczas tworzenia przy użyciu częśc
 
 ::: moniker range="< aspnetcore-3.0"
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 *Część aplikacji* to Abstrakcja zasobów aplikacji. Części aplikacji umożliwiają ASP.NET Core odnajdywania kontrolerów, wyświetlania składników, pomocników tagów, Razor Pages, źródeł kompilacji Razor i nie tylko. [AssemblyPart](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart#Microsoft_AspNetCore_Mvc_ApplicationParts_AssemblyPart) jest częścią aplikacji. `AssemblyPart` hermetyzuje odwołanie do zestawu i udostępnia typy i odwołania do kompilacji.
 
@@ -126,7 +126,7 @@ Poniższy kod stanowi alternatywny sposób konfigurowania `ApplicationPartManage
 
 [!code-csharp[](./app-parts/sample1/WebAppParts/Startup2.cs?name=snippet)]
 
-Powyższe dwa przykłady kodu ładują `SharedController` z zestawu. `SharedController` nie znajduje się w projekcie aplikacji. Zobacz Pobieranie przykładowego [rozwiązania WebAppParts](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample1/WebAppParts) .
+Powyższe dwa przykłady kodu ładują `SharedController` z zestawu. `SharedController` nie znajduje się w projekcie aplikacji. Zobacz Pobieranie przykładowego [rozwiązania WebAppParts](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample1/WebAppParts) .
 
 ### <a name="include-views"></a>Dołącz widoki
 
@@ -160,7 +160,7 @@ Funkcje dostępne dla aplikacji można wyliczyć, żądając `ApplicationPartMan
 
 [!code-csharp[](./app-parts/sample2/AppPartsSample/Controllers/FeaturesController.cs?highlight=16,25-27)]
 
-[Przykład pobierania](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample2) używa powyższego kodu, aby wyświetlić funkcje aplikacji:
+[Przykład pobierania](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample2) używa powyższego kodu, aby wyświetlić funkcje aplikacji:
 
 ```text
 Controllers:

@@ -2,7 +2,7 @@
 
 Poniższa tabela zawiera opis różnych katalogów składających się na przykładowe rozwiązanie:
 
-| Katalog                   | Cel |
+| Katalog                   | Przeznaczenie |
 |-----------------------------|------------------------------------------------------------|
 | *3/WebApiSample. API. 30*    | Projekt interfejsu API sieci Web ASP.NET Core 3,0.                       |
 | *od 3 do WebApiSample. dostęp do*| Projekt warstwy dostępu do danych .NET Standard 2,1, który jest używany przez projekt ASP.NET Core 3. x interfejsu API sieci Web.|

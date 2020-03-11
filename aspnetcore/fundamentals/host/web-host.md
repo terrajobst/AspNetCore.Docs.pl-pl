@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/07/2019
 uid: fundamentals/host/web-host
-ms.openlocfilehash: bc18b5490d232758b796d33a62cd8d1a7dd7289f
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: e02d6efcb3aec1329469b8654e66ba845870421a
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007110"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666713"
 ---
 # <a name="aspnet-core-web-host"></a>ASP.NET Core hosta sieci Web
 
@@ -52,7 +52,7 @@ public class Program
 
 Kod, który wywołuje `CreateDefaultBuilder`, znajduje się w metodzie o nazwie `CreateWebHostBuilder`, która oddziela ją od kodu w `Main`, który wywołuje `Run` w obiekcie konstruktora. Ta separacja jest wymagana, jeśli używasz [narzędzi Entity Framework Core](/ef/core/miscellaneous/cli/). Narzędzia oczekują na znalezienie `CreateWebHostBuilder` metody, którą mogą wywołać w czasie projektowania, aby skonfigurować hosta bez uruchamiania aplikacji. Alternatywą jest wdrożenie `IDesignTimeDbContextFactory`. Aby uzyskać więcej informacji, zobacz [Tworzenie DbContext w czasie projektowania](/ef/core/miscellaneous/cli/dbcontext-creation).
 
-`CreateDefaultBuilder` wykonuje następujące zadania:
+Metoda `CreateDefaultBuilder` wykonuje następujące zadania:
 
 * Konfiguruje serwer [Kestrel](xref:fundamentals/servers/kestrel) jako serwer sieci Web przy użyciu dostawców konfiguracji hostingu aplikacji. Aby poznać domyślne opcje serwera Kestrel, zobacz <xref:fundamentals/servers/kestrel#kestrel-options>.
 * Ustawia [katalog główny zawartości](xref:fundamentals/index#content-root) dla ścieżki zwróconej przez [katalog. GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory).
@@ -60,7 +60,7 @@ Kod, który wywołuje `CreateDefaultBuilder`, znajduje się w metodzie o nazwie 
   * Zmienne środowiskowe poprzedzone prefiksem `ASPNETCORE_` (na przykład `ASPNETCORE_ENVIRONMENT`).
   * Argumenty wiersza polecenia.
 * Ładuje konfigurację aplikacji w następującej kolejności:
-  * *appsettings.json*.
+  * *appSettings. JSON*.
   * *appSettings. {Environment}. JSON*.
   * [Secret Manager](xref:security/app-secrets) , gdy aplikacja jest uruchamiana w środowisku `Development` przy użyciu zestawu wpisów.
   * Zmienne środowiskowe.
@@ -128,7 +128,7 @@ Aby uzyskać więcej informacji na temat konfiguracji aplikacji, zobacz <xref:fu
 > [!NOTE]
 > Alternatywą dla użycia statycznej metody `CreateDefaultBuilder` jest utworzenie hosta z [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) jest obsługiwanym podejściem z ASP.NET Core 2. x.
 
-Podczas konfigurowania hosta można dostarczyć metody [Configure](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configure) i [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder.configureservices) . Jeśli określono klasę `Startup`, musi ona definiować `Configure` metodę. Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/startup>. Wiele wywołań `ConfigureServices` dołączyć do siebie nawzajem. Wiele wywołań `Configure` lub `UseStartup` na `WebHostBuilder` Zastąp poprzednie ustawienia.
+Podczas konfigurowania hosta można dostarczyć metody [Configure](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configure) i [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder.configureservices) . Jeśli określono klasę `Startup`, musi ona definiować `Configure` metodę. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/startup>. Wiele wywołań `ConfigureServices` dołączyć do siebie nawzajem. Wiele wywołań `Configure` lub `UseStartup` na `WebHostBuilder` Zastąp poprzednie ustawienia.
 
 ## <a name="host-configuration-values"></a>Wartości konfiguracji hosta
 
@@ -231,7 +231,7 @@ Ustawia środowisko aplikacji.
 **Ustaw przy użyciu**: `UseEnvironment`  
 **Zmienna środowiskowa**: `ASPNETCORE_ENVIRONMENT`
 
-Dla środowiska można ustawić dowolną wartość. Wartości zdefiniowane przez platformę obejmują `Development`, `Staging`i `Production`. W wartościach nie jest rozróżniana wielkość liter. Domyślnie *środowisko* jest odczytywane ze zmiennej środowiskowej `ASPNETCORE_ENVIRONMENT`. W przypadku korzystania z [programu Visual Studio](https://visualstudio.microsoft.com)zmienne środowiskowe można ustawić w pliku *profilu launchsettings. JSON* . Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/environments>.
+Dla środowiska można ustawić dowolną wartość. Wartości zdefiniowane przez platformę obejmują `Development`, `Staging`i `Production`. W wartościach nie jest rozróżniana wielkość liter. Domyślnie *środowisko* jest odczytywane ze zmiennej środowiskowej `ASPNETCORE_ENVIRONMENT`. W przypadku korzystania z [programu Visual Studio](https://visualstudio.microsoft.com)zmienne środowiskowe można ustawić w pliku *profilu launchsettings. JSON* . Aby uzyskać więcej informacji, zobacz <xref:fundamentals/environments>.
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -303,7 +303,7 @@ WebHost.CreateDefaultBuilder(args)
 
 ### <a name="prevent-hosting-startup"></a>Zapobiegaj uruchamianiu hostingu
 
-Zapobiega automatycznemu ładowaniu zestawów startowych hostingu, w tym hostingu zestawów startowych skonfigurowanych przez zestaw aplikacji. Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/configuration/platform-specific-configuration>.
+Zapobiega automatycznemu ładowaniu zestawów startowych hostingu, w tym hostingu zestawów startowych skonfigurowanych przez zestaw aplikacji. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/platform-specific-configuration>.
 
 **Klucz**: preventHostingStartup  
 **Typ**: *bool* (`true` lub `1`)  
@@ -333,7 +333,7 @@ WebHost.CreateDefaultBuilder(args)
     .UseUrls("http://*:5000;http://localhost:5001;https://hostname:5002")
 ```
 
-Kestrel ma własny interfejs API konfiguracji punktu końcowego. Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/servers/kestrel#endpoint-configuration>.
+Kestrel ma własny interfejs API konfiguracji punktu końcowego. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/servers/kestrel#endpoint-configuration>.
 
 ### <a name="shutdown-timeout"></a>Limit czasu zamykania
 
@@ -435,7 +435,7 @@ public class Program
 }
 ```
 
-*hostsettings.json*:
+*HostSettings. JSON*:
 
 ```json
 {
@@ -444,9 +444,7 @@ public class Program
 ```
 
 > [!NOTE]
-> Metoda rozszerzenia [UseConfiguration](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useconfiguration) nie jest obecnie w stanie analizowania sekcji konfiguracyjnej zwróconej przez `GetSection` (na przykład `.UseConfiguration(Configuration.GetSection("section"))`. Metoda `GetSection` filtruje klucze konfiguracji do żądanej sekcji, ale pozostawia nazwę sekcji w kluczach (na przykład `section:urls`, `section:environment`). Metoda `UseConfiguration` oczekuje, że klucze są zgodne z kluczami `WebHostBuilder` (na przykład `urls`, `environment`). Obecność nazwy sekcji w kluczach uniemożliwia wartości sekcji od skonfigurowania hosta. Ten problem zostanie rozwiązany w kolejnej wersji. Aby uzyskać więcej informacji i obejść, zobacz [przekazywanie sekcji konfiguracji do WebHostBuilder. UseConfiguration używa pełnych kluczy](https://github.com/aspnet/Hosting/issues/839).
->
-> `UseConfiguration` kopiuje tylko klucze z podanego `IConfiguration` do konfiguracji konstruktora hostów. W związku z tym ustawienie `reloadOnChange: true` dla plików JSON, INI i XML nie ma żadnego wpływu.
+> [UseConfiguration](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useconfiguration) kopiuje tylko klucze z podanej `IConfiguration` do konfiguracji konstruktora hostów. W związku z tym ustawienie `reloadOnChange: true` dla plików JSON, INI i XML nie ma żadnego wpływu.
 
 Aby określić hosta na określonym adresie URL, wymagana wartość może zostać przeniesiona z wiersza polecenia podczas wykonywania [przebiegu dotnet](/dotnet/core/tools/dotnet-run). Argument wiersza polecenia zastępuje wartość `urls` z pliku *HostSettings. JSON* , a serwer nasłuchuje na porcie 8080:
 
@@ -464,7 +462,7 @@ Metoda `Run` uruchamia aplikację sieci Web i blokuje wątek wywołujący do mom
 host.Run();
 ```
 
-**Start**
+**Rozpocznij**
 
 Uruchom hosta w sposób bez blokowania, wywołując jego metodę `Start`:
 
@@ -556,7 +554,7 @@ Użyj poniższego żądania przeglądarki z przykładem:
 | `http://localhost:5000/throw/ooops!`       | Zgłasza wyjątek z ciągiem "ooops!" |
 | `http://localhost:5000/throw`              | Zgłasza wyjątek z ciągiem "zapomniano" |
 | `http://localhost:5000/Sante/Kevin`        | Sante, Jan!                            |
-| `http://localhost:5000`                    | Hello world!                             |
+| `http://localhost:5000`                    | Hello World!                             |
 
 bloki `WaitForShutdown` do momentu wystawienia przerwy (Ctrl-C/SIGINT lub SIGTERM). Aplikacja wyświetli komunikat `Console.WriteLine` i czeka na zakończenie naciśnięcia.
 
@@ -678,7 +676,7 @@ public class Startup
 ```
 
 > [!NOTE]
-> Oprócz metody `IsDevelopment` Extension `IWebHostEnvironment` oferuje metody `IsStaging`, `IsProduction`i `IsEnvironment(string environmentName)`. Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/environments>.
+> Oprócz metody `IsDevelopment` Extension `IWebHostEnvironment` oferuje metody `IsStaging`, `IsProduction`i `IsEnvironment(string environmentName)`. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/environments>.
 
 Usługę `IWebHostEnvironment` można również wstrzyknąć bezpośrednio do metody `Configure` w celu skonfigurowania potoku przetwarzania:
 
@@ -773,7 +771,7 @@ public class Startup
 ```
 
 > [!NOTE]
-> Oprócz metody `IsDevelopment` Extension `IHostingEnvironment` oferuje metody `IsStaging`, `IsProduction`i `IsEnvironment(string environmentName)`. Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/environments>.
+> Oprócz metody `IsDevelopment` Extension `IHostingEnvironment` oferuje metody `IsStaging`, `IsProduction`i `IsEnvironment(string environmentName)`. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/environments>.
 
 Usługę `IHostingEnvironment` można również wstrzyknąć bezpośrednio do metody `Configure` w celu skonfigurowania potoku przetwarzania:
 

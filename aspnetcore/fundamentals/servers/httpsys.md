@@ -1,22 +1,22 @@
 ---
 title: Implementacja serwera sieci Web HTTP. sys w ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Informacje o pliku HTTP. sys, serwerze sieci Web dla ASP.NET Core w systemie Windows. W oparciu o sterownik trybu jądra HTTP. sys, HTTP. sys jest alternatywą dla Kestrel, która może być używana do bezpośredniego połączenia z Internetem bez usług IIS.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 8a315d859fa70d97501156ff3cf97d4c3a5c5bd4
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 3e858a974d6a5c008969c3c51a507880cc25a7ff
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77171765"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666923"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci Web HTTP. sys w ASP.NET Core
 
-Autorzy [Dykstra](https://github.com/tdykstra), [Krzysztof Ross](https://github.com/Tratcher)i [Luke Latham](https://github.com/guardrex)
+Autorzy [Dykstra](https://github.com/tdykstra) i [Krzysztof Ross](https://github.com/Tratcher)
 
 ::: moniker range=">= aspnetcore-3.1"
 
@@ -40,7 +40,7 @@ Obsługiwane wersje systemu Windows:
 * Windows 7 lub nowszy
 * Windows Server 2008 R2 lub nowszy
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-httpsys"></a>Kiedy używać protokołu HTTP. sys
 
@@ -133,7 +133,7 @@ W programie Visual Studio domyślny profil uruchamiania jest przeznaczony dla II
 
 1. Uzyskaj i zainstaluj certyfikaty X. 509, jeśli jest to wymagane.
 
-   W systemie Windows utwórz certyfikaty z podpisem własnym za pomocą [polecenia cmdlet New-SelfSignedCertificate programu PowerShell](/powershell/module/pkiclient/new-selfsignedcertificate). Aby zapoznać się z nieobsługiwanym przykładem, zobacz [UpdateIISExpressSSLForChrome. ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
+   W systemie Windows utwórz certyfikaty z podpisem własnym za pomocą [polecenia cmdlet New-SelfSignedCertificate programu PowerShell](/powershell/module/pkiclient/new-selfsignedcertificate). Aby zapoznać się z nieobsługiwanym przykładem, zobacz [UpdateIISExpressSSLForChrome. ps1](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
 
    Zainstaluj certyfikaty z podpisem własnym lub certyfikat podpisany przez urząd certyfikacji na **komputerze lokalnym** serwera > **osobistym** magazynie.
 
@@ -293,7 +293,7 @@ Obsługiwane wersje systemu Windows:
 * Windows 7 lub nowszy
 * Windows Server 2008 R2 lub nowszy
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-httpsys"></a>Kiedy używać protokołu HTTP. sys
 
@@ -384,7 +384,7 @@ W programie Visual Studio domyślny profil uruchamiania jest przeznaczony dla II
 
 1. Uzyskaj i zainstaluj certyfikaty X. 509, jeśli jest to wymagane.
 
-   W systemie Windows utwórz certyfikaty z podpisem własnym za pomocą [polecenia cmdlet New-SelfSignedCertificate programu PowerShell](/powershell/module/pkiclient/new-selfsignedcertificate). Aby zapoznać się z nieobsługiwanym przykładem, zobacz [UpdateIISExpressSSLForChrome. ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
+   W systemie Windows utwórz certyfikaty z podpisem własnym za pomocą [polecenia cmdlet New-SelfSignedCertificate programu PowerShell](/powershell/module/pkiclient/new-selfsignedcertificate). Aby zapoznać się z nieobsługiwanym przykładem, zobacz [UpdateIISExpressSSLForChrome. ps1](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
 
    Zainstaluj certyfikaty z podpisem własnym lub certyfikat podpisany przez urząd certyfikacji na **komputerze lokalnym** serwera > **osobistym** magazynie.
 
@@ -544,7 +544,7 @@ Obsługiwane wersje systemu Windows:
 * Windows 7 lub nowszy
 * Windows Server 2008 R2 lub nowszy
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-httpsys"></a>Kiedy używać protokołu HTTP. sys
 
@@ -637,7 +637,7 @@ W programie Visual Studio domyślny profil uruchamiania jest przeznaczony dla II
 
 1. Uzyskaj i zainstaluj certyfikaty X. 509, jeśli jest to wymagane.
 
-   W systemie Windows utwórz certyfikaty z podpisem własnym za pomocą [polecenia cmdlet New-SelfSignedCertificate programu PowerShell](/powershell/module/pkiclient/new-selfsignedcertificate). Aby zapoznać się z nieobsługiwanym przykładem, zobacz [UpdateIISExpressSSLForChrome. ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
+   W systemie Windows utwórz certyfikaty z podpisem własnym za pomocą [polecenia cmdlet New-SelfSignedCertificate programu PowerShell](/powershell/module/pkiclient/new-selfsignedcertificate). Aby zapoznać się z nieobsługiwanym przykładem, zobacz [UpdateIISExpressSSLForChrome. ps1](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
 
    Zainstaluj certyfikaty z podpisem własnym lub certyfikat podpisany przez urząd certyfikacji na **komputerze lokalnym** serwera > **osobistym** magazynie.
 
@@ -797,7 +797,7 @@ Obsługiwane wersje systemu Windows:
 * Windows 7 lub nowszy
 * Windows Server 2008 R2 lub nowszy
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-httpsys"></a>Kiedy używać protokołu HTTP. sys
 
@@ -890,7 +890,7 @@ W programie Visual Studio domyślny profil uruchamiania jest przeznaczony dla II
 
 1. Uzyskaj i zainstaluj certyfikaty X. 509, jeśli jest to wymagane.
 
-   W systemie Windows utwórz certyfikaty z podpisem własnym za pomocą [polecenia cmdlet New-SelfSignedCertificate programu PowerShell](/powershell/module/pkiclient/new-selfsignedcertificate). Aby zapoznać się z nieobsługiwanym przykładem, zobacz [UpdateIISExpressSSLForChrome. ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
+   W systemie Windows utwórz certyfikaty z podpisem własnym za pomocą [polecenia cmdlet New-SelfSignedCertificate programu PowerShell](/powershell/module/pkiclient/new-selfsignedcertificate). Aby zapoznać się z nieobsługiwanym przykładem, zobacz [UpdateIISExpressSSLForChrome. ps1](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
 
    Zainstaluj certyfikaty z podpisem własnym lub certyfikat podpisany przez urząd certyfikacji na **komputerze lokalnym** serwera > **osobistym** magazynie.
 

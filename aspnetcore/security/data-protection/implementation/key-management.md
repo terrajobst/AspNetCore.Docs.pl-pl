@@ -1,57 +1,57 @@
 ---
-title: Zarządzanie kluczami w programie ASP.NET Core
+title: Zarządzanie kluczami w ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, szczegóły implementacji interfejsów API zarządzania kluczami ochrony danych programu ASP.NET Core.
+description: Poznaj szczegóły implementacji interfejsów API zarządzania kluczami ASP.NET Core ochrony danych.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: 431bdf2d3076c83279b78f327ddb647f69e6e584
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: c571222d734fa69183563aefa5cc6ce5a10e7612
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898771"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664711"
 ---
-# <a name="key-management-in-aspnet-core"></a>Zarządzanie kluczami w programie ASP.NET Core
+# <a name="key-management-in-aspnet-core"></a>Zarządzanie kluczami w ASP.NET Core
 
 <a name="data-protection-implementation-key-management"></a>
 
-System ochrony danych automatycznie zarządza czasem istnienia kluczy głównych używany do włączania i wyłączania ochrony ładunków. Każdy klucz może znajdować się w jednej z czterech etapów:
+System ochrony danych automatycznie zarządza okresem istnienia kluczy głównych używanych do ochrony i nieochrony ładunków. Każdy klucz może istnieć w jednym z czterech etapów:
 
-* Utworzony — klucz istnieje w pierścienia klucza, ale nie został jeszcze aktywowany. Klucz nie powinien służyć do nowych operacji ochrony przed upływem wystarczająco dużo czasu, klucz miała szansę zostanie rozpropagowany do wszystkich maszyn, które zużywają ten pierścień klucza.
+* Utworzono — klucz istnieje w pęku kluczy, ale nie został jeszcze aktywowany. Klucza nie należy używać w przypadku nowych operacji ochrony, dopóki nie upłynie wystarczająco dużo czasu, że klucz ma szansę na propagację na wszystkie maszyny, które zużywają ten pierścień kluczy.
 
-* Aktywny - klucz istnieje w pierścieniu klucza i powinien być używany dla wszystkich nowych operacji ochrony.
+* Aktywny — klucz istnieje w pierścieniu kluczy i powinien być używany dla wszystkich nowych operacji ochrony.
 
-* Wygasłe — klucz zostało uruchomione istnienia naturalnych i nie będzie używać dla nowych operacji ochrony.
+* Wygasł — klucz został uruchomiony jako jego naturalny okres istnienia i nie powinien już być używany dla nowych operacji ochrony.
 
-* Odwołane - klucz zostanie naruszony i nie może być używany dla nowych operacji ochrony.
+* Odwołany — klucz został złamany i nie może być używany dla nowych operacji ochrony.
 
-Utworzone, aktywnych i wygasłe klucze może być używane do wyłączanie ochrony ładunków, przychodzących. Odwołane kluczy domyślnie nie mogą służyć do wyłączanie ochrony ładunków, ale Deweloper aplikacji może [zastąpienia tego zachowania](xref:security/data-protection/consumer-apis/dangerous-unprotect#data-protection-consumer-apis-dangerous-unprotect) w razie potrzeby.
+Klucze utworzone, aktywne i wygasłe mogą służyć do wykluczania ochrony przychodzących ładunków. Klucze odwołane domyślnie nie mogą być używane do ochrony ładunków, ale Deweloper aplikacji może [przesłonić to zachowanie](xref:security/data-protection/consumer-apis/dangerous-unprotect#data-protection-consumer-apis-dangerous-unprotect) w razie potrzeby.
 
 >[!WARNING]
-> Deweloper może być uznasz, że można usunąć klucza z kluczem pierścienia (np. poprzez usunięcie odpowiedniego pliku z systemu plików). W tym momencie wszystkich danych chronionych za pomocą klucza jest trwale zapisane, a istnieje żadne przesłonięcie awaryjnego, tak jak ma to przy użyciu kluczy odwołane. Usuwanie klucza jest naprawdę destrukcyjne zachowanie i w związku z tym system ochrony danych uwidacznia żadnych najwyższej klasy interfejsów API do wykonania tej operacji.
+> Deweloper może być skłonny do usunięcia klucza z pierścienia kluczy (np. przez usunięcie odpowiedniego pliku z systemu plików). W tym momencie wszystkie dane chronione przez klucz są trwale nierozpoznawalne i nie ma żadnych zastąpień awaryjnych, takich jak istnieje odwołanie do unieważnionych kluczy. Usunięcie klucza jest naprawdę zachowaniem destrukcyjnym, a w związku z tym system ochrony danych nie ujawnia interfejsu API pierwszej klasy do wykonania tej operacji.
 
-## <a name="default-key-selection"></a>Domyślny wybór klucza
+## <a name="default-key-selection"></a>Wybór klucza domyślnego
 
-Gdy system ochrony danych odczytuje pierścień klucza z repozytorium zapasowy, jej będzie podejmować próby zlokalizowania klucza "default" z pierścienia klucza. Domyślny klucz jest używany dla nowych operacji ochrony.
+Gdy system ochrony danych odczytuje pierścień kluczy z repozytorium zapasowego, podejmie próbę odnalezienia domyślnego klucza z pierścienia kluczy. Domyślny klucz jest używany dla nowych operacji ochrony.
 
-Ogólny Algorytm heurystyczny jest, że system ochrony danych wybierze klucz z najbardziej aktualną datę aktywacji jako domyślnego klucza. (Brak jest współczynnik małych grę fudge, aby umożliwić zegara serwer serwer pochylenia). Jeśli klucz jest wygasłe lub odwołane, i jeśli aplikacja nie została wyłączona automatyczna klucza generacji, a następnie zostanie wygenerowany nowy klucz za pomocą natychmiastowej aktywacji na [klucza wygaśnięcia i wycofania](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management-expiration) zasad poniżej.
+Ogólna heurystyka polega na tym, że system ochrony danych wybiera klucz z najnowszą datą aktywacji jako klucz domyślny. (Istnieje mały fudgey czynnik, który umożliwia przechylenie między serwerami a serwerem). Jeśli klucz wygasł lub został odwołany, a jeśli aplikacja nie wyłączyła automatycznej generacji kluczy, zostanie wygenerowany nowy klucz z natychmiastową aktywacją zgodnie z poniższą opcją [wygaśnięcia klucza i zasadami wycofywania](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management-expiration) .
 
-Przyczyna system ochrony danych natychmiast generuje nowy klucz, a nie nastąpi powrót do innego klucza jest, że wygenerowanie nowego klucza powinny być traktowane jako niejawne okresu wszystkie klucze, które zostały aktywowane przed nowego klucza. Ogólne chodzi o to, że nowe klucze zostały skonfigurowane przy użyciu różnych algorytmów lub mechanizmów szyfrowania podczas spoczynku niż starych kluczy, a system powinien Preferuj bieżącej konfiguracji przed powrotem.
+Od momentu, gdy system ochrony danych generuje nowy klucz bezpośrednio, zamiast powracać do innego klucza, to nowa generacja kluczy powinna być traktowana jako niejawne wygaśnięcie wszystkich kluczy, które zostały aktywowane przed nowym kluczem. Dobrym pomysłem jest to, że nowe klucze mogą zostać skonfigurowane przy użyciu różnych algorytmów lub mechanizmów szyfrowania w trybie spoczynku niż stare klucze, a system powinien preferować bieżącą konfigurację w porównaniu z powrotem.
 
-Występuje wyjątek. Jeśli Deweloper aplikacji ma [wyłączyć automatyczne generowanie klucza](xref:security/data-protection/configuration/overview#disableautomatickeygeneration), a następnie system ochrony danych, musisz wybrać coś jako domyślnego klucza. W tym scenariuszu rezerwowy system wybierze klucz odwołać się najbardziej aktualną datę aktywacji, z preferencją kluczy, których czas propagacji dla innych maszyn w klastrze. System rezerwowy może pozostać w wyniku wybór domyślny wygasły klucz. System rezerwowy nigdy nie wybierze odwołanych klucza jako klucza domyślne, a pierścień klucza jest pusta lub za każdy klucz został odwołany. następnie systemu powoduje wygenerowanie błędu po zainicjowaniu.
+Wystąpił wyjątek. Jeśli deweloper aplikacji [wyłączył automatyczne generowanie kluczy](xref:security/data-protection/configuration/overview#disableautomatickeygeneration), system ochrony danych musi wybrać coś jako klucz domyślny. W tym scenariuszu rezerwowym system wybierze klucz nieodwołany z datą ostatniej aktywacji z preferencjami dotyczącymi kluczy, które miały czas na propagację na inne maszyny w klastrze. System rezerwowy może zakończyć Wybieranie wygasłego klucza domyślnego w wyniku. System rezerwowy nigdy nie wybiera odwołanego klucza jako klucza domyślnego, a jeśli pierścień kluczy jest pusty lub każdy klucz został odwołany, system wygeneruje błąd po zainicjowaniu.
 
 <a name="data-protection-implementation-key-management-expiration"></a>
 
-## <a name="key-expiration-and-rolling"></a>Data wygaśnięcia klucza i wycofania
+## <a name="key-expiration-and-rolling"></a>Wygaśnięcie i wycofywanie klucza
 
-Gdy klucz jest tworzony, automatycznie dało się data aktywacji {teraz + 2 dni} i {teraz + 90 dni} datę wygaśnięcia. 2-dniowym opóźnieniem aktywacji zapewnia klucza czasu propagowane przez system. Oznacza to, że umożliwia innym aplikacjom wskazującej na magazyn zapasowy przestrzegać klucz ich następnego okresu automatyczne odświeżanie, maksymalizując prawdopodobieństwo, że po klucz cyklicznego czy stanie się aktywny, który jej zakończeniem propagacji do wszystkich aplikacji, które może być konieczne jej używać.
+Po utworzeniu klucza jest on automatycznie miał datę aktywacji {Now + 2 dni} i datę wygaśnięcia {Now + 90 dni}. Opóźnienie 2-dniowe przed aktywacją umożliwia przekazanie klucza przez system. Oznacza to, że umożliwia innym aplikacjom wskazanie magazynu zapasowego, aby obserwować klucz w kolejnym okresie autoodświeżania, w ten sposób maksymalizując prawdopodobieństwo, że gdy pierścień klucza stanie się aktywny, został rozpropagowany do wszystkich aplikacji, które mogą wymagać użycia.
 
-Domyślny klucz wygaśnie w ciągu 2 dni i pierścień klucz jeszcze jej nie ma klucza, który będzie aktywny po upływie domyślnego klucza, w system ochrony danych będzie automatycznie umieszczony nowy klucz do pierścienia klucza. Ten nowy klucz ma Data aktywacji {Data wygaśnięcia domyślny klucz} i {teraz + 90 dni} datę wygaśnięcia. Dzięki temu system automatycznie przeprowadzić kluczy na bieżąco z nie przerw w działaniu usług.
+Jeśli klucz domyślny wygaśnie w ciągu 2 dni i jeśli pierścień kluczy nie ma jeszcze klucza, który będzie aktywny po wygaśnięciu klucza domyślnego, system ochrony danych automatycznie powróci nowy klucz do dzwonka klucza. Ten nowy klucz ma datę aktywacji {Data wygaśnięcia klucza domyślnego} i datę wygaśnięcia {Now + 90 dni}. Pozwala to systemowi na regularne automatyczne rzutowanie kluczy bez przerwy w działaniu usługi.
 
-Mogą istnieć okoliczności gdzie klucz zostanie utworzony za pomocą natychmiastowej aktywacji. Jeden przykładem może być, gdy aplikacja nie zostało uruchomione przez czas wszystkie klucze w pierścienia klucz wygasł. W takim przypadku klucza jest podana data aktywacji {teraz} niezwłocznie normalne 2-dniowych aktywacji.
+Mogą wystąpić sytuacje, w których klucz zostanie utworzony z natychmiastową aktywacją. Przykładem może być, gdy aplikacja nie zostanie uruchomiona przez czas, a wszystkie klucze w pęku kluczy wygasły. W takim przypadku klucz otrzymuje datę aktywacji {Now} bez normalnego 2-dniowego opóźnienia aktywacji.
 
-Domyślny okres istnienia klucza jest 90 dni, chociaż jest to można skonfigurować, jak w poniższym przykładzie.
+Domyślny okres istnienia klucza to 90 dni, ale można go skonfigurować tak, jak w poniższym przykładzie.
 
 ```csharp
 services.AddDataProtection()
@@ -59,26 +59,28 @@ services.AddDataProtection()
        .SetDefaultKeyLifetime(TimeSpan.FromDays(14));
 ```
 
-Administrator można również zmienić domyślne systemowe, chociaż jawnym wywołaniem `SetDefaultKeyLifetime` zastąpią wszelkie zasady systemowe. Domyślny okres istnienia klucza nie może być krótszy niż 7 dni.
+Administrator może również zmienić domyślne ustawienie całego systemu, chociaż jawne wywołanie `SetDefaultKeyLifetime` przesłoni wszystkie zasady dotyczące całego systemu. Domyślny okres istnienia klucza nie może być krótszy niż 7 dni.
 
-## <a name="automatic-key-ring-refresh"></a>Odświeżanie automatyczne pierścień klucza
+## <a name="automatic-key-ring-refresh"></a>Automatyczne odświeżanie dzwonka klucza
 
-Gdy system ochrony danych, odczytuje pierścień klucza podstawowego repozytorium i zapisuje go w pamięci podręcznej w pamięci. Ta pamięć podręczna umożliwia wykonywanie operacji Chroń i Unprotect kontynuować bez osiągnięcia magazyn zapasowy. System automatycznie sprawdzi magazyn zapasowy zmiany mniej więcej co 24 godziny lub po upływie bieżącego klucza domyślne osiągnięta jako pierwsza.
+Po zainicjowaniu system ochrony danych odczytuje pierścień klucza z bazowego repozytorium i buforuje go w pamięci. Ta pamięć podręczna umożliwia ochronę i wyłączanie ochrony, aby można było wykonać operację bez nachodzenia do magazynu zapasowego. System automatycznie sprawdzi magazyn zapasowy pod kątem zmian co około 24 godziny lub gdy bieżący klucz domyślny wygaśnie, w zależności od tego, co nastąpi wcześniej.
 
 >[!WARNING]
-> Deweloperzy powinien bardzo rzadko (Jeśli w ogóle) trzeba korzystać bezpośrednio zarządzanie kluczami interfejsów API. System ochrony danych będzie wykonywać automatyczne zarządzanie kluczami, zgodnie z powyższym opisem.
+> Deweloperzy muszą bardzo rzadko korzystać z interfejsów API zarządzania kluczami. System ochrony danych wykona automatyczne zarządzanie kluczami, zgodnie z powyższym opisem.
 
-System ochrony danych udostępnia interfejs `IKeyManager` który może służyć do sprawdzania i wprowadzić zmiany do pierścienia klucza. System DI podanym wystąpienie `IDataProtectionProvider` oferuje również wystąpienie `IKeyManager` za użycie. Alternatywnie możesz ściągnąć `IKeyManager` bezpośrednio z `IServiceProvider` tak jak w poniższym przykładzie.
+System ochrony danych uwidacznia interfejs `IKeyManager`, który może służyć do sprawdzania i wprowadzania zmian w pęku kluczy. System DI, który dostarczył wystąpienie `IDataProtectionProvider`, może także zapewnić wystąpienie `IKeyManager` do użycia. Alternatywnie można ściągnąć `IKeyManager` prosto z `IServiceProvider`, jak w poniższym przykładzie.
 
-Każdej operacji, która modyfikuje pierścień klucza (Tworzenie nowego klucza jawnie lub odwołania) spowoduje unieważnienie w pamięci podręcznej. Następne wywołanie `Protect` lub `Unprotect` spowoduje, że system ochrony danych, odświeżanie pierścień klucza i ponowne utworzenie pamięci podręcznej.
+Każda operacja, która modyfikuje pierścień kluczy (utworzenie nowego klucza jawnie lub wykonanie odwołania), spowoduje unieważnienie pamięci podręcznej w pamięci. Następne wywołanie `Protect` lub `Unprotect` spowoduje, że system ochrony danych odczyta ponownie pierścień klucza i ponownie utworzy pamięć podręczną.
 
-Poniższy przykład demonstruje użycie `IKeyManager` interfejs do sprawdzania i manipulowania ring klucza, w tym odwołaniem istniejących kluczy i ręczne Generowanie nowego klucza.
+Poniższy przykład ilustruje użycie interfejsu `IKeyManager` do sprawdzenia i manipulowania pierścieniem kluczy, w tym odwoływanie istniejących kluczy i ręczne generowanie nowego klucza.
 
 [!code-csharp[](key-management/samples/key-management.cs)]
 
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
+
 ## <a name="key-storage"></a>Magazyn kluczy
 
-System ochrony danych ma heurystyki, według którego próbuje automatycznie wywnioskować lokalizacji odpowiedniego magazynu kluczy i mechanizm szyfrowania podczas spoczynku. Mechanizm trwałość klucza jest także można skonfigurować przez dewelopera aplikacji. Następujące dokumenty omawia implementacje skrzynkach odbiorczych tych mechanizmów:
+System ochrony danych ma algorytm heurystyczny, przy użyciu którego próbuje automatycznie ustalić odpowiednią lokalizację magazynu kluczy i mechanizm szyfrowania w systemie spoczynku. Mechanizm trwałości klucza jest również konfigurowalny przez dewelopera aplikacji. W poniższych dokumentach omówiono implementacje w usłudze Box następujących mechanizmów:
 
 * <xref:security/data-protection/implementation/key-storage-providers>
 * <xref:security/data-protection/implementation/key-encryption-at-rest>

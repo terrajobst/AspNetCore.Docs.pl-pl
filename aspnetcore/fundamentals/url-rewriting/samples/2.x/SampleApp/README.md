@@ -8,30 +8,30 @@ Podczas uruchamiania przykładu odpowiedzi nie związane z plikami zwracają pon
 
 * `AddRedirect("redirect-rule/(.*)", "redirected/$1")`
   - Kod stanu sukcesu: 302 (znaleziono)
-  - Przykład (redirect): **/redirect-Rule/{capture_group}** do **/redirected/{capture_group}**
+  - Przykład (redirect): **/redirect-rule/{capture_group}** do **/redirected/{capture_group}**
 * `AddRewrite(@"^rewrite-rule/(\d+)/(\d+)", "rewritten?var1=$1&var2=$2", skipRemainingRules: true)`
   - Kod stanu sukcesu: 200 (OK)
-  - Przykład (Zapisz ponownie): **/Rewrite-Rule/{capture_group_1}/{capture_group_2}** do **/Rewritten? var1 = {capture_group_1} & var2 = {capture_group_2}**
+  - Przykład (Zapisz ponownie): **/rewrite-rule/{capture_group_1}/{capture_group_2}** do **/Rewritten? var1 = {capture_group_1} & var2 = {capture_group_2}**
 * `AddApacheModRewrite(env.ContentRootFileProvider, "ApacheModRewrite.txt")`
   - Kod stanu sukcesu: 302 (znaleziono)
-  - Przykład (redirect): **/Apache-mod-Rules-redirect/{capture_group}** do **/redirected? ID = {capture_group}**
+  - Przykład (redirect): **/apache-mod-rules-redirect/{capture_group}** do **/redirected? id = {capture_group}**
 * `AddIISUrlRewrite(env.ContentRootFileProvider, "IISUrlRewrite.xml")`
   - Kod stanu sukcesu: 200 (OK)
-  - Przykład (Zapisz ponownie): **/IIS-Rules-Rewrite/{capture_group}** do **/Rewritten? ID = {capture_group}**
+  - Przykład (Zapisz ponownie): **/iis-rules-rewrite/{capture_group}** do **/Rewritten? id = {capture_group}**
 * `Add(RedirectXmlFileRequests)`
-  - Kod stanu sukcesu: 301 (trwale przeniesiono)
+  - Kod stanu sukcesu: 301 (trwale przeniesiony)
   - Przykład (redirect): **/File.XML** do **/XmlFiles/File.XML**
 * `Add(RewriteTextFileRequests)`
   - Kod stanu sukcesu: 200 (OK)
-  - Przykład (Zapisz ponownie): **/some_file.txt** do **/File.txt**
+  - Przykład (Zapisz ponownie): **/some_file. txt** do **/File.txt**
 * `Add(new RedirectImageRequests(".png", "/png-images")))`<br>`Add(new RedirectImageRequests(".jpg", "/jpg-images")))`
-  - Kod stanu sukcesu: 301 (trwale przeniesiono)
+  - Kod stanu sukcesu: 301 (trwale przeniesiony)
   - Przykład (redirect): **/Image.png** do **/PNG-images/Image.png**
   - Przykład (redirect): **/Image.jpg** do **/jpg-images/Image.jpg**
 
 ## <a name="use-a-physicalfileprovider"></a>Użyj PhysicalFileProvider
 
-Możesz również uzyskać `IFileProvider` , `PhysicalFileProvider` tworząc element, aby przekazać `AddApacheModRewrite()` metody i `AddIISUrlRewrite()` :
+Możesz również uzyskać `IFileProvider`, tworząc `PhysicalFileProvider` do przekazania do `AddApacheModRewrite()` i `AddIISUrlRewrite()` metod:
 
 ```csharp
 using Microsoft.Extensions.FileProviders;
@@ -40,7 +40,7 @@ PhysicalFileProvider fileProvider = new PhysicalFileProvider(Directory.GetCurren
 
 ## <a name="secure-redirection-extensions"></a>Rozszerzenia bezpiecznego przekierowania
 
-Ten przykład obejmuje `WebHostBuilder` konfigurację aplikacji do korzystania z adresów URL (`https://localhost:5001`, `https://localhost`) i certyfikatu testowego (*testCert. pfx*) w celu ułatwienia eksplorowania metod bezpiecznego przekierowania. Jeśli serwer ma już przypisany lub używany przez port 443, nie działa `https://localhost` &mdash;, Usuń `ListenOptions` port dla portu 443 w `CreateWebHostBuilder` metodzie pliku *program.cs* lub odpinaj port 443 na serwerze, aby Kestrel mógł użyć Port.
+Ten przykład obejmuje konfigurację `WebHostBuilder` aplikacji do używania adresów URL (`https://localhost:5001`, `https://localhost`) i certyfikatu testowego (*testCert. pfx*), aby pomóc w eksplorowaniu metod bezpiecznego przekierowania. Jeśli na serwerze jest już przypisany lub używany port 443, `https://localhost` przykład nie działa&mdash;usunąć `ListenOptions` dla portu 443 w metodzie `CreateWebHostBuilder` pliku *program.cs* lub Usuń powiązanie portu 443 na serwerze, aby Kestrel mógł używać portu.
 
 | Metoda                           | Kod stanu |    Port    |
 | -------------------------------- | :---------: | :--------: |

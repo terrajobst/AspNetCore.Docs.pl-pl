@@ -1,74 +1,74 @@
 ---
-title: Wyprowadzanie podkluczy i uwierzytelnione szyfrowanie w programie ASP.NET Core
+title: Wyprowadzanie podkluczy i uwierzytelnione szyfrowanie w ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, szczegóły implementacji ochrony danych programu ASP.NET Core podklucza pochodnym i uwierzytelnione szyfrowanie.
+description: Poznaj szczegóły implementacji wyprowadzenia podklucza ASP.NET Core ochrony danych i uwierzytelniania uwierzytelnionego.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/subkeyderivation
 ms.openlocfilehash: bbfde378755b09cd5b1217b8cf66249b9fa1d6ad
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67814384"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660553"
 ---
-# <a name="subkey-derivation-and-authenticated-encryption-in-aspnet-core"></a>Wyprowadzanie podkluczy i uwierzytelnione szyfrowanie w programie ASP.NET Core
+# <a name="subkey-derivation-and-authenticated-encryption-in-aspnet-core"></a>Wyprowadzanie podkluczy i uwierzytelnione szyfrowanie w ASP.NET Core
 
 <a name="data-protection-implementation-subkey-derivation"></a>
 
-Większość klawiszy pierścienia klucz będzie zawierać jakąś postać entropii i będą zawierać informacje algorytmicznego, podając w "trybie CBC szyfrowanie i weryfikacja HMAC" lub "usługi GCM szyfrowanie i sprawdzanie poprawności". W takich przypadkach nazywamy osadzone entropii materiał klucza głównego (lub KM) dla tego klucza, a następnie wykonamy funkcji wyprowadzania klucza do tworzenia kluczy, które będą używane dla operacje kryptograficzne.
+Większość kluczy w pierścieniu kluczy będzie zawierać pewną postać entropii i będzie zawierać informacje o algorytmach z uwzględnieniem "CBC-Mode Encryption + HMAC Validation" lub "GCM Encryption + Validation". W takich przypadkach odwołujemy się do osadzonej entropii jako głównego materiału klucza (lub KM) dla tego klucza i wykonujemy funkcję wyprowadzania klucza w celu uzyskania kluczy, które będą używane dla rzeczywistych operacji kryptograficznych.
 
 > [!NOTE]
-> Klucze są abstrakcyjne, a implementacja niestandardowa mogą nie zachowywać się zgodnie z poniższymi instrukcjami. Jeśli klucz zapewnia własną implementację `IAuthenticatedEncryptor` zamiast przy użyciu jednego z naszych wbudowanych fabryki, mechanizm opisane w tej sekcji nie ma już zastosowania.
+> Klucze są abstrakcyjne i implementacja niestandardowa może nie zachowywać się w następujący sposób. Jeśli klucz zawiera własną implementację `IAuthenticatedEncryptor` zamiast korzystać z jednego z naszych wbudowanych fabryk, mechanizm opisany w tej sekcji już nie ma zastosowania.
 
 <a name="data-protection-implementation-subkey-derivation-aad"></a>
 
-## <a name="additional-authenticated-data-and-subkey-derivation"></a>Dodatkowe dane uwierzytelnionego i wyprowadzanie podkluczy
+## <a name="additional-authenticated-data-and-subkey-derivation"></a>Dodatkowe uwierzytelnione dane i podklucze
 
-`IAuthenticatedEncryptor` Interfejsu służy jako interfejs podstawowe dla wszystkich operacji szyfrowania uwierzytelniony. Jego `Encrypt` metoda przyjmuje dwa buforów: zwykłego tekstu i additionalAuthenticatedData (AAD). Przepływ zawartości zwykłego tekstu bez zmian wywołanie `IDataProtector.Protect`, ale usługi AAD jest generowany przez system i składa się z trzech składników:
+Interfejs `IAuthenticatedEncryptor` służy jako podstawowy interfejs dla wszystkich uwierzytelnionych operacji szyfrowania. `Encrypt` Metoda przyjmuje dwa bufory: zwykły tekst i additionalAuthenticatedData (AAD). Zawartość w postaci zwykłego tekstu nie zmieniła wywołania do `IDataProtector.Protect`, ale AAD jest generowana przez system i składa się z trzech składników:
 
-1. Nagłówek magic 32-bitowych 09 F0 F0 C9, który identyfikuje tę wersję system ochrony danych.
+1. 32-bitowy nagłówek Magic 09 F0 C9 F0, który identyfikuje tę wersję systemu ochrony danych.
 
 2. Identyfikator klucza 128-bitowego.
 
-3. Ciąg znaków o zmiennej długości utworzone z łańcucha celem utworzenia `IDataProtector` , jest wykonanie tej operacji.
+3. Ciąg o zmiennej długości utworzony z łańcucha przeznaczenie, który utworzył `IDataProtector`, który wykonuje tę operację.
 
-Usługi AAD jest unikatowy dla krotki wszystkie trzy składniki, możemy użyć go do wyprowadzenia nowych kluczy z KM zamiast KM sama we wszystkich naszych operacji kryptograficznych. Dla każdego wywołania `IAuthenticatedEncryptor.Encrypt`, odbywa się następujący proces wyprowadzania klucza:
+Ponieważ usługa AAD jest unikatowa dla krotki wszystkich trzech składników, możemy użyć jej do uzyskania nowych kluczy z KM zamiast używania kilometrów we wszystkich naszych operacjach kryptograficznych. Dla każdego wywołania do `IAuthenticatedEncryptor.Encrypt`należy wykonać następujący proces wyprowadzania klucza:
 
-(K_E, K_H) = SP800_108_CTR_HMACSHA512 (contextHeader K_M, usługi AAD, || keyModifier)
+(K_E, K_H) = SP800_108_CTR_HMACSHA512 (K_M, AAD, contextHeader | | | | | | | | | | | | | |)
 
-W tym miejscu Zadzwonimy pod numer telefonu KDF SP800 108 NIST w trybie licznika (zobacz [NIST SP800-108](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), s. 5.1) z następującymi parametrami:
+W tym miejscu wywołujemy instytut NIST SP800-108 KDF w trybie licznika (zobacz [NIST SP800-108](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), s. 5,1) z następującymi parametrami:
 
-* Klucz klucza pochodnego (KDK) = K_M
+* Klucz wyprowadzania klucza (KDK) = K_M
 
 * PRF = HMACSHA512
 
 * Etykieta = additionalAuthenticatedData
 
-* kontekst = contextHeader || keyModifier
+* Context = contextHeader | | Modyfikator
 
-Nagłówek kontekstu jest o zmiennej długości i zasadniczo pełni rolę algorytmów, dla których firma Microsoft jest wyprowadzanie K_E i K_H odcisku palca. Modyfikator klucza jest ciągiem 128-bitowego losowo generowany dla każdego wywołania `Encrypt` i służy do zapewnienia przeciążenia prawdopodobieństwo, że KE i KH unikatowy dla tej operacji szyfrowania określonego uwierzytelniania, nawet jeśli wszystkie inne dane wejściowe do KDF jest stałe.
+Nagłówek kontekstu ma zmienną długość i zasadniczo służy jako odcisk palca algorytmów, dla których są wyprowadzane K_E i K_H. Modyfikator klucza jest 128-bitowym ciągiem losowo generowanym dla każdego wywołania do `Encrypt` i służy do zagwarantowania, że z założeniem prawdopodobieństwa, że KE i KH jest unikatowy dla tej operacji szyfrowania uwierzytelniania, nawet jeśli wszystkie inne dane wejściowe KDF są stałe.
 
-W trybie CBC szyfrowania + HMAC operacji sprawdzania poprawności | K_E | to długość klucza szyfrowania symetrycznego bloku, a | K_H | jest to rozmiar szyfrowanego procedury HMAC. Szyfrowanie usługi GCM i operacje sprawdzania poprawności | K_H | = 0.
+W przypadku operacji sprawdzania poprawności szyfrowania w trybie CBC + HMAC, | K_E | to długość klucza szyfrowania symetrycznego bloku i | K_H | jest rozmiarem podsumowania procedury HMAC. W przypadku operacji szyfrowania GCM + walidacji, | K_H | = 0.
 
-## <a name="cbc-mode-encryption--hmac-validation"></a>Trybie CBC szyfrowanie i weryfikacja HMAC
+## <a name="cbc-mode-encryption--hmac-validation"></a>CBC-Mode Encryption + Walidacja HMAC
 
-Po wygenerowaniu K_E za pośrednictwem mechanizmu powyższych możemy wektor inicjowania losowe generowanie, a następnie uruchom algorytmu szyfrowania symetrycznego bloku do szyfrowania w formie zwykłego tekstu. Wektor inicjowania i tekstu szyfrowanego są następnie uruchamiane za pomocą procedury HMAC zainicjowane z użyciem klucza K_H do produkcji na komputerze MAC. Ten proces i wartość zwracana jest reprezentowane graficznie poniżej.
+Po wygenerowaniu K_E za pomocą powyższego mechanizmu generujemy losowy wektor inicjalizacji i uruchamiamy algorytm szyfrowania bloku symetrycznego, aby szyfrowanie zwykły tekst. Wektor inicjalizacji i tekst szyfrowany są następnie uruchamiane za pomocą procedury HMAC, która została zainicjowana z kluczem K_H w celu utworzenia komputera MAC. Ten proces i wartość zwracana są reprezentowane graficznie poniżej.
 
-![Proces w trybie CBC i wróć](subkeyderivation/_static/cbcprocess.png)
+![Proces CBC i powrót](subkeyderivation/_static/cbcprocess.png)
 
-*dane wyjściowe: = keyModifier || IV || E_cbc (dane K_E, iv) || HMAC (K_H, iv || E_cbc (dane K_E, iv))*
-
-> [!NOTE]
-> `IDataProtector.Protect` Wdrożenia będzie [dołączana magic nagłówek i identyfikator klucza](xref:security/data-protection/implementation/authenticated-encryption-details) danych wyjściowych przed zwróceniem do obiektu wywołującego. Ponieważ magic nagłówek i identyfikator klucza są niejawnie wchodzi w skład [AAD](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation-aad), a ponieważ modyfikator klucza jest podawany jako dane wejściowe KDF, oznacza to, że każdy jeden bajt końcowy ładunek zwracany jest uwierzytelniany przez komputerów MAC.
-
-## <a name="galoiscounter-mode-encryption--validation"></a>Tryb Galois liczników szyfrowanie i weryfikacja
-
-Po wygenerowaniu K_E za pośrednictwem mechanizmu powyższych możemy Generowanie losowe jednorazowego 96-bitowym, a następnie uruchom algorytmu szyfrowania symetrycznego bloku szyfrowanie w postaci zwykłego tekstu i utworzyć tag uwierzytelniania 128-bitowego.
-
-![Proces trybu GCM i wróć](subkeyderivation/_static/galoisprocess.png)
-
-*dane wyjściowe: = keyModifier || Identyfikator jednorazowy || E_gcm (K_E, jednorazowy, dane) || authTag*
+*Output: = modyfikator | | IV | | E_cbc (K_E, IV, dane) | | HMAC (K_H, IV | | E_cbc (K_E, IV, dane))*
 
 > [!NOTE]
-> Mimo że GCM natywnie obsługuje pojęcia usługi AAD, firma Microsoft jest nadal wprowadzając AAD tylko z oryginalnego KDF, aby przekazać pusty ciąg do usługi GCM dla jej parametru usługi AAD. Przyczyna to składa się z dwóch etapów. Po pierwsze, [do obsługi elastyczność](xref:security/data-protection/implementation/context-headers#data-protection-implementation-context-headers) nigdy nie chcemy użyć K_M bezpośrednio jako klucza szyfrowania. Ponadto usługa GCM nakłada unikatowości bardzo ścisłe wymagania dotyczące jego danych wejściowych. Prawdopodobieństwo, że procedura szyfrowania usługi GCM jest nigdy nie są wywoływane na dwóch lub więcej różnych zestawów danych wejściowych o takiej samej (klucz, jednorazowy) pary nie może przekraczać 2 ^ 32. Jeśli firma Microsoft rozwiąże K_E nie można wykonać więcej niż 2 ^ 32 operacji szyfrowania przed możemy uruchomić afoul o 2 ^ ograniczyć -32. To może wydawać się bardzo dużej liczby operacji, ale serwer sieci web o dużym natężeniu ruchu mogą być używane za pośrednictwem 4 miliardów żądań w kilku dni, również w ramach normalnych okres istnienia dla tych kluczy. Aby pozostają zgodne 2 ^ limit prawdopodobieństwo-32 Kontynuujemy przy użyciu 128-bitowego klucza modyfikator i jednorazowego 96-bitowym, która znacząco rozszerza liczbę operacji można używać dla dowolnego danego K_M. Dla uproszczenia projektu udostępniamy ścieżka kodu KDF między operacjami CBC i GCM, a ponieważ usługi AAD już jest uważana za KDF nie ma potrzeby ją przesłać do procedury usługi GCM.
+> Implementacja `IDataProtector.Protect` będzie dołączać [magiczny nagłówek i identyfikator klucza](xref:security/data-protection/implementation/authenticated-encryption-details) do danych wyjściowych przed przywróceniem go do obiektu wywołującego. Ponieważ nagłówek Magic i identyfikator klucza są niejawnie częścią usługi [AAD](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation-aad)i ponieważ modyfikator klucza jest podawany jako dane wejściowe do KDF, oznacza to, że każdy pojedynczy bajt końcowego zwróconego ładunku jest uwierzytelniany przez komputery Mac.
+
+## <a name="galoiscounter-mode-encryption--validation"></a>Szyfrowanie w trybie Galois/licznik + Walidacja
+
+Po wygenerowaniu K_E za pomocą powyższego mechanizmu generujemy losowo 96-bitowy identyfikator jednorazowy i uruchomimy algorytm szyfrowania bloku symetrycznego, aby szyfrowanie zwykły tekst i utworzyć tag uwierzytelniania 128-bitowy.
+
+![Proces GCM i powrót](subkeyderivation/_static/galoisprocess.png)
+
+*Output: = modyfikator | | Identyfikator jednorazowy | | E_gcm (K_E, nonce, dane) | | authTag*
+
+> [!NOTE]
+> Mimo że GCM natywnie obsługuje koncepcję usługi AAD, nadal będziemy uzyskiwać dostęp do usługi AAD tylko do oryginalnego KDF, ale w celu przekazania pustego ciągu do GCM dla jego parametru AAD. Przyczyną tego jest złożenie dwóch. Najpierw, [Aby obsługiwać elastyczność](xref:security/data-protection/implementation/context-headers#data-protection-implementation-context-headers) , która nigdy nie chce używać K_M bezpośrednio jako klucz szyfrowania. Ponadto GCM nakładają na dane wejściowe bardzo rygorystyczne wymagania unikatowości. Prawdopodobieństwo wywołania procedury szyfrowania GCM w dwóch lub większej liczbie odrębnych zestawów danych wejściowych o tej samej parze (Key, nonce) nie może przekroczyć 2 ^ 32. Jeśli naprawimy K_E nie możemy wykonać więcej niż 2 ^ 32 operacji szyfrowania przed uruchomieniem afoul limitu 2 ^-32. Może to wyglądać podobnie do bardzo dużej liczby operacji, ale serwer sieci Web o wysokim natężeniu ruchu może przechodzić przez 4 000 000 000 żądań w zwykłych dniach, a także w normalnym okresie istnienia tych kluczy. Aby zachować zgodność z 2-32 ograniczeniem prawdopodobieństwa, będziemy nadal używać modyfikatora klucza 128-bitowego i 96-bitowy identyfikator jednorazowy, który radykalnie rozszerza liczbę operacji przydatnych dla danego K_M. W celu uproszczenia projektowania udostępnimy ścieżkę kodu KDF między operacjami CBC i GCM, a ponieważ usługa AAD jest już brana pod uwagę w KDF, nie ma potrzeby przechodzenia do procedury GCM.

@@ -10,15 +10,15 @@ no-loc:
 - SignalR
 uid: signalr/introduction
 ms.openlocfilehash: 635431abf9263c2dff261aea47e6f8324061763f
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829286"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662919"
 ---
 # <a name="introduction-to-aspnet-core-opno-locsignalr"></a>Wprowadzenie do ASP.NET Core SignalR
 
-## <a name="what-is-opno-locsignalr"></a>Co to jest usługa SignalR?
+## <a name="what-is-opno-locsignalr"></a>Co to jest SignalR?
 
 ASP.NET Core SignalR jest biblioteką Open Source, która upraszcza Dodawanie funkcji sieci Web w czasie rzeczywistym do aplikacji. Funkcja sieci Web w czasie rzeczywistym umożliwia serwerowi natychmiastowe wypychanie zawartości do klientów.
 
@@ -63,4 +63,4 @@ Centra wywołują kod po stronie klienta, wysyłając komunikaty zawierające na
 * [Wprowadzenie do SignalR dla ASP.NET Core](xref:tutorials/signalr)
 * [Obsługiwane platformy](xref:signalr/supported-platforms)
 * [Centra](xref:signalr/hubs)
-* [Klient JavaScript](xref:signalr/javascript-client)
+* [Klient środowiska JavaScript](xref:signalr/javascript-client)

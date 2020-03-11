@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 12/18/2018
 uid: fundamentals/owin
-ms.openlocfilehash: 980b60512bdeadd2a58b87e633ebf1416f725851
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 14b23ba6d284413e20417bbd4142e19a656350ac
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172093"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666685"
 ---
 # <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>Otwórz interfejs sieci Web dla platformy .NET (OWIN) z ASP.NET Core
 
@@ -29,7 +29,7 @@ Dzięki temu ASP.NET Core mogą być hostowane na serwerze/hoście zgodnym z OWI
 > [!NOTE]
 > Korzystanie z tych kart wiąże się z kosztem wydajności. Aplikacje używające tylko składników ASP.NET Core nie powinny używać pakietu `Microsoft.AspNetCore.Owin` lub kart.
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="running-owin-middleware-in-the-aspnet-core-pipeline"></a>Uruchamianie oprogramowania pośredniczącego OWIN w potoku ASP.NET Core
 
@@ -217,7 +217,7 @@ public class Startup
 }
 ```
 
-Ten [przykład](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/owin/sample) jest konfigurowany przy użyciu tego samego `NowinServer` co poprzedni — jedyną różnicą jest to, w jaki sposób aplikacja jest skonfigurowana w ramach metody `Configure`. Test korzystający z [prostego klienta protokołu WebSocket](https://chrome.google.com/webstore/detail/simple-websocket-client/pfdhoblngboilpfeibdedpjgfnlcodoo?hl=en) pokazuje aplikację:
+Ten [przykład](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/owin/sample) jest konfigurowany przy użyciu tego samego `NowinServer` co poprzedni — jedyną różnicą jest to, w jaki sposób aplikacja jest skonfigurowana w ramach metody `Configure`. Test korzystający z [prostego klienta protokołu WebSocket](https://chrome.google.com/webstore/detail/simple-websocket-client/pfdhoblngboilpfeibdedpjgfnlcodoo?hl=en) pokazuje aplikację:
 
 ![Klient testowy gniazda sieci Web](owin/_static/websocket-test.png)
 

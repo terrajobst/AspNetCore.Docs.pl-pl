@@ -5,12 +5,12 @@ description: Dowiedz się, w jaki sposób ASP.NET Core MVC używa programów po�
 ms.author: riande
 ms.date: 12/05/2019
 uid: mvc/controllers/routing
-ms.openlocfilehash: 8cf7e74df292a614f287eff8561a22187f6558ce
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 1116cc699f749a137638b75095a7172ad0d4858a
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866062"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663724"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>Routing do akcji kontrolera w ASP.NET Core
 
@@ -159,7 +159,7 @@ Trasy w kolekcji tras są uporządkowane i będą przetwarzane w kolejności, w 
 > [!NOTE]
 > *Dedykowane konwencjonalne trasy* często korzystają z parametrów trasy catch-all, takich jak `{*article}`, do przechwytywania pozostałej części ścieżki URL. Może to spowodować, że trasa "zbyt zachłanne" oznacza, że pasuje do adresów URL, które mają być dopasowane przez inne trasy. Umieść trasy "zachłanne" później w tabeli tras, aby rozwiązać ten problem.
 
-### <a name="fallback"></a>Opcja rezerwowa
+### <a name="fallback"></a>Istnie
 
 W ramach przetwarzania żądań MVC sprawdzi, czy wartości trasy mogą być używane do znajdowania kontrolera i akcji w aplikacji. Jeśli wartości trasy nie są zgodne z akcją, trasa nie jest uważana za dopasowanie i zostanie podjęta kolejna trasa. Jest to nazywane *Fallback*i ma na celu uproszczenie przypadków, w których trasy konwencjonalne nakładają się na siebie.
 
@@ -559,7 +559,7 @@ Akcje są albo podkierowane do Konwencji lub kierowane przez atrybut. Umieszczen
 
 ## <a name="complex-segments"></a>Złożone segmenty
 
-Złożone segmenty (na przykład `[Route("/dog{token}cat")]`) są przetwarzane przez dopasowanie literałów od prawej do lewej w sposób niezachłanney. Sprawdź [kod źródłowy](https://github.com/aspnet/Routing/blob/9cea167cfac36cf034dbb780e3f783114ef94780/src/Microsoft.AspNetCore.Routing/Patterns/RoutePatternMatcher.cs#L296) opisu. Aby uzyskać więcej informacji, zobacz [ten problem](https://github.com/aspnet/AspNetCore.Docs/issues/8197).
+Złożone segmenty (na przykład `[Route("/dog{token}cat")]`) są przetwarzane przez dopasowanie literałów od prawej do lewej w sposób niezachłanney. Sprawdź [kod źródłowy](https://github.com/aspnet/Routing/blob/9cea167cfac36cf034dbb780e3f783114ef94780/src/Microsoft.AspNetCore.Routing/Patterns/RoutePatternMatcher.cs#L296) opisu. Aby uzyskać więcej informacji, zobacz [ten problem](https://github.com/dotnet/AspNetCore.Docs/issues/8197).
 
 <a name="routing-url-gen-ref-label"></a>
 
@@ -597,7 +597,7 @@ MVC kompiluje tabelę odnośników wszystkich akcji przypisanych do atrybutu i d
 
 ### <a name="generating-urls-by-action-name"></a>Generowanie adresów URL według nazwy akcji
 
-`Url.Action` (`IUrlHelper` . `Action`) i wszystkie powiązane przeciążenia są oparte na tym pomysłie, aby określić, do czego chcesz utworzyć łącze, określając nazwę kontrolera i nazwę akcji.
+`Url.Action` (`IUrlHelper`. `Action`) i wszystkie powiązane przeciążenia są oparte na tym pomysłie, aby określić, do czego chcesz utworzyć łącze, określając nazwę kontrolera i nazwę akcji.
 
 > [!NOTE]
 > W przypadku korzystania z `Url.Action`, bieżące wartości trasy dla `controller` i `action` są określone dla Ciebie — wartość `controller` i `action` są częścią *wartości otoczenia* **i** *wartości*. Metoda `Url.Action`, zawsze używa bieżących wartości `action` i `controller` i wygeneruje ścieżkę URL, która kieruje do bieżącej akcji.

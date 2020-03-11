@@ -7,18 +7,18 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 9f3e3b29d155f1024aef530bf9c55efa57d4546a
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.openlocfilehash: 8b3417205457a5ce5fa16994701a06e2a4d7d350
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928400"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78665726"
 ---
 # <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Samouczek: Używanie funkcji migracji ASP.NET MVC z EF Core
 
 W tym samouczku Zacznij korzystać z funkcji migracji EF Core, aby zarządzać zmianami modelu danych. W kolejnych samouczkach dodasz więcej migracji w miarę zmieniania modelu danych.
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Więcej informacji na temat migracji
@@ -116,7 +116,7 @@ W oknie wiersza polecenia wprowadź następujące polecenie, aby utworzyć bazę
 dotnet ef database update
 ```
 
-Dane wyjściowe polecenia są podobne do polecenia `migrations add`, z tą różnicą, że są wyświetlane dzienniki poleceń SQL, które konfigurują bazę danych. Większość dzienników zostanie pominiętych w następujących przykładowych danych wyjściowych. Jeśli wolisz, aby nie wyświetlać tego poziomu szczegółów w komunikatach dziennika, możesz zmienić poziom dziennika w *appSettings. Plik Development. JSON* . Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/logging/index>.
+Dane wyjściowe polecenia są podobne do polecenia `migrations add`, z tą różnicą, że są wyświetlane dzienniki poleceń SQL, które konfigurują bazę danych. Większość dzienników zostanie pominiętych w następujących przykładowych danych wyjściowych. Jeśli wolisz, aby nie wyświetlać tego poziomu szczegółów w komunikatach dziennika, możesz zmienić poziom dziennika w *appSettings. Plik Development. JSON* . Aby uzyskać więcej informacji, zobacz <xref:fundamentals/logging/index>.
 
 ```text
 info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
@@ -167,13 +167,13 @@ Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia, 
 
 Aby uzyskać więcej informacji na temat poleceń PMC, zobacz [konsola Menedżera pakietów (Visual Studio)](/ef/core/miscellaneous/cli/powershell).
 
-## <a name="get-the-code"></a>Pobierz kod
+## <a name="get-the-code"></a>Uzyskiwanie kodu
 
-[Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-step"></a>Następny krok
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Zapoznaj się z migracjami

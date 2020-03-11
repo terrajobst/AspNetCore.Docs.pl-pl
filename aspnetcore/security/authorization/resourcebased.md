@@ -6,29 +6,29 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/15/2018
 uid: security/authorization/resourcebased
-ms.openlocfilehash: acc931da1be0940fac72b0aabe07ab17ca7e63bd
-ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
+ms.openlocfilehash: 2be611c754583d996db7107f341b1be03cef73cf
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73660003"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664802"
 ---
 # <a name="resource-based-authorization-in-aspnet-core"></a>Autoryzacja oparta na zasobach w ASP.NET Core
 
 Strategia autoryzacji zależy od zasobów, do których uzyskuje się dostęp. Rozważ dokument, który ma właściwość Author. Tylko autor może zaktualizować dokument. W związku z tym dokument musi zostać pobrany z magazynu danych, zanim będzie można przeprowadzić ocenę autoryzacji.
 
-Obliczanie atrybutu występuje przed powiązaniem danych i przed wykonaniem procedury obsługi stron lub akcji ładującej dokument. Z tych powodów niewystarczająca jest autoryzacja deklaratywna z atrybutem `[Authorize]`. Zamiast tego można wywołać niestandardową metodę autoryzacji &mdash;a stylu znanej jako samodzielna *autoryzacja*.
+Obliczanie atrybutu występuje przed powiązaniem danych i przed wykonaniem procedury obsługi stron lub akcji ładującej dokument. Z tych powodów niewystarczająca jest autoryzacja deklaratywna z atrybutem `[Authorize]`. Zamiast tego można wywołać niestandardową metodę autoryzacji&mdash;stylu znanej jako samodzielna *autoryzacja*.
 
 ::: moniker range=">= aspnetcore-3.0"
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples/3_0) ([jak pobrać](xref:index#how-to-download-a-sample)).
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples/3_0) ([jak pobrać](xref:index#how-to-download-a-sample)).
 ::: moniker-end
 
  ::: moniker range=">= aspnetcore-2.0 < aspnetcore-3.0"
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples/2_2) ([jak pobrać](xref:index#how-to-download-a-sample)).
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples/2_2) ([jak pobrać](xref:index#how-to-download-a-sample)).
 ::: moniker-end
 
 ::: moniker range="<= aspnetcore-1.1"
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples/1_1) ([jak pobrać](xref:index#how-to-download-a-sample)).
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples/1_1) ([jak pobrać](xref:index#how-to-download-a-sample)).
 ::: moniker-end
 
 [Tworzenie aplikacji ASP.NET Core przy użyciu danych użytkownika chronionych przez autoryzację](xref:security/authorization/secure-data) zawiera przykładową aplikację, która korzysta z autoryzacji opartej na zasobach.

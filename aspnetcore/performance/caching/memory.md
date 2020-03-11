@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/02/2020
 uid: performance/caching/memory
-ms.openlocfilehash: 23acc17c861c203a87b1c113940e7bf42b51e810
-ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
+ms.openlocfilehash: e01e4a139893297a71aabb1af11b25cf0deb85a9
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972015"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663038"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Buforowanie w pamięci w ASP.NET Core
 
@@ -19,7 +19,7 @@ ms.locfileid: "76972015"
 
 Autorzy [Rick Anderson](https://twitter.com/RickAndMSFT), [Jan Luo](https://github.com/JunTaoLuo)i [Steve Smith](https://ardalis.com/)
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/memory/3.0sample) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/memory/3.0sample) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="caching-basics"></a>Podstawowe informacje o buforowaniu
 
@@ -164,7 +164,7 @@ Poniższy przykład pokazuje, jak wygasa wpis pamięci podręcznej, Jeśli wpis 
 
 Użycie <xref:System.Threading.CancellationTokenSource> umożliwia wykluczenie wielu wpisów pamięci podręcznej jako grupy. Ze wzorcem `using` w powyższym kodzie, wpisy pamięci podręcznej utworzone wewnątrz bloku `using` będą dziedziczyć wyzwalacze i ustawienia wygasania.
 
-## <a name="additional-notes"></a>Dodatkowe uwagi
+## <a name="additional-notes"></a>Uwagi dodatkowe
 
 * Wygaśnięcie nie odbywa się w tle. Nie ma czasomierza, który aktywnie skanuje pamięć podręczną pod kątem wygasłych elementów. Wszystkie działania w pamięci podręcznej (`Get`, `Set`, `Remove`) mogą wyzwalać skanowanie w tle dla elementów, które utraciły ważność. Czasomierz na `CancellationTokenSource` (<xref:System.Threading.CancellationTokenSource.CancelAfter*>) usuwa również wpis i wyzwala skanowanie w poszukiwaniu elementów wygasłych. W poniższym przykładzie zastosowano [CancellationTokenSource (TimeSpan)](/dotnet/api/system.threading.cancellationtokensource.-ctor) dla zarejestrowanego tokenu. Gdy ten token wyzwala, usuwa wpis natychmiast i wyzwala wywołania zwrotne wykluczenia:
 
@@ -196,7 +196,7 @@ Użycie <xref:System.Threading.CancellationTokenSource> umożliwia wykluczenie w
 <!-- This is the 2.1 version -->
 Autorzy [Rick Anderson](https://twitter.com/RickAndMSFT), [Jan Luo](https://github.com/JunTaoLuo)i [Steve Smith](https://ardalis.com/)
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/memory/sample) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/memory/sample) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="caching-basics"></a>Podstawowe informacje o buforowaniu
 
@@ -336,7 +336,7 @@ Poniższy przykład pokazuje, jak wygasa wpis pamięci podręcznej, Jeśli wpis 
 
 Użycie `CancellationTokenSource` umożliwia wykluczenie wielu wpisów pamięci podręcznej jako grupy. Ze wzorcem `using` w powyższym kodzie, wpisy pamięci podręcznej utworzone wewnątrz bloku `using` będą dziedziczyć wyzwalacze i ustawienia wygasania.
 
-## <a name="additional-notes"></a>Dodatkowe uwagi
+## <a name="additional-notes"></a>Uwagi dodatkowe
 
 * W przypadku użycia wywołania zwrotnego do ponownego wypełnienia elementu pamięci podręcznej:
 

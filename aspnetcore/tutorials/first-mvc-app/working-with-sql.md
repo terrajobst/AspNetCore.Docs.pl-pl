@@ -6,21 +6,21 @@ ms.author: riande
 ms.date: 8/16/2019
 uid: tutorials/first-mvc-app/working-with-sql
 ms.openlocfilehash: d556f07111fb2022a1c2f1a066459566e302835d
-ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75722777"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78665040"
 ---
 # <a name="work-with-sql-in-aspnet-core"></a>Współpraca z SQL w ASP.NET Core
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Obiekt `MvcMovieContext` obsługuje zadanie łączenia się z bazą danych i mapowania obiektów `Movie` do rekordów bazy danych. Kontekst bazy danych jest zarejestrowany z kontenerem [iniekcji zależności](xref:fundamentals/dependency-injection) w metodzie `ConfigureServices` w pliku *Startup.cs* :
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_ConfigureServices&highlight=5-6)]
 
@@ -28,7 +28,7 @@ System [konfiguracji](xref:fundamentals/configuration/index) ASP.NET Core odczyt
 
 [!code-json[](start-mvc/sample/MvcMovie/appsettings.json?highlight=2&range=8-10)]
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_UseSqlite&highlight=5-6)]
 
@@ -40,7 +40,7 @@ System [konfiguracji](xref:fundamentals/configuration/index) ASP.NET Core odczyt
 
 Gdy aplikacja jest wdrażana na serwerze testowym lub produkcyjnym, zmienna środowiskowa może służyć do ustawiania parametrów połączenia do SQL Server produkcyjnej. Aby uzyskać więcej informacji, zobacz [Konfiguracja](xref:fundamentals/configuration/index) .
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
@@ -64,7 +64,7 @@ Zwróć uwagę na ikonę klucza obok `ID`. Domyślnie EF wprowadzi właściwoś�
 
   ![Otwórz tabelę filmów pokazującą dane tabeli](working-with-sql/_static/vd22.png)
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
 [!INCLUDE[](~/includes/rp/sqlite.md)]
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
@@ -97,7 +97,7 @@ Zastąp zawartość *program.cs* następującym kodem:
 
 Testowanie aplikacji
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Usuń wszystkie rekordy z bazy danych. Można to zrobić za pomocą linków usuwania w przeglądarce lub z SSOX.
 * Wymuś inicjalizację aplikacji (wywołaj metody z klasy `Startup`), aby była uruchamiana Metoda inicjatora. Aby wymusić inicjalizację, IIS Express należy zatrzymać i uruchomić ponownie. Można to zrobić przy użyciu następujących metod:
@@ -111,7 +111,7 @@ Testowanie aplikacji
     * W przypadku uruchamiania programu VS w trybie innym niż debugowanie naciśnij klawisz F5, aby uruchomić w trybie debugowania
     * W przypadku uruchamiania programu VS w trybie debugowania Zatrzymaj debuger i naciśnij klawisz F5.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
 Usuń wszystkie rekordy z bazy danych (w związku z czym zostanie uruchomiona Metoda inicjatora). Zatrzymaj i uruchom aplikację, aby wypełniać bazę danych.
 
@@ -122,17 +122,17 @@ Aplikacja pokazuje dane z rozrzutu.
 ![Aplikacja filmowa MVC otwarta w przeglądarce Microsoft Edge pokazująca dane filmu](working-with-sql/_static/m55.png)
 
 > [!div class="step-by-step"]
-> [Poprzedni](adding-model.md)
-> [Następny](controller-methods-views.md)
+> [Poprzednie](adding-model.md)
+> [dalej](controller-methods-views.md)
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Obiekt `MvcMovieContext` obsługuje zadanie łączenia się z bazą danych i mapowania obiektów `Movie` do rekordów bazy danych. Kontekst bazy danych jest zarejestrowany z kontenerem [iniekcji zależności](xref:fundamentals/dependency-injection) w metodzie `ConfigureServices` w pliku *Startup.cs* :
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=13-99)]
 
@@ -140,7 +140,7 @@ System [konfiguracji](xref:fundamentals/configuration/index) ASP.NET Core odczyt
 
 [!code-json[](start-mvc/sample/MvcMovie/appsettings.json?highlight=2&range=8-10)]
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
 
@@ -152,7 +152,7 @@ System [konfiguracji](xref:fundamentals/configuration/index) ASP.NET Core odczyt
 
 Podczas wdrażania aplikacji na serwerze testowym lub produkcyjnym można użyć zmiennej środowiskowej lub innego podejścia do ustawiania parametrów połączenia dla rzeczywistych SQL Server. Aby uzyskać więcej informacji, zobacz [Konfiguracja](xref:fundamentals/configuration/index) .
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
@@ -176,7 +176,7 @@ Zwróć uwagę na ikonę klucza obok `ID`. Domyślnie EF wprowadzi właściwoś�
 
   ![Otwórz tabelę filmów pokazującą dane tabeli](working-with-sql/_static/vd22.png)
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
 [!INCLUDE[](~/includes/rp/sqlite.md)]
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
@@ -209,7 +209,7 @@ Zastąp zawartość *program.cs* następującym kodem:
 
 Testowanie aplikacji
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Usuń wszystkie rekordy z bazy danych. Można to zrobić za pomocą linków usuwania w przeglądarce lub z SSOX.
 * Wymuś inicjalizację aplikacji (wywołaj metody z klasy `Startup`), aby była uruchamiana Metoda inicjatora. Aby wymusić inicjalizację, IIS Express należy zatrzymać i uruchomić ponownie. Można to zrobić przy użyciu następujących metod:
@@ -223,7 +223,7 @@ Testowanie aplikacji
     * W przypadku uruchamiania programu VS w trybie innym niż debugowanie naciśnij klawisz F5, aby uruchomić w trybie debugowania
     * W przypadku uruchamiania programu VS w trybie debugowania Zatrzymaj debuger i naciśnij klawisz F5.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
 Usuń wszystkie rekordy z bazy danych (w związku z czym zostanie uruchomiona Metoda inicjatora). Zatrzymaj i uruchom aplikację, aby wypełniać bazę danych.
 
@@ -234,7 +234,7 @@ Aplikacja pokazuje dane z rozrzutu.
 ![Aplikacja filmowa MVC otwarta w przeglądarce Microsoft Edge pokazująca dane filmu](working-with-sql/_static/m55_mac.png)
 
 > [!div class="step-by-step"]
-> [Poprzedni](adding-model.md)
-> [Następny](controller-methods-views.md)
+> [Poprzednie](adding-model.md)
+> [dalej](controller-methods-views.md)
 
 ::: moniker-end

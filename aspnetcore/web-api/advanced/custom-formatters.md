@@ -5,12 +5,12 @@ description: Dowiedz się, jak tworzyć i używać niestandardowych elementów f
 ms.author: riande
 ms.date: 02/08/2017
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: 122edfd4ccd06ed62e071691f421d2aeef8002b4
-ms.sourcegitcommit: 488cc779fc71377d9371e7a14356113e9c7eff17
+ms.openlocfilehash: dd25cda460ba758cd07de094eaadd1f2d8c28657
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70913514"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667672"
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>Niestandardowe elementy formatujące w ASP.NET Core Web API
 
@@ -22,7 +22,7 @@ Struktura zawiera wbudowane, wejściowe i wyjściowe elementy formatujące dla J
 
 W tym artykule pokazano, jak dodać obsługę dodatkowych formatów, tworząc niestandardowe elementy formatujące. Aby zapoznać się z przykładem niestandardowego wejściowego programu formatującego dla zwykłego tekstu, zobacz [TextPlainInputFormatter](https://github.com/aspnet/Entropy/blob/master/samples/Mvc.Formatters/TextPlainInputFormatter.cs) w witrynie GitHub.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-custom-formatters"></a>Kiedy używać niestandardowych elementów formatujących
 
@@ -36,7 +36,7 @@ Poniżej przedstawiono procedurę tworzenia i używania niestandardowego program
 
 * Utwórz wyjściową klasę programu formatującego, jeśli chcesz serializować dane do wysłania do klienta.
 * Utwórz wejściową klasę programu formatującego, jeśli chcesz zdeserializować dane odebrane od klienta.
-* Dodaj wystąpienia elementów formatujących do `InputFormatters` kolekcji i `OutputFormatters` w [MvcOptions](/dotnet/api/microsoft.aspnetcore.mvc.mvcoptions).
+* Dodaj wystąpienia programu formatującego do `InputFormatters` i `OutputFormatters` kolekcji w [MvcOptions](/dotnet/api/microsoft.aspnetcore.mvc.mvcoptions).
 
 W poniższych sekcjach przedstawiono wskazówki i przykłady kodu dla każdego z tych kroków.
 
@@ -46,8 +46,8 @@ Aby utworzyć program formatujący:
 
 * Utwórz klasę z odpowiedniej klasy bazowej.
 * Określ prawidłowe typy nośników i kodowania w konstruktorze.
-* Metody `CanReadType` / przesłonięcia`CanWriteType`
-* Metody `ReadRequestBodyAsync` / przesłonięcia`WriteResponseBodyAsync`
+* Zastąp `CanReadType`/`CanWriteType` metodami
+* Zastąp `ReadRequestBodyAsync`/`WriteResponseBodyAsync` metodami
   
 ### <a name="derive-from-the-appropriate-base-class"></a>Pochodny od odpowiedniej klasy bazowej
 
@@ -55,52 +55,52 @@ W przypadku typów multimediów tekstowych (na przykład vCard) pochodzi z klasy
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=classdef)]
 
-Przykład danych wejściowych programu formatującego można znaleźć w [aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)przykładowej.
+Przykład danych wejściowych programu formatującego można znaleźć w [aplikacji](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)przykładowej.
 
 W przypadku typów binarnych pochodzi z klasy bazowej [InputFormatter](/dotnet/api/microsoft.aspnetcore.mvc.formatters.inputformatter) lub [OutputFormatter](/dotnet/api/microsoft.aspnetcore.mvc.formatters.outputformatter) .
 
 ### <a name="specify-valid-media-types-and-encodings"></a>Określ prawidłowe typy multimediów i kodowania
 
-W konstruktorze Określ prawidłowe typy nośników i kodowania przez dodanie do `SupportedMediaTypes` kolekcji i. `SupportedEncodings`
+W konstruktorze Określ prawidłowe typy nośników i kodowania, dodając do kolekcji `SupportedMediaTypes` i `SupportedEncodings`.
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=ctor&highlight=3,5-6)]
 
-Przykład danych wejściowych programu formatującego można znaleźć w [aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)przykładowej.
+Przykład danych wejściowych programu formatującego można znaleźć w [aplikacji](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)przykładowej.
 
 > [!NOTE]
 > Nie można wykonać iniekcji zależności konstruktora w klasie programu formatującego. Na przykład nie można uzyskać rejestratora, dodając parametr rejestratora do konstruktora. Aby uzyskać dostęp do usług, należy użyć obiektu kontekstu, który jest przesyłany do Twoich metod. W [poniższym](#read-write) przykładzie kodu pokazano, jak to zrobić.
 
 ### <a name="override-canreadtypecanwritetype"></a>Zastąp element overridetype/unwritetype
 
-Określ typ, do którego można deserializować lub serializować z, zastępując `CanReadType` metody `CanWriteType` lub. Na przykład możesz mieć możliwość tworzenia tylko tekstu w formacie vCard z typu i `Contact` na odwrót.
+Określ typ, do którego można wykonać deserializacja lub serializować z, zastępując metody `CanReadType` lub `CanWriteType`. Na przykład można utworzyć tylko tekst w formacie vCard z typu `Contact` i na odwrót.
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=canwritetype)]
 
-Przykład danych wejściowych programu formatującego można znaleźć w [aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)przykładowej.
+Przykład danych wejściowych programu formatującego można znaleźć w [aplikacji](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)przykładowej.
 
 #### <a name="the-canwriteresult-method"></a>Metoda CanWriteResult
 
-W niektórych scenariuszach należy przesłonić `CanWriteResult` `CanWriteType`zamiast. Użyj `CanWriteResult` , jeśli spełnione są następujące warunki:
+W niektórych scenariuszach trzeba przesłonić `CanWriteResult`, a nie `CanWriteType`. Użyj `CanWriteResult`, jeśli są spełnione następujące warunki:
 
 * Metoda działania zwraca klasę modelu.
 * Istnieją klasy pochodne, które mogą być zwracane w czasie wykonywania.
 * Musisz wiedzieć w czasie wykonywania, który Klasa pochodna została zwrócona przez akcję.
 
-Na przykład załóżmy, że podpis metody akcji `Person` zwraca typ, ale może `Student` zwrócić lub `Instructor` typ, który pochodzi od `Person`. Jeśli chcesz, aby program formatujący obsługiwał `Student` tylko obiekty, Sprawdź typ [obiektu](/dotnet/api/microsoft.aspnetcore.mvc.formatters.outputformattercanwritecontext.object#Microsoft_AspNetCore_Mvc_Formatters_OutputFormatterCanWriteContext_Object) w `CanWriteResult` obiekcie kontekstu udostępnionym metody. Należy zauważyć, że nie jest konieczne użycie `CanWriteResult` , gdy metoda akcji zwróci `IActionResult`wartość. `CanWriteType` w takim przypadku metoda odbiera typ środowiska uruchomieniowego.
+Na przykład załóżmy, że podpis metody akcji zwraca typ `Person`, ale może zwrócić `Student` lub `Instructor` typ, który pochodzi z `Person`. Jeśli chcesz, aby program formatujący obsługiwał tylko `Student` obiektów, Sprawdź typ [obiektu](/dotnet/api/microsoft.aspnetcore.mvc.formatters.outputformattercanwritecontext.object#Microsoft_AspNetCore_Mvc_Formatters_OutputFormatterCanWriteContext_Object) w obiekcie kontekstu dostarczonym do metody `CanWriteResult`. Należy zauważyć, że nie jest konieczne używanie `CanWriteResult`, gdy metoda akcji zwróci `IActionResult`; w takim przypadku Metoda `CanWriteType` otrzymuje typ środowiska uruchomieniowego.
 
 <a id="read-write"></a>
 
 ### <a name="override-readrequestbodyasyncwriteresponsebodyasync"></a>Override ReadRequestBodyAsync/WriteResponseBodyAsync
 
-Wykonywanie rzeczywistej pracy deserializacji lub serializacji w `ReadRequestBodyAsync` lub. `WriteResponseBodyAsync` W wyróżnionych wierszach w poniższym przykładzie pokazano, jak uzyskać usługi z kontenera iniekcji zależności (nie można pobrać ich z parametrów konstruktora).
+Wykonywanie rzeczywistej pracy deserializacji lub serializacji w `ReadRequestBodyAsync` lub `WriteResponseBodyAsync`. W wyróżnionych wierszach w poniższym przykładzie pokazano, jak uzyskać usługi z kontenera iniekcji zależności (nie można pobrać ich z parametrów konstruktora).
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=writeresponse&highlight=3-4)]
 
-Przykład danych wejściowych programu formatującego można znaleźć w [aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)przykładowej.
+Przykład danych wejściowych programu formatującego można znaleźć w [aplikacji](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)przykładowej.
 
 ## <a name="how-to-configure-mvc-to-use-a-custom-formatter"></a>Jak skonfigurować MVC do używania niestandardowego programu formatującego
 
-Aby użyć niestandardowego programu formatującego, Dodaj wystąpienie klasy programu formatującego do `InputFormatters` kolekcji lub. `OutputFormatters`
+Aby użyć niestandardowego programu formatującego, Dodaj wystąpienie klasy programu formatującego do kolekcji `InputFormatters` lub `OutputFormatters`.
 
 [!code-csharp[](custom-formatters/sample/Startup.cs?name=mvcoptions&highlight=3-4)]
 
@@ -108,7 +108,7 @@ Elementy formatujące są oceniane w kolejności, w jakiej je wstawiasz. Pierwsz
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Przykładowa aplikacja dla tego dokumentu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample), która implementuje proste elementy formatujące dane wejściowe i wyjściowe w formacie vCard. Aplikacje odczytuje i zapisuje wizytówki vCard, które wyglądają jak w poniższym przykładzie:
+* [Przykładowa aplikacja dla tego dokumentu](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample), która implementuje proste elementy formatujące dane wejściowe i wyjściowe w formacie vCard. Aplikacje odczytuje i zapisuje wizytówki vCard, które wyglądają jak w poniższym przykładzie:
 
 ```
 BEGIN:VCARD
@@ -119,6 +119,6 @@ UID:20293482-9240-4d68-b475-325df4a83728
 END:VCARD
 ```
 
-Aby wyświetlić dane wyjściowe w formacie vCard, uruchom aplikację i Wyślij żądanie Get z nagłówkiem Akceptuj "text/vCard `http://localhost:63313/api/contacts/` " do (w przypadku uruchamiania z programu `http://localhost:5000/api/contacts/` Visual Studio) lub (w przypadku uruchamiania z wiersza polecenia).
+Aby wyświetlić dane wyjściowe w formacie vCard, uruchom aplikację i Wyślij żądanie Get z nagłówkiem Accept "text/vCard" do `http://localhost:63313/api/contacts/` (w przypadku uruchamiania z programu Visual Studio) lub `http://localhost:5000/api/contacts/` (w przypadku uruchamiania z wiersza polecenia).
 
 Aby dodać wizytówkę vCard do kolekcji kontaktów w pamięci, Wyślij żądanie post na ten sam adres URL, z nagłówkiem content-type "text/vCard" i z tekstem w formacie vCard w treści, tak jak w powyższym przykładzie.

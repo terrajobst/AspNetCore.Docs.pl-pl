@@ -4,11 +4,11 @@
 
 Utwórz folder *danych* .
 
-Dodaj następującą `MvcMovieContext` klasę do folderu *danych* :  
+Dodaj następującą klasę `MvcMovieContext` do folderu *danych* :  
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/zDocOnly/MvcMovieContext.cs?name=snippet)]
 
-Poprzedni kod tworzy `DbSet` Właściwość zestawu jednostek. W Entity Framework terminologii zestaw jednostek zwykle odpowiada tabeli bazy danych, a jednostka odpowiada wierszowi w tabeli.
+Poprzedni kod tworzy właściwość `DbSet` dla zestawu jednostek. W Entity Framework terminologii zestaw jednostek zwykle odpowiada tabeli bazy danych, a jednostka odpowiada wierszowi w tabeli.
 
 <a name="cs"></a>
 
@@ -26,7 +26,7 @@ Dodaj parametry połączenia do pliku *appSettings. JSON* :
 
 ### <a name="register-the-database-context"></a>Zarejestruj kontekst bazy danych
 
-Dodaj następujące `using` instrukcje w górnej części *Startup.cs*:
+Dodaj następujące instrukcje `using` w górnej części *Startup.cs*:
 
 ```csharp
 using MvcMovie.Data;
@@ -43,11 +43,11 @@ Kompiluj projekt jako sprawdzenie błędów kompilatora.
 
 ::: moniker range="< aspnetcore-3.0"
 
-Dodaj następujący kod `MvcMovieContext` klasy *modeli* folderu:  
+Dodaj następującą klasę `MvcMovieContext` do folderu *models* :  
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Data/MvcMovieContext.cs)]
 
-Poprzedni kod tworzy `DbSet` Właściwość zestawu jednostek. W Entity Framework terminologii zestaw jednostek zwykle odpowiada tabeli bazy danych, a jednostka odpowiada wierszowi w tabeli.
+Poprzedni kod tworzy właściwość `DbSet` dla zestawu jednostek. W Entity Framework terminologii zestaw jednostek zwykle odpowiada tabeli bazy danych, a jednostka odpowiada wierszowi w tabeli.
 
 <a name="cs"></a>
 
@@ -66,13 +66,13 @@ dotnet add package Microsoft.EntityFrameworkCore.SQLite
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 ```
 
-`Microsoft.VisualStudio.Web.CodeGeneration.Design` Pakiet jest wymagany do tworzenia szkieletów.
+Pakiet `Microsoft.VisualStudio.Web.CodeGeneration.Design` jest wymagany do tworzenia szkieletów.
 
 <a name="reg"></a>
 
 ### <a name="register-the-database-context"></a>Zarejestruj kontekst bazy danych
 
-Dodaj następujące `using` instrukcje w górnej części *Startup.cs*:
+Dodaj następujące instrukcje `using` w górnej części *Startup.cs*:
 
 ```csharp
 using MvcMovie.Models;

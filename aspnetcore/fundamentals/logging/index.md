@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/05/2020
 uid: fundamentals/logging/index
-ms.openlocfilehash: 3c75fdc940701b8f4d367990b5073861467079b2
-ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
+ms.openlocfilehash: 58e236ad7f0863b87907d5585e1cb6bf61d46e99
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77044914"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663304"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Rejestrowanie w programie .NET Core i ASP.NET Core
 
@@ -22,13 +22,13 @@ Platforma .NET Core obsługuje interfejs API rejestrowania, który współpracuj
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Większość przykładów kodu pokazanych w tym artykule pochodzą z ASP.NET Core aplikacji. Części tych fragmentów kodu dotyczące rejestrowania mają zastosowanie do dowolnej aplikacji .NET Core, która korzysta z [hosta ogólnego](xref:fundamentals/host/generic-host). Przykład korzystania z hosta ogólnego w aplikacji konsolowej innej niż sieci Web można znaleźć w pliku *Program.cs*<xref:fundamentals/host/hosted-services>( [Przykładowa aplikacja w tle](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples) ).
+Większość przykładów kodu pokazanych w tym artykule pochodzą z ASP.NET Core aplikacji. Części tych fragmentów kodu dotyczące rejestrowania mają zastosowanie do dowolnej aplikacji .NET Core, która korzysta z [hosta ogólnego](xref:fundamentals/host/generic-host). Przykład korzystania z hosta ogólnego w aplikacji konsolowej innej niż sieci Web można znaleźć w pliku *Program.cs*<xref:fundamentals/host/hosted-services>( [Przykładowa aplikacja w tle](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples) ).
 
 Rejestrowanie kodu dla aplikacji bez hosta ogólnego różni się w sposób, w jaki [są dodawane dostawcy](#add-providers) i [są tworzone rejestratory](#create-logs). Przykłady kodu niehosta są wyświetlane w tych częściach artykułu.
 
 ::: moniker-end
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="add-providers"></a>Dodaj dostawców
 
@@ -48,7 +48,7 @@ W aplikacji konsolowej bez hosta Wywołaj metodę rozszerzenia `Add{provider nam
 
 Domyślne ASP.NET Core wywołań szablonów projektu <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder%2A>, które dodaje następujących dostawców rejestrowania:
 
-* [Console](#console-provider)
+* [Konsola](#console-provider)
 * [Debugowanie](#debug-provider)
 * [EventSource](#event-source-provider)
 * [EventLog](#windows-eventlog-provider) (tylko w przypadku uruchamiania w systemie Windows)
@@ -295,7 +295,7 @@ public class Program
 
 ### <a name="no-asynchronous-logger-methods"></a>Brak metod rejestratora asynchronicznego
 
-Rejestracja powinna być tak szybka, że nie jest to koszt wydajności kodu asynchronicznego. Jeśli magazyn danych rejestrowania jest wolny, nie zapisuj go bezpośrednio. Najpierw Rozważ zapisanie komunikatów dziennika do szybkiego sklepu, a następnie przeniesienie ich do wolnego magazynu później. Na przykład jeśli rejestrujesz się do SQL Server, nie chcesz tego robić bezpośrednio w metodzie `Log`, ponieważ metody `Log` są synchroniczne. Zamiast tego można synchronicznie dodawać komunikaty dziennika do kolejki w pamięci, a proces roboczy w tle ściągał komunikaty z kolejki, aby wykonać asynchroniczne działanie wypychania danych do SQL Server. Aby uzyskać więcej informacji, zobacz [ten](https://github.com/aspnet/AspNetCore.Docs/issues/11801) problem w serwisie GitHub.
+Rejestracja powinna być tak szybka, że nie jest to koszt wydajności kodu asynchronicznego. Jeśli magazyn danych rejestrowania jest wolny, nie zapisuj go bezpośrednio. Najpierw Rozważ zapisanie komunikatów dziennika do szybkiego sklepu, a następnie przeniesienie ich do wolnego magazynu później. Na przykład jeśli rejestrujesz się do SQL Server, nie chcesz tego robić bezpośrednio w metodzie `Log`, ponieważ metody `Log` są synchroniczne. Zamiast tego można synchronicznie dodawać komunikaty dziennika do kolejki w pamięci, a proces roboczy w tle ściągał komunikaty z kolejki, aby wykonać asynchroniczne działanie wypychania danych do SQL Server. Aby uzyskać więcej informacji, zobacz [ten](https://github.com/dotnet/AspNetCore.Docs/issues/11801) problem w serwisie GitHub.
 
 ## <a name="configuration"></a>Konfiguracja
 
@@ -744,7 +744,7 @@ Druga `AddFilter` określa dostawcę debugowania za pomocą nazwy typu. Pierwszy
 
 Dane konfiguracji i kod `AddFilter` przedstawiony w powyższych przykładach tworzą reguły przedstawione w poniższej tabeli. Pierwsze sześć pochodzi z przykładu konfiguracji, a ostatnie dwa pochodzą z przykładu kodu.
 
-| Wartość liczbowa | Dostawcy      | Kategorie zaczynające się od...          | Minimalny poziom rejestrowania |
+| Liczba | Dostawca      | Kategorie zaczynające się od...          | Minimalny poziom rejestrowania |
 | :----: | ------------- | --------------------------------------- | ----------------- |
 | 1      | Debugowanie         | Wszystkie kategorie                          | Informacje       |
 | 2      | Konsola       | Microsoft.AspNetCore.Mvc.Razor.Internal | Ostrzeżenie           |
@@ -888,7 +888,7 @@ warn: TodoApiSample.Controllers.TodoController[4000]
 
 ASP.NET Core dostarcza następujących dostawców:
 
-* [Console](#console-provider)
+* [Konsola](#console-provider)
 * [Debugowanie](#debug-provider)
 * [EventSource](#event-source-provider)
 * [Elemencie](#windows-eventlog-provider)
@@ -1154,7 +1154,7 @@ Dostawca rejestrowania jest dołączony jako zależność [Microsoft. Applicatio
 
 Nie używaj pakietu [Microsoft. ApplicationInsights. Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) Package&mdash;, który jest przeznaczony dla ASP.NET 4. x.
 
-Aby uzyskać więcej informacji, zobacz następujące zasoby:
+Więcej informacji zawierają następujące zasoby:
 
 * [Przegląd Application Insights](/azure/application-insights/app-insights-overview)
 * [Application Insights dla ASP.NET Core aplikacji](/azure/azure-monitor/app/asp-net-core) — Zacznij tutaj, jeśli chcesz zaimplementować cały zakres Application Insights telemetrii wraz z rejestrowaniem.

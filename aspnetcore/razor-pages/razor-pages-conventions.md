@@ -1,22 +1,20 @@
 ---
 title: Razor Pages Konwencji tras i aplikacji w ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Dowiedz się, w jaki sposób Konwencja i konwencje dostawcy modelu aplikacji ułatwiają kontrolowanie routingu, odnajdywania i przetwarzania stron.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: d8377c0a0b8a29fe4b6a7fa67beeff84927c8b74
-ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
+ms.openlocfilehash: f45e327051aba54d1cab67148eb540fb1a5cc149
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114773"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667861"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>Razor Pages Konwencji tras i aplikacji w ASP.NET Core
-
-Autor [Luke Latham](https://github.com/guardrex)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -28,7 +26,7 @@ Aby określić trasę strony, dodać segmenty tras lub dodać parametry do trasy
 
 Istnieją słowa zastrzeżone, których nie można używać jako segmentów tras ani nazw parametrów. Aby uzyskać więcej informacji, zobacz [Routing: zastrzeżone nazwy routingu](xref:fundamentals/routing#reserved-routing-names).
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 | Scenariusz | Przykład ilustruje... |
 | -------- | --------------------------- |
@@ -101,7 +99,7 @@ Właściwość <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteMo
 
 Wszędzie tam, gdzie to możliwe, nie ustawiaj `Order`, co spowoduje `Order = 0`. Należy polegać na routingu w celu wybrania odpowiedniej trasy.
 
-Opcje Razor Pages, takie jak dodawanie <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>, są dodawane po dodaniu MVC do kolekcji usług w `Startup.ConfigureServices`. Aby zapoznać się z przykładem, zobacz przykładową [aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
+Opcje Razor Pages, takie jak dodawanie <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>, są dodawane po dodaniu MVC do kolekcji usług w `Startup.ConfigureServices`. Aby zapoznać się z przykładem, zobacz przykładową [aplikację](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
 
 [!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet1)]
 
@@ -318,7 +316,7 @@ Aby określić trasę strony, dodać segmenty tras lub dodać parametry do trasy
 
 Istnieją słowa zastrzeżone, których nie można używać jako segmentów tras ani nazw parametrów. Aby uzyskać więcej informacji, zobacz [Routing: zastrzeżone nazwy routingu](xref:fundamentals/routing#reserved-routing-names).
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 | Scenariusz | Przykład ilustruje... |
 | -------- | --------------------------- |
@@ -391,7 +389,7 @@ Właściwość <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteMo
 
 Wszędzie tam, gdzie to możliwe, nie ustawiaj `Order`, co spowoduje `Order = 0`. Należy polegać na routingu w celu wybrania odpowiedniej trasy.
 
-Opcje Razor Pages, takie jak dodawanie <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>, są dodawane po dodaniu MVC do kolekcji usług w `Startup.ConfigureServices`. Aby zapoznać się z przykładem, zobacz przykładową [aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
+Opcje Razor Pages, takie jak dodawanie <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>, są dodawane po dodaniu MVC do kolekcji usług w `Startup.ConfigureServices`. Aby zapoznać się z przykładem, zobacz przykładową [aplikację](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet1)]
 
@@ -608,7 +606,7 @@ Aby określić trasę strony, dodać segmenty tras lub dodać parametry do trasy
 
 Istnieją słowa zastrzeżone, których nie można używać jako segmentów tras ani nazw parametrów. Aby uzyskać więcej informacji, zobacz [Routing: zastrzeżone nazwy routingu](xref:fundamentals/routing#reserved-routing-names).
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 | Scenariusz | Przykład ilustruje... |
 | -------- | --------------------------- |
@@ -681,7 +679,7 @@ Właściwość <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteMo
 
 Wszędzie tam, gdzie to możliwe, nie ustawiaj `Order`, co spowoduje `Order = 0`. Należy polegać na routingu w celu wybrania odpowiedniej trasy.
 
-Opcje Razor Pages, takie jak dodawanie <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>, są dodawane po dodaniu MVC do kolekcji usług w `Startup.ConfigureServices`. Aby zapoznać się z przykładem, zobacz przykładową [aplikację](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
+Opcje Razor Pages, takie jak dodawanie <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>, są dodawane po dodaniu MVC do kolekcji usług w `Startup.ConfigureServices`. Aby zapoznać się z przykładem, zobacz przykładową [aplikację](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet1)]
 

@@ -2,7 +2,7 @@
 
 Uruchom szkielet tożsamości:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt > **Dodaj** > **nowy element szkieletowy**.
 * W lewym okienku okna dialogowego **Dodawanie szkieletu** wybierz pozycję **tożsamość** > **Dodaj**.
@@ -14,12 +14,12 @@ Uruchom szkielet tożsamości:
   * Wybierz klasę kontekstu danych.
   * Wybierz pozycję **Dodaj**.
 * Aby utworzyć nowy kontekst użytkownika i ewentualnie utworzyć niestandardową klasę użytkownika dla tożsamości:
-  * Wybierz **+** przycisk, aby utworzyć nową **klasa kontekstu danych**.
+  * Wybierz przycisk **+** , aby utworzyć nową **klasę kontekstu danych**.
   * Wybierz pozycję **Dodaj**.
 
 Uwaga: w przypadku tworzenia nowego kontekstu użytkownika nie trzeba wybierać pliku do przesłonięcia.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Jeśli nie zainstalowano wcześniej Generator szkieletu ASP.NET Core, zainstalowanie go teraz:
 
@@ -68,7 +68,7 @@ Jeśli uruchomisz szkielet tożsamości bez określenia flagi `--files` lub flag
 
 Uruchom szkielet tożsamości:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt > **Dodaj** > **nowy element szkieletowy**.
 * W lewym okienku okna dialogowego **Dodawanie szkieletu** wybierz pozycję **tożsamość** > **Dodaj**.
@@ -80,12 +80,12 @@ Uruchom szkielet tożsamości:
   * Wybierz klasę kontekstu danych.
   * Wybierz pozycję **Dodaj**.
 * Aby utworzyć nowy kontekst użytkownika i ewentualnie utworzyć niestandardową klasę użytkownika dla tożsamości:
-  * Wybierz **+** przycisk, aby utworzyć nową **klasa kontekstu danych**.
+  * Wybierz przycisk **+** , aby utworzyć nową **klasę kontekstu danych**.
   * Wybierz pozycję **Dodaj**.
 
 Uwaga: w przypadku tworzenia nowego kontekstu użytkownika nie trzeba wybierać pliku do przesłonięcia.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Jeśli nie zainstalowano wcześniej Generator szkieletu ASP.NET Core, zainstalowanie go teraz:
 

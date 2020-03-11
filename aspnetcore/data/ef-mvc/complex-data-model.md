@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: b8b1ade4c8c29d34200bf8c0944cff6adec0bb95
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
+ms.openlocfilehash: 91fd09874ecab8bfdb6a38a404faba04aeb73edc
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74288958"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657431"
 ---
 # <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Samouczek: Tworzenie złożonego modelu danych — ASP.NET MVC z EF Core
 
@@ -22,7 +22,7 @@ Po zakończeniu klasy jednostek składają się na ukończony model danych przed
 
 ![Diagram jednostek](complex-data-model/_static/diagram.png)
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Dostosowywanie modelu danych
@@ -508,13 +508,13 @@ Kliknij prawym przyciskiem myszy tabelę **CourseAssignment** , a następnie wyb
 
 ![CourseAssignment dane w SSOX](complex-data-model/_static/ssox-ci-data.png)
 
-## <a name="get-the-code"></a>Pobierz kod
+## <a name="get-the-code"></a>Uzyskiwanie kodu
 
-[Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Pobierz lub Wyświetl ukończoną aplikację.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono następujące instrukcje:
+W tym samouczku zostaną wykonane następujące czynności:
 
 > [!div class="checklist"]
 > * Dostosowany model danych

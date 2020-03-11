@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.date: 06/12/2019
 uid: mvc/views/tag-helpers/th-components
-ms.openlocfilehash: 070cc3aae08664c13d8eb793a066766d0a5569ee
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 5e2eb2d4322068c5864fbe49acaa6d0859bd319a
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880973"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660770"
 ---
 # <a name="tag-helper-components-in-aspnet-core"></a>Oznacz składniki pomocnika w ASP.NET Core
 
@@ -21,7 +21,7 @@ Składnik pomocnika tagów to pomocnik tagów, który umożliwia warunkowe modyf
 
 ASP.NET Core obejmuje dwa wbudowane składniki pomocnika tagów: `head` i `body`. Znajdują się one w przestrzeni nazw <xref:Microsoft.AspNetCore.Mvc.Razor.TagHelpers> i mogą być używane zarówno w MVC, jak i Razor Pages. Składniki pomocnika tagów nie wymagają rejestracji w aplikacji w *_ViewImports. cshtml*.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/th-components/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/th-components/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="use-cases"></a>Przypadki zastosowań
 
@@ -38,7 +38,7 @@ Wewnątrz elementu `<head>` HTML pliki CSS są zwykle importowane z elementem HT
 
 [!code-csharp[](th-components/samples/RazorPagesSample/TagHelpers/AddressStyleTagHelperComponent.cs)]
 
-Powyższy kod ma następujące działanie:
+W powyższym kodzie:
 
 * `AddressStyleTagHelperComponent` implementuje <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperComponent>. Streszczenie:
   * Umożliwia inicjowanie klasy za pomocą <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext>.
@@ -80,7 +80,7 @@ Jeśli składnik pomocnika tagów nie jest zarejestrowany przy użyciu DI, może
 
 [!code-cshtml[](th-components/samples/RazorPagesSample/Pages/Contact.cshtml?name=snippet_ITagHelperComponentManager)]
 
-Powyższy kod ma następujące działanie:
+W powyższym kodzie:
 
 * Dyrektywa `@inject` zawiera wystąpienie `ITagHelperComponentManager`. Wystąpienie jest przypisane do zmiennej o nazwie `manager` w celu uzyskania dostępu do pliku Razor.
 * Wystąpienie `AddressTagHelperComponent` jest dodawane do kolekcji składników pomocnika tagów aplikacji.
@@ -101,7 +101,7 @@ Iniekcja konstruktora jest używana w celu uzyskania dostępu do wystąpienia `I
 
 [!code-csharp[](th-components/samples/RazorPagesSample/Pages/Index.cshtml.cs?name=snippet_IndexModelClass)]
 
-Powyższy kod ma następujące działanie:
+W powyższym kodzie:
 
 * Iniekcja konstruktora jest używana w celu uzyskania dostępu do wystąpienia `ITagHelperComponentManager`.
 * Wystąpienie `AddressTagHelperComponent` jest dodawane do kolekcji składników pomocnika tagów aplikacji.

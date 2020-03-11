@@ -6,18 +6,18 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: security/app-secrets
-ms.openlocfilehash: 9b36ae64fbe277cd81ed22ba7b21b0a035082dbd
-ms.sourcegitcommit: c815a9465e7b1bab44ce1643ec345b33e6cf1598
+ms.openlocfilehash: c3f165164f3c95e8c0aab773f3731429ae224bd9
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75606795"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666867"
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Bezpieczne przechowywanie wpisów tajnych aplikacji podczas opracowywania w ASP.NET Core
 
 [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27)i [Scott Addie](https://github.com/scottaddie)
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/app-secrets/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/app-secrets/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 W tym dokumencie opisano techniki przechowywania i pobierania poufnych danych podczas opracowywania aplikacji ASP.NET Core na komputerze deweloperskim. Nie należy przechowywać haseł ani innych poufnych danych w kodzie źródłowym. Tajemnice produkcyjne nie powinny być używane do celów deweloperskich i testowych. Wpisy tajne nie powinny być wdrażane przy użyciu aplikacji. Zamiast tego należy udostępnić wpisy tajne w środowisku produkcyjnym za pomocą kontrolowanych środków, takich jak zmienne środowiskowe, Azure Key Vault itd. Za pomocą [dostawcy konfiguracji Azure Key Vault](xref:security/key-vault-configuration)można przechowywać i chronić wpisy tajne środowiska Azure test i produkcyjne.
 
@@ -51,13 +51,13 @@ Narzędzie Secret Manager zapisuje poufne dane podczas opracowywania projektu AS
 
 Narzędzie tajnego Menedżera wyodrębnia szczegóły implementacji, takie jak miejsce i sposób przechowywania wartości. Możesz użyć narzędzia bez znajomości tych szczegółów implementacji. Wartości są przechowywane w pliku konfiguracji JSON w folderze profilu użytkownika chronionego przez system na komputerze lokalnym:
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Ścieżka systemu plików:
 
 `%APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json`
 
-# <a name="linux--macostablinuxmacos"></a>[Linux/macOS](#tab/linux+macos)
+# <a name="linux--macos"></a>[Linux/macOS](#tab/linux+macos)
 
 Ścieżka systemu plików:
 
@@ -199,7 +199,7 @@ Struktura JSON jest spłaszczona po modyfikacji za pośrednictwem `dotnet user-s
 
 Partia wpisów tajnych można ustawić za pomocą formatu JSON dla polecenia `set`. W poniższym przykładzie zawartość pliku *Input. JSON* jest potoku do polecenia `set`.
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Otwórz powłokę poleceń i wykonaj następujące polecenie:
 
@@ -207,7 +207,7 @@ Otwórz powłokę poleceń i wykonaj następujące polecenie:
   type .\input.json | dotnet user-secrets set
   ```
 
-# <a name="linux--macostablinuxmacos"></a>[Linux/macOS](#tab/linux+macos)
+# <a name="linux--macos"></a>[Linux/macOS](#tab/linux+macos)
 
 Otwórz powłokę poleceń i wykonaj następujące polecenie:
 
@@ -351,7 +351,7 @@ Uruchom następujące polecenie z katalogu, w którym istnieje plik *. csproj* :
 dotnet user-secrets list
 ```
 
-Zostaną wyświetlone następujące dane wyjściowe:
+Wyświetlane są następujące dane wyjściowe:
 
 ```console
 Movies:ConnectionString = Server=(localdb)\mssqllocaldb;Database=Movie-1;Trusted_Connection=True;MultipleActiveResultSets=true
@@ -410,6 +410,6 @@ No secrets configured for this application.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* Zobacz [ten problem](https://github.com/aspnet/AspNetCore.Docs/issues/16328) , aby uzyskać informacje na temat uzyskiwania dostępu do Menedżera kluczy tajnych z usług IIS.
+* Zobacz [ten problem](https://github.com/dotnet/AspNetCore.Docs/issues/16328) , aby uzyskać informacje na temat uzyskiwania dostępu do Menedżera kluczy tajnych z usług IIS.
 * <xref:fundamentals/configuration/index>
 * <xref:security/key-vault-configuration>

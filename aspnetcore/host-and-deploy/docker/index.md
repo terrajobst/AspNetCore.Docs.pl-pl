@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 01/08/2018
 uid: host-and-deploy/docker/index
 ms.openlocfilehash: cb5f774db5fab46a57f8ca4bbbca148f20f371ba
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308044"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664081"
 ---
 # <a name="host-aspnet-core-in-docker-containers"></a>ASP.NET Core hosta w kontenerach platformy Docker
 
@@ -29,10 +29,10 @@ Poznaj warunki i definicje dotyczące technologii platformy Docker.
 [Kontenery, obrazy i rejestry platformy Docker](/dotnet/standard/microservices-architecture/container-docker-introduction/docker-containers-images-registries)  
 Dowiedz się, w jaki sposób obrazy kontenerów platformy Docker są przechowywane w rejestrze obrazów na potrzeby spójnego wdrażania w różnych środowiskach.
 
-<xref:host-and-deploy/docker/building-net-docker-images>Dowiedz się, jak kompilować i przekształcać aplikację ASP.NET Core. Eksploruj obrazy platformy Docker obsługiwane przez firmę Microsoft i badaj przypadki użycia.
+<xref:host-and-deploy/docker/building-net-docker-images> dowiedzieć się, jak skompilować i przekształcać aplikację ASP.NET Core. Eksploruj obrazy platformy Docker obsługiwane przez firmę Microsoft i badaj przypadki użycia.
 
 [Narzędzia kontenera programu Visual Studio](xref:host-and-deploy/docker/visual-studio-tools-for-docker)  
-Dowiedz się, w jaki sposób program Visual Studio obsługuje kompilowanie, debugowanie i uruchamianie aplikacji ASP.NET Core przeznaczonych dla .NET Framework lub .NET Core w Docker for Windows. Obsługiwane są kontenery systemów Windows i Linux.
+Dowiedz się, w jaki sposób program Visual Studio obsługuje kompilowanie, debugowanie i uruchamianie aplikacji ASP.NET Core przeznaczonych dla .NET Framework lub .NET Core w Docker for Windows. Obsługiwane są kontenery zarówno systemu Windows, jak i Linux.
 
 [Publikuj w Azure Container Registry](/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)  
 Dowiedz się, jak za pomocą rozszerzenia Visual Studio Container Tools wdrożyć aplikację ASP.NET Core na hoście Docker na platformie Azure przy użyciu programu PowerShell.

@@ -1,5 +1,5 @@
-# <a name="aspnet-core-change-token-sample"></a>Przykładowy Token zmiany platformy ASP.NET Core
+# <a name="aspnet-core-change-token-sample"></a>Przykład ASP.NET Core zmiany tokenu
 
-Ten przykład ilustruje użycie [właściwości ChangeToken](https://docs.microsoft.com/dotnet/api/microsoft.extensions.primitives.changetoken). W tym przykładzie przedstawiono funkcje opisane w [wykrywanie zmian za pomocą tokenów zmiany](https://docs.microsoft.com/aspnet/core/fundamentals/change-tokens) tematu.
+Ten przykład ilustruje użycie [ChangeToken](https://docs.microsoft.com/dotnet/api/microsoft.extensions.primitives.changetoken). Ten przykład pokazuje funkcje opisane w temacie [wykrywanie zmian przy użyciu tokenów zmian](https://docs.microsoft.com/aspnet/core/fundamentals/change-tokens) .
 
-Uruchamianie aplikacji przykładowej i postępuj zgodnie z instrukcjami na stronie indeksu.
+Uruchom przykład i postępuj zgodnie z instrukcjami na stronie indeksu.

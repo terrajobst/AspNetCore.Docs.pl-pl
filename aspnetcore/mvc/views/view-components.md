@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: 8df070b580b6125db6616b33a81f3ffebad69f3a
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 910fffbf360ed0f62f7fe20bc8bfdf5be8198876
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828922"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660651"
 ---
 # <a name="view-components-in-aspnet-core"></a>Wyświetl składniki w ASP.NET Core
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="view-components"></a>Składniki widoku
 
@@ -42,7 +42,7 @@ Składniki widoku są zamierzone wszędzie tam, gdzie można ponownie używać l
 
 Składnik widoku składa się z dwóch części: klasy (zwykle pochodnej od [ViewComponent](/dotnet/api/microsoft.aspnetcore.mvc.viewcomponent)) i wynik zwracanego (zazwyczaj widok). Podobnie jak kontrolery, składnik widoku może być POCO, ale większość deweloperów chce skorzystać z metod i właściwości dostępnych w wyniku `ViewComponent`.
 
-Biorąc pod uwagę, czy składniki widoku spełniają wymagania dotyczące aplikacji, zamiast tego Rozważ użycie składników Razor. Składniki Razor również łączą znaczniki C# z kodem, aby utworzyć jednostki interfejsu użytkownika wielokrotnego użytku. Składniki Razor są przeznaczone do produktywności deweloperów podczas udostępniania logiki interfejsu użytkownika po stronie klienta. Aby uzyskać więcej informacji, zobacz temat <xref:blazor/components>.
+Biorąc pod uwagę, czy składniki widoku spełniają wymagania dotyczące aplikacji, zamiast tego Rozważ użycie składników Razor. Składniki Razor również łączą znaczniki C# z kodem, aby utworzyć jednostki interfejsu użytkownika wielokrotnego użytku. Składniki Razor są przeznaczone do produktywności deweloperów podczas udostępniania logiki interfejsu użytkownika po stronie klienta. Aby uzyskać więcej informacji, zobacz <xref:blazor/components>.
 
 ## <a name="creating-a-view-component"></a>Tworzenie składnika widoku
 
@@ -155,7 +155,7 @@ W tym przykładzie składnik widoku jest wywoływany bezpośrednio z kontrolera:
 
 ## <a name="walkthrough-creating-a-simple-view-component"></a>Przewodnik: Tworzenie składnika widoku prostego
 
-[Pobierz](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample), skompiluj i przetestuj kod startowy. Jest to prosty projekt z kontrolerem `ToDo`, który wyświetla *listę elementów do* wykonania.
+[Pobierz](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample), skompiluj i przetestuj kod startowy. Jest to prosty projekt z kontrolerem `ToDo`, który wyświetla *listę elementów do* wykonania.
 
 ![Lista zadań do wykonania](view-components/_static/2dos.png)
 

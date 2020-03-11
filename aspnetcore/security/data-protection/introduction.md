@@ -1,81 +1,81 @@
 ---
-title: ASP.NET Core Data Protection
+title: Ochrona danych ASP.NET Core
 author: rick-anderson
-description: Informacje na temat koncepcji ochrony danych i zasad dotyczących projektowania interfejsów API do ochrony danych usługi ASP.NET Core.
+description: Poznaj koncepcję ochrony danych i zasady projektowania interfejsów API ochrony danych ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/data-protection/introduction
 ms.openlocfilehash: 37f170a3e8a46ef2215b0999358d46dd402636df
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64903280"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664445"
 ---
-# <a name="aspnet-core-data-protection"></a>ASP.NET Core Data Protection
+# <a name="aspnet-core-data-protection"></a>Ochrona danych ASP.NET Core
 
-Aplikacje sieci Web często muszą przechowywać dane dotyczące zabezpieczeń. Windows udostępnia DPAPI dla aplikacji klasycznych, ale to nie nadaje się do aplikacji sieci web. ASP.NET Core ochrony przy użyciu stosu danych zapewniają prosty i łatwy w użyciu cryptographic API Deweloper służy do ochrony danych, w tym zarządzania kluczami i wymiany.
+Aplikacje sieci Web często muszą przechowywać dane z uwzględnieniem zabezpieczeń. System Windows udostępnia aplikacje pulpitu DPAPI, ale jest to nieodpowiednie dla aplikacji sieci Web. Stos ochrony danych ASP.NET Core zapewnia prosty, łatwy w użyciu interfejs API kryptografii, który programista może używać do ochrony danych, w tym zarządzania kluczami i rotacji.
 
-Stos ochrony danych programu ASP.NET Core zaprojektowano w celu służyć jako zamiennika długoterminowe &lt;machineKey&gt; elementu w programie ASP.NET: 1.x - 4.x. Została zaprojektowana w celu wiele wad stare kryptograficznych stosu przy jednoczesnym zapewnieniu poza wbudowane rozwiązanie dla większości przypadków użycia nowoczesnych aplikacji prawdopodobnie mogą wystąpić.
+Stos ochrony danych ASP.NET Core został zaprojektowany tak, aby służyć jako długoterminowe zastąpienie dla &lt;machineKey&gt; elementu ASP.NET 1. x-4. x. Została zaprojektowana tak, aby dotyczyła wielu wad starego stosu kryptograficznego, zapewniając gotowe rozwiązanie do większości przypadków użycia nowoczesnych aplikacji, które prawdopodobnie wystąpią.
 
 ## <a name="problem-statement"></a>Opis problemu
 
-Instrukcja zasadniczy problem może być krótkiej formie wyrażona w jednym zdaniu: Musisz utrwalić zaufane informacje dotyczące pobierania nowsze, ale nie można zaufać mechanizmu stanu trwałego. W warunkach sieci web to mogą być zapisane jako "Potrzebuję obustronne zaufanego stanu za pomocą niezaufanego klienta".
+Ogólna Instrukcja problemu może być zwięzłie określona w jednym zdaniu: Chcę utrzymać zaufane informacje do późniejszego pobrania, ale nie mam zaufania mechanizmu trwałości. W przypadku terminów sieci Web może to być napisano jako "muszę przeprowadzić dwukierunkową relację zaufania za pośrednictwem niezaufanego klienta".
 
-Przykład canonical jest plik cookie uwierzytelniania lub elementu nośnego tokenu. Serwer generuje "Jestem Groot i mają uprawnienia xyz" token i przekazuje go do klienta. W przyszłości klienta spowoduje wyświetlenie tego tokenu do serwera, ale serwer wymaga pewnego rodzaju zapewnienie, że klient nie zostało sfałszowane tokenu. Dlatego pierwszego zapotrzebowania: autentyczności (zwane) integralność, sprawdzające odporne).
+Przykładem kanonicznym jest plik cookie uwierzytelniania lub token okaziciela. Serwer generuje "jestem Groot i ma uprawnienia XYZ" i udostępnia go klientowi. W przyszłości klient będzie zaprezentować ten token z powrotem do serwera, ale serwer wymaga pewnego rodzaju pewności, że klient nie wykonał sfałszowanego tokenu. W rezultacie pierwsze wymaganie: autentyczność (vel integralność, nieautoryzowane sprawdzanie poprawności).
 
-Stan utrwalony jest zaufany przez serwer, przewidujemy czy ten stan może zawierać informacje, które są specyficzne dla środowiska pracy. Może to być w postaci ścieżki do pliku, uprawnienia, dojście lub innych pośrednie odwołanie, lub inne dane specyficzne dla serwera. Zazwyczaj takie informacje nie być ujawniona do niezaufanego klienta. Ten sposób drugie wymaganie: poufności.
+Ponieważ trwały stan jest traktowany jako zaufany przez serwer, przewidujemy, że ten stan może zawierać informacje specyficzne dla środowiska operacyjnego. Może to być w postaci ścieżki pliku, uprawnienia, uchwytu lub innego odwołania pośredniego lub innego elementu danych specyficznych dla serwera. Takie informacje nie powinny być zwykle ujawniane niezaufanym klientom. W tym przypadku drugie wymaganie: poufność.
 
-Na koniec ponieważ nowoczesnych aplikacji są składającej, co widzieliśmy jest poszczególne składniki będą chcieli korzystać z zalet tego systemu, niezależnie od innych składników w systemie. Na przykład jeśli składnik tokenu elementu nośnego używa tego stosu, powinna ona działać bez zakłóceń z mechanizmu CSRF chroniących przed złośliwym, które również mogą używać tego samego stosu. Zatem końcowego wymaganie: izolacji.
+Na koniec, ponieważ nowoczesne aplikacje są składnikiem, to to, co widzimy, jest to, że poszczególne składniki chcą korzystać z tego systemu bez względu na inne składniki systemu. Na przykład, jeśli składnik tokenu okaziciela używa tego stosu, powinien działać bez ingerencji z mechanizmu CSRF, który może również korzystać z tego samego stosu. W ten sposób końcowe wymaganie: izolacja.
 
-Oferujemy dalszego ograniczenia w celu zawężenia zakresu naszych wymagań w zakresie. Przyjęto założenie, że wszystkie usługi działające w ramach cryptosystem są równie zaufane i że danych nie trzeba będzie generowany lub używane poza usługami na mocy naszych bezpośrednią kontrolę. Ponadto firma Microsoft wymaga, że operacje są tak szybko, jak to możliwe, ponieważ każde żądanie usługi sieci web mogą zostać przekazane za pośrednictwem cryptosystem jeden lub więcej razy. To sprawia, że kryptografia symetryczna idealne rozwiązanie w naszym scenariuszu, a firma Microsoft rabatów kryptografii asymetrycznego, dopóki taki czas, gdy jest potrzebna.
+Możemy zapewnić dalsze ograniczenia, aby zawęzić zakres naszych wymagań. Przyjęto założenie, że wszystkie usługi działające w ramach cryptosystem są równie zaufane i że dane nie muszą być generowane ani używane poza usługami w ramach naszej kontroli bezpośredniej. Ponadto wymagamy, aby operacje były tak szybko, jak to możliwe, ponieważ każde żądanie do usługi sieci Web może przekroczyć cryptosystem jeden lub więcej razy. Dzięki temu symetryczne Kryptografia jest idealnym rozwiązaniem w naszym scenariuszu, a firma Microsoft może rabatać asymetryczne kryptografie do momentu, gdy jest to konieczne.
 
-## <a name="design-philosophy"></a>Zasady projektowania klas
+## <a name="design-philosophy"></a>Zagadnienie projektowe
 
-Rozpoczęliśmy od zidentyfikowania problemów z istniejącego stosu. Po mieliśmy, firma Microsoft zbadany krajobrazu istniejących rozwiązań i zakończony, że żadne istniejące rozwiązanie dość miał możliwości, których poszukiwane firma Microsoft. Firma Microsoft następnie zaprojektowany rozwiązanie oparte na kilka wytyczne.
+Rozpoczęto od zidentyfikowania problemów z istniejącym stosem. Po przeprowadzeniu tej czynności zbadamy poziom istniejących rozwiązań i zauważasz, że żadne dotychczasowe rozwiązania nie były już dostępne. Następnie tworzymy rozwiązanie na podstawie kilku zasad dotyczących identyfikatorów GUID.
 
-* System powinno oferować się łatwość konfiguracji. W idealnym system będzie niewymagającą konfiguracji, a deweloperzy mogą sprawnie Rozpocznij pracę. W sytuacjach, w którym deweloperzy konieczne skonfigurowanie określonej proporcji (np. klucza repozytorium) należy zwrócić szczególną uwagę znaczenie tych określonych konfiguracji jest proste.
+* System powinien oferować prostotę konfiguracji. Idealnym rozwiązaniem może być konfiguracja zerowa i deweloperzy. W sytuacjach, gdy deweloperzy muszą skonfigurować określony aspekt (na przykład repozytorium kluczy), należy rozważyć, że te konkretne konfiguracje są proste.
 
-* Zapewniają prosty interfejs API udostępnianych klientom. Interfejsy API należy wykorzystać poprawnie i trudne w użyciu niepoprawnie.
+* Oferuje prosty interfejs API dla klientów. Interfejsy API powinny być łatwe w użyciu i być trudne do poprawnego użycia.
 
-* Deweloperzy nie powinien Dowiedz się, zasady zarządzania kluczami. System powinien obsługiwać algorytm wybór i okresu istnienia klucza w imieniu dewelopera. W idealnym Deweloper nigdy nawet powinni mieć dostęp do surowego materiału klucza.
+* Deweloperzy nie powinni uczyć się zasad zarządzania kluczami. System powinien obsługiwać wybór algorytmu i okres istnienia klucza w imieniu dewelopera. W idealnym przypadku Deweloper nie powinien nawet mieć dostępu do surowca klucza.
 
-* Klucze powinny być chronione w spoczynku, gdy jest to możliwe. System powinien ustalić odpowiedni mechanizm ochrony i automatycznie stosować.
+* Klucze powinny być chronione w stanie spoczynku, gdy jest to możliwe. System powinien ustalić odpowiedni domyślny mechanizm ochrony i zastosować go automatycznie.
 
-Za pomocą tych zasad, pamiętając opracowaliśmy prosty, [łatwy w użyciu](xref:security/data-protection/using-data-protection) stosu ochrony danych.
+Korzystając z tych zasad, opracowano prosty, [łatwy w](xref:security/data-protection/using-data-protection) obsłudze stos ochrony danych.
 
-Interfejsy API ochrony danych programu ASP.NET Core nie są przeznaczone głównie dla nieokreślony stan trwały ładunki poufne. Inne technologie, takie jak [Windows CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) i [usługi Azure Rights Management](/rights-management/) są bardziej odpowiednie do scenariusza nieograniczony magazyn i mają możliwości odpowiednio silne zarządzania kluczami. Inaczej mówiąc, nic nie uniemożliwiają dewelopera przy użyciu platformy ASP.NET Core interfejsy API ochrony danych dla długoterminowej ochrony poufnych danych.
+Interfejsy API ochrony danych ASP.NET Core nie są przede wszystkim przeznaczone do nieograniczonego trwałości poufnych ładunków. Inne technologie, takie jak [Windows CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) i [Azure Rights Management](/rights-management/) , są bardziej odpowiednie dla scenariusza nieograniczonego magazynu i mają odpowiadające im silne możliwości zarządzania kluczami. Oznacza to, że nie ma żadnych zakazów używania ASP.NET Core interfejsów API ochrony danych do długoterminowej ochrony poufnych danych.
 
-## <a name="audience"></a>Odbiorcy
+## <a name="audience"></a>Grupy odbiorców
 
-System ochrony danych jest podzielona na pięć głównych pakietów. Różne aspekty tych interfejsów API odbiorców trzy główne;
+System ochrony danych jest podzielony na pięć głównych pakietów. Różne aspekty tych interfejsów API są przeznaczone dla trzech głównych odbiorców;
 
-1. [Omówienie interfejsów API przeznaczonych dla klientów](xref:security/data-protection/consumer-apis/overview) docelowa, deweloperom aplikacji i struktury.
+1. [Interfejsy API odbiorców — Omówienie](xref:security/data-protection/consumer-apis/overview) aplikacji docelowych i deweloperów platformy.
 
-   "Nie chcę dowiedzieć się więcej o sposób działania stosu, ani o jego konfiguracji. Czy mogę po prostu chcesz wykonać kilka operacji w prosty sposób możliwie z dużym prawdopodobieństwem pomyślnie korzystania z interfejsów API."
+   "Nie chcę dowiedzieć się, jak działa stos lub jak jest on skonfigurowany. Po prostu chcę wykonać pewne operacje w sposób możliwie prosty z dużym prawdopodobieństwem, aby pomyślnie korzystać z interfejsów API ".
 
-2. [Interfejsy API konfiguracji](xref:security/data-protection/configuration/overview) docelowa, deweloperom aplikacji i administratorów systemu.
+2. [Interfejsy API konfiguracji](xref:security/data-protection/configuration/overview) są przeznaczone dla deweloperów aplikacji i administratorów systemu.
 
-   "Musisz poinformować system ochrony danych, czy moje środowisko wymaga ustawienia lub innych niż domyślne ścieżki."
+   "Muszę poinformować system ochrony danych, że moje środowisko wymaga niedomyślnych ścieżek lub ustawień".
 
-3. Deweloperzy docelowej interfejsów API rozszerzalności odpowiedzialnych za wdrażanie zasad niestandardowych. Użycie tych interfejsów API będzie ograniczone do rzadkich sytuacjach i doświadczenie deweloperów pamiętać zabezpieczeń.
+3. Interfejsy API rozszerzalności są przeznaczone dla deweloperów odpowiedzialnych za implementowanie zasad niestandardowych. Użycie tych interfejsów API byłoby ograniczone do rzadkich sytuacji i doświadczonych deweloperów, których dotyczą zabezpieczenia.
 
-   "Należy zastąpić składnika całego systemu, ponieważ naprawdę unikatowe wymagania funkcjonalne. Chcę dowiedzieć się uncommonly używane części powierzchni interfejsu API, aby utworzyć dodatek, który spełnia moich wymagań."
+   "Muszę zastąpić cały składnik w systemie, ponieważ mam prawdziwie wyjątkowe wymagania dotyczące zachowania. Chcę poznać nietypowe części powierzchni interfejsu API, aby utworzyć wtyczkę, która spełnia wymagania ".
 
 ## <a name="package-layout"></a>Układ pakietu
 
 Stos ochrony danych składa się z pięciu pakietów.
 
-* [Microsoft.AspNetCore.DataProtection.Abstractions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Abstractions/) zawiera <xref:Microsoft.AspNetCore.DataProtection.IDataProtectionProvider> i <xref:Microsoft.AspNetCore.DataProtection.IDataProtector> interfejsy do utworzenia usługi ochrony danych. Zawiera również metody rozszerzenia przydatne do pracy z tymi typami (na przykład [IDataProtector.Protect](xref:Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions.Protect*)). Jeśli system ochrony danych zostanie uruchomiony w innym miejscu, w przypadku używania interfejsu API odwołania `Microsoft.AspNetCore.DataProtection.Abstractions`.
+* [Microsoft. AspNetCore. dataprotection. abstrakcje](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Abstractions/) zawierają interfejsy <xref:Microsoft.AspNetCore.DataProtection.IDataProtectionProvider> i <xref:Microsoft.AspNetCore.DataProtection.IDataProtector> do tworzenia usług ochrony danych. Zawiera także przydatne metody rozszerzające do pracy z tymi typami (na przykład [IDataProtector. Protect](xref:Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions.Protect*)). Jeśli system ochrony danych jest inicjowany w innym miejscu i korzystasz z interfejsu API, odwołuje się `Microsoft.AspNetCore.DataProtection.Abstractions`.
 
-* [Microsoft.AspNetCore.DataProtection](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection/) zawiera implementację podstawowego systemu ochrony danych, w tym podstawowe operacje kryptograficzne, zarządzanie kluczami, konfiguracji i rozszerzalności. Aby utworzyć wystąpienie system ochrony danych (na przykład dodanie go do <xref:Microsoft.Extensions.DependencyInjection.IServiceCollection>) lub odwołaj się do modyfikowania i rozszerzania jej zachowanie, `Microsoft.AspNetCore.DataProtection`.
+* [Microsoft. AspNetCore. dataprotection](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection/) zawiera podstawową implementację systemu ochrony danych, w tym podstawowe operacje kryptograficzne, zarządzanie kluczami, konfigurację i rozszerzalność. Aby utworzyć wystąpienie systemu ochrony danych (na przykład dodając go do <xref:Microsoft.Extensions.DependencyInjection.IServiceCollection>) lub modyfikując lub rozszerzając jego zachowanie, `Microsoft.AspNetCore.DataProtection`odwołania.
 
-* [Microsoft.AspNetCore.DataProtection.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/) zawiera dodatkowe interfejsy API, które deweloperzy mogą okazać się przydatne, ale które nie powinny znajdować się w pakiecie core. Na przykład ten pakiet zawiera metodami factory do tworzenia wystąpienia system ochrony danych do przechowywania kluczy w lokalizacji w systemie plików bez wstrzykiwanie zależności (zobacz <xref:Microsoft.AspNetCore.DataProtection.DataProtectionProvider>). Zawiera również metody rozszerzenia dla ograniczanie okresu istnienia ładunków chronionych (zobacz <xref:Microsoft.AspNetCore.DataProtection.ITimeLimitedDataProtector>).
+* [Microsoft. AspNetCore. dataprotection. Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/) zawiera dodatkowe interfejsy API, które deweloperzy mogą znaleźć użyteczne, ale które nie należą do pakietu podstawowego. Na przykład ten pakiet zawiera metody fabryki do tworzenia wystąpienia systemu ochrony danych w celu przechowywania kluczy w lokalizacji w systemie plików bez iniekcji zależności (zobacz <xref:Microsoft.AspNetCore.DataProtection.DataProtectionProvider>). Zawiera również metody rozszerzające, które ograniczają okres istnienia chronionych ładunków (zobacz <xref:Microsoft.AspNetCore.DataProtection.ITimeLimitedDataProtector>).
 
-* [Microsoft.AspNetCore.DataProtection.SystemWeb](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.SystemWeb/) można zainstalować w istniejącej aplikacji platformy ASP.NET 4.x przekierować jego `<machineKey>` operacje, aby używać nowego stosu ochrony danych programu ASP.NET Core. Aby uzyskać więcej informacji, zobacz <xref:security/data-protection/compatibility/replacing-machinekey>.
+* [Microsoft. AspNetCore. dataprotection. SystemWeb](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.SystemWeb/) można zainstalować w istniejącej aplikacji ASP.NET 4. x, aby przekierować operacje `<machineKey>` do korzystania z nowego stosu ochrony danych ASP.NET Core. Aby uzyskać więcej informacji, zobacz <xref:security/data-protection/compatibility/replacing-machinekey>.
 
-* [Microsoft.AspNetCore.Cryptography.KeyDerivation](https://www.nuget.org/packages/Microsoft.AspNetCore.Cryptography.KeyDerivation/) zawiera implementację PBKDF2 skrótu procedury i mogą być używane przez systemy, które musi bezpiecznie obsługiwać haseł użytkowników. Aby uzyskać więcej informacji, zobacz <xref:security/data-protection/consumer-apis/password-hashing>.
+* [Microsoft. AspNetCore. Cryptography. Datapochodny](https://www.nuget.org/packages/Microsoft.AspNetCore.Cryptography.KeyDerivation/) dostarcza implementację procedury skrótu hasła PBKDF2 i może być używana przez systemy, które muszą bezpiecznie obsługiwać hasła użytkowników. Aby uzyskać więcej informacji, zobacz <xref:security/data-protection/consumer-apis/password-hashing>.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

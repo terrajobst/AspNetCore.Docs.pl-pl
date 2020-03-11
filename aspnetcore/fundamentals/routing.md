@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 5e3ff65420b3c6769d52f8b96c216043cb1fdc1a
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.openlocfilehash: 113bb79318283e814c0e64ad4dc9d193282f0c52
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76727004"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664928"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w ASP.NET Core
 
@@ -25,7 +25,7 @@ Routing jest odpowiedzialny za mapowanie identyfikatorów URI żądań na punkty
 > [!IMPORTANT]
 > Ten dokument obejmuje Routing ASP.NET Core niskiego poziomu. Aby uzyskać informacje na temat ASP.NET Core routingu MVC, zobacz <xref:mvc/controllers/routing>. Aby uzyskać informacje na temat Konwencji routingu w Razor Pages, zobacz <xref:razor-pages/razor-pages-conventions>.
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Podstawy routingu
 
@@ -501,12 +501,12 @@ Wyrażenia regularne używają ograniczników i tokenów podobnych do tych używ
 
 Wyrażenia regularne używane w routingu często zaczynają się od znaku daszka (`^`) i dopasowują pozycję początkową ciągu. Wyrażenia często kończą się znakiem dolara (`$`) i końcem ciągu. Znaki `^` i `$` zapewniają, że wyrażenie regularne dopasowuje całą wartość parametru trasy. Bez znaków `^` i `$` wyrażenie regularne dopasowuje dowolny podciąg w ciągu, co jest często niepożądane. W poniższej tabeli przedstawiono przykłady i wyjaśniono, dlaczego są one zgodne lub niezgodne.
 
-| Wyrażenie   | String    | Dopasowanie | Komentarz               |
+| Wyrażenie   | Ciąg    | Dopasowanie | Komentarz               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | Cześć     | Tak   | Dopasowania podciągów     |
-| `[a-z]{2}`   | 123abc456 | Tak   | Dopasowania podciągów     |
-| `[a-z]{2}`   | mz        | Tak   | Wyrażenie dopasowania    |
-| `[a-z]{2}`   | MZ        | Tak   | Bez uwzględniania wielkości liter    |
+| `[a-z]{2}`   | Cześć     | Yes   | Dopasowania podciągów     |
+| `[a-z]{2}`   | 123abc456 | Yes   | Dopasowania podciągów     |
+| `[a-z]{2}`   | mz        | Yes   | Wyrażenie dopasowania    |
+| `[a-z]{2}`   | MZ        | Yes   | Bez uwzględniania wielkości liter    |
 | `^[a-z]{2}$` | Cześć     | Nie    | Zobacz `^` i `$` powyżej |
 | `^[a-z]{2}$` | 123abc456 | Nie    | Zobacz `^` i `$` powyżej |
 
@@ -578,7 +578,7 @@ Poniższy przykład pokazuje, jak wygenerować link do trasy, używając słowni
 
 [!code-csharp[](routing/samples/3.x/RoutingSample/Startup.cs?name=snippet_Dictionary)]
 
-<xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> wygenerowany na końcu powyższego przykładu jest `/package/create/123`. Słownik dostarcza wartości `operation` i `id` trasy szablonu "śledzenie trasy pakietów", `package/{operation}/{id}`. Aby uzyskać szczegółowe informacje, zapoznaj się z przykładowym kodem w sekcji [Używanie oprogramowania pośredniczącego usługi routingu](#use-routing-middleware) lub [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples).
+<xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> wygenerowany na końcu powyższego przykładu jest `/package/create/123`. Słownik dostarcza wartości `operation` i `id` trasy szablonu "śledzenie trasy pakietów", `package/{operation}/{id}`. Aby uzyskać szczegółowe informacje, zapoznaj się z przykładowym kodem w sekcji [Używanie oprogramowania pośredniczącego usługi routingu](#use-routing-middleware) lub [przykładowej aplikacji](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples).
 
 Drugim parametrem konstruktora <xref:Microsoft.AspNetCore.Routing.VirtualPathContext> jest zbiór *wartości otoczenia*. Wartości otoczenia są wygodne do użycia, ponieważ ograniczają liczbę wartości, które Deweloper musi określić w kontekście żądania. Bieżące wartości trasy bieżącego żądania są uznawane za wartości otoczenia dla generacji łącza. W `About` akcji ASP.NET Core aplikacji MVC `HomeController`nie trzeba określać wartości trasy kontrolera do łączenia z akcją `Index`,&mdash;zostanie użyta wartość otoczenia `Home`.
 
@@ -709,7 +709,7 @@ Więcej informacji na temat routingu opartego na <xref:Microsoft.AspNetCore.Rout
 > [!IMPORTANT]
 > Ten dokument obejmuje Routing ASP.NET Core niskiego poziomu. Aby uzyskać informacje na temat ASP.NET Core routingu MVC, zobacz <xref:mvc/controllers/routing>. Aby uzyskać informacje na temat Konwencji routingu w Razor Pages, zobacz <xref:razor-pages/razor-pages-conventions>.
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Podstawy routingu
 
@@ -1162,12 +1162,12 @@ Wyrażenia regularne używają ograniczników i tokenów podobnych do tych używ
 
 Wyrażenia regularne używane w routingu często zaczynają się od znaku daszka (`^`) i dopasowują pozycję początkową ciągu. Wyrażenia często kończą się znakiem dolara (`$`) i końcem ciągu. Znaki `^` i `$` zapewniają, że wyrażenie regularne dopasowuje całą wartość parametru trasy. Bez znaków `^` i `$` wyrażenie regularne dopasowuje dowolny podciąg w ciągu, co jest często niepożądane. W poniższej tabeli przedstawiono przykłady i wyjaśniono, dlaczego są one zgodne lub niezgodne.
 
-| Wyrażenie   | String    | Dopasowanie | Komentarz               |
+| Wyrażenie   | Ciąg    | Dopasowanie | Komentarz               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | Cześć     | Tak   | Dopasowania podciągów     |
-| `[a-z]{2}`   | 123abc456 | Tak   | Dopasowania podciągów     |
-| `[a-z]{2}`   | mz        | Tak   | Wyrażenie dopasowania    |
-| `[a-z]{2}`   | MZ        | Tak   | Bez uwzględniania wielkości liter    |
+| `[a-z]{2}`   | Cześć     | Yes   | Dopasowania podciągów     |
+| `[a-z]{2}`   | 123abc456 | Yes   | Dopasowania podciągów     |
+| `[a-z]{2}`   | mz        | Yes   | Wyrażenie dopasowania    |
+| `[a-z]{2}`   | MZ        | Yes   | Bez uwzględniania wielkości liter    |
 | `^[a-z]{2}$` | Cześć     | Nie    | Zobacz `^` i `$` powyżej |
 | `^[a-z]{2}$` | 123abc456 | Nie    | Zobacz `^` i `$` powyżej |
 
@@ -1239,7 +1239,7 @@ Poniższy przykład pokazuje, jak wygenerować link do trasy, używając słowni
 
 [!code-csharp[](routing/samples/2.x/RoutingSample/Startup.cs?name=snippet_Dictionary)]
 
-<xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> wygenerowany na końcu powyższego przykładu jest `/package/create/123`. Słownik dostarcza wartości `operation` i `id` trasy szablonu "śledzenie trasy pakietów", `package/{operation}/{id}`. Aby uzyskać szczegółowe informacje, zapoznaj się z przykładowym kodem w sekcji [Używanie oprogramowania pośredniczącego usługi routingu](#use-routing-middleware) lub [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples).
+<xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> wygenerowany na końcu powyższego przykładu jest `/package/create/123`. Słownik dostarcza wartości `operation` i `id` trasy szablonu "śledzenie trasy pakietów", `package/{operation}/{id}`. Aby uzyskać szczegółowe informacje, zapoznaj się z przykładowym kodem w sekcji [Używanie oprogramowania pośredniczącego usługi routingu](#use-routing-middleware) lub [przykładowej aplikacji](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples).
 
 Drugim parametrem konstruktora <xref:Microsoft.AspNetCore.Routing.VirtualPathContext> jest zbiór *wartości otoczenia*. Wartości otoczenia są wygodne do użycia, ponieważ ograniczają liczbę wartości, które Deweloper musi określić w kontekście żądania. Bieżące wartości trasy bieżącego żądania są uznawane za wartości otoczenia dla generacji łącza. W `About` akcji ASP.NET Core aplikacji MVC `HomeController`nie trzeba określać wartości trasy kontrolera do łączenia z akcją `Index`,&mdash;zostanie użyta wartość otoczenia `Home`.
 
@@ -1285,7 +1285,7 @@ services.AddMvc()
 > [!IMPORTANT]
 > Ten dokument obejmuje Routing ASP.NET Core niskiego poziomu. Aby uzyskać informacje na temat ASP.NET Core routingu MVC, zobacz <xref:mvc/controllers/routing>. Aby uzyskać informacje na temat Konwencji routingu w Razor Pages, zobacz <xref:razor-pages/razor-pages-conventions>.
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Podstawy routingu
 
@@ -1616,12 +1616,12 @@ Wyrażenia regularne używają ograniczników i tokenów podobnych do tych używ
 
 Wyrażenia regularne używane w routingu często zaczynają się od znaku daszka (`^`) i dopasowują pozycję początkową ciągu. Wyrażenia często kończą się znakiem dolara (`$`) i końcem ciągu. Znaki `^` i `$` zapewniają, że wyrażenie regularne dopasowuje całą wartość parametru trasy. Bez znaków `^` i `$` wyrażenie regularne dopasowuje dowolny podciąg w ciągu, co jest często niepożądane. W poniższej tabeli przedstawiono przykłady i wyjaśniono, dlaczego są one zgodne lub niezgodne.
 
-| Wyrażenie   | String    | Dopasowanie | Komentarz               |
+| Wyrażenie   | Ciąg    | Dopasowanie | Komentarz               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | Cześć     | Tak   | Dopasowania podciągów     |
-| `[a-z]{2}`   | 123abc456 | Tak   | Dopasowania podciągów     |
-| `[a-z]{2}`   | mz        | Tak   | Wyrażenie dopasowania    |
-| `[a-z]{2}`   | MZ        | Tak   | Bez uwzględniania wielkości liter    |
+| `[a-z]{2}`   | Cześć     | Yes   | Dopasowania podciągów     |
+| `[a-z]{2}`   | 123abc456 | Yes   | Dopasowania podciągów     |
+| `[a-z]{2}`   | mz        | Yes   | Wyrażenie dopasowania    |
+| `[a-z]{2}`   | MZ        | Yes   | Bez uwzględniania wielkości liter    |
 | `^[a-z]{2}$` | Cześć     | Nie    | Zobacz `^` i `$` powyżej |
 | `^[a-z]{2}$` | 123abc456 | Nie    | Zobacz `^` i `$` powyżej |
 
@@ -1655,7 +1655,7 @@ Poniższy przykład pokazuje, jak wygenerować link do trasy, używając słowni
 
 [!code-csharp[](routing/samples/2.x/RoutingSample/Startup.cs?name=snippet_Dictionary)]
 
-<xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> wygenerowany na końcu powyższego przykładu jest `/package/create/123`. Słownik dostarcza wartości `operation` i `id` trasy szablonu "śledzenie trasy pakietów", `package/{operation}/{id}`. Aby uzyskać szczegółowe informacje, zapoznaj się z przykładowym kodem w sekcji [Używanie oprogramowania pośredniczącego usługi routingu](#use-routing-middleware) lub [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples).
+<xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> wygenerowany na końcu powyższego przykładu jest `/package/create/123`. Słownik dostarcza wartości `operation` i `id` trasy szablonu "śledzenie trasy pakietów", `package/{operation}/{id}`. Aby uzyskać szczegółowe informacje, zapoznaj się z przykładowym kodem w sekcji [Używanie oprogramowania pośredniczącego usługi routingu](#use-routing-middleware) lub [przykładowej aplikacji](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples).
 
 Drugim parametrem konstruktora <xref:Microsoft.AspNetCore.Routing.VirtualPathContext> jest zbiór *wartości otoczenia*. Wartości otoczenia są wygodne do użycia, ponieważ ograniczają liczbę wartości, które Deweloper musi określić w kontekście żądania. Bieżące wartości trasy bieżącego żądania są uznawane za wartości otoczenia dla generacji łącza. W `About` akcji ASP.NET Core aplikacji MVC `HomeController`nie trzeba określać wartości trasy kontrolera do łączenia z akcją `Index`,&mdash;zostanie użyta wartość otoczenia `Home`.
 

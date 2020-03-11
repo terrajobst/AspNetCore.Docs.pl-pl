@@ -7,18 +7,18 @@ ms.author: prkrishn
 ms.custom: mvc
 ms.date: 12/10/2019
 uid: web-api/handle-errors
-ms.openlocfilehash: c2dbc47b4495b7187aefbc62eb6d2f0c9683c2da
-ms.sourcegitcommit: 29ace642ca0e1f0b48a18d66de266d8811df2b83
+ms.openlocfilehash: e445fb3d50973643c9cea60395d1ed02c2f5f675
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74987829"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660889"
 ---
 # <a name="handle-errors-in-aspnet-core-web-apis"></a>Obsługa błędów w ASP.NET Core interfejsów API sieci Web
 
 W tym artykule opisano sposób obsługi i dostosowywania obsługi błędów przy użyciu ASP.NET Core interfejsów API sieci Web.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/handle-errors/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/handle-errors/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="developer-exception-page"></a>Strona wyjątków dla deweloperów
 
@@ -34,7 +34,7 @@ curl -i https://localhost:5001/weatherforecast/chicago
 
 ::: moniker range=">= aspnetcore-3.0"
 
-W ASP.NET Core 3,0 i nowszych na stronie wyjątków dla deweloperów zostanie wyświetlona odpowiedź w postaci zwykłego tekstu, jeśli klient nie zażąda danych wyjściowych w formacie HTML. Zostaną wyświetlone następujące dane wyjściowe:
+W ASP.NET Core 3,0 i nowszych na stronie wyjątków dla deweloperów zostanie wyświetlona odpowiedź w postaci zwykłego tekstu, jeśli klient nie zażąda danych wyjściowych w formacie HTML. Wyświetlane są następujące dane wyjściowe:
 
 ```console
 HTTP/1.1 500 Internal Server Error

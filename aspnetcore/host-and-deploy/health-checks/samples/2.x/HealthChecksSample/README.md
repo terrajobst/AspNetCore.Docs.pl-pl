@@ -1,15 +1,15 @@
-# <a name="aspnet-core-health-check-sample"></a>Przykładowe sprawdzania kondycji platformy ASP.NET Core
+# <a name="aspnet-core-health-check-sample"></a>Przykład ASP.NET Core Sprawdzanie kondycji
 
-Ten przykład ilustruje użycie kondycji Sprawdź oprogramowanie pośredniczące i usługi. W tym przykładzie przedstawiono scenariusz opisany w [kontroli kondycji w programie ASP.NET Core](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks) tematu.
+Ten przykład ilustruje sposób korzystania z sprawdzania kondycji oprogramowania i usług. Ten przykład ilustruje scenariusz opisany w temacie [Sprawdzanie kondycji w ASP.NET Core](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks) tematu.
 
-Aby uruchomić przykładową aplikację dla scenariusza opisanego w temacie, należy użyć [dotnet, uruchom](https://docs.microsoft.com/dotnet/core/tools/dotnet-run) polecenia z folderu projektu w powłoce poleceń. Przekaż przełącznika scenariusza, w którym Eksplorowanie. Domyślnie aplikacja `basic` konfiguracji przełącznika nie jest udostępniane na `dotnet run`.
+Aby uruchomić przykładową aplikację dla scenariusza opisanego w temacie, użyj polecenia [dotnet Run](https://docs.microsoft.com/dotnet/core/tools/dotnet-run) z folderu projektu w powłoce poleceń. Przekaż przełącznik dla scenariusza, który jest przeszukany. Aplikacja jest domyślnie ustawiona na konfigurację `basic`, jeśli nie podano przełącznika do `dotnet run`.
 
-| Scenariusz                                               | Polecenie aplikacji przykładowej               | Opis |
+| Scenariusz                                               | Polecenie przykładowej aplikacji               | Opis |
 | ------------------------------------------------------ | -------------------------------- | ----------- |
-| Sonda kondycji podstawowe (ustawienie domyślne)                           | `dotnet run --scenario basic`    | Potwierdza, że aplikacja może przetwarzać żądania HTTP. |
-| Sondowanie bazy danych                                         | `dotnet run --scenario db`       | Sprawdza, czy połączenie z bazą danych programu SQL Server. Zobacz [sondowanie bazy danych](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks#database-probe) sekcji tego tematu, aby uzyskać instrukcje. |
-| Sondy żywotności/gotowości                              | `dotnet run --scenario liveness` | Sprawdza stan aplikacji na żywo (*żywotności*) i aplikacji, przygotowywanie do stają się na żywo (*gotowości*). |
-| Funkcję badania opartą na metryce (pamięci) /<br>Moduł zapisujący niestandardową odpowiedź | `dotnet run --scenario writer`   | Sprawdza, czy przed użyciem pamięci, a następnie zapisuje się niestandardowy JSON po zaznaczeniu tej opcji punkt końcowy kondycji. |
-| Filtruj według portów                                         | `dotnet run --scenario port`     | Służy do przefiltrowania kontrole kondycji do danego portu. Zobacz [filtru według portów](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks#filter-by-port) sekcji tego tematu, aby uzyskać instrukcje. |
+| Podstawowa sonda kondycji (domyślnie)                           | `dotnet run --scenario basic`    | Potwierdza, że aplikacja może przetwarzać żądania HTTP. |
+| Sonda bazy danych                                         | `dotnet run --scenario db`       | Sprawdza SQL Server połączenie z bazą danych. Instrukcje można znaleźć w sekcji [sondowanie bazy danych](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks#database-probe) w temacie. |
+| Sondy gotowości/na żywo                              | `dotnet run --scenario liveness` | Sprawdza, czy stan aktywnej aplikacji (*Live*), a następnie aplikację, która zostanie przygotowana na żywo (*gotowość*). |
+| Sonda oparta na pomiarach (pamięć)/<br>niestandardowy moduł zapisujący odpowiedzi | `dotnet run --scenario writer`   | Sprawdza użycie pamięci i zapisuje niestandardowy kod JSON po sprawdzeniu punktu końcowego kondycji. |
+| Filtruj według portu                                         | `dotnet run --scenario port`     | Filtruje kontrolę kondycji w danym porcie. Instrukcje można znaleźć w sekcji [filtrowanie według portu](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks#filter-by-port) w temacie. |
 
-Scenariusze filtrowania badania i port bazy danych wymagają dodatkowej konfiguracji. Zobacz [kontroli kondycji](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks) tematu, aby uzyskać szczegółowe informacje.
+Scenariusze sondowania bazy danych i filtru portów wymagają dodatkowej konfiguracji. Aby uzyskać szczegółowe informacje, zobacz temat [Sprawdzanie kondycji](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks) .

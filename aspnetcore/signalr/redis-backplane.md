@@ -10,11 +10,11 @@ no-loc:
 - SignalR
 uid: signalr/redis-backplane
 ms.openlocfilehash: 0461fc6a212ba78111bc2054cca74951721c5820
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74289035"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661372"
 ---
 # <a name="set-up-a-redis-backplane-for-aspnet-core-opno-locsignalr-scale-out"></a>Konfigurowanie planu Redis dla ASP.NET Core SignalR skalowanie w poziomie
 
@@ -29,7 +29,7 @@ W tym artykule wyjaśniono SignalRaspekty dotyczące konfigurowania serwera [Red
   > [!IMPORTANT] 
   > W przypadku użycia w środowisku produkcyjnym Redis planuje się tylko wtedy, gdy działa on w tym samym centrum danych co aplikacja SignalR. W przeciwnym razie opóźnienie sieci obniży wydajność. Jeśli Twoja aplikacja SignalR jest uruchomiona w chmurze platformy Azure, zalecamy użycie usługi Azure SignalR zamiast planu Redis. Usługi Azure Redis Cache można używać w środowiskach deweloperskich i testowych.
 
-  Aby uzyskać więcej informacji, zobacz następujące zasoby:
+  Więcej informacji zawierają następujące zasoby:
 
   * <xref:signalr/scale>
   * [Dokumentacja Redis](https://redis.io/)
@@ -134,7 +134,7 @@ W tym artykule wyjaśniono SignalRaspekty dotyczące konfigurowania serwera [Red
 
 * Skonfiguruj oprogramowanie do równoważenia obciążenia farmy serwerów dla sesji programu Sticky Notes. Oto kilka przykładów dokumentacji dotyczącej tego, jak to zrobić:
 
-  * [SERWERZE](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing)
+  * [IIS](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing)
   * [HAProxy](https://www.haproxy.com/blog/load-balancing-affinity-persistence-sticky-sessions-what-you-need-to-know/)
   * [Nginx](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/#sticky)
   * [pfSense](https://www.netgate.com/docs/pfsense/loadbalancing/inbound-load-balancing.html#sticky-connections)
@@ -224,9 +224,9 @@ services.AddSignalR()
 
 [Redis klastrowanie](https://redis.io/topics/cluster-spec) to metoda osiągania wysokiej dostępności przy użyciu wielu serwerów Redis. Klastrowanie nie jest oficjalnie obsługiwane, ale może zadziałało.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji, zobacz następujące zasoby:
+Więcej informacji zawierają następujące zasoby:
 
 * <xref:signalr/scale>
 * [Dokumentacja Redis](https://redis.io/documentation)

@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: 6a2a2ca45f793ab95d45281ebb23180ac64761ec
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: a5ea9b75cf8bb1f31cb07a2b32f361bdbfd4efa3
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082314"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662905"
 ---
 # <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>Dodawanie nowego pola do aplikacji ASP.NET Core MVC
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tej sekcji [Entity Framework](/ef/core/get-started/aspnetcore/new-db) migracje Code First służy do:
 
@@ -33,19 +33,19 @@ Dodawanie właściwości `Rating` do *modeli/filmów. cs*:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Models/MovieDateRating.cs?highlight=13&name=snippet)]
 
-Tworzenie aplikacji
+Kompilacja aplikacji
 
-### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
  Ctrl+Shift+B
 
-### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ```dotnetcli
 dotnet build
 ```
 
-### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+### <a name="visual-studio-for-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 Polecenie ⌘ + B
 
@@ -65,13 +65,13 @@ Edytuj plik */views/Movies/index.cshtml* i dodaj pole `Rating`:
 
 Zaktualizuj */views/Movies/Create.cshtml* za pomocą pola `Rating`.
 
-# <a name="visual-studio--visual-studio-for-mactabvisual-studiovisual-studio-mac"></a>[Visual Studio/Visual Studio dla komputerów Mac](#tab/visual-studio+visual-studio-mac)
+# <a name="visual-studio--visual-studio-for-mac"></a>[Visual Studio/Visual Studio dla komputerów Mac](#tab/visual-studio+visual-studio-mac)
 
 Możesz skopiować/wkleić poprzednią "grupę formularzy" i pozwól, aby funkcja intelliSense mogła zaktualizować pola. Technologia IntelliSense współpracuje z [pomocnikami tagów](xref:mvc/views/tag-helpers/intro).
 
 ![Deweloper wpisze literę R dla wartości atrybutu ASP-for w drugim elemencie Label widoku. W menu kontekstowym IntelliSense pojawiły się dostępne pola, w tym klasyfikacja, które są automatycznie wyróżnione na liście. Gdy deweloper kliknie pole lub naciśnie klawisz Enter na klawiaturze, wartość zostanie ustawiona na Klasyfikacja.](new-field/_static/cr.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 <!-- This tab intentionally left blank. -->
 
@@ -99,7 +99,7 @@ Istnieje kilka metod rozpoznawania błędu:
 
 W tym samouczku zostanie użyta Migracje Code First.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 W menu **Narzędzia** wybierz kolejno pozycje **menedżer pakietów NuGet > konsola Menedżera pakietów**.
 
@@ -118,7 +118,7 @@ Nazwa "Rating" jest arbitralna i jest używana do nazwy pliku migracji. Warto u�
 
 Jeśli wszystkie rekordy w bazie danych zostaną usunięte, metoda Initialize będzie wypełniać bazę danych i zawierać pole `Rating`.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
@@ -131,8 +131,11 @@ dotnet ef database update
 ---
 <!-- End of VS tabs -->
 
-Uruchom aplikację i sprawdź, czy można tworzyć/edytować/wyświetlać filmy z polem `Rating`. Należy dodać pole `Rating` do szablonów widoków `Edit`, `Details`i `Delete`.
+Uruchom aplikację i sprawdź, czy można tworzyć, edytować i wyświetlać filmy z polem `Rating`. Zaktualizuj aplikację:
+
+* Dodaj pole `Rating` do szablonów widoków `Edit`, `Details`i `Delete`.
+* Zaktualizuj powiązanie w metodzie Edytuj akcję `MoviesController`.
 
 > [!div class="step-by-step"]
-> [Poprzedni](search.md)
-> [Następny](validation.md)
+> [Poprzednie](search.md)
+> [dalej](validation.md)

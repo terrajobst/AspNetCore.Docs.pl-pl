@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 411c0874d2b2c6ecadd1da9aff7a093f1e8e525a
-ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
+ms.openlocfilehash: 1d81a0444487c6396bb32381ed2cb26d44312c3a
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77213431"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78665719"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor Pages EF Core w ASP.NET Core — model danych-5 z 8
 
@@ -99,7 +99,7 @@ Atrybut `StringLength` nie uniemożliwia użytkownikowi wprowadzania białych zn
 [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
 ```
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 W **Eksplorator obiektów SQL Server** (SSOX) Otwórz projektanta tabeli uczniów, klikając dwukrotnie tabelę **uczniów** .
 
@@ -107,7 +107,7 @@ W **Eksplorator obiektów SQL Server** (SSOX) Otwórz projektanta tabeli ucznió
 
 Na powyższym obrazie przedstawiono schemat tabeli `Student`. Pola nazw mają typ `nvarchar(MAX)`. Gdy migracja zostanie utworzona i zastosowana w dalszej części tego samouczka, pola Nazwa stają się `nvarchar(50)` w wyniku atrybutów długości ciągu.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 W narzędziu SQLite Sprawdź definicje kolumn tabeli `Student`. Pola nazw mają typ `Text`. Zwróć uwagę, że pole first name ma nazwę `FirstMidName`. W następnej sekcji zmienisz nazwę tej kolumny na `FirstName`.
 
@@ -157,7 +157,7 @@ Atrybut `Display` określa, że podpis pól tekstowych powinien mieć wartość 
 
 Uruchom aplikację i przejdź do strony uczniów. Zgłaszany jest wyjątek. `[Column]` atrybutu powoduje, że Dr powinien znaleźć kolumnę o nazwie `FirstName`, ale nazwa kolumny w bazie danych jest nadal `FirstMidName`.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Komunikat o błędzie jest podobny do poniższego przykładu:
 
@@ -187,7 +187,7 @@ SqlException: Invalid column name 'FirstName'.
 
   Przed zainstalowaniem migracji kolumny nazw były typu [nvarchar (max)](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql). Kolumny nazw są teraz `nvarchar(50)`. Nazwa kolumny została zmieniona z `FirstMidName` na `FirstName`.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Komunikat o błędzie jest podobny do poniższego przykładu:
 
@@ -536,7 +536,7 @@ Poprzedni kod zawiera dane inicjatora dla nowych jednostek. Większość tego ko
 
 Skompiluj projekt.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 W obszarze PMC Uruchom następujące polecenie.
 
@@ -561,7 +561,7 @@ database "ContosoUniversity", table "dbo.Department", column 'DepartmentID'.
 
 W następnej sekcji opisano, co należy zrobić, aby uzyskać informacje o tym błędzie.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 W przypadku dodania migracji i uruchomienia polecenia `database update` zostanie utworzony następujący błąd:
 
@@ -591,7 +591,7 @@ Dowolny wybór działa dla SQL Server. Chociaż metoda Apply-Migration jest bard
 
 Aby wymusić EF Core tworzenia nowej bazy danych, Porzuć i zaktualizuj bazę danych:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * W **konsoli Menedżera pakietów** (PMC) Uruchom następujące polecenie:
 
@@ -606,7 +606,7 @@ Aby wymusić EF Core tworzenia nowej bazy danych, Porzuć i zaktualizuj bazę da
   Update-Database
   ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Otwórz okno polecenia i przejdź do folderu projektu. Folder projektu zawiera plik *ContosoUniversity. csproj* .
 
@@ -627,7 +627,7 @@ Aby wymusić EF Core tworzenia nowej bazy danych, Porzuć i zaktualizuj bazę da
 
 Uruchom aplikację. Uruchomienie aplikacji uruchamia metodę `DbInitializer.Initialize`. `DbInitializer.Initialize` wypełnia nową bazę danych.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Otwórz bazę danych w programie SSOX:
 
@@ -643,7 +643,7 @@ Otwórz bazę danych w programie SSOX:
 
   ![CourseAssignment dane w SSOX](complex-data-model/_static/ssox-ci-data.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Sprawdź bazę danych za pomocą narzędzia SQLite:
 
@@ -691,7 +691,7 @@ Sposób obsługi pokazanej tutaj sytuacji jest uproszczony dla tego samouczka. A
 * Dołącz kod lub skrypty, aby dodać `Department` wiersze i powiązane wiersze `Course` do nowych wierszy `Department`.
 * Nie należy używać działu "Temp" ani wartości domyślnej dla `Course.DepartmentID`.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * W **konsoli Menedżera pakietów** (PMC) Uruchom następujące polecenie:
 
@@ -701,7 +701,7 @@ Sposób obsługi pokazanej tutaj sytuacji jest uproszczony dla tego samouczka. A
 
 Ponieważ metoda `DbInitializer.Initialize` została zaprojektowana tak, aby działała tylko z pustą bazą danych, należy usunąć wszystkie wiersze z tabeli uczniów i kursów za pomocą SSOX. (Usuwanie kaskadowe zajmie tabelę rejestracji).
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Jeśli używasz SQL Server LocalDB z Visual Studio Code, uruchom następujące polecenie:
 
@@ -735,7 +735,7 @@ Klasy jednostek dla kompletnego modelu danych przedstawiono na poniższej ilustr
 ![Diagram jednostek](complex-data-model/_static/diagram.png)
 
 Jeśli wystąpią problemy, których nie można rozwiązać, Pobierz [ukończoną aplikację](
-https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
+https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
 
 ## <a name="customize-the-data-model-with-attributes"></a>Dostosowywanie modelu danych przy użyciu atrybutów
 
@@ -830,14 +830,14 @@ Aby zaktualizować bazę danych:
 * Skompiluj projekt.
 * Otwórz okno polecenia w folderze projektu. Wprowadź następujące polecenia, aby utworzyć nową migrację i zaktualizować bazę danych:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ```powershell
 Add-Migration ColumnFirstName
 Update-Database
 ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ```dotnetcli
 dotnet ef migrations add ColumnFirstName
@@ -1244,13 +1244,13 @@ Poprzedni kod zawiera dane inicjatora dla nowych jednostek. Większość tego ko
 
 Skompiluj projekt.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ```powershell
 Add-Migration ComplexDataModel
 ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ```dotnetcli
 dotnet ef migrations add ComplexDataModel
@@ -1286,7 +1286,7 @@ Teraz, gdy masz już istniejącą bazę danych, musisz się zastanowić, jak zas
 
 Kod w zaktualizowanym `DbInitializer` dodaje dane inicjatora dla nowych jednostek. Aby wymusić EF Core tworzenia nowej bazy danych, Porzuć i zaktualizuj bazę danych:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 W **konsoli Menedżera pakietów** (PMC) Uruchom następujące polecenie:
 
@@ -1297,7 +1297,7 @@ Update-Database
 
 Uruchom `Get-Help about_EntityFrameworkCore` z PMC, aby uzyskać informacje pomocy.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Otwórz okno polecenia i przejdź do folderu projektu. Folder projektu zawiera plik *Startup.cs* .
 

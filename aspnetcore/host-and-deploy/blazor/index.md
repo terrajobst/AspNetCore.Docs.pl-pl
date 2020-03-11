@@ -11,13 +11,13 @@ no-loc:
 - SignalR
 uid: host-and-deploy/blazor/index
 ms.openlocfilehash: 238e7fc8f8d64c7847dc8847fb66e22442a3c8e0
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160265"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667154"
 ---
-# <a name="host-and-deploy-aspnet-core-opno-locblazor"></a>Hostowanie i wdrażanie ASP.NET Core Blazor
+# <a name="host-and-deploy-aspnet-core-blazor"></a>Hostowanie i wdrażanie ASP.NET Core Blazor
 
 [Luke Latham](https://github.com/guardrex), [Rainer Stropek](https://www.timecockpit.com)i [Daniel Roth](https://github.com/danroth27)
 
@@ -27,13 +27,13 @@ ms.locfileid: "76160265"
 
 Aplikacje są publikowane do wdrożenia w konfiguracji wydania.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Wybierz pozycję **kompilacja** > **Opublikuj aplikację {Application}** na pasku nawigacyjnym.
 1. Wybierz *element docelowy publikowania*. Aby opublikować lokalnie, wybierz pozycję **folder**.
 1. Zaakceptuj lokalizację domyślną w polu **Wybierz folder** lub określ inną lokalizację. Wybierz przycisk **Publikuj**.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Użyj [dotnet Publish](/dotnet/core/tools/dotnet-publish) polecenia, aby opublikować aplikację z konfiguracją wydania:
 
@@ -94,7 +94,7 @@ dotnet run --pathbase=/CoolApp
 
 Aplikacja webassembly Blazor reaguje lokalnie na `http://localhost:port/CoolApp`.
 
-## <a name="deployment"></a>Wdrażanie
+## <a name="deployment"></a>Wdrożenie
 
 Aby uzyskać wskazówki dotyczące wdrażania, zobacz następujące tematy:
 

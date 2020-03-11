@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/23/2019
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 70951085474d88fd57f1b1496a41adcda520b91f
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 574e66e4dedaf0bfd01d600c3ded4bfb5d1865cd
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829157"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664480"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Niestandardowi dostawcy magazynu dla tożsamości ASP.NET Core
 
@@ -19,7 +19,7 @@ Przez [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core Identity to rozszerzalny system, który umożliwia utworzenie niestandardowego dostawcy magazynu i połączenie go z aplikacją. W tym temacie opisano sposób tworzenia niestandardowego dostawcy magazynu dla tożsamości ASP.NET Core. Dotyczy to ważnych koncepcji tworzenia własnego dostawcy magazynu, ale nie jest to przewodnik krok po kroku.
 
-[Wyświetl lub Pobierz przykład z witryny GitHub](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity/sample).
+[Wyświetl lub Pobierz przykład z witryny GitHub](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity/sample).
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -138,7 +138,7 @@ Utwórz klasę `UserStore`, która dostarcza metody dla wszystkich operacji na d
 * [IUserTwoFactorStore](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1)
 * [IUserLockoutStore](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1)
 
-Opcjonalne interfejsy dziedziczą z `IUserStore<TUser>`. W [przykładowej aplikacji](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs)widzisz częściowo zaimplementowany przykładowy magazyn użytkowników.
+Opcjonalne interfejsy dziedziczą z `IUserStore<TUser>`. W [przykładowej aplikacji](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs)widzisz częściowo zaimplementowany przykładowy magazyn użytkowników.
 
 W klasie `UserStore` używane są klasy dostępu do danych, które zostały utworzone w celu wykonywania operacji. Są one przenoszone przy użyciu iniekcji zależności. Na przykład w SQL Server z implementacją Dapper Klasa `UserStore` ma metodę `CreateAsync`, która używa wystąpienia `DapperUsersTable` do wstawienia nowego rekordu:
 
@@ -235,7 +235,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-## <a name="references"></a>Odwołania
+## <a name="references"></a>Dokumentacja
 
 * [Niestandardowi dostawcy magazynu dla tożsamości ASP.NET 4. x](/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity)
 * [ASP.NET Core tożsamość](https://github.com/dotnet/AspNetCore/tree/master/src/Identity) &ndash; to repozytorium zawiera linki do dostawców sklepu obsługiwanego przez społeczność.

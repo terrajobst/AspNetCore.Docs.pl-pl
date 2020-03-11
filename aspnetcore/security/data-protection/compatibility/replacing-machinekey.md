@@ -1,38 +1,38 @@
 ---
-title: Zastąp machineKey platformy ASP.NET w programie ASP.NET Core
+title: Zastąp ASP.NET machineKey w ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, jak zastąpić elementu machineKey w programie ASP.NET, aby zezwolić na korzystanie z systemu ochrony danych na nowe i bardziej bezpieczne.
+description: Dowiedz się, jak zastąpić machineKey w ASP.NET, aby umożliwić korzystanie z nowego i bezpieczniejszego systemu ochrony danych.
 ms.author: riande
 ms.date: 04/06/2019
 uid: security/data-protection/compatibility/replacing-machinekey
 ms.openlocfilehash: 2317cb50cfe63226baf336ebfc5d681d1cebe5c6
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901954"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667987"
 ---
-# <a name="replace-the-aspnet-machinekey-in-aspnet-core"></a>Zastąp machineKey platformy ASP.NET w programie ASP.NET Core
+# <a name="replace-the-aspnet-machinekey-in-aspnet-core"></a>Zastąp ASP.NET machineKey w ASP.NET Core
 
 <a name="compatibility-replacing-machinekey"></a>
 
-Implementacja `<machineKey>` elementu w programie ASP.NET: [wymienną](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/). Dzięki temu większość wywołań procedur kryptograficznych platformy ASP.NET będą kierowane za pośrednictwem mechanizm ochrony danych zastąpienia, w tym nowy system ochrony danych.
+Implementacja `<machineKey>` elementu w ASP.NET [jest wymienna](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/). Umożliwia to większości wywołań ASP.NET procedur kryptograficznych, które mają być kierowane przez mechanizm ochrony danych zamiennych, w tym nowy system ochrony danych.
 
 ## <a name="package-installation"></a>Instalacja pakietu
 
 > [!NOTE]
-> Nowy system ochrony danych może być tylko zainstalowany do istniejącej aplikacji ASP.NET przeznaczonych dla platformy .NET 4.5.1 lub nowszej. Instalacja zostanie zakończona niepowodzeniem, jeśli aplikacja jest przeznaczony dla platformy .NET 4.5 lub starszą.
+> Nowy system ochrony danych można zainstalować tylko w istniejącej aplikacji ASP.NET, w której znajduje się program .NET 4.5.1 lub nowszy. Instalacja zakończy się niepowodzeniem, jeśli aplikacja jest przeznaczona dla platformy .NET 4,5 lub niższej.
 
-Aby zainstalować nowy system ochrony danych w istniejącym projekcie 4.5.1+ ASP.NET, należy zainstalować pakiet Microsoft.AspNetCore.DataProtection.SystemWeb. Spowoduje to wystąpienia dane ochrony systemu za pomocą [domyślnej konfiguracji](xref:security/data-protection/configuration/default-settings) ustawienia.
+Aby zainstalować nowy system ochrony danych w istniejącym projekcie ASP.NET 4.5.1 +, zainstaluj pakiet Microsoft. AspNetCore. dataprotection. SystemWeb. Spowoduje to utworzenie wystąpienia systemu ochrony danych przy użyciu [domyślnych ustawień konfiguracji](xref:security/data-protection/configuration/default-settings) .
 
-Podczas instalowania pakietu do wstawienia wiersza do *Web.config* który informuje platformę ASP.NET w celu zastosowania [większości operacji kryptograficznych](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/), w tym uwierzytelnianie formularzy, stan widoku i wywołania MachineKey.Protect. Wiersz, który jest wstawiany odczytuje w następujący sposób.
+Po zainstalowaniu pakietu wstawia wiersz do *pliku Web. config* , który informuje ASP.NET o tym, aby użyć go do [większości operacji kryptograficznych](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/), w tym uwierzytelniania formularzy, stanu widoku i wywołań machineKey. Protect. Wstawiony wiersz odczytuje się w następujący sposób.
 
 ```xml
 <machineKey compatibilityMode="Framework45" dataProtectorType="..." />
 ```
 
 >[!TIP]
-> Można stwierdzić, czy nowy system ochrony danych jest aktywna, sprawdzając pól, takich jak `__VIEWSTATE`, który powinien zaczynać się od "CfDJ8" tak jak w poniższym przykładzie. "CfDJ8" jest reprezentacji base64 nagłówka magic "09 F0 C9 F0", który identyfikuje ładunek chroniona przez system ochrony danych.
+> Możesz sprawdzić, czy nowy system ochrony danych jest aktywny, sprawdzając pola, takie jak `__VIEWSTATE`, które powinny rozpoczynać się od ciągu "CfDJ8", jak w poniższym przykładzie. "CfDJ8" to reprezentacja Base64 nagłówka Magic "09 F0 C9 F0", który identyfikuje ładunek chroniony przez system ochrony danych.
 
 ```html
 <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="CfDJ8AWPr2EQPTBGs3L2GCZOpk...">
@@ -40,9 +40,9 @@ Podczas instalowania pakietu do wstawienia wiersza do *Web.config* który inform
 
 ## <a name="package-configuration"></a>Konfiguracja pakietu
 
-System ochrony danych jest utworzone za pomocą domyślnej konfiguracji instalacji zero. Jednak ponieważ domyślnie klucze zostaną utrwalone w lokalnym systemie plików, to nie będzie działać dla aplikacji, które są wdrażane w farmie. Aby rozwiązać ten problem, może zapewnić konfiguracji przez utworzenie typu, który podklasy DataProtectionStartup i przesłania jej metodę ConfigureServices.
+System ochrony danych jest inicjowany z domyślną konfiguracją instalacji zerowej. Ponieważ jednak domyślnie klucze są utrwalane w lokalnym systemie plików, nie będzie to konieczne w przypadku aplikacji wdrożonych w farmie. Aby rozwiązać ten problem, można zapewnić konfigurację, tworząc typ, który podklasy DataProtectionStartup i przesłania metodę ConfigureServices.
 
-Poniżej znajduje się przykład typ uruchomienia ochrony danych niestandardowych, które skonfigurowane, gdzie klucze są zachowywane i jak są szyfrowane w stanie spoczynku. Zastępuje również domyślne zasady izolacji aplikacji, podając własną nazwę aplikacji.
+Poniżej znajduje się przykład niestandardowego typu uruchamiania ochrony danych, który został skonfigurowany zarówno w przypadku, gdy klucze są utrwalane, jak i w sposób szyfrowany. Zastępuje ono również domyślne zasady izolacji aplikacji, podając własną nazwę aplikacji.
 
 ```csharp
 using System;
@@ -67,9 +67,9 @@ namespace DataProtectionDemo
 ```
 
 >[!TIP]
-> Można również użyć `<machineKey applicationName="my-app" ... />` zamiast jawnym wywołaniem SetApplicationName. Jest to mechanizm wygody, aby uniknąć wymuszania dla deweloperów, aby utworzyć DataProtectionStartup stosowanego typu pochodnego, jeśli został wszystko, czego użytkownik chce skonfigurować ustawienie nazwy aplikacji.
+> Zamiast jawnie wywołać metody setapplicationname, można również użyć `<machineKey applicationName="my-app" ... />`. Jest to wygodny mechanizm pozwalający uniknąć wymuszania tworzenia przez dewelopera typu DataProtectionStartup-pochodnego, jeśli wszystko, co chciało skonfigurować, została ustawiona nazwa aplikacji.
 
-Aby włączyć ten niestandardowej konfiguracji, wróć do pliku Web.config i poszukaj `<appSettings>` element, który zainstaluj pakiet dodawane do pliku konfiguracji. Będzie to wyglądać następujące znaczniki:
+Aby włączyć tę konfigurację niestandardową, Wróć do pliku Web. config i poszukaj elementu `<appSettings>`, który został dodany przez pakiet w celu dodania do niego. Będzie wyglądać następująco:
 
 ```xml
 <appSettings>
@@ -82,11 +82,11 @@ Aby włączyć ten niestandardowej konfiguracji, wróć do pliku Web.config i po
 </appSettings>
 ```
 
-Wprowadź wartość pustą nazwą kwalifikowaną dla zestawu typu pochodnego DataProtectionStartup, właśnie utworzony. Jeśli nazwa aplikacji jest DataProtectionDemo, to będzie wyglądać poniżej.
+Wypełnij wartość pustą, podając kwalifikowaną nazwę zestawu DataProtectionStartup typu pochodnego. Jeśli nazwa aplikacji jest DataProtectionDemo, będzie wyglądać tak jak poniżej.
 
 ```xml
 <add key="aspnet:dataProtectionStartupType"
      value="DataProtectionDemo.MyDataProtectionStartup, DataProtectionDemo" />
 ```
 
-System ochrony danych nowo skonfigurowane jest teraz gotowy do użycia w aplikacji.
+Nowo skonfigurowany system ochrony danych jest teraz gotowy do użycia w aplikacji.

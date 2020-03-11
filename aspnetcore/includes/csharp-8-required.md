@@ -1,2 +1,2 @@
 > [!NOTE]
-> Poniższy przykładowy skrypt wymaga C# wersji 8.0 lub nowszej.
+> Poniższy przykład wymaga C# 8,0 lub nowszej.

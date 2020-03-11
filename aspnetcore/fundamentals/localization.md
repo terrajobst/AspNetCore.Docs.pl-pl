@@ -5,12 +5,12 @@ description: Dowiedz się, jak ASP.NET Core udostępnia usługi i oprogramowanie
 ms.author: riande
 ms.date: 11/30/2019
 uid: fundamentals/localization
-ms.openlocfilehash: 645f680436336acbe1d5c2854a242527c9b4b9cb
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: b175354220a8a71c029e005f27443d5a72749a11
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717406"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662121"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizacja i lokalizacja w ASP.NET Core
 
@@ -30,7 +30,7 @@ Lokalizacja aplikacji obejmuje następujące elementy:
 
 3. Zaimplementuj strategię, aby wybrać język/kulturę dla każdego żądania
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="make-the-apps-content-localizable"></a>Ustaw lokalizowalność zawartości aplikacji
 
@@ -74,7 +74,7 @@ Domyślna implementacja `IViewLocalizer` znajduje plik zasobów na podstawie naz
 
 Plik zasobów francuski może zawierać następujące elementy:
 
-| Key | Wartość |
+| Klucz | Wartość |
 | ----- | ------ |
 | `<i>Hello</i> <b>{0}!</b>` | `<i>Bonjour</i> <b>{0} !</b>` |
 
@@ -150,15 +150,15 @@ W przykładowym projekcie Metoda `ConfigureServices` ustawia `ResourcesPath` na 
 
 | Nazwa zasobu | Nazwa kropka lub ścieżki |
 | ------------   | ------------- |
-| Zasoby/kontrolery. HomeController. fr. resx | Kropka  |
-| Zasoby/kontrolery/HomeController. fr. resx  | Ścieżka |
+| Resources/Controllers.HomeController.fr.resx | Kropka  |
+| Resources/Controllers/HomeController.fr.resx  | Ścieżka |
 |    |     |
 
 Pliki zasobów używające `@inject IViewLocalizer` w widokach Razor podążają za podobnym wzorcem. Plik zasobów dla widoku może być nazwany przy użyciu nazw kropek lub nazw ścieżek. Pliki zasobów widoku Razor naśladować ścieżkę skojarzonego pliku widoku. Przy założeniu, że `ResourcesPath` do "zasobów", plik zasobów francuski skojarzony z widokiem */Home/about. cshtml* może mieć jedną z następujących wartości:
 
-* Zasoby/widoki/Strona główna/informacje. fr. resx
+* Resources/Views/Home/About.fr.resx
 
-* Zasoby/widoki. Strona główna. informacje. fr. resx
+* Resources/Views.Home.About.fr.resx
 
 Jeśli opcja `ResourcesPath` nie zostanie użyta, plik *resx* dla widoku powinien znajdować się w tym samym folderze co widok.
 
@@ -188,7 +188,7 @@ Poprzedni kod umożliwia pomyślne rozpoznanie plików resx.
 
 ## <a name="culture-fallback-behavior"></a>Zachowanie rezerwowe kultury
 
-Podczas wyszukiwania zasobu lokalizacja prowadzi do "rezerwy kulturowej". Jeśli nie zostanie znaleziona, rozpoczyna się od żądanej kultury, przywraca kulturę nadrzędną tej kultury. Poza tym Właściwość [CultureInfo. Parent](/dotnet/api/system.globalization.cultureinfo.parent) reprezentuje kulturę nadrzędną. Zwykle (ale nie zawsze) oznacza usunięcie z ISO. Na przykład dialekt języka hiszpańskiego wymawianego w Meksyku to "es-MX". Ma ona nadrzędne "es"&mdash;hiszpański niespecyficzny dla każdego kraju.
+Podczas wyszukiwania zasobu lokalizacja prowadzi do "rezerwy kulturowej". Jeśli nie zostanie znaleziona, rozpoczyna się od żądanej kultury, przywraca kulturę nadrzędną tej kultury. Poza tym Właściwość [CultureInfo. Parent](/dotnet/api/system.globalization.cultureinfo.parent) reprezentuje kulturę nadrzędną. Zwykle (ale nie zawsze) oznacza usunięcie z ISO. Na przykład wariant języka hiszpańskiego używany w Meksyku to „es-MX”. Ma ona nadrzędne "es"&mdash;hiszpański niespecyficzny dla każdego kraju.
 
 Wyobraź sobie, że witryna otrzymuje żądanie dotyczące zasobu "Welcome" przy użyciu kultury "fr-CA". System lokalizacji wyszukuje następujące zasoby w kolejności i wybiera pierwsze dopasowanie:
 
@@ -208,7 +208,7 @@ Każda kombinacja języka i kultury (oprócz języka domyślnego) wymaga unikato
 
 ## <a name="implement-a-strategy-to-select-the-languageculture-for-each-request"></a>Zaimplementuj strategię, aby wybrać język/kulturę dla każdego żądania
 
-### <a name="configure-localization"></a>Konfiguruj lokalizację
+### <a name="configure-localization"></a>Konfigurowanie lokalizacji
 
 Lokalizacja jest konfigurowana w `Startup.ConfigureServices` metodzie:
 
@@ -225,6 +225,7 @@ Lokalizacja jest konfigurowana w `Startup.ConfigureServices` metodzie:
 Bieżąca kultura w żądaniu jest ustawiana w oprogramowaniu [pośredniczącym](xref:fundamentals/middleware/index)lokalizacji. Oprogramowanie pośredniczące lokalizacji jest włączone w metodzie `Startup.Configure`. Oprogramowanie pośredniczące lokalizacyjne musi być skonfigurowane przed jakimkolwiek oprogramowanie pośredniczące, które może sprawdzić kulturę żądania (na przykład `app.UseMvcWithDefaultRoute()`).
 
 [!code-csharp[](localization/sample/Localization/Startup.cs?name=snippet2)]
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
 
 `UseRequestLocalization` inicjuje obiekt `RequestLocalizationOptions`. Na każdym żądaniu lista `RequestCultureProvider` w `RequestLocalizationOptions` zostanie wyliczona, a pierwszy dostawca, który może pomyślnie ustalić kulturę żądań, jest używany. Dostawcy domyślnie pochodzą z klasy `RequestLocalizationOptions`:
 
@@ -276,7 +277,7 @@ Jeśli określisz tylko jedną z informacji o kulturze i kulturze interfejsu uż
 
 6. Naciśnij pozycję język, a następnie naciśnij pozycję **Przenieś w górę**.
 
-::: moniker range=">= aspnetcore-3.1"
+::: moniker range="> aspnetcore-3.1"
 ### <a name="the-content-language-http-header"></a>Nagłówek HTTP w języku zawartości
 
 Nagłówek jednostki [zawartości w języku](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Language) :

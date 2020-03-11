@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 10/16/2019
 uid: grpc/troubleshoot
 ms.openlocfilehash: c501cda14f3bac9297695ece59cbc4634e4b7895
-ms.sourcegitcommit: e71b6a85b0e94a600af607107e298f932924c849
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72519055"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664130"
 ---
 # <a name="troubleshoot-grpc-on-net-core"></a>Rozwiązywanie problemów z gRPC na platformie .NET Core
 

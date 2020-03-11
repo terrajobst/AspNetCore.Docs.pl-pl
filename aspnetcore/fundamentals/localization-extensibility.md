@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 08/03/2019
 uid: fundamentals/localization-extensibility
 ms.openlocfilehash: dfa2efe78b2e1e118e6b3f09bfc41f3330e1d721
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72288941"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662100"
 ---
 # <a name="localization-extensibility"></a>Rozszerzalność lokalizacji
 
@@ -25,7 +25,7 @@ W tym artykule:
 
 ## <a name="extensible-points-in-localization-apis"></a>Rozszerzalne punkty w interfejsach API lokalizacji
 
-Interfejsy API lokalizacji ASP.NET Core są kompilowane do rozszerzalności. Rozszerzalność umożliwia deweloperom dostosowanie lokalizacji zgodnie z ich potrzebami. Na przykład [OrchardCore](https://github.com/orchardCMS/OrchardCore/) ma `POStringLocalizer`. `POStringLocalizer` opisano szczegółowo przy użyciu [lokalizacji obiektu przenośnego](xref:fundamentals/portable-object-localization) do przechowywania zasobów lokalizacji za pomocą plików `PO`.
+Interfejsy API lokalizacji ASP.NET Core są kompilowane do rozszerzalności. Rozszerzalność umożliwia deweloperom dostosowanie lokalizacji zgodnie z ich potrzebami. Na przykład [OrchardCore](https://github.com/orchardCMS/OrchardCore/) ma `POStringLocalizer`. `POStringLocalizer` szczegółowo opisuje przy użyciu [lokalizacji obiektu przenośnego](xref:fundamentals/portable-object-localization) do przechowywania zasobów lokalizacji za pomocą plików `PO`.
 
 W tym artykule wymieniono dwa główne punkty rozszerzalności zapewniane przez interfejsy API lokalizacji: 
 
@@ -45,7 +45,7 @@ Poprzedni dostawcy są szczegółowo opisane w dokumentacji [oprogramowania poś
 
 ### <a name="use-customrequestcultureprovider"></a>Użyj CustomRequestCultureProvider
 
-<xref:Microsoft.AspNetCore.Localization.CustomRequestCultureProvider> zawiera niestandardowy <xref:Microsoft.AspNetCore.Localization.RequestCultureProvider>, który używa prostego delegata do określenia bieżącej kultury lokalizacji:
+<xref:Microsoft.AspNetCore.Localization.CustomRequestCultureProvider> udostępnia niestandardowy <xref:Microsoft.AspNetCore.Localization.RequestCultureProvider>, który używa prostego delegata do określenia bieżącej kultury lokalizacji:
 
 ::: moniker range="< aspnetcore-3.0"
 ```csharp
@@ -93,7 +93,7 @@ options.AddInitialRequestCultureProvider(new CustomRequestCultureProvider(async 
 
 Można utworzyć nową implementację <xref:Microsoft.AspNetCore.Localization.RequestCultureProvider>, która określa informacje o kulturze żądania ze źródła niestandardowego. Na przykład źródło niestandardowe może być plikiem konfiguracji lub bazą danych.
 
-Poniższy przykład pokazuje `AppSettingsRequestCultureProvider`, który rozszerza <xref:Microsoft.AspNetCore.Localization.RequestCultureProvider>, aby określić informacje o kulturze żądania z pliku *appSettings. JSON*:
+Poniższy przykład pokazuje `AppSettingsRequestCultureProvider`, który rozszerza <xref:Microsoft.AspNetCore.Localization.RequestCultureProvider>, aby określić informacje o kulturze żądań z pliku *appSettings. JSON*:
 
 ```csharp
 public class AppSettingsRequestCultureProvider : RequestCultureProvider

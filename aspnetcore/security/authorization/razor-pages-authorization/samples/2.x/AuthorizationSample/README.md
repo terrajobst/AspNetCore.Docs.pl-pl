@@ -1,14 +1,14 @@
-# <a name="aspnet-core-authorization-sample"></a>Przykładowe autoryzacji platformy ASP.NET Core
+# <a name="aspnet-core-authorization-sample"></a>Przykład autoryzacji ASP.NET Core
 
-Ten przykład przedstawia sposób używania metody autoryzacja stron Razor przy Konwencji. W tym przykładzie przedstawiono funkcje opisane w [konwencje autoryzacja stron Razor](https://docs.microsoft.com/aspnet/core/security/authorization/razor-pages-authorization) tematu.
+Ten przykład ilustruje użycie Razor Pages autoryzacji według Konwencji. Ten przykład pokazuje funkcje opisane w temacie [Razor Pages Konwencji autoryzacji](https://docs.microsoft.com/aspnet/core/security/authorization/razor-pages-authorization) .
 
-Autoryzacja użytkownika w tym przykładzie używa uwierzytelniania plików cookie, funkcje opisane w [Użyj plików cookie uwierzytelniania bez użycia produktu ASP.NET Core Identity](https://docs.microsoft.com/aspnet/core/security/authentication/cookie) tematu. Pojęcia i przykłady przedstawione w tym temacie stosuje się jednakowo do aplikacji, które używają tożsamości platformy ASP.NET Core. Aby uzyskać informacje na temat używania tożsamości platformy ASP.NET Core, zobacz [wprowadzenie do tożsamości programu ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/authentication/identity).
+Autoryzacja użytkownika w tym przykładzie korzysta z funkcji uwierzytelniania plików cookie opisanych w temacie [use cookie Authentication bez tożsamości ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/authentication/cookie) . Koncepcje i Przykłady przedstawione w tym temacie dotyczą również aplikacji korzystających z tożsamości ASP.NET Core. Aby uzyskać informacje na temat korzystania z tożsamości ASP.NET Core, zobacz [wprowadzenie do tożsamości na ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/authentication/identity).
 
-Użyj adresu e-mail **maria.rodriguez@contoso.com** do uwierzytelnienia użytkownika w dowolnym hasłem. Użytkownik jest uwierzytelniany w `AuthenticateUser` method in Class metoda *Pages/Account/Login.cshtml.cs* pliku. Przykład rzeczywistych użytkownika może być uwierzytelniani względem bazy danych.
+Użyj adresu e-mail **maria.rodriguez@contoso.com** , aby uwierzytelnić użytkownika przy użyciu dowolnego hasła. Użytkownik jest uwierzytelniany w metodzie `AuthenticateUser` w pliku *Pages/Account/Login. cshtml. cs* . W świecie rzeczywistym użytkownik zostanie uwierzytelniony w odniesieniu do bazy danych.
 
 ## <a name="examples-in-this-sample"></a>Przykłady w tym przykładzie
 
-| Funkcja | Opis |
+| Cecha | Opis |
 | --- | --- |
 | [AuthorizePage](https://docs.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage) | Dodaje [AuthorizeFilter](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) do strony z określoną ścieżką. |
 | [AuthorizeFolder](https://docs.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizefolder) | Dodaje [AuthorizeFilter](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) do wszystkich stron w folderze z określoną ścieżką. |

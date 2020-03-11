@@ -1,58 +1,58 @@
 ---
-title: Ciągi celów w programie ASP.NET Core
+title: Ciągi przeznaczenie w ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, jak ciągi celów są używane w interfejsów API do ochrony danych usługi ASP.NET Core.
+description: Dowiedz się, jak ciągi przeznaczenia są używane w interfejsach API ochrony danych ASP.NET Core.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/consumer-apis/purpose-strings
 ms.openlocfilehash: 4c85423f8de7e4b784ae1bb304a884541df251b6
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087550"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664725"
 ---
-# <a name="purpose-strings-in-aspnet-core"></a>Ciągi celów w programie ASP.NET Core
+# <a name="purpose-strings-in-aspnet-core"></a>Ciągi przeznaczenie w ASP.NET Core
 
 <a name="data-protection-consumer-apis-purposes"></a>
 
-Składniki, które zużywają `IDataProtectionProvider` należy przekazać unikatowy *celów* parametr `CreateProtector` metody. Celów *parametru* jest związane z zabezpieczeniami systemu ochrony danych, ponieważ umożliwia izolację między kryptograficznych konsumentów, nawet jeśli kryptograficzne klucze główne są takie same.
+Składniki, które zużywają `IDataProtectionProvider` muszą przekazać *unikatowy parametr* do metody `CreateProtector`. *Parametr* cele jest związany z bezpieczeństwem systemu ochrony danych, ponieważ zapewnia on izolację między konsumentami kryptograficznymi, nawet jeśli główne klucze kryptograficzne są takie same.
 
-Gdy użytkownik określa cel, ciąg przeznaczenia służy wraz z głównym kluczy kryptograficznych wyprowadzanie podkluczy kryptograficznych unikatowy tego użytkownika. W ten sposób izoluje konsumenta przed innymi konsumentami kryptograficznych w aplikacji: składnik nie może odczytywać ładunki jego, a nie może odczytać ładunków jakikolwiek inny składnik. Izolacja Ponadto renderuje niewykonalne całych kategorii ataku składnika.
+Gdy odbiorca określi przeznaczenie, ciąg celu jest używany razem z głównymi kluczami kryptograficznymi w celu uzyskania kluczy kryptograficznych, które są unikatowe dla tego klienta. Spowoduje to oddzielenie konsumenta od wszystkich innych użytkowników kryptograficznych w aplikacji: żaden inny składnik nie może odczytywać swoich ładunków i nie może odczytać żadnych innych ładunków składnika. Ta izolacja również renderuje w sposób niewykonalny cały poziom ataku na składnik.
 
-![Przykład diagramu cel](purpose-strings/_static/purposes.png)
+![Przykład diagramu przeznaczenie](purpose-strings/_static/purposes.png)
 
-W powyższym diagramie `IDataProtector` wystąpień A i B **nie** odczytywać siebie nawzajem ładunki, tylko ich własnych.
+Na powyższym diagramie `IDataProtector` wystąpienia A i B **nie mogą** odczytywać wszystkich ładunków, tylko ich własnymi.
 
-Ciąg cel nie musi być wpisu tajnego. Po prostu powinny być unikatowe w tym sensie, inny składnik dobrze behaved nigdy nie udostępni te same parametry przeznaczenia.
+Ciąg celu nie musi być tajny. Powinien być po prostu unikatowy w sensie, że żaden inny dobrze działający składnik nie będzie miał tego samego ciągu celu.
 
 >[!TIP]
-> Przy użyciu nazwy przestrzeni nazw i typ składnika, korzystanie z interfejsami API ochrony danych jest regułą, tak jak praktyk, które te informacje nigdy nie spowoduje konflikt.
+> Użycie przestrzeni nazw i nazwy typu składnika korzystającego z interfejsów API ochrony danych jest dobrą regułą kciuka, jak w przypadku te informacje nigdy nie będą powodować konfliktów.
 >
->Składnik opracowanych przez firmę Contoso, która jest odpowiedzialna za minting tokenów elementu nośnego może używać Contoso.Security.BearerToken jako ciąg jego przeznaczenia. Lub — jeszcze lepsze - Contoso.Security.BearerToken.v1 może zostać użyty jako ciąg jego przeznaczenia. Dołączać numer wersji umożliwia przyszłej wersji do użycia Contoso.Security.BearerToken.v2 jako jej przeznaczenie i różne wersje będzie całkowicie odizolowane od siebie nawzajem, jeśli chodzi o ładunków Przejdź.
+>Składnik firmy Contoso, który jest odpowiedzialny za tokeny okaziciela minting, może używać contoso. Security. BearerToken jako ciągu celu. Lub — jeszcze lepsze — może używać contoso. Security. BearerToken. v1 jako ciągu celu. Dołączenie numeru wersji umożliwia użycie w przyszłości firmy Contoso. Security. BearerToken. v2, a różne wersje są całkowicie odizolowane od siebie.
 
-Od celów parametr `CreateProtector` jest tablicą ciągów z powyższych może już został zamiast tego określony jako `[ "Contoso.Security.BearerToken", "v1" ]`. Zezwala na tworzenie hierarchii celów i otwiera możliwość obsługi wielu dzierżawców scenariusze obejmujące usługę systemu ochrony danych.
+Ponieważ parametr cele do `CreateProtector` jest tablicą ciągów, zamiast tego można określić powyższe polecenie jako `[ "Contoso.Security.BearerToken", "v1" ]`. Pozwala to na utworzenie hierarchii celów i otwarcie możliwości scenariuszy wielodostępnych z systemem ochrony danych.
 
 <a name="data-protection-contoso-purpose"></a>
 
 >[!WARNING]
-> Składniki nie zezwalać na niezaufane dane użytkowników jako jedynego źródła danych wejściowych dla celów łańcucha.
+> Składniki nie powinny zezwalać na dostęp niezaufanych użytkowników jako jedyne źródło danych wejściowych dla łańcucha celów.
 >
->Na przykład należy wziąć pod uwagę składnika Contoso.Messaging.SecureMessage, który jest odpowiedzialny za przechowywanie zabezpieczonych wiadomości. Gdyby bezpiecznych składników obsługi wiadomości do wywołania `CreateProtector([ username ])`, a następnie złośliwy użytkownik może utworzyć konto przy użyciu nazwy użytkownika "Contoso.Security.BearerToken" w celu podjęcia próby Uzyskaj składnik do wywołania `CreateProtector([ "Contoso.Security.BearerToken" ])`, przypadkowo powodując bezpiecznej wymiany komunikatów system do ładunków mennic, które mogą być uważane za tokeny uwierzytelniania.
+>Rozważmy na przykład składnik contoso. Messaging. SecureMessage, który jest odpowiedzialny za przechowywanie bezpiecznych komunikatów. Jeśli składnik zabezpieczonych komunikatów był do wywołania `CreateProtector([ username ])`, złośliwy użytkownik może utworzyć konto z nazwą użytkownika "contoso. Security. BearerToken" w celu uzyskania składnika, który wywoła `CreateProtector([ "Contoso.Security.BearerToken" ])`, a tym samym przypadkowo powoduje, że bezpieczny system obsługi komunikatów mennic ładunki, które mogą być postrzegane jako tokeny uwierzytelniania.
 >
->Byłoby lepsze łańcucha celów dla składnika obsługi wiadomości `CreateProtector([ "Contoso.Messaging.SecureMessage", "User: username" ])`, który zapewnia izolację właściwe.
+>Łańcuch lepszych celów dla składnika obsługi komunikatów mógłby być `CreateProtector([ "Contoso.Messaging.SecureMessage", "User: username" ])`, który zapewnia właściwą izolację.
 
-Izolacja zapewniana przez i zachowań `IDataProtectionProvider`, `IDataProtector`, i celów w następujący sposób:
+Izolacja zapewniana przez program oraz zachowania `IDataProtectionProvider`, `IDataProtector`i cele są następujące:
 
-* Dla danego `IDataProtectionProvider` obiektu `CreateProtector` utworzy metoda `IDataProtector` jednoznacznie powiązane zarówno obiekt `IDataProtectionProvider` obiektu, który go utworzył oraz parametr do celów, który został przekazany do metody.
+* Dla danego obiektu `IDataProtectionProvider` Metoda `CreateProtector` utworzy obiekt `IDataProtector`, który został jednoznacznie powiązany zarówno z obiektem `IDataProtectionProvider`, który go utworzył, jak i parametrem cele, który został przekazany do metody.
 
-* Parametr cel nie może być zerowy. (Jeśli celów jest określony jako tablicę, oznacza to, że tablicy nie może być o zerowej długości, a wszystkie elementy tablicy muszą mieć wartości null.) Cel pusty ciąg z technicznego punktu widzenia jest dozwolone, ale jest odradzane.
+* Parametr celu nie może mieć wartości null. (Jeśli cele są określone jako tablica, oznacza to, że tablica nie może mieć zerowej długości, a wszystkie elementy tablicy muszą być inne niż null.) Pusty cel ciągu jest technicznie dozwolony, ale nie jest odradzany.
 
-* Argumenty dwa cele są równoważne tylko wtedy, gdy zawierają one ten sam ciągów (przy użyciu porównania porządkowego) w tej samej kolejności. Argument jednozadaniowe jest równoważna do odpowiedniej tablicy Jednoelementowy celów.
+* Dwa cele argumentów są równoważne, jeśli i tylko wtedy, gdy zawierają te same ciągi (przy użyciu porównującej porządkowej) w tej samej kolejności. Argument pojedynczego celu jest równoważny z odpowiadającą mu tablicą celów pojedynczego elementu.
 
-* Dwa `IDataProtector` obiekty są równoważne tylko wtedy, gdy zostały one utworzone na podstawie odpowiednik `IDataProtectionProvider` obiektów z parametrami celów równoważnych.
+* Dwa obiekty `IDataProtector` są równoważne i tylko wtedy, gdy są tworzone z odpowiedników obiektów `IDataProtectionProvider` z równoważnymi parametrami celów.
 
-* Dla danego `IDataProtector` obiektu, wywołanie `Unprotect(protectedData)` zwróci oryginalny `unprotectedData` tylko wtedy, gdy `protectedData := Protect(unprotectedData)` dla odpowiednik `IDataProtector` obiektu.
+* Dla danego obiektu `IDataProtector` wywołanie `Unprotect(protectedData)` zwróci oryginalny `unprotectedData` Jeśli i tylko wtedy, gdy `protectedData := Protect(unprotectedData)` dla równoważnego obiektu `IDataProtector`.
 
 > [!NOTE]
-> Nie rozważamy przypadek, gdzie niektóre składnika celowo wybiera ciągu cel, który jest znany w konflikcie z innego składnika. Takiego składnika zasadniczo jest traktowane jako złośliwe, a ten system nie mają na celu dostarczenie gwarancje bezpieczeństwa, w przypadku, gdy złośliwy kod jest już uruchomiona wewnątrz procesu roboczego.
+> Nie rozważamy przypadków, w których jakiś składnik celowo wybiera ciąg celu, który jest znany w konflikcie z innym składnikiem. Taki składnik powinien być uważany za złośliwy i ten system nie jest przeznaczony do zapewnienia gwarancji bezpieczeństwa w przypadku, gdy złośliwy kod jest już uruchomiony w procesie roboczym.

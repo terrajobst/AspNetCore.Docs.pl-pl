@@ -1,22 +1,20 @@
 ---
 title: Publikowanie aplikacji ASP.NET Core w usługach IIS
-author: guardrex
+author: rick-anderson
 description: Dowiedz się, jak hostować aplikację ASP.NET Core na serwerze usług IIS.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/03/2019
 uid: tutorials/publish-to-iis
-ms.openlocfilehash: 820527cc15f883c906d2fdf1c073d443a5b3b40e
-ms.sourcegitcommit: d8b12cc1716ee329d7bd2300e201b61e15d506ac
+ms.openlocfilehash: f3860ba6ca7b99e63000ba0066749751f80cdc23
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71942887"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657837"
 ---
 # <a name="publish-an-aspnet-core-app-to-iis"></a>Publikowanie aplikacji ASP.NET Core w usługach IIS
-
-Przez [Luke Latham](https://github.com/guardrex)
 
 W tym samouczku pokazano, jak hostować aplikację ASP.NET Core na serwerze usług IIS.
 
@@ -30,7 +28,7 @@ Ten samouczek obejmuje następujące zagadnienia:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Zestaw .NET Core SDK](/dotnet/core/sdk) zainstalowane na komputerze deweloperskim.
-* System Windows Server skonfigurowany z rolą serwera **serwer sieci Web (IIS)** . Jeśli serwer nie jest skonfigurowany do hostowania witryn sieci Web za pomocą usług IIS, postępuj zgodnie ze wskazówkami w sekcji <xref:host-and-deploy/iis/index#iis-configuration> *Konfiguracja usług IIS* w artykule, a następnie wróć do tego samouczka.
+* System Windows Server skonfigurowany z rolą serwera **serwer sieci Web (IIS)** . Jeśli serwer nie jest skonfigurowany do hostowania witryn sieci Web za pomocą usług IIS, postępuj zgodnie ze wskazówkami w sekcji *Konfiguracja usług IIS* w artykule <xref:host-and-deploy/iis/index#iis-configuration>, a następnie wróć do tego samouczka.
 
 > [!WARNING]
 > **Konfiguracja usług IIS i zabezpieczenia witryny sieci Web obejmują pojęcia, które nie są objęte tym samouczkiem.** Zapoznaj się ze wskazówkami dotyczącymi usług IIS w [dokumentacji usług Microsoft IIS](https://www.iis.net/) i [artykułem ASP.NET Core na hostowanie usług IIS](xref:host-and-deploy/iis/index) przed hostowania aplikacji produkcyjnych w usługach IIS.
@@ -39,15 +37,15 @@ Ten samouczek obejmuje następujące zagadnienia:
 >
 > * [Tworzenie gałęzi rejestru na potrzeby ochrony danych ASP.NET Core](xref:host-and-deploy/iis/index#data-protection)
 > * [Konfiguracja listy Access Control puli aplikacji (ACL)](xref:host-and-deploy/iis/index#application-pool-identity)
-> * Aby skoncentrować się na pojęciach dotyczących wdrażania usług IIS, w tym samouczku wdrożono aplikację bez zabezpieczeń protokołu HTTPS skonfigurowanej w usługach IIS. Aby uzyskać więcej informacji na temat hostowania aplikacji z włączoną obsługą protokołu HTTPS, zobacz tematy dotyczące zabezpieczeń w sekcji [dodatkowe zasoby](#additional-resources) w tym artykule. Dalsze wskazówki dotyczące hostingu ASP.NET Core aplikacji znajdują się w <xref:host-and-deploy/iis/index> artykule.
+> * Aby skoncentrować się na pojęciach dotyczących wdrażania usług IIS, w tym samouczku wdrożono aplikację bez zabezpieczeń protokołu HTTPS skonfigurowanej w usługach IIS. Aby uzyskać więcej informacji na temat hostowania aplikacji z włączoną obsługą protokołu HTTPS, zobacz tematy dotyczące zabezpieczeń w sekcji [dodatkowe zasoby](#additional-resources) w tym artykule. Dalsze wskazówki dotyczące hostingu ASP.NET Core aplikacje znajdują się w artykule <xref:host-and-deploy/iis/index>.
 
 ## <a name="install-the-net-core-hosting-bundle"></a>Zainstaluj program .NET Core hostingu pakietu
 
-Zainstaluj *pakiet hostingu platformy .NET Core* na serwerze usług IIS. Pakiet instaluje .NET Core środowisko uruchomieniowe, biblioteki platformy .NET Core i [modułu ASP.NET Core](xref:host-and-deploy/aspnet-core-module). Moduł umożliwia platformy ASP.NET Core w aplikacji do uruchamiania w tle usług IIS.
+Zainstaluj *pakiet hostingu platformy .NET Core* na serwerze usług IIS. Pakiet instaluje środowisko uruchomieniowe programu .NET Core, bibliotekę .NET Core i [moduł ASP.NET Core](xref:host-and-deploy/aspnet-core-module). Moduł umożliwia platformy ASP.NET Core w aplikacji do uruchamiania w tle usług IIS.
 
 Pobierz Instalatora, korzystając z następującego linku:
 
-[Bieżący Instalatora pakietu hostingu programu .NET Core (pobieranie bezpośrednie)](https://www.microsoft.com/net/permalink/dotnetcore-current-windows-runtime-bundle-installer)
+[Bieżący Instalator pakietu hostingu platformy .NET Core (Pobieranie bezpośrednie)](https://www.microsoft.com/net/permalink/dotnetcore-current-windows-runtime-bundle-installer)
 
 1. Uruchom Instalatora na serwerze usług IIS.
 
@@ -57,13 +55,13 @@ Pobierz Instalatora, korzystając z następującego linku:
 
 1. Na serwerze usług IIS Utwórz folder, który będzie zawierać opublikowane foldery i pliki aplikacji. W poniższym kroku ścieżka folderu jest dostarczana do usług IIS jako ścieżka fizyczna do aplikacji.
 
-1. W Menedżerze usług IIS Otwórz węzeł serwera w panelu **połączenia** . Kliknij prawym przyciskiem myszy **witryn** folderu. Wybierz **Dodawanie witryny sieci Web** z menu kontekstowego.
+1. W Menedżerze usług IIS Otwórz węzeł serwera w panelu **połączenia** . Kliknij prawym przyciskiem myszy folder **sitess** . Wybierz pozycję **Dodaj witrynę internetową** z menu kontekstowego.
 
 1. Podaj **nazwę lokacji** i ustaw **ścieżkę fizyczną** do utworzonego folderu wdrożenia aplikacji. Podaj konfigurację **powiązania** i Utwórz witrynę sieci Web, wybierając **przycisk OK**.
 
 ## <a name="create-an-aspnet-core-razor-pages-app"></a>Tworzenie aplikacji Razor Pages ASP.NET Core
 
-Postępuj <xref:getting-started> zgodnie z samouczkiem, aby utworzyć aplikację Razor Pages.
+Aby utworzyć aplikację Razor Pages, postępuj zgodnie z samouczkiem <xref:getting-started>.
 
 ## <a name="publish-and-deploy-the-app"></a>Publikowanie i wdrażanie aplikacji
 
@@ -72,7 +70,7 @@ Postępuj <xref:getting-started> zgodnie z samouczkiem, aby utworzyć aplikację
 * Aplikacja zostanie opublikowana w folderze.
 * Zawartość folderu zostanie przeniesiona do folderu witryny usług IIS ( **Ścieżka fizyczna** do lokacji w Menedżerze usług IIS).
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Publikuj**.
 1. W oknie dialogowym **Wybieranie elementu docelowego publikowania** wybierz opcję Publikuj **folder** .
@@ -80,7 +78,7 @@ Postępuj <xref:getting-started> zgodnie z samouczkiem, aby utworzyć aplikację
    * Jeśli utworzono folder dla witryny usług IIS, która jest dostępna na komputerze deweloperskim jako udział sieciowy, podaj ścieżkę do udziału. Bieżący użytkownik musi mieć dostęp do zapisu w celu opublikowania w udziale.
    * Jeśli nie możesz wdrożyć bezpośrednio w folderze witryny usług IIS na serwerze IIS, Opublikuj je w folderze na nośniku umożliwiającym usunięcie i fizycznie Przenieś opublikowaną aplikację do folderu witryny usług IIS na serwerze, który jest **ścieżką fizyczną** lokacji w Menedżerze usług IIS. Przenieś zawartość folderu *bin/Release/{Target Framework}/Publish* do folderu witryny usług IIS na serwerze, który jest **ścieżką fizyczną** lokacji w Menedżerze usług IIS.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 1. W powłoce poleceń Opublikuj aplikację w konfiguracji wydania przy użyciu polecenia [dotnet Publish](/dotnet/core/tools/dotnet-publish) :
 
@@ -90,7 +88,7 @@ Postępuj <xref:getting-started> zgodnie z samouczkiem, aby utworzyć aplikację
 
 1. Przenieś zawartość folderu *bin/Release/{Target Framework}/Publish* do folderu witryny usług IIS na serwerze, który jest **ścieżką fizyczną** lokacji w Menedżerze usług IIS.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 1. Kliknij prawym przyciskiem myszy projekt w **rozwiązaniu** , a następnie wybierz pozycję **Publikuj** > **Publikowanie w folderze**.
 1. Ustaw ścieżkę do **folderu wybierz** .
@@ -140,5 +138,5 @@ Aby dowiedzieć się więcej na temat hostowania aplikacji ASP.NET Core w usług
 
 ### <a name="articles-on-iis-and-windows-server"></a>Artykuły dotyczące usług IIS i systemu Windows Server
 
-* [Witryna oficjalne Microsoft IIS](https://www.iis.net/)
-* [Windows Server Technical Preview biblioteki zawartości](/windows-server/windows-server)
+* [Oficjalna witryna programu Microsoft IIS](https://www.iis.net/)
+* [Biblioteka zawartości technicznej systemu Windows Server](/windows-server/windows-server)

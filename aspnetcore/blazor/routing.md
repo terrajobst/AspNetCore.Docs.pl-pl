@@ -11,15 +11,15 @@ no-loc:
 - SignalR
 uid: blazor/routing
 ms.openlocfilehash: 32459f9f42220b01ce04e6444a9bb4a9592ee2da
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928285"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663808"
 ---
 # <a name="aspnet-core-blazor-routing"></a>ASP.NET Core Routing Blazor
 
-Przez [Luke Latham](https://github.com/guardrex)
+Autor [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
@@ -67,7 +67,7 @@ Do składnika można zastosować wiele szablonów tras. Poniższy składnik odpo
 ```
 
 > [!IMPORTANT]
-> Aby adresy URL zostały poprawnie rozpoznane, aplikacja musi zawierać tag `<base>` w pliku *wwwroot/index.html* (Blazor webassembly) lub *pages/_Host. cshtml* (Blazor Server) z ścieżką bazową aplikacji określoną w `href` atrybucie (`<base href="/">`). Aby uzyskać więcej informacji, zobacz temat <xref:host-and-deploy/blazor/index#app-base-path>.
+> Aby adresy URL zostały poprawnie rozpoznane, aplikacja musi zawierać tag `<base>` w pliku *wwwroot/index.html* (Blazor webassembly) lub *pages/_Host. cshtml* (Blazor Server) z ścieżką bazową aplikacji określoną w `href` atrybucie (`<base href="/">`). Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/blazor/index#app-base-path>.
 
 ## <a name="provide-custom-content-when-content-isnt-found"></a>Podaj zawartość niestandardową, jeśli nie można odnaleźć zawartości
 
@@ -140,13 +140,13 @@ Dostępne są ograniczenia trasy podane w poniższej tabeli. W przypadku ogranic
 | Typu | Przykład           | Przykładowe dopasowania                                                                  | Niezmiennej<br>kultura<br>parowanie |
 | ---------- | ----------------- | -------------------------------------------------------------------------------- | :------------------------------: |
 | `bool`     | `{active:bool}`   | `true`, `FALSE`                                                                  | Nie                               |
-| `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Tak                              |
-| `decimal`  | `{price:decimal}` | `49.99`, `-1,000.01`                                                             | Tak                              |
-| `double`   | `{weight:double}` | `1.234`, `-1,001.01e8`                                                           | Tak                              |
-| `float`    | `{weight:float}`  | `1.234`, `-1,001.01e8`                                                           | Tak                              |
+| `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Yes                              |
+| `decimal`  | `{price:decimal}` | `49.99`, `-1,000.01`                                                             | Yes                              |
+| `double`   | `{weight:double}` | `1.234`, `-1,001.01e8`                                                           | Yes                              |
+| `float`    | `{weight:float}`  | `1.234`, `-1,001.01e8`                                                           | Yes                              |
 | `guid`     | `{id:guid}`       | `CD2C1638-1638-72D5-1638-DEADBEEF1638`, `{CD2C1638-1638-72D5-1638-DEADBEEF1638}` | Nie                               |
-| `int`      | `{id:int}`        | `123456789`, `-123456789`                                                        | Tak                              |
-| `long`     | `{ticks:long}`    | `123456789`, `-123456789`                                                        | Tak                              |
+| `int`      | `{id:int}`        | `123456789`, `-123456789`                                                        | Yes                              |
+| `long`     | `{ticks:long}`    | `123456789`, `-123456789`                                                        | Yes                              |
 
 > [!WARNING]
 > Ograniczenia trasy, które weryfikują adres URL i są konwertowane na typ CLR (takie jak `int` lub `DateTime`), zawsze używają niezmiennej kultury. W tych ograniczeniach przyjęto założenie, że adres URL nie jest Lokalizowalny.
@@ -167,7 +167,7 @@ Szablon `"/{**path}"` obejmuje:
 > [!NOTE]
 > Składnia *catch-all* (`*`/`**`) **nie** jest obsługiwana w składnikach Razor ( *. Razor*).
 
-Aby uzyskać więcej informacji, zobacz temat <xref:fundamentals/routing>.
+Aby uzyskać więcej informacji, zobacz <xref:fundamentals/routing>.
 
 ## <a name="navlink-component"></a>Składnik NavLink
 
@@ -200,7 +200,7 @@ Renderuje następujący znacznik HTML:
 
 Użyj `Microsoft.AspNetCore.Components.NavigationManager` do pracy z identyfikatorami URI i C# nawigacją w kodzie. `NavigationManager` zawiera zdarzenie i metody przedstawione w poniższej tabeli.
 
-| Element członkowski | Opis |
+| Członek | Opis |
 | ------ | ----------- |
 | `Uri` | Pobiera bieżący bezwzględny identyfikator URI. |
 | `BaseUri` | Pobiera podstawowy identyfikator URI (z końcowym ukośnikiem), który można dołączać do względnych ścieżek URI w celu utworzenia bezwzględnego identyfikatora URI. Zwykle `BaseUri` odpowiada atrybutowi `href` w elemencie `<base>` dokumentu w *wwwroot/index.html* (Blazor webassembly) lub *pages/_Host. cshtml* (Blazor Server). |

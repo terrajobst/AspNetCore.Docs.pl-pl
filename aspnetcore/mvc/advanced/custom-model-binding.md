@@ -5,12 +5,12 @@ description: Dowiedz się, jak powiązanie modelu umożliwia akcjom kontrolera b
 ms.author: riande
 ms.date: 01/06/2020
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 92e7abbb9d9b4c29af429557a31e3ef403211976
-ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
+ms.openlocfilehash: 511cf39bfedfc55d2f75842daf4445d2aaf4872d
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75693950"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659867"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Niestandardowe powiązanie modelu w ASP.NET Core
 
@@ -20,7 +20,7 @@ ms.locfileid: "75693950"
 
 Powiązanie modelu umożliwia działanie kontrolera do pracy bezpośrednio z typami modeli (przekazane jako argumenty metod), a nie żądaniami HTTP. Mapowanie między danymi żądań przychodzących a modelami aplikacji jest obsługiwane przez program Binders. Deweloperzy mogą rozszerzać wbudowaną funkcję powiązania modelu, implementując niestandardowe powiązania modelu (zazwyczaj nie trzeba pisać własnego dostawcy).
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="default-model-binder-limitations"></a>Domyślne ograniczenia spinacza modelu
 
@@ -34,7 +34,7 @@ Przed utworzeniem własnego spinacza modelu niestandardowego warto przejrzeć sp
 
 ### <a name="working-with-the-bytearraymodelbinder"></a>Praca z ByteArrayModelBinder
 
-Ciągi kodowane algorytmem Base64 mogą służyć do reprezentowania danych binarnych. Na przykład obraz może być zakodowany jako ciąg. Przykład zawiera obraz jako ciąg zakodowany algorytmem Base64 w [Base64String. txt](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/samples/3.x/CustomModelBindingSample/Base64String.txt).
+Ciągi kodowane algorytmem Base64 mogą służyć do reprezentowania danych binarnych. Na przykład obraz może być zakodowany jako ciąg. Przykład zawiera obraz jako ciąg zakodowany algorytmem Base64 w [Base64String. txt](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/samples/3.x/CustomModelBindingSample/Base64String.txt).
 
 ASP.NET Core MVC może pobrać ciąg zakodowany w formacie base64 i użyć `ByteArrayModelBinder`, aby przekonwertować go na tablicę bajtów. <xref:Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider> mapuje argumenty `byte[]` do `ByteArrayModelBinder`:
 
@@ -61,6 +61,7 @@ Podczas tworzenia własnego spinacza modelu niestandardowego można zaimplemento
 Poniższy przykład pokazuje, jak użyć `ByteArrayModelBinder` do przekonwertowania ciągu zakodowanego algorytmem Base64 na `byte[]` i zapisać wynik do pliku:
 
 [!code-csharp[](custom-model-binding/samples/3.x/CustomModelBindingSample/Controllers/ImageController.cs?name=snippet_Post)]
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
 
 Można OPUBLIKOWAĆ ciąg zakodowany algorytmem Base64 w tej metodzie interfejsu API za pomocą narzędzia, takiego jak [Poster](https://www.getpostman.com/):
 
@@ -143,7 +144,7 @@ Przez [Steve Smith](https://ardalis.com/)
 
 Powiązanie modelu umożliwia działanie kontrolera do pracy bezpośrednio z typami modeli (przekazane jako argumenty metod), a nie żądaniami HTTP. Mapowanie między danymi żądań przychodzących a modelami aplikacji jest obsługiwane przez program Binders. Deweloperzy mogą rozszerzać wbudowaną funkcję powiązania modelu, implementując niestandardowe powiązania modelu (zazwyczaj nie trzeba pisać własnego dostawcy).
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="default-model-binder-limitations"></a>Domyślne ograniczenia spinacza modelu
 
@@ -157,7 +158,7 @@ Przed utworzeniem własnego spinacza modelu niestandardowego warto przejrzeć sp
 
 ### <a name="working-with-the-bytearraymodelbinder"></a>Praca z ByteArrayModelBinder
 
-Ciągi kodowane algorytmem Base64 mogą służyć do reprezentowania danych binarnych. Na przykład obraz może być zakodowany jako ciąg. Przykład zawiera obraz jako ciąg zakodowany algorytmem Base64 w [Base64String. txt](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/samples/2.x/CustomModelBindingSample/Base64String.txt).
+Ciągi kodowane algorytmem Base64 mogą służyć do reprezentowania danych binarnych. Na przykład obraz może być zakodowany jako ciąg. Przykład zawiera obraz jako ciąg zakodowany algorytmem Base64 w [Base64String. txt](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/samples/2.x/CustomModelBindingSample/Base64String.txt).
 
 ASP.NET Core MVC może pobrać ciąg zakodowany w formacie base64 i użyć `ByteArrayModelBinder`, aby przekonwertować go na tablicę bajtów. <xref:Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider> mapuje argumenty `byte[]` do `ByteArrayModelBinder`:
 

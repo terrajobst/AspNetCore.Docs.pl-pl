@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 08/21/2019
 uid: grpc/client
-ms.openlocfilehash: 1e7887388a752fb35d00e65db210c3924c6ab192
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 6a6a649f7194354b16f3d67160be02428cc01170
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829104"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667175"
 ---
 # <a name="call-grpc-services-with-the-net-client"></a>Wywoływanie usług gRPC za pomocą klienta platformy .NET
 
@@ -55,13 +55,16 @@ Wydajność i użycie kanału i klienta:
 > [!NOTE]
 > Dodatkowa konfiguracja jest wymagana do [wywołania niezabezpieczonych usług gRPC za pomocą klienta platformy .NET](xref:grpc/troubleshoot#call-insecure-grpc-services-with-net-core-client).
 
+> [!NOTE]
+> Wywołanie gRPC za pośrednictwem protokołu HTTP/2 z `Grpc.Net.Client` nie jest obecnie obsługiwane w oprogramowaniu Xamarin. Pracujemy nad ulepszeniem obsługi protokołu HTTP/2 w przyszłej wersji platformy Xamarin. [GRPC. Core](https://www.nuget.org/packages/Grpc.Core) i [GRPC-Web](xref:grpc/browser) to żywotne alternatywy, które działają dzisiaj.
+
 ## <a name="make-grpc-calls"></a>Utwórz wywołania gRPC
 
 Wywołanie gRPC jest inicjowane przez wywołanie metody na kliencie. Klient gRPC będzie obsługiwał serializację komunikatów i odnoszący się do wywołania gRPC do prawidłowej usługi.
 
 gRPC ma różne typy metod. Sposób użycia klienta do nawiązywania wywołania gRPC zależy od typu wywoływanej metody. Typy metod gRPC są następujące:
 
-* Jednoargumentowy
+* Jednostk
 * Przesyłanie strumieniowe serwera
 * Przesyłanie strumieniowe klienta
 * Dwukierunkowe przesyłanie strumieniowe

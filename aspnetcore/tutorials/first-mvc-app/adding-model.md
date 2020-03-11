@@ -5,12 +5,12 @@ description: Dodaj model do prostej aplikacji ASP.NET Core.
 ms.author: riande
 ms.date: 01/13/2020
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 3fe22511b4d887177d86013d080f307e16361d5b
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: d044ae4416c4528791755506314fc81275474f79
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172169"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660238"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Dodawanie modelu do aplikacji ASP.NET Core MVC
 
@@ -28,15 +28,15 @@ W tym samouczku najpierw napiszesz klasy modelu, a EF Core tworzy bazę danych.
 
 ## <a name="add-a-data-model-class"></a>Dodaj klasę modelu danych
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Kliknij prawym przyciskiem myszy folder *modele* > **Dodaj** **klasy** > . Nazwij plik *Movie.cs*.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Dodaj plik o nazwie *Movie.cs* do folderu *models* .
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 Kliknij prawym przyciskiem myszy folder *modele* > **Dodaj** > **nową klasę** > **pustą klasę**. Nazwij plik *Movie.cs*.
 
@@ -57,7 +57,7 @@ Atrybut [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal
 
 ## <a name="add-nuget-packages"></a>Dodaj pakiety NuGet
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 W menu **Narzędzia** wybierz pozycję **menedżer pakietów NuGet** > **konsola Menedżera pakietów** (PMC).
 
@@ -71,11 +71,11 @@ Install-Package Microsoft.EntityFrameworkCore.SqlServer
 
 Poprzednie polecenie dodaje dostawcę SQL Server EF Core. Pakiet dostawcy instaluje pakiet EF Core jako zależność. Dodatkowe pakiety są instalowane automatycznie w kroku tworzenia szkieletu w dalszej części tego samouczka.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE[](~/includes/add-EF-NuGet-SQLite-CLI.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 W menu **projekt** wybierz polecenie **Zarządzaj pakietami NuGet**.
 
@@ -124,11 +124,11 @@ using Microsoft.EntityFrameworkCore;
 
 Dodaj następujący wyróżniony kod w `Startup.ConfigureServices`:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_ConfigureServices&highlight=6-7)]
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_UseSqlite&highlight=6-7)]
 
@@ -142,11 +142,11 @@ Nazwa parametrów połączenia jest przenoszona do kontekstu przez wywołanie me
 
 Dodaj parametry połączenia do pliku *appSettings. JSON* :
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!code-json[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/appsettings.json?highlight=10-12)]
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
 [!code-json[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/appsettings_SQLite.json?highlight=10-12)]
 
@@ -158,7 +158,7 @@ Kompiluj projekt jako sprawdzenie błędów kompilatora.
 
 Użyj narzędzia do tworzenia szkieletu, aby utworzyć strony z przykładem tworzenie, odczytywanie, aktualizowanie i usuwanie (CRUD) dla modelu filmu.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder *controllers* , **> Dodaj > nowy element szkieletowy**.
 
@@ -186,7 +186,7 @@ Program Visual Studio tworzy:
 
 Automatyczne tworzenie tych plików jest znane jako *rusztowania*.
 
-### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
+### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
 
 * Otwórz okno polecenia w katalogu projektu (katalog zawierający pliki *program.cs*, *Startup.cs*i *. csproj* ).
 
@@ -204,7 +204,7 @@ Automatyczne tworzenie tych plików jest znane jako *rusztowania*.
 
   [!INCLUDE [explains scaffold generated params](~/includes/mvc-intro/model4.md)]
 
-### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+### <a name="visual-studio-for-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 * Otwórz okno polecenia w katalogu projektu (katalog zawierający pliki *program.cs*, *Startup.cs*i *. csproj* ).
 
@@ -228,7 +228,7 @@ Nie można jeszcze użyć stron szkieletowych, ponieważ baza danych nie istniej
 
 Użyj funkcji [migracji](xref:data/ef-mvc/migrations) EF Core, aby utworzyć bazę danych. Migracje to zestaw narzędzi umożliwiających tworzenie i aktualizowanie bazy danych w celu dopasowania jej do modelu danych.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 W menu **Narzędzia** wybierz pozycję **menedżer pakietów NuGet** > **konsola Menedżera pakietów** (PMC).
 
@@ -251,7 +251,7 @@ Update-Database
 
 [!INCLUDE [more information on the PMC tools for EF Core](~/includes/ef-pmc.md)]
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
 Uruchom następujące polecenia interfejs wiersza polecenia platformy .NET Core:
 
@@ -284,13 +284,13 @@ Metoda `Up` tworzy tabelę filmów i konfiguruje `Id` jako klucz podstawowy. Met
 
   Jeśli zostanie wyświetlony wyjątek podobny do jednego z następujących:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
   ```console
   SqlException: Cannot open database "MvcMovieContext-1" requested by the login. The login failed.
   ```
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
   ```console
   SqliteException: SQLite Error 1: 'no such table: Movie'.
@@ -302,13 +302,13 @@ Metoda `Up` tworzy tabelę filmów i konfiguruje `Id` jako klucz podstawowy. Met
 * Przetestuj stronę **Tworzenie** . Wprowadź i prześlij dane.
 
   > [!NOTE]
-  > W polu `Price` nie można wprowadzać przecinków dziesiętnych. Aby zapewnić obsługę [walidacji jQuery](https://jqueryvalidation.org/) dla ustawień regionalnych innych niż angielskie, które używają przecinka (",") dla przecinka dziesiętnego i dla formatów dat innych niż angielski, aplikacja musi być globalna. Aby uzyskać instrukcje dotyczące globalizacji, zobacz [ten problem](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420)w usłudze GitHub.
+  > W polu `Price` nie można wprowadzać przecinków dziesiętnych. Aby zapewnić obsługę [walidacji jQuery](https://jqueryvalidation.org/) dla ustawień regionalnych innych niż angielskie, które używają przecinka (",") dla przecinka dziesiętnego i dla formatów dat innych niż angielski, aplikacja musi być globalna. Aby uzyskać instrukcje dotyczące globalizacji, zobacz [ten problem](https://github.com/dotnet/AspNetCore.Docs/issues/4076#issuecomment-326590420)w usłudze GitHub.
 
 * Przetestuj strony **Edytuj**, **szczegóły**i **Usuń** .
 
 ## <a name="dependency-injection-in-the-controller"></a>Wstrzykiwanie zależności w kontrolerze
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Otwórz plik *controllers/MoviesController. cs* i zapoznaj się z konstruktorem:
 
@@ -318,7 +318,7 @@ Otwórz plik *controllers/MoviesController. cs* i zapoznaj się z konstruktorem:
 
 Konstruktor używa [iniekcji zależności](xref:fundamentals/dependency-injection) do iniekcji kontekstu bazy danych (`MvcMovieContext`) do kontrolera. Kontekst bazy danych jest używany w każdej z metod [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) w kontrolerze.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Controllers/MC1.cs?name=snippet_1)]
 
@@ -414,13 +414,13 @@ Ponieważ obiekt `Model` jest silnie określony (jako obiekt `IEnumerable<Movie>
 
 ## <a name="add-a-data-model-class"></a>Dodaj klasę modelu danych
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Kliknij prawym przyciskiem myszy folder *modele* > **Dodaj** **klasy** > . Nazwij **film**klasy.
 
 [!INCLUDE [model 1b](~/includes/mvc-intro/model1b.md)]
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
 * Dodaj klasę do folderu *models* o nazwie *Movie.cs*.
 
@@ -433,7 +433,7 @@ Kliknij prawym przyciskiem myszy folder *modele* > **Dodaj** **klasy** > . Nazwi
 
 W tej sekcji modelu movie jest szkielet. Oznacza to, że narzędzie do tworzenia szkieletów tworzy strony dla operacji tworzenia, odczytu, aktualizowania lub usuwania (CRUD) do modelu movie.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder *controllers* , **> Dodaj > nowy element szkieletowy**.
 
@@ -464,7 +464,7 @@ Program Visual Studio tworzy:
 
 Automatyczne tworzenie kontekstu bazy danych i metod akcji [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (tworzenie, odczytywanie, aktualizowanie i usuwanie) jest znane jako *rusztowanie*.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 <!--  Until https://github.com/aspnet/Scaffolding/issues/582 is fixed windows needs backslash or the namespace is namespace RazorPagesMovie.Pages_Movies rather than namespace RazorPagesMovie.Pages.Movies
 -->
@@ -492,7 +492,7 @@ Automatyczne tworzenie kontekstu bazy danych i metod akcji [CRUD](https://wikipe
 
 <!-- Mac -------------------------->
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
 * Otwórz okno polecenia w katalogu projektu (katalog zawierający pliki *program.cs*, *Startup.cs*i *. csproj* ).
 * Zainstaluj narzędzia do tworzenia szkieletów:
@@ -515,7 +515,7 @@ Automatyczne tworzenie kontekstu bazy danych i metod akcji [CRUD](https://wikipe
 
 Jeśli uruchomisz aplikację i klikniesz link do **filmu MVC** , zostanie wyświetlony komunikat o błędzie podobny do następującego:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ```
 An unhandled exception occurred while processing the request.
@@ -526,7 +526,7 @@ Login failed for user 'Rick'.
 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString
 ```
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
 ```
 An unhandled exception occurred while processing the request.
@@ -548,7 +548,7 @@ W tej sekcji zostały wykonane następujące zadania:
 * Dodaj początkowej migracji.
 * Zaktualizuj bazy danych przy użyciu początkowej migracji.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. W menu **Narzędzia** wybierz pozycję **menedżer pakietów NuGet** > **konsola Menedżera pakietów** (PMC).
 
@@ -567,7 +567,7 @@ W tej sekcji zostały wykonane następujące zadania:
 
    `Update-Database` polecenie uruchamia metodę `Up` w pliku *migracji/{sygnatura czasowa} _InitialCreate. cs* , który tworzy bazę danych.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
 
@@ -581,7 +581,7 @@ Schemat bazy danych jest oparty na modelu określonym w klasie `MvcMovieContext`
 
 ASP.NET Core jest skompilowany przy użyciu [iniekcji zależności (di)](xref:fundamentals/dependency-injection). Usługi (takie jak kontekst EF Core DB) są rejestrowane przy użyciu funkcji "DI" podczas uruchamiania aplikacji. Składniki, które wymagają tych usług (np. strony Razor) znajdują się tych usług za pomocą parametry konstruktora. Kod konstruktora, który pobiera wystąpienia kontekstu bazy danych jest przedstawiony w dalszej części tego samouczka.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Narzędzie do tworzenia szkieletów automatycznie utworzyło kontekst bazy danych i zarejestrował go przy użyciu DI kontenera.
 
@@ -597,7 +597,7 @@ Poprzedni kod tworzy właściwość [nieogólnymi\<filmu >](/dotnet/api/microsof
 
 Nazwa parametrów połączenia jest przenoszona do kontekstu przez wywołanie metody w obiekcie [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) . W przypadku lokalnego projektowania [system konfiguracji ASP.NET Core](xref:fundamentals/configuration/index) odczytuje parametry połączenia z pliku *appSettings. JSON* .
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Visual Studio dla komputerów Mac](#tab/visual-studio-code+visual-studio-mac)
 
 Utworzono kontekst bazy danych i zarejestrowano go przy użyciu DI Container.
 
@@ -621,7 +621,7 @@ Pominięto [krok migracji](#pmc).
 * Przetestuj link **tworzenia** . Wprowadź i prześlij dane.
 
   > [!NOTE]
-  > W polu `Price` nie można wprowadzać przecinków dziesiętnych. Aby zapewnić obsługę [walidacji jQuery](https://jqueryvalidation.org/) dla ustawień regionalnych innych niż angielskie, które używają przecinka (",") dla przecinka dziesiętnego i dla formatów dat innych niż angielski, aplikacja musi być globalna. Aby uzyskać instrukcje dotyczące globalizacji, zobacz [ten problem](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420)w usłudze GitHub.
+  > W polu `Price` nie można wprowadzać przecinków dziesiętnych. Aby zapewnić obsługę [walidacji jQuery](https://jqueryvalidation.org/) dla ustawień regionalnych innych niż angielskie, które używają przecinka (",") dla przecinka dziesiętnego i dla formatów dat innych niż angielski, aplikacja musi być globalna. Aby uzyskać instrukcje dotyczące globalizacji, zobacz [ten problem](https://github.com/dotnet/AspNetCore.Docs/issues/4076#issuecomment-326590420)w usłudze GitHub.
 
 * Przetestuj linki **Edytuj**, **Szczegóły** i **Usuń**.
 

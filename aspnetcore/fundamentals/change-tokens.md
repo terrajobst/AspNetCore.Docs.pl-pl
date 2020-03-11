@@ -1,27 +1,25 @@
 ---
 title: Wykrywanie zmian przy użyciu tokenów zmiany w ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Dowiedz się, jak śledzić zmiany przy użyciu tokenów zmian.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 10/07/2019
 uid: fundamentals/change-tokens
-ms.openlocfilehash: bb30d7a4c7dc82200821c60a49c314b246562111
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: 70451e219f1295b854e2f84aac55f0cfd1786b19
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007209"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656346"
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Wykrywanie zmian przy użyciu tokenów zmiany w ASP.NET Core
-
-Przez [Luke Latham](https://github.com/guardrex)
 
 ::: moniker range=">= aspnetcore-3.0"
 
 *Tokenem zmiany* jest ogólnym blokiem konstrukcyjnym, który służy do śledzenia zmian stanu.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/change-tokens/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/change-tokens/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="ichangetoken-interface"></a>IChangeToken, interfejs
 
@@ -83,7 +81,7 @@ Przykładowa aplikacja przedstawia dwie implementacje monitorowania zmian konfig
 
 Zarejestruj odbiorcę tokenu `Action` wywołanie zwrotne dla powiadomień o zmianach do tokenu Załaduj ponownie konfigurację.
 
-W `Startup.Configure`:
+W pliku `Startup.Configure`:
 
 [!code-csharp[](change-tokens/samples/3.x/SampleApp/Startup.cs?name=snippet2)]
 
@@ -178,7 +176,7 @@ W poniższym przykładzie pliki są przechowywane w [katalogu głównym zawarto�
 
 `FileService` jest zarejestrowany w kontenerze usługi wraz z usługą buforowania pamięci.
 
-W `Startup.ConfigureServices`:
+W pliku `Startup.ConfigureServices`:
 
 [!code-csharp[](change-tokens/samples/3.x/SampleApp/Startup.cs?name=snippet4)]
 
@@ -219,7 +217,7 @@ var compositeChangeToken =
 
 *Tokenem zmiany* jest ogólnym blokiem konstrukcyjnym, który służy do śledzenia zmian stanu.
 
-[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/change-tokens/samples/) ([sposobu pobierania](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/change-tokens/samples/) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ## <a name="ichangetoken-interface"></a>IChangeToken, interfejs
 
@@ -281,7 +279,7 @@ Przykładowa aplikacja przedstawia dwie implementacje monitorowania zmian konfig
 
 Zarejestruj odbiorcę tokenu `Action` wywołanie zwrotne dla powiadomień o zmianach do tokenu Załaduj ponownie konfigurację.
 
-W `Startup.Configure`:
+W pliku `Startup.Configure`:
 
 [!code-csharp[](change-tokens/samples/2.x/SampleApp/Startup.cs?name=snippet2)]
 
@@ -376,7 +374,7 @@ W poniższym przykładzie pliki są przechowywane w [katalogu głównym zawarto�
 
 `FileService` jest zarejestrowany w kontenerze usługi wraz z usługą buforowania pamięci.
 
-W `Startup.ConfigureServices`:
+W pliku `Startup.ConfigureServices`:
 
 [!code-csharp[](change-tokens/samples/2.x/SampleApp/Startup.cs?name=snippet4)]
 

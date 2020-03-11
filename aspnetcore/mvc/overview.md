@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 02/12/2020
 uid: mvc/overview
 ms.openlocfilehash: 2911399f6ed4e14345171c908c4306b9c3e33805
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447415"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658432"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Omówienie platformy ASP.NET Core MVC
 

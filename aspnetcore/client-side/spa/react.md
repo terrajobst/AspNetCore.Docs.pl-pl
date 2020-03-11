@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: spa/react
-ms.openlocfilehash: bbe5328bfa5b4187989a00c3c94e98dabc5d032a
-ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
+ms.openlocfilehash: 9703a62eb7f779974382fe0fb01702d9fcd37d64
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73190514"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664963"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>Użyj szablonu projektu reagowanie z ASP.NET Core
 
@@ -22,7 +22,7 @@ Szablon jest równoznaczny z tworzeniem projektu ASP.NET Core, który działa ja
 
 Szablon projektu reaguje nie jest przeznaczony do renderowania po stronie serwera (SSR). W przypadku usługi SSR z reagowaniem i środowiska Node. js Rozważ użycie [poniższego elementu js](https://github.com/zeit/next.js/) lub [Razzle](https://github.com/jaredpalmer/razzle).
 
-## <a name="create-a-new-app"></a>Utwórz nową aplikację
+## <a name="create-a-new-app"></a>Tworzenie nowej aplikacji
 
 Jeśli zainstalowano ASP.NET Core 2,1, nie ma potrzeby instalowania szablonu projektu z reagowaniem.
 
@@ -35,13 +35,13 @@ cd my-new-app
 
 Uruchom aplikację z poziomu programu Visual Studio lub interfejs wiersza polecenia platformy .NET Core:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Otwórz wygenerowany plik *csproj* i uruchom aplikację w zwykły sposób.
 
 Proces kompilacji przywraca zależności npm w pierwszym przebiegu, co może potrwać kilka minut. Kolejne kompilacje są znacznie szybsze.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Upewnij się, że masz zmienną środowiskową o nazwie `ASPNETCORE_Environment` z wartością `Development`. W systemie Windows (w komunikatach innych niż programu PowerShell) Uruchom `SET ASPNETCORE_Environment=Development`. W systemie Linux lub macOS Uruchom `export ASPNETCORE_Environment=Development`.
 
@@ -55,7 +55,7 @@ Szablon projektu tworzy aplikację ASP.NET Core i aplikację do reagowania. Apli
 
 ## <a name="add-pages-images-styles-modules-etc"></a>Dodawanie stron, obrazów, stylów, modułów itp.
 
-Katalog *ClientApp* jest standardową aplikacją do reagowania w CRA. Aby uzyskać więcej informacji, zobacz oficjalną [dokumentację CRA](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md) .
+Katalog *ClientApp* jest standardową aplikacją do reagowania w CRA. Aby uzyskać więcej informacji, zobacz oficjalną [dokumentację CRA](https://create-react-app.dev/docs/getting-started/) .
 
 Istnieją niewielkie różnice między aplikacją reakcji utworzoną przez ten szablon a tym utworzonym przez CRA. jednak możliwości aplikacji nie są zmieniane. Aplikacja utworzona przez szablon zawiera układ oparty na [Bootstrap](https://getbootstrap.com/)i podstawowy przykład routingu.
 

@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/introduction
 ms.openlocfilehash: b5e60b3c256941fff5e54e1a02e077c34c535902
-ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75693872"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660714"
 ---
 # <a name="introduction-to-authorization-in-aspnet-core"></a>Wprowadzenie do autoryzacji w ASP.NET Core
 
@@ -26,7 +26,7 @@ Aby uzyskać więcej informacji na temat uwierzytelniania w ASP.NET Core, zobacz
 
 Autoryzacja ASP.NET Core zapewnia prostą, deklaratywną [rolę](xref:security/authorization/roles) i bogaty model [oparty na zasadach](xref:security/authorization/policies) . Autoryzacja jest wyrażona w wymaganiach, a programy obsługi szacują oświadczenia użytkownika względem wymagań. Bezwzględne kontrole mogą opierać się na prostych zasadach lub zasadach, które obliczają zarówno tożsamość użytkownika, jak i właściwości zasobu, do którego użytkownik próbuje uzyskać dostęp.
 
-## <a name="namespaces"></a>{1&gt;Przestrzenie nazw&lt;1}
+## <a name="namespaces"></a>Przestrzenie nazw
 
 Składniki autoryzacji, w tym atrybuty `AuthorizeAttribute` i `AllowAnonymousAttribute`, znajdują się w przestrzeni nazw `Microsoft.AspNetCore.Authorization`.
 

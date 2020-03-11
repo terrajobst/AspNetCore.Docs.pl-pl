@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 12/05/2019
 uid: performance/memory
 ms.openlocfilehash: 0ae367e954e21e2f696a3b292fa64f1d2dba98ec
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829026"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667028"
 ---
 # <a name="memory-management-and-garbage-collection-gc-in-aspnet-core"></a>Zarządzanie pamięcią i wyrzucanie elementów bezużytecznych (GC) w ASP.NET Core
 
@@ -139,7 +139,7 @@ Tryb GC można jawnie ustawić w pliku projektu lub w pliku *runtimeconfig. JSON
 
 Zmiana `ServerGarbageCollection` w pliku projektu wymaga odbudowania aplikacji.
 
-**Uwaga:** Zbieranie elementów bezużytecznych serwera **nie** jest dostępne na maszynach z jednym rdzeniem. Aby uzyskać więcej informacji, zobacz temat <xref:System.Runtime.GCSettings.IsServerGC>.
+**Uwaga:** Zbieranie elementów bezużytecznych serwera **nie** jest dostępne na maszynach z jednym rdzeniem. Aby uzyskać więcej informacji, zobacz <xref:System.Runtime.GCSettings.IsServerGC>.
 
 Na poniższej ilustracji przedstawiono profil pamięci w ramach 5 K RPS pliku przy użyciu usługi Stacja robocza GC.
 
@@ -192,7 +192,7 @@ Niektóre obiekty .NET Core są zależne od pamięci natywnej. Pamięć natywna 
 
 Platforma .NET udostępnia interfejs <xref:System.IDisposable>, aby umożliwić deweloperom zwalnianie pamięci natywnej. Nawet jeśli nie jest wywoływana <xref:System.IDisposable.Dispose*>, prawidłowo zaimplementowane klasy wywołania `Dispose` po uruchomieniu [finalizatora](/dotnet/csharp/programming-guide/classes-and-structs/destructors) .
 
-Spójrzmy na poniższy kod:
+Rozważmy następujący kod:
 
 ```csharp
 [HttpGet("fileprovider")]

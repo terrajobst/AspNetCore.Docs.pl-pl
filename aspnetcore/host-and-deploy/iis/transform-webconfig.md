@@ -1,29 +1,29 @@
 ---
 title: Przekształcanie pliku web.config
-author: guardrex
+author: rick-anderson
 description: Dowiedz się, jak przekształcić plik Web. config podczas publikowania aplikacji ASP.NET Core.
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/13/2020
 uid: host-and-deploy/iis/transform-webconfig
-ms.openlocfilehash: ef627de70c6aea44962d2187c4d401baab6557ae
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: 069b9bb516644a1a722235b33d4916460488ebf2
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75952047"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657935"
 ---
 # <a name="transform-webconfig"></a>Przekształcanie pliku web.config
 
-Autorzy [Vijay Ramakrishnan](https://github.com/vijayrkn) i [Luke Latham](https://github.com/guardrex)
+Autor [Vijay Ramakrishnan](https://github.com/vijayrkn)
 
 Przekształcenia do pliku *Web. config* można zastosować automatycznie po opublikowaniu aplikacji na podstawie:
 
 * [Konfiguracja kompilacji](#build-configuration)
 * [Profil](#profile)
 * [Środowisko](#environment)
-* [Niestandardowy](#custom)
+* [Niestandardowa](#custom)
 
 Te przekształcenia występują dla jednego z następujących scenariuszy generacji *Web. config* :
 
@@ -138,7 +138,7 @@ Podczas publikowania z programu Visual Studio i przy użyciu profilu publikowani
 
 Zmienna środowiskowa `ASPNETCORE_ENVIRONMENT` jest automatycznie dodawana do pliku *Web. config* po określeniu nazwy środowiska.
 
-## <a name="custom"></a>Niestandardowe
+## <a name="custom"></a>Niestandardowy
 
 Niestandardowe przekształcenia są uruchamiane jako ostatnie, po przeprowadzeniu [konfiguracji kompilacji](#build-configuration), [profilu](#profile)i [środowiska](#environment) .
 

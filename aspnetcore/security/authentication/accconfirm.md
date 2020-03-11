@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 03/11/2019
 uid: security/authentication/accconfirm
 ms.openlocfilehash: 49d3d214fd64edc5b17df2df929ddc3c2af47ede
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829273"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78665390"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Potwierdzenie konta i odzyskiwanie hasła w ASP.NET Core
 
@@ -91,7 +91,7 @@ W tym samouczku pokazano, jak dodać powiadomienia e-mail za pośrednictwem usł
 
 Zainstaluj pakiet NuGet `SendGrid`:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 W konsoli Menedżera pakietów wprowadź następujące polecenie:
 
@@ -99,7 +99,7 @@ W konsoli Menedżera pakietów wprowadź następujące polecenie:
 Install-Package SendGrid
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 W konsoli programu wprowadź następujące polecenie:
 
@@ -297,7 +297,7 @@ W tym samouczku pokazano, jak dodać powiadomienia e-mail za pośrednictwem usł
 
 Zainstaluj pakiet NuGet `SendGrid`:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 W konsoli Menedżera pakietów wprowadź następujące polecenie:
 
@@ -305,7 +305,7 @@ W konsoli Menedżera pakietów wprowadź następujące polecenie:
 Install-Package SendGrid
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 W konsoli programu wprowadź następujące polecenie:
 

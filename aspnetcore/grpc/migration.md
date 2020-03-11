@@ -7,11 +7,11 @@ ms.author: johluo
 ms.date: 09/25/2019
 uid: grpc/migration
 ms.openlocfilehash: 451171a041f7bbb3711babd73d2fa2e245aadd28
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355140"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664137"
 ---
 # <a name="migrating-grpc-services-from-c-core-to-aspnet-core"></a>Migrowanie usług gRPC z dysku C-Core do ASP.NET Core
 

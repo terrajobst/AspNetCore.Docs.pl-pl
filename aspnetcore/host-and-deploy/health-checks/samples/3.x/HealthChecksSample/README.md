@@ -2,7 +2,7 @@
 
 Ten przykład ilustruje sposób korzystania z sprawdzania kondycji oprogramowania i usług. Ten przykład ilustruje scenariusz opisany w temacie [Sprawdzanie kondycji w ASP.NET Core](https://docs.microsoft.com/aspnet/core/host-and-deploy/health-checks) tematu.
 
-Aby uruchomić przykładową aplikację dla scenariusza opisanego w temacie, użyj polecenia [dotnet Run](https://docs.microsoft.com/dotnet/core/tools/dotnet-run) z folderu projektu w powłoce poleceń. Przekaż przełącznik dla scenariusza, który jest przeszukany. Aplikacja jest domyślnie ustawiona na `basic` konfigurację, gdy nie `dotnet run`podano przełącznika.
+Aby uruchomić przykładową aplikację dla scenariusza opisanego w temacie, użyj polecenia [dotnet Run](https://docs.microsoft.com/dotnet/core/tools/dotnet-run) z folderu projektu w powłoce poleceń. Przekaż przełącznik dla scenariusza, który jest przeszukany. Aplikacja jest domyślnie ustawiona na konfigurację `basic`, jeśli nie podano przełącznika do `dotnet run`.
 
 | Scenariusz                                               | Polecenie przykładowej aplikacji               | Opis |
 | ------------------------------------------------------ | -------------------------------- | ----------- |

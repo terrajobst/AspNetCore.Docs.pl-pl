@@ -1,26 +1,26 @@
 ---
-title: Wstrzykiwanie zależności w programach obsługi wymagań w programie ASP.NET Core
+title: Wstrzykiwanie zależności w programach obsługi wymagań w ASP.NET Core
 author: rick-anderson
-description: Dowiedz się, jak wstawić programach obsługi wymagań autoryzacji do aplikacji ASP.NET Core przy użyciu iniekcji zależności.
+description: Dowiedz się, jak wstrzyknąć programy obsługi wymagań autoryzacji do aplikacji ASP.NET Core przy użyciu iniekcji zależności.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/dependencyinjection
 ms.openlocfilehash: 71d563e11d308a95c08e6d012d3a071f4697d2de
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902506"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666090"
 ---
-# <a name="dependency-injection-in-requirement-handlers-in-aspnet-core"></a>Wstrzykiwanie zależności w programach obsługi wymagań w programie ASP.NET Core
+# <a name="dependency-injection-in-requirement-handlers-in-aspnet-core"></a>Wstrzykiwanie zależności w programach obsługi wymagań w ASP.NET Core
 
 <a name="security-authorization-di"></a>
 
-[Programy obsługi autoryzacji musi być zarejestrowana](xref:security/authorization/policies#handler-registration) w kolekcji usługi podczas konfigurowania (przy użyciu [wstrzykiwanie zależności](xref:fundamentals/dependency-injection)).
+[Procedury obsługi autoryzacji muszą być zarejestrowane](xref:security/authorization/policies#handler-registration) w kolekcji usług podczas konfiguracji (przy użyciu [iniekcji zależności](xref:fundamentals/dependency-injection)).
 
-Załóżmy, że masz repozytorium reguł, który chcesz ocenić wewnątrz procedury obsługi autoryzacji i tego repozytorium został zarejestrowany w kolekcji usługi. Autoryzacja i rozpoznawania wstrzyknąć, do konstruktora.
+Załóżmy, że masz repozytorium reguł, które chcesz oszacować wewnątrz procedury obsługi autoryzacji i że repozytorium zostało zarejestrowane w kolekcji usług. Autoryzacja zostanie rozwiązany i wstrzyknąć do konstruktora.
 
-Na przykład, jeśli chcesz użyć ASP. NET przez rejestrowanie infrastruktury, które chcesz wstawić `ILoggerFactory` do programu obsługi. Program obsługi może wyglądać jak:
+Na przykład jeśli chciałeś użyć ASP. Infrastruktura rejestrowania w sieci, którą chcesz wstrzyknąć `ILoggerFactory` do procedury obsługi. Taka procedura obsługi może wyglądać następująco:
 
 ```csharp
 public class LoggingAuthorizationHandler : AuthorizationHandler<MyRequirement>
@@ -41,13 +41,13 @@ public class LoggingAuthorizationHandler : AuthorizationHandler<MyRequirement>
    }
    ```
 
-Czy zarejestrować program obsługi przy użyciu `services.AddSingleton()`:
+Procedurę obsługi należy zarejestrować w `services.AddSingleton()`:
 
 ```csharp
 services.AddSingleton<IAuthorizationHandler, LoggingAuthorizationHandler>();
 ```
 
-Wystąpienie zostanie obsługi można utworzyć podczas uruchamiania aplikacji i będzie DI wstrzyknąć zarejestrowaną `ILoggerFactory` do konstruktora.
+Wystąpienie programu obsługi zostanie utworzone, gdy aplikacja zostanie uruchomiona, a funkcja DI sprawdzi zarejestrowane `ILoggerFactory` w konstruktorze.
 
 > [!NOTE]
-> Programy obsługi, które używają programu Entity Framework nie może zostać zarejestrowana jako pojedynczych wystąpień.
+> Programy obsługi, które używają Entity Framework nie powinny być rejestrowane jako pojedyncze.

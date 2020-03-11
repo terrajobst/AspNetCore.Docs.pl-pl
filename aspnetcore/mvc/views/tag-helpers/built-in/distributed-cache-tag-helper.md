@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/24/2020
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: e5100d7244600358186b653073990985f48434a7
-ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
+ms.openlocfilehash: f5957adf3cef8966812a1bf0cbc6b2627d19d026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76809058"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664018"
 ---
 # <a name="distributed-cache-tag-helper-in-aspnet-core"></a>Pomocnik tagów rozproszonej pamięci podręcznej w ASP.NET Core
 
-Według [Peterowi Kellner](https://peterkellner.net) i [Luke Latham](https://github.com/guardrex)
+Według [Peterowi Kellner](https://peterkellner.net)
 
 Pomocnik tagów rozproszonej pamięci podręcznej umożliwia znaczne zwiększenie wydajności aplikacji ASP.NET Core przez buforowanie jej zawartości w rozproszonym źródle pamięci podręcznej.
 
@@ -42,11 +42,11 @@ Pomocnik tagów rozproszonej pamięci podręcznej używa [iniekcji konstruktora]
 
 Pomocnik tagów rozproszonej pamięci podręcznej dziedziczy z tej samej klasy jako pomocnika tagów pamięci podręcznej. Opisy tych atrybutów znajdują się w temacie [pomocnik tagów pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper).
 
-### <a name="name"></a>{1&gt;nazwa&lt;1}
+### <a name="name"></a>name
 
 | Typ atrybutu | Przykład                               |
 | -------------- | ------------------------------------- |
-| String         | `my-distributed-cache-unique-key-101` |
+| Ciąg         | `my-distributed-cache-unique-key-101` |
 
 `name` jest wymagana. Atrybut `name` jest używany jako klucz dla każdego przechowywanego wystąpienia pamięci podręcznej. W przeciwieństwie do pomocnika tagu pamięci podręcznej, który przypisuje klucz pamięci podręcznej do każdego wystąpienia na podstawie nazwy i lokalizacji strony Razor na stronie Razor, pomocnik tagów rozproszonej pamięci podręcznej w atrybucie `name`.
 

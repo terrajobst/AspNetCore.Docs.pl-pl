@@ -9,7 +9,7 @@ W poniższej tabeli przedstawiono szczegóły ASP.NET Core parametrów generator
 | --useDefaultLayout | Dla widoków należy używać układu domyślnego. |
 | --referenceScriptLibraries | Dodaje `_ValidationScriptsPartial` do edycji i tworzenia stron |
 
-Użyj przełącznika `h` , aby uzyskać pomoc `aspnet-codegenerator controller` dotyczącą polecenia:
+Użyj przełącznika `h`, aby uzyskać pomoc dotyczącą polecenia `aspnet-codegenerator controller`:
 
 ```dotnetcli
 dotnet aspnet-codegenerator controller -h

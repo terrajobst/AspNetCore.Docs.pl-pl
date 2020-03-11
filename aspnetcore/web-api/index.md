@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/02/2020
 uid: web-api/index
-ms.openlocfilehash: 3dca07db3d6be4ab219a2e05e3adcf1b24ee5c40
-ms.sourcegitcommit: 80286715afb93c4d13c931b008016d6086c0312b
+ms.openlocfilehash: be88b8d58f1f660f3a815c395c210c05a7b4917c
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77074513"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666006"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>Tworzenie internetowych interfejsów API za pomocą ASP.NET Core
 
@@ -20,7 +20,7 @@ Przez [Scott Addie](https://github.com/scottaddie) i [Tomasz Dykstra](https://gi
 
 ASP.NET Core obsługuje tworzenie usług RESTful, znanych również jako interfejsy API sieci Web C#, przy użyciu programu. Aby obsługiwać żądania, interfejs API sieci Web używa kontrolerów. *Kontrolery* w INTERNETowym interfejsie API są klasami pochodnymi od `ControllerBase`. W tym artykule pokazano, jak używać kontrolerów do obsługi żądań interfejsu API sieci Web.
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/index/samples). ([Jak pobrać](xref:index#how-to-download-a-sample)).
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/index/samples). ([Jak pobrać](xref:index#how-to-download-a-sample)).
 
 ## <a name="controllerbase-class"></a>Klasa ControllerBase
 
@@ -226,7 +226,7 @@ Typ `ValidationProblemDetails`:
 
 ### <a name="log-automatic-400-responses"></a>Rejestruj automatyczne odpowiedzi 400
 
-Zobacz [, jak rejestrować 400 automatyczne odpowiedzi na błędy walidacji modelu (ASPNET/AspNetCore. Docs #12157)](https://github.com/aspnet/AspNetCore.Docs/issues/12157).
+Zobacz [, jak rejestrować 400 automatyczne odpowiedzi na błędy walidacji modelu (ASPNET/AspNetCore. Docs #12157)](https://github.com/dotnet/AspNetCore.Docs/issues/12157).
 
 ### <a name="disable-automatic-400-response"></a>Wyłącz automatyczną odpowiedź 400
 
@@ -382,7 +382,7 @@ Metoda `NotFound` generuje kod stanu HTTP 404 z treścią `ProblemDetails`. Na p
 
 ### <a name="disable-problemdetails-response"></a>Wyłącz odpowiedź ProblemDetails
 
-Automatyczne tworzenie wystąpienia `ProblemDetails` jest wyłączone, gdy właściwość <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressMapClientErrors%2A> jest ustawiona na `true`. Dodaj następujący kod w `Startup.ConfigureServices`:
+Automatyczne tworzenie `ProblemDetails` kodów stanu błędu jest wyłączone, gdy właściwość <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressMapClientErrors%2A> jest ustawiona na `true`. Dodaj następujący kod w `Startup.ConfigureServices`:
 
 ::: moniker-end
 

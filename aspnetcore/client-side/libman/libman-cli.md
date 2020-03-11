@@ -9,11 +9,11 @@ no-loc:
 - SignalR
 uid: client-side/libman/libman-cli
 ms.openlocfilehash: 02d88d09805bd23a86ef924766373245fec7ff52
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928365"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664634"
 ---
 # <a name="use-the-libman-cli-with-aspnet-core"></a>Korzystanie z interfejsu wiersza polecenia LibMan z ASP.NET Core
 
@@ -25,7 +25,7 @@ Interfejs wiersza polecenia [LibMan](xref:client-side/libman/index) to międzypl
 
 * [!INCLUDE [2.1-SDK](../../includes/2.1-SDK.md)]
 
-## <a name="installation"></a>Instalacja programu
+## <a name="installation"></a>Instalacja
 
 Aby zainstalować interfejs wiersza polecenia LibMan:
 
@@ -43,7 +43,7 @@ dotnet tool install -g Microsoft.Web.LibraryManager.Cli --version 1.0.94-g606058
 
 W poprzednim przykładzie jest instalowane narzędzie globalne .NET Core z pliku *C:\Temp\Microsoft.Web.LibraryManager.CLI.1.0.94-g606058a278.nupkg* lokalnego komputera z systemem Windows.
 
-## <a name="usage"></a>Pomiar
+## <a name="usage"></a>Sposób użycia
 
 Po pomyślnej instalacji interfejsu wiersza polecenia może być używane następujące polecenie:
 

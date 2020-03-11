@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 12/05/2019
 uid: client-side/using-grunt
 ms.openlocfilehash: e516b85da7e94d0c93be642086fede0a11fea3c2
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74879791"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657592"
 ---
 # <a name="use-grunt-in-aspnet-core"></a>Używanie grunt w ASP.NET Core
 
@@ -238,7 +238,7 @@ Grunt jest skonfigurowany przy użyciu manifestu o nazwie *Gruntfile. js* , któ
     > [!NOTE]
     > Aby uzyskać więcej informacji na temat opcji dla każdego pakietu, odwiedź stronę [https://www.npmjs.com/](https://www.npmjs.com/) i wyszukaj nazwę pakietu w polu wyszukiwania na stronie głównej. Na przykład można wyszukać pakiet grunt-contrib-Clean w celu uzyskania linku do dokumentacji, który objaśnia wszystkie jego parametry.
 
-### <a name="all-together-now"></a>Wszystko jest teraz na miejscu
+### <a name="all-together-now"></a>Wszystko razem teraz
 
 Użyj metody grunt `registerTask()`, aby uruchomić serię zadań w określonej kolejności. Na przykład aby uruchomić przykładowe kroki opisane powyżej w kolejności > concat > jshint-> uglify, Dodaj poniższy kod do modułu. Kod powinien zostać dodany do tego samego poziomu, co wywołania loadNpmTasks (), poza initConfig.
 
