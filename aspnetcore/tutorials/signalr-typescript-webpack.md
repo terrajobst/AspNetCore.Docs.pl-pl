@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 no-loc:
 - SignalR
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: f8bbd9ed2e9c792197eb29be459f7e5ee499bfd1
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: e6dd200367278b1697ef232f5d79dfbd138bb82b
+ms.sourcegitcommit: 40dc9b00131985abcd99bd567647420d798e798a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77171986"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78935494"
 ---
 # <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>Korzystanie z ASP.NET Core sygnalizującego za pomocą języka TypeScript i pakietu WebPack
 
@@ -21,7 +21,7 @@ Autorzy [Sébastien Sougnez](https://twitter.com/ssougnez) i [Scott Addie](https
 
 [Pakiet WebPack](https://webpack.js.org/) umożliwia deweloperom tworzenie i kompilowanie zasobów po stronie klienta aplikacji sieci Web. W tym samouczku pokazano, jak używać pakietu WebPack w aplikacji sieci Web sygnalizującej ASP.NET Core, której klient został zapisany w języku [TypeScript](https://www.typescriptlang.org/).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie szkieletu aplikacji dla programu Start ASP.NET Core
@@ -30,30 +30,30 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Konfigurowanie serwera sygnalizującego
 > * Włącz komunikację między klientem a serwerem
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([jak pobrać](xref:index#how-to-download-a-sample))
 
 ::: moniker range=">= aspnetcore-3.0"
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * [Program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) z **ASP.NET i programowaniem aplikacji sieci Web**
 * [Zestaw .NET Core SDK 3.0 lub nowszy](https://www.microsoft.com/net/download/all)
 * [Node. js](https://nodejs.org/) z [npm](https://www.npmjs.com/)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [Zestaw .NET Core SDK 3.0 lub nowszy](https://www.microsoft.com/net/download/all)
-* [C#dla Visual Studio Code w wersji 1.17.1 lub nowszej](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* [C#dla Visual Studio Code w wersji 1.17.1 lub nowszej](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [Node. js](https://nodejs.org/) z [npm](https://www.npmjs.com/)
 
 ---
 
 ## <a name="create-the-aspnet-core-web-app"></a>Tworzenie aplikacji sieci Web ASP.NET Core
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Skonfiguruj program Visual Studio, aby szukać npm w zmiennej środowiskowej *Path* . Domyślnie program Visual Studio używa wersji npm znajdującej się w katalogu instalacyjnym. Wykonaj te instrukcje w programie Visual Studio:
 
@@ -75,7 +75,7 @@ Dodaj pakiet `Microsoft.TypeScript.MSBuild` do projektu:
 
 Program Visual Studio dodaje pakiet NuGet w węźle **zależności** w **Eksplorator rozwiązań**, włączając kompilację języka TypeScript w projekcie.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Uruchom następujące polecenie w **zintegrowanym terminalu**:
 
@@ -93,7 +93,7 @@ Uruchom następujące polecenie interfejs wiersza polecenia platformy .NET Core 
 dotnet add package Microsoft.TypeScript.MSBuild
 ```
 
-Poprzednie polecenie dodaje pakiet (Microsoft. TypeScript. MSBuild) [https://www.nuget.org/packages/Microsoft.TypeScript.MSBuild/], co umożliwia kompilację języka TypeScript w projekcie.
+Poprzednie polecenie dodaje pakiet [Microsoft. TypeScript. MSBuild](https://www.nuget.org/packages/Microsoft.TypeScript.MSBuild/) , włączając kompilację TypeScript w projekcie.
 
 ---
 
@@ -249,7 +249,7 @@ W aplikacji jest obecnie wyświetlany podstawowy formularz służący do wysyła
 
 Upewnij się, że aplikacja działa z następującymi krokami.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Uruchom pakiet WebPack w trybie *wydania* . Korzystając z okna **konsoli Menedżera pakietów** , uruchom następujące polecenie w katalogu głównym projektu. Jeśli nie jesteś w katalogu głównym projektu, wprowadź `cd SignalRWebPack` przed wprowadzeniem polecenia.
 
@@ -263,7 +263,7 @@ Upewnij się, że aplikacja działa z następującymi krokami.
 
 1. Wybierz opcję przeglądarka, wpisz coś w polu tekstowym **komunikat** , a następnie kliknij przycisk **Wyślij** . Unikatowa nazwa użytkownika i komunikat są wyświetlane na obu stronach natychmiastowo.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 1. Uruchom pakiet WebPack w trybie *wydania* , wykonując następujące polecenie w katalogu głównym projektu:
 
@@ -293,24 +293,24 @@ Upewnij się, że aplikacja działa z następującymi krokami.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * [Program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) z **ASP.NET i programowaniem aplikacji sieci Web**
 * [Zestaw .NET Core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download/all)
 * [Node. js](https://nodejs.org/) z [npm](https://www.npmjs.com/)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [Zestaw .NET Core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download/all)
-* [C#dla Visual Studio Code w wersji 1.17.1 lub nowszej](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* [C#dla Visual Studio Code w wersji 1.17.1 lub nowszej](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [Node. js](https://nodejs.org/) z [npm](https://www.npmjs.com/)
 
 ---
 
 ## <a name="create-the-aspnet-core-web-app"></a>Tworzenie aplikacji sieci Web ASP.NET Core
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Skonfiguruj program Visual Studio, aby szukać npm w zmiennej środowiskowej *Path* . Domyślnie program Visual Studio używa wersji npm znajdującej się w katalogu instalacyjnym. Wykonaj te instrukcje w programie Visual Studio:
 
@@ -325,7 +325,7 @@ Konfiguracja programu Visual Studio została ukończona. Czas na utworzenie proj
 1. Nazwij projekt *SignalRWebPack*, a następnie wybierz pozycję **Utwórz**.
 1. Wybierz pozycję *.NET Core* z listy rozwijanej platforma docelowa, a następnie wybierz pozycję *ASP.NET Core 2,2* z listy rozwijanej selektora struktury. Wybierz **pusty** szablon i wybierz pozycję **Utwórz**.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Uruchom następujące polecenie w **zintegrowanym terminalu**:
 
@@ -486,7 +486,7 @@ W aplikacji jest obecnie wyświetlany prosty formularz służący do wysyłania 
 
 Upewnij się, że aplikacja działa z następującymi krokami.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Uruchom pakiet WebPack w trybie *wydania* . Korzystając z okna **konsoli Menedżera pakietów** , uruchom następujące polecenie w katalogu głównym projektu. Jeśli nie jesteś w katalogu głównym projektu, wprowadź `cd SignalRWebPack` przed wprowadzeniem polecenia.
 
@@ -498,7 +498,7 @@ Upewnij się, że aplikacja działa z następującymi krokami.
 
 1. Wybierz opcję przeglądarka, wpisz coś w polu tekstowym **komunikat** , a następnie kliknij przycisk **Wyślij** . Unikatowa nazwa użytkownika i komunikat są wyświetlane na obu stronach natychmiastowo.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 1. Uruchom pakiet WebPack w trybie *wydania* , wykonując następujące polecenie w katalogu głównym projektu:
 

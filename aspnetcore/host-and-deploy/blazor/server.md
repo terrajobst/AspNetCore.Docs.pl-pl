@@ -5,17 +5,17 @@ description: Dowiedz się, jak hostować i wdrażać aplikację Blazor Server pr
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/12/2020
+ms.date: 03/03/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/server
-ms.openlocfilehash: a051d51e734fec4315da73d3c4df57706df7f363
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.openlocfilehash: 866bb348180c872d8ab20787283cfb7217183a8d
+ms.sourcegitcommit: 3ca4a2235a8129def9e480d0a6ad54cc856920ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465826"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79025423"
 ---
 # <a name="host-and-deploy-opno-locblazor-server"></a>Hostowanie i wdrażanie serwera Blazor
 
@@ -25,7 +25,7 @@ ms.locfileid: "77465826"
 
 [aplikacje serweraBlazor](xref:blazor/hosting-models#blazor-server) mogą akceptować [ogólne wartości konfiguracji hosta](xref:fundamentals/host/generic-host#host-configuration).
 
-## <a name="deployment"></a>Wdrożenie
+## <a name="deployment"></a>wdrażania
 
 Korzystając z [modelu hostinguBlazor Server](xref:blazor/hosting-models#blazor-server), Blazor jest wykonywane na serwerze z poziomu aplikacji ASP.NET Core. Aktualizacje interfejsu użytkownika, obsługa zdarzeń i wywołania języka JavaScript są obsługiwane przez połączenie [SignalR](xref:signalr/introduction) .
 
@@ -87,7 +87,10 @@ Zalecamy korzystanie z [usługi Azure SignalR](/azure/azure-signalr) dla aplikac
 
 #### <a name="iis"></a>IIS
 
-W przypadku korzystania z usług IIS sesje programu Sticky są włączane przy użyciu routingu żądań aplikacji. Aby uzyskać więcej informacji, zobacz [równoważenie obciążenia HTTP przy użyciu routingu żądań aplikacji](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing).
+W przypadku korzystania z usług IIS Włącz:
+
+* Obiekty [WebSockets w usługach IIS](xref:fundamentals/websockets#enabling-websockets-on-iis).
+* [Sesje programu Sticky w ramach routingu żądań aplikacji](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing).
 
 #### <a name="kubernetes"></a>Kubernetes
 
@@ -107,18 +110,44 @@ metadata:
 
 #### <a name="linux-with-nginx"></a>System Linux z serwerem Nginx
 
-Aby SignalR obiekty WebSockets działały prawidłowo, należy ustawić `Upgrade` i `Connection` serwera proxy w następujący sposób:
+Aby SignalR obiekty WebSockets działały prawidłowo, upewnij się, że nagłówki `Upgrade` i `Connection` serwera proxy są ustawione na następujące wartości, a `$connection_upgrade` są mapowane na:
+
+* Domyślnie wartość nagłówka uaktualnienia.
+* `close`, gdy brakuje nagłówka uaktualnienia lub jest on pusty.
 
 ```
-proxy_set_header Upgrade $http_upgrade;
-proxy_set_header Connection $connection_upgrade;
+http {
+    map $http_upgrade $connection_upgrade {
+        default Upgrade;
+        ''      close;
+    }
+
+    server {
+        listen      80;
+        server_name example.com *.example.com
+        location / {
+            proxy_pass         http://localhost:5000;
+            proxy_http_version 1.1;
+            proxy_set_header   Upgrade $http_upgrade;
+            proxy_set_header   Connection $connection_upgrade;
+            proxy_set_header   Host $host;
+            proxy_cache_bypass $http_upgrade;
+            proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header   X-Forwarded-Proto $scheme;
+        }
+    }
+}
 ```
 
-Aby uzyskać więcej informacji, zobacz [Nginx jako proxy protokołu WebSocket](https://www.nginx.com/blog/websocket-nginx/).
+Aby uzyskać więcej informacji zobacz następujące artykuły:
+
+* [NGINX jako serwer proxy protokołu WebSocket](https://www.nginx.com/blog/websocket-nginx/)
+* [Serwer proxy protokołu WebSocket](http://nginx.org/docs/http/websocket.html)
+* <xref:host-and-deploy/linux-nginx>
 
 ### <a name="measure-network-latency"></a>Mierzenie opóźnienia sieci
 
-Przy użyciu kodu [js Interop](xref:blazor/javascript-interop) można mierzyć opóźnienia sieci, jak pokazano w poniższym przykładzie:
+Przy użyciu kodu [js Interop](xref:blazor/call-javascript-from-dotnet) można mierzyć opóźnienia sieci, jak pokazano w poniższym przykładzie:
 
 ```razor
 @inject IJSRuntime JS

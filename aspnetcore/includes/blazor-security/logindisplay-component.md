@@ -1,0 +1,33 @@
+Składnik `LoginDisplay` (*Shared/LoginDisplay. Razor*) jest renderowany w składniku `MainLayout` (*Shared/MainLayout. Razor*) i zarządza następującymi zachowaniami:
+
+* Dla uwierzytelnionych użytkowników:
+  * Wyświetla bieżącą nazwę użytkownika.
+  * Oferuje przycisk umożliwiający wylogowanie się z aplikacji.
+* W przypadku użytkowników anonimowych program oferuje opcję logowania.
+
+```razor
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@inject NavigationManager Navigation
+@inject SignOutSessionStateManager SignOutManager
+
+<AuthorizeView>
+    <Authorized>
+        Hello, @context.User.Identity.Name!
+        <button class="nav-link btn btn-link" @onclick="BeginSignOut">
+            Log out
+        </button>
+    </Authorized>
+    <NotAuthorized>
+        <a href="authentication/login">Log in</a>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+    private async Task BeginSignOut(MouseEventArgs args)
+    {
+        await SignOutManager.SetSignOutState();
+        Navigation.NavigateTo("authentication/logout");
+    }
+}
+```

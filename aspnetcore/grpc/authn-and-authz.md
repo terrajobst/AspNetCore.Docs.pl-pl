@@ -6,18 +6,18 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 12/05/2019
 uid: grpc/authn-and-authz
-ms.openlocfilehash: 258b34113f3c3d9ef2031a43295ea5806b1e22ff
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: c0312b186bbb35e3b802984484b7213016d8bf04
+ms.sourcegitcommit: 51c86c003ab5436598dbc42f26ea4a83a795fd6e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880687"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78964439"
 ---
 # <a name="authentication-and-authorization-in-grpc-for-aspnet-core"></a>Uwierzytelnianie i autoryzacja w programie gRPC for ASP.NET Core
 
 Przez [Kuba Kowalski-króla](https://twitter.com/jamesnk)
 
-[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/grpc/authn-and-authz/sample/) [(jak pobrać)](xref:index#how-to-download-a-sample)
+[Wyświetlanie lub Pobieranie przykładowego kodu](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/grpc/authn-and-authz/sample/) [(jak pobrać)](xref:index#how-to-download-a-sample)
 
 ## <a name="authenticate-users-calling-a-grpc-service"></a>Uwierzytelnianie użytkowników wywołujących usługę gRPC
 
@@ -35,7 +35,7 @@ public void Configure(IApplicationBuilder app)
 
     app.UseEndpoints(endpoints =>
     {
-        routes.MapGrpcService<GreeterService>();
+        endpoints.MapGrpcService<GreeterService>();
     });
 }
 ```

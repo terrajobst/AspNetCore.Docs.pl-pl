@@ -5,17 +5,17 @@ description: Rozpocznij pracę z Blazor, tworząc aplikację Blazor za pomocą w
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 03/10/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/get-started
-ms.openlocfilehash: bd33d874b3d6122f2ab820e9b147b0e62ba03a58
-ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
+ms.openlocfilehash: 89c7529d2b8ec97db731f7c7268e19937c398115
+ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76869583"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79083238"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>Wprowadzenie do ASP.NET Core Blazor
 
@@ -28,37 +28,40 @@ Rozpocznij pracę z usługą Blazor:
 1. Zainstaluj [zestaw SDK platformy .NET Core 3,1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 
 1. Opcjonalnie zainstaluj szablon [Blazor webassembly](xref:blazor/hosting-models#blazor-webassembly) :
-   * Zainstaluj [zestaw SDK platformy .NET Core 3,1 lub nowszego (wersja zapoznawcza)](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-   * Uruchom następujące polecenie w powłoce poleceń. Pakiet [Microsoft. AspNetCore. Blazor. Templates](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.Templates/) ma wersję zapoznawczą, podczas gdy Blazor webassembly jest w wersji zapoznawczej.
+   * Zainstaluj [zestaw SDK platformy .NET Core 3.1.102 lub nowszego (wersja zapoznawcza)](https://dotnet.microsoft.com/download/dotnet-core/3.1).
+   * Uruchom następujące polecenie w powłoce poleceń. Pakiet [Microsoft. AspNetCore. Components. webassembly. Templates](https://www.nuget.org/packages/Microsoft.AspNetCore.Components.WebAssembly.Templates/) ma wersję zapoznawczą, a Blazor webassembly jest w wersji zapoznawczej.
 
    ```dotnetcli
-   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.2.0-preview1.20073.1
+   dotnet new -i Microsoft.AspNetCore.Components.WebAssembly.Templates::3.2.0-preview2.20160.5
    ```
+
+   > [!NOTE]
+   > Aby można było użyć szablonu zestawu webassembly 3,2 w wersji 2 Blazor, **wymagany** jest zestaw .NET Core SDK wersja 3.1.102 lub nowsza. Potwierdź zainstalowaną zestaw .NET Core SDK wersję, uruchamiając `dotnet --version` w powłoce poleceń.
 
 1. Postępuj zgodnie ze wskazówkami dotyczącymi wybranego narzędzia:
 
-   # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+   # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
    1\. Zainstaluj [program Visual Studio 2019 w wersji 16,4 lub nowszej](https://visualstudio.microsoft.com/vs/preview/) przy użyciu obciążeń **ASP.NET i Web Development** .
 
    2\. Utwórz nowy projekt.
 
-   3 \. Wybierz pozycję **aplikacja Blazor**. Wybierz pozycję **Dalej**.
+   3 \. Wybierz pozycję **aplikacja Blazor**. Wybierz opcję **Dalej**.
 
-   4\. Podaj nazwę projektu w polu **Nazwa projektu** lub zaakceptuj nazwę domyślną projektu. Potwierdź, że wpis **lokalizacji** jest poprawny lub podaj lokalizację dla projektu. Wybierz przycisk **Utwórz**.
+   4\. Podaj nazwę projektu w polu **Nazwa projektu** lub zaakceptuj nazwę domyślną projektu. Potwierdź, że wpis **lokalizacji** jest poprawny lub podaj lokalizację dla projektu. Wybierz pozycję **Utwórz**.
 
-   5 \. Aby zapoznać się z Blazor webassembly, wybierz szablon **aplikacji Blazor webassembly** . Dla środowiska serwera Blazor wybierz szablon **aplikacji Blazor Server** . Wybierz przycisk **Utwórz**. Aby uzyskać informacje na temat dwóch modeli hostingu Blazor, *Blazor Server* i *Blazor webassembly*, zobacz <xref:blazor/hosting-models>.
+   5 \. Aby zapoznać się z Blazor webassembly, wybierz szablon **aplikacji Blazor webassembly** . Dla środowiska serwera Blazor wybierz szablon **aplikacji Blazor Server** . Wybierz pozycję **Utwórz**. Aby uzyskać informacje na temat dwóch modeli hostingu Blazor, *Blazor Server* i *Blazor webassembly*, zobacz <xref:blazor/hosting-models>. Jeśli szablon Blazor webassembly nie istnieje, Wróć do poprzedniego kroku i ponownie zainstaluj szablon.
 
    6 \. Naciśnij klawisz **Ctrl** ,+**F5** , aby uruchomić aplikację.
 
    > [!NOTE]
    > Jeśli zainstalowano rozszerzenie Blazor programu Visual Studio dla starszej wersji zapoznawczej programu ASP.NET Core Blazor (wersja zapoznawcza 6 lub wcześniejsza), można odinstalować rozszerzenie. Instalowanie szablonów Blazor w powłoce poleceń jest teraz wystarczające do poszycia szablonów w programie Visual Studio.
 
-   # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+   # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-   1\. Zainstaluj [Visual Studio Code](https://code.visualstudio.com/).
+   1\. Zainstaluj narzędzie [Visual Studio Code](https://code.visualstudio.com/).
 
-   2\. Zainstaluj najnowsze [ C# rozszerzenie programu Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+   2\. Zainstaluj najnowsze [ C# rozszerzenie programu Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 
    3 \. W przypadku środowiska webassembly Blazor wykonaj następujące polecenie w powłoce poleceń:
 
@@ -76,13 +79,13 @@ Rozpocznij pracę z usługą Blazor:
 
    4\. Otwórz folder *WebApplication1* w Visual Studio Code.
 
-   5 \. W przypadku projektu serwera Blazor, IDE żąda dodania zasobów do kompilowania i debugowania projektu. Wybierz pozycję **tak**.
+   5 \. W przypadku projektu serwera Blazor, IDE żąda dodania zasobów do kompilowania i debugowania projektu. Wybierz pozycję **Tak**.
 
    6 \. W przypadku korzystania z aplikacji serwera Blazor należy uruchomić aplikację przy użyciu debugera Visual Studio Code. Jeśli używasz aplikacji Blazor webassembly, wykonaj `dotnet run` z folderu projektu aplikacji.
 
    7 \. W przeglądarce przejdź do `https://localhost:5001`.
 
-   # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+   # <a name="visual-studio-for-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
 
    1\. Zainstaluj [Visual Studio dla komputerów Mac](https://visualstudio.microsoft.com/vs/mac/).
 
@@ -96,13 +99,13 @@ Rozpocznij pracę z usługą Blazor:
 
    5 \. Ustaw platformę **docelową** na **platformę .NET Core 3,1** i wybierz pozycję **dalej**.
 
-   6 \. W polu **Nazwa projektu** Nadaj nazwę aplikacji `WebApplication1`. Wybierz przycisk **Utwórz**.
+   6 \. W polu **Nazwa projektu** Nadaj nazwę aplikacji `WebApplication1`. Wybierz pozycję **Utwórz**.
 
    7 \. Wybierz pozycję **uruchom** > **Uruchom bez debugowania** , aby uruchomić aplikację *bez debugera*. Uruchom aplikację przy użyciu **Rozpocznij debugowanie** , aby uruchomić aplikację *za pomocą debugera*.
 
    Jeśli zostanie wyświetlony monit o zaufać certyfikatowi Deweloperskiemu, zaufaj certyfikatowi i Kontynuuj.
 
-   # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
+   # <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
 
    W przypadku środowiska webassembly Blazor wykonaj następujące polecenia w powłoce poleceń:
 
@@ -128,7 +131,7 @@ Rozpocznij pracę z usługą Blazor:
 
 Na pasku bocznym są dostępne wiele stron:
 
-* Strona główna programu
+* Home
 * Licznik
 * Pobieranie danych
 

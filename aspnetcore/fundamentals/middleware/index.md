@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/02/2020
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 6698e269e0a6480cd5a03c59f9a19da31e23bf69
-ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
+ms.openlocfilehash: afa71b2c2b75be2c000fadd9545ac3fb4587825a
+ms.sourcegitcommit: 51c86c003ab5436598dbc42f26ea4a83a795fd6e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77089152"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78964463"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core oprogramowanie pośredniczące
 
@@ -60,6 +60,7 @@ Gdy delegat nie przekazuje żądania do następnego delegata, jest on nazywany *
 <xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*> delegatów nie otrzymają parametru `next`. Pierwszy delegat `Run` jest zawsze terminalem i przerywa potoku. `Run` jest konwencją. Niektóre składniki pośredniczące mogą uwidaczniać `Run[Middleware]` metody, które są uruchamiane na końcu potoku:
 
 [!code-csharp[](index/snapshot/Chain/Startup.cs?highlight=12-15)]
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
 
 W poprzednim przykładzie `Run` delegat zapisuje `"Hello from 2nd delegate."` do odpowiedzi, a następnie kończy potok. Jeśli po delegatze `Run` zostanie dodany inny `Use` lub delegat `Run`, nie jest on wywoływany.
 
@@ -177,7 +178,7 @@ rozszerzenia <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*> są używane
 
 W poniższej tabeli przedstawiono żądania i odpowiedzi z `http://localhost:1234` przy użyciu poprzedniego kodu.
 
-| Żądanie             | Odpowiedź                     |
+| Request             | Odpowiedź                     |
 | ------------------- | ---------------------------- |
 | localhost:1234      | Witaj od delegata innego niż mapowanie. |
 | localhost:1234/map1 | Test mapy 1                   |
@@ -209,14 +210,14 @@ app.Map("/level1", level1App => {
 
 W poniższej tabeli przedstawiono żądania i odpowiedzi z `http://localhost:1234` przy użyciu poprzedniego kodu:
 
-| Żądanie                       | Odpowiedź                     |
+| Request                       | Odpowiedź                     |
 | ----------------------------- | ---------------------------- |
 | localhost:1234                | Witaj od delegata innego niż mapowanie. |
 | localhost:1234/?branch=master | Używane gałęzie = Master         |
 
-<xref:Microsoft.AspNetCore.Builder.UseWhenExtensions.UseWhen*> również rozgałęziać potok żądania na podstawie wyniku danego predykatu. W przeciwieństwie do `MapWhen`, rozgałęzienie jest ponownie przyłączone do głównego potoku, jeśli ma on krótki obwód lub zawiera oprogramowanie pośredniczące terminalu:
+<xref:Microsoft.AspNetCore.Builder.UseWhenExtensions.UseWhen*> również rozgałęziać potok żądania na podstawie wyniku danego predykatu. W przeciwieństwie do `MapWhen`, ta gałąź jest ponownie przyłączona do głównego potoku, jeśli nie jest on krótki ani nie zawiera terminalu pośredniczącego:
 
-[!code-csharp[](index/snapshot/Chain/StartupUseWhen.cs?highlight=23-24)]
+[!code-csharp[](index/snapshot/Chain/StartupUseWhen.cs?highlight=25-26)]
 
 W poprzednim przykładzie odpowiedź "Hello z głównego potoku". jest zapisywana dla wszystkich żądań. Jeśli żądanie zawiera zmienną ciągu zapytania `branch`, jej wartość jest rejestrowana przed ponownym dołączeniem głównego potoku.
 
@@ -389,7 +390,7 @@ rozszerzenia <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*> są używane
 
 W poniższej tabeli przedstawiono żądania i odpowiedzi z `http://localhost:1234` przy użyciu poprzedniego kodu.
 
-| Żądanie             | Odpowiedź                     |
+| Request             | Odpowiedź                     |
 | ------------------- | ---------------------------- |
 | localhost:1234      | Witaj od delegata innego niż mapowanie. |
 | localhost:1234/map1 | Test mapy 1                   |
@@ -404,7 +405,7 @@ Gdy jest używana `Map`, dopasowane segmenty ścieżki są usuwane z `HttpReques
 
 W poniższej tabeli przedstawiono żądania i odpowiedzi z `http://localhost:1234` przy użyciu poprzedniego kodu.
 
-| Żądanie                       | Odpowiedź                     |
+| Request                       | Odpowiedź                     |
 | ----------------------------- | ---------------------------- |
 | localhost:1234                | Witaj od delegata innego niż mapowanie. |
 | localhost:1234/?branch=master | Używane gałęzie = Master         |

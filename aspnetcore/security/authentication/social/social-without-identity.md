@@ -5,14 +5,16 @@ description: Wyjaśnienie dotyczące korzystania z usługi Facebook, Google, Twi
 ms.author: riande
 ms.date: 12/10/2019
 uid: security/authentication/social/social-without-identity
-ms.openlocfilehash: 612964ec9ed4975cdc81780dda3bac6cce96037f
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: b30ce7055b35b721c7fb83b61a328200d6a136b1
+ms.sourcegitcommit: 3ca4a2235a8129def9e480d0a6ad54cc856920ec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359061"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79025394"
 ---
 # <a name="use-social-sign-in-provider-authentication-without-aspnet-core-identity"></a>Korzystanie z uwierzytelniania przy użyciu dostawcy logowania społecznego bez tożsamości ASP.NET Core
+
+Autorzy [Kirka Larkin](https://twitter.com/serpent5) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 
