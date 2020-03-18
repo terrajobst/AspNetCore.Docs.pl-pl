@@ -5,17 +5,17 @@ description: Dowiedz się, jak hostować i wdrażać aplikacje Blazor.
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 03/11/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/index
-ms.openlocfilehash: 238e7fc8f8d64c7847dc8847fb66e22442a3c8e0
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: ddf70da29a82d462422c1bdf74ff45b92bb10b56
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78667154"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434268"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor"></a>Hostowanie i wdrażanie ASP.NET Core Blazor
 
@@ -45,7 +45,12 @@ dotnet publish -c Release
 
 Opublikowanie aplikacji wyzwala [przywracanie](/dotnet/core/tools/dotnet-restore) zależności projektu i [kompiluje](/dotnet/core/tools/dotnet-build) projekt przed utworzeniem zasobów do wdrożenia. W ramach procesu kompilacji nieużywane metody i zestawy są usuwane w celu zmniejszenia rozmiaru pobierania aplikacji i czasów ładowania.
 
-Aplikacja webassembly Blazor jest publikowana w folderze */bin/Release/{Target Framework}/Publish/{Assembly Name}/dist* . Aplikacja serwera Blazor jest publikowana w folderze */bin/Release/{Target Framework}/Publish* .
+Lokalizacje publikowania:
+
+* Blazor webassembly
+  * Autonomiczna &ndash; aplikacja jest publikowana w folderze */bin/Release/{Target Framework}/Publish/wwwroot* . Aby wdrożyć aplikację jako lokację statyczną, skopiuj zawartość folderu *wwwroot* do hosta lokacji statycznej.
+  * Hostowane &ndash; aplikacja webassembly Blazor Client jest publikowana w folderze */bin/Release/{Target Framework}/Publish/wwwroot* aplikacji serwera, wraz ze wszystkimi innymi statycznymi zasobami sieci Web aplikacji serwera. Wdróż zawartość folderu *publikowania* na hoście.
+* Blazor Server &ndash; aplikacja zostanie opublikowana w folderze */bin/Release/{Target Framework}/Publish* . Wdróż zawartość folderu *publikowania* na hoście.
 
 Zasoby w folderze są wdrażane na serwerze sieci Web. Wdrożenie może być procesem ręcznym lub zautomatyzowanym w zależności od używanych narzędzi programistycznych.
 
@@ -94,7 +99,7 @@ dotnet run --pathbase=/CoolApp
 
 Aplikacja webassembly Blazor reaguje lokalnie na `http://localhost:port/CoolApp`.
 
-## <a name="deployment"></a>Wdrożenie
+## <a name="deployment"></a>wdrażania
 
 Aby uzyskać wskazówki dotyczące wdrażania, zobacz następujące tematy:
 

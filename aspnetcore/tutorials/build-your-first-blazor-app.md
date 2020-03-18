@@ -5,16 +5,16 @@ description: Kompiluj aplikację Blazor krok po kroku.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/13/2020
+ms.date: 03/13/2020
 no-loc:
 - Blazor
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: 8830dcf26b58b5f5fdd36b60298e7b365f99bdd9
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 8b3802a6ffe3613e5d4ca65c57fafc3f404c8329
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78655310"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434502"
 ---
 # <a name="build-your-first-opno-locblazor-app"></a>Tworzenie pierwszej aplikacji Blazor
 
@@ -24,9 +24,9 @@ Autorzy [Daniel Roth](https://github.com/danroth27) i [Luke Latham](https://gith
 
 W tym samouczku pokazano, jak skompilować i zmodyfikować aplikację Blazor.
 
-Postępuj zgodnie ze wskazówkami w artykule <xref:blazor/get-started>, aby utworzyć projekt Blazor dla tego samouczka. Nazwij projekt *todolist*.
-
 ## <a name="build-components"></a>Składniki kompilacji
+
+1. Postępuj zgodnie ze wskazówkami w artykule <xref:blazor/get-started>, aby utworzyć projekt Blazor dla tego samouczka. Nazwij projekt *todolist*.
 
 1. Przejdź do każdej z trzech stron aplikacji w folderze *Pages* : Home, Counter i Fetch Data. Te strony są implementowane przez pliki składników Razor *index. Razor*, *Counter. Razor*i *FetchData. Razor*.
 
@@ -133,14 +133,14 @@ Pętla [`@foreach`](/dotnet/csharp/language-reference/keywords/foreach-in) jest 
 
 Dodaj do aplikacji nowy składnik implementujący prostą listę zadań do wykonania.
 
-1. Dodaj pusty plik o nazwie do *zrobienia. Razor* do aplikacji w folderze *Pages* :
+1. Dodaj nowy składnik `Todo` Razor do aplikacji w folderze *Pages* . W programie Visual Studio kliknij prawym przyciskiem myszy folder **strony** i wybierz polecenie **Dodaj** > **nowy element** > **składnik Razor**. Nadaj nazwę plikowi do *zrobienia. Razor*. W innych środowiskach programistycznych Dodaj pusty plik do folderu **Pages** o nazwie do *zrobienia. Razor*.
 
 1. Podaj początkowe znaczniki dla składnika:
 
    ```razor
    @page "/todo"
 
-   <h1>Todo</h1>
+   <h3>Todo</h3>
    ```
 
 1. Dodaj składnik `Todo` na pasku nawigacyjnym.

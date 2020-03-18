@@ -5,17 +5,17 @@ description: Dowiedz się, jak ograniczyć zagrożenia bezpieczeństwa do Blazor
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 03/16/2020
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/server
-ms.openlocfilehash: 61030f9b5beb849a7cf03571da425e49b144994c
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 128cd5e542153e07dc301032e1e73bf27e1236f3
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78663353"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434425"
 ---
 # <a name="secure-aspnet-core-blazor-server-apps"></a>Bezpieczne ASP.NET Core aplikacje serwera Blazor
 
@@ -44,7 +44,7 @@ Ataki typu "odmowa usługi" (DoS) zwykle poszukują wyczerpania zasobów aplikac
 
 Zasoby zewnętrzne, takie jak bazy danych i dojścia do plików (używane do odczytu i zapisu plików) mogą również powodować wyczerpanie zasobów. Aby uzyskać więcej informacji, zobacz <xref:performance/performance-best-practices>.
 
-### <a name="cpu"></a>Procesor CPU
+### <a name="cpu"></a>CPU
 
 Wyczerpanie procesora może wystąpić, gdy jeden lub więcej klientów wymusza intensywną realizację procesora CPU przez serwer.
 
@@ -52,7 +52,7 @@ Rozważmy na przykład aplikację serwera Blazor, która oblicza *numer Fibonnac
 
 Wykorzystanie procesora CPU jest problemem w przypadku wszystkich aplikacji publicznych. W zwykłych aplikacjach sieci Web, żądania i połączenia przekroczą limit czasu jako zabezpieczenie, ale aplikacje serwera Blazor nie zapewniają tych samych zabezpieczeń. Aplikacje serwera Blazor muszą zawierać odpowiednie sprawdzenia i limity przed przeprowadzeniem potencjalnej pracy intensywnie obciążającej procesor CPU.
 
-### <a name="memory"></a>Memory (Pamięć)
+### <a name="memory"></a>Pamięć
 
 Wyczerpanie pamięci może wystąpić, gdy co najmniej jeden klient wymusić zużywanie dużej ilości pamięci na serwerze.
 
@@ -94,7 +94,7 @@ Domyślnie nie ma żadnego limitu liczby połączeń na użytkownika dla aplikac
 
 Ataki typu "odmowa usługi" (DoS) obejmują klienta, który powoduje, że serwer wyczerpuje jeden lub więcej zasobów, dzięki czemu aplikacja jest niedostępna. Aplikacje serwera Blazor obejmują pewne limity domyślne i są zależne od innych limitów ASP.NET Core i sygnałów, aby chronić przed atakami DoS:
 
-| Limit aplikacji serwera Blazor                            | Opis | Domyślne |
+| Limit aplikacji serwera Blazor                            | Opis | Domyślny |
 | ------------------------------------------------------- | ----------- | ------- |
 | `CircuitOptions.DisconnectedCircuitMaxRetained`         | Maksymalna liczba odłączonych obwodów, które dany serwer przechowuje w pamięci w danym momencie. | 100 |
 | `CircuitOptions.DisconnectedCircuitRetentionPeriod`     | Maksymalny czas przechowywania połączonego obwodu w pamięci przed jego usunięciem. | 3 minuty |
@@ -102,7 +102,7 @@ Ataki typu "odmowa usługi" (DoS) obejmują klienta, który powoduje, że serwer
 | `CircuitOptions.MaxBufferedUnacknowledgedRenderBatches` | Maksymalna liczba niepotwierdzonych partii renderowania, które serwer przechowuje w pamięci na obwód w danym momencie do obsługi niezawodnego ponownego łączenia. Po osiągnięciu limitu serwer przestaje tworzyć nowe partie renderowania do momentu potwierdzenia co najmniej jednej partii przez klienta. | 10 |
 
 
-| Sygnał i limit ASP.NET Core             | Opis | Domyślne |
+| Sygnał i limit ASP.NET Core             | Opis | Domyślny |
 | ------------------------------------------ | ----------- | ------- |
 | `CircuitOptions.MaximumReceiveMessageSize` | Rozmiar wiadomości dla pojedynczej wiadomości. | 32 KB |
 
@@ -263,7 +263,7 @@ Oprócz używania ochrony zgodnie z opisem w sekcji [Guard dla wielu odniesień]
 
     public void Dispose()
     {
-        CancellationTokenSource.Cancel();
+        TokenSource.Cancel();
     }
 }
 ```
@@ -293,7 +293,7 @@ Błąd po stronie klienta nie zawiera stosu wywołań i nie zawiera szczegółó
 
 Włącz szczegółowe błędy przy użyciu:
 
-* `CircuitOptions.DetailedErrors`.
+* `CircuitOptions.DetailedErrors`.,
 * klucz konfiguracji `DetailedErrors`. Na przykład ustaw dla zmiennej środowiskowej `ASPNETCORE_DETAILEDERRORS` wartość `true`.
 
 > [!WARNING]

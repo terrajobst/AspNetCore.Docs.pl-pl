@@ -5,17 +5,17 @@ description: Dowiedz się, jak hostować i wdrażać aplikację Blazor przy uży
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/19/2020
+ms.date: 03/11/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: eae12b266e91a30a47daf63ac77ba082c25225aa
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 748ac9969134f4c89cc8c1235958dcc7ac1d1080
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78664102"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434281"
 ---
 # <a name="host-and-deploy-aspnet-core-opno-locblazor-webassembly"></a>Hostowanie i wdrażanie ASP.NET Core Blazor webassembly
 
@@ -59,7 +59,7 @@ Podczas wdrażania na serwerze IIS można użyć modułu ponownego zapisywania a
 
 *Wdrożenie hostowane* służy do obsługi aplikacji Blazor webassembly w przeglądarkach z poziomu [aplikacji ASP.NET Core](xref:index) działającej na serwerze sieci Web.
 
-Aplikacja Blazor jest dołączona do aplikacji ASP.NET Core w opublikowanych danych wyjściowych, dzięki czemu dwie aplikacje są wdrażane razem. Wymagany jest serwer sieci Web, który umożliwia hostowanie aplikacji ASP.NET Core. W przypadku wdrożenia hostowanego program Visual Studio zawiera szablon projektu **aplikacjiBlazor webassembly** (`blazorwasm` szablon w przypadku używania polecenia [dotnet New](/dotnet/core/tools/dotnet-new) ) z wybraną opcją **hostowaną** .
+Aplikacja webassembly Blazor Client jest publikowana w folderze */bin/Release/{Target Framework}/Publish/wwwroot* aplikacji serwerowej wraz ze wszystkimi innymi statycznymi zasobami sieci Web aplikacji serwera. Te dwie aplikacje są wdrażane razem. Wymagany jest serwer sieci Web, który umożliwia hostowanie aplikacji ASP.NET Core. W przypadku wdrożenia hostowanego program Visual Studio zawiera szablon projektu **aplikacjiBlazor webassembly** (szablon`blazorwasm` przy użyciu polecenia [dotnet New](/dotnet/core/tools/dotnet-new) ) z wybraną opcją **hostowaną** (`-ho|--hosted` przy użyciu polecenia `dotnet new`).
 
 Aby uzyskać więcej informacji na temat ASP.NET Core hostingu i wdrażania aplikacji, zobacz <xref:host-and-deploy/index>.
 
@@ -69,7 +69,7 @@ Aby uzyskać informacje na temat wdrażania do Azure App Service, zobacz <xref:t
 
 *Wdrożenie autonomiczne* służy aplikacji Blazor webassembly jako zestawu plików statycznych, które są żądane bezpośrednio przez klientów. Każdy statyczny serwer plików jest w stanie obsłużyć Blazor aplikacji.
 
-Zasoby wdrażania autonomicznego są publikowane w folderze *bin/Release/{Target Framework}/Publish/{Assembly Name}/dist* .
+Zasoby wdrażania autonomicznego są publikowane w folderze */bin/Release/{Target Framework}/Publish/wwwroot* .
 
 ### <a name="iis"></a>IIS
 
@@ -294,7 +294,7 @@ Argument `--contentroot` ustawia ścieżkę bezwzględną do katalogu, który za
   --pathbase=/relative-URL-path
   ```
 
-### <a name="urls"></a>Adresy URL
+### <a name="urls"></a>adresy URL
 
 `--urls` argument ustawia adresy IP lub adresy hosta z portami i protokołami, aby nasłuchiwać żądań.
 
@@ -318,4 +318,4 @@ Argument `--contentroot` ustawia ścieżkę bezwzględną do katalogu, który za
 
 ## <a name="configure-the-linker"></a>Konfigurowanie konsolidatora
 
-Blazor wykonuje konsolidację języka pośredniego (IL) dla każdej kompilacji, aby usunąć niepotrzebny kod IL z zestawów wyjściowych. Łączenie zestawu może być kontrolowane podczas kompilacji. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/blazor/configure-linker>.
+Blazor wykonuje konsolidację języka pośredniego (IL) dla każdej kompilacji wydania, aby usunąć niepotrzebny kod IL z zestawów wyjściowych. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/blazor/configure-linker>.

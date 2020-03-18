@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/03/2020
 uid: security/authentication/index
-ms.openlocfilehash: 24113fd4f090cf76746a7b077212fdab012f82c1
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 404904ecfa30d1fe7e47f0daaa423ddd6f1b06e8
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78659629"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434333"
 ---
 # <a name="overview-of-aspnet-core-authentication"></a>Omówienie uwierzytelniania ASP.NET Core
 
@@ -80,14 +80,14 @@ W oparciu o konfigurację schematu uwierzytelniania i kontekst żądania przycho
 
 ### <a name="authenticate"></a>Uwierzytelnianie
 
-Akcja uwierzytelniania schematu uwierzytelniania jest odpowiedzialna za konstruowanie tożsamości użytkownika na podstawie kontekstu żądania. Zwraca <xref:Microsoft.AspNetCore.Authentication.AuthenticateResult> wskazujący, czy uwierzytelnianie zakończyło się pomyślnie, a jeśli tak, tożsamość użytkownika w biletu uwierzytelniania. Zobacz: <xref:Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions.AuthenticateAsync%2A>. Przykłady uwierzytelniania obejmują:
+Akcja uwierzytelniania schematu uwierzytelniania jest odpowiedzialna za konstruowanie tożsamości użytkownika na podstawie kontekstu żądania. Zwraca <xref:Microsoft.AspNetCore.Authentication.AuthenticateResult> wskazujący, czy uwierzytelnianie zakończyło się pomyślnie, a jeśli tak, tożsamość użytkownika w biletu uwierzytelniania. Zobacz <xref:Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions.AuthenticateAsync%2A>. Przykłady uwierzytelniania obejmują:
 
 * Schemat uwierzytelniania plików cookie, który konstruuje tożsamość użytkownika z plików cookie.
 * Schemat okaziciela JWT deserializacji i weryfikacji tokenu okaziciela JWT w celu utworzenia tożsamości użytkownika.
 
 ### <a name="challenge"></a>Sprawdz
 
-Wyzwanie uwierzytelniania jest wywoływane przez autoryzację, gdy nieuwierzytelniony użytkownik żąda punktu końcowego wymagającego uwierzytelniania. Jest wystawiane wyzwanie uwierzytelniania, na przykład gdy użytkownik anonimowy żąda zasobu z ograniczeniami lub klika łącze logowania. Autoryzacja wywołuje wyzwanie przy użyciu określonych schematów uwierzytelniania lub wartość domyślną, jeśli nie została określona. Zobacz: <xref:Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions.ChallengeAsync%2A>. Przykłady wyzwania uwierzytelniania obejmują:
+Wyzwanie uwierzytelniania jest wywoływane przez autoryzację, gdy nieuwierzytelniony użytkownik żąda punktu końcowego wymagającego uwierzytelniania. Jest wystawiane wyzwanie uwierzytelniania, na przykład gdy użytkownik anonimowy żąda zasobu z ograniczeniami lub klika łącze logowania. Autoryzacja wywołuje wyzwanie przy użyciu określonych schematów uwierzytelniania lub wartość domyślną, jeśli nie została określona. Zobacz <xref:Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions.ChallengeAsync%2A>. Przykłady wyzwania uwierzytelniania obejmują:
 
 * Schemat uwierzytelniania plików cookie przekierowuje użytkownika do strony logowania.
 * Schemat okaziciela JWT zwracający wynik 401 z nagłówkiem `www-authenticate: bearer`.
@@ -96,7 +96,7 @@ Akcja wyzwania powinna dać użytkownikowi informacje o mechanizmie uwierzytelni
 
 ### <a name="forbid"></a>Uniemożliwia
 
-Akcja zabraniania schematu uwierzytelniania jest wywoływana przez autoryzację, gdy uwierzytelniony użytkownik próbuje uzyskać dostęp do zasobu, do którego nie ma dostępu. Zobacz: <xref:Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions.ForbidAsync%2A>. Przykładem zabraniania uwierzytelniania są:
+Akcja zabraniania schematu uwierzytelniania jest wywoływana przez autoryzację, gdy uwierzytelniony użytkownik próbuje uzyskać dostęp do zasobu, do którego nie ma dostępu. Zobacz <xref:Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions.ForbidAsync%2A>. Przykładem zabraniania uwierzytelniania są:
 * Schemat uwierzytelniania plików cookie przekierowuje użytkownika do strony wskazującej dostęp był zabroniony.
 * Schemat okaziciela JWT zwracający wynik 403.
 * Niestandardowy schemat uwierzytelniania przekierowuje do strony, na której użytkownik może zażądać dostępu do zasobu.
@@ -110,6 +110,18 @@ Poniżej znajdują się linki dotyczące różnic między wyzwaniem i zabraniani
 
 * [Wyzwania i Zabroń z obsługą zasobów operacyjnych](xref:security/authorization/resourcebased#challenge-and-forbid-with-an-operational-resource-handler).
 * [Różnice między wyzwaniem i zabranianiem](xref:security/authorization/secure-data#challenge).
+
+## <a name="authentication-providers-per-tenant"></a>Dostawcy uwierzytelniania na dzierżawcę
+
+Platforma ASP.NET Core nie ma wbudowanego rozwiązania do uwierzytelniania wielodostępnego.
+Chociaż jest to możliwe, aby klienci mogli pisać jedną, przy użyciu wbudowanych funkcji, zalecamy, aby w tym celu przyjrzeć się klientom na [rdzeń](https://www.orchardcore.net/) .
+
+Rdzeń sadu:
+
+* Modularna i wielodostępna platforma aplikacji Open Source skompilowana przy użyciu ASP.NET Core.
+* System zarządzania zawartością (CMS) zbudowany na podstawie tej struktury aplikacji.
+
+Zobacz [podstawowe źródło sadu](https://github.com/OrchardCMS/OrchardCore) dla przykładu dostawców uwierzytelniania na dzierżawcę.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

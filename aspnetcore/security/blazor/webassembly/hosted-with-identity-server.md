@@ -5,17 +5,17 @@ description: Aby utworzyć nową aplikację hostowaną Blazor z uwierzytelnianie
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/09/2020
+ms.date: 03/16/2020
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/webassembly/hosted-with-identity-server
-ms.openlocfilehash: 98eb126ab3c483e0a6dc2274db8ffcfd9d5bc59a
-ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
+ms.openlocfilehash: a3993bf635e5a7aae408d72796015f2414e13c14
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79083777"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434476"
 ---
 # <a name="secure-an-aspnet-core-opno-locblazor-webassembly-hosted-app-with-identity-server"></a>Zabezpieczanie ASP.NET Core aplikacji hostowanej Blazor webassembly z serwerem tożsamości
 
@@ -224,5 +224,9 @@ Składnik `LoginDisplay` (*Shared/LoginDisplay. Razor*) jest renderowany w skła
 ### <a name="fetchdata-component"></a>Składnik FetchData
 
 [!INCLUDE[](~/includes/blazor-security/fetchdata-component.md)]
+
+## <a name="run-the-app"></a>Uruchamianie aplikacji
+
+Uruchom aplikację z projektu serwera. W przypadku korzystania z programu Visual Studio wybierz projekt serwera w **Eksplorator rozwiązań** a następnie wybierz przycisk **Uruchom** na pasku narzędzi lub Uruchom aplikację z menu **Debuguj** .
 
 [!INCLUDE[](~/includes/blazor-security/troubleshoot.md)]

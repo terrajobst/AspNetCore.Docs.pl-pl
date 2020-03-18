@@ -5,12 +5,12 @@ description: Dodaj model do prostej aplikacji ASP.NET Core.
 ms.author: riande
 ms.date: 01/13/2020
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: d044ae4416c4528791755506314fc81275474f79
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: e7fc0496438734e13cfafcecf432da4a94737897
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78660238"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434515"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Dodawanie modelu do aplikacji ASP.NET Core MVC
 
@@ -20,7 +20,7 @@ W tej sekcji dodasz klasy do zarządzania filmami w bazie danych. Te klasy będ�
 
 Te klasy są używane z [Entity Framework Core](/ef/core) (Ef Core) do pracy z bazą danych. EF Core to struktura obiektu mapowania relacyjnego (ORM), która upraszcza kod dostępu do danych, który trzeba napisać.
 
-Klasy modelu, które tworzysz, są nazywane klasami POCO ( **z Lain** **P**LR **o**biekty), ponieważ nie mają żadnej zależności od EF Core. Po prostu definiują właściwości danych, które będą przechowywane w bazie danych.
+Klasy modelu, które tworzysz, są nazywane klasami POCO ( **z Lain** **P**LR **C** **o**biekty), ponieważ nie mają żadnej zależności od EF Core. Po prostu definiują właściwości danych, które będą przechowywane w bazie danych.
 
 W tym samouczku najpierw napiszesz klasy modelu, a EF Core tworzy bazę danych.
 
@@ -48,7 +48,7 @@ Zaktualizuj plik *Movie.cs* przy użyciu następującego kodu:
 
 Klasa `Movie` zawiera pole `Id`, które jest wymagane przez bazę danych klucza podstawowego.
 
-Atrybut [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) w `ReleaseDate` określa typ danych (`Date`). Z tym atrybutem:
+Atrybut <xref:System.ComponentModel.DataAnnotations.DataType> w `ReleaseDate` określa typ danych (`Date`). Z tym atrybutem:
 
 * Użytkownik nie musi wprowadzać informacji o czasie w polu Data.
 * Tylko data jest wyświetlana, a nie informacje o czasie.
