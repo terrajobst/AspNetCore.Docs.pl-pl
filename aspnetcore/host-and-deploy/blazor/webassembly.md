@@ -5,17 +5,17 @@ description: Dowiedz się, jak hostować i wdrażać aplikację Blazor przy uży
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/11/2020
+ms.date: 03/16/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: 748ac9969134f4c89cc8c1235958dcc7ac1d1080
-ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
+ms.openlocfilehash: ea2c625f424447209a362cdc58bdb18be061e47f
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2020
-ms.locfileid: "79434281"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511356"
 ---
 # <a name="host-and-deploy-aspnet-core-opno-locblazor-webassembly"></a>Hostowanie i wdrażanie ASP.NET Core Blazor webassembly
 
@@ -91,8 +91,8 @@ Po opublikowaniu Blazor projektu zostanie utworzony plik *Web. config* z następ
   * `application/octet-stream`
   * `application/wasm`
 * Reguły modułu ponownego zapisywania adresu URL zostały ustanowione:
-  * Obsługuj podkatalog, w którym znajdują się zasoby statyczne aplikacji ( *{Assembly Name}/dist/{Path*).
-  * Utwórz Routing awaryjny SPA, aby żądania dotyczące zasobów nienależących do pliku zostały przekierowane do domyślnego dokumentu aplikacji w folderze zasobów statycznych ( *{Assembly Name}/dist/index.html*).
+  * Obsługuj podkatalog, w którym znajdują się zasoby statyczne aplikacji (*wwwroot/{ŻĄDANA ścieżka}* ).
+  * Utwórz Routing awaryjny SPA, aby żądania dotyczące zasobów nienależących do pliku zostały przekierowane do domyślnego dokumentu aplikacji w folderze zasobów statycznych (*wwwroot/index.html*).
 
 #### <a name="install-the-url-rewrite-module"></a>Zainstaluj moduł ponownego zapisywania adresów URL
 
@@ -294,7 +294,7 @@ Argument `--contentroot` ustawia ścieżkę bezwzględną do katalogu, który za
   --pathbase=/relative-URL-path
   ```
 
-### <a name="urls"></a>adresy URL
+### <a name="urls"></a>Adresy URL
 
 `--urls` argument ustawia adresy IP lub adresy hosta z portami i protokołami, aby nasłuchiwać żądań.
 

@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/tools-and-downloads
-ms.openlocfilehash: 25ce311373b0aaddfa3bc2728c39e503acbca69d
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 9c1042dd48b9167209b46e97a09e011b80e2609c
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78659489"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511148"
 ---
 # <a name="tools-and-downloads"></a>Narzędzia i pliki do pobrania
 
@@ -28,7 +28,7 @@ Wymagane jest spełnienie następujących subskrypcji:
 Wymagane są następujące narzędzia:
 
 * Narzędzie [git](https://git-scm.com/downloads) &mdash; w tym przewodniku zalecamy podstawowe zrozumienie usługi git. Przejrzyj [dokumentację usługi git](https://git-scm.com/doc), w tym [narzędzia Git Remote](https://git-scm.com/docs/git-remote) i [git push](https://git-scm.com/docs/git-push).
-* Do kompilowania i uruchamiania przykładowej aplikacji wymagane jest [zestaw .NET Core SDK](https://www.microsoft.com/net/download/) &mdash; w wersji 2.1.300 lub nowszej. Jeśli program Visual Studio jest zainstalowany z obciążeniem **programistycznym dla wielu platform .NET Core** , zestaw .NET Core SDK jest już zainstalowany.
+* Do kompilowania i uruchamiania przykładowej aplikacji wymagane jest [zestaw .NET Core SDK](https://dotnet.microsoft.com/download/) &mdash; w wersji 2.1.300 lub nowszej. Jeśli program Visual Studio jest zainstalowany z obciążeniem **programistycznym dla wielu platform .NET Core** , zestaw .NET Core SDK jest już zainstalowany.
 
     Zweryfikuj instalację zestawu .NET Core SDK. Otwórz powłokę wiersza polecenia, a następnie uruchom następujące polecenie:
 

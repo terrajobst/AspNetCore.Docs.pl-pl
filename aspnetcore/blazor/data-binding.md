@@ -1,27 +1,29 @@
 ---
 title: ASP.NET Core Blazor powiązania danych
 author: guardrex
-description: Dowiedz się więcej na temat scenariuszy powiązań danych dla składników i elementów DOM w aplikacjach Blazor.
+description: Dowiedz się więcej o funkcjach powiązań danych dla składników i elementów DOM w aplikacjach Blazor.
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/24/2020
+ms.date: 03/16/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/data-binding
-ms.openlocfilehash: 92377730b9d353a507ffd384710fb979affe7265
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 5b49d2598a451ee607e034913bd1aeaa03f941c6
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78661288"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511200"
 ---
 # <a name="aspnet-core-opno-locblazor-data-binding"></a>ASP.NET Core Blazor powiązania danych
 
 Autorzy [Luke Latham](https://github.com/guardrex) i [Daniel Roth](https://github.com/danroth27)
 
-Powiązanie danych zarówno ze składnikami, jak i elementami modelu DOM jest realizowane przy użyciu atrybutu [`@bind`](xref:mvc/views/razor#bind) . Poniższy przykład wiąże Właściwość `CurrentValue` z wartością pola tekstowego:
+Składniki Razor udostępniają funkcje powiązań danych za pośrednictwem atrybutu elementu HTML o nazwie [`@bind`](xref:mvc/views/razor#bind) z wartością pola, właściwością lub wyrażeniem Razor.
+
+Poniższy przykład wiąże Właściwość `CurrentValue` z wartością pola tekstowego:
 
 ```razor
 <input @bind="CurrentValue" />
@@ -78,6 +80,8 @@ Użyj `@bind-{ATTRIBUTE}` ze składnią `@bind-{ATTRIBUTE}:event`, aby powiąza�
     private string _paragraphStyle = "color:red";
 }
 ```
+
+W powiązaniu atrybutu rozróżniana jest wielkość liter. Na przykład `@bind` jest prawidłowy, a `@Bind` jest nieprawidłowy.
 
 ## <a name="unparsable-values"></a>Wartości niemożliwy do przeanalizowania
 

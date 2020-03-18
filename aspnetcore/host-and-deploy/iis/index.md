@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: c2ca867e3eebdc3fcf512cc5d457ff3c1967f9b1
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: e4da57001ad369a8df87c7e0887772e3d75c032d
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78657984"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511226"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core na Windows za pomocą programu IIS
 
@@ -243,14 +243,14 @@ Zainstaluj *pakiet hostingu platformy .NET Core* w systemie hostingu. Pakiet ins
 
 Pobierz Instalatora, korzystając z następującego linku:
 
-[Bieżący Instalator pakietu hostingu platformy .NET Core (Pobieranie bezpośrednie)](https://www.microsoft.com/net/permalink/dotnetcore-current-windows-runtime-bundle-installer)
+[Bieżący Instalator pakietu hostingu platformy .NET Core (Pobieranie bezpośrednie)](https://dotnet.microsoft.com/permalink/dotnetcore-current-windows-runtime-bundle-installer)
 
 ### <a name="earlier-versions-of-the-installer"></a>Wcześniejszych wersjach Instalator
 
 Aby uzyskać starszej wersji Instalatora:
 
-1. Przejdź do [archiwów pobierania programu .NET](https://www.microsoft.com/net/download/archives).
-1. W obszarze **.NET Core**wybierz wersję .NET Core.
+1. Przejdź do strony [pobieranie platformy .NET Core](https://dotnet.microsoft.com/download/dotnet-core) .
+1. Kliknij żądaną wersję programu .NET Core.
 1. W kolumnie **Uruchom aplikacje — środowisko uruchomieniowe** Znajdź wiersz żądanej wersji środowiska uruchomieniowego platformy .NET Core.
 1. Pobierz instalatora przy użyciu linku **udostępniania & środowiska uruchomieniowego** .
 
@@ -850,14 +850,14 @@ Zainstaluj *pakiet hostingu platformy .NET Core* w systemie hostingu. Pakiet ins
 
 Pobierz Instalatora, korzystając z następującego linku:
 
-[Bieżący Instalator pakietu hostingu platformy .NET Core (Pobieranie bezpośrednie)](https://www.microsoft.com/net/permalink/dotnetcore-current-windows-runtime-bundle-installer)
+[Bieżący Instalator pakietu hostingu platformy .NET Core (Pobieranie bezpośrednie)](https://dotnet.microsoft.com/permalink/dotnetcore-current-windows-runtime-bundle-installer)
 
 ### <a name="earlier-versions-of-the-installer"></a>Wcześniejszych wersjach Instalator
 
 Aby uzyskać starszej wersji Instalatora:
 
-1. Przejdź do [archiwów pobierania programu .NET](https://www.microsoft.com/net/download/archives).
-1. W obszarze **.NET Core**wybierz wersję .NET Core.
+1. Przejdź do strony [pobieranie platformy .NET Core](https://dotnet.microsoft.com/download/dotnet-core) .
+1. Kliknij żądaną wersję programu .NET Core.
 1. W kolumnie **Uruchom aplikacje — środowisko uruchomieniowe** Znajdź wiersz żądanej wersji środowiska uruchomieniowego platformy .NET Core.
 1. Pobierz instalatora przy użyciu linku **udostępniania & środowiska uruchomieniowego** .
 
@@ -1426,14 +1426,14 @@ Zainstaluj *pakiet hostingu platformy .NET Core* w systemie hostingu. Pakiet ins
 
 Pobierz Instalatora, korzystając z następującego linku:
 
-[Bieżący Instalator pakietu hostingu platformy .NET Core (Pobieranie bezpośrednie)](https://www.microsoft.com/net/permalink/dotnetcore-current-windows-runtime-bundle-installer)
+[Bieżący Instalator pakietu hostingu platformy .NET Core (Pobieranie bezpośrednie)](https://dotnet.microsoft.com/permalink/dotnetcore-current-windows-runtime-bundle-installer)
 
 ### <a name="earlier-versions-of-the-installer"></a>Wcześniejszych wersjach Instalator
 
 Aby uzyskać starszej wersji Instalatora:
 
-1. Przejdź do [archiwów pobierania programu .NET](https://www.microsoft.com/net/download/archives).
-1. W obszarze **.NET Core**wybierz wersję .NET Core.
+1. Przejdź do strony [pobieranie platformy .NET Core](https://dotnet.microsoft.com/download/dotnet-core) .
+1. Kliknij żądaną wersję programu .NET Core.
 1. W kolumnie **Uruchom aplikacje — środowisko uruchomieniowe** Znajdź wiersz żądanej wersji środowiska uruchomieniowego platformy .NET Core.
 1. Pobierz instalatora przy użyciu linku **udostępniania & środowiska uruchomieniowego** .
 

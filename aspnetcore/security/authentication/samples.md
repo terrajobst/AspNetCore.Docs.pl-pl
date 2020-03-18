@@ -5,12 +5,12 @@ description: Zawiera łącza do przykładów uwierzytelniania w repozytorium ASP
 ms.author: riande
 ms.date: 01/31/2019
 uid: security/authentication/samples
-ms.openlocfilehash: 3d7e28f6e501bd8bd3908ca4b314a63cee52ebe3
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: b013d02a65e752bbb61a87a0bf502785125378a2
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78658418"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511616"
 ---
 # <a name="authentication-samples-for-aspnet-core"></a>Przykłady uwierzytelniania dla ASP.NET Core
 
@@ -32,7 +32,7 @@ Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 * Wybierz [gałąź](https://github.com/dotnet/AspNetCore). Na przykład: `Tag:v3.0.0`
 * Klonuj lub Pobierz [repozytorium ASP.NET Core](https://github.com/dotnet/AspNetCore).
-* Sprawdź, czy zainstalowano wersję [zestaw .NET Core SDK](https://www.microsoft.com/net/download/all) zgodną z klonem ASP.NET Core repozytorium.
+* Sprawdź, czy zainstalowano wersję [zestaw .NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) zgodną z klonem ASP.NET Core repozytorium.
 * Przejdź do przykładu w *AspNetCore/src/Security/Samples* i uruchom przykład za pomocą `dotnet run`.
 
 ::: moniker-end
@@ -53,7 +53,7 @@ Autor: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 * Wybierz [gałąź](https://github.com/dotnet/AspNetCore). Na przykład: `release/2.2`
 * Klonuj lub Pobierz [repozytorium ASP.NET Core](https://github.com/dotnet/AspNetCore).
-* Sprawdź, czy zainstalowano wersję [zestaw .NET Core SDK](https://www.microsoft.com/net/download/all) zgodną z klonem ASP.NET Core repozytorium.
+* Sprawdź, czy zainstalowano wersję [zestaw .NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) zgodną z klonem ASP.NET Core repozytorium.
 * Przejdź do przykładu w *AspNetCore/src/Security/Samples* i uruchom przykład za pomocą `dotnet run`.
 
 ::: moniker-end

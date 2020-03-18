@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/25/2018
 uid: fundamentals/metapackage
-ms.openlocfilehash: e47f583d0fa75bdeb26b669303747a70619117c1
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: cc00c075909da5c17a4aa2fd252c9e662e5a0fc9
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78663150"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511070"
 ---
 # <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-20"></a>Microsoft. AspNetCore. All, pakiet dla ASP.NET Core 2,0
 
@@ -94,6 +94,6 @@ Wszystkie zależności poprzedzających pakietów, które w przeciwnym razie nie
 
 Zalecamy przeprowadzenie migracji do `Microsoft.AspNetCore.App` pakietu operacyjnego w wersji 2,1 lub nowszej. Aby nadal korzystać z pakietu `Microsoft.AspNetCore.All` i upewnić się, że jest wdrożona Najnowsza wersja poprawki:
 
-* Na komputerach deweloperskich i serwerach kompilacji: Zainstaluj najnowsze [zestaw .NET Core SDK](https://www.microsoft.com/net/download).
-* Na serwerach wdrożenia: Zainstaluj najnowsze [środowisko uruchomieniowe programu .NET Core](https://www.microsoft.com/net/download).
+* Na komputerach deweloperskich i serwerach kompilacji: Zainstaluj najnowsze [zestaw .NET Core SDK](https://dotnet.microsoft.com/download).
+* Na serwerach wdrożenia: Zainstaluj najnowsze [środowisko uruchomieniowe programu .NET Core](https://dotnet.microsoft.com/download).
  Aplikacja zostanie przeniesiona do najnowszej zainstalowanej wersji przy ponownym uruchomieniu aplikacji.

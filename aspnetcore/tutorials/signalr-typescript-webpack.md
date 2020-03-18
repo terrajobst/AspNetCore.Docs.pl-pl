@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 no-loc:
 - SignalR
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: e6dd200367278b1697ef232f5d79dfbd138bb82b
-ms.sourcegitcommit: 40dc9b00131985abcd99bd567647420d798e798a
+ms.openlocfilehash: ce5752743912a979a95fb5d504e4bcbb2b69ce1e
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78935494"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511343"
 ---
 # <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>Korzystanie z ASP.NET Core sygnalizującego za pomocą języka TypeScript i pakietu WebPack
 
@@ -21,7 +21,7 @@ Autorzy [Sébastien Sougnez](https://twitter.com/ssougnez) i [Scott Addie](https
 
 [Pakiet WebPack](https://webpack.js.org/) umożliwia deweloperom tworzenie i kompilowanie zasobów po stronie klienta aplikacji sieci Web. W tym samouczku pokazano, jak używać pakietu WebPack w aplikacji sieci Web sygnalizującej ASP.NET Core, której klient został zapisany w języku [TypeScript](https://www.typescriptlang.org/).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie szkieletu aplikacji dla programu Start ASP.NET Core
@@ -39,13 +39,13 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * [Program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) z **ASP.NET i programowaniem aplikacji sieci Web**
-* [Zestaw .NET Core SDK 3.0 lub nowszy](https://www.microsoft.com/net/download/all)
+* [Zestaw .NET Core SDK 3.0 lub nowszy](https://dotnet.microsoft.com/download/dotnet-core)
 * [Node. js](https://nodejs.org/) z [npm](https://www.npmjs.com/)
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
-* [Zestaw .NET Core SDK 3.0 lub nowszy](https://www.microsoft.com/net/download/all)
+* [Zestaw .NET Core SDK 3.0 lub nowszy](https://dotnet.microsoft.com/download/dotnet-core)
 * [C#dla Visual Studio Code w wersji 1.17.1 lub nowszej](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [Node. js](https://nodejs.org/) z [npm](https://www.npmjs.com/)
 
@@ -296,13 +296,13 @@ Upewnij się, że aplikacja działa z następującymi krokami.
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * [Program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) z **ASP.NET i programowaniem aplikacji sieci Web**
-* [Zestaw .NET Core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download/all)
+* [Zestaw .NET Core SDK 2,2 lub nowszy](https://dotnet.microsoft.com/download/dotnet-core)
 * [Node. js](https://nodejs.org/) z [npm](https://www.npmjs.com/)
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
-* [Zestaw .NET Core SDK 2,2 lub nowszy](https://www.microsoft.com/net/download/all)
+* [Zestaw .NET Core SDK 2,2 lub nowszy](https://dotnet.microsoft.com/download/dotnet-core)
 * [C#dla Visual Studio Code w wersji 1.17.1 lub nowszej](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [Node. js](https://nodejs.org/) z [npm](https://www.npmjs.com/)
 
