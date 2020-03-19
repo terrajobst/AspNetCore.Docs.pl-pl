@@ -1,1 +1,4 @@
-Podczas pracy z kluczami hierarchicznymi w zmiennych środowiskowych separator dwukropek (`:`) może nie działać na wszystkich platformach (na przykład bash). Podwójne podkreślenie (`__`) jest obsługiwane przez wszystkie platformy i automatycznie zastępowane przez dwukropek.
+Separator `:` nie działa ze zmiennymi kluczy hierarchicznych na wszystkich platformach. `__`, podwójne podkreślenie:
+
+* Obsługiwane przez wszystkie platformy. Na przykład separator `:` nie jest obsługiwany przez [bash](https://linuxhint.com/bash-environment-variables/), ale `__` jest.
+* Automatycznie zastąpione przez `:`
