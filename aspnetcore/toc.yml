@@ -969,6 +969,8 @@
           uid: security/authentication/individual
         - name: Konfigurowanie uwierzytelniania certyfikatu
           uid: security/authentication/certauth
+        - name: Uwierzytelnianie wieloskładnikowe
+          uid: security/authentication/mfa
     - name: Autoryzacja
       items:
         - name: Omówienie
