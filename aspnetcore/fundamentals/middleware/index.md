@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/02/2020
 uid: fundamentals/middleware/index
-ms.openlocfilehash: afa71b2c2b75be2c000fadd9545ac3fb4587825a
-ms.sourcegitcommit: 51c86c003ab5436598dbc42f26ea4a83a795fd6e
+ms.openlocfilehash: 9dcd061d2807fb90884327916d0348af4593df9d
+ms.sourcegitcommit: 9b6e7f421c243963d5e419bdcfc5c4bde71499aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78964463"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "79989718"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core oprogramowanie pośredniczące
 
@@ -163,12 +163,12 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-W przypadku aplikacji jednostronicowych oprogramowanie pośredniczące SPA <xref:Microsoft.Extensions.DependencyInjection.SpaStaticFilesExtensions.UseSpaStaticFiles*> zwykle jest ostatnim węzłem potoku oprogramowania pośredniczącego. Oprogramowanie pośredniczące SPA jest ostatnie:
+W przypadku aplikacji jednostronicowych (aplikacji jednostronicowych) oprogramowanie pośredniczące SPA <xref:Microsoft.Extensions.DependencyInjection.SpaStaticFilesExtensions.UseSpaStaticFiles*> zwykle jest ostatnim węzłem potoku oprogramowania pośredniczącego. Oprogramowanie pośredniczące SPA jest ostatnie:
 
 * Aby zezwolić wszystkim innym middlewares na odpowiadanie na pasujące żądania.
 * Aby umożliwić uruchamianie aplikacji jednostronicowych z routingiem po stronie klienta dla wszystkich tras, które nie są rozpoznawane przez aplikację serwera.
 
-Aby uzyskać więcej informacji na temat aplikacji jednostronicowych, zapoznaj się z przewodnikami dla szablonów projektów [reagowanie](xref:spa/react) i [kątowych](xref:spa/angular) .
+Aby uzyskać więcej informacji na temat aplikacji jednostronicowych, zobacz przewodniki dotyczące szablonów projektów [reagowanie](xref:spa/react) i [kątowych](xref:spa/angular) .
 
 ## <a name="branch-the-middleware-pipeline"></a>Rozgałęzianie potoku oprogramowania pośredniczącego
 
@@ -178,7 +178,7 @@ rozszerzenia <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*> są używane
 
 W poniższej tabeli przedstawiono żądania i odpowiedzi z `http://localhost:1234` przy użyciu poprzedniego kodu.
 
-| Request             | Odpowiedź                     |
+| Żądanie             | Odpowiedź                     |
 | ------------------- | ---------------------------- |
 | localhost:1234      | Witaj od delegata innego niż mapowanie. |
 | localhost:1234/map1 | Test mapy 1                   |
@@ -210,7 +210,7 @@ app.Map("/level1", level1App => {
 
 W poniższej tabeli przedstawiono żądania i odpowiedzi z `http://localhost:1234` przy użyciu poprzedniego kodu:
 
-| Request                       | Odpowiedź                     |
+| Żądanie                       | Odpowiedź                     |
 | ----------------------------- | ---------------------------- |
 | localhost:1234                | Witaj od delegata innego niż mapowanie. |
 | localhost:1234/?branch=master | Używane gałęzie = Master         |
@@ -390,7 +390,7 @@ rozszerzenia <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*> są używane
 
 W poniższej tabeli przedstawiono żądania i odpowiedzi z `http://localhost:1234` przy użyciu poprzedniego kodu.
 
-| Request             | Odpowiedź                     |
+| Żądanie             | Odpowiedź                     |
 | ------------------- | ---------------------------- |
 | localhost:1234      | Witaj od delegata innego niż mapowanie. |
 | localhost:1234/map1 | Test mapy 1                   |
@@ -405,7 +405,7 @@ Gdy jest używana `Map`, dopasowane segmenty ścieżki są usuwane z `HttpReques
 
 W poniższej tabeli przedstawiono żądania i odpowiedzi z `http://localhost:1234` przy użyciu poprzedniego kodu.
 
-| Request                       | Odpowiedź                     |
+| Żądanie                       | Odpowiedź                     |
 | ----------------------------- | ---------------------------- |
 | localhost:1234                | Witaj od delegata innego niż mapowanie. |
 | localhost:1234/?branch=master | Używane gałęzie = Master         |

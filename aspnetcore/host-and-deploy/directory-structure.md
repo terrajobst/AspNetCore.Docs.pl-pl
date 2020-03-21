@@ -5,14 +5,14 @@ description: Więcej informacji na temat struktury katalogów opublikowane aplik
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/07/2020
+ms.date: 03/20/2020
 uid: host-and-deploy/directory-structure
-ms.openlocfilehash: f7d6feec9961b7f6720d30d457fae5dcb6b34d6c
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 0e7bf40520385b7719cb37120709e0a3fd2442e3
+ms.sourcegitcommit: 9b6e7f421c243963d5e419bdcfc5c4bde71499aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78664109"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "79989729"
 ---
 # <a name="aspnet-core-directory-structure"></a>Struktura katalogów ASP.NET Core
 
@@ -58,9 +58,9 @@ Katalog *publikowania* zawiera elementy możliwe do wdrożenia aplikacji wytwarz
 
 | Typ aplikacji | Struktura katalogów |
 | -------- | ------------------- |
-| [Plik wykonywalny zależny od platformy (całego)](/dotnet/core/deploying/#framework-dependent-executables-fde) | <ul><li>Publikuj&dagger;<ul><li>Widoki&dagger; aplikacji MVC; Jeśli widoki nie są wstępnie skompilowane</li><li>Strony&dagger; aplikacji MVC lub Razor Pages, jeśli strony nie są wstępnie skompilowane</li><li>wwwroot&dagger;</li><li>*pliki. dll</li><li>{nazwa zestawu}. deps. json</li><li>{nazwa zestawu}. dll</li><li>{nazwa zestawu} {. Rozszerzenie} *. exe* w systemie Windows, brak rozszerzenia w systemie MacOS lub Linux</li><li>{nazwa zestawu}. pdb</li><li>{nazwa zestawu}. Widoki. dll</li><li>{nazwa zestawu}. Views. pdb</li><li>{nazwa zestawu}. runtimeconfig. JSON</li><li>plik Web. config (wdrożenia usług IIS)</li><li>zrzutu (narzędzie do zarządzania[zrzutem](https://github.com/dotnet/coreclr/blob/master/Documentation/botr/xplat-minidump-generation.md#configurationpolicy)* systemu Linux)</li><li>.</li><li>*. a (archiwum macOS)</li><li>* . DYLIB (macOS Dynamic Library)</li></ul></li></ul> |
-| [Wdrażanie samodzielne (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>Publikuj&dagger;<ul><li>Widoki&dagger; aplikacji MVC, jeśli widoki nie są wstępnie skompilowane</li><li>Strony&dagger; aplikacji MVC lub Razor Pages, jeśli strony nie są wstępnie skompilowane</li><li>wwwroot&dagger;</li><li>*. dll — pliki</li><li>{Nazwa zestawu}. deps. JSON</li><li>{Nazwa zestawu}. dll</li><li>{Nazwa zestawu}. exe</li><li>{Nazwa zestawu}. pdb</li><li>{NAZWA ZESTAWU}. Widoki. dll</li><li>{NAZWA ZESTAWU}. Widoki. pdb</li><li>{Nazwa zestawu}. runtimeconfig. JSON</li><li>Web. config (wdrożenia usług IIS)</li></ul></li></ul> |
-
+| [Plik wykonywalny zależny od platformy (całego)](/dotnet/core/deploying/#framework-dependent-executables-fde) | <ul><li>Publikuj&dagger;<ul><li>Widoki&dagger; aplikacji MVC; Jeśli widoki nie są wstępnie skompilowane</li><li>Strony&dagger; aplikacji MVC lub Razor Pages, jeśli strony nie są wstępnie skompilowane</li><li>wwwroot&dagger;</li><li>Pliki \*. dll</li><li>{Nazwa zestawu}. deps. JSON</li><li>{Nazwa zestawu}. dll</li><li>{NAZWA ZESTAWU} {. Rozszerzenie} *. exe* rozszerzenie w systemie Windows, brak rozszerzenia w systemie MacOS lub Linux</li><li>{Nazwa zestawu}. pdb</li><li>{NAZWA ZESTAWU}. Widoki. dll</li><li>{NAZWA ZESTAWU}. Widoki. pdb</li><li>{Nazwa zestawu}. runtimeconfig. JSON</li><li>Web. config (wdrożenia usług IIS)</li><li>Generuj zrzut ([Narzędzie](https://github.com/dotnet/coreclr/blob/master/Documentation/botr/xplat-minidump-generation.md#configurationpolicy)do obsługi zrzutów systemu Linux)</li><li>\*. so (Biblioteka udostępnionych obiektów systemu Linux)</li><li>\*. a (archiwum macOS)</li><li>\*. DYLIB (Biblioteka dynamiczna macOS)</li></ul></li></ul> |
+| [Wdrażanie samodzielne (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>Publikuj&dagger;<ul><li>Widoki&dagger; aplikacji MVC, jeśli widoki nie są wstępnie skompilowane</li><li>Strony&dagger; aplikacji MVC lub Razor Pages, jeśli strony nie są wstępnie skompilowane</li><li>wwwroot&dagger;</li><li>Pliki \*. dll</li><li>{Nazwa zestawu}. deps. JSON</li><li>{Nazwa zestawu}. dll</li><li>{Nazwa zestawu}. exe</li><li>{Nazwa zestawu}. pdb</li><li>{NAZWA ZESTAWU}. Widoki. dll</li><li>{NAZWA ZESTAWU}. Widoki. pdb</li><li>{Nazwa zestawu}. runtimeconfig. JSON</li><li>Web. config (wdrożenia usług IIS)</li></ul></li></ul> |
+-
 &dagger;wskazuje katalog
 
 Katalog *publikowania* reprezentuje *ścieżkę katalogu głównego zawartości*, nazywaną również *ścieżką bazową aplikacji*, wdrożenia. Dowolnych nazw do katalogu *publikacji* wdrożonej aplikacji na serwerze, jej lokalizacja służy jako ścieżka fizyczna serwera do hostowanej aplikacji.

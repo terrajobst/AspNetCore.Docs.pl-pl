@@ -1,23 +1,23 @@
 ---
 title: Kompilowanie progresywnych aplikacji sieci Web za pomocą ASP.NET Core Blazor webassembly
 author: guardrex
-description: Dowiedz się, jak tworzyć Blazorprogresywne aplikacje sieci Web (PWAs), aplikacje sieci Web, które używają nowoczesnych funkcji przeglądarki, aby zachować takie działania jak aplikacje klasyczne.
+description: Dowiedz się, jak utworzyć aplikację sieci Web progresywną opartą na Blazor(PWA), która korzysta z funkcji nowoczesnej przeglądarki w celu zachowania aplikacji klasycznej.
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/09/2020
+ms.date: 03/12/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/progressive-web-app
-ms.openlocfilehash: f1c1ce50f20bf579e67e1d4eb02cc7d9d681e354
-ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
+ms.openlocfilehash: 53e1c4d043c0e8faf13668989cda1f1245c7157a
+ms.sourcegitcommit: 9b6e7f421c243963d5e419bdcfc5c4bde71499aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79083721"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "79989607"
 ---
-# <a name="build-progressive-web-applications-with-aspnet-core-opno-locblazor-webassembly"></a>Kompilowanie progresywnych aplikacji sieci Web za pomocą ASP.NET Core Blazor webassembly
+# <a name="build-progressive-web-applications-with-aspnet-core-blazor-webassembly"></a>Kompilowanie progresywnych aplikacji sieci Web za pomocą ASP.NET Core Blazor webassembly
 
 [Steve Sanderson](https://github.com/SteveSandersonMS)
 
@@ -25,119 +25,145 @@ ms.locfileid: "79083721"
 
 [!INCLUDE[](~/includes/blazorwasm-3.2-template-article-notice.md)]
 
-Progresywna aplikacja sieci Web (PWA) to aplikacja oparta na sieci Web, która korzysta z nowoczesnych interfejsów API i funkcji w celu zachowania aplikacji klasycznych. Dostępne są następujące możliwości:
+Progresywna aplikacja sieci Web (PWA) to aplikacja jednostronicowa, która korzysta z nowoczesnych interfejsów API i funkcji w celu zachowania aplikacji klasycznych. Blazor webassembly to oparta na standardach platforma aplikacji sieci Web po stronie klienta, która może korzystać z dowolnego interfejsu API przeglądarki, w tym interfejsów API programu PWA, które są wymagane dla następujących możliwości:
 
-* Praca w trybie offline i zawsze trwa ładowanie niezależnie od szybkości sieci
-* Możliwość uruchamiania w osobnym oknie aplikacji, a nie tylko w oknie przeglądarki
-* Jest uruchamiany z menu Start systemu operacyjnego hosta, dokowania lub ekranu głównego
-* Otrzymywanie powiadomień wypychanych z serwera wewnętrznej bazy danych, nawet jeśli użytkownik nie korzysta z aplikacji
-* Automatyczne aktualizowanie w tle
+* Praca w trybie offline i ładowanie błyskawiczne niezależnie od szybkości sieci.
+* Działa w osobnym oknie aplikacji, a nie tylko w oknie przeglądarki.
+* Jest uruchamiany z menu Start systemu operacyjnego hosta, zadokowanego lub ekranu głównego.
+* Otrzymywanie powiadomień wypychanych z serwera wewnętrznej bazy danych, nawet jeśli użytkownik nie korzysta z aplikacji.
+* Automatyczna aktualizacja w tle.
 
-Użytkownik może najpierw odnaleźć i korzystać z aplikacji w swojej przeglądarce internetowej, podobnie jak każda inna aplikacja jednostronicowa (SPA), później postępować w celu zainstalowania jej w systemie operacyjnym i włączenia powiadomień wypychanych. Dlatego używamy warunkowego *postępu*.
+Słowo *progresywne* służy do opisywania takich aplikacji, ponieważ:
 
-Blazor webassembly to prawdziwa oparta na standardach platforma aplikacji sieci Web po stronie klienta, dzięki której można korzystać z dowolnego interfejsu API przeglądarki, w tym interfejsów API programu PWA, które są potrzebne do obsługi wymienionych powyżej. Może działać w trybie offline podobnie jak w przypadku każdej innej technologii sieci Web po stronie klienta.
+* Użytkownik może najpierw odnaleźć i korzystać z aplikacji w swojej przeglądarce internetowej, podobnie jak inne SPA.
+* Później użytkownik postępuje nad instalowaniem go w systemie operacyjnym i włączaniem powiadomień wypychanych.
 
-## <a name="pwa-template"></a>Szablon PWA
+## <a name="create-a-project-from-the-pwa-template"></a>Tworzenie projektu na podstawie szablonu PWA
 
-Podczas tworzenia nowej aplikacji Blazor webassembly jest oferowana opcja dodawania funkcji PWA. W programie Visual Studio opcja jest określona jako pole wyboru w oknie dialogowym tworzenia projektu:
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-![obraz](https://user-images.githubusercontent.com/1101362/76207411-a6b54200-61f5-11ea-9dfc-6acd87a91428.png)
+Podczas tworzenia nowej **aplikacji Webassembly Blazor** w oknie dialogowym **Tworzenie nowego projektu** zaznacz pole wyboru **aplikacja sieci Web postępu** :
 
-Jeśli tworzysz projekt w wierszu polecenia, możesz użyć flagi `--pwa`. Na przykład
+![W oknie dialogowym Nowy projekt programu Visual Studio jest zaznaczone pole wyboru "progresywna aplikacja sieci Web".](progressive-web-app/_static/image1.png)
+
+<!--
+
+# [Visual Studio for Mac](#tab/visual-studio-mac)
+
+-->
+
+# <a name="visual-studio-code--net-core-cli"></a>[Visual Studio Code/interfejs wiersza polecenia platformy .NET Core](#tab/visual-studio-code+netcore-cli)
+
+Utwórz projekt PWA w powłoce poleceń przy użyciu przełącznika `--pwa`:
 
 ```dotnetcli
-dotnet new blazorwasm --pwa -o MyNewProject
+dotnet new blazorwasm -o MyNewProject --pwa
 ```
 
-W obu przypadkach możesz połączyć ten program z opcją "ASP.NET Core Hosted", jeśli chcesz, ale nie musisz tego robić. Funkcje programu PWA są niezależne od modelu hostingu.
+---
+
+Opcjonalnie można skonfigurować PWA dla aplikacji utworzonej przy użyciu szablonu hostowanego ASP.NET Core. Scenariusz PWA jest niezależny od modelu hostingu.
 
 ## <a name="installation-and-app-manifest"></a>Manifest instalacji i aplikacji
 
-Podczas odwiedzania aplikacji utworzonej przy użyciu opcji szablonu PWA użytkownicy mogą zainstalować aplikację w menu Start, zadokowanym lub na ekranie głównym systemu operacyjnego.
+Podczas odwiedzania aplikacji utworzonej przy użyciu szablonu PWA użytkownicy mają możliwość instalowania aplikacji w menu Start, zadokowanym lub na ekranie głównym systemu operacyjnego. Sposób przedstawiania tej opcji zależy od przeglądarki użytkownika. W przypadku korzystania z przeglądarek programu Desktop w formacie chromu, takich jak Edge lub Chrome, na pasku adresu URL pojawia się przycisk **Dodaj** . Gdy użytkownik wybierze przycisk **Dodaj** , pojawi się okno dialogowe potwierdzenia:
 
-Sposób przedstawiania tej opcji zależy od przeglądarki użytkownika. Na przykład w przypadku korzystania z przeglądarek opartych na formacie chromu w programie Desktop, takich jak Edge lub Chrome, na pasku adresu URL pojawia się przycisk *Dodaj* .
+![Potwierdzenie diaglog w usłudze Google Chrome prezentuje przycisk przycisku Zainstaluj użytkownikowi dla aplikacji "MyBlazorPwa".](progressive-web-app/_static/image2.png)
 
-![obraz](https://user-images.githubusercontent.com/1101362/76208127-f7796a80-61f6-11ea-8aea-7fba704be787.png)
+W systemie iOS osoby odwiedzające mogą zainstalować program PWA przy użyciu przycisku **udostępniania** Safari i jego opcji **Dodaj do homescreen** . W programie Chrome dla systemu Android użytkownicy powinni wybrać przycisk **menu** w prawym górnym rogu, a następnie **dodać do ekranu głównego**.
 
-W systemie iOS osoby odwiedzające mogą zainstalować program PWA przy użyciu przycisku *udostępniania* Safari i jego opcji *Dodaj do homescreen* . W przypadku programu Chrome dla systemu Android użytkownicy powinni nacisnąć przycisk *menu* w prawym górnym rogu, a następnie wybrać pozycję *Dodaj do ekranu głównego*.
+Po zainstalowaniu aplikacja zostanie wyświetlona w osobnym oknie bez paska adresu:
 
-Po zainstalowaniu aplikacja pojawia się w osobnym oknie, bez paska adresu.
+![Aplikacja "MyBlazorPwa" działa w przeglądarce Google Chrome bez paska adresu.](progressive-web-app/_static/image3.png)
 
-![obraz](https://user-images.githubusercontent.com/1101362/76208588-e2e9a200-61f7-11ea-85e1-8c3fc849b252.png)
-
-Aby dostosować tytuł okna, schemat kolorów, ikonę lub inne szczegóły, zobacz plik `manifest.json` w katalogu *wwwroot* Twojego projektu. Schemat tego pliku jest definiowany przez standardy sieci Web. Aby uzyskać szczegółową dokumentację, zobacz https://developer.mozilla.org/docs/Web/Manifest.
+Aby dostosować tytuł okna, schemat kolorów, ikonę lub inne szczegóły, zobacz plik *manifest. JSON* w katalogu *wwwroot* projektu. Schemat tego pliku jest definiowany przez standardy sieci Web. Aby uzyskać więcej informacji, zobacz [powiadomienia MDN Web docs: manifest aplikacji sieci Web](https://developer.mozilla.org/docs/Web/Manifest).
 
 ## <a name="offline-support"></a>Obsługa offline
 
-Domyślnie aplikacje utworzone przy użyciu opcji szablonu PWA obsługują uruchamianie w trybie offline. Użytkownik musi najpierw odwiedzić aplikację, gdy jest w trybie online, a następnie automatycznie pobierze i przetworzy pamięć podręczną wszystkich zasobów wymaganych do działania w trybie offline.
+Domyślnie aplikacje utworzone przy użyciu opcji szablonu PWA obsługują uruchamianie w trybie offline. Użytkownik musi najpierw odwiedzić aplikację, gdy jest w trybie online. Przeglądarka automatycznie pobiera i buforuje wszystkie zasoby wymagane do działania w trybie offline.
 
 > [!IMPORTANT]
-> Obsługa w trybie offline jest włączona tylko dla *opublikowanych* aplikacji. Nie jest ona włączona podczas tworzenia. Dzieje się tak, ponieważ mogłoby to zakłócać proces tworzenia zmian i testowania.
+> Wsparcie programistyczne może kolidować z typowym cyklem programistycznym wprowadzania zmian i testowania. W związku z tym obsługa w trybie offline jest włączona tylko dla *opublikowanych* aplikacji. 
 
 > [!WARNING]
-> Jeśli zamierzasz wysłać aplikację PWA z obsługą trybu offline, istnieje [kilka ważnych ostrzeżeń i](#caveats-for-offline-pwas) zaleceń, które należy zrozumieć. Są one związane z PWAs w trybie offline i nie są specyficzne dla Blazor. Pamiętaj, aby przeczytać i zrozumieć te zastrzeżenia przed wprowadzeniem założeń dotyczących działania aplikacji z obsługą trybu offline.
+> Jeśli zamierzasz rozpowszechnić aplikację PWA z obsługą trybu offline, istnieje [kilka ważnych ostrzeżeń i](#caveats-for-offline-pwas)ich zamiar. Te scenariusze są związane z PWAs w trybie offline i nie są specyficzne dla Blazor. Pamiętaj, aby przeczytać i zrozumieć te zastrzeżenia przed wprowadzeniem założeń dotyczących sposobu działania aplikacji z obsługą trybu offline.
 
-Aby zobaczyć, jak działa obsługa w trybie offline, należy najpierw [opublikować aplikację](https://docs.microsoft.com/aspnet/core/host-and-deploy/blazor/?view=aspnetcore-3.1&tabs=visual-studio#publish-the-app)i hostować ją na serwerze obsługującym protokół https. Po odwiedzeniu aplikacji powinno być możliwe otwarcie narzędzi deweloperskich przeglądarki i sprawdzenie, czy *proces roboczy usługi* został zarejestrowany dla hosta:
+Aby zobaczyć, jak działa pomoc techniczna w trybie offline:
 
-![obraz](https://user-images.githubusercontent.com/1101362/76210294-bd5e9780-61fb-11ea-9869-65c55c62803d.png)
+1. Opublikuj aplikację. Aby uzyskać więcej informacji, zobacz <xref:host-and-deploy/blazor/index#publish-the-app>.
+1. Wdróż aplikację na serwerze obsługującym protokół HTTPS i uzyskaj dostęp do aplikacji w przeglądarce przy użyciu bezpiecznego adresu HTTPS.
+1. Otwórz narzędzia deweloperskie przeglądarki i sprawdź, czy *proces roboczy usługi* jest zarejestrowany dla hosta na karcie **aplikacja** :
 
-Ponadto w przypadku ponownego załadowania strony na karcie *Sieć* powinna zostać wyświetlona wartość wszystkie zasoby potrzebne do załadowania strony są pobierane z *procesu roboczego usługi* lub pamięci *podręcznej pamięci*:
+   ![Karta "aplikacja" narzędzia deweloperskiego dla deweloperów Google Chrome pokazuje, że proces roboczy usługi został aktywowany i uruchomiony.](progressive-web-app/_static/image4.png)
 
-![obraz](https://user-images.githubusercontent.com/1101362/76210472-1d553e00-61fc-11ea-84c6-291644df709e.png)
+1. Załaduj ponownie stronę i sprawdź kartę **Sieć** . **proces roboczy usługi** lub pamięć **podręczna pamięci** są wyświetlane jako źródła dla wszystkich zasobów strony:
 
-Oznacza to, że przeglądarka nie jest zależna od dostępu do sieci w celu załadowania aplikacji. Aby to sprawdzić, możesz zamknąć serwer sieci Web lub poinstruować przeglądarkę, aby zasymulować tryb offline:
+   ![Karta Sieć w narzędziu deweloperskim firmy Google Chrome przedstawia źródła dla wszystkich elementów zawartości strony.](progressive-web-app/_static/image5.png)
 
-![obraz](https://user-images.githubusercontent.com/1101362/76210556-47a6fb80-61fc-11ea-9d12-20a8f6528744.png)
+1. Aby sprawdzić, czy przeglądarka nie jest zależna od dostępu do sieci w celu załadowania aplikacji, należy wykonać jedną z:
 
-Teraz, nawet bez dostępu do serwera sieci Web, powinno być możliwe ponowne załadowanie strony i sprawdzenie, czy aplikacja jest nadal ładowana i uruchomiona. Podobnie nawet w przypadku symulowania bardzo wolnego połączenia sieciowego strona zostanie załadowana natychmiast po załadowaniu jej niezależnie od sieci.
+   * Zamknij serwer sieci Web i zobacz, jak aplikacja nadal działa normalnie, co obejmuje ponowne ładowanie stron. Podobnie aplikacja nadal działa normalnie, gdy istnieje wolne połączenie sieciowe.
+   * Poinstruuj przeglądarkę, aby zasymulować tryb offline na karcie **Sieć** :
 
-### <a name="service-worker"></a>Proces roboczy usługi
+   ![Karta "Sieć" programu Google Chrome Developer Tools z menu rozwijanego trybu przeglądarki zmienia się z "online" na "offline".](progressive-web-app/_static/image6.png)
 
-Obsługa w trybie offline jest realizowana przy użyciu procesu roboczego usługi. Jest to standard sieci Web, który nie jest specyficzny dla Blazor. Aby uzyskać dokumentację dotyczącą pracowników usług, zobacz https://developer.mozilla.org/docs/Web/API/Service_Worker_API. Aby dowiedzieć się więcej o typowych wzorcach użycia dla pracowników usług, zobacz doskonałe informacje o [cyklu życia pracownika usługi](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle).
+Obsługa w trybie offline przy użyciu procesu roboczego usługi jest standardem internetowym, niespecyficznym dla Blazor. Aby uzyskać więcej informacji na temat procesów roboczych usługi, zobacz [powiadomienia MDN Web docs: interfejs API procesu roboczego usługi](https://developer.mozilla.org/docs/Web/API/Service_Worker_API). Aby dowiedzieć się więcej o typowych wzorcach użycia dla pracowników usług, zobacz [Google Web: cykl życia procesu roboczego usługi](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle).
 
 szablon w programie BlazorPWA tworzy dwa pliki procesów roboczych usługi:
 
-* *wwwroot/Service-Worker. js*, który jest używany podczas opracowywania
-* *wwwroot/Service-Worker. opublikowano. js*, który jest używany po opublikowaniu aplikacji
+* plik *wwwroot/Service-Worker. js*, który jest używany podczas opracowywania.
+* plik *wwwroot/Service-Worker. opublikowano. js*, który jest używany po opublikowaniu aplikacji.
 
-Jeśli chcesz udostępnić logikę między tymi dwoma plikami, rozważ dodanie trzeciego pliku JavaScript do przechowywania typowej logiki i Użyj [`self.importScripts`](https://developer.mozilla.org/docs/Web/API/WorkerGlobalScope/importScripts) do załadowania logiki do obu plików.
+Aby współużytkować logikę między dwoma plikami roboczymi usługi, należy wziąć pod uwagę następujące podejście:
 
-#### <a name="cache-first-fetch-strategy"></a>Strategia pobierania w pamięci podręcznej
+* Dodaj trzeci plik JavaScript do przechowywania typowej logiki.
+* Użyj [funkcji Auto. importScripts](https://developer.mozilla.org/docs/Web/API/WorkerGlobalScope/importScripts) , aby załadować wspólną logikę do obu plików procesów roboczych usługi.
 
-Wbudowany proces roboczy usługi *Service-Worker. opublikowano. js* rozpoznaje żądania przy użyciu strategii *pierwszej pamięci podręcznej* . Oznacza to, że zawsze woli zwrócić zawartość pamięci podręcznej, jeśli jest dostępna, niezależnie od tego, czy użytkownik ma dostęp do sieci, czy nowsza zawartość jest dostępna na serwerze.
+### <a name="cache-first-fetch-strategy"></a>Strategia pobierania w pamięci podręcznej
 
-Istnieją dwa powody, dla których jest to cenne:
+Wbudowany proces roboczy usługi *Service-Worker. opublikowano. js* rozpoznaje żądania przy użyciu strategii *pierwszej pamięci podręcznej* . Oznacza to, że pracownik usługi woli zwrócić zawartość buforowaną, bez względu na to, czy użytkownik ma dostęp do sieci czy na serwerze jest dostępna nowsza zawartość.
 
-* **Zapewnia niezawodność.** Dostęp do sieci nie jest stanem logicznym. Użytkownik nie jest po prostu "online" lub "offline". W rzeczywistości urządzenie użytkownika może uznać, że jest w trybie online, ale sieć może być zbyt mała, aby oczekiwać. Lub sieć może zwracać nieprawidłowe wyniki dla niektórych adresów URL, na przykład gdy istnieje Portal sieci Wi-Fi, który aktualnie blokuje lub przekierowuje określone żądania. Jest to dlatego, że interfejs API `navigator.onLine` przeglądarki nie jest niezawodny i nie powinien być zależny od tego, czy nie.
-* **Zapewnia to poprawność.** Podczas kompilowania pamięci podręcznej zasobów w trybie offline, proces roboczy usługi używa tworzenia skrótów zawartości w celu zagwarantowania, że pobrano kompletną i spójną migawkę zasobów w jednym czasie. Ta pamięć podręczna jest następnie używana jako jednostka niepodzielna. W związku z tym nie ma żadnego punktu, aby uzyskać dostęp do sieci w celu uzyskania nowszych zasobów, ponieważ jedynymi wersjami są te, które zostały już zapisane w pamięci podręcznej. Wszelkie inne zagrożenia niespójnością i niezgodnością (na przykład próba użycia wersji zestawów .NET, które nie zostały skompilowane razem).
+Strategia pierwszej pamięci podręcznej jest cenna, ponieważ:
 
-#### <a name="background-updates"></a>Aktualizacje w tle
+* **Zapewnia niezawodność.** &ndash; dostęp do sieci nie jest stanem logicznym. Użytkownik nie jest po prostu w trybie online lub offline:
 
-Jako model psychiczny Możesz pomyśleć o tym, że w trybie offline — w pierwszej kolejności, jak w przypadku aplikacji mobilnej, która może być zainstalowana. Zawsze zaczyna się od razu, niezależnie od łączności sieciowej, ale zainstalowana logika aplikacji pochodzi z migawki do punktu w czasie, która może nie być najnowszą wersją.
+  * Urządzenie użytkownika może założyć, że jest w trybie online, ale sieć może być zbyt mała, aby można było oczekiwać.
+  * Sieć może zwrócić nieprawidłowe wyniki dla niektórych adresów URL, na przykład gdy istnieje Portal sieci Wi-Fi, który aktualnie blokuje lub przekierowuje określone żądania.
+  
+  Dzieje się tak dlatego, że interfejs API `navigator.onLine` przeglądarki nie jest niezawodny i nie powinien być zależny od tego.
 
-Szablon Blazor PWA umożliwia tworzenie aplikacji, które automatycznie próbują zaktualizować się w tle zawsze, gdy użytkownik odwiedza i ma działające połączenie sieciowe. Oto jak to działa:
+* **Zapewnia to poprawność.** &ndash; podczas kompilowania pamięci podręcznej zasobów w trybie offline, proces roboczy usługi używa skrótów zawartości w celu zagwarantowania, że pobrano pełną i spójną migawkę zasobów w jednym czasie. Ta pamięć podręczna jest następnie używana jako jednostka niepodzielna. Nie ma żadnego punktu, aby uzyskać więcej zasobów w sieci, ponieważ jedyne wymagane wersje to te, które są już w pamięci podręcznej. Wszelkie inne zagrożenia niespójnością i niezgodnością (na przykład próba użycia wersji zestawów .NET, które nie zostały skompilowane razem).
 
-* Podczas kompilacji projekt generuje *manifest zasobów roboczych usługi*. Domyślnie jest to nazwa *Service-Worker-Assets. js*. Zawiera listę wszystkich zasobów statycznych, które aplikacja musi działać w trybie offline, takich jak zestawy .NET, pliki JavaScript, CSS itp., włącznie z ich skrótami zawartości. Ta lista jest załadowana przez proces roboczy usługi, aby uzyskać informację o tym, które zasoby mają być buforowane.
-* Za każdym razem, gdy użytkownik odwiedzi aplikację, przeglądarka zażąda w tle *Service-Worker. js* i *Service-Worker-Assets. js* . Jeśli serwer zwróci zmienioną zawartość dla jednego z tych plików (w porównaniu bajtach w bajtach z istniejącym zainstalowanym pracownikiem usługi), proces roboczy usługi próbuje zainstalować nową wersję programu.
-* Podczas instalowania nowej wersji, proces roboczy usługi tworzy nową, oddzielną pamięć podręczną dla zasobów w trybie offline i rozpoczyna zapełnianie jej zasobami wymienionymi w *Service-Worker-Assets. js*. Ta logika jest implementowana w funkcji `onInstall` w *Service-Worker. opublikowano. js*.
-* Jeśli proces zakończy się pomyślnie (tj. wszystkie zasoby są ładowane bez błędów, a wszystkie wartości skrótów zawartości), nowy proces roboczy usługi przechodzi do stanu "Oczekiwanie na aktywację". Gdy tylko użytkownik zamknie aplikację (tj. nie ma żadnych kart lub okien aplikacji), nowy proces roboczy usługi zmieni się na "aktywny" i będzie używany do kolejnych wizyt w aplikacji. Stary proces roboczy usługi i jego pamięć podręczna są usuwane.
-* Jeśli proces nie zakończy się pomyślnie, nowe wystąpienie procesu roboczego usługi zostanie odrzucone. Proces aktualizacji zostanie podjęty ponownie na następnym odwiedzeniu użytkownika, gdy miejmy nadzieję się z lepszym połączeniem sieciowym, które może zakończyć żądania.
+### <a name="background-updates"></a>Aktualizacje w tle
 
-Można dostosować dowolny aspekt tego procesu, edytując logikę procesu roboczego usługi. Żadne z powyższych elementów nie jest specyficzne dla Blazor, ale jest tylko sugestią podaną przez opcję szablonu PWA. Aby uzyskać więcej informacji, zobacz [dokumentację procesu roboczego usługi](https://developer.mozilla.org/docs/Web/API/Service_Worker_API.) .
+Jako model psychiczny Możesz pomyśleć o tym, że w trybie offline — w przypadku aplikacji mobilnej, która może być zainstalowana. Aplikacja zostanie uruchomiona natychmiast niezależnie od łączności sieciowej, ale zainstalowana logika aplikacji pochodzi z migawki do punktu w czasie, która może nie być najnowszą wersją.
 
-#### <a name="how-requests-are-resolved"></a>Jak są rozwiązywane żądania
+Szablon Blazor PWA umożliwia tworzenie aplikacji, które automatycznie próbują zaktualizować siebie w tle zawsze, gdy użytkownik odwiedza i ma działające połączenie sieciowe. Oto jak to działa:
 
-Jak opisano powyżej, domyślny proces roboczy usługi korzysta z strategii dotyczącej *pamięci podręcznej* , co oznacza, że próbuje obsłużć zawartość buforowaną, jeśli jest dostępna. W przypadku braku zawartości przechowywanej w pamięci podręcznej dla określonego adresu URL, na przykład podczas żądania danych z interfejsu API zaplecza, proces roboczy usługi powraca do zwykłego żądania sieci, co może zakończyć się powodzeniem tylko wtedy, gdy serwer jest osiągalny. Ta logika jest implementowana w `onFetch` w ramach *Service-Worker. opublikowano. js*.
+* Podczas kompilacji projekt generuje *manifest zasobów roboczych usługi*. Domyślnie jest to *Service-Worker-Assets. js*. Manifest zawiera listę wszystkich zasobów statycznych wymaganych przez aplikację do działania w trybie offline, takich jak zestawy .NET, pliki JavaScript i CSS, w tym ich skróty zawartości. Lista zasobów jest załadowana przez proces roboczy usługi, aby uzyskać informację o tym, które zasoby mają być buforowane.
+* Za każdym razem, gdy użytkownik odwiedzi aplikację, przeglądarka żąda ponownego żądania *Service-Worker. js* i *Service-Worker-Assets. js* w tle. Pliki są porównywane bajtowo z istniejącym zainstalowanym pracownikiem usługi. Jeśli serwer zwróci zmianę zawartości dla dowolnego z tych plików, proces roboczy usługi próbuje zainstalować nową wersję programu.
+* Podczas instalowania nowej wersji, proces roboczy usługi tworzy nową, oddzielną pamięć podręczną dla zasobów w trybie offline i rozpoczyna zapełnianie pamięci podręcznej zasobami wymienionymi w *Service-Worker-Assets. js*. Ta logika jest implementowana w funkcji `onInstall` w *Service-Worker. opublikowano. js*.
+* Proces zostanie zakończony pomyślnie, gdy wszystkie zasoby są ładowane bez błędu, a wszystkie skróty zawartości są zgodne. Jeśli to się powiedzie, nowy proces roboczy usługi przechodzi w stan *oczekiwania na aktywację* . Gdy tylko użytkownik zamknie aplikację (żadne pozostałe karty lub okna aplikacji), nowy proces roboczy usługi zostanie *uaktywniony* i będzie używany do kolejnych odwiedzin aplikacji. Stary proces roboczy usługi i jego pamięć podręczna są usuwane.
+* Jeśli proces nie zakończy się pomyślnie, nowe wystąpienie procesu roboczego usługi zostanie odrzucone. Proces aktualizacji jest podejmowany ponownie na następnym odwiedzeniu użytkownika, gdy miejmy nadzieję klient ma lepsze połączenie sieciowe, które może zakończyć żądania.
 
-Jeśli składniki Blazor korzystają z żądania danych z interfejsów API zaplecza i chcesz zapewnić przyjazne środowisko użytkownika w przypadku, gdy takie żądania nie powiodą się z powodu niedostępności sieci, należy zaimplementować logikę w składnikach. Na przykład użyj `try/catch` wokół żądań `HttpClient`.
+Dostosuj ten proces, edytując logikę procesu roboczego usługi. Żadne z powyższych zachowań nie jest specyficzne dla Blazor ale jest tylko domyślnym środowiskoem udostępnionym przez opcję szablonu PWA. Aby uzyskać więcej informacji, zobacz [powiadomienia MDN Web docs: interfejs API procesu roboczego usługi](https://developer.mozilla.org/docs/Web/API/Service_Worker_API).
 
-#### <a name="support-server-rendered-pages"></a>Obsługa stron renderowanych na serwerze
+### <a name="how-requests-are-resolved"></a>Jak są rozwiązywane żądania
 
-Zastanów się, co się stanie, gdy użytkownik najpierw nawiguje do adresu URL, takiego jak `/counter`, lub dowolnego innego linku bezpośredniego do aplikacji. W takich przypadkach nie chcesz zwracać zawartości w pamięci podręcznej jako `/counter`, ale zamiast tego należy użyć przeglądarki do załadowania zawartości w pamięci podręcznej jako `/index.html`, aby uruchomić aplikację Blazor webassembly. Te początkowe żądania są znane jako żądania *nawigacji* (w przeciwieństwie do żądań dotyczących *zasobów* dla obrazów/CSS/etc lub *pobierania/XHR* żądań dotyczących danych interfejsu API).
+Zgodnie z opisem w sekcji [Strategia pobierania pamięci podręcznej](#cache-first-fetch-strategy) , domyślny proces roboczy usługi korzysta z strategii dotyczącej *pamięci podręcznej* , co oznacza, że próbuje obsłużć zawartość buforowaną, jeśli jest dostępna. W przypadku braku zawartości przechowywanej w pamięci podręcznej dla określonego adresu URL, na przykład podczas żądania danych z interfejsu API zaplecza, proces roboczy usługi powraca do zwykłego żądania sieci. Żądanie sieciowe powiedzie się, jeśli serwer jest osiągalny. Ta logika jest implementowana w funkcji `onFetch` w ramach *Service-Worker. opublikowano. js*.
 
-Domyślny proces roboczy usługi zawiera logikę przypadków specjalnych dla żądań nawigacji. Rozwiązuje je, zwracając zawartość z pamięci podręcznej dla `/index.html`niezależnie od żądanego adresu URL. Ta logika jest implementowana w funkcji `onFetch` w *Service-Worker. opublikowano. js*.
+Jeśli składniki Razor dla aplikacji korzystają z żądania danych z interfejsów API zaplecza i chcesz zapewnić przyjazne środowisko użytkownika dla żądań zakończonych niepowodzeniem ze względu na niedostępność sieci, zaimplementuj logikę w składnikach aplikacji. Na przykład użyj `try/catch` wokół żądań `HttpClient`.
 
-Jeśli aplikacja zawiera pewne adresy URL, które muszą zwracać kod HTML renderowany przez serwer (i nie obsługują `/index.html` z pamięci podręcznej), należy edytować logikę w procesie roboczym usługi. Na przykład, jeśli wszystkie adresy URL zawierające `/Identity/` muszą być obsługiwane jako regularne żądania tylko online do serwera, zmodyfikuj logikę `onFetch` *Service-Worker. opublikowano. js* . Znajdź następujący kod:
+### <a name="support-server-rendered-pages"></a>Obsługa stron renderowanych na serwerze
+
+Zastanów się, co się stanie, gdy użytkownik najpierw nawiguje do adresu URL, takiego jak `/counter`, lub dowolnego innego linku bezpośredniego w aplikacji. W takich przypadkach nie chcesz zwracać zawartości w pamięci podręcznej jako `/counter`, ale zamiast tego należy użyć przeglądarki do załadowania zawartości w pamięci podręcznej jako `/index.html`, aby uruchomić aplikację Blazor webassembly. Te początkowe żądania są znane jako żądania *nawigacji* , w przeciwieństwie do:
+
+* żądania *zasobów* dla obrazów, arkuszy stylów lub innych plików.
+* żądania *pobrania/XHR* dla danych interfejsu API.
+
+Domyślny proces roboczy usługi zawiera logikę przypadków specjalnych dla żądań nawigacji. Proces roboczy usługi rozwiązuje żądania, zwracając zawartość pamięci podręcznej dla `/index.html`niezależnie od żądanego adresu URL. Ta logika jest implementowana w funkcji `onFetch` w *Service-Worker. opublikowano. js*.
+
+Jeśli aplikacja ma określone adresy URL, które muszą zwracać kod HTML renderowany przez serwer i nie obsługują `/index.html` z pamięci podręcznej, należy edytować logikę w procesie roboczym usługi. Jeśli wszystkie adresy URL zawierające `/Identity/` muszą być obsługiwane jako regularne żądania tylko online do serwera, zmodyfikuj logikę `onFetch` *Service-Worker. opublikowano. js* . Znajdź następujący kod:
 
 ```javascript
 const shouldServeIndexHtml = event.request.mode === 'navigate';
@@ -150,109 +176,105 @@ const shouldServeIndexHtml = event.request.mode === 'navigate'
     && !event.request.url.includes('/Identity/');
 ```
 
-Jeśli tego nie zrobisz, proces roboczy usługi przechwytuje żądania dotyczące adresów URL i rozwiąże je przy użyciu `/index.html`.
+W przeciwnym razie niezależnie od łączności sieciowej proces roboczy usługi przechwytuje żądania dotyczące adresów URL i rozwiązuje je za pomocą `/index.html`.
 
-#### <a name="control-asset-caching"></a>Sterowanie buforowaniem zasobów
+### <a name="control-asset-caching"></a>Sterowanie buforowaniem zasobów
 
-Jeśli projekt definiuje Właściwość programu MSBuild o nazwie `ServiceWorkerAssetsManifest`, narzędzia kompilacji Blazorwygenerują manifest zasobów procesów roboczych usługi o podanej nazwie. Domyślny szablon PWA tworzy plik projektu zawierający następujące elementy:
+Jeśli projekt definiuje Właściwość `ServiceWorkerAssetsManifest` MSBuild, narzędzia kompilacji Blazorgenerują manifest zasobów procesów roboczych usługi o podanej nazwie. Domyślny szablon PWA tworzy plik projektu zawierający następującą właściwość:
 
 ```xml
 <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
 ```
 
-Plik zostanie umieszczony w katalogu wyjściowym *wwwroot* , dzięki czemu przeglądarka może pobrać ten plik, żądając `/service-worker-assets.js`. Aby wyświetlić zawartość, Otwórz *YourProject\bin\Debug\netstandard2.1\wwwroot\service-Worker-Assets.js* w edytorze tekstu. Jednak nie należy edytować pliku, ponieważ zostanie on wygenerowany ponownie dla każdej kompilacji.
+Plik zostanie umieszczony w katalogu wyjściowym *wwwroot* , dzięki czemu przeglądarka może pobrać ten plik, żądając `/service-worker-assets.js`. Aby wyświetlić zawartość tego pliku, Otwórz */bin/debug/{Target Framework}/wwwroot/Service-Worker-Assets.js* w edytorze tekstu. Jednak nie należy edytować pliku, ponieważ jest on ponownie generowany dla każdej kompilacji.
 
 Domyślnie ten manifest zawiera następujące listę:
 
-* Wszystkie zasoby zarządzane przez Blazor, takie jak zestawy .NET i pliki środowiska uruchomieniowego programu .NET webassembly, które są potrzebne do działania w trybie offline
-* Wszystkie zasoby, które zostaną opublikowane w katalogu *wwwroot* , takie jak obrazy, pliki CSS i pliki JavaScript. Obejmuje to statyczne zasoby sieci Web dostarczane przez zewnętrzne projekty i pakiety NuGet.
+* Wszystkie zasoby zarządzane przez Blazor, takie jak zestawy .NET i pliki środowiska uruchomieniowego programu .NET webassembly wymagane do działania w trybie offline.
+* Wszystkie zasoby do publikowania w katalogu *wwwroot* aplikacji, takie jak obrazy, arkusze stylów i pliki JavaScript, w tym statyczne zasoby sieci Web dostarczane przez zewnętrzne projekty i pakiety NuGet.
 
-Można kontrolować, które z tych zasobów będą pobierane i buforowane przez proces roboczy usługi przez edytowanie logiki w `onInstall` w *Service-Worker. opublikowano. js*. Domyślnie pobiera i buforuje pliki zgodne z typowymi rozszerzeniami nazw sieci Web, takimi jak *. html*, *. css*,. *js*, *. wasm*i innych, a także typy plików specyficzne dla Blazor webassembly ( *. dll*, *. pdb*).
+Można kontrolować, które z tych zasobów są pobierane i buforowane przez proces roboczy usługi przez edytowanie logiki w `onInstall` w *Service-Worker. opublikowano. js*. Domyślnie proces roboczy usługi pobiera i buforuje pliki zgodne z typowymi rozszerzeniami nazw sieci Web, takimi jak *. html*, *CSS*, *js*i *wasm*, oraz typy plików specyficzne dla Blazor webassembly ( *. dll*, *. pdb*).
 
-Jeśli chcesz uwzględnić dodatkowe zasoby, które nie znajdują się w katalogu *wwwroot* , możesz to zrobić przez zdefiniowanie dodatkowych wpisów w ramach elementu MSBuild. Na przykład w pliku projektu Dodaj:
+Aby uwzględnić dodatkowe zasoby, które nie znajdują się w katalogu *wwwroot* aplikacji, Zdefiniuj dodatkowe wpisy `ItemGroup` programu MSBuild, jak pokazano w następującym przykładzie:
 
 ```xml
 <ItemGroup>
-    <ServiceWorkerAssetsManifestItem
-        Include="MyDirectory\AnotherFile.json"
-        RelativePath="MyDirectory\AnotherFile.json"
-        AssetUrl="files/AnotherFile.json" />
+  <ServiceWorkerAssetsManifestItem Include="MyDirectory\AnotherFile.json"
+    RelativePath="MyDirectory\AnotherFile.json" AssetUrl="files/AnotherFile.json" />
 </ItemGroup>
 ```
 
 Metadane `AssetUrl` określają podstawowy adres URL, który powinien być używany przez przeglądarkę podczas pobierania zasobu do pamięci podręcznej. Może to być niezależna od oryginalnej nazwy pliku źródłowego na dysku.
 
 > [!IMPORTANT]
-> Dodanie `ServiceWorkerAssetsManifestItem` nie powoduje opublikowania pliku w katalogu *wwwroot* . Pozwala ona na kontrolowanie danych wyjściowych publikowanych osobno. `ServiceWorkerAssetsManifestItem` powoduje tylko dodatkowy wpis do wyświetlenia w manifeście zasobów procesu roboczego usługi.
+> Dodanie `ServiceWorkerAssetsManifestItem` nie powoduje opublikowania pliku w katalogu *wwwroot* aplikacji. Publikowanie danych wyjściowych musi być kontrolowane osobno. `ServiceWorkerAssetsManifestItem` powoduje tylko dodatkowy wpis do wyświetlenia w manifeście zasobów procesu roboczego usługi.
 
 ## <a name="push-notifications"></a>Powiadomienia push
 
-Podobnie jak w przypadku wszystkich innych aplikacji PWA, Blazor webassembly PWA może odbierać powiadomienia wypychane z serwera wewnętrznej bazy danych. Serwer może wysłać je w dowolnym momencie, nawet jeśli użytkownik nie korzysta aktywnie z aplikacji (na przykład gdy inny użytkownik wykonuje akcję, która może być istotna).
+Podobnie jak w przypadku wszystkich innych aplikacji PWA, Blazor webassembly PWA może odbierać powiadomienia wypychane z serwera wewnętrznej bazy danych. Serwer może wysyłać powiadomienia wypychane w dowolnym momencie, nawet jeśli użytkownik nie korzysta aktywnie z aplikacji. Na przykład powiadomienia wypychane mogą być wysyłane, gdy inny użytkownik wykonuje odpowiednią akcję.
 
-Mechanizm wysyłania powiadomień wypychanych jest całkowicie niezależny od Blazor webassembly, ponieważ jest zaimplementowany przez serwer wewnętrznej bazy danych, który może korzystać z dowolnej technologii. Jeśli chcesz wysyłać powiadomienia wypychane z serwera ASP.NET Core, rozważ [użycie techniki podobnej do tej w warsztatie niezwykle Pizza](https://github.com/dotnet-presentations/blazor-workshop/blob/master/docs/09-progressive-web-app.md#sending-push-notifications).
+Mechanizm wysyłania powiadomień wypychanych jest całkowicie niezależny od Blazor webassembly, ponieważ jest zaimplementowany przez serwer wewnętrznej bazy danych, który może korzystać z dowolnej technologii. Jeśli chcesz wysyłać powiadomienia wypychane z serwera ASP.NET Core, rozważ [użycie techniki podobnej do podejścia wykonywanego w warsztatie niezwykle Pizza](https://github.com/dotnet-presentations/blazor-workshop/blob/master/docs/09-progressive-web-app.md#sending-push-notifications).
 
-Mechanizm otrzymywania i wyświetlania powiadomień wypychanych na kliencie jest również niezależny od Blazor webassembly, ponieważ jest zaimplementowany w procesie roboczym usługi, który jest plikiem JavaScript. Na przykład możesz ponownie zobaczyć [podejście używane w warsztatie niezwykle Pizza](https://github.com/dotnet-presentations/blazor-workshop/blob/master/docs/09-progressive-web-app.md#displaying-notifications).
+Mechanizm otrzymywania i wyświetlania powiadomień wypychanych na kliencie jest również niezależny od Blazor webassembly, ponieważ jest zaimplementowany w pliku JavaScript procesu roboczego usługi. Aby zapoznać się z przykładem, zapoznaj [się z podejściem używanym w warsztatie niezwykle Pizza](https://github.com/dotnet-presentations/blazor-workshop/blob/master/docs/09-progressive-web-app.md#displaying-notifications).
 
 ## <a name="caveats-for-offline-pwas"></a>Ostrzeżenia dotyczące PWAs w trybie offline
 
-Nie wszystkie aplikacje powinny próbować obsługiwać użycie w trybie offline. Zwiększa ona znaczącą złożoność, ale nie zawsze jest istotna.
+Nie wszystkie aplikacje powinny próbować obsługiwać użycie w trybie offline. Obsługa offline zwiększa znaczącą złożoność, ale nie zawsze jest istotna dla wymaganych przypadków użycia.
 
 Obsługa w trybie offline jest zwykle istotna:
 
-* Jeśli podstawowy magazyn danych jest lokalny dla przeglądarki. Na przykład podczas kompilowania interfejsu użytkownika dla urządzenia [IoT](https://en.wikipedia.org/wiki/Internet_of_things) , które przechowuje dane w `localStorage` lub [IndexedDB](https://developer.mozilla.org/docs/Web/API/IndexedDB_API).
+* Jeśli podstawowy magazyn danych jest lokalny dla przeglądarki. Na przykład podejście jest istotne w aplikacji z interfejsem użytkownika urządzenia [IoT](https://en.wikipedia.org/wiki/Internet_of_things) , które przechowuje dane w `localStorage` lub [IndexedDB](https://developer.mozilla.org/docs/Web/API/IndexedDB_API).
+* Jeśli aplikacja wykonuje znaczną ilość pracy, aby pobrać i buforować dane interfejsu API zaplecza odpowiednie dla każdego użytkownika, aby mogły nawigować przez dane w trybie offline. Jeśli aplikacja musi obsługiwać edytowanie, należy skompilować system do śledzenia zmian i synchronizowania danych z zapleczem.
+* Jeśli celem jest zagwarantowanie, że aplikacja zostanie załadowana natychmiast niezależnie od warunków sieci. Zaimplementuj odpowiednie środowisko użytkownika wokół żądań interfejsu API zaplecza, aby pokazać postęp żądań i zachowywać się bezproblemowo, gdy żądania nie powiodą się z powodu niedostępności sieci.
 
-* Jeśli masz znaczącą służbę do pobierania i buforowania danych interfejsu API zaplecza związanych z każdym użytkownikiem, można poruszać się w trybie offline. W przypadku obsługi edycji należy również utworzyć system do śledzenia zmian i synchronizowania ich z zapleczem.
-
-* Jeśli celem jest zagwarantowanie, że aplikacja zostanie załadowana natychmiast niezależnie od warunków sieci. Następnie należy zaimplementować odpowiednie środowisko użytkownika dla żądań interfejsu API zaplecza, aby pokazać postęp żądań i zachować wrażenie niepowodzenia z powodu niedostępności sieci.
-
-Ponadto PWAs z obsługą trybu offline musi zająć się zakresem dodatkowych komplikacji. Deweloperzy powinni uważnie zapoznać się z poniższymi zastrzeżeniami.
+Ponadto PWAs z obsługą trybu offline muszą odnosić się do szeregu dodatkowych komplikacji. Deweloperzy powinni uważnie zaznajomić się z zastrzeżeniami w poniższych sekcjach.
 
 ### <a name="offline-support-only-when-published"></a>Obsługa offline tylko po opublikowaniu
 
-szablon aplikacji PWA Blazorumożliwia obsługę offline tylko po opublikowaniu. Jest to spowodowane tym, że podczas opracowywania zwykle chcesz zobaczyć, że zmiany zostaną odzwierciedlone natychmiast w przeglądarce, bez przechodzenia przez proces aktualizacji w tle.
+Podczas opracowywania zwykle chcesz zobaczyć, że wszystkie zmiany zostaną odzwierciedlone bezpośrednio w przeglądarce bez przechodzenia przez proces aktualizacji w tle. Z tego względu szablon BlazorPWA umożliwia obsługę offline tylko po opublikowaniu.
 
-W związku z tym podczas kompilowania aplikacji z obsługą trybu offline jest za mało, aby przetestować aplikację w trybie tworzenia. Należy przetestować aplikację w stanie opublikowanym, aby zrozumieć, jak będzie ona odpowiadać na różne warunki sieci.
+Podczas kompilowania aplikacji z obsługą trybu offline nie wystarczy przetestować aplikacji w środowisku deweloperskim. Aby zrozumieć, jak reagują na inne warunki sieci, należy przetestować aplikację w stanie opublikowanym.
 
 ### <a name="update-completion-after-user-navigation-away-from-app"></a>Aktualizowanie uzupełniania po nawigacji użytkownika z aplikacji
 
-Aktualizacje nie zostaną ukończone, dopóki użytkownik nie wyjdzie z aplikacji na wszystkich kartach. Zgodnie z opisem w temacie [aktualizacje w tle](#background-updates), po wdrożeniu aktualizacji dla aplikacji Przeglądarka pobierze zaktualizowane pliki procesu roboczego usługi i rozpocznie proces aktualizacji.
+Aktualizacje nie zostaną ukończone, dopóki użytkownik nie wyjdzie z aplikacji na wszystkich kartach. Zgodnie z opisem w sekcji [aktualizacje w tle](#background-updates) po wdrożeniu aktualizacji aplikacji przeglądarka pobiera zaktualizowane pliki procesów roboczych usługi, aby rozpocząć proces aktualizacji.
 
-Co się stało z wieloma deweloperami, nawet po zakończeniu tej aktualizacji **nie zacznie obowiązywać** , dopóki użytkownik nie przejdzie na wszystkie karty. Odświeżenie karty wyświetlającej aplikację **nie** jest wystarczające, nawet jeśli jest to jedyna karta wyświetlająca aplikację. Do momentu całkowitego zamknięcia aplikacji nowy proces roboczy usługi pozostanie w stanie "Oczekiwanie na aktywację". **Nie jest to specyficzne dla Blazor, ale raczej jest standardowe zachowanie platformy sieci Web.**
+Co się stało z wieloma deweloperami, nawet po zakończeniu tej aktualizacji **nie zacznie obowiązywać** , dopóki użytkownik nie przejdzie na wszystkie karty. Odświeżenie karty wyświetlającej aplikację **nie** jest wystarczające, nawet jeśli jest to jedyna karta wyświetlająca aplikację. Dopóki aplikacja nie zostanie całkowicie ZAMKNIĘTA, nowy proces roboczy usługi pozostaje w stanie *oczekiwania na aktywację* . **Nie jest to specyficzne dla Blazor, ale raczej jest standardowe zachowanie platformy sieci Web.**
 
 Jest to często spowodowane przez deweloperów, którzy próbują przetestować aktualizacje do swoich procesów roboczych lub zasobów w pamięci podręcznej w trybie offline. W przypadku zaewidencjonowania narzędzi deweloperskich w przeglądarce można zobaczyć podobne do następujących:
 
-![obraz](https://user-images.githubusercontent.com/1101362/76226394-b93f7380-6215-11ea-8572-7d52afee2dd8.png)
+![Karta Google Chrome "aplikacja" pokazuje, że proces roboczy usługi aplikacji to "Oczekiwanie na aktywację".](progressive-web-app/_static/image7.png)
 
-W przypadku, gdy lista "klientów" (tj. kart lub okien wyświetlania aplikacji) nie jest pusta, proces roboczy będzie kontynuował oczekiwanie. Przyczyną tego problemu jest zagwarantowanie spójności, tj., że wszystkie zasoby są pobierane z tej samej niepodzielnej pamięci podręcznej.
+Tak długo, jak lista "klientów", które są kartami lub oknami wyświetlanymi w aplikacji, nie jest pusta, proces roboczy kontynuuje oczekiwanie. Przyczyną tego jest zagwarantowanie spójności przez pracowników. Spójność oznacza, że wszystkie zasoby są pobierane z tej samej niepodzielnej pamięci podręcznej.
 
-Podczas testowania zmian może być przydatne kliknięcie linku "skipWaiting", jak pokazano na poniższym zrzucie ekranu, a następnie ponowne załadowanie strony. Jeśli chcesz, Możesz zautomatyzować ten proces dla wszystkich użytkowników, napisanie przez siebie procesu roboczego usługi w celu [pominięcia fazy "oczekiwanie" i natychmiastowej aktywacji przy aktualizacji](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle#skip_the_waiting_phase). Jeśli jednak to zrobisz, nastąpi zagwarantowanie, że zasoby są zawsze pobierane spójnie z tego samego wystąpienia pamięci podręcznej.
+Podczas testowania zmian może być przydatne kliknięcie linku "skipWaiting", jak pokazano na poprzednim zrzucie ekranu, a następnie ponowne załadowanie strony. Możesz zautomatyzować ten proces dla wszystkich użytkowników, napisanie przez siebie procesu roboczego usługi w celu [pominięcia fazy "oczekiwanie" i natychmiastowej aktywacji przy aktualizacji](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle#skip_the_waiting_phase). W przypadku pominięcia fazy oczekiwania zostanie nadana gwarancja, że zasoby są zawsze pobierane spójnie z tego samego wystąpienia pamięci podręcznej.
 
 ### <a name="users-may-run-any-historical-version-of-the-app"></a>Użytkownicy mogą uruchamiać dowolną wersję historyczną aplikacji
 
-Deweloperzy sieci Web zwykle oczekują, że użytkownicy będą uruchamiać tylko najnowszą wdrożoną wersję aplikacji sieci Web, ponieważ jest ona normalna w ramach tradycyjnego modelu dystrybucji sieci Web. Jednak w trybie offline — w pierwszej kolejności program PWA jest bardziej zbliżone w natywnej aplikacji mobilnej, w której użytkownicy nie muszą uruchamiać najnowszej wersji.
+Deweloperzy sieci Web zwykle oczekują, że użytkownicy uruchamiają tylko najnowszą wdrożoną wersję aplikacji sieci Web, ponieważ jest ona normalna w ramach tradycyjnego modelu dystrybucji sieci Web. Jednak w trybie offline — w pierwszej kolejności program PWA jest bardziej zbliżone w natywnej aplikacji mobilnej, w której użytkownicy nie muszą uruchamiać najnowszej wersji.
 
-Zgodnie z opisem w temacie [aktualizacje w tle](#background-updates), po wdrożeniu aktualizacji aplikacji, **każdy istniejący użytkownik będzie nadal używał poprzedniej wersji dla co najmniej jednej kolejnej odwiedzania** (ponieważ aktualizacja odbywa się w tle i nie jest aktywowana, dopóki użytkownik nie wyjdzie dalej). Ponadto Poprzednia wersja jest wcześniejsza niż poprzednio wdrożona — może to być *dowolna* wersja historyczna, w zależności od tego, kiedy użytkownik ostatnio ukończył aktualizację.
+Zgodnie z opisem w sekcji [aktualizacje w tle](#background-updates) , po wdrożeniu aktualizacji aplikacji, **każdy istniejący użytkownik nadal używa poprzedniej wersji dla co najmniej jednej kolejnej odwiedzania** , ponieważ aktualizacja występuje w tle i nie jest aktywowana, dopóki użytkownik nie wyjdzie dalej. Ponadto użyta Poprzednia wersja nie jest konieczna od poprzedniej wdrożonej wersji. Poprzednią wersją może być *dowolna* wersja historyczna, w zależności od tego, kiedy użytkownik ostatnio ukończył aktualizację.
 
-Może to być problemem, jeśli składniki frontonu i zaplecza aplikacji wymagają umowy dotyczącej schematu dla żądań interfejsu API. Nie należy wdrażać zmian schematu interfejsu API bez zgodności z poprzednimi wersjami, dopóki nie będzie można upewnić się, że wszyscy użytkownicy zostali zaktualizowani, lub co najmniej Zablokuj użytkownikom możliwość korzystania ze starszych wersji aplikacji. Jest to podobne do natywnej aplikacji mobilnej. W przypadku wdrożenia istotnej zmiany w interfejsach API serwera aplikacja kliencka zostanie uszkodzona dla osób, które nie zostały jeszcze zaktualizowane.
+Może to być problemem, jeśli składniki frontonu i zaplecza aplikacji wymagają umowy dotyczącej schematu dla żądań interfejsu API. Nie należy wdrażać zmian schematu interfejsu API bez zgodności z poprzednimi wersjami, dopóki nie będzie można upewnić się, że wszyscy użytkownicy zostali zaktualizowani. Alternatywnie Zablokuj użytkownikom możliwość korzystania ze starszych wersji aplikacji. To wymaganie jest takie samo jak w przypadku natywnych aplikacji mobilnych. W przypadku wdrożenia istotnej zmiany w interfejsach API serwera aplikacja kliencka jest uszkodzona dla użytkowników, którzy jeszcze nie zostali zaktualizowani.
 
-Jeśli to możliwe, nie Wdrażaj istotnych zmian w interfejsach API zaplecza. Ale jeśli to konieczne, należy rozważyć użycie [standardowych interfejsów API procesów roboczych, takich jak `ServiceWorkerRegistration`](https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration) , aby określić, czy aplikacja jest aktualna, a jeśli nie, aby zapobiec użyciu.
+Jeśli to możliwe, nie Wdrażaj istotnych zmian w interfejsach API zaplecza. Jeśli to konieczne, należy rozważyć użycie [standardowych interfejsów API procesów roboczych, takich jak ServiceWorkerRegistration](https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration) , aby określić, czy aplikacja jest aktualna, a jeśli nie, aby uniknąć użycia.
 
 ### <a name="interference-with-server-rendered-pages"></a>Zakłócenia przy użyciu stron renderowanych na serwerze
 
-[Jak opisano powyżej](#support-server-rendered-pages), jeśli chcesz ominąć zachowanie `/index.html` zawartości dla wszystkich żądań nawigacji przez proces roboczy usługi, musisz edytować logikę w procesie roboczym usługi.
+Zgodnie z opisem w sekcji [wyrenderowanych stron serwera pomocy](#support-server-rendered-pages) , jeśli chcesz ominąć zachowanie `/index.html` zawartości dla wszystkich żądań nawigacji, dokonaj edycji logiki w procesie roboczym usługi.
 
 ### <a name="all-service-worker-asset-manifest-contents-are-cached-by-default"></a>Zawartość manifestu wszystkich zasobów procesu roboczego usługi jest domyślnie buforowana
 
-[Jak opisano powyżej](#control-asset-caching), plik *Service-Worker-Assets. js* jest generowany podczas kompilacji i zawiera listę wszystkich zasobów, które pracownik usług powinien pobrać i buforować.
+Zgodnie z opisem w sekcji [buforowanie zasobów kontroli](#control-asset-caching) plik *Service-Worker-Assets. js* jest generowany podczas kompilacji i zawiera listę wszystkich zasobów, które pracownik usług powinien pobrać i buforować.
 
-Ponieważ ta lista domyślnie zawiera wszystkie dane wyemitowane do *wwwroot* (w tym zawartość dostarczaną przez zewnętrzne pakiety i projekty), należy uważać, aby nie umieścić zbyt dużej ilości zawartości. Jeśli na przykład katalog *wwwroot* zawiera miliony obrazów, proces roboczy usługi spróbuje pobrać i buforować je wszystkie, zużywać nadmierną przepustowość i prawdopodobnie nie zostanie pomyślnie zakończony.
+Ponieważ ta lista domyślnie obejmuje wszystkie elementy wyemitowane do *wwwroot*, w tym zawartość dostarczoną przez zewnętrzne pakiety i projekty, należy zachować ostrożność, aby nie umieścić zbyt dużej ilości zawartości. Jeśli katalog *wwwroot* zawiera miliony obrazów, proces roboczy usługi próbuje pobrać i buforować je wszystkie, zużywać nadmierną przepustowość i prawdopodobnie nie zostanie pomyślnie zakończony.
 
-Możliwe jest zaimplementowanie dowolnej logiki w celu kontrolowania, który podzbiór zawartości manifestu powinien być pobierany i buforowany przez edycję funkcji `onInstall` w *Service-Worker. opublikowano. js*.
+Zaimplementuj dowolną logikę w celu kontrolowania, który podzbiór zawartości manifestu powinien być pobierany i buforowany przez edytowanie funkcji `onInstall` w *Service-Worker. opublikowano. js*.
 
 ### <a name="interaction-with-authentication"></a>Interakcja z uwierzytelnianiem
 
 Możliwe jest użycie opcji szablonu PWA w połączeniu z opcjami uwierzytelniania. PWA obsługujący tryb offline może również obsługiwać uwierzytelnianie, gdy użytkownik ma łączność sieciową.
 
-Jeśli jednak użytkownik nie ma łączności sieciowej, nie będzie mógł uwierzytelnić ani uzyskać tokenów dostępu. Próba odwiedzenia strony "login" spowoduje wyświetlenie komunikatu o błędzie "błąd sieci".
+Jeśli użytkownik nie ma łączności sieciowej, nie może uwierzytelnić ani uzyskać tokenów dostępu. Domyślnie przy próbie odwiedzenia strony logowania bez dostępu do sieci następuje komunikat "błąd sieci".
 
-Ponieważ jest to zadanie, aby zaprojektować przepływ interfejsu użytkownika, który umożliwia użytkownikowi wykonywanie użytecznych funkcji podczas pracy w trybie offline bez próby uwierzytelnienia lub uzyskania tokenów dostępu, lub co najmniej niepowodzeniem w takich przypadkach. Jeśli nie jest to możliwe w aplikacji, może nie być konieczne włączenie obsługi offline.
+Musisz zaprojektować przepływ interfejsu użytkownika, który umożliwia użytkownikowi wykonywanie użytecznych funkcji w trybie offline bez próby uwierzytelnienia lub uzyskania tokenów dostępu. Alternatywnie możesz zaprojektować aplikację, aby nie działać prawidłowo, gdy sieć jest niedostępna. Jeśli nie jest to możliwe w aplikacji, może nie być konieczne włączenie obsługi offline.
