@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/29/2020
 uid: fundamentals/configuration/index
-ms.openlocfilehash: e1237db2625a127bfa5c31ac29b4394be6941b2f
-ms.sourcegitcommit: 9e2b3aaccc9a41291eb23bf4561159e79cf6bc9d
+ms.openlocfilehash: b4fa082c5a53bc9ecb3c7b8ddcbf243ef0d94ba7
+ms.sourcegitcommit: 9b6e7f421c243963d5e419bdcfc5c4bde71499aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/19/2020
-ms.locfileid: "79546344"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "79989693"
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguracja w ASP.NET Core
 
@@ -31,7 +31,7 @@ Konfiguracja w ASP.NET Core jest wykonywana przy użyciu co najmniej jednego [do
 * Pliki katalogu
 * Obiekty w pamięci .NET
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 <a name="default"></a>
 
@@ -43,7 +43,7 @@ ASP.NET Core aplikacje sieci Web utworzone za pomocą programu [dotnet New](/dot
 
  <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*> zapewnia domyślną konfigurację dla aplikacji w następującej kolejności:
 
-1. [ChainedConfigurationProvider](xref:Microsoft.Extensions.Configuration.ChainedConfigurationSource) : dodaje istniejący `IConfiguration` jako źródło. W przypadku konfiguracji domyślnej program dodaje konfigurację [hosta](#hvac) i ustawia ją jako pierwsze źródło konfiguracji _aplikacji_ .
+1. [ChainedConfigurationProvider](xref:Microsoft.Extensions.Configuration.ChainedConfigurationSource) :  Dodaje istniejący `IConfiguration` jako źródło. W przypadku konfiguracji domyślnej program dodaje konfigurację [hosta](#hvac) i ustawia ją jako pierwsze źródło konfiguracji _aplikacji_ .
 1. [appSettings. JSON](#appsettingsjson) przy użyciu [dostawcy konfiguracji JSON](#file-configuration-provider).
 1. *appSettings.* plik`Environment` *. JSON* przy użyciu [dostawcy konfiguracji JSON](#file-configuration-provider). Na przykład *AppSettings*. ***Środowisko produkcyjne***. *JSON* i *AppSettings*. ***Programowanie***. *kod JSON*.
 1. Wpisy [tajne aplikacji](xref:security/app-secrets) , gdy aplikacja jest uruchamiana w środowisku `Development`u.
@@ -70,8 +70,8 @@ Poniższy kod z [pobranego przykładu](https://github.com/dotnet/AspNetCore.Docs
 
 Domyślna <xref:Microsoft.Extensions.Configuration.Json.JsonConfigurationProvider> ładuje konfigurację w następującej kolejności:
 
-1. *appSettings. JSON*
-1. *appSettings.* `Environment` *. JSON* : na przykład, *AppSettings*. ***Środowisko produkcyjne***. *JSON* i *AppSettings*. ***Programowanie***. pliki *JSON* . Wersja środowiska pliku jest ładowana na podstawie [IHostingEnvironment. EnvironmentName](xref:Microsoft.Extensions.Hosting.IHostingEnvironment.EnvironmentName*). Aby uzyskać więcej informacji, zobacz <xref:fundamentals/environments>.
+1. *appsettings.json*
+1. *appSettings.* plik`Environment` *. JSON* : Na przykład, *AppSettings*. ***Środowisko produkcyjne***. *JSON* i *AppSettings*. ***Programowanie***. pliki *JSON* . Wersja środowiska pliku jest ładowana na podstawie [IHostingEnvironment. EnvironmentName](xref:Microsoft.Extensions.Hosting.IHostingEnvironment.EnvironmentName*). Aby uzyskać więcej informacji, zobacz <xref:fundamentals/environments>.
 
 *AppSettings*.`Environment`. wartości *JSON* przesłaniają klucze w pliku *appSettings. JSON*. Na przykład domyślnie:
 
@@ -135,7 +135,7 @@ Wskazówki dotyczące danych konfiguracyjnych:
 Aby uzyskać więcej informacji na temat przechowywania haseł lub innych poufnych danych:
 
 * <xref:fundamentals/environments>
-* <xref:security/app-secrets>: zawiera porady dotyczące używania zmiennych środowiskowych do przechowywania poufnych danych. Menedżer wpisów tajnych używa [dostawcy konfiguracji plików](#fcp) do przechowywania wpisów tajnych użytkownika w pliku JSON w systemie lokalnym.
+* <xref:security/app-secrets>:  Zawiera porady dotyczące używania zmiennych środowiskowych do przechowywania poufnych danych. Menedżer wpisów tajnych używa [dostawcy konfiguracji plików](#fcp) do przechowywania wpisów tajnych użytkownika w pliku JSON w systemie lokalnym.
 
 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) bezpieczne przechowywanie wpisów tajnych aplikacji dla ASP.NET Core aplikacji. Aby uzyskać więcej informacji, zobacz <xref:security/key-vault-configuration>.
 
@@ -152,7 +152,7 @@ Następujące polecenia `set`:
 * Ustaw klucze środowiska i wartości z [poprzedniego przykładu](#appsettingsjson) w systemie Windows.
 * Przetestuj ustawienia przy użyciu pobranego [przykładu](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples/3.x/ConfigSample). Polecenie `dotnet run` musi być uruchamiane w katalogu projektu.
 
-```cmd
+```dotnetcli
 set MyKey="My key from Environment"
 set Position__Title=Environment_Editor
 set Position__Name=Environment_Rick
@@ -172,10 +172,10 @@ setx Position__Title Setx_Environment_Editor /M
 setx Position__Name Environment_Rick /M
 ```
 
-Aby sprawdzić, czy poprzednie polecenia przesłaniają *apsettings. JSON* i *appSettings.* `Environment` *. JSON*:
+Aby sprawdzić, czy poprzednie polecenia przesłaniają plik *appSettings. JSON* i *appSettings.* `Environment` *. JSON*:
 
 * Za pomocą programu Visual Studio: Zamknij i uruchom ponownie program Visual Studio.
-* Za pomocą interfejsu wiersza polecenia: Uruchom nowe okno poleceń i wprowadź `dotnet run`.
+* Za pomocą interfejsu wiersza polecenia: Uruchom nowe okno polecenia i wprowadź `dotnet run`.
 
 Wywołaj <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> z ciągiem, aby określić prefiks dla zmiennych środowiskowych:
 
@@ -190,7 +190,7 @@ Prefiks jest usuwany, gdy pary klucz konfiguracji-wartość są odczytywane.
 
 Następujące polecenia testują prefiks niestandardowy:
 
-```cmd
+```dotnetcli
 set MyCustomPrefix_MyKey="My key with MyCustomPrefix_ Environment"
 set MyCustomPrefix_Position__Title=Editor_with_customPrefix
 set MyCustomPrefix_Position__Name=Environment_Rick_cp
@@ -204,7 +204,7 @@ Na [Azure App Service](https://azure.microsoft.com/services/app-service/)wybierz
 * Szyfrowane i przesyłane przez zaszyfrowanego kanału.
 * Uwidocznione jako zmienne środowiskowe.
 
-Aby uzyskać więcej informacji, zobacz artykuł [Azure Apps: zastępowanie konfiguracji aplikacji przy użyciu witryny Azure Portal](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
+Aby uzyskać więcej informacji, zobacz [Azure Apps: Przesłoń konfigurację aplikacji przy użyciu witryny Azure Portal](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
 
 Aby uzyskać informacje na temat parametrów połączenia z usługą Azure Database, zobacz [prefiksy parametrów połączenia](#constr) .
 
@@ -272,7 +272,7 @@ Uruchom następujące polecenie, aby przetestować zastąpienie klucza:
 dotnet run -k1=value1 -k2 value2 --alt3=value2 /alt4=value3 --alt5 value5 /alt6 value6
 ```
 
-Uwaga: obecnie `=` nie można użyć do ustawienia wartości zastępczych klucza z jedną kreską `-`. Zobacz [ten problem](https://github.com/dotnet/extensions/issues/3059)w serwisie GitHub.
+Uwaga: Obecnie `=` nie można użyć do ustawiania wartości zastępczych klucza z jedną kreską `-`. Zobacz [ten problem](https://github.com/dotnet/extensions/issues/3059)w serwisie GitHub.
 
 Następujące polecenie działa w celu zastąpienia klucza testowego:
 
@@ -341,7 +341,7 @@ W poniższej tabeli przedstawiono dostawców konfiguracji dostępnych do ASP.NET
 
 Typową sekwencją dostawców konfiguracji jest:
 
-1. *appSettings. JSON*
+1. *appsettings.json*
 1. *AppSettings*.`Environment`. *kod JSON*
 1. [Menedżer wpisów tajnych](xref:security/app-secrets)
 1. Zmienne środowiskowe używające [dostawcy konfiguracji zmiennych środowiskowych](#evcp).
@@ -394,8 +394,8 @@ Rozważmy następujący kod:
 Powyższy kod:
 
 * Konfiguruje dostawcę konfiguracji JSON w celu załadowania pliku *. JSON* z następującymi opcjami:
-  * `optional: true`: plik jest opcjonalny.
-  * `reloadOnChange: true`: plik zostanie ponownie załadowany podczas zapisywania zmian.
+  * `optional: true`: Plik jest opcjonalny.
+  * `reloadOnChange: true` : Plik zostanie ponownie załadowany po zapisaniu zmian.
 * Odczytuje [domyślnych dostawców konfiguracji](#default) przed plikiem moja *config. JSON* . Ustawienia w pliku *config. JSON* przesłaniają ustawienie w domyślnych dostawcach konfiguracji, w tym [dostawcę konfiguracji zmienne środowiskowe](#evcp) i [dostawca konfiguracji wiersza polecenia](#clcp).
 
 Zwykle ***nie*** chcesz, aby niestandardowy plik JSON zastępujący wartości ustawione w [zmiennej środowiskowej dostawcy konfiguracji](#evcp) i [dostawcy konfiguracji wiersza polecenia](#clcp).
@@ -707,7 +707,7 @@ Poniższy kod przedstawia dane konfiguracji w metodach `Startup`:
 
 [!code-csharp[](index/samples/3.x/ConfigSample/StartupKey.cs?name=snippet&highlight=13,18)]
 
-Aby zapoznać się z przykładem uzyskiwania dostępu do konfiguracji przy użyciu metod uruchamiania, zobacz [Uruchamianie aplikacji: wygodne metody](xref:fundamentals/startup#convenience-methods).
+Aby zapoznać się z przykładem uzyskiwania dostępu do konfiguracji przy użyciu metod uruchamiania, zobacz [uruchamiania aplikacji: Wygodne metody](xref:fundamentals/startup#convenience-methods).
 
 ## <a name="access-configuration-in-razor-pages"></a>Konfiguracja dostępu w Razor Pages
 
@@ -789,7 +789,7 @@ using Microsoft.Extensions.Configuration;
 
 *Wzorzec opcji* jest rozszerzeniem pojęć konfiguracyjnych opisanych w tym temacie. Opcje używają klas do reprezentowania grup powiązanych ustawień. Aby uzyskać więcej informacji, zobacz <xref:fundamentals/configuration/options>.
 
-[Wyświetl lub pobierz przykładowy kod](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([jak pobrać](xref:index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([sposobu pobierania](xref:index#how-to-download-a-sample))
 
 ## <a name="host-versus-app-configuration"></a>Host a konfiguracja aplikacji
 
@@ -832,7 +832,7 @@ Aby zabezpieczyć poufne dane konfiguracji, należy zastosować następujące ro
 * Nie używaj tajemnic produkcyjnych w środowiskach deweloperskich i testowych.
 * Określ wpisy tajne poza projektem, aby nie mogły zostać przypadkowo przekazane do repozytorium kodu źródłowego.
 
-Aby uzyskać więcej informacji, zobacz następujące tematy:
+Więcej informacji znajduje się w następujących tematach:
 
 * <xref:fundamentals/environments>
 * <xref:security/app-secrets> &ndash; zawiera porady dotyczące używania zmiennych środowiskowych do przechowywania poufnych danych. Menedżer wpisów tajnych używa dostawcy konfiguracji plików do przechowywania wpisów tajnych użytkownika w pliku JSON w systemie lokalnym. Dostawca konfiguracji plików został opisany w dalszej części tego tematu.
@@ -867,7 +867,7 @@ Gdy plik jest odczytywany do konfiguracji, są tworzone unikatowe klucze, aby za
 
 Metody <xref:Microsoft.Extensions.Configuration.ConfigurationSection.GetSection*> i <xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*> są dostępne do izolowania sekcji i elementów podrzędnych sekcji w danych konfiguracyjnych. Te metody są opisane w dalszej [części GetSection, GetChildren i EXISTS](#getsection-getchildren-and-exists).
 
-## <a name="conventions"></a>Konwencja
+## <a name="conventions"></a>Konwencje
 
 ### <a name="sources-and-providers"></a>Źródła i dostawcy
 
@@ -1129,7 +1129,7 @@ Aby uaktywnić konfigurację zmiennych środowiskowych, wywołaj metodę rozszer
 
 [!INCLUDE[](~/includes/environmentVarableColon.md)]
 
-[Azure App Service](https://azure.microsoft.com/services/app-service/) umożliwia ustawianie zmiennych środowiskowych w witrynie Azure Portal, które mogą przesłonić konfigurację aplikacji przy użyciu dostawcy konfiguracji zmiennych środowiskowych. Aby uzyskać więcej informacji, zobacz artykuł [Azure Apps: zastępowanie konfiguracji aplikacji przy użyciu witryny Azure Portal](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
+[Azure App Service](https://azure.microsoft.com/services/app-service/) umożliwia ustawianie zmiennych środowiskowych w witrynie Azure Portal, które mogą przesłonić konfigurację aplikacji przy użyciu dostawcy konfiguracji zmiennych środowiskowych. Aby uzyskać więcej informacji, zobacz [Azure Apps: Przesłoń konfigurację aplikacji przy użyciu witryny Azure Portal](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
 
 `AddEnvironmentVariables` jest używany do ładowania zmiennych środowiskowych, które są poprzedzone `ASPNETCORE_` na potrzeby [konfiguracji hosta](#host-versus-app-configuration) , gdy nowy Konstruktor hosta zostanie zainicjowany przy użyciu [hosta sieci Web](xref:fundamentals/host/web-host) i zostanie wywołane `CreateDefaultBuilder`. Aby uzyskać więcej informacji, zobacz sekcję [Konfiguracja domyślna](#default-configuration) .
 
@@ -1663,7 +1663,7 @@ Indeks &num;3 w obiekcie powiązanym zawiera dane konfiguracyjne `array:4` klucz
 
 Brakujący element konfiguracji dla indeksu &num;3 można dostarczyć przed powiązaniem do wystąpienia `ArrayExample` przez dowolnego dostawcę konfiguracji, który wygeneruje poprawną parę klucz-wartość w konfiguracji. Jeśli przykład zawiera dodatkowego dostawcę konfiguracji JSON z brakującą parą klucz-wartość, `ArrayExample.Entries` pasuje do kompletnej tablicy konfiguracji:
 
-plik *missing_value. JSON*:
+*missing_value.json*:
 
 ```json
 {
@@ -1792,7 +1792,7 @@ public class Startup
 }
 ```
 
-Aby zapoznać się z przykładem uzyskiwania dostępu do konfiguracji przy użyciu metod uruchamiania, zobacz [Uruchamianie aplikacji: wygodne metody](xref:fundamentals/startup#convenience-methods).
+Aby zapoznać się z przykładem uzyskiwania dostępu do konfiguracji przy użyciu metod uruchamiania, zobacz [uruchamiania aplikacji: Wygodne metody](xref:fundamentals/startup#convenience-methods).
 
 ## <a name="access-configuration-in-a-razor-pages-page-or-mvc-view"></a>Konfiguracja dostępu na stronie Razor Pages lub widoku MVC
 
