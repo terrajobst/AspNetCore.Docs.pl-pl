@@ -5,12 +5,12 @@ description: Jak dodać sprawdzanie poprawności do aplikacji ASP.NET Core.
 ms.author: riande
 ms.date: 04/13/2017
 uid: tutorials/first-mvc-app/validation
-ms.openlocfilehash: 2bb4ed173d154e3b7457ce3f8009f0f9406e36c4
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: ecf3d011b38347eb32020df00e44d93ca789443a
+ms.sourcegitcommit: 99e71ae03319ab386baf2ebde956fc2d511df8b8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78661967"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80242539"
 ---
 # <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Dodawanie walidacji do aplikacji ASP.NET Core MVC
 
@@ -55,7 +55,7 @@ W pierwszej metodzie akcji `Create` (HTTP GET) jest wyświetlany początkowy for
 
 Można ustawić punkt przerwania w metodzie `[HttpPost] Create` i sprawdzić, czy metoda nie jest nigdy wywoływana, podczas walidacji po stronie klienta nie będą przesyłane dane formularza po wykryciu błędów walidacji. Jeśli wyłączysz JavaScript w przeglądarce, a następnie prześlesz formularz z błędami, zostanie osiągnięty punkt przerwania. Nadal będziesz mieć pełną weryfikację bez języka JavaScript. 
 
-Na poniższej ilustracji przedstawiono sposób wyłączania języka JavaScript w przeglądarce FireFox.
+Na poniższej ilustracji przedstawiono sposób wyłączania języka JavaScript w przeglądarce Firefox.
 
 ![Firefox: na karcie zawartość w obszarze Opcje usuń zaznaczenie pola wyboru Włącz język JavaScript.](~/tutorials/first-mvc-app/validation/_static/ff.png)
 

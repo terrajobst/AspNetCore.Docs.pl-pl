@@ -1,0 +1,2 @@
+> [!WARNING]
+> Podczas przetwarzania niezaufanych danych wejściowych przy użyciu <xref:System.Text.RegularExpressions> należy przekazać limit czasu. Złośliwy użytkownik może podać dane wejściowe, aby `RegularExpressions` powodowały [atak typu "odmowa usługi"](https://www.us-cert.gov/ncas/tips/ST04-015). Interfejsy API struktury ASP.NET Core, które używają `RegularExpressions` przekazywania limitu czasu.

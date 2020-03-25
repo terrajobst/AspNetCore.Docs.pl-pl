@@ -5,12 +5,12 @@ description: Dowiedz się, jak korzystać z metod kontrolera, widoków i adnotac
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 2c442060872ab1d2d79a2e355ae257fdf1005914
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 87b3cb2f4429157123d30274d1f12cd589c1cc99
+ms.sourcegitcommit: 99e71ae03319ab386baf2ebde956fc2d511df8b8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78663507"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80242513"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>Metody i widoki kontrolera w ASP.NET Core
 
@@ -53,6 +53,8 @@ Odwołaj format zestawu [routingu](xref:mvc/controllers/routing) w pliku *Startu
 ASP.NET Core tłumaczy `https://localhost:5001/Movies/Edit/4` na żądanie do metody akcji `Edit` kontrolera `Movies` z parametrem `Id` 4. (Metody kontrolera są również nazywane metodami akcji).
 
 [Pomocnicy tagów](xref:mvc/views/tag-helpers/intro) to jedna z najpopularniejszych nowych funkcji w programie ASP.NET Core. Aby uzyskać więcej informacji, zobacz [dodatkowe zasoby](#additional-resources).
+
+<a name="get-post"></a>
 
 Otwórz kontroler `Movies` i Przeanalizuj dwie metody akcji `Edit`. Poniższy kod przedstawia metodę `HTTP GET Edit`, która pobiera film i wypełnia formularz edycji wygenerowany przez plik Razor *Edit. cshtml* .
 
