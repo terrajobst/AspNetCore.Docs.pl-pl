@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/webassembly/hosted-with-identity-server
-ms.openlocfilehash: a3993bf635e5a7aae408d72796015f2414e13c14
-ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
+ms.openlocfilehash: 6c7942a827d88a620e6f295af3f523c23f4b3890
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/17/2020
-ms.locfileid: "79434476"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80219054"
 ---
 # <a name="secure-an-aspnet-core-opno-locblazor-webassembly-hosted-app-with-identity-server"></a>Zabezpieczanie ASP.NET Core aplikacji hostowanej Blazor webassembly z serwerem tożsamości
 
@@ -167,7 +167,7 @@ Domyślnie ładuje on konfigurację aplikacji według Konwencji z `_configuratio
 
 ### <a name="index-page"></a>Strona indeksu
 
-[!INCLUDE[](~/includes/blazor-security/index-page.md)]
+[!INCLUDE[](~/includes/blazor-security/index-page-authentication.md)]
 
 ### <a name="app-component"></a>Składnik aplikacji
 

@@ -5,17 +5,17 @@ description: Dowiedz się więcej na temat Blazor scenariuszy uwierzytelniania i
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2020
+ms.date: 02/21/2020
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/index
-ms.openlocfilehash: ba00c0370094df4e0ae0479aeb23eceea6ef04f0
-ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
+ms.openlocfilehash: f7ffb4c3d5a05cb916b4f00cdfaf5898634a1a6d
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79083352"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80219028"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>ASP.NET Core uwierzytelnianie i autoryzacja Blazor
 
@@ -31,6 +31,8 @@ Scenariusze zabezpieczeń różnią się w zależności od aplikacji Blazor Serv
 * Reguły dostępu do obszarów aplikacji i składników.
 
 Blazor aplikacje webassembly są uruchamiane na kliencie. Autoryzacja jest używana *tylko* do określenia opcji interfejsu użytkownika, które mają być wyświetlane. Ponieważ sprawdzenia po stronie klienta mogą być modyfikowane lub pomijane przez użytkownika, aplikacja Blazor webassembly nie może wymusić reguł dostępu autoryzacji.
+
+[Razor Pages Konwencji autoryzacji](xref:security/authorization/razor-pages-authorization) nie mają zastosowania do routingu składników Razor. Jeśli składnik Razor nieobsługujący routingu jest [osadzony na stronie](xref:blazor/integrate-components#render-components-from-a-page-or-view), konwencje autoryzacji strony mają pośredni wpływ na składnik Razor wraz z resztą zawartości strony.
 
 ## <a name="authentication"></a>Uwierzytelnianie
 

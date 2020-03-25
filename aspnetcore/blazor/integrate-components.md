@@ -5,17 +5,17 @@ description: Dowiedz się więcej na temat scenariuszy powiązań danych dla sk�
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/12/2020
+ms.date: 03/17/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/integrate-components
-ms.openlocfilehash: de1a37ffd9456c956e3d84fcc69431ecb794513c
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: cf6056e0985d5433bddecac8dd183ca3f4c2af5b
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78663318"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218937"
 ---
 # <a name="integrate-aspnet-core-razor-components-into-razor-pages-and-mvc-apps"></a>Integrowanie składników ASP.NET Core Razor z aplikacjami Razor Pages i MVC
 
@@ -60,7 +60,7 @@ Istniejąca aplikacja Razor Pages lub MVC może zintegrować składniki Razor ze
    @using MyAppNamespace
    ```
 
-1. W `Startup.ConfigureServices`Zarejestruj usługę serwera Blazor:
+1. W `Startup.ConfigureServices`Zarejestruj usługę Blazor Server:
 
    ```csharp
    services.AddServerSideBlazor();
@@ -225,31 +225,10 @@ Aby uzyskać więcej informacji, zobacz <xref:blazor/components#import-component
 
 *Ta sekcja dotyczy dodawania składników do stron lub widoków, w których składniki nie są bezpośrednio trasowane z żądań użytkownika.*
 
-Aby renderować składnik ze strony lub widoku, użyj pomocnika tagów `Component`:
-
-```cshtml
-<component type="typeof(Counter)" render-mode="ServerPrerendered" 
-    param-IncrementAmount="10" />
-```
-
-Typ parametru musi być możliwy do serializacji JSON, co oznacza, że typ musi mieć domyślny Konstruktor i właściwości settable. Na przykład można określić wartość `IncrementAmount`, ponieważ typ `IncrementAmount` jest `int`, który jest typem pierwotnym obsługiwanym przez serializator JSON.
-
-`RenderMode` określa, czy składnik:
-
-* Jest wstępnie renderowany na stronie.
-* Jest renderowany jako statyczny kod HTML na stronie lub zawiera informacje niezbędne do uruchomienia aplikacji Blazor z poziomu agenta użytkownika.
-
-| `RenderMode`        | Opis |
-| ------------------- | ----------- |
-| `ServerPrerendered` | Renderuje składnik do statycznego kodu HTML i zawiera znacznik dla aplikacji serwera Blazor. Po uruchomieniu agenta użytkownika ten znacznik jest używany do uruchamiania aplikacji Blazor. |
-| `Server`            | Renderuje znacznik dla aplikacji serwera Blazor. Dane wyjściowe ze składnika nie są uwzględniane. Po uruchomieniu agenta użytkownika ten znacznik jest używany do uruchamiania aplikacji Blazor. |
-| `Static`            | Renderuje składnik do statycznego kodu HTML. |
-
-Podczas gdy strony i widoki mogą korzystać ze składników, wartość nie jest równa "true". Składniki nie mogą używać scenariuszy dotyczących widoków i stron, takich jak częściowe widoki i sekcje. Aby użyć logiki z widoku częściowego w składniku, należy rozłożyć logikę widoku częściowego na składnik.
-
-Renderowanie składników serwera ze statyczną stroną HTML nie jest obsługiwane.
+Aby renderować składnik ze strony lub widoku, użyj [pomocnika tagów składnika](xref:mvc/views/tag-helpers/builtin-th/component-tag-helper).
 
 Aby uzyskać więcej informacji na temat sposobu renderowania składników, stanu składnika i pomocnika tagów `Component`, zobacz następujące artykuły:
 
 * <xref:blazor/hosting-models>
 * <xref:blazor/hosting-model-configuration>
+* <xref:mvc/views/tag-helpers/builtin-th/component-tag-helper>

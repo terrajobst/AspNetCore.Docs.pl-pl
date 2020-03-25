@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/10/2020
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 8d96118800c47b2c551726342bf4cfba9671a09e
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: e9b4b57ee70e4050f9399b90a6e34e8cc9cca78d
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78667371"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218833"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementacja serwera sieci Web Kestrel w ASP.NET Core
 
@@ -663,7 +663,7 @@ Nasłuchiwanie w gnieździe systemu UNIX za pomocą <xref:Microsoft.AspNetCore.S
 
 [!code-csharp[](kestrel/samples/3.x/KestrelSample/Program.cs?name=snippet_UnixSocket)]
 
-* W pliku Nginx confiuguration Ustaw `proxy_pass` `server` > `location` > `http://unix:/tmp/{KESTREL SOCKET}:/;`. `{KESTREL SOCKET}` to nazwa gniazda dostarczanego do <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ListenUnixSocket*> (na przykład `kestrel-test.sock` w powyższym przykładzie).
+* W pliku konfiguracji Nginx `server`Ustaw `proxy_pass`  > `location` > `http://unix:/tmp/{KESTREL SOCKET}:/;`. `{KESTREL SOCKET}` to nazwa gniazda dostarczanego do <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ListenUnixSocket*> (na przykład `kestrel-test.sock` w powyższym przykładzie).
 * Upewnij się, że gniazdo jest zapisywalne przez Nginx (na przykład `chmod go+w /tmp/kestrel-test.sock`).
 
 ### <a name="port-0"></a>Port 0

@@ -5,17 +5,17 @@ description: Odkryj, jak składniki mogą być dołączane do aplikacji Blazor z
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/23/2020
+ms.date: 03/23/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/class-libraries
-ms.openlocfilehash: 32088b43f91174596f6b9251d36782e806f966b9
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: f2cc57638922bd1f6ab036adb2ed37209d14c5b0
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78660490"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218769"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>ASP.NET Core biblioteki klas składników Razor
 
@@ -44,7 +44,7 @@ Postępuj zgodnie ze wskazówkami w artykule <xref:blazor/get-started>, aby skon
    1. Przejdź do pliku projektu RCL.
    1. Wybierz plik projektu RCL ( *. csproj*).
 1. Dodaj odwołanie RCL z aplikacji:
-   1. Kliknij prawym przyciskiem myszy projekt aplikacji. Wybierz pozycję dodaj **odwołanie** > .
+   1. Kliknij prawym przyciskiem myszy projekt aplikacji. Wybierz **Add** pozycję dodaj **odwołanie** > .
    1. Wybierz projekt RCL. Kliknij przycisk **OK**.
 
 > [!NOTE]
@@ -114,6 +114,10 @@ Welcome to your new app.
 
 Uwzględnij dyrektywę `@using MyComponentLib1` w pliku *_Import. Razor* najwyższego poziomu, aby udostępnić składniki biblioteki dla całego projektu. Dodaj dyrektywę do pliku *_Import. Razor* na dowolnym poziomie, aby zastosować przestrzeń nazw do pojedynczej strony lub zestawu stron w folderze.
 
+## <a name="create-a-razor-components-class-library-with-static-assets"></a>Tworzenie biblioteki klas składników Razor ze statycznymi zasobami
+
+RCL może zawierać statyczne zasoby. Zasoby statyczne są dostępne dla każdej aplikacji, która korzysta z biblioteki. Aby uzyskać więcej informacji, zobacz <xref:razor-pages/ui-class#create-an-rcl-with-static-assets>.
+
 ## <a name="build-pack-and-ship-to-nuget"></a>Kompilowanie, pakowanie i dostarczanie do narzędzia NuGet
 
 Ponieważ biblioteki składników są standardowymi bibliotekami .NET, pakowanie i dostarczanie ich do narzędzia NuGet nie różni się od pakowania i wysyłania żadnej biblioteki do narzędzia NuGet. Pakowanie jest wykonywane przy użyciu polecenia [pakietu dotnet](/dotnet/core/tools/dotnet-pack) w powłoce poleceń:
@@ -124,10 +128,7 @@ dotnet pack
 
 Przekaż pakiet do narzędzia NuGet przy użyciu polecenia [push NuGet w trybie wypychania](/dotnet/core/tools/dotnet-nuget-push) w powłoce poleceń.
 
-## <a name="create-a-razor-components-class-library-with-static-assets"></a>Tworzenie biblioteki klas składników Razor ze statycznymi zasobami
-
-RCL może zawierać statyczne zasoby. Zasoby statyczne są dostępne dla każdej aplikacji, która korzysta z biblioteki. Aby uzyskać więcej informacji, zobacz <xref:razor-pages/ui-class#create-an-rcl-with-static-assets>.
-
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * <xref:razor-pages/ui-class>
+* [Dodawanie pliku konfiguracji konsolidatora XML do biblioteki](xref:host-and-deploy/blazor/configure-linker#add-an-xml-linker-configuration-file-to-a-library)

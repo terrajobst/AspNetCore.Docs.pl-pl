@@ -5,17 +5,17 @@ description: Dowiedz się, jak kontrolować konsolidator języka pośredniego (I
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/10/2020
+ms.date: 03/23/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/configure-linker
-ms.openlocfilehash: b08ec26fb8d139223c57774600bc3cb19a56ac49
-ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
+ms.openlocfilehash: 109da5ef400c3b9d64ccf3ceb33a5387ea6b5618
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79083289"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218664"
 ---
 # <a name="configure-the-linker-for-aspnet-core-blazor"></a>Skonfiguruj konsolidator dla ASP.NET Core Blazor
 
@@ -50,11 +50,11 @@ Kontroluj łączenie dla poszczególnych zestawów, dostarczając plik konfigura
 
 ```xml
 <ItemGroup>
-  <BlazorLinkerDescriptor Include="Linker.xml" />
+  <BlazorLinkerDescriptor Include="LinkerConfig.xml" />
 </ItemGroup>
 ```
 
-*Konsolidator. XML*:
+*LinkerConfig. XML*:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -86,7 +86,21 @@ Kontroluj łączenie dla poszczególnych zestawów, dostarczając plik konfigura
 </linker>
 ```
 
-Aby uzyskać więcej informacji, zobacz [Il konsolidator: Składnia deskryptora XML](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor).
+Aby uzyskać więcej informacji, zobacz [łącza do plików XML](https://github.com/mono/linker#link-xml-file-examples).
+
+## <a name="add-an-xml-linker-configuration-file-to-a-library"></a>Dodawanie pliku konfiguracji konsolidatora XML do biblioteki
+
+Aby skonfigurować konsolidator dla określonej biblioteki, Dodaj plik konfiguracji konsolidatora XML do biblioteki jako zasób osadzony. Osadzony zasób musi mieć taką samą nazwę jak zestaw.
+
+W poniższym przykładzie plik *LinkerConfig. XML* jest określony jako zasób osadzony, który ma taką samą nazwę jak zestaw biblioteki:
+
+```xml
+<ItemGroup>
+  <EmbeddedResource Include="LinkerConfig.xml">
+    <LogicalName>$(MSBuildProjectName).xml</LogicalName>
+  </EmbeddedResource>
+</ItemGroup>
+```
 
 ### <a name="configure-the-linker-for-internationalization"></a>Konfigurowanie konsolidatora dla celów wielojęzycznych
 
@@ -105,7 +119,7 @@ Aby kontrolować, które zestawy I18N są zachowywane, ustaw właściwość `<Mo
 | `all`            | Uwzględnione wszystkie zestawy |
 | `cjk`            | *I18N. CJK. dll*          |
 | `mideast`        | *I18N. Środkowy wschód. dll*      |
-| `none` (wartość domyślna) | Brak                    |
+| `none` (wartość domyślna) | None                    |
 | `other`          | *I18N. Inne. dll*        |
 | `rare`           | *I18N. Rzadki. dll*         |
 | `west`           | *I18N. Zachodni. dll*         |

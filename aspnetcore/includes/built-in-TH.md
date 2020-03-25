@@ -4,6 +4,8 @@
 
 **[Pomocnik tagu pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)**
 
+**[Pomocnik tagów składnika](xref:mvc/views/tag-helpers/builtin-th/component-tag-helper)**
+
 **[Pomocnik tagów rozproszonej pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)**
 
 **[Pomocnik tagu środowiska](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper)**
