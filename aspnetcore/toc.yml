@@ -424,6 +424,8 @@
               uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
             - name: Pamięć podręczna
               uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
+            - name: Składnik
+              uid: mvc/views/tag-helpers/builtin-th/component-tag-helper
             - name: Rozproszona pamięć podręczna
               uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
             - name: Środowisko
