@@ -5,17 +5,17 @@ description: Dowiedz się więcej o Blazor konfiguracji modelu hostingu, w tym o
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/12/2020
+ms.date: 03/24/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/hosting-model-configuration
-ms.openlocfilehash: bd44643877e45c5b48b0972bcc2f637fbc5d98f2
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 1f71ac63bbe9dc9d56cfca2ded19a5b863be828f
+ms.sourcegitcommit: 6ffb583991d6689326605a24565130083a28ef85
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78658306"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80306433"
 ---
 # <a name="aspnet-core-blazor-hosting-model-configuration"></a>Konfiguracja modelu hostingu ASP.NET Core Blazor
 
@@ -25,11 +25,26 @@ Autor [Daniel Roth](https://github.com/danroth27)
 
 W tym artykule opisano hostowanie konfiguracji modelu.
 
-<!-- For future use:
+## <a name="blazor-webassembly"></a>Zestaw WebAssembly Blazor
 
-## Blazor WebAssembly
+Począwszy od wersji ASP.NET Core 3,2 wersji zapoznawczej 3, Blazor webassembly obsługuje konfigurację z:
 
--->
+* *wwwroot/appSettings. JSON*
+* *wwwroot/appSettings. {ENVIRONMENT}. JSON*
+
+W hostowanej aplikacji Blazor [środowisko uruchomieniowe](xref:fundamentals/environments) jest takie samo jak wartość aplikacji serwera.
+
+Podczas lokalnego uruchamiania aplikacji środowisko jest domyślnie opracowywane. Gdy aplikacja zostanie opublikowana, środowisko jest domyślne dla środowiska produkcyjnego. Aby uzyskać więcej informacji, w tym o sposobie konfigurowania środowiska, zobacz <xref:fundamentals/environments>.
+
+> [!WARNING]
+> Konfiguracja w aplikacji Blazor webassembly jest widoczna dla użytkowników. **Nie przechowuj wpisów tajnych aplikacji ani poświadczeń w konfiguracji.**
+
+Pliki konfiguracji są buforowane do użycia w trybie offline. Przy użyciu [progresywnych aplikacji sieci Web (PWAs)](xref:blazor/progressive-web-app)można aktualizować tylko pliki konfiguracji podczas tworzenia nowego wdrożenia. Edytowanie plików konfiguracji między wdrożeniami nie ma żadnego skutku, ponieważ:
+
+* Użytkownicy mają buforowane wersje plików, które nadal są używane.
+* Pliki *Service-Worker. js* i *Service-Worker-Assets. js* programu PWA muszą zostać ponownie skompilowane w ramach kompilacji, która sygnalizuje aplikacji w następnym trybie online, że aplikacja została ponownie wdrożona.
+
+Aby uzyskać więcej informacji o tym, jak aktualizacje w tle są obsługiwane przez PWAs, zobacz <xref:blazor/progressive-web-app#background-updates>.
 
 ## <a name="blazor-server"></a>Serwer Blazor
 

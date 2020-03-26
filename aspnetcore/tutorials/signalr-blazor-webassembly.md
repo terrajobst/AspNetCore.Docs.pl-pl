@@ -5,17 +5,17 @@ description: Utwórz aplikację czatu korzystającą z ASP.NET Core SignalR z ze
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/31/2020
+ms.date: 03/26/2020
 no-loc:
 - Blazor
 - SignalR
 uid: tutorials/signalr-blazor-webassembly
-ms.openlocfilehash: 605cf8ebd3e85586f3e479c815f0b9902ce5a91a
-ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
+ms.openlocfilehash: c4843dc282e1978b39738e206ecc79ded87fcff9
+ms.sourcegitcommit: 6ffb583991d6689326605a24565130083a28ef85
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79083383"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80306572"
 ---
 # <a name="use-aspnet-core-signalr-with-blazor-webassembly"></a>Korzystanie z ASP.NET Core sygnalizującego z zestawem webassembly Blazor
 
@@ -23,7 +23,7 @@ Autorzy [Daniel Roth](https://github.com/danroth27) i [Luke Latham](https://gith
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-W tym samouczku przedstawiono podstawowe informacje na temat tworzenia aplikacji w czasie rzeczywistym przy użyciu usługi sygnalizującej z zestawem webBlazor. Dowiesz się, jak:
+W tym samouczku przedstawiono podstawowe informacje na temat tworzenia aplikacji w czasie rzeczywistym przy użyciu usługi sygnalizującej z zestawem webBlazor. Omawiane kwestie:
 
 > [!div class="checklist"]
 > * Tworzenie projektu hostowanej aplikacji sieci webassembly Blazor
@@ -58,17 +58,17 @@ Na końcu tego samouczka będziesz mieć działającą aplikację czatu.
 
 ## <a name="create-a-hosted-blazor-webassembly-app-project"></a>Utwórz projekt aplikacji hostowanej Blazor webassembly
 
-Zainstaluj szablon [Blazor webassembly](xref:blazor/hosting-models#blazor-webassembly) . Pakiet [Microsoft. AspNetCore. Components. webassembly. Templates](https://www.nuget.org/packages/Microsoft.AspNetCore.Components.WebAssembly.Templates/) ma wersję zapoznawczą, a Blazor webassembly jest w wersji zapoznawczej. W powłoce poleceń wykonaj następujące polecenie:
+Gdy nie korzystasz z programu Visual Studio w wersji 16,6 Preview 2 lub nowszej, zainstaluj szablon [Blazor webassembly](xref:blazor/hosting-models#blazor-webassembly) . Pakiet [Microsoft. AspNetCore. Components. webassembly. Templates](https://www.nuget.org/packages/Microsoft.AspNetCore.Components.WebAssembly.Templates/) ma wersję zapoznawczą, a Blazor webassembly jest w wersji zapoznawczej. W powłoce poleceń wykonaj następujące polecenie:
 
 ```dotnetcli
-dotnet new -i Microsoft.AspNetCore.Components.WebAssembly.Templates::3.2.0-preview2.20160.5
+dotnet new -i Microsoft.AspNetCore.Components.WebAssembly.Templates::3.2.0-preview3.20168.3
 ```
 
 Postępuj zgodnie ze wskazówkami dotyczącymi wybranego narzędzia:
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-1. Utwórz nowy projekt.
+1. Tworzenie nowego projektu.
 
 1. Wybierz pozycję **aplikacja Blazor** i wybierz pozycję **dalej**.
 

@@ -5,17 +5,17 @@ description: Dowiedz się, jak tworzyć i używać składników Razor, w tym jak
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/16/2020
+ms.date: 03/25/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/components
-ms.openlocfilehash: 7afc9250cdfb4b791ef939ead0f41b503d83fad8
-ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
+ms.openlocfilehash: bc1d07aef9cd60b89343a034168daa6754f4421b
+ms.sourcegitcommit: 6ffb583991d6689326605a24565130083a28ef85
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79511278"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80306507"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Tworzenie i używanie składników ASP.NET Core Razor
 
@@ -301,6 +301,8 @@ Gdy składnik jest renderowany, pole `_loginDialog` jest wypełniane za pomocą 
 
 > [!IMPORTANT]
 > Zmienna `_loginDialog` jest wypełniana tylko po wyrenderowaniu składnika, a jego wyjście zawiera element `MyLoginDialog`. Do tego momentu nie ma niczego do odwołania. Aby manipulować odwołaniami do składników po zakończeniu renderowania składnika, należy użyć [metody OnAfterRenderAsync lub OnAfterRender](xref:blazor/lifecycle#after-component-render).
+
+Aby odwoływać się do składników w pętli, zobacz [przechwytywanie odwołań do wielu podobnych składników podrzędnych (dotnet/aspnetcore #13358)](https://github.com/dotnet/aspnetcore/issues/13358).
 
 Podczas przechwytywania odwołań do składników użycie podobnej składni do [przechwytywania odwołań do elementów](xref:blazor/call-javascript-from-dotnet#capture-references-to-elements)nie jest funkcją międzyoperacyjności języka JavaScript. Odwołania do składników nie są przesyłane do kodu JavaScript,&mdash;są używane tylko w kodzie platformy .NET.
 
