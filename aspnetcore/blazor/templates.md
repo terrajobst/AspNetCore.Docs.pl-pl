@@ -5,17 +5,17 @@ description: Dowiedz się więcej na temat ASP.NET Core szablonów aplikacji Bla
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/29/2020
+ms.date: 03/26/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/templates
-ms.openlocfilehash: acfa4b8a42cbd310c6fc6dc973573578e94ef999
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 71a9d9eee8637dda0b3cecac82ff96a0c3bfedb5
+ms.sourcegitcommit: f3b1bcfd108e5d53f73abc0bf2555890869d953b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78664242"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80320982"
 ---
 # <a name="aspnet-core-opno-locblazor-templates"></a>Szablony Blazor ASP.NET Core
 
@@ -58,18 +58,17 @@ Następujące pliki i foldery tworzą Blazor aplikację wygenerowaną na podstaw
     * Pobiera środowisko uruchomieniowe platformy .NET, aplikację i zależności aplikacji.
     * Inicjuje środowisko uruchomieniowe, aby uruchomić aplikację.
 
-* *Pages/_Host. cshtml* (Blazor Server) &ndash; stronę główną aplikacji zaimplementowaną jako strona Razor:
-  * Po wstępnym zażądaniu dowolnej strony aplikacji jest ona renderowana i zwracana w odpowiedzi.
-  * Plik JavaScript `_framework/blazor.server.js` jest ładowany, który konfiguruje połączenie SignalR w czasie rzeczywistym między przeglądarką a serwerem.
-  * Strona hosta określa, gdzie jest renderowany główny składnik `App` (*App. Razor*).
-
 * *App. razor* &ndash; głównym składnikiem aplikacji, która konfiguruje Routing po stronie klienta za pomocą składnika <xref:Microsoft.AspNetCore.Components.Routing.Router>. Składnik `Router` przechwytuje nawigację przeglądarki i renderuje stronę pasującą do żądanego adresu.
 
-* Folder *strony* &ndash; zawiera składniki/strony z obsługą routingu (*Razor*), które tworzą aplikację Blazor. Trasy dla każdej strony są określane za pomocą dyrektywy [`@page`](xref:mvc/views/razor#page) . Szablon zawiera następujące składniki:
-  * `Index` (*index. Razor*) &ndash; implementuje stronę główną.
+* Folder *strony* &ndash; zawiera składniki/strony z obsługą routingu (*Razor*), które tworzą aplikację Blazor i główną stronę Razor aplikacji Blazor Server. Trasy dla każdej strony są określane za pomocą dyrektywy [`@page`](xref:mvc/views/razor#page) . Szablon zawiera następujące elementy:
+  * *_Host. cshtml* (Blazor Server) &ndash; stronę główną aplikacji zaimplementowaną jako strona Razor:
+    * Po wstępnym zażądaniu dowolnej strony aplikacji jest ona renderowana i zwracana w odpowiedzi.
+    * Plik JavaScript `_framework/blazor.server.js` jest ładowany, który konfiguruje połączenie SignalR w czasie rzeczywistym między przeglądarką a serwerem.
+    * Strona hosta określa, gdzie jest renderowany główny składnik `App` (*App. Razor*).
   * `Counter` (*Counter. Razor*) &ndash; implementuje stronę licznika.
   * `Error` (*Error. Razor*, Blazor tylko aplikacja serwera) &ndash; renderowane, gdy wystąpił nieobsługiwany wyjątek w aplikacji.
   * `FetchData` (*FetchData. Razor*) &ndash; implementuje stronę pobieranie danych.
+  * `Index` (*index. Razor*) &ndash; implementuje stronę główną.
 
 * Folder *udostępniony* &ndash; zawiera inne składniki interfejsu użytkownika ( *. Razor*) używane przez aplikację:
   * `MainLayout` (*MainLayout. Razor*) &ndash; składnik układu aplikacji.

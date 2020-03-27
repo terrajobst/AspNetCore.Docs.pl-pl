@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/get-started
-ms.openlocfilehash: abecb640930c1e5770c0fad45a1e9a6df31a20f4
-ms.sourcegitcommit: 6ffb583991d6689326605a24565130083a28ef85
+ms.openlocfilehash: 9ebeb57d2fad7e4c288d61a46911f2bf64cac2fb
+ms.sourcegitcommit: f3b1bcfd108e5d53f73abc0bf2555890869d953b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/26/2020
-ms.locfileid: "80306458"
+ms.locfileid: "80320943"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>Wprowadzenie do ASP.NET Core Blazor
 
@@ -78,7 +78,7 @@ Aby rozpocząć pracę z usługą Blazor, postępuj zgodnie ze wskazówkami doty
 
 1. Żądania IDE służące do dodawania zasobów do kompilowania i debugowania projektu. Wybierz pozycję **Tak**.
 
-1. TUN aplikację przy użyciu debugera Visual Studio Code.
+1. Uruchom aplikację za pomocą debugera Visual Studio Code.
 
 1. W przeglądarce przejdź do `https://localhost:5001`.
 
