@@ -1,5 +1,5 @@
 - name: Dokumentacja platformy ASP.NET Core
-  href: '/aspnet/#pivot=core'
+  href: index.yml
 - name: Co nowego w dokumentacji platformy ASP.NET Core
   href: whats-new/index.yml
 - name: Omówienie
