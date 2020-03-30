@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 3/25/2020
 uid: fundamentals/routing
-ms.openlocfilehash: 2ebba716de90f142a66cf7619b5a4b0c77684bd4
-ms.sourcegitcommit: 0c62042d7d030ec5296c73bccd9f9b961d84496a
+ms.openlocfilehash: 689f9757aeadd66e1d06ba1a774db13b0011c1d2
+ms.sourcegitcommit: 4b166b49ec557a03f99f872dd069ca5e56faa524
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80270449"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80362701"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w ASP.NET Core
 
@@ -984,6 +984,8 @@ Na przykład niniejszych wytycznych należy wziąć pod uwagę `UseAuthorization
 * Żądania, które nie pasują do punktu końcowego.
 
 Dzięki temu oprogramowanie pośredniczące autoryzacji jest przydatne poza kontekstem routingu. Oprogramowanie pośredniczące autoryzacji może być używane na potrzeby tradycyjnego programowania oprogramowania pośredniczącego.
+
+[!INCLUDE[](~/includes/dbg-route.md)]
 
 ::: moniker-end
 
@@ -1980,6 +1982,5 @@ Generowanie linku generuje tylko łącze do tej trasy, gdy zostaną podane pasuj
 ## <a name="complex-segments"></a>Złożone segmenty
 
 Złożone segmenty (na przykład `[Route("/x{token}y")]`) są przetwarzane przez dopasowanie literałów z prawej strony do lewej w sposób niezachłanney. [Ten kod](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) zawiera szczegółowy opis sposobu dopasowywania segmentów złożonych. [Przykład kodu](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) nie jest używany przez ASP.NET Core, ale zapewnia dobre wyjaśnienie złożonych segmentów.
-
 
 ::: moniker-end
